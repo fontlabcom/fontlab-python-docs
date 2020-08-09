@@ -1,0 +1,4697 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="FontLab 7 Python API">
+      
+      
+      
+        <meta name="author" content="Fontlab Ltd.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>fgPointU - FontLab 7 Python API</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="style/fontlab_pyapi.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#fgpointu" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="FontLab 7 Python API" class="md-header-nav__button md-logo">
+          
+            <img src="https://res.cloudinary.com/fontlab/image/fetch/f_auto,w_48,c_scale/https://www.fontlab.com/img/icon-fontlab-7.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              FontLab 7 Python API
+            </span>
+            <span class="md-header-nav__topic">
+              
+                fgPointU
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://www.fontlab.com/" title="Go to repository" class="md-source" data-md-source="">
+  
+  <div class="md-source__repository">
+    Www
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="FontLab 7 Python API" class="md-nav__button md-logo">
+      
+        <img src="https://res.cloudinary.com/fontlab/image/fetch/f_auto,w_48,c_scale/https://www.fontlab.com/img/icon-fontlab-7.png" width="48" height="48">
+      
+    </a>
+    FontLab 7 Python API
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://www.fontlab.com/" title="Go to repository" class="md-source" data-md-source="">
+  
+  <div class="md-source__repository">
+    Www
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      typerig
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        typerig
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.html" title="typerig" class="md-nav__link">
+      typerig
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.html" title="core" class="md-nav__link">
+      core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.base.html" title="core.base" class="md-nav__link">
+      core.base
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.base.message.html" title="core.base.message" class="md-nav__link">
+      core.base.message
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.html" title="core.fileio" class="md-nav__link">
+      core.fileio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.cla.html" title="core.fileio.cla" class="md-nav__link">
+      core.fileio.cla
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.flc.html" title="core.fileio.flc" class="md-nav__link">
+      core.fileio.flc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.krn.html" title="core.fileio.krn" class="md-nav__link">
+      core.fileio.krn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.nam.html" title="core.fileio.nam" class="md-nav__link">
+      core.fileio.nam
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.html" title="core.func" class="md-nav__link">
+      core.func
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.collection.html" title="core.func.collection" class="md-nav__link">
+      core.func.collection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.geometry.html" title="core.func.geometry" class="md-nav__link">
+      core.func.geometry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.math.html" title="core.func.math" class="md-nav__link">
+      core.func.math
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.string.html" title="core.func.string" class="md-nav__link">
+      core.func.string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.transform.html" title="core.func.transform" class="md-nav__link">
+      core.func.transform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.utils.html" title="core.func.utils" class="md-nav__link">
+      core.func.utils
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.html" title="core.objects" class="md-nav__link">
+      core.objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.array.html" title="core.objects.array" class="md-nav__link">
+      core.objects.array
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.atom.html" title="core.objects.atom" class="md-nav__link">
+      core.objects.atom
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.collection.html" title="core.objects.collection" class="md-nav__link">
+      core.objects.collection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.cubicbezier.html" title="core.objects.cubicbezier" class="md-nav__link">
+      core.objects.cubicbezier
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.delta.html" title="core.objects.delta" class="md-nav__link">
+      core.objects.delta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.line.html" title="core.objects.line" class="md-nav__link">
+      core.objects.line
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.matrix.html" title="core.objects.matrix" class="md-nav__link">
+      core.objects.matrix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.point.html" title="core.objects.point" class="md-nav__link">
+      core.objects.point
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.transform.html" title="core.objects.transform" class="md-nav__link">
+      core.objects.transform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.utils.html" title="core.objects.utils" class="md-nav__link">
+      core.objects.utils
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.gui.html" title="gui" class="md-nav__link">
+      gui
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.gui.QtGui.html" title="gui.QtGui" class="md-nav__link">
+      gui.QtGui
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.gui.widgets.html" title="gui.widgets" class="md-nav__link">
+      gui.widgets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.html" title="proxy" class="md-nav__link">
+      proxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.application.html" title="proxy.application" class="md-nav__link">
+      proxy.application
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.application.app.html" title="proxy.application.app" class="md-nav__link">
+      proxy.application.app
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.application.automat.html" title="proxy.application.automat" class="md-nav__link">
+      proxy.application.automat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.html" title="proxy.objects" class="md-nav__link">
+      proxy.objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.base.html" title="proxy.objects.base" class="md-nav__link">
+      proxy.objects.base
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.composer.html" title="proxy.objects.composer" class="md-nav__link">
+      proxy.objects.composer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.contour.html" title="proxy.objects.contour" class="md-nav__link">
+      proxy.objects.contour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.curve.html" title="proxy.objects.curve" class="md-nav__link">
+      proxy.objects.curve
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.font.html" title="proxy.objects.font" class="md-nav__link">
+      proxy.objects.font
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.glyph.html" title="proxy.objects.glyph" class="md-nav__link">
+      proxy.objects.glyph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.kern.html" title="proxy.objects.kern" class="md-nav__link">
+      proxy.objects.kern
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.node.html" title="proxy.objects.node" class="md-nav__link">
+      proxy.objects.node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.shape.html" title="proxy.objects.shape" class="md-nav__link">
+      proxy.objects.shape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.string.html" title="proxy.objects.string" class="md-nav__link">
+      proxy.objects.string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.pens.html" title="proxy.pens" class="md-nav__link">
+      proxy.pens
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.pens.abstractPen.html" title="proxy.pens.abstractPen" class="md-nav__link">
+      proxy.pens.abstractPen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.pens.outlinePen.html" title="proxy.pens.outlinePen" class="md-nav__link">
+      proxy.pens.outlinePen
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      fontgate
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        fontgate
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.html" title="fontgate" class="md-nav__link">
+      fontgate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgAnchor.html" title="fgAnchor" class="md-nav__link">
+      fgAnchor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgAnchors.html" title="fgAnchors" class="md-nav__link">
+      fgAnchors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgAxes.html" title="fgAxes" class="md-nav__link">
+      fgAxes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgAxis.html" title="fgAxis" class="md-nav__link">
+      fgAxis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCMaps.html" title="fgCMaps" class="md-nav__link">
+      fgCMaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCaret.html" title="fgCaret" class="md-nav__link">
+      fgCaret
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCarets.html" title="fgCarets" class="md-nav__link">
+      fgCarets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCmapRecord.html" title="fgCmapRecord" class="md-nav__link">
+      fgCmapRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCoding.html" title="fgCoding" class="md-nav__link">
+      fgCoding
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgComponent.html" title="fgComponent" class="md-nav__link">
+      fgComponent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgComponents.html" title="fgComponents" class="md-nav__link">
+      fgComponents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgContour.html" title="fgContour" class="md-nav__link">
+      fgContour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgContours.html" title="fgContours" class="md-nav__link">
+      fgContours
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCuspPoint.html" title="fgCuspPoint" class="md-nav__link">
+      fgCuspPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCuspPoints.html" title="fgCuspPoints" class="md-nav__link">
+      fgCuspPoints
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.pyfgDataOwnerData.html" title="pyfgDataOwnerData" class="md-nav__link">
+      pyfgDataOwnerData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgDesignPosition.html" title="fgDesignPosition" class="md-nav__link">
+      fgDesignPosition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgDeviceRecord.html" title="fgDeviceRecord" class="md-nav__link">
+      fgDeviceRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgDeviceRecords.html" title="fgDeviceRecords" class="md-nav__link">
+      fgDeviceRecords
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgExtMapUIntToString.html" title="fgExtMapUIntToString" class="md-nav__link">
+      fgExtMapUIntToString
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFont.html" title="fgFont" class="md-nav__link">
+      fgFont
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFontHinting.html" title="fgFontHinting" class="md-nav__link">
+      fgFontHinting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFontInfo.html" title="fgFontInfo" class="md-nav__link">
+      fgFontInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFontInfoDict.html" title="fgFontInfoDict" class="md-nav__link">
+      fgFontInfoDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGaspRecord.html" title="fgGaspRecord" class="md-nav__link">
+      fgGaspRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGaspRecords.html" title="fgGaspRecords" class="md-nav__link">
+      fgGaspRecords
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyph.html" title="fgGlyph" class="md-nav__link">
+      fgGlyph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphsR.html" title="fgGlyphsR" class="md-nav__link">
+      fgGlyphsR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphDict.html" title="fgGlyphDict" class="md-nav__link">
+      fgGlyphDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphIDsSet.html" title="fgGlyphIDsSet" class="md-nav__link">
+      fgGlyphIDsSet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphs.html" title="fgGlyphs" class="md-nav__link">
+      fgGlyphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGroup.html" title="fgGroup" class="md-nav__link">
+      fgGroup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGroups.html" title="fgGroups" class="md-nav__link">
+      fgGroups
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGuide.html" title="fgGuide" class="md-nav__link">
+      fgGuide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGuides.html" title="fgGuides" class="md-nav__link">
+      fgGuides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgHint.html" title="fgHint" class="md-nav__link">
+      fgHint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgHintCommand.html" title="fgHintCommand" class="md-nav__link">
+      fgHintCommand
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgHintCommands.html" title="fgHintCommands" class="md-nav__link">
+      fgHintCommands
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgHints.html" title="fgHints" class="md-nav__link">
+      fgHints
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgKerning.html" title="fgKerning" class="md-nav__link">
+      fgKerning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgKerningGroups.html" title="fgKerningGroups" class="md-nav__link">
+      fgKerningGroups
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgKerningObject.html" title="fgKerningObject" class="md-nav__link">
+      fgKerningObject
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgKerningObjectPair.html" title="fgKerningObjectPair" class="md-nav__link">
+      fgKerningObjectPair
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgLayer.html" title="fgLayer" class="md-nav__link">
+      fgLayer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgLayers.html" title="fgLayers" class="md-nav__link">
+      fgLayers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgLib.html" title="fgLib" class="md-nav__link">
+      fgLib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMapBytes.html" title="fgMapBytes" class="md-nav__link">
+      fgMapBytes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgExtMapIntTofgShape.html" title="fgExtMapIntTofgShape" class="md-nav__link">
+      fgExtMapIntTofgShape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFlagsDict.html" title="fgFlagsDict" class="md-nav__link">
+      fgFlagsDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgValuesDict.html" title="fgValuesDict" class="md-nav__link">
+      fgValuesDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgIntDict.html" title="fgIntDict" class="md-nav__link">
+      fgIntDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgStringDict.html" title="fgStringDict" class="md-nav__link">
+      fgStringDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMaster.html" title="fgMaster" class="md-nav__link">
+      fgMaster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMasters.html" title="fgMasters" class="md-nav__link">
+      fgMasters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMaxP.html" title="fgMaxP" class="md-nav__link">
+      fgMaxP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMetricsClass.html" title="fgMetricsClass" class="md-nav__link">
+      fgMetricsClass
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMetricsClasses.html" title="fgMetricsClasses" class="md-nav__link">
+      fgMetricsClasses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgNametable.html" title="fgNametable" class="md-nav__link">
+      fgNametable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgNode.html" title="fgNode" class="md-nav__link">
+      fgNode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgNodes.html" title="fgNodes" class="md-nav__link">
+      fgNodes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOTLayout.html" title="fgOTLayout" class="md-nav__link">
+      fgOTLayout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOtInfo.html" title="fgOtInfo" class="md-nav__link">
+      fgOtInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOtValue.html" title="fgOtValue" class="md-nav__link">
+      fgOtValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgPackages.html" title="fgPackages" class="md-nav__link">
+      fgPackages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgPen.html" title="fgPen" class="md-nav__link">
+      fgPen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgExtMapUShortToShort.html" title="fgExtMapUShortToShort" class="md-nav__link">
+      fgExtMapUShortToShort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgShape.html" title="fgShape" class="md-nav__link">
+      fgShape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgShapes.html" title="fgShapes" class="md-nav__link">
+      fgShapes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgStem.html" title="fgStem" class="md-nav__link">
+      fgStem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgStems.html" title="fgStems" class="md-nav__link">
+      fgStems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgTrueTypePoint.html" title="fgTrueTypePoint" class="md-nav__link">
+      fgTrueTypePoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgTrueTypePoints.html" title="fgTrueTypePoints" class="md-nav__link">
+      fgTrueTypePoints
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgTTInterpreter.html" title="fgTTInterpreter" class="md-nav__link">
+      fgTTInterpreter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVdmxRecord.html" title="fgVdmxRecord" class="md-nav__link">
+      fgVdmxRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVdmxRecords.html" title="fgVdmxRecords" class="md-nav__link">
+      fgVdmxRecords
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorBool.html" title="fgVectorBool" class="md-nav__link">
+      fgVectorBool
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorChar.html" title="fgVectorChar" class="md-nav__link">
+      fgVectorChar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorDouble.html" title="fgVectorDouble" class="md-nav__link">
+      fgVectorDouble
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorInt.html" title="fgVectorInt" class="md-nav__link">
+      fgVectorInt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorUInt16.html" title="fgVectorUInt16" class="md-nav__link">
+      fgVectorUInt16
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorUInt32.html" title="fgVectorUInt32" class="md-nav__link">
+      fgVectorUInt32
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorPoint.html" title="fgVectorPoint" class="md-nav__link">
+      fgVectorPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgZone.html" title="fgZone" class="md-nav__link">
+      fgZone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgZones.html" title="fgZones" class="md-nav__link">
+      fgZones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOptions.html" title="fgOptions" class="md-nav__link">
+      fgOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_T1Import.html" title="fgOpt_T1Import" class="md-nav__link">
+      fgOpt_T1Import
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_OTImport.html" title="fgOpt_OTImport" class="md-nav__link">
+      fgOpt_OTImport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_UfoFontImport.html" title="fgOpt_UfoFontImport" class="md-nav__link">
+      fgOpt_UfoFontImport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_VfbImport.html" title="fgOpt_VfbImport" class="md-nav__link">
+      fgOpt_VfbImport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_VfbExport.html" title="fgOpt_VfbExport" class="md-nav__link">
+      fgOpt_VfbExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_UfoFontExport.html" title="fgOpt_UfoFontExport" class="md-nav__link">
+      fgOpt_UfoFontExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_OTExport.html" title="fgOpt_OTExport" class="md-nav__link">
+      fgOpt_OTExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_T1Export.html" title="fgOpt_T1Export" class="md-nav__link">
+      fgOpt_T1Export
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_EOTExport.html" title="fgOpt_EOTExport" class="md-nav__link">
+      fgOpt_EOTExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_WOFFExport.html" title="fgOpt_WOFFExport" class="md-nav__link">
+      fgOpt_WOFFExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_Font.html" title="fgOpt_Font" class="md-nav__link">
+      fgOpt_Font
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_KerningOptions.html" title="fgOpt_KerningOptions" class="md-nav__link">
+      fgOpt_KerningOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_OTExportFeaFile.html" title="fgOpt_OTExportFeaFile" class="md-nav__link">
+      fgOpt_OTExportFeaFile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_TTAutohint.html" title="fgOpt_TTAutohint" class="md-nav__link">
+      fgOpt_TTAutohint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_T1Autohint.html" title="fgOpt_T1Autohint" class="md-nav__link">
+      fgOpt_T1Autohint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_TTFAutohint.html" title="fgOpt_TTFAutohint" class="md-nav__link">
+      fgOpt_TTFAutohint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_AutoMetrics.html" title="fgOpt_AutoMetrics" class="md-nav__link">
+      fgOpt_AutoMetrics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_ExpandKerning.html" title="fgOpt_ExpandKerning" class="md-nav__link">
+      fgOpt_ExpandKerning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_Optimize.html" title="fgOpt_Optimize" class="md-nav__link">
+      fgOpt_Optimize
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgBitmap.html" title="fgBitmap" class="md-nav__link">
+      fgBitmap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgBitmaps.html" title="fgBitmaps" class="md-nav__link">
+      fgBitmaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgBitmapsData.html" title="fgBitmapsData" class="md-nav__link">
+      fgBitmapsData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgBrush.html" title="fgBrush" class="md-nav__link">
+      fgBrush
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgColor.html" title="fgColor" class="md-nav__link">
+      fgColor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCurve.html" title="fgCurve" class="md-nav__link">
+      fgCurve
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFontGateData.html" title="fgFontGateData" class="md-nav__link">
+      fgFontGateData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphData.html" title="fgGlyphData" class="md-nav__link">
+      fgGlyphData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgExtMapUCharToUChar.html" title="fgExtMapUCharToUChar" class="md-nav__link">
+      fgExtMapUCharToUChar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMatrix.html" title="fgMatrix" class="md-nav__link">
+      fgMatrix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgPoint.html" title="fgPoint" class="md-nav__link">
+      fgPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        fgPointU
+      </label>
+    
+    <a href="fontgate.fgPointU.html" title="fgPointU" class="md-nav__link md-nav__link--active">
+      fgPointU
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anglediff" class="md-nav__link">
+    angleDiff
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anglesum" class="md-nav__link">
+    angleSum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asdict" class="md-nav__link">
+    asDict
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assign" class="md-nav__link">
+    assign
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#astuple" class="md-nav__link">
+    asTuple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    clear
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close_to" class="md-nav__link">
+    close_to
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collinear" class="md-nav__link">
+    collinear
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direction" class="md-nav__link">
+    direction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dist" class="md-nav__link">
+    dist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dist2" class="md-nav__link">
+    dist2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distance" class="md-nav__link">
+    distance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doublescale" class="md-nav__link">
+    doubleScale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flip" class="md-nav__link">
+    flip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flipped" class="md-nav__link">
+    flipped
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ix" class="md-nav__link">
+    ix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iy" class="md-nav__link">
+    iy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#len" class="md-nav__link">
+    len
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#len2" class="md-nav__link">
+    len2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal" class="md-nav__link">
+    normal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotate" class="md-nav__link">
+    rotate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round" class="md-nav__link">
+    round
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rx" class="md-nav__link">
+    rx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ry" class="md-nav__link">
+    ry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform" class="md-nav__link">
+    transform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transformed" class="md-nav__link">
+    transformed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#u" class="md-nav__link">
+    u
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value" class="md-nav__link">
+    value
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    x
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y" class="md-nav__link">
+    y
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zero" class="md-nav__link">
+    zero
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgRect.html" title="fgRect" class="md-nav__link">
+      fgRect
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgRendered.html" title="fgRendered" class="md-nav__link">
+      fgRendered
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgTrueTypeData.html" title="fgTrueTypeData" class="md-nav__link">
+      fgTrueTypeData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVector.html" title="fgVector" class="md-nav__link">
+      fgVector
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      fontlab
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        fontlab
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.html" title="fontlab" class="md-nav__link">
+      fontlab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.CurveEx.html" title="CurveEx" class="md-nav__link">
+      CurveEx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.ExportControl.html" title="ExportControl" class="md-nav__link">
+      ExportControl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.FaBasicPtr.html" title="FaBasicPtr" class="md-nav__link">
+      FaBasicPtr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.Interval.html" title="Interval" class="md-nav__link">
+      Interval
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.PaintBrush.html" title="PaintBrush" class="md-nav__link">
+      PaintBrush
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.TransformFrame.html" title="TransformFrame" class="md-nav__link">
+      TransformFrame
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.fgSymbol.html" title="fgSymbol" class="md-nav__link">
+      fgSymbol
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.fgSymbolList.html" title="fgSymbolList" class="md-nav__link">
+      fgSymbolList
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAbstractEditor.html" title="flAbstractEditor" class="md-nav__link">
+      flAbstractEditor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAbstractVectorNode.html" title="flAbstractVectorNode" class="md-nav__link">
+      flAbstractVectorNode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAnchor.html" title="flAnchor" class="md-nav__link">
+      flAnchor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAuditInfo.html" title="flAuditInfo" class="md-nav__link">
+      flAuditInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAxis.html" title="flAxis" class="md-nav__link">
+      flAxis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flBasicTool.html" title="flBasicTool" class="md-nav__link">
+      flBasicTool
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flCanvas.html" title="flCanvas" class="md-nav__link">
+      flCanvas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flContour.html" title="flContour" class="md-nav__link">
+      flContour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flContourInfo.html" title="flContourInfo" class="md-nav__link">
+      flContourInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flContourMarker.html" title="flContourMarker" class="md-nav__link">
+      flContourMarker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flEvent.html" title="flEvent" class="md-nav__link">
+      flEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flExpression.html" title="flExpression" class="md-nav__link">
+      flExpression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flGlyph.html" title="flGlyph" class="md-nav__link">
+      flGlyph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flGlyphInfo.html" title="flGlyphInfo" class="md-nav__link">
+      flGlyphInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flGraphicsInfo.html" title="flGraphicsInfo" class="md-nav__link">
+      flGraphicsInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flGuideLine.html" title="flGuideLine" class="md-nav__link">
+      flGuideLine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flHintingParameters.html" title="flHintingParameters" class="md-nav__link">
+      flHintingParameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flInstance.html" title="flInstance" class="md-nav__link">
+      flInstance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flItems.html" title="flItems" class="md-nav__link">
+      flItems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flLayer.html" title="flLayer" class="md-nav__link">
+      flLayer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flLayerInfo.html" title="flLayerInfo" class="md-nav__link">
+      flLayerInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flLocation.html" title="flLocation" class="md-nav__link">
+      flLocation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.LocationValue.html" title="LocationValue" class="md-nav__link">
+      LocationValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flMarkerPoint.html" title="flMarkerPoint" class="md-nav__link">
+      flMarkerPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flMouseEvent.html" title="flMouseEvent" class="md-nav__link">
+      flMouseEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flModelProducer.html" title="flModelProducer" class="md-nav__link">
+      flModelProducer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flNode.html" title="flNode" class="md-nav__link">
+      flNode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flNodeInfo.html" title="flNodeInfo" class="md-nav__link">
+      flNodeInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flObject.html" title="flObject" class="md-nav__link">
+      flObject
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPackage.html" title="flPackage" class="md-nav__link">
+      flPackage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPaper.html" title="flPaper" class="md-nav__link">
+      flPaper
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPinPoint.html" title="flPinPoint" class="md-nav__link">
+      flPinPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPreferences.html" title="flPreferences" class="md-nav__link">
+      flPreferences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flProperty.html" title="flProperty" class="md-nav__link">
+      flProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPropertyDouble.html" title="flPropertyDouble" class="md-nav__link">
+      flPropertyDouble
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPropertyPoint.html" title="flPropertyPoint" class="md-nav__link">
+      flPropertyPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSearchInfo.html" title="flSearchInfo" class="md-nav__link">
+      flSearchInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flShape.html" title="flShape" class="md-nav__link">
+      flShape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flShapeBuilder.html" title="flShapeBuilder" class="md-nav__link">
+      flShapeBuilder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flShapeData.html" title="flShapeData" class="md-nav__link">
+      flShapeData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flShapeInfo.html" title="flShapeInfo" class="md-nav__link">
+      flShapeInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSnapLine.html" title="flSnapLine" class="md-nav__link">
+      flSnapLine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSnapObject.html" title="flSnapObject" class="md-nav__link">
+      flSnapObject
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flStem.html" title="flStem" class="md-nav__link">
+      flStem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flZone.html" title="flZone" class="md-nav__link">
+      flZone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSticker.html" title="flSticker" class="md-nav__link">
+      flSticker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flTextBlock.html" title="flTextBlock" class="md-nav__link">
+      flTextBlock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flTransform.html" title="flTransform" class="md-nav__link">
+      flTransform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flVectorNode.html" title="flVectorNode" class="md-nav__link">
+      flVectorNode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flVisualItem.html" title="flVisualItem" class="md-nav__link">
+      flVisualItem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flWorkspace.html" title="flWorkspace" class="md-nav__link">
+      flWorkspace
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.FontMetrics.html" title="FontMetrics" class="md-nav__link">
+      FontMetrics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.GlyphComponent.html" title="GlyphComponent" class="md-nav__link">
+      GlyphComponent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flTTHCommand.html" title="flTTHCommand" class="md-nav__link">
+      flTTHCommand
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.YPanelManager.html" title="YPanelManager" class="md-nav__link">
+      YPanelManager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.YPanelWidget.html" title="YPanelWidget" class="md-nav__link">
+      YPanelWidget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.Info.html" title="Info" class="md-nav__link">
+      Info
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.FontLayer.html" title="FontLayer" class="md-nav__link">
+      FontLayer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSnaps.html" title="flSnaps" class="md-nav__link">
+      flSnaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flModel.html" title="flModel" class="md-nav__link">
+      flModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.PaintBrushShape.html" title="PaintBrushShape" class="md-nav__link">
+      PaintBrushShape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.SmartCornerParameters.html" title="SmartCornerParameters" class="md-nav__link">
+      SmartCornerParameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.AccentInfo.html" title="AccentInfo" class="md-nav__link">
+      AccentInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flLayerAttributes.html" title="flLayerAttributes" class="md-nav__link">
+      flLayerAttributes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      FL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        FL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.html" title="FL" class="md-nav__link">
+      FL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Anchor.html" title="Anchor" class="md-nav__link">
+      Anchor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Canvas.html" title="Canvas" class="md-nav__link">
+      Canvas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Component.html" title="Component" class="md-nav__link">
+      Component
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Dialog.html" title="Dialog" class="md-nav__link">
+      Dialog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Encoding.html" title="Encoding" class="md-nav__link">
+      Encoding
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.EncodingRecord.html" title="EncodingRecord" class="md-nav__link">
+      EncodingRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Feature.html" title="Feature" class="md-nav__link">
+      Feature
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.fl.html" title="fl" class="md-nav__link">
+      fl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Font.html" title="Font" class="md-nav__link">
+      Font
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Glyph.html" title="Glyph" class="md-nav__link">
+      Glyph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Guide.html" title="Guide" class="md-nav__link">
+      Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Hint.html" title="Hint" class="md-nav__link">
+      Hint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Image.html" title="Image" class="md-nav__link">
+      Image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.KerningPair.html" title="KerningPair" class="md-nav__link">
+      KerningPair
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Link.html" title="Link" class="md-nav__link">
+      Link
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Matrix.html" title="Matrix" class="md-nav__link">
+      Matrix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Node.html" title="Node" class="md-nav__link">
+      Node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Point.html" title="Point" class="md-nav__link">
+      Point
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Rect.html" title="Rect" class="md-nav__link">
+      Rect
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.TrueTypeTable.html" title="TrueTypeTable" class="md-nav__link">
+      TrueTypeTable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.TTPoint.html" title="TTPoint" class="md-nav__link">
+      TTPoint
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anglediff" class="md-nav__link">
+    angleDiff
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anglesum" class="md-nav__link">
+    angleSum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asdict" class="md-nav__link">
+    asDict
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assign" class="md-nav__link">
+    assign
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#astuple" class="md-nav__link">
+    asTuple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    clear
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close_to" class="md-nav__link">
+    close_to
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collinear" class="md-nav__link">
+    collinear
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direction" class="md-nav__link">
+    direction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dist" class="md-nav__link">
+    dist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dist2" class="md-nav__link">
+    dist2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distance" class="md-nav__link">
+    distance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doublescale" class="md-nav__link">
+    doubleScale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flip" class="md-nav__link">
+    flip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flipped" class="md-nav__link">
+    flipped
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ix" class="md-nav__link">
+    ix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iy" class="md-nav__link">
+    iy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#len" class="md-nav__link">
+    len
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#len2" class="md-nav__link">
+    len2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal" class="md-nav__link">
+    normal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotate" class="md-nav__link">
+    rotate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round" class="md-nav__link">
+    round
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rx" class="md-nav__link">
+    rx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ry" class="md-nav__link">
+    ry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform" class="md-nav__link">
+    transform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transformed" class="md-nav__link">
+    transformed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#u" class="md-nav__link">
+    u
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value" class="md-nav__link">
+    value
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    x
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y" class="md-nav__link">
+    y
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zero" class="md-nav__link">
+    zero
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><a name="fontgate.fgPointU"></a></p>
+<h1 id="fgpointu"><code>fgPointU</code></h1>
+<dt class="class"><h2><span class="class-name">fontgate.fgPointU</span> = <a name="fontgate.fgPointU" href="#fontgate.fgPointU">class fgPointU</a>(<a href="./__builtin__.html#object">object</a>)</h2></dt>
+
+<dd class="class"><dd>
+
+<pre class="doc" markdown="0">PointU representation
+
+Constructors:
+  fgPointU() - default
+  fgPointU(fgPoint) - copy
+  fgPointU(fgPointU) - copy
+  fgPointU(fgPoint, float u)
+  fgPointU(tuple(float x, float y, float u))
+  fgPointU(float x, float y, float u)
+
+Math Operations:
+  fgPointU + fgPoint/fgPointU
+  fgPointU - fgPoint/fgPointU
+  fgPointU * fgPoint/fgPointU
+  fgPointU * float - vector product
+  fgPointU / float
+  fgPointU << fgPointU - True if first point is less or equal to second
+  fgPointU >> fgPointU - True if first point is greater or equal to second
+  fgPointU ^ fgPointU - scalar product</pre>
+
+
+</dd><h4 class="head-methods">Methods </h4><dl class="function"><dt><a name="fgPointU-__add__" href="#fgPointU-__add__"><span class="function-name">__add__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__add__">__add__</a>(y) <==> x+y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__cmp__" href="#fgPointU-__cmp__"><span class="function-name">__cmp__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__cmp__">__cmp__</a>(y) <==> cmp(x,y)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__delattr__" href="#fgPointU-__delattr__"><span class="function-name">__delattr__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__delattr__">__delattr__</a>('name') <==> del x.name</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__delitem__" href="#fgPointU-__delitem__"><span class="function-name">__delitem__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__delitem__">__delitem__</a>(y) <==> del x[y]</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__delslice__" href="#fgPointU-__delslice__"><span class="function-name">__delslice__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__delslice__">__delslice__</a>(i, j) <==> del x[i:j]
+
+Use of negative indices is not supported.</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__div__" href="#fgPointU-__div__"><span class="function-name">__div__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__div__">__div__</a>(y) <==> x/y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__eq__" href="#fgPointU-__eq__"><span class="function-name">__eq__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__eq__">__eq__</a>(y) <==> x==y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__ge__" href="#fgPointU-__ge__"><span class="function-name">__ge__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__ge__">__ge__</a>(y) <==> x>=y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__getattribute__" href="#fgPointU-__getattribute__"><span class="function-name">__getattribute__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__getattribute__">__getattribute__</a>('name') <==> x.name</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__getitem__" href="#fgPointU-__getitem__"><span class="function-name">__getitem__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__getitem__">__getitem__</a>(y) <==> x[y]</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__getslice__" href="#fgPointU-__getslice__"><span class="function-name">__getslice__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__getslice__">__getslice__</a>(i, j) <==> x[i:j]
+
+Use of negative indices is not supported.</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__gt__" href="#fgPointU-__gt__"><span class="function-name">__gt__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__gt__">__gt__</a>(y) <==> x>y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__init__" href="#fgPointU-__init__"><span class="function-name">__init__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__init__">__init__</a>(...) initializes x; see help(type(x)) for signature</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__le__" href="#fgPointU-__le__"><span class="function-name">__le__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__le__">__le__</a>(y) <==> x<=y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__len__" href="#fgPointU-__len__"><span class="function-name">__len__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__len__">__len__</a>() <==> <a href="#fontgate.fgPointU-len">len</a>(x)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__lshift__" href="#fgPointU-__lshift__"><span class="function-name">__lshift__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__lshift__">__lshift__</a>(y) <==> x<<y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__lt__" href="#fgPointU-__lt__"><span class="function-name">__lt__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__lt__">__lt__</a>(y) <==> x<y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__mul__" href="#fgPointU-__mul__"><span class="function-name">__mul__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__mul__">__mul__</a>(y) <==> x*y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__ne__" href="#fgPointU-__ne__"><span class="function-name">__ne__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__ne__">__ne__</a>(y) <==> x!=y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__radd__" href="#fgPointU-__radd__"><span class="function-name">__radd__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__radd__">__radd__</a>(y) <==> y+x</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__rdiv__" href="#fgPointU-__rdiv__"><span class="function-name">__rdiv__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__rdiv__">__rdiv__</a>(y) <==> y/x</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__repr__" href="#fgPointU-__repr__"><span class="function-name">__repr__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__repr__">__repr__</a>() <==> repr(x)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__rlshift__" href="#fgPointU-__rlshift__"><span class="function-name">__rlshift__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__rlshift__">__rlshift__</a>(y) <==> y<<x</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__rmul__" href="#fgPointU-__rmul__"><span class="function-name">__rmul__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__rmul__">__rmul__</a>(y) <==> y*x</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__rrshift__" href="#fgPointU-__rrshift__"><span class="function-name">__rrshift__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__rrshift__">__rrshift__</a>(y) <==> y>>x</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__rshift__" href="#fgPointU-__rshift__"><span class="function-name">__rshift__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__rshift__">__rshift__</a>(y) <==> x>>y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__rsub__" href="#fgPointU-__rsub__"><span class="function-name">__rsub__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__rsub__">__rsub__</a>(y) <==> y-x</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__rxor__" href="#fgPointU-__rxor__"><span class="function-name">__rxor__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__rxor__">__rxor__</a>(y) <==> y^x</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__setattr__" href="#fgPointU-__setattr__"><span class="function-name">__setattr__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__setattr__">__setattr__</a>('name', value) <==> x.name = value</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__setitem__" href="#fgPointU-__setitem__"><span class="function-name">__setitem__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__setitem__">__setitem__</a>(i, y) <==> x[i]=y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__setslice__" href="#fgPointU-__setslice__"><span class="function-name">__setslice__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__setslice__">__setslice__</a>(i, j, y) <==> x[i:j]=y
+
+Use  of negative indices is not supported.</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__str__" href="#fgPointU-__str__"><span class="function-name">__str__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__str__">__str__</a>() <==> str(x)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__sub__" href="#fgPointU-__sub__"><span class="function-name">__sub__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__sub__">__sub__</a>(y) <==> x-y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-__xor__" href="#fgPointU-__xor__"><span class="function-name">__xor__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgPointU-__xor__">__xor__</a>(y) <==> x^y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-angleDiff" href="#fgPointU-angleDiff"><span class="function-name">angleDiff</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint <a href="#fontgate.fgPointU-angleDiff">angleDiff</a>(fgPoint)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-angleSum" href="#fgPointU-angleSum"><span class="function-name">angleSum</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint <a href="#fontgate.fgPointU-angleSum">angleSum</a>(fgPoint)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-asDict" href="#fgPointU-asDict"><span class="function-name">asDict</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">represent object as dictionary</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-asTuple" href="#fgPointU-asTuple"><span class="function-name">asTuple</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">represent object as tuple</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-assign" href="#fgPointU-assign"><span class="function-name">assign</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontgate.fgPointU-assign">assign</a>(fgPointU) or <a href="#fontgate.fgPointU-assign">assign</a>(float x, float y, float u)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-clear" href="#fgPointU-clear"><span class="function-name">clear</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontgate.fgPointU-clear">clear</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-close_to" href="#fgPointU-close_to"><span class="function-name">close_to</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">bool <a href="#fontgate.fgPointU-close_to">close_to</a>(fgPointU[, d=0.00001])</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-collinear" href="#fgPointU-collinear"><span class="function-name">collinear</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">bool <a href="#fontgate.fgPointU-collinear">collinear</a>(fgPoint)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-direction" href="#fgPointU-direction"><span class="function-name">direction</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint <a href="#fontgate.fgPointU-direction">direction</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-dist" href="#fgPointU-dist"><span class="function-name">dist</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float <a href="#fontgate.fgPointU-dist">dist</a>(fgPoint)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-dist2" href="#fgPointU-dist2"><span class="function-name">dist2</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float <a href="#fontgate.fgPointU-dist2">dist2</a>(fgPoint)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-distance" href="#fgPointU-distance"><span class="function-name">distance</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float <a href="#fontgate.fgPointU-distance">distance</a>(fgPoint[, horizontal=false]</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-doubleScale" href="#fgPointU-doubleScale"><span class="function-name">doubleScale</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">scale(fgPoint) or scale(float sx, float sy)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-flip" href="#fgPointU-flip"><span class="function-name">flip</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontgate.fgPointU-flip">flip</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-flipped" href="#fgPointU-flipped"><span class="function-name">flipped</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint <a href="#fontgate.fgPointU-flipped">flipped</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-ix" href="#fgPointU-ix"><span class="function-name">ix</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int <a href="#fontgate.fgPointU-ix">ix</a>() - integer fast</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-iy" href="#fgPointU-iy"><span class="function-name">iy</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int <a href="#fontgate.fgPointU-iy">iy</a>() - integer fast</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-len" href="#fgPointU-len"><span class="function-name">len</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float <a href="#fontgate.fgPointU-len">len</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-len2" href="#fgPointU-len2"><span class="function-name">len2</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float <a href="#fontgate.fgPointU-len2">len2</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-normal" href="#fgPointU-normal"><span class="function-name">normal</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint <a href="#fontgate.fgPointU-normal">normal</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-rotate" href="#fgPointU-rotate"><span class="function-name">rotate</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint <a href="#fontgate.fgPointU-rotate">rotate</a>(fgPointU v, fgPoint c)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-round" href="#fgPointU-round"><span class="function-name">round</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint <a href="#fontgate.fgPointU-round">round</a>([doRound=true])</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-rx" href="#fgPointU-rx"><span class="function-name">rx</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int <a href="#fontgate.fgPointU-rx">rx</a>() - integer rounded</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-ry" href="#fgPointU-ry"><span class="function-name">ry</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int <a href="#fontgate.fgPointU-ry">ry</a>() - integer rounded</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-transform" href="#fgPointU-transform"><span class="function-name">transform</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontgate.fgPointU-transform">transform</a>(fgMatrix)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-transformed" href="#fgPointU-transformed"><span class="function-name">transformed</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint <a href="#fontgate.fgPointU-transformed">transformed</a>(fgMatrix)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-value" href="#fgPointU-value"><span class="function-name">value</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float <a href="#fontgate.fgPointU-value">value</a>([horizontal=true])</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgPointU-zero" href="#fgPointU-zero"><span class="function-name">zero</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">bool <a href="#fontgate.fgPointU-zero">zero</a>()</pre>
+
+</dd></dl>
+
+  <h4 class="head-desc">Descriptors </h4><dl class="descriptor"><dt>u</dt>
+<dd>
+
+<pre class="doc" markdown="0">(float)</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>x</dt>
+<dd>
+
+<pre class="doc" markdown="0">(float)</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>y</dt>
+<dd>
+
+<pre class="doc" markdown="0">(float)</pre>
+
+</dd>
+</dl>
+
+  <h4 class="head-attrs">Attributes </h4><dl><dt><span class="other-name">__new__</span> = &lt;built-in method __new__ of type object&gt;<dd>
+
+<pre class="doc" markdown="0">T.<a href="#fontgate.fgPointU-__new__">__new__</a>(S, ...) -> a new object with type S, a subtype of T</pre>
+
+</dd></dl>
+</dd>
+
+<p><a name="fontgate.fgPointU.angleDiff"></a></p>
+<h2 id="anglediff"><code>angleDiff</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.angleDiff" href="#-fontgate.fgPointU.angleDiff"><span class="function-name">fontgate.fgPointU.angleDiff</span></a> = angleDiff<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint angleDiff(fgPoint)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.angleSum"></a></p>
+<h2 id="anglesum"><code>angleSum</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.angleSum" href="#-fontgate.fgPointU.angleSum"><span class="function-name">fontgate.fgPointU.angleSum</span></a> = angleSum<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint angleSum(fgPoint)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.asDict"></a></p>
+<h2 id="asdict"><code>asDict</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.asDict" href="#-fontgate.fgPointU.asDict"><span class="function-name">fontgate.fgPointU.asDict</span></a> = asDict<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">represent object as dictionary</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.assign"></a></p>
+<h2 id="assign"><code>assign</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.assign" href="#-fontgate.fgPointU.assign"><span class="function-name">fontgate.fgPointU.assign</span></a> = assign<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">assign(fgPointU) or assign(float x, float y, float u)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.asTuple"></a></p>
+<h2 id="astuple"><code>asTuple</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.asTuple" href="#-fontgate.fgPointU.asTuple"><span class="function-name">fontgate.fgPointU.asTuple</span></a> = asTuple<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">represent object as tuple</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.clear"></a></p>
+<h2 id="clear"><code>clear</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.clear" href="#-fontgate.fgPointU.clear"><span class="function-name">fontgate.fgPointU.clear</span></a> = clear<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">clear()</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.close_to"></a></p>
+<h2 id="close_to"><code>close_to</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.close_to" href="#-fontgate.fgPointU.close_to"><span class="function-name">fontgate.fgPointU.close_to</span></a> = close_to<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">bool close_to(fgPointU[, d=0.00001])</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.collinear"></a></p>
+<h2 id="collinear"><code>collinear</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.collinear" href="#-fontgate.fgPointU.collinear"><span class="function-name">fontgate.fgPointU.collinear</span></a> = collinear<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">bool collinear(fgPoint)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.direction"></a></p>
+<h2 id="direction"><code>direction</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.direction" href="#-fontgate.fgPointU.direction"><span class="function-name">fontgate.fgPointU.direction</span></a> = direction<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint direction()</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.dist"></a></p>
+<h2 id="dist"><code>dist</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.dist" href="#-fontgate.fgPointU.dist"><span class="function-name">fontgate.fgPointU.dist</span></a> = dist<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float dist(fgPoint)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.dist2"></a></p>
+<h2 id="dist2"><code>dist2</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.dist2" href="#-fontgate.fgPointU.dist2"><span class="function-name">fontgate.fgPointU.dist2</span></a> = dist2<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float dist2(fgPoint)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.distance"></a></p>
+<h2 id="distance"><code>distance</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.distance" href="#-fontgate.fgPointU.distance"><span class="function-name">fontgate.fgPointU.distance</span></a> = distance<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float distance(fgPoint[, horizontal=false]</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.doubleScale"></a></p>
+<h2 id="doublescale"><code>doubleScale</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.doubleScale" href="#-fontgate.fgPointU.doubleScale"><span class="function-name">fontgate.fgPointU.doubleScale</span></a> = doubleScale<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">scale(fgPoint) or scale(float sx, float sy)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.flip"></a></p>
+<h2 id="flip"><code>flip</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.flip" href="#-fontgate.fgPointU.flip"><span class="function-name">fontgate.fgPointU.flip</span></a> = flip<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">flip()</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.flipped"></a></p>
+<h2 id="flipped"><code>flipped</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.flipped" href="#-fontgate.fgPointU.flipped"><span class="function-name">fontgate.fgPointU.flipped</span></a> = flipped<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint flipped()</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.ix"></a></p>
+<h2 id="ix"><code>ix</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.ix" href="#-fontgate.fgPointU.ix"><span class="function-name">fontgate.fgPointU.ix</span></a> = ix<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int ix() - integer fast</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.iy"></a></p>
+<h2 id="iy"><code>iy</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.iy" href="#-fontgate.fgPointU.iy"><span class="function-name">fontgate.fgPointU.iy</span></a> = iy<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int iy() - integer fast</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.len"></a></p>
+<h2 id="len"><code>len</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.len" href="#-fontgate.fgPointU.len"><span class="function-name">fontgate.fgPointU.len</span></a> = len<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float len()</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.len2"></a></p>
+<h2 id="len2"><code>len2</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.len2" href="#-fontgate.fgPointU.len2"><span class="function-name">fontgate.fgPointU.len2</span></a> = len2<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float len2()</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.normal"></a></p>
+<h2 id="normal"><code>normal</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.normal" href="#-fontgate.fgPointU.normal"><span class="function-name">fontgate.fgPointU.normal</span></a> = normal<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint normal()</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.rotate"></a></p>
+<h2 id="rotate"><code>rotate</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.rotate" href="#-fontgate.fgPointU.rotate"><span class="function-name">fontgate.fgPointU.rotate</span></a> = rotate<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint rotate(fgPointU v, fgPoint c)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.round"></a></p>
+<h2 id="round"><code>round</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.round" href="#-fontgate.fgPointU.round"><span class="function-name">fontgate.fgPointU.round</span></a> = round<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint round([doRound=true])</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.rx"></a></p>
+<h2 id="rx"><code>rx</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.rx" href="#-fontgate.fgPointU.rx"><span class="function-name">fontgate.fgPointU.rx</span></a> = rx<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int rx() - integer rounded</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.ry"></a></p>
+<h2 id="ry"><code>ry</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.ry" href="#-fontgate.fgPointU.ry"><span class="function-name">fontgate.fgPointU.ry</span></a> = ry<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int ry() - integer rounded</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.transform"></a></p>
+<h2 id="transform"><code>transform</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.transform" href="#-fontgate.fgPointU.transform"><span class="function-name">fontgate.fgPointU.transform</span></a> = transform<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">transform(fgMatrix)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.transformed"></a></p>
+<h2 id="transformed"><code>transformed</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.transformed" href="#-fontgate.fgPointU.transformed"><span class="function-name">fontgate.fgPointU.transformed</span></a> = transformed<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">fgPoint transformed(fgMatrix)</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.u"></a></p>
+<h2 id="u"><code>u</code></h2>
+<dl class="descriptor"><dt>fontgate.fgPointU.u</dt>
+<dd>
+
+<pre class="doc" markdown="0">(float)</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgPointU.value"></a></p>
+<h2 id="value"><code>value</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.value" href="#-fontgate.fgPointU.value"><span class="function-name">fontgate.fgPointU.value</span></a> = value<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">float value([horizontal=true])</pre>
+
+</dd></dl>
+
+<p><a name="fontgate.fgPointU.x"></a></p>
+<h2 id="x"><code>x</code></h2>
+<dl class="descriptor"><dt>fontgate.fgPointU.x</dt>
+<dd>
+
+<pre class="doc" markdown="0">(float)</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgPointU.y"></a></p>
+<h2 id="y"><code>y</code></h2>
+<dl class="descriptor"><dt>fontgate.fgPointU.y</dt>
+<dd>
+
+<pre class="doc" markdown="0">(float)</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgPointU.zero"></a></p>
+<h2 id="zero"><code>zero</code></h2>
+<dl class="function"><dt><a name="-fontgate.fgPointU.zero" href="#-fontgate.fgPointU.zero"><span class="function-name">fontgate.fgPointU.zero</span></a> = zero<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">bool zero()</pre>
+
+</dd></dl>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="fontgate.fgPoint.html" title="fgPoint" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                fgPoint
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="fontgate.fgRect.html" title="fgRect" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                fgRect
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2016–2020 <a href="http://www.fontlab.com/">Fontlab Ltd.</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      
+    
+  </body>
+</html>

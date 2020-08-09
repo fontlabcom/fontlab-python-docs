@@ -1,0 +1,6724 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="FontLab 7 Python API">
+      
+      
+      
+        <meta name="author" content="Fontlab Ltd.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>fgFontInfo - FontLab 7 Python API</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="style/fontlab_pyapi.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#fgfontinfo" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="FontLab 7 Python API" class="md-header-nav__button md-logo">
+          
+            <img src="https://res.cloudinary.com/fontlab/image/fetch/f_auto,w_48,c_scale/https://www.fontlab.com/img/icon-fontlab-7.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              FontLab 7 Python API
+            </span>
+            <span class="md-header-nav__topic">
+              
+                fgFontInfo
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://www.fontlab.com/" title="Go to repository" class="md-source" data-md-source="">
+  
+  <div class="md-source__repository">
+    Www
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="FontLab 7 Python API" class="md-nav__button md-logo">
+      
+        <img src="https://res.cloudinary.com/fontlab/image/fetch/f_auto,w_48,c_scale/https://www.fontlab.com/img/icon-fontlab-7.png" width="48" height="48">
+      
+    </a>
+    FontLab 7 Python API
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://www.fontlab.com/" title="Go to repository" class="md-source" data-md-source="">
+  
+  <div class="md-source__repository">
+    Www
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      typerig
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        typerig
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.html" title="typerig" class="md-nav__link">
+      typerig
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.html" title="core" class="md-nav__link">
+      core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.base.html" title="core.base" class="md-nav__link">
+      core.base
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.base.message.html" title="core.base.message" class="md-nav__link">
+      core.base.message
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.html" title="core.fileio" class="md-nav__link">
+      core.fileio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.cla.html" title="core.fileio.cla" class="md-nav__link">
+      core.fileio.cla
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.flc.html" title="core.fileio.flc" class="md-nav__link">
+      core.fileio.flc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.krn.html" title="core.fileio.krn" class="md-nav__link">
+      core.fileio.krn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.fileio.nam.html" title="core.fileio.nam" class="md-nav__link">
+      core.fileio.nam
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.html" title="core.func" class="md-nav__link">
+      core.func
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.collection.html" title="core.func.collection" class="md-nav__link">
+      core.func.collection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.geometry.html" title="core.func.geometry" class="md-nav__link">
+      core.func.geometry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.math.html" title="core.func.math" class="md-nav__link">
+      core.func.math
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.string.html" title="core.func.string" class="md-nav__link">
+      core.func.string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.transform.html" title="core.func.transform" class="md-nav__link">
+      core.func.transform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.func.utils.html" title="core.func.utils" class="md-nav__link">
+      core.func.utils
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.html" title="core.objects" class="md-nav__link">
+      core.objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.array.html" title="core.objects.array" class="md-nav__link">
+      core.objects.array
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.atom.html" title="core.objects.atom" class="md-nav__link">
+      core.objects.atom
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.collection.html" title="core.objects.collection" class="md-nav__link">
+      core.objects.collection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.cubicbezier.html" title="core.objects.cubicbezier" class="md-nav__link">
+      core.objects.cubicbezier
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.delta.html" title="core.objects.delta" class="md-nav__link">
+      core.objects.delta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.line.html" title="core.objects.line" class="md-nav__link">
+      core.objects.line
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.matrix.html" title="core.objects.matrix" class="md-nav__link">
+      core.objects.matrix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.point.html" title="core.objects.point" class="md-nav__link">
+      core.objects.point
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.transform.html" title="core.objects.transform" class="md-nav__link">
+      core.objects.transform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.core.objects.utils.html" title="core.objects.utils" class="md-nav__link">
+      core.objects.utils
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.gui.html" title="gui" class="md-nav__link">
+      gui
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.gui.QtGui.html" title="gui.QtGui" class="md-nav__link">
+      gui.QtGui
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.gui.widgets.html" title="gui.widgets" class="md-nav__link">
+      gui.widgets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.html" title="proxy" class="md-nav__link">
+      proxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.application.html" title="proxy.application" class="md-nav__link">
+      proxy.application
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.application.app.html" title="proxy.application.app" class="md-nav__link">
+      proxy.application.app
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.application.automat.html" title="proxy.application.automat" class="md-nav__link">
+      proxy.application.automat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.html" title="proxy.objects" class="md-nav__link">
+      proxy.objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.base.html" title="proxy.objects.base" class="md-nav__link">
+      proxy.objects.base
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.composer.html" title="proxy.objects.composer" class="md-nav__link">
+      proxy.objects.composer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.contour.html" title="proxy.objects.contour" class="md-nav__link">
+      proxy.objects.contour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.curve.html" title="proxy.objects.curve" class="md-nav__link">
+      proxy.objects.curve
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.font.html" title="proxy.objects.font" class="md-nav__link">
+      proxy.objects.font
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.glyph.html" title="proxy.objects.glyph" class="md-nav__link">
+      proxy.objects.glyph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.kern.html" title="proxy.objects.kern" class="md-nav__link">
+      proxy.objects.kern
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.node.html" title="proxy.objects.node" class="md-nav__link">
+      proxy.objects.node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.shape.html" title="proxy.objects.shape" class="md-nav__link">
+      proxy.objects.shape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.objects.string.html" title="proxy.objects.string" class="md-nav__link">
+      proxy.objects.string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.pens.html" title="proxy.pens" class="md-nav__link">
+      proxy.pens
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.pens.abstractPen.html" title="proxy.pens.abstractPen" class="md-nav__link">
+      proxy.pens.abstractPen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="typerig.proxy.pens.outlinePen.html" title="proxy.pens.outlinePen" class="md-nav__link">
+      proxy.pens.outlinePen
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      fontgate
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        fontgate
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.html" title="fontgate" class="md-nav__link">
+      fontgate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgAnchor.html" title="fgAnchor" class="md-nav__link">
+      fgAnchor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgAnchors.html" title="fgAnchors" class="md-nav__link">
+      fgAnchors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgAxes.html" title="fgAxes" class="md-nav__link">
+      fgAxes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgAxis.html" title="fgAxis" class="md-nav__link">
+      fgAxis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCMaps.html" title="fgCMaps" class="md-nav__link">
+      fgCMaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCaret.html" title="fgCaret" class="md-nav__link">
+      fgCaret
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCarets.html" title="fgCarets" class="md-nav__link">
+      fgCarets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCmapRecord.html" title="fgCmapRecord" class="md-nav__link">
+      fgCmapRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCoding.html" title="fgCoding" class="md-nav__link">
+      fgCoding
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgComponent.html" title="fgComponent" class="md-nav__link">
+      fgComponent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgComponents.html" title="fgComponents" class="md-nav__link">
+      fgComponents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgContour.html" title="fgContour" class="md-nav__link">
+      fgContour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgContours.html" title="fgContours" class="md-nav__link">
+      fgContours
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCuspPoint.html" title="fgCuspPoint" class="md-nav__link">
+      fgCuspPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCuspPoints.html" title="fgCuspPoints" class="md-nav__link">
+      fgCuspPoints
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.pyfgDataOwnerData.html" title="pyfgDataOwnerData" class="md-nav__link">
+      pyfgDataOwnerData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgDesignPosition.html" title="fgDesignPosition" class="md-nav__link">
+      fgDesignPosition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgDeviceRecord.html" title="fgDeviceRecord" class="md-nav__link">
+      fgDeviceRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgDeviceRecords.html" title="fgDeviceRecords" class="md-nav__link">
+      fgDeviceRecords
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgExtMapUIntToString.html" title="fgExtMapUIntToString" class="md-nav__link">
+      fgExtMapUIntToString
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFont.html" title="fgFont" class="md-nav__link">
+      fgFont
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFontHinting.html" title="fgFontHinting" class="md-nav__link">
+      fgFontHinting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        fgFontInfo
+      </label>
+    
+    <a href="fontgate.fgFontInfo.html" title="fgFontInfo" class="md-nav__link md-nav__link--active">
+      fgFontInfo
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ascender" class="md-nav__link">
+    ascender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capheight" class="md-nav__link">
+    capHeight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caretoffset" class="md-nav__link">
+    caretOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyright" class="md-nav__link">
+    copyright
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descender" class="md-nav__link">
+    descender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dict" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#familyname" class="md-nav__link">
+    familyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#italicangle" class="md-nav__link">
+    italicAngle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macintoshfondfamilyid" class="md-nav__link">
+    macintoshFONDFamilyID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macintoshfondname" class="md-nav__link">
+    macintoshFONDName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadcreated" class="md-nav__link">
+    openTypeHeadCreated
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadflags" class="md-nav__link">
+    openTypeHeadFlags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadfontdirectionhint" class="md-nav__link">
+    openTypeHeadFontDirectionHint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadlowestrecppem" class="md-nav__link">
+    openTypeHeadLowestRecPPEM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadmodified" class="md-nav__link">
+    openTypeHeadModified
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheaascender" class="md-nav__link">
+    openTypeHheaAscender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheacaretoffset" class="md-nav__link">
+    openTypeHheaCaretOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheacaretsloperise" class="md-nav__link">
+    openTypeHheaCaretSlopeRise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheacaretsloperun" class="md-nav__link">
+    openTypeHheaCaretSlopeRun
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheadescender" class="md-nav__link">
+    openTypeHheaDescender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehhealinegap" class="md-nav__link">
+    openTypeHheaLineGap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamecompatiblefullname" class="md-nav__link">
+    openTypeNameCompatibleFullName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamedescription" class="md-nav__link">
+    openTypeNameDescription
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamedesigner" class="md-nav__link">
+    openTypeNameDesigner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamedesignerurl" class="md-nav__link">
+    openTypeNameDesignerURL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamelicense" class="md-nav__link">
+    openTypeNameLicense
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamelicenseurl" class="md-nav__link">
+    openTypeNameLicenseURL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamemanufacturer" class="md-nav__link">
+    openTypeNameManufacturer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamemanufacturerurl" class="md-nav__link">
+    openTypeNameManufacturerURL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamepreferredfamilyname" class="md-nav__link">
+    openTypeNamePreferredFamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamepreferredsubfamilyname" class="md-nav__link">
+    openTypeNamePreferredSubfamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamesampletext" class="md-nav__link">
+    openTypeNameSampleText
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenameuniqueid" class="md-nav__link">
+    openTypeNameUniqueID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenameversion" class="md-nav__link">
+    openTypeNameVersion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamewwsfamilyname" class="md-nav__link">
+    openTypeNameWWSFamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamewwssubfamilyname" class="md-nav__link">
+    openTypeNameWWSSubfamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2codepageranges" class="md-nav__link">
+    openTypeOS2CodePageRanges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2familyclass" class="md-nav__link">
+    openTypeOS2FamilyClass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2panose" class="md-nav__link">
+    openTypeOS2Panose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2selection" class="md-nav__link">
+    openTypeOS2Selection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2strikeoutposition" class="md-nav__link">
+    openTypeOS2StrikeoutPosition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2strikeoutsize" class="md-nav__link">
+    openTypeOS2StrikeoutSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2subscriptxoffset" class="md-nav__link">
+    openTypeOS2SubscriptXOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2subscriptxsize" class="md-nav__link">
+    openTypeOS2SubscriptXSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2subscriptyoffset" class="md-nav__link">
+    openTypeOS2SubscriptYOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2subscriptysize" class="md-nav__link">
+    openTypeOS2SubscriptYSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2superscriptxoffset" class="md-nav__link">
+    openTypeOS2SuperscriptXOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2superscriptxsize" class="md-nav__link">
+    openTypeOS2SuperscriptXSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2superscriptyoffset" class="md-nav__link">
+    openTypeOS2SuperscriptYOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2superscriptysize" class="md-nav__link">
+    openTypeOS2SuperscriptYSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2type" class="md-nav__link">
+    openTypeOS2Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2typoascender" class="md-nav__link">
+    openTypeOS2TypoAscender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2typodescender" class="md-nav__link">
+    openTypeOS2TypoDescender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2typolinegap" class="md-nav__link">
+    openTypeOS2TypoLineGap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2unicoderanges" class="md-nav__link">
+    openTypeOS2UnicodeRanges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2vendorid" class="md-nav__link">
+    openTypeOS2VendorID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2weightclass" class="md-nav__link">
+    openTypeOS2WeightClass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2widthclass" class="md-nav__link">
+    openTypeOS2WidthClass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2winascent" class="md-nav__link">
+    openTypeOS2WinAscent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2windescent" class="md-nav__link">
+    openTypeOS2WinDescent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheacaretoffset" class="md-nav__link">
+    openTypeVheaCaretOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheacaretsloperise" class="md-nav__link">
+    openTypeVheaCaretSlopeRise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheacaretsloperun" class="md-nav__link">
+    openTypeVheaCaretSlopeRun
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheaverttypoascender" class="md-nav__link">
+    openTypeVheaVertTypoAscender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheaverttypodescender" class="md-nav__link">
+    openTypeVheaVertTypoDescender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheaverttypolinegap" class="md-nav__link">
+    openTypeVheaVertTypoLineGap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptbluefuzz" class="md-nav__link">
+    postscriptBlueFuzz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptbluescale" class="md-nav__link">
+    postscriptBlueScale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptblueshift" class="md-nav__link">
+    postscriptBlueShift
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptbluevalues" class="md-nav__link">
+    postscriptBlueValues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptdefaultcharacter" class="md-nav__link">
+    postscriptDefaultCharacter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptdefaultwidthx" class="md-nav__link">
+    postscriptDefaultWidthX
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptfamilyblues" class="md-nav__link">
+    postscriptFamilyBlues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptfamilyotherblues" class="md-nav__link">
+    postscriptFamilyOtherBlues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptfontname" class="md-nav__link">
+    postscriptFontName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptforcebold" class="md-nav__link">
+    postscriptForceBold
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptfullname" class="md-nav__link">
+    postscriptFullName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptisfixedpitch" class="md-nav__link">
+    postscriptIsFixedPitch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptnominalwidthx" class="md-nav__link">
+    postscriptNominalWidthX
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptotherblues" class="md-nav__link">
+    postscriptOtherBlues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptslantangle" class="md-nav__link">
+    postscriptSlantAngle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptstemsnaph" class="md-nav__link">
+    postscriptStemSnapH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptstemsnapv" class="md-nav__link">
+    postscriptStemSnapV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptunderlineposition" class="md-nav__link">
+    postscriptUnderlinePosition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptunderlinethickness" class="md-nav__link">
+    postscriptUnderlineThickness
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptuniqueid" class="md-nav__link">
+    postscriptUniqueID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptweightname" class="md-nav__link">
+    postscriptWeightName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptwindowscharacterset" class="md-nav__link">
+    postscriptWindowsCharacterSet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stylemapfamilyname" class="md-nav__link">
+    styleMapFamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stylemapstylename" class="md-nav__link">
+    styleMapStyleName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stylename" class="md-nav__link">
+    styleName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trademark" class="md-nav__link">
+    trademark
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unitsperem" class="md-nav__link">
+    unitsPerEm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versionmajor" class="md-nav__link">
+    versionMajor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versionminor" class="md-nav__link">
+    versionMinor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xheight" class="md-nav__link">
+    xHeight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#year" class="md-nav__link">
+    year
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFontInfoDict.html" title="fgFontInfoDict" class="md-nav__link">
+      fgFontInfoDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGaspRecord.html" title="fgGaspRecord" class="md-nav__link">
+      fgGaspRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGaspRecords.html" title="fgGaspRecords" class="md-nav__link">
+      fgGaspRecords
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyph.html" title="fgGlyph" class="md-nav__link">
+      fgGlyph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphsR.html" title="fgGlyphsR" class="md-nav__link">
+      fgGlyphsR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphDict.html" title="fgGlyphDict" class="md-nav__link">
+      fgGlyphDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphIDsSet.html" title="fgGlyphIDsSet" class="md-nav__link">
+      fgGlyphIDsSet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphs.html" title="fgGlyphs" class="md-nav__link">
+      fgGlyphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGroup.html" title="fgGroup" class="md-nav__link">
+      fgGroup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGroups.html" title="fgGroups" class="md-nav__link">
+      fgGroups
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGuide.html" title="fgGuide" class="md-nav__link">
+      fgGuide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGuides.html" title="fgGuides" class="md-nav__link">
+      fgGuides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgHint.html" title="fgHint" class="md-nav__link">
+      fgHint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgHintCommand.html" title="fgHintCommand" class="md-nav__link">
+      fgHintCommand
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgHintCommands.html" title="fgHintCommands" class="md-nav__link">
+      fgHintCommands
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgHints.html" title="fgHints" class="md-nav__link">
+      fgHints
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgKerning.html" title="fgKerning" class="md-nav__link">
+      fgKerning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgKerningGroups.html" title="fgKerningGroups" class="md-nav__link">
+      fgKerningGroups
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgKerningObject.html" title="fgKerningObject" class="md-nav__link">
+      fgKerningObject
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgKerningObjectPair.html" title="fgKerningObjectPair" class="md-nav__link">
+      fgKerningObjectPair
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgLayer.html" title="fgLayer" class="md-nav__link">
+      fgLayer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgLayers.html" title="fgLayers" class="md-nav__link">
+      fgLayers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgLib.html" title="fgLib" class="md-nav__link">
+      fgLib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMapBytes.html" title="fgMapBytes" class="md-nav__link">
+      fgMapBytes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgExtMapIntTofgShape.html" title="fgExtMapIntTofgShape" class="md-nav__link">
+      fgExtMapIntTofgShape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFlagsDict.html" title="fgFlagsDict" class="md-nav__link">
+      fgFlagsDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgValuesDict.html" title="fgValuesDict" class="md-nav__link">
+      fgValuesDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgIntDict.html" title="fgIntDict" class="md-nav__link">
+      fgIntDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgStringDict.html" title="fgStringDict" class="md-nav__link">
+      fgStringDict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMaster.html" title="fgMaster" class="md-nav__link">
+      fgMaster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMasters.html" title="fgMasters" class="md-nav__link">
+      fgMasters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMaxP.html" title="fgMaxP" class="md-nav__link">
+      fgMaxP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMetricsClass.html" title="fgMetricsClass" class="md-nav__link">
+      fgMetricsClass
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMetricsClasses.html" title="fgMetricsClasses" class="md-nav__link">
+      fgMetricsClasses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgNametable.html" title="fgNametable" class="md-nav__link">
+      fgNametable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgNode.html" title="fgNode" class="md-nav__link">
+      fgNode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgNodes.html" title="fgNodes" class="md-nav__link">
+      fgNodes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOTLayout.html" title="fgOTLayout" class="md-nav__link">
+      fgOTLayout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOtInfo.html" title="fgOtInfo" class="md-nav__link">
+      fgOtInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOtValue.html" title="fgOtValue" class="md-nav__link">
+      fgOtValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgPackages.html" title="fgPackages" class="md-nav__link">
+      fgPackages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgPen.html" title="fgPen" class="md-nav__link">
+      fgPen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgExtMapUShortToShort.html" title="fgExtMapUShortToShort" class="md-nav__link">
+      fgExtMapUShortToShort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgShape.html" title="fgShape" class="md-nav__link">
+      fgShape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgShapes.html" title="fgShapes" class="md-nav__link">
+      fgShapes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgStem.html" title="fgStem" class="md-nav__link">
+      fgStem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgStems.html" title="fgStems" class="md-nav__link">
+      fgStems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgTrueTypePoint.html" title="fgTrueTypePoint" class="md-nav__link">
+      fgTrueTypePoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgTrueTypePoints.html" title="fgTrueTypePoints" class="md-nav__link">
+      fgTrueTypePoints
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgTTInterpreter.html" title="fgTTInterpreter" class="md-nav__link">
+      fgTTInterpreter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVdmxRecord.html" title="fgVdmxRecord" class="md-nav__link">
+      fgVdmxRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVdmxRecords.html" title="fgVdmxRecords" class="md-nav__link">
+      fgVdmxRecords
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorBool.html" title="fgVectorBool" class="md-nav__link">
+      fgVectorBool
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorChar.html" title="fgVectorChar" class="md-nav__link">
+      fgVectorChar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorDouble.html" title="fgVectorDouble" class="md-nav__link">
+      fgVectorDouble
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorInt.html" title="fgVectorInt" class="md-nav__link">
+      fgVectorInt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorUInt16.html" title="fgVectorUInt16" class="md-nav__link">
+      fgVectorUInt16
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorUInt32.html" title="fgVectorUInt32" class="md-nav__link">
+      fgVectorUInt32
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVectorPoint.html" title="fgVectorPoint" class="md-nav__link">
+      fgVectorPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgZone.html" title="fgZone" class="md-nav__link">
+      fgZone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgZones.html" title="fgZones" class="md-nav__link">
+      fgZones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOptions.html" title="fgOptions" class="md-nav__link">
+      fgOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_T1Import.html" title="fgOpt_T1Import" class="md-nav__link">
+      fgOpt_T1Import
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_OTImport.html" title="fgOpt_OTImport" class="md-nav__link">
+      fgOpt_OTImport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_UfoFontImport.html" title="fgOpt_UfoFontImport" class="md-nav__link">
+      fgOpt_UfoFontImport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_VfbImport.html" title="fgOpt_VfbImport" class="md-nav__link">
+      fgOpt_VfbImport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_VfbExport.html" title="fgOpt_VfbExport" class="md-nav__link">
+      fgOpt_VfbExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_UfoFontExport.html" title="fgOpt_UfoFontExport" class="md-nav__link">
+      fgOpt_UfoFontExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_OTExport.html" title="fgOpt_OTExport" class="md-nav__link">
+      fgOpt_OTExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_T1Export.html" title="fgOpt_T1Export" class="md-nav__link">
+      fgOpt_T1Export
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_EOTExport.html" title="fgOpt_EOTExport" class="md-nav__link">
+      fgOpt_EOTExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_WOFFExport.html" title="fgOpt_WOFFExport" class="md-nav__link">
+      fgOpt_WOFFExport
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_Font.html" title="fgOpt_Font" class="md-nav__link">
+      fgOpt_Font
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_KerningOptions.html" title="fgOpt_KerningOptions" class="md-nav__link">
+      fgOpt_KerningOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_OTExportFeaFile.html" title="fgOpt_OTExportFeaFile" class="md-nav__link">
+      fgOpt_OTExportFeaFile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_TTAutohint.html" title="fgOpt_TTAutohint" class="md-nav__link">
+      fgOpt_TTAutohint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_T1Autohint.html" title="fgOpt_T1Autohint" class="md-nav__link">
+      fgOpt_T1Autohint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_TTFAutohint.html" title="fgOpt_TTFAutohint" class="md-nav__link">
+      fgOpt_TTFAutohint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_AutoMetrics.html" title="fgOpt_AutoMetrics" class="md-nav__link">
+      fgOpt_AutoMetrics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_ExpandKerning.html" title="fgOpt_ExpandKerning" class="md-nav__link">
+      fgOpt_ExpandKerning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgOpt_Optimize.html" title="fgOpt_Optimize" class="md-nav__link">
+      fgOpt_Optimize
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgBitmap.html" title="fgBitmap" class="md-nav__link">
+      fgBitmap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgBitmaps.html" title="fgBitmaps" class="md-nav__link">
+      fgBitmaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgBitmapsData.html" title="fgBitmapsData" class="md-nav__link">
+      fgBitmapsData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgBrush.html" title="fgBrush" class="md-nav__link">
+      fgBrush
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgColor.html" title="fgColor" class="md-nav__link">
+      fgColor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgCurve.html" title="fgCurve" class="md-nav__link">
+      fgCurve
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgFontGateData.html" title="fgFontGateData" class="md-nav__link">
+      fgFontGateData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgGlyphData.html" title="fgGlyphData" class="md-nav__link">
+      fgGlyphData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgExtMapUCharToUChar.html" title="fgExtMapUCharToUChar" class="md-nav__link">
+      fgExtMapUCharToUChar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgMatrix.html" title="fgMatrix" class="md-nav__link">
+      fgMatrix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgPoint.html" title="fgPoint" class="md-nav__link">
+      fgPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgPointU.html" title="fgPointU" class="md-nav__link">
+      fgPointU
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgRect.html" title="fgRect" class="md-nav__link">
+      fgRect
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgRendered.html" title="fgRendered" class="md-nav__link">
+      fgRendered
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgTrueTypeData.html" title="fgTrueTypeData" class="md-nav__link">
+      fgTrueTypeData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontgate.fgVector.html" title="fgVector" class="md-nav__link">
+      fgVector
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      fontlab
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        fontlab
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.html" title="fontlab" class="md-nav__link">
+      fontlab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.CurveEx.html" title="CurveEx" class="md-nav__link">
+      CurveEx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.ExportControl.html" title="ExportControl" class="md-nav__link">
+      ExportControl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.FaBasicPtr.html" title="FaBasicPtr" class="md-nav__link">
+      FaBasicPtr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.Interval.html" title="Interval" class="md-nav__link">
+      Interval
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.PaintBrush.html" title="PaintBrush" class="md-nav__link">
+      PaintBrush
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.TransformFrame.html" title="TransformFrame" class="md-nav__link">
+      TransformFrame
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.fgSymbol.html" title="fgSymbol" class="md-nav__link">
+      fgSymbol
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.fgSymbolList.html" title="fgSymbolList" class="md-nav__link">
+      fgSymbolList
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAbstractEditor.html" title="flAbstractEditor" class="md-nav__link">
+      flAbstractEditor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAbstractVectorNode.html" title="flAbstractVectorNode" class="md-nav__link">
+      flAbstractVectorNode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAnchor.html" title="flAnchor" class="md-nav__link">
+      flAnchor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAuditInfo.html" title="flAuditInfo" class="md-nav__link">
+      flAuditInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flAxis.html" title="flAxis" class="md-nav__link">
+      flAxis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flBasicTool.html" title="flBasicTool" class="md-nav__link">
+      flBasicTool
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flCanvas.html" title="flCanvas" class="md-nav__link">
+      flCanvas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flContour.html" title="flContour" class="md-nav__link">
+      flContour
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flContourInfo.html" title="flContourInfo" class="md-nav__link">
+      flContourInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flContourMarker.html" title="flContourMarker" class="md-nav__link">
+      flContourMarker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flEvent.html" title="flEvent" class="md-nav__link">
+      flEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flExpression.html" title="flExpression" class="md-nav__link">
+      flExpression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flGlyph.html" title="flGlyph" class="md-nav__link">
+      flGlyph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flGlyphInfo.html" title="flGlyphInfo" class="md-nav__link">
+      flGlyphInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flGraphicsInfo.html" title="flGraphicsInfo" class="md-nav__link">
+      flGraphicsInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flGuideLine.html" title="flGuideLine" class="md-nav__link">
+      flGuideLine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flHintingParameters.html" title="flHintingParameters" class="md-nav__link">
+      flHintingParameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flInstance.html" title="flInstance" class="md-nav__link">
+      flInstance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flItems.html" title="flItems" class="md-nav__link">
+      flItems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flLayer.html" title="flLayer" class="md-nav__link">
+      flLayer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flLayerInfo.html" title="flLayerInfo" class="md-nav__link">
+      flLayerInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flLocation.html" title="flLocation" class="md-nav__link">
+      flLocation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.LocationValue.html" title="LocationValue" class="md-nav__link">
+      LocationValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flMarkerPoint.html" title="flMarkerPoint" class="md-nav__link">
+      flMarkerPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flMouseEvent.html" title="flMouseEvent" class="md-nav__link">
+      flMouseEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flModelProducer.html" title="flModelProducer" class="md-nav__link">
+      flModelProducer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flNode.html" title="flNode" class="md-nav__link">
+      flNode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flNodeInfo.html" title="flNodeInfo" class="md-nav__link">
+      flNodeInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flObject.html" title="flObject" class="md-nav__link">
+      flObject
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPackage.html" title="flPackage" class="md-nav__link">
+      flPackage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPaper.html" title="flPaper" class="md-nav__link">
+      flPaper
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPinPoint.html" title="flPinPoint" class="md-nav__link">
+      flPinPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPreferences.html" title="flPreferences" class="md-nav__link">
+      flPreferences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flProperty.html" title="flProperty" class="md-nav__link">
+      flProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPropertyDouble.html" title="flPropertyDouble" class="md-nav__link">
+      flPropertyDouble
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flPropertyPoint.html" title="flPropertyPoint" class="md-nav__link">
+      flPropertyPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSearchInfo.html" title="flSearchInfo" class="md-nav__link">
+      flSearchInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flShape.html" title="flShape" class="md-nav__link">
+      flShape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flShapeBuilder.html" title="flShapeBuilder" class="md-nav__link">
+      flShapeBuilder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flShapeData.html" title="flShapeData" class="md-nav__link">
+      flShapeData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flShapeInfo.html" title="flShapeInfo" class="md-nav__link">
+      flShapeInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSnapLine.html" title="flSnapLine" class="md-nav__link">
+      flSnapLine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSnapObject.html" title="flSnapObject" class="md-nav__link">
+      flSnapObject
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flStem.html" title="flStem" class="md-nav__link">
+      flStem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flZone.html" title="flZone" class="md-nav__link">
+      flZone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSticker.html" title="flSticker" class="md-nav__link">
+      flSticker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flTextBlock.html" title="flTextBlock" class="md-nav__link">
+      flTextBlock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flTransform.html" title="flTransform" class="md-nav__link">
+      flTransform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flVectorNode.html" title="flVectorNode" class="md-nav__link">
+      flVectorNode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flVisualItem.html" title="flVisualItem" class="md-nav__link">
+      flVisualItem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flWorkspace.html" title="flWorkspace" class="md-nav__link">
+      flWorkspace
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.FontMetrics.html" title="FontMetrics" class="md-nav__link">
+      FontMetrics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.GlyphComponent.html" title="GlyphComponent" class="md-nav__link">
+      GlyphComponent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flTTHCommand.html" title="flTTHCommand" class="md-nav__link">
+      flTTHCommand
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.YPanelManager.html" title="YPanelManager" class="md-nav__link">
+      YPanelManager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.YPanelWidget.html" title="YPanelWidget" class="md-nav__link">
+      YPanelWidget
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.Info.html" title="Info" class="md-nav__link">
+      Info
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.FontLayer.html" title="FontLayer" class="md-nav__link">
+      FontLayer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flSnaps.html" title="flSnaps" class="md-nav__link">
+      flSnaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flModel.html" title="flModel" class="md-nav__link">
+      flModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.PaintBrushShape.html" title="PaintBrushShape" class="md-nav__link">
+      PaintBrushShape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.SmartCornerParameters.html" title="SmartCornerParameters" class="md-nav__link">
+      SmartCornerParameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.AccentInfo.html" title="AccentInfo" class="md-nav__link">
+      AccentInfo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fontlab.flLayerAttributes.html" title="flLayerAttributes" class="md-nav__link">
+      flLayerAttributes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      FL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        FL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.html" title="FL" class="md-nav__link">
+      FL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Anchor.html" title="Anchor" class="md-nav__link">
+      Anchor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Canvas.html" title="Canvas" class="md-nav__link">
+      Canvas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Component.html" title="Component" class="md-nav__link">
+      Component
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Dialog.html" title="Dialog" class="md-nav__link">
+      Dialog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Encoding.html" title="Encoding" class="md-nav__link">
+      Encoding
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.EncodingRecord.html" title="EncodingRecord" class="md-nav__link">
+      EncodingRecord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Feature.html" title="Feature" class="md-nav__link">
+      Feature
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.fl.html" title="fl" class="md-nav__link">
+      fl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Font.html" title="Font" class="md-nav__link">
+      Font
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Glyph.html" title="Glyph" class="md-nav__link">
+      Glyph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Guide.html" title="Guide" class="md-nav__link">
+      Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Hint.html" title="Hint" class="md-nav__link">
+      Hint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Image.html" title="Image" class="md-nav__link">
+      Image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.KerningPair.html" title="KerningPair" class="md-nav__link">
+      KerningPair
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Link.html" title="Link" class="md-nav__link">
+      Link
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Matrix.html" title="Matrix" class="md-nav__link">
+      Matrix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Node.html" title="Node" class="md-nav__link">
+      Node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Point.html" title="Point" class="md-nav__link">
+      Point
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.Rect.html" title="Rect" class="md-nav__link">
+      Rect
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.TrueTypeTable.html" title="TrueTypeTable" class="md-nav__link">
+      TrueTypeTable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="FL.TTPoint.html" title="TTPoint" class="md-nav__link">
+      TTPoint
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ascender" class="md-nav__link">
+    ascender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capheight" class="md-nav__link">
+    capHeight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caretoffset" class="md-nav__link">
+    caretOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyright" class="md-nav__link">
+    copyright
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descender" class="md-nav__link">
+    descender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dict" class="md-nav__link">
+    dict
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#familyname" class="md-nav__link">
+    familyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#italicangle" class="md-nav__link">
+    italicAngle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macintoshfondfamilyid" class="md-nav__link">
+    macintoshFONDFamilyID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macintoshfondname" class="md-nav__link">
+    macintoshFONDName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadcreated" class="md-nav__link">
+    openTypeHeadCreated
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadflags" class="md-nav__link">
+    openTypeHeadFlags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadfontdirectionhint" class="md-nav__link">
+    openTypeHeadFontDirectionHint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadlowestrecppem" class="md-nav__link">
+    openTypeHeadLowestRecPPEM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeheadmodified" class="md-nav__link">
+    openTypeHeadModified
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheaascender" class="md-nav__link">
+    openTypeHheaAscender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheacaretoffset" class="md-nav__link">
+    openTypeHheaCaretOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheacaretsloperise" class="md-nav__link">
+    openTypeHheaCaretSlopeRise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheacaretsloperun" class="md-nav__link">
+    openTypeHheaCaretSlopeRun
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehheadescender" class="md-nav__link">
+    openTypeHheaDescender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypehhealinegap" class="md-nav__link">
+    openTypeHheaLineGap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamecompatiblefullname" class="md-nav__link">
+    openTypeNameCompatibleFullName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamedescription" class="md-nav__link">
+    openTypeNameDescription
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamedesigner" class="md-nav__link">
+    openTypeNameDesigner
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamedesignerurl" class="md-nav__link">
+    openTypeNameDesignerURL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamelicense" class="md-nav__link">
+    openTypeNameLicense
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamelicenseurl" class="md-nav__link">
+    openTypeNameLicenseURL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamemanufacturer" class="md-nav__link">
+    openTypeNameManufacturer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamemanufacturerurl" class="md-nav__link">
+    openTypeNameManufacturerURL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamepreferredfamilyname" class="md-nav__link">
+    openTypeNamePreferredFamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamepreferredsubfamilyname" class="md-nav__link">
+    openTypeNamePreferredSubfamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamesampletext" class="md-nav__link">
+    openTypeNameSampleText
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenameuniqueid" class="md-nav__link">
+    openTypeNameUniqueID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenameversion" class="md-nav__link">
+    openTypeNameVersion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamewwsfamilyname" class="md-nav__link">
+    openTypeNameWWSFamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypenamewwssubfamilyname" class="md-nav__link">
+    openTypeNameWWSSubfamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2codepageranges" class="md-nav__link">
+    openTypeOS2CodePageRanges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2familyclass" class="md-nav__link">
+    openTypeOS2FamilyClass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2panose" class="md-nav__link">
+    openTypeOS2Panose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2selection" class="md-nav__link">
+    openTypeOS2Selection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2strikeoutposition" class="md-nav__link">
+    openTypeOS2StrikeoutPosition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2strikeoutsize" class="md-nav__link">
+    openTypeOS2StrikeoutSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2subscriptxoffset" class="md-nav__link">
+    openTypeOS2SubscriptXOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2subscriptxsize" class="md-nav__link">
+    openTypeOS2SubscriptXSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2subscriptyoffset" class="md-nav__link">
+    openTypeOS2SubscriptYOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2subscriptysize" class="md-nav__link">
+    openTypeOS2SubscriptYSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2superscriptxoffset" class="md-nav__link">
+    openTypeOS2SuperscriptXOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2superscriptxsize" class="md-nav__link">
+    openTypeOS2SuperscriptXSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2superscriptyoffset" class="md-nav__link">
+    openTypeOS2SuperscriptYOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2superscriptysize" class="md-nav__link">
+    openTypeOS2SuperscriptYSize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2type" class="md-nav__link">
+    openTypeOS2Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2typoascender" class="md-nav__link">
+    openTypeOS2TypoAscender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2typodescender" class="md-nav__link">
+    openTypeOS2TypoDescender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2typolinegap" class="md-nav__link">
+    openTypeOS2TypoLineGap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2unicoderanges" class="md-nav__link">
+    openTypeOS2UnicodeRanges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2vendorid" class="md-nav__link">
+    openTypeOS2VendorID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2weightclass" class="md-nav__link">
+    openTypeOS2WeightClass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2widthclass" class="md-nav__link">
+    openTypeOS2WidthClass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2winascent" class="md-nav__link">
+    openTypeOS2WinAscent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypeos2windescent" class="md-nav__link">
+    openTypeOS2WinDescent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheacaretoffset" class="md-nav__link">
+    openTypeVheaCaretOffset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheacaretsloperise" class="md-nav__link">
+    openTypeVheaCaretSlopeRise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheacaretsloperun" class="md-nav__link">
+    openTypeVheaCaretSlopeRun
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheaverttypoascender" class="md-nav__link">
+    openTypeVheaVertTypoAscender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheaverttypodescender" class="md-nav__link">
+    openTypeVheaVertTypoDescender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentypevheaverttypolinegap" class="md-nav__link">
+    openTypeVheaVertTypoLineGap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptbluefuzz" class="md-nav__link">
+    postscriptBlueFuzz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptbluescale" class="md-nav__link">
+    postscriptBlueScale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptblueshift" class="md-nav__link">
+    postscriptBlueShift
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptbluevalues" class="md-nav__link">
+    postscriptBlueValues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptdefaultcharacter" class="md-nav__link">
+    postscriptDefaultCharacter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptdefaultwidthx" class="md-nav__link">
+    postscriptDefaultWidthX
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptfamilyblues" class="md-nav__link">
+    postscriptFamilyBlues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptfamilyotherblues" class="md-nav__link">
+    postscriptFamilyOtherBlues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptfontname" class="md-nav__link">
+    postscriptFontName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptforcebold" class="md-nav__link">
+    postscriptForceBold
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptfullname" class="md-nav__link">
+    postscriptFullName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptisfixedpitch" class="md-nav__link">
+    postscriptIsFixedPitch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptnominalwidthx" class="md-nav__link">
+    postscriptNominalWidthX
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptotherblues" class="md-nav__link">
+    postscriptOtherBlues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptslantangle" class="md-nav__link">
+    postscriptSlantAngle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptstemsnaph" class="md-nav__link">
+    postscriptStemSnapH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptstemsnapv" class="md-nav__link">
+    postscriptStemSnapV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptunderlineposition" class="md-nav__link">
+    postscriptUnderlinePosition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptunderlinethickness" class="md-nav__link">
+    postscriptUnderlineThickness
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptuniqueid" class="md-nav__link">
+    postscriptUniqueID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptweightname" class="md-nav__link">
+    postscriptWeightName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postscriptwindowscharacterset" class="md-nav__link">
+    postscriptWindowsCharacterSet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stylemapfamilyname" class="md-nav__link">
+    styleMapFamilyName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stylemapstylename" class="md-nav__link">
+    styleMapStyleName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stylename" class="md-nav__link">
+    styleName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trademark" class="md-nav__link">
+    trademark
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unitsperem" class="md-nav__link">
+    unitsPerEm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versionmajor" class="md-nav__link">
+    versionMajor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versionminor" class="md-nav__link">
+    versionMinor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xheight" class="md-nav__link">
+    xHeight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#year" class="md-nav__link">
+    year
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><a name="fontgate.fgFontInfo"></a></p>
+<h1 id="fgfontinfo"><code>fgFontInfo</code></h1>
+<dt class="class"><h2><span class="class-name">fontgate.fgFontInfo</span> = <a name="fontgate.fgFontInfo" href="#fontgate.fgFontInfo">class fgFontInfo</a>(<a href="./__builtin__.html#object">object</a>)</h2></dt>
+
+<dd class="class"><dd>
+
+<pre class="doc" markdown="0">FontInfo data
+
+No constructors - it's the direct member of the fgFont object</pre>
+
+
+</dd><h4 class="head-methods">Methods </h4><dl class="function"><dt><a name="fgFontInfo-__cmp__" href="#fgFontInfo-__cmp__"><span class="function-name">__cmp__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgFontInfo-__cmp__">__cmp__</a>(y) <==> cmp(x,y)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgFontInfo-__delattr__" href="#fgFontInfo-__delattr__"><span class="function-name">__delattr__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgFontInfo-__delattr__">__delattr__</a>('name') <==> del x.name</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgFontInfo-__getattribute__" href="#fgFontInfo-__getattribute__"><span class="function-name">__getattribute__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgFontInfo-__getattribute__">__getattribute__</a>('name') <==> x.name</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgFontInfo-__init__" href="#fgFontInfo-__init__"><span class="function-name">__init__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgFontInfo-__init__">__init__</a>(...) initializes x; see help(type(x)) for signature</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgFontInfo-__repr__" href="#fgFontInfo-__repr__"><span class="function-name">__repr__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgFontInfo-__repr__">__repr__</a>() <==> repr(x)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="fgFontInfo-__setattr__" href="#fgFontInfo-__setattr__"><span class="function-name">__setattr__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontgate.fgFontInfo-__setattr__">__setattr__</a>('name', value) <==> x.name = value</pre>
+
+</dd></dl>
+
+  <h4 class="head-desc">Descriptors </h4><dl class="descriptor"><dt>ascender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>capHeight</dt>
+<dd>
+
+<pre class="doc" markdown="0">Cap height value</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>caretOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret offset value</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>copyright</dt>
+<dd>
+
+<pre class="doc" markdown="0">Copyright statement</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>descender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>dict</dt>
+<dd>
+
+<pre class="doc" markdown="0">Other font info tags and data</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>familyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Family name</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>italicAngle</dt>
+<dd>
+
+<pre class="doc" markdown="0">Italic angle</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>macintoshFONDFamilyID</dt>
+<dd>
+
+<pre class="doc" markdown="0">Family ID number. Corresponds to the ffFamID in the Macintosh FOND resource</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>macintoshFONDName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Font name for the Macintosh FOND resource</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>note</dt>
+<dd>
+
+<pre class="doc" markdown="0">Arbitrary note about the font</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHeadCreated</dt>
+<dd>
+
+<pre class="doc" markdown="0">Creation date and time</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHeadFlags</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers indicating the flags. Corresponds to the OpenType head table flags field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHeadFontDirectionHint</dt>
+<dd>
+
+<pre class="doc" markdown="0">Deprecated (Set to 2). Corresponds to the OpenType head table fontDirectionHint field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHeadLowestRecPPEM</dt>
+<dd>
+
+<pre class="doc" markdown="0">Smallest readable size in pixels. Corresponds to the OpenType head table lowestRecPPEM field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHeadModified</dt>
+<dd>
+
+<pre class="doc" markdown="0">Last modification date and time</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHheaAscender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value. Corresponds to the OpenType hhea table Ascender field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHheaCaretOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret offset value. Corresponds to the OpenType hhea table caretOffset field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHheaCaretSlopeRise</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret slope rise value. Corresponds to the OpenType hhea table caretSlopeRise field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHheaCaretSlopeRun</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret slope run value. Corresponds to the OpenType hhea table caretSlopeRun field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHheaDescender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value. Corresponds to the OpenType hhea table Descender field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeHheaLineGap</dt>
+<dd>
+
+<pre class="doc" markdown="0">Line gap value. Corresponds to the OpenType hhea table LineGap field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameCompatibleFullName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Compatible full name. Corresponds to the OpenType name table name ID 18</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameDescription</dt>
+<dd>
+
+<pre class="doc" markdown="0">Description of the font. Corresponds to the OpenType name table name ID 10</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameDesigner</dt>
+<dd>
+
+<pre class="doc" markdown="0">Designer name. Corresponds to the OpenType name table name ID 9</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameDesignerURL</dt>
+<dd>
+
+<pre class="doc" markdown="0">URL for the designer. Corresponds to the OpenType name table name ID 12</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameLicense</dt>
+<dd>
+
+<pre class="doc" markdown="0">License text. Corresponds to the OpenType name table name ID 13</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameLicenseURL</dt>
+<dd>
+
+<pre class="doc" markdown="0">URL for the license. Corresponds to the OpenType name table name ID 14</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameManufacturer</dt>
+<dd>
+
+<pre class="doc" markdown="0">Manufacturer name. Corresponds to the OpenType name table name ID 8</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameManufacturerURL</dt>
+<dd>
+
+<pre class="doc" markdown="0">Manufacturer URL. Corresponds to the OpenType name table name ID 11</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNamePreferredFamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Preferred family name. Corresponds to the OpenType name table name ID 16</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNamePreferredSubfamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Preferred subfamily name. Corresponds to the OpenType name table name ID 17</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameSampleText</dt>
+<dd>
+
+<pre class="doc" markdown="0">Sample text. Corresponds to the OpenType name table name ID 20</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameUniqueID</dt>
+<dd>
+
+<pre class="doc" markdown="0">Unique ID string. Corresponds to the OpenType name table name ID 3</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameVersion</dt>
+<dd>
+
+<pre class="doc" markdown="0">Version string. Corresponds to the OpenType name table name ID 5</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameWWSFamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">WWS family name. Corresponds to the OpenType name table name ID 21</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeNameWWSSubfamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">WWS Subfamily name. Corresponds to the OpenType name table name ID 22</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2CodePageRanges</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers that are supported code page ranges in the font. Corresponds to the OpenType OS/2 table ulCodePageRange1 and ulCodePageRange2 fields</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2FamilyClass</dt>
+<dd>
+
+<pre class="doc" markdown="0">Two integers representing the IBM font class and font subclass of the font. The first number, representing the class ID, should be in the range 0-14. The second number, representing the subclass, should be in the range 0-15. Corresponds to the OpenType OS/2 table sFamilyClass field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2Panose</dt>
+<dd>
+
+<pre class="doc" markdown="0">The list should contain 10 integers that represent the setting for each category in the Panose specification. This corresponds to the OpenType OS/2 table Panose field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2Selection</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers indicating the bits that should be set in fsSelection. Corresponds to the OpenType OS/2 table selection field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2StrikeoutPosition</dt>
+<dd>
+
+<pre class="doc" markdown="0">Strikeout position. Corresponds to the OpenType OS/2 table yStrikeoutPosition field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2StrikeoutSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Strikeout size. Corresponds to the OpenType OS/2 table yStrikeoutSize field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2SubscriptXOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Subscript x offset. Corresponds to the OpenType OS/2 table ySubscriptXOffset field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2SubscriptXSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Subscript horizontal font size. Corresponds to the OpenType OS/2 table ySubscriptXSize field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2SubscriptYOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Subscript y offset. Corresponds to the OpenType OS/2 table ySubscriptYOffset field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2SubscriptYSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Subscript vertical font size. Corresponds to the OpenType OS/2 table ySubscriptYSize field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2SuperscriptXOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Superscript x offset. Corresponds to the OpenType OS/2 table ySuperscriptXOffset field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2SuperscriptXSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Superscript horizontal font size. Corresponds to the OpenType OS/2 table ySuperscriptXSize field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2SuperscriptYOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Superscript y offset. Corresponds to the OpenType OS/2 table ySuperscriptYOffset field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2SuperscriptYSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Superscript vertical font size. Corresponds to the OpenType OS/2 table ySuperscriptYSize field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2Type</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers indicating the embedding type. Corresponds to the OpenType OS/2 table fsType field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2TypoAscender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value. Corresponds to the OpenType OS/2 table sTypoAscender field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2TypoDescender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value. Corresponds to the OpenType OS/2 table sTypoDescender field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2TypoLineGap</dt>
+<dd>
+
+<pre class="doc" markdown="0">Line gap value. Corresponds to the OpenType OS/2 table sTypoLineGap field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2UnicodeRanges</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers that are supported Unicode ranges in the font. Corresponds to the OpenType OS/2 table ulUnicodeRange1, ulUnicodeRange2, ulUnicodeRange3 and ulUnicodeRange4 fields</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2VendorID</dt>
+<dd>
+
+<pre class="doc" markdown="0">Four character identifier for the creator of the font. Corresponds to the OpenType OS/2 table achVendID field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2WeightClass</dt>
+<dd>
+
+<pre class="doc" markdown="0">Weight class value. Must be a positive integer. Corresponds to the OpenType OS/2 table usWeightClass field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2WidthClass</dt>
+<dd>
+
+<pre class="doc" markdown="0">Width class value. Must be in the range 1-9. Corresponds to the OpenType OS/2 table usWidthClass field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2WinAscent</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value. Corresponds to the OpenType OS/2 table usWinAscent field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeOS2WinDescent</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value. Corresponds to the OpenType OS/2 table usWinDescent field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeVheaCaretOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret offset value. Corresponds to the OpenType vhea table caretOffset field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeVheaCaretSlopeRise</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret slope rise value. Corresponds to the OpenType vhea table caretSlopeRise field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeVheaCaretSlopeRun</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret slope run value. Corresponds to the OpenType vhea table caretSlopeRun field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeVheaVertTypoAscender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value. Corresponds to the OpenType vhea table vertTypoAscender field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeVheaVertTypoDescender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value. Corresponds to the OpenType vhea table vertTypoDescender field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>openTypeVheaVertTypoLineGap</dt>
+<dd>
+
+<pre class="doc" markdown="0">Line gap value. Corresponds to the OpenType vhea table vertTypoLineGap field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptBlueFuzz</dt>
+<dd>
+
+<pre class="doc" markdown="0">BlueFuzz value. This corresponds to the Type 1/CFF BlueFuzz field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptBlueScale</dt>
+<dd>
+
+<pre class="doc" markdown="0">BlueScale value. This corresponds to the Type 1/CFF BlueScale field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptBlueShift</dt>
+<dd>
+
+<pre class="doc" markdown="0">BlueShift value. This corresponds to the Type 1/CFF BlueShift field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptBlueValues</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of up to 14 integers or floats specifying the values that should be in the Type 1/CFF BlueValues field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptDefaultCharacter</dt>
+<dd>
+
+<pre class="doc" markdown="0">The name of the glyph that should be used as the default character in PFM files</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptDefaultWidthX</dt>
+<dd>
+
+<pre class="doc" markdown="0">Default width for glyphs</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptFamilyBlues</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of up to 14 integers or floats specifying the values that should be in the Type 1/CFF FamilyBlues field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptFamilyOtherBlues</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of up to 10 integers or floats specifying the values that should be in the Type 1/CFF FamilyOtherBlues field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptFontName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Name to be used for the FontName field in Type 1/CFF table</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptForceBold</dt>
+<dd>
+
+<pre class="doc" markdown="0">Indicates how the Type 1/CFF ForceBold field should be set</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptFullName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Name to be used for the FullName field in Type 1/CFF table</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptIsFixedPitch</dt>
+<dd>
+
+<pre class="doc" markdown="0">Indicates if the font is monospaced. A compiler could calculate this automatically, but the designer may wish to override this setting. This corresponds to the Type 1/CFF isFixedPitched field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptNominalWidthX</dt>
+<dd>
+
+<pre class="doc" markdown="0">Nominal width for glyphs</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptOtherBlues</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of up to 10 integers or floats specifying the values that should be in the Type 1/CFF OtherBlues field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptSlantAngle</dt>
+<dd>
+
+<pre class="doc" markdown="0">Artificial slant angle</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptStemSnapH</dt>
+<dd>
+
+<pre class="doc" markdown="0">List of horizontal stems sorted in increasing order. Up to 12 integers or floats are possible. This corresponds to the Type 1/CFF StemSnapH field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptStemSnapV</dt>
+<dd>
+
+<pre class="doc" markdown="0">List of vertical stems sorted in increasing order. Up to 12 integers or floats are possible. This corresponds to the Type 1/CFF StemSnapV field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptUnderlinePosition</dt>
+<dd>
+
+<pre class="doc" markdown="0">Underline position value. Corresponds to the Type 1/CFF/post table UnderlinePosition field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptUnderlineThickness</dt>
+<dd>
+
+<pre class="doc" markdown="0">Underline thickness value. Corresponds to the Type 1/CFF/post table UnderlineThickness field</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptUniqueID</dt>
+<dd>
+
+<pre class="doc" markdown="0">A unique ID number as defined in the Type 1/CFF specification</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptWeightName</dt>
+<dd>
+
+<pre class="doc" markdown="0">A string indicating the overall weight of the font. This corresponds to the Type 1/CFF Weight field. It should be in sync with the openTypeOS2WeightClass value</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>postscriptWindowsCharacterSet</dt>
+<dd>
+
+<pre class="doc" markdown="0">The Windows character set. postscriptWindowsCharacterSet Options. Possible values are 1..20</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>styleMapFamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Family name used for bold, italic and bold italic style mapping</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>styleMapStyleName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Styling link name. Perrmitted values are 'Regular', 'Italic', 'Bold', 'Bold Italic' (exactly as spelled). No other values are permitted</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>styleName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Style name</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>trademark</dt>
+<dd>
+
+<pre class="doc" markdown="0">Trademark statement</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>unitsPerEm</dt>
+<dd>
+
+<pre class="doc" markdown="0">Units per em</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>versionMajor</dt>
+<dd>
+
+<pre class="doc" markdown="0">Major version</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>versionMinor</dt>
+<dd>
+
+<pre class="doc" markdown="0">Minor version</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>xHeight</dt>
+<dd>
+
+<pre class="doc" markdown="0">x-height value</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>year</dt>
+<dd>
+
+<pre class="doc" markdown="0">The year the font was created</pre>
+
+</dd>
+</dl>
+
+  <h4 class="head-attrs">Attributes </h4><dl><dt><span class="other-name">__new__</span> = &lt;built-in method __new__ of type object&gt;<dd>
+
+<pre class="doc" markdown="0">T.<a href="#fontgate.fgFontInfo-__new__">__new__</a>(S, ...) -> a new object with type S, a subtype of T</pre>
+
+</dd></dl>
+</dd>
+
+<p><a name="fontgate.fgFontInfo.ascender"></a></p>
+<h2 id="ascender"><code>ascender</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.ascender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.capHeight"></a></p>
+<h2 id="capheight"><code>capHeight</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.capHeight</dt>
+<dd>
+
+<pre class="doc" markdown="0">Cap height value</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.caretOffset"></a></p>
+<h2 id="caretoffset"><code>caretOffset</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.caretOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret offset value</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.copyright"></a></p>
+<h2 id="copyright"><code>copyright</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.copyright</dt>
+<dd>
+
+<pre class="doc" markdown="0">Copyright statement</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.descender"></a></p>
+<h2 id="descender"><code>descender</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.descender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.dict"></a></p>
+<h2 id="dict"><code>dict</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.dict</dt>
+<dd>
+
+<pre class="doc" markdown="0">Other font info tags and data</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.familyName"></a></p>
+<h2 id="familyname"><code>familyName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.familyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Family name</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.italicAngle"></a></p>
+<h2 id="italicangle"><code>italicAngle</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.italicAngle</dt>
+<dd>
+
+<pre class="doc" markdown="0">Italic angle</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.macintoshFONDFamilyID"></a></p>
+<h2 id="macintoshfondfamilyid"><code>macintoshFONDFamilyID</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.macintoshFONDFamilyID</dt>
+<dd>
+
+<pre class="doc" markdown="0">Family ID number. Corresponds to the ffFamID in the Macintosh FOND resource</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.macintoshFONDName"></a></p>
+<h2 id="macintoshfondname"><code>macintoshFONDName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.macintoshFONDName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Font name for the Macintosh FOND resource</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.note"></a></p>
+<h2 id="note"><code>note</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.note</dt>
+<dd>
+
+<pre class="doc" markdown="0">Arbitrary note about the font</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHeadCreated"></a></p>
+<h2 id="opentypeheadcreated"><code>openTypeHeadCreated</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHeadCreated</dt>
+<dd>
+
+<pre class="doc" markdown="0">Creation date and time</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHeadFlags"></a></p>
+<h2 id="opentypeheadflags"><code>openTypeHeadFlags</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHeadFlags</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers indicating the flags. Corresponds to the OpenType head table flags field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHeadFontDirectionHint"></a></p>
+<h2 id="opentypeheadfontdirectionhint"><code>openTypeHeadFontDirectionHint</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHeadFontDirectionHint</dt>
+<dd>
+
+<pre class="doc" markdown="0">Deprecated (Set to 2). Corresponds to the OpenType head table fontDirectionHint field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHeadLowestRecPPEM"></a></p>
+<h2 id="opentypeheadlowestrecppem"><code>openTypeHeadLowestRecPPEM</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHeadLowestRecPPEM</dt>
+<dd>
+
+<pre class="doc" markdown="0">Smallest readable size in pixels. Corresponds to the OpenType head table lowestRecPPEM field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHeadModified"></a></p>
+<h2 id="opentypeheadmodified"><code>openTypeHeadModified</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHeadModified</dt>
+<dd>
+
+<pre class="doc" markdown="0">Last modification date and time</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHheaAscender"></a></p>
+<h2 id="opentypehheaascender"><code>openTypeHheaAscender</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHheaAscender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value. Corresponds to the OpenType hhea table Ascender field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHheaCaretOffset"></a></p>
+<h2 id="opentypehheacaretoffset"><code>openTypeHheaCaretOffset</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHheaCaretOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret offset value. Corresponds to the OpenType hhea table caretOffset field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHheaCaretSlopeRise"></a></p>
+<h2 id="opentypehheacaretsloperise"><code>openTypeHheaCaretSlopeRise</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHheaCaretSlopeRise</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret slope rise value. Corresponds to the OpenType hhea table caretSlopeRise field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHheaCaretSlopeRun"></a></p>
+<h2 id="opentypehheacaretsloperun"><code>openTypeHheaCaretSlopeRun</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHheaCaretSlopeRun</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret slope run value. Corresponds to the OpenType hhea table caretSlopeRun field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHheaDescender"></a></p>
+<h2 id="opentypehheadescender"><code>openTypeHheaDescender</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHheaDescender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value. Corresponds to the OpenType hhea table Descender field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeHheaLineGap"></a></p>
+<h2 id="opentypehhealinegap"><code>openTypeHheaLineGap</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeHheaLineGap</dt>
+<dd>
+
+<pre class="doc" markdown="0">Line gap value. Corresponds to the OpenType hhea table LineGap field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameCompatibleFullName"></a></p>
+<h2 id="opentypenamecompatiblefullname"><code>openTypeNameCompatibleFullName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameCompatibleFullName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Compatible full name. Corresponds to the OpenType name table name ID 18</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameDescription"></a></p>
+<h2 id="opentypenamedescription"><code>openTypeNameDescription</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameDescription</dt>
+<dd>
+
+<pre class="doc" markdown="0">Description of the font. Corresponds to the OpenType name table name ID 10</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameDesigner"></a></p>
+<h2 id="opentypenamedesigner"><code>openTypeNameDesigner</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameDesigner</dt>
+<dd>
+
+<pre class="doc" markdown="0">Designer name. Corresponds to the OpenType name table name ID 9</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameDesignerURL"></a></p>
+<h2 id="opentypenamedesignerurl"><code>openTypeNameDesignerURL</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameDesignerURL</dt>
+<dd>
+
+<pre class="doc" markdown="0">URL for the designer. Corresponds to the OpenType name table name ID 12</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameLicense"></a></p>
+<h2 id="opentypenamelicense"><code>openTypeNameLicense</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameLicense</dt>
+<dd>
+
+<pre class="doc" markdown="0">License text. Corresponds to the OpenType name table name ID 13</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameLicenseURL"></a></p>
+<h2 id="opentypenamelicenseurl"><code>openTypeNameLicenseURL</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameLicenseURL</dt>
+<dd>
+
+<pre class="doc" markdown="0">URL for the license. Corresponds to the OpenType name table name ID 14</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameManufacturer"></a></p>
+<h2 id="opentypenamemanufacturer"><code>openTypeNameManufacturer</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameManufacturer</dt>
+<dd>
+
+<pre class="doc" markdown="0">Manufacturer name. Corresponds to the OpenType name table name ID 8</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameManufacturerURL"></a></p>
+<h2 id="opentypenamemanufacturerurl"><code>openTypeNameManufacturerURL</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameManufacturerURL</dt>
+<dd>
+
+<pre class="doc" markdown="0">Manufacturer URL. Corresponds to the OpenType name table name ID 11</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNamePreferredFamilyName"></a></p>
+<h2 id="opentypenamepreferredfamilyname"><code>openTypeNamePreferredFamilyName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNamePreferredFamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Preferred family name. Corresponds to the OpenType name table name ID 16</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNamePreferredSubfamilyName"></a></p>
+<h2 id="opentypenamepreferredsubfamilyname"><code>openTypeNamePreferredSubfamilyName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNamePreferredSubfamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Preferred subfamily name. Corresponds to the OpenType name table name ID 17</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameSampleText"></a></p>
+<h2 id="opentypenamesampletext"><code>openTypeNameSampleText</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameSampleText</dt>
+<dd>
+
+<pre class="doc" markdown="0">Sample text. Corresponds to the OpenType name table name ID 20</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameUniqueID"></a></p>
+<h2 id="opentypenameuniqueid"><code>openTypeNameUniqueID</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameUniqueID</dt>
+<dd>
+
+<pre class="doc" markdown="0">Unique ID string. Corresponds to the OpenType name table name ID 3</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameVersion"></a></p>
+<h2 id="opentypenameversion"><code>openTypeNameVersion</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameVersion</dt>
+<dd>
+
+<pre class="doc" markdown="0">Version string. Corresponds to the OpenType name table name ID 5</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameWWSFamilyName"></a></p>
+<h2 id="opentypenamewwsfamilyname"><code>openTypeNameWWSFamilyName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameWWSFamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">WWS family name. Corresponds to the OpenType name table name ID 21</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeNameWWSSubfamilyName"></a></p>
+<h2 id="opentypenamewwssubfamilyname"><code>openTypeNameWWSSubfamilyName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeNameWWSSubfamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">WWS Subfamily name. Corresponds to the OpenType name table name ID 22</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2CodePageRanges"></a></p>
+<h2 id="opentypeos2codepageranges"><code>openTypeOS2CodePageRanges</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2CodePageRanges</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers that are supported code page ranges in the font. Corresponds to the OpenType OS/2 table ulCodePageRange1 and ulCodePageRange2 fields</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2FamilyClass"></a></p>
+<h2 id="opentypeos2familyclass"><code>openTypeOS2FamilyClass</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2FamilyClass</dt>
+<dd>
+
+<pre class="doc" markdown="0">Two integers representing the IBM font class and font subclass of the font. The first number, representing the class ID, should be in the range 0-14. The second number, representing the subclass, should be in the range 0-15. Corresponds to the OpenType OS/2 table sFamilyClass field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2Panose"></a></p>
+<h2 id="opentypeos2panose"><code>openTypeOS2Panose</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2Panose</dt>
+<dd>
+
+<pre class="doc" markdown="0">The list should contain 10 integers that represent the setting for each category in the Panose specification. This corresponds to the OpenType OS/2 table Panose field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2Selection"></a></p>
+<h2 id="opentypeos2selection"><code>openTypeOS2Selection</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2Selection</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers indicating the bits that should be set in fsSelection. Corresponds to the OpenType OS/2 table selection field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2StrikeoutPosition"></a></p>
+<h2 id="opentypeos2strikeoutposition"><code>openTypeOS2StrikeoutPosition</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2StrikeoutPosition</dt>
+<dd>
+
+<pre class="doc" markdown="0">Strikeout position. Corresponds to the OpenType OS/2 table yStrikeoutPosition field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2StrikeoutSize"></a></p>
+<h2 id="opentypeos2strikeoutsize"><code>openTypeOS2StrikeoutSize</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2StrikeoutSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Strikeout size. Corresponds to the OpenType OS/2 table yStrikeoutSize field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2SubscriptXOffset"></a></p>
+<h2 id="opentypeos2subscriptxoffset"><code>openTypeOS2SubscriptXOffset</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2SubscriptXOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Subscript x offset. Corresponds to the OpenType OS/2 table ySubscriptXOffset field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2SubscriptXSize"></a></p>
+<h2 id="opentypeos2subscriptxsize"><code>openTypeOS2SubscriptXSize</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2SubscriptXSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Subscript horizontal font size. Corresponds to the OpenType OS/2 table ySubscriptXSize field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2SubscriptYOffset"></a></p>
+<h2 id="opentypeos2subscriptyoffset"><code>openTypeOS2SubscriptYOffset</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2SubscriptYOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Subscript y offset. Corresponds to the OpenType OS/2 table ySubscriptYOffset field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2SubscriptYSize"></a></p>
+<h2 id="opentypeos2subscriptysize"><code>openTypeOS2SubscriptYSize</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2SubscriptYSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Subscript vertical font size. Corresponds to the OpenType OS/2 table ySubscriptYSize field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2SuperscriptXOffset"></a></p>
+<h2 id="opentypeos2superscriptxoffset"><code>openTypeOS2SuperscriptXOffset</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2SuperscriptXOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Superscript x offset. Corresponds to the OpenType OS/2 table ySuperscriptXOffset field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2SuperscriptXSize"></a></p>
+<h2 id="opentypeos2superscriptxsize"><code>openTypeOS2SuperscriptXSize</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2SuperscriptXSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Superscript horizontal font size. Corresponds to the OpenType OS/2 table ySuperscriptXSize field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2SuperscriptYOffset"></a></p>
+<h2 id="opentypeos2superscriptyoffset"><code>openTypeOS2SuperscriptYOffset</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2SuperscriptYOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Superscript y offset. Corresponds to the OpenType OS/2 table ySuperscriptYOffset field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2SuperscriptYSize"></a></p>
+<h2 id="opentypeos2superscriptysize"><code>openTypeOS2SuperscriptYSize</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2SuperscriptYSize</dt>
+<dd>
+
+<pre class="doc" markdown="0">Superscript vertical font size. Corresponds to the OpenType OS/2 table ySuperscriptYSize field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2Type"></a></p>
+<h2 id="opentypeos2type"><code>openTypeOS2Type</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2Type</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers indicating the embedding type. Corresponds to the OpenType OS/2 table fsType field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2TypoAscender"></a></p>
+<h2 id="opentypeos2typoascender"><code>openTypeOS2TypoAscender</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2TypoAscender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value. Corresponds to the OpenType OS/2 table sTypoAscender field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2TypoDescender"></a></p>
+<h2 id="opentypeos2typodescender"><code>openTypeOS2TypoDescender</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2TypoDescender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value. Corresponds to the OpenType OS/2 table sTypoDescender field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2TypoLineGap"></a></p>
+<h2 id="opentypeos2typolinegap"><code>openTypeOS2TypoLineGap</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2TypoLineGap</dt>
+<dd>
+
+<pre class="doc" markdown="0">Line gap value. Corresponds to the OpenType OS/2 table sTypoLineGap field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2UnicodeRanges"></a></p>
+<h2 id="opentypeos2unicoderanges"><code>openTypeOS2UnicodeRanges</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2UnicodeRanges</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of bit numbers that are supported Unicode ranges in the font. Corresponds to the OpenType OS/2 table ulUnicodeRange1, ulUnicodeRange2, ulUnicodeRange3 and ulUnicodeRange4 fields</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2VendorID"></a></p>
+<h2 id="opentypeos2vendorid"><code>openTypeOS2VendorID</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2VendorID</dt>
+<dd>
+
+<pre class="doc" markdown="0">Four character identifier for the creator of the font. Corresponds to the OpenType OS/2 table achVendID field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2WeightClass"></a></p>
+<h2 id="opentypeos2weightclass"><code>openTypeOS2WeightClass</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2WeightClass</dt>
+<dd>
+
+<pre class="doc" markdown="0">Weight class value. Must be a positive integer. Corresponds to the OpenType OS/2 table usWeightClass field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2WidthClass"></a></p>
+<h2 id="opentypeos2widthclass"><code>openTypeOS2WidthClass</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2WidthClass</dt>
+<dd>
+
+<pre class="doc" markdown="0">Width class value. Must be in the range 1-9. Corresponds to the OpenType OS/2 table usWidthClass field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2WinAscent"></a></p>
+<h2 id="opentypeos2winascent"><code>openTypeOS2WinAscent</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2WinAscent</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value. Corresponds to the OpenType OS/2 table usWinAscent field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeOS2WinDescent"></a></p>
+<h2 id="opentypeos2windescent"><code>openTypeOS2WinDescent</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeOS2WinDescent</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value. Corresponds to the OpenType OS/2 table usWinDescent field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeVheaCaretOffset"></a></p>
+<h2 id="opentypevheacaretoffset"><code>openTypeVheaCaretOffset</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeVheaCaretOffset</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret offset value. Corresponds to the OpenType vhea table caretOffset field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeVheaCaretSlopeRise"></a></p>
+<h2 id="opentypevheacaretsloperise"><code>openTypeVheaCaretSlopeRise</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeVheaCaretSlopeRise</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret slope rise value. Corresponds to the OpenType vhea table caretSlopeRise field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeVheaCaretSlopeRun"></a></p>
+<h2 id="opentypevheacaretsloperun"><code>openTypeVheaCaretSlopeRun</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeVheaCaretSlopeRun</dt>
+<dd>
+
+<pre class="doc" markdown="0">Caret slope run value. Corresponds to the OpenType vhea table caretSlopeRun field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeVheaVertTypoAscender"></a></p>
+<h2 id="opentypevheaverttypoascender"><code>openTypeVheaVertTypoAscender</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeVheaVertTypoAscender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Ascender value. Corresponds to the OpenType vhea table vertTypoAscender field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeVheaVertTypoDescender"></a></p>
+<h2 id="opentypevheaverttypodescender"><code>openTypeVheaVertTypoDescender</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeVheaVertTypoDescender</dt>
+<dd>
+
+<pre class="doc" markdown="0">Descender value. Corresponds to the OpenType vhea table vertTypoDescender field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.openTypeVheaVertTypoLineGap"></a></p>
+<h2 id="opentypevheaverttypolinegap"><code>openTypeVheaVertTypoLineGap</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.openTypeVheaVertTypoLineGap</dt>
+<dd>
+
+<pre class="doc" markdown="0">Line gap value. Corresponds to the OpenType vhea table vertTypoLineGap field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptBlueFuzz"></a></p>
+<h2 id="postscriptbluefuzz"><code>postscriptBlueFuzz</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptBlueFuzz</dt>
+<dd>
+
+<pre class="doc" markdown="0">BlueFuzz value. This corresponds to the Type 1/CFF BlueFuzz field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptBlueScale"></a></p>
+<h2 id="postscriptbluescale"><code>postscriptBlueScale</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptBlueScale</dt>
+<dd>
+
+<pre class="doc" markdown="0">BlueScale value. This corresponds to the Type 1/CFF BlueScale field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptBlueShift"></a></p>
+<h2 id="postscriptblueshift"><code>postscriptBlueShift</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptBlueShift</dt>
+<dd>
+
+<pre class="doc" markdown="0">BlueShift value. This corresponds to the Type 1/CFF BlueShift field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptBlueValues"></a></p>
+<h2 id="postscriptbluevalues"><code>postscriptBlueValues</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptBlueValues</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of up to 14 integers or floats specifying the values that should be in the Type 1/CFF BlueValues field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptDefaultCharacter"></a></p>
+<h2 id="postscriptdefaultcharacter"><code>postscriptDefaultCharacter</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptDefaultCharacter</dt>
+<dd>
+
+<pre class="doc" markdown="0">The name of the glyph that should be used as the default character in PFM files</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptDefaultWidthX"></a></p>
+<h2 id="postscriptdefaultwidthx"><code>postscriptDefaultWidthX</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptDefaultWidthX</dt>
+<dd>
+
+<pre class="doc" markdown="0">Default width for glyphs</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptFamilyBlues"></a></p>
+<h2 id="postscriptfamilyblues"><code>postscriptFamilyBlues</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptFamilyBlues</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of up to 14 integers or floats specifying the values that should be in the Type 1/CFF FamilyBlues field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptFamilyOtherBlues"></a></p>
+<h2 id="postscriptfamilyotherblues"><code>postscriptFamilyOtherBlues</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptFamilyOtherBlues</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of up to 10 integers or floats specifying the values that should be in the Type 1/CFF FamilyOtherBlues field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptFontName"></a></p>
+<h2 id="postscriptfontname"><code>postscriptFontName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptFontName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Name to be used for the FontName field in Type 1/CFF table</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptForceBold"></a></p>
+<h2 id="postscriptforcebold"><code>postscriptForceBold</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptForceBold</dt>
+<dd>
+
+<pre class="doc" markdown="0">Indicates how the Type 1/CFF ForceBold field should be set</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptFullName"></a></p>
+<h2 id="postscriptfullname"><code>postscriptFullName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptFullName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Name to be used for the FullName field in Type 1/CFF table</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptIsFixedPitch"></a></p>
+<h2 id="postscriptisfixedpitch"><code>postscriptIsFixedPitch</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptIsFixedPitch</dt>
+<dd>
+
+<pre class="doc" markdown="0">Indicates if the font is monospaced. A compiler could calculate this automatically, but the designer may wish to override this setting. This corresponds to the Type 1/CFF isFixedPitched field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptNominalWidthX"></a></p>
+<h2 id="postscriptnominalwidthx"><code>postscriptNominalWidthX</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptNominalWidthX</dt>
+<dd>
+
+<pre class="doc" markdown="0">Nominal width for glyphs</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptOtherBlues"></a></p>
+<h2 id="postscriptotherblues"><code>postscriptOtherBlues</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptOtherBlues</dt>
+<dd>
+
+<pre class="doc" markdown="0">A list of up to 10 integers or floats specifying the values that should be in the Type 1/CFF OtherBlues field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptSlantAngle"></a></p>
+<h2 id="postscriptslantangle"><code>postscriptSlantAngle</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptSlantAngle</dt>
+<dd>
+
+<pre class="doc" markdown="0">Artificial slant angle</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptStemSnapH"></a></p>
+<h2 id="postscriptstemsnaph"><code>postscriptStemSnapH</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptStemSnapH</dt>
+<dd>
+
+<pre class="doc" markdown="0">List of horizontal stems sorted in increasing order. Up to 12 integers or floats are possible. This corresponds to the Type 1/CFF StemSnapH field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptStemSnapV"></a></p>
+<h2 id="postscriptstemsnapv"><code>postscriptStemSnapV</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptStemSnapV</dt>
+<dd>
+
+<pre class="doc" markdown="0">List of vertical stems sorted in increasing order. Up to 12 integers or floats are possible. This corresponds to the Type 1/CFF StemSnapV field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptUnderlinePosition"></a></p>
+<h2 id="postscriptunderlineposition"><code>postscriptUnderlinePosition</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptUnderlinePosition</dt>
+<dd>
+
+<pre class="doc" markdown="0">Underline position value. Corresponds to the Type 1/CFF/post table UnderlinePosition field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptUnderlineThickness"></a></p>
+<h2 id="postscriptunderlinethickness"><code>postscriptUnderlineThickness</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptUnderlineThickness</dt>
+<dd>
+
+<pre class="doc" markdown="0">Underline thickness value. Corresponds to the Type 1/CFF/post table UnderlineThickness field</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptUniqueID"></a></p>
+<h2 id="postscriptuniqueid"><code>postscriptUniqueID</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptUniqueID</dt>
+<dd>
+
+<pre class="doc" markdown="0">A unique ID number as defined in the Type 1/CFF specification</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptWeightName"></a></p>
+<h2 id="postscriptweightname"><code>postscriptWeightName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptWeightName</dt>
+<dd>
+
+<pre class="doc" markdown="0">A string indicating the overall weight of the font. This corresponds to the Type 1/CFF Weight field. It should be in sync with the openTypeOS2WeightClass value</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.postscriptWindowsCharacterSet"></a></p>
+<h2 id="postscriptwindowscharacterset"><code>postscriptWindowsCharacterSet</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.postscriptWindowsCharacterSet</dt>
+<dd>
+
+<pre class="doc" markdown="0">The Windows character set. postscriptWindowsCharacterSet Options. Possible values are 1..20</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.styleMapFamilyName"></a></p>
+<h2 id="stylemapfamilyname"><code>styleMapFamilyName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.styleMapFamilyName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Family name used for bold, italic and bold italic style mapping</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.styleMapStyleName"></a></p>
+<h2 id="stylemapstylename"><code>styleMapStyleName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.styleMapStyleName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Styling link name. Perrmitted values are 'Regular', 'Italic', 'Bold', 'Bold Italic' (exactly as spelled). No other values are permitted</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.styleName"></a></p>
+<h2 id="stylename"><code>styleName</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.styleName</dt>
+<dd>
+
+<pre class="doc" markdown="0">Style name</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.trademark"></a></p>
+<h2 id="trademark"><code>trademark</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.trademark</dt>
+<dd>
+
+<pre class="doc" markdown="0">Trademark statement</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.unitsPerEm"></a></p>
+<h2 id="unitsperem"><code>unitsPerEm</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.unitsPerEm</dt>
+<dd>
+
+<pre class="doc" markdown="0">Units per em</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.versionMajor"></a></p>
+<h2 id="versionmajor"><code>versionMajor</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.versionMajor</dt>
+<dd>
+
+<pre class="doc" markdown="0">Major version</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.versionMinor"></a></p>
+<h2 id="versionminor"><code>versionMinor</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.versionMinor</dt>
+<dd>
+
+<pre class="doc" markdown="0">Minor version</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.xHeight"></a></p>
+<h2 id="xheight"><code>xHeight</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.xHeight</dt>
+<dd>
+
+<pre class="doc" markdown="0">x-height value</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontgate.fgFontInfo.year"></a></p>
+<h2 id="year"><code>year</code></h2>
+<dl class="descriptor"><dt>fontgate.fgFontInfo.year</dt>
+<dd>
+
+<pre class="doc" markdown="0">The year the font was created</pre>
+
+</dd>
+</dl>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="fontgate.fgFontHinting.html" title="fgFontHinting" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                fgFontHinting
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="fontgate.fgFontInfoDict.html" title="fgFontInfoDict" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                fgFontInfoDict
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2016–2020 <a href="http://www.fontlab.com/">Fontlab Ltd.</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      
+    
+  </body>
+</html>
