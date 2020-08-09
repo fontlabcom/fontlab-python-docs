@@ -10,7 +10,7 @@ The Python API for FontLab 7 consists of 4 packages:
 - [`fontgate`](fontgate.md)
 - [`FL`](FL.md)
 
-You can also use the [`PythonQt`](PythonQt.md) package to interact with the OS and build GUIs.
+You can also use the [`PythonQt`](pythonqt) package to interact with the OS and build GUIs.
 
 ## `typerig`
 
@@ -38,6 +38,6 @@ The `FL` package exposes a legacy API that is largely compatible with the old Fo
 
 FontLab uses Qt, a cross-platform set of APIs for user interface development and interaction with the operating system. Qt provides a unified API whether you use macOS or Windows. The `PythonQt` package exposes the entire Qt API to Python.
 
-- [`PythonQt`](PythonQt.md): FontLab’s API docs for the `PythonQt` package
+- [`PythonQt`](pythonqt): FontLab’s API docs for the `PythonQt` package
 - [official PythonQt](https://mevislab.github.io/pythonqt/): the official documentation of PythonQt
 - [PySide2 by Qt](https://doc.qt.io/qtforpython/index.html): documentation of `PySide2`, which is an alternative Qt-Python bridge. The documentation is useful in exploring what you can do with Qt. Some details differ between PySide2 and PythonQt, so always check PythonQt documentation.
