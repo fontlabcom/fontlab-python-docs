@@ -3,7 +3,7 @@
 
 ## Viewing the documentation
 
-Visit the [fontlabcom.github.io/fontlab-python](https://fontlabcom.github.io/fontlab-python) to view the documentation in the browser.
+Visit the [fontlabcom.github.io/fontlab-python-docs](https://fontlabcom.github.io/fontlab-python-docs) to view the documentation in the browser.
 
 ## Building the documentation
 
@@ -27,12 +27,12 @@ This will build the HTML documentation using `mkdocs` into the `docs/` folder.
 
 ## Contributing to the documentation
 
-Before you contribute to this repository, you must agree to the [FontLab Individual Contributor License Agreement](https://cla-assistant.io/fontlabcom/fontlab-python)
+Before you contribute to this repository, you must agree to the [FontLab Individual Contributor License Agreement](https://cla-assistant.io/fontlabcom/fontlab-python-docs)
 
 ### Simple
 
 1. Look up a base name (without the `.md` extension) in the [`srcdocs/mkdocs`](srcdocs/mkdocs) folder.
-2. Go to the [wiki](https://github.com/fontlabcom/fontlab-python/wiki) and create a new article with the same name.
+2. Go to the [wiki](https://github.com/fontlabcom/fontlab-python-docs/wiki) and create a new article with the same name.
 3. Write your content — we’ll review it and move it to the official docs.
 
 ### Advanced
