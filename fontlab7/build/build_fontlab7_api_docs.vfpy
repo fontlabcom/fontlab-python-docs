@@ -1,0 +1,21 @@
+
+from pydocmk2.__main__ import PyDocMk
+import sys
+import os
+from fontlab import *
+pk = flPackage()
+pk.addAxis(flAxis('weight', 'wght', 'wt'))
+pk.addMaster('Light', False, pk, None, False, False)
+pk.addMaster('Bold', False, pk, None, False, False)
+for m in pk.masters[1:]:
+    pk.addInstance(flInstance(m, m, pk.location(m)))
+
+cwd = os.path.dirname(__file__)
+os.chdir(cwd)
+
+pd = PyDocMk()
+pd.config_dir = os.path.join(cwd, '..')
+pd.config_path = os.path.join(pd.config_dir, 'pydocmk.yml')
+pd.command = 'build'
+pd.main()
+print("OK")

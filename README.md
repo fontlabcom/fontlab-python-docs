@@ -15,15 +15,25 @@ In Terminal or command-line, run:
 python2 -m pip install --user --upgrade git+https://github.com/twardoch/pydocmk2
 ```
 
-Open [`build_fl7_py_docs.vfpy`](build_fl7_py_docs.vfpy) in FontLab 7 and wait until the `pydocmk2` packages generates the Markdown files into the [`srcdocs/mkdocs`](srcdocs/mkdocs) folder.
+### Building the FontLab 7 Python API docs
 
-In Terminal, go to this folder and run:
+Go to the [`fontlab7/build`](fontlab7/build) folder.
+
+Open [`build_fontlab7_api_docs.vfpy`](fontlab7/build/build_fontlab7_api_docs.vfpy) in FontLab 7 and wait until the `pydocmk2` packages generates the Markdown files into the [`fontlab7/srcdocs/mkdocs`](fontlab7/srcdocs/mkdocs) folder.
+
+In Terminal, go to Go to the [`fontlab7/build`](fontlab7/build) folder and run:
 
 ```
-python2 -m mkdocs build -v
+python2 -m mkdocs build -v -f ../mkdocs.yml --dirty
 ```
+
+or, on macOS, double-click [`build_fontlab7_api_docs.command`](fontlab7/build/build_fontlab7_api_docs.command)
 
 This will build the HTML documentation using `mkdocs` into the `docs/` folder.
+
+### Building the FontLab 7 PythonQt API docs
+
+Go to the [`pythonqt/build`](pythonqt/build) folder, and proceed the same way. This will build into the `docs/pythonqt` folder.
 
 ## Contributing to the documentation
 
