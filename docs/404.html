@@ -3511,9 +3511,13 @@
                                     'https://www.google.com/search?q=site%3Adocs.python.org%2F2+OR+site%3Areadthedocs.io+' +
                                     thisUrl.pathname
                                     .replace(/^.*\//i, '')
+                                    .split('/').join('+').split('-').join('+')
                                     .replace('.html', '') +
                                     '+' +
-                                    thisUrl.hash.replace('#', '')
+                                    thisUrl.search
+                                    .split('&').join('+').split('=').join('+')
+                                    .split('?').join('+')
+                                    '+' + thisUrl.hash.split('#').join('+')
                                 );
                                 window.location = newUrl.toString();
                             }
