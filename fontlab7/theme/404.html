@@ -5,10 +5,14 @@
     window.onload = function() {
         thisUrl = new URL(window.location);
         newUrl = new
-        URL('https://docs.python.org/2/search.html?q=' + thisUrl.pathname.replace('/', '')
-            .replace('.html',
-                '') +
-            '+' + thisUrl.hash.replace('#', ''));
+        URL(
+            'https://docs.python.org/2/search.html?q=' +
+            thisUrl.pathname
+            .replace(/^\/.*\//i, '')
+            .replace('.html', '') +
+            '+' +
+            thisUrl.hash.replace('#', '')
+        );
         window.location = newUrl.toString();
     }
 </script>

@@ -3501,15 +3501,20 @@
                 <div class="md-content">
                     <article class="md-content__inner md-typeset">
 
-                        <h1 id="my404">404 - Not found</h1>
+                        <h1>404 - Not found</h1>
                         <p>Redirecting to Python 2 search...</p>
                         <script>
                             window.onload = function() {
                                 thisUrl = new URL(window.location);
                                 newUrl = new
-                                URL('https://docs.python.org/2/search.html?q=' + thisUrl.pathname.replace('/', '').replace('.html',
-                                        '') +
-                                    '+' + thisUrl.hash.replace('#', ''));
+                                URL(
+                                    'https://docs.python.org/2/search.html?q=' +
+                                    thisUrl.pathname
+                                    .replace(/^\/.*\//i, '')
+                                    .replace('.html', '') +
+                                    '+' +
+                                    thisUrl.hash.replace('#', '')
+                                );
                                 window.location = newUrl.toString();
                             }
                         </script>
