@@ -6,7 +6,11 @@
         thisUrl = new URL(window.location);
         newUrl = new
         URL(
-            'https://www.google.com/search?q=site%3Adocs.python.org%2F2+OR+site%3Areadthedocs.io+' +
+            'https://www.google.com/search?q=' +
+            'site%3Adocs.python.org%2F2+OR+' +
+            'site%3Areadthedocs.io+OR+' +
+            'site%3Afontlabcom.github.io%2Ffontlab-python-docs%2F+OR+' +
+            'site%3Ahelp.fontlab.com%2Ffontlab%2F7%2F+' +
             thisUrl.pathname
             .replace(/^.*\//i, '')
             .split('/').join('+').split('-').join('+')
