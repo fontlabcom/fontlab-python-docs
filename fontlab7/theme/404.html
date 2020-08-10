@@ -1,12 +1,12 @@
 {% extends "base.html" %} {% block content %}
 <h1>404 - Not found</h1>
-<p>Redirecting to Python 2 search...</p>
+<p>Redirecting to Google search...</p>
 <script>
     window.onload = function() {
         thisUrl = new URL(window.location);
         newUrl = new
         URL(
-            'https://docs.python.org/2/search.html?q=' +
+            'https://www.google.com/search?q=site%3Adocs.python.org%2F2+OR+site%3Areadthedocs.io+' +
             thisUrl.pathname
             .replace(/^.*\//i, '')
             .replace('.html', '') +
