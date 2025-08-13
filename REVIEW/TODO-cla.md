@@ -76,7 +76,7 @@ Context: This repo builds and hosts documentation for the FontLab 7 Python API a
       runs-on: ubuntu-latest
       container: python:2.7-slim
       steps:
-        - uses: actions/checkout@v4
+        - uses: actions/checkout@v3
         - run: pip install git+https://github.com/twardoch/pydocmk2 mkdocs==0.17.5 mkdocs-material==2.9.4
         - run: cd fontlab7/build && python -m mkdocs build -f ../mkdocs.yml
         - run: cd pythonqt/build && python -m mkdocs build -f ../mkdocs.yml || true
