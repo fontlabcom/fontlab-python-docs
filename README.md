@@ -24,12 +24,12 @@ Open [`build_fontlab7_api_docs.vfpy`](fontlab7/build/build_fontlab7_api_docs.vfp
 In Terminal, go to Go to the [`fontlab7/build`](fontlab7/build) folder and run:
 
 ```
-python2 -m mkdocs build -v -f ../mkdocs.yml --dirty
+uv run --project ../.. properdocs build -v -f ../mkdocs.yml
 ```
 
 or, on macOS, double-click [`build_fontlab7_api_docs.command`](fontlab7/build/build_fontlab7_api_docs.command)
 
-This will build the HTML documentation using `mkdocs` into the [`docs/`](docs) folder.
+This will build the HTML documentation using `properdocs` into the [`docs/`](docs) folder.
 
 ### Building the FontLab 7 PythonQt API docs
 
@@ -64,3 +64,7 @@ The [`pydocmk.yml`](fontlab7/pydocmk.yml) YAML file controls the build process, 
 ## License
 
 The documentation is licensed under the [Apache 2 license](LICENSE). Copyright © 2017-2020 Fontlab Ltd.
+
+### Rebuild both published API sites
+
+Run `./build.sh` from the repository root. It builds the root API first and the PythonQt child second, using the locked environment. Use clean builds: incremental builds can replace MaterialX search indexes with an empty index.

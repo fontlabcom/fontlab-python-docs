@@ -5,4 +5,4 @@ if [ "$dir" = "$0" ]; then
 fi
 cd "$dir"
 
-python2 -m mkdocs build -v -f ../mkdocs.yml --dirty
+uv run --project ../.. properdocs build -v -f ../mkdocs.yml
