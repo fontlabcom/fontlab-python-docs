@@ -1,5 +1,5 @@
 # this_file: pythonqt/test_search_compat.py
-"""The search bridge adds UI defaults without changing indexed API entries."""
+"""The search bridge keeps section entries and avoids duplicated whole-page text."""
 import json
 import tempfile
 import unittest
