@@ -14,15 +14,17 @@ repo_url: https://www.fontlab.com/
 copyright: Copyright © 2016–2020 <a href="http://www.fontlab.com/">Fontlab Ltd.</a>
 # Documentation and theme
 theme:
-        name: material
-        custom_dir: "theme"
+        name: materialx
+        # MaterialX is used directly.
         palette:
                 primary: deep purple
         logo: "https://res.cloudinary.com/fontlab/image/fetch/f_auto,w_48,c_scale/https://www.fontlab.com/img/icon-fontlab-7.png"
 extra_css:
+        - https://i.fontlab.com/fltheme26/1.0.0/components.css
+        - https://i.fontlab.com/fltheme26/1.0.0/theme.css
         - "style/fontlab_pyapi.css"
 plugins:
-        - search:
+        - /search:
                   lang: en
                   separator: '[\s\-\.]+'
 google_analytics:
@@ -40,56 +42,14 @@ extra:
                 twitter: fontlab
 
 markdown_extensions:
+        # API bodies are generated HTML; preserve them without prose transformations.
+        - abbr
         - attr_list
         - def_list
+        - fenced_code
+        - footnotes
         - tables
-        - abbr
         - admonition
-        - codehilite
-        - pymdownx.betterem:
-                  smart_enable: "all" # 'all' | 'asterisk' | 'underscore' | 'none'
-        - pymdownx.superfences:
-                  disable_indented_code_blocks: false
-                  highlight_code: true
-        - pymdownx.escapeall:
-                  hardbreak: true
-                  nbsp: true
-        - pymdownx.highlight:
-                  css_class: "highlight"
-                  guess_lang: false
-                  linenums: false
-                  noclasses: true
-                  pygments_style: "default"
-                  use_pygments: false
-        - pymdownx.inlinehilite:
-                  css_class: "highlight"
-                  style_plain_text: false
-                  #use_codehilite_settings : false
-        - pymdownx.magiclink:
-                  hide_protocol: true
-        - pymdownx.mark:
-                  smart_mark: true # Allows for ==mark==me==
-        - pymdownx.smartsymbols:
-                  arrows: true
-                  care_of: false
-                  copyright: true
-                  fractions: true
-                  notequal: true
-                  ordinal_numbers: false
-                  plusminus: true
-                  registered: true
-                  trademark: true
-        - pymdownx.tasklist:
-                  custom_checkbox: false
-        - pymdownx.tilde:
-                  smart_delete: false
-                  delete: true
-                  subscript: false
-        - pymdownx.caret:
-                  smart_insert: true
-                  insert: true
-                  superscript: true
-
 generate:
         - PythonQt.md:
                   - PythonQt++
@@ -124,3 +84,7 @@ pages:
         - QtXml: PythonQt.QtXml.md
         - QtXmlPatterns: PythonQt.QtXmlPatterns.md
         - private: PythonQt.private.md
+
+extra_javascript:
+  - https://i.fontlab.com/fltheme26/1.0.0/basecoat.js
+  - https://i.fontlab.com/fltheme26/1.0.0/theme.js

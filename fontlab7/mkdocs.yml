@@ -7,6 +7,8 @@ extra:
     twitter: fontlab
   version: 2020.08.06
 extra_css:
+  - https://i.fontlab.com/fltheme26/1.0.0/components.css
+  - https://i.fontlab.com/fltheme26/1.0.0/theme.css
   - style/fontlab_pyapi.css
 google_analytics:
   - UA-313999-1
@@ -22,7 +24,6 @@ markdown_extensions:
       smart_enable: all
   - pymdownx.superfences:
       disable_indented_code_blocks: false
-      highlight_code: true
   - pymdownx.escapeall:
       hardbreak: true
       nbsp: true
@@ -340,9 +341,13 @@ site_description: FontLab 7 Python API
 site_dir: ../docs
 site_name: FontLab 7 Python API
 theme:
-  custom_dir: theme
+  # MaterialX is used directly.
   logo: https://res.cloudinary.com/fontlab/image/fetch/f_auto,w_48,c_scale/https://www.fontlab.com/img/icon-fontlab-7.png
-  name: material
+  name: materialx
   palette:
     primary: indigo
 use_directory_urls: false
+
+extra_javascript:
+  - https://i.fontlab.com/fltheme26/1.0.0/basecoat.js
+  - https://i.fontlab.com/fltheme26/1.0.0/theme.js

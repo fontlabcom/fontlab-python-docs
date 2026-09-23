@@ -14,12 +14,14 @@ repo_url: https://www.fontlab.com/
 copyright: Copyright © 2016–2020 <a href="http://www.fontlab.com/">Fontlab Ltd.</a>
 # Documentation and theme
 theme:
-        name: material
-        custom_dir: "theme"
+        name: materialx
+        # MaterialX is used directly.
         palette:
                 primary: indigo
         logo: "https://res.cloudinary.com/fontlab/image/fetch/f_auto,w_48,c_scale/https://www.fontlab.com/img/icon-fontlab-7.png"
 extra_css:
+        - https://i.fontlab.com/fltheme26/1.0.0/components.css
+        - https://i.fontlab.com/fltheme26/1.0.0/theme.css
         - "style/fontlab_pyapi.css"
 plugins:
         - search:
@@ -50,7 +52,6 @@ markdown_extensions:
                   smart_enable: "all" # 'all' | 'asterisk' | 'underscore' | 'none'
         - pymdownx.superfences:
                   disable_indented_code_blocks: false
-                  highlight_code: true
         - pymdownx.escapeall:
                   hardbreak: true
                   nbsp: true
@@ -893,3 +894,7 @@ pages:
                   - Rect: FL.Rect.md
                   - TrueTypeTable: FL.TrueTypeTable.md
                   - TTPoint: FL.TTPoint.md
+
+extra_javascript:
+  - https://i.fontlab.com/fltheme26/1.0.0/basecoat.js
+  - https://i.fontlab.com/fltheme26/1.0.0/theme.js
