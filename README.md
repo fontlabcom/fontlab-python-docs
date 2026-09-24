@@ -1,3 +1,5 @@
+<!-- this_file: README.md -->
+
 
 # FontLab 7 Python API documentation
 
@@ -68,3 +70,13 @@ The documentation is licensed under the [Apache 2 license](LICENSE). Copyright Â
 ### Rebuild both published API sites
 
 Run `./build.sh` from the repository root. It builds the root API first and the PythonQt child second, using the locked environment. Use clean builds: incremental builds can replace MaterialX search indexes with an empty index.
+
+<!-- shared-theme-integration:start -->
+## Shared FontLab theme integration
+
+This repository is part of the FontLab theme 2026 rollout: python and pythonqt api reference.
+[THEME.md](THEME.md) documents its source/output boundaries, configuration,
+publication route, control ownership, shared visual changes and verification.
+Use the [public setup guide](https://i.fontlab.com/fltheme26/) and
+[MaterialX starter](https://i.fontlab.com/fltheme26/starter.zip) for new sites.
+<!-- shared-theme-integration:end -->
