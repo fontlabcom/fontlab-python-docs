@@ -1,0 +1,13 @@
+---
+this_file: TODO.md
+---
+- [x] Verify source-only native documentation names through actual mkdocstrings.
+- [x] Add explicit locked mkdocstrings Python handler/autorefs/Griffe dependencies.
+- [x] Test full-occurrence inventory, exact body sharing, pagination and facets.
+- [ ] Generate complete current native and ecosystem API pages/coverage/aliases.
+- [ ] Rebuild the root with current guidance and verified shared theme ownership.
+- [ ] Preserve legacy routes, fragments and a versioned archive.
+- [ ] Implement simple locked build/check/serve/explicit native refresh commands.
+- [ ] Verify complete HTML/anchors/objects.inv, search and browser interactions.
+- [ ] Verify deterministic offline source/artifact builds and CI/privacy/licenses.
+- [ ] Publish and independently verify the actual deployed site.
