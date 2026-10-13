@@ -45,6 +45,9 @@ def on_page_markdown(markdown, page, config, files):
 def on_post_build(config):
     path = Path(config.site_dir) / "search/search_index.json"
     data = json.loads(path.read_text())
+    from scripts.search_identities import qualify_titles
+
+    qualify_titles(data, _coverage["symbols"], _coverage["aliases"])
     # Keep section identities, avoiding duplicate whole-page body copies.
     section_pages = {
         r["location"].split("#")[0] for r in data["docs"] if "#" in r["location"]
@@ -53,7 +56,7 @@ def on_post_build(config):
         if row["location"] in section_pages:
             row["text"] = ""
     data["config"].update(
-        pipeline=["stemmer", "stopWordFilter", "trimmer"],
+        pipeline=["trimmer"],
         fields={
             "title": {"boost": 1000.0},
             "text": {"boost": 1.0},

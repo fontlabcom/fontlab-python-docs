@@ -17,7 +17,13 @@ Use Python3.12+ and uv. Clone the ecosystem repositories beside this checkout.
 ./build.sh --check
 ./build.sh --serve
 ./build.sh --offline
+# After reviewing changed producer source:
+./build.sh --update-source-lock
 ```
+
+`api-sources.lock.json` pins every documented input by SHA256. Normal builds
+reject missing, new or modified inputs; source changes require an explicit lock
+refresh. Checkout and installed-artifact modes enforce the same bytes.
 
 The first synchronization may fetch locked build dependencies. Subsequent offline
 builds use the provisioned cache and source checkouts. To use installed artifacts,

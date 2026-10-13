@@ -15,6 +15,7 @@ import yaml
 
 from .api_inventory import inventory_sources, plan_pages
 from .reference_pages import relative_link, render_page
+from .source_lock import apply_lock
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGES = {
@@ -71,7 +72,7 @@ def _aliases(plan: dict) -> dict[str, str]:
     }
 
 
-def generate(*, check: bool = False) -> dict:
+def generate(*, check: bool = False, update_source_lock: bool = False) -> dict:
     """Regenerate all pages and verify coverage without host/runtime imports."""
     roots = source_roots()
     native_root = next(root for root, package in roots if package == "fontlab_echopy")
@@ -81,6 +82,9 @@ def generate(*, check: bool = False) -> dict:
     namespace_root = ROOT / ".build/native-names"
     export_docnames(namespace_root, source=native_root / "fontlab_echopy")
     plan = plan_pages(inventory_sources(roots))
+    apply_lock(
+        ROOT / "api-sources.lock.json", plan["inputs"], update=update_source_lock
+    )
     aliases = _aliases(plan)
     content = ROOT / ".build/content"
     content.mkdir(parents=True, exist_ok=True)

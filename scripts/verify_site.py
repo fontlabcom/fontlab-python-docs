@@ -37,6 +37,13 @@ def verify_site(site: Path, coverage_path: Path) -> dict:
         )
         path, _, fragment = url.partition("#")
         wanted[path].add(fragment)
+    with (site / "objects.inv").open("rb") as stream:
+        inventory = Inventory.parse_sphinx(stream)
+    expected = set(coverage["symbols"]) | set(coverage["aliases"])
+    absent_inventory = expected - set(inventory)
+    for identifier in expected - absent_inventory:
+        path, _, fragment = inventory[identifier].uri.partition("#")
+        wanted[path].add(fragment)
     missing = []
     sizes = {}
     for relative, identifiers in wanted.items():
@@ -53,10 +60,6 @@ def verify_site(site: Path, coverage_path: Path) -> dict:
         if absent:
             missing.append({"page": relative, "missing_ids": sorted(absent)})
         sizes[relative] = path.stat().st_size
-    with (site / "objects.inv").open("rb") as stream:
-        inventory = Inventory.parse_sphinx(stream)
-    absent_inventory = set(coverage["symbols"]) | set(coverage["aliases"])
-    absent_inventory -= set(inventory)
     largest = max(sizes.values(), default=0)
     search = (site / "search/search_index.json").read_bytes()
     compressed = len(gzip.compress(search, mtime=0))

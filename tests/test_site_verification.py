@@ -45,3 +45,13 @@ def test_site_when_generated_member_anchor_missing_then_fails(tmp_path):
     site, coverage = fixture_site(tmp_path, anchor=False)
     with pytest.raises(ValueError, match="acceptance failed"):
         verify_site(site, coverage)
+
+
+def test_site_when_alias_inventory_points_to_missing_anchor_then_fails(tmp_path):
+    site, coverage = fixture_site(tmp_path)
+    inventory = Inventory(project="fixture", version="1")
+    inventory.register("pkg.value", "py", "function", "page.html#pkg.value")
+    inventory.register("pkg.alias", "py", "function", "page.html#wrong")
+    (site / "objects.inv").write_bytes(inventory.format_sphinx())
+    with pytest.raises(ValueError, match="acceptance failed"):
+        verify_site(site, coverage)

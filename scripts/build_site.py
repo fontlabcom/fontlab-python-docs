@@ -106,6 +106,7 @@ def main() -> None:
     modes.add_argument("--serve", action="store_true")
     parser.add_argument("--refresh-native", action="store_true")
     parser.add_argument("--offline", action="store_true")
+    parser.add_argument("--update-source-lock", action="store_true")
     args = parser.parse_args()
     if args.offline and args.refresh_native:
         parser.error(
@@ -114,7 +115,10 @@ def main() -> None:
     (ROOT / ".build").mkdir(exist_ok=True)
     if args.refresh_native:
         refresh_native()
-    generate(check=args.check)
+    generate(
+        check=args.check,
+        update_source_lock=args.update_source_lock or args.refresh_native,
+    )
     if args.check:
         from .verify_site import verify_site
 

@@ -6,31 +6,33 @@ this_file: WORK.md
 
 ## Expanded native reference rebuild
 
-The root build now consumes current Echopy and nine ecosystem source families,
-with runtime inspection disabled. Source generation includes232modules,
-1894classes,244654member identities,33303unique captured bodies and4104pages.
-Actual strict full render passed112.56s, peak resident3.35GB. Rendered verification
-checks246779symbols and242719aliases in actual anchors/objects.inv with no gaps.
-Largest current API page305773bytes; search32.57MB raw/3.49MB gzip, within declared
-budgets. Locked offline --check passes.17meaningful parser/render/archive/consumer
-tests and Ruff pass.
+The root build consumes captured/enriched Echopy and nine source families with
+runtime inspection disabled. Current inventory: 232 modules, 1,894 classes,
+244,654 member identities, 33,303 unique captured bodies and 4,104 pages. Strict
+full offline render passed in 118.37s. Actual HTML and every expected inventory
+URI verify 246,779 source symbols and 242,719 aliases without missing anchors.
+Largest current API page: 310,685 bytes; initial search: 3,818,297 bytes gzip.
+Locked offline --check passes; 23 meaningful tests and Ruff pass.
 
-Legacy snapshot374files byte-verifies in the immutable archive. Published archive
-pages keep original fragments, show version context, and old routes redirect
-with location.hash preserved. Historical docs/ output remains intact while
-new local output is .build/site.
+Search retains native qualified names, skips word stemming, includes explicit
+aliases and prefers module/class identities over incidental prefix matches.
+Actual Chromium finds all nine required searches within 0.08s after readiness,
+including native QWidget.resize, Signal, fly.fl and late QXmlQuery.setQuery.
+The method page has no viewport overflow at 1440/390px in light/dark modes;
+deep anchors scroll into view, four shared theme assets return 200, and browser
+errors are absent. Screenshots wait for theme transitions to settle.
 
-Full rendering exposed C++operator[] being parsed as links and Griffe skipping
-TypeRig namespace directories. Fixed upstream Markdown escaping with regression
-and a source-only Griffe namespace loader using actual files. Eight TypeRig array
-expressions received inline-code docstrings; runtime AST unchanged.
+Echopy now renders reference overloads as separate code lines. Source inputs are
+pinned by SHA256 in api-sources.lock.json; ordinary builds reject changes until
+explicit --update-source-lock. Installed-artifact mode uses the same byte pins.
+Legacy archive retains 374 byte-verified files and versioned fragment routes.
+Historical docs/ remains intact; current local output is .build/site.
 
-Actual desktop browser screenshot confirms the new homepage layout. Browser
-search initially lacked its input under MaterialX search_index_only; reused this
-repository's existing compatible header override. A fresh full rebuild is running
-under exec session75269. Current local acceptance is partial: browser/search,
-mobile/dark/keyboard, aliases beyond current extraction, source pinning/license
-CI and publication still need verification. No new site deployed.
+Remaining acceptance: complete dynamic/short alias extraction, all internal
+links/legacy routes and keyboard/focus behavior, --serve/--refresh-native and
+artifact-mode execution, dependency/license/public-content audit, CI and actual
+deployment. No new site published. Expanded ecosystem compatibility remains
+active and is not established by these documentation results.
 
 FontLab API and PythonQt source/generator configurations use MaterialX and fltheme26. The main API build passed. The 35 MB generated QtGui HTML exposed pathological nesting in MaterialX search; explicitly using the bundled ProperDocs `/search` plugin completes the PythonQt build in 64.03 seconds. Raw API bodies retain their generated HTML and anchors. The former published API stylesheet is now part of the input trees and generator post-copy trees. `./build.sh` builds the root API first, then its PythonQt child.
 

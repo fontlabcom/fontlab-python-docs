@@ -5,9 +5,11 @@ this_file: TODO.md
 - [x] Add explicit locked mkdocstrings Python handler/autorefs/Griffe dependencies.
 - [x] Test full-occurrence inventory, exact body sharing, pagination and facets.
 - [ ] Generate complete current native and ecosystem API pages/coverage/aliases.
-- [ ] Rebuild the root with current guidance and verified shared theme ownership.
+- [x] Rebuild the current local root with verified shared theme asset/search ownership.
 - [ ] Preserve legacy routes, fragments and a versioned archive.
-- [ ] Implement simple locked build/check/serve/explicit native refresh commands.
-- [ ] Verify complete HTML/anchors/objects.inv, search and browser interactions.
+- [x] Implement and verify locked offline build/check and API source byte pins.
+- [ ] Execute --serve, --refresh-native and installed-artifact build modes.
+- [x] Verify actual inventory URI anchors, nine native searches and responsive method page.
+- [ ] Verify remaining internal links, alias families and keyboard/focus interactions.
 - [ ] Verify deterministic offline source/artifact builds and CI/privacy/licenses.
 - [ ] Publish and independently verify the actual deployed site.

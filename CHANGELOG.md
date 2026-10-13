@@ -2,6 +2,14 @@
 this_file: CHANGELOG.md
 ---
 
+## Unreleased — native source reference verification
+
+- Preserve qualified native method names and exported aliases in search; skip
+  stemming of API identifiers and rank module/class targets ahead of prefixes.
+- Verify every expected objects.inv URI against actual rendered HTML anchors.
+- Pin API input bytes across source/artifact modes; require explicit lock refresh.
+- Add repeatable Chromium search/deep-anchor and mobile/light/dark smoke receipts.
+
 ## Expanded reference — unreleased
 
 - Generate complete native and ecosystem source references with actual native

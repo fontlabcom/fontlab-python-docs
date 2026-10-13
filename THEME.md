@@ -14,14 +14,22 @@ Documentation-first pages use **local MaterialX navigation and local search** wh
 
 | Configuration | Role | Destination |
 |---|---|---|
-| `fontlab7/mkdocs.yml` | active publication configuration | https://fontlabcom.github.io/fontlab-python-docs/ |
-| `pythonqt/mkdocs.yml` | active publication configuration | https://fontlabcom.github.io/fontlab-python-docs/pythonqt/ |
-| `fontlab7/pydocmk.yml` | generator source | https://fontlabcom.github.io/fontlab-python-docs/ |
-| `pythonqt/pydocmk.yml` | generator source | https://fontlabcom.github.io/fontlab-python-docs/pythonqt/ |
+| `mkdocs.yml` → `.build/mkdocs.yml` | current captured/enriched source reference | `.build/site` locally; deployment pending |
+| `fontlab7/mkdocs.yml` | historical FontLab 7 generator | retained for recovery |
+| `pythonqt/mkdocs.yml` | historical PythonQt generator | retained for recovery |
+| `archive/fontlab7-site.tar.gz` | immutable previous site snapshot | versioned archive and legacy route redirects |
 
 ## Build and publish responsibility
 
-Run `./build.sh` for API documentation changes. Publish through the existing Pages workflow and check both the root Python API and /pythonqt/ site. Preserve API generation inputs and public symbol URLs.
+Run `./build.sh` for the current source reference, or `./build.sh --offline`
+with the locked dependencies already cached. API source hashes are pinned in
+`api-sources.lock.json`; after reviewing producer changes, explicitly use
+`--update-source-lock`. Normal builds fail when source bytes differ.
+
+The rebuilt root uses one MaterialX navigation/search owner and the four shared
+fltheme26 assets. It does not add a global FontLab menu/footer. Preserve the
+previous `docs/` deployment until the new output passes the complete deployment
+checks. Local generation and browser receipts do not establish publication.
 
 ## Shared runtime contract
 
