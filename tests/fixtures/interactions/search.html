@@ -1,0 +1,15 @@
+<!-- this_file: tests/fixtures/interactions/search.html -->
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<input class="md-search__input" type="search" aria-label="Search">
+<div class="md-search__output" data-complete-search-state="ready"><ol id="list"></ol></div>
+<script>
+// A tiny stand-in for the sharded engine: every query hydrates rows from one shard.
+const input = document.querySelector('.md-search__input');
+input.addEventListener('input', async () => {
+  const value = input.value, rows = await (await fetch('shard-1.json')).json();
+  if (value !== input.value) return;
+  document.getElementById('list').innerHTML = rows.filter(r => r.title.includes(value) && value)
+    .map(r => { const a = `<a class="md-search-result__link" href="${r.location}">${r.title}</a>`;
+      return `<li>${r.folded ? `<details><summary>1 more on this page</summary>${a}</details>` : a}</li>`; }).join('');
+});
+</script></body></html>

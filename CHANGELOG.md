@@ -2,6 +2,18 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-10-14 — R043 interaction receipts
+
+- Add `scripts/interaction_check.py`: Playwright receipts at 1280x800 and 375x812
+  in light/dark for member deep links (hit-tested clear of sticky chrome),
+  signature type links, alias resolution (inventory, search by alias, legacy
+  redirect), a search result held back by a 1.5 s delayed non-initial shard
+  (absent before the delay, same-tab open, Back) and keyboard reach (skip link,
+  search, navigation or its drawer opener, first content link, `/`/`s` recorded).
+- Add passing and failing fixture pages for every check.
+- Built-site receipt: type links fail 0/4; the rendered signatures carry no
+  cross-reference links (signature_crossrefs is not enabled). Other cases pass 4/4.
+
 ## 2026-10-14 — R043/R044 accessibility and CI gates
 
 - Correct accessibility checker timing for animated focus rings, hidden-control

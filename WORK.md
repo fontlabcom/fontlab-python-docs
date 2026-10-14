@@ -407,3 +407,52 @@ element whose `aria-controls` panel contains navigation links; `a11y_check.py`
 activates it with Enter and requires focus inside the panel (`nav_after_open`
 failure otherwise). Two new fixtures (working and broken disclosure). 28 tests pass.
 Audit of `.build/site` against the published theme: 28/28 cases pass, 0 failures.
+
+## 2026-10-14: R043 interaction receipts (Task 1 of plans/2026-10-14-r043-interactions.md)
+
+Added `scripts/interaction_check.py` (5 cases x 1280x800/375x812 x light/dark),
+fixtures in `tests/fixtures/interactions/` and `tests/test_interaction_check.py`
+(21 tests; each check shown to pass and fail). No build, no `--refresh-native`.
+
+Commands (all from this repository):
+- `rtk proxy env UV_OFFLINE=true uv run --frozen python -m pytest -q tests/test_interaction_check.py`: exit 0, 21 passed.
+- `rtk proxy env UV_OFFLINE=true uv run --frozen python -m pytest -q`: exit 0, 198 passed.
+- `rtk proxy uvx ruff check scripts/interaction_check.py tests/test_interaction_check.py`: exit 0.
+- `rtk proxy env UV_OFFLINE=true uv run --frozen python -m scripts.interaction_check --site .build/site --out ../verification/issue-101-ecosystem/evidence/r043-interactions/interaction-receipt.json`:
+  exit 1 (FAIL), ~3 min. Summary: deep_link 4/4, type_link 0/4, alias 4/4, search 4/4, keyboard 4/4.
+  20 screenshots + receipt + SHA256SUMS in that evidence directory.
+
+Results on `.build/site`:
+- Deep link `flNode.html#fontlab.flNode.isExtreme`: lands at top ~72 px under a 48 px
+  sticky header; hit test finds no fixed/sticky element covering it.
+- Type link: **site defect.** `fontlab_remopy.control.FontLab.run` renders
+  `run(code: str, /, **variables: Any) -> ExecutionResult` with no link, although
+  `fontlab_remopy.execution.ExecutionResult` has its own page. A scan of all
+  `.build/site/reference/**/*.html` signatures found 33,353 signature code blocks,
+  0 containing links. Probable cause: mkdocs.yml's mkdocstrings-python options lack
+  `signature_crossrefs` (2.0.9 needs `separate_signature` with it). Not fixed here;
+  it needs a config change and a full rebuild.
+- Alias `fly.fg.fgKerning`: objects.inv maps the alias and `fontgate.fgKerning` to the same
+  URI. Searching for the alias returns the canonical hit, which MaterialX folds under
+  "1 more on this page"; the check expands it, clicks, and lands on
+  `reference/fontgate/fgKerning.html#fontgate.fgKerning` in view. The legacy route
+  `fontgate.fgAnchor.html#-fontgate.fgAnchor.copy` redirects with its fragment to the
+  archive page (anchor in view). Recorded, not asserted: the route map has
+  `current_route` reference/fontgate/fgAnchor.html#fontgate.fgAnchor, but no current
+  mapping for this dashed fragment. Legacy redirects go to the archive, not to the
+  current API page.
+- Late search `decode_execution`: the target row lives only in shard 58 of 63. With a
+  1500 ms Playwright route delay on that `.gz`, the result is absent at delay-200 ms and
+  appears at 1522-1657 ms. Clicking it opens the page in the same tab; Back returns to flNode.
+  Note: the worker aborts each shard fetch at 1800 ms (`query.js`), so any shard slower
+  than 1.8 s shows the Retry/error state. A blocking `time.sleep` delay serialised the
+  10 per-keystroke shard requests past that deadline; the check uses `page.wait_for_timeout`.
+- Keyboard: skip link at Tab 1, navigation at 2 (on mobile, the drawer opener
+  `#fl-native-navigation`, then Enter reaches a link), search at 4. Skip link + Enter + Tab
+  focuses the first content link. Shortcuts `/` and `s` focus search on desktop, but not
+  at 375 px (recorded only).
+- Every screenshot's palette matches the requested scheme (default/slate). Reviewed
+  search-375-dark, deep_link-1280-light, type_link-1280-dark, alias-375-dark and
+  keyboard-375-dark/1280-light: each shows what its receipt claims.
+
+TODO.md not ticked: R043 type links still fail.

@@ -47,6 +47,9 @@ full-corpus case.
 
 Accessibility acceptance is local: run `uv run python scripts/a11y_check.py --site .build/site --out
 a11y.json` locally; `--pages` overrides the fixed representative page list.
+Interaction receipts (deep links, type links, aliases, a deliberately late search
+shard, keyboard paths) come from `uv run python -m scripts.interaction_check --site
+.build/site --out DIR/receipt.json`; screenshots are written beside the receipt.
 
 Complete search retains every original row in content-addressed page shards.
 Its checked global vocabulary/postings load before readiness; queries hydrate
