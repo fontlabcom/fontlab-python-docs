@@ -44,9 +44,12 @@ def render_page(path: str, plan: dict[str, Any]) -> str:
             ]
             member_display = plan["symbols"][member].get("display_id")
             if member_display:
-                lines.insert(
-                    len(lines) - 1, "      heading: " + json.dumps(member_display)
-                )
+                lines[-1:-1] = [
+                    "      heading: " + json.dumps(member_display),
+                    "      separate_signature: true",
+                    "      show_signature_annotations: true",
+                    "      annotations_path: source",
+                ]
         return "\n".join(lines)
     lines += [
         f"::: {identifier}",

@@ -70,6 +70,22 @@ below that prefix, including forwarded member targets. Four covering fixtures,
 current-source probe matches root's refreshed 259-input lock and preserves all
 490,143 existing aliases, previous symbols and body targets without build writes.
 
+Task 1 root review round 2 qualifies whole-page native module/class search rows
+from their coverage URLs, giving the fontlab module its proven fly.fl alias and
+existing module/class priority. Source fragment behavior, authored sections and
+member-body page titles remain intact. Six search fixtures and the 49-test full
+suite pass; a read-only built-index probe confirms the exact missing module tags
+and preserves empty page text and all 59,695 rows. Browser acceptance remains
+with root after the scoped re-review/rebuild.
+
+The same round also preserves source-derived signatures under exported member
+headings: supported separate_signature/annotation options render method/function
+arguments, defaults and returns plus property types beneath public names. The
+strict guarded-source renderer fixture now verifies these with source display
+disabled, alongside public class titles and canonical anchors. Full suite remains
+49 passing tests; root will verify actual typed body rendering and native/public
+search queries after rebuilding.
+
 Remaining acceptance: complete dynamic/short alias extraction, all internal
 links/legacy routes and keyboard/focus behavior, --serve/--refresh-native and
 artifact-mode execution, dependency/license/public-content audit, CI and actual

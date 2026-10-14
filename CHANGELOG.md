@@ -4,6 +4,10 @@ this_file: CHANGELOG.md
 
 ## Unreleased — native source reference verification
 
+- Keep source-derived callable signatures and property annotations visible below
+  exported member headings using supported consumer signature rendering options.
+- Qualify native module/class whole-page search entries from source coverage URLs
+  so exact public module aliases such as fly.fl reach their primary native page.
 - Respect explicit aliases and source declarations at every intervening export
   prefix; replacement classes cannot inherit unsupported descendant aliases or
   resolve nonexistent forwarded members through an overridden ancestor.

@@ -1,8 +1,10 @@
 # this_file: tests/test_reference_pages.py
 """Reference output must retain each identity and render each unique body."""
 
+import re
 import subprocess
 import sys
+from html import unescape
 
 import yaml
 
@@ -84,12 +86,19 @@ def test_render_when_public_title_and_property_then_static_handler_keeps_anchors
 ):
     package = tmp_path / "pkg"
     package.mkdir()
-    (package / "__init__.py").write_text("from ._impl import Handle as Public\n")
+    (package / "__init__.py").write_text(
+        "from ._impl import Handle as Public, make as create\n"
+    )
     (package / "_impl.py").write_text(
-        "raise RuntimeError('never execute')\nclass Handle:\n"
-        "    @property\n    def namespace(self) -> dict:\n"
+        "raise RuntimeError('never execute')\nfrom types import MappingProxyType\n"
+        "def make(text: str, count: int = 3, *, enabled: bool = True) -> tuple[str, int]:\n"
+        "    '''Exported function documentation.''' \n    return text, count\n"
+        "class Handle:\n"
+        "    def close(self, count: int = 3, /, *, timeout: float | None = None) -> None:\n"
+        "        '''Typed method documentation.''' \n        pass\n"
+        "    @property\n    def namespace(self) -> MappingProxyType[str, object]:\n"
         "        '''Public property documentation.''' \n        return {}\n"
-        "    @namespace.setter\n    def namespace(self, value: dict): pass\n"
+        "    @namespace.setter\n    def namespace(self, value: MappingProxyType[str, object]): pass\n"
     )
     plan = plan_pages(inventory_sources([(tmp_path, "pkg")]))
     docs = tmp_path / "content"
@@ -111,7 +120,13 @@ def test_render_when_public_title_and_property_then_static_handler_keeps_anchors
                             "handlers": {
                                 "python": {
                                     "paths": [str(tmp_path)],
-                                    "options": {"allow_inspection": False},
+                                    "options": {
+                                        "allow_inspection": False,
+                                        "show_source": False,
+                                        "show_signature_annotations": True,
+                                        "show_attribute_values": False,
+                                        "show_root_full_path": False,
+                                    },
                                 }
                             }
                         }
@@ -137,3 +152,23 @@ def test_render_when_public_title_and_property_then_static_handler_keeps_anchors
     assert 'id="pkg._impl.Handle.namespace"' in member_html
     assert "pkg.Public.namespace" in member_html
     assert "Public property documentation." in member_html
+    assert "pkg.Public.close" in member_html
+    assert 'id="pkg._impl.Handle.close"' in member_html
+    function_html = (root.parent / "members-001.html").read_text()
+    assert "pkg.create" in function_html
+    assert 'id="pkg._impl.make"' in function_html
+    codes = [
+        " ".join(unescape(re.sub(r"<[^>]+>", "", block)).split())
+        for html in (member_html, function_html)
+        for block in re.findall(r"<pre\b[^>]*>(.*?)</pre>", html, re.DOTALL)
+    ]
+    assert (
+        "close(count: int = 3, /, *, timeout: float | None = None) -> None" in codes
+    ), "public headings must not erase typed method arguments/defaults/return"
+    assert (
+        "make(text: str, count: int = 3, *, enabled: bool = True) -> tuple[str, int]"
+        in codes
+    ), "exported functions must retain complete source-derived signatures"
+    assert "namespace: MappingProxyType[str, object]" in codes, (
+        "public property headings must retain the getter's declared annotation"
+    )
