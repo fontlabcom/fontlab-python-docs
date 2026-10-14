@@ -1,6 +1,8 @@
 # this_file: tests/test_api_inventory.py
 """Coverage must preserve source occurrences and distinguish shared bodies."""
 
+import griffe
+
 from scripts.api_inventory import inventory_sources, plan_pages
 
 
@@ -86,3 +88,79 @@ def test_inventory_when_attribute_has_adjacent_docstring_then_content_is_preserv
         inventory["symbols"]["pkg.api.Native.value"]["docstring"]
         == "Property description."
     )
+
+
+def test_inventory_when_property_has_accessors_then_griffe_semantics_and_records(
+    tmp_path,
+):
+    package = tmp_path / "pkg"
+    package.mkdir()
+    source = package / "api.py"
+    source.write_text('''raise RuntimeError("never import")
+class Handle:
+    @property
+    def namespace(self) -> dict:
+        """The getter documentation."""
+        return {}
+    @namespace.setter
+    def namespace(self, value: dict):
+        """The setter documentation."""
+        pass
+    @namespace.deleter
+    def namespace(self):
+        """The deleter documentation."""
+        pass
+''')
+    plan = plan_pages(inventory_sources([(tmp_path, "pkg")]))
+    row = plan["symbols"]["pkg.api.Handle.namespace"]
+    model = griffe.GriffeLoader(search_paths=[tmp_path], allow_inspection=False).load(
+        "pkg.api"
+    )
+    prop = model.get_member("Handle.namespace")
+    assert row["kind"] == prop.kind.value == "attribute"
+    assert set(row["labels"]) == prop.labels == {"property", "writable", "deletable"}
+    assert row["docstring"] == prop.docstring.value == "The getter documentation."
+    assert row["occurrences"] == 3, (
+        "getter/setter/deleter declarations must all survive"
+    )
+    records = row["declarations"]
+    assert [record["accessor"] for record in records] == ["getter", "setter", "deleter"]
+    assert len({record["declaration_sha256"] for record in records}) == 3
+    assert [record["line"] for record in records] == [4, 8, 12]
+    assert all(record["source"] == "pkg/api.py" for record in records)
+    assert row["canonical_id"] == "pkg.api.Handle.namespace"
+    assert row["body_target"] == "pkg.api.Handle.namespace"
+    assert plan == plan_pages(inventory_sources([(tmp_path, "pkg")]))
+
+
+def test_inventory_when_cached_property_import_alias_then_matches_griffe(tmp_path):
+    package = tmp_path / "pkg"
+    package.mkdir()
+    (package / "api.py").write_text(
+        "from functools import cached_property as cached\n"
+        "class Handle:\n    @cached\n    def reports(self) -> list: return []\n"
+    )
+    row = inventory_sources([(tmp_path, "pkg")])["symbols"]["pkg.api.Handle.reports"]
+    model = griffe.GriffeLoader(search_paths=[tmp_path], allow_inspection=False).load(
+        "pkg.api"
+    )
+    prop = model.get_member("Handle.reports")
+    assert row["kind"] == prop.kind.value == "attribute"
+    assert set(row["labels"]) == prop.labels == {"property", "cached"}
+
+
+def test_inventory_when_shared_properties_then_each_occurrence_keeps_body_identity(
+    tmp_path,
+):
+    package = tmp_path / "pkg"
+    package.mkdir()
+    getter = "    @property\n    def value(self) -> int: return 1\n"
+    (package / "api.py").write_text(
+        "class First:\n" + getter + "class Second:\n" + getter
+    )
+    plan = plan_pages(inventory_sources([(tmp_path, "pkg")]))
+    first = plan["symbols"]["pkg.api.First.value"]
+    second = plan["symbols"]["pkg.api.Second.value"]
+    assert first["body_target"] == second["body_target"] == "pkg.api.First.value"
+    assert first["url"] != second["url"]
+    assert first["declarations"][0]["line"] != second["declarations"][0]["line"]

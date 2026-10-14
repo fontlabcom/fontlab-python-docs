@@ -45,6 +45,24 @@ source file consumed during alias extraction, including otherwise hidden private
 modules. These observations are retained in the runner-docs-refresh receipt;
 the passing verifier covers its enumerated symbols, not these missing semantics.
 
+Source-reference-fidelity Task 1 implements those four source-extraction gaps.
+Every consumed Python input is pinned once, including hidden private modules and
+runtime/stub counterparts. Explicit module/class export chains now expose real
+descendants; canonical source/body identities remain unchanged. Private authored
+classes prefer their public package export in page and consumer headings, while
+native names and existing URLs stay primary. Properties are attributes with
+getter/setter/deleter occurrence records and source-only Griffe-compatible labels.
+
+Focused verification: 33 tests pass; full suite: 41 tests pass; scoped Ruff and
+diff checks pass. A strict temporary MkDocs fixture verifies actual public titles,
+canonical class/member anchors and property documentation without importing its
+guarded source. A read-only current-source probe preserves all previous coverage
+symbols and body targets, pins 259 inputs and confirms AppHandle.close plus the
+namespace/reports/identity_report properties. Current plan: 237 modules, 1,898
+classes, 244,682 member identities, 33,331 bodies and 4,122 pages. Complete alias
+expansion produces 490,143 aliases, including fly.qt descendants; full render and
+search-size acceptance plus source-lock refresh remain with the root task.
+
 Remaining acceptance: complete dynamic/short alias extraction, all internal
 links/legacy routes and keyboard/focus behavior, --serve/--refresh-native and
 artifact-mode execution, dependency/license/public-content audit, CI and actual

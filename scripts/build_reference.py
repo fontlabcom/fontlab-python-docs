@@ -14,6 +14,7 @@ from pathlib import Path
 import yaml
 
 from .api_inventory import inventory_sources, plan_pages
+from .export_aliases import resolved_aliases
 from .reference_pages import relative_link, render_page
 from .source_lock import apply_lock
 
@@ -58,18 +59,7 @@ def _aliases(plan: dict) -> dict[str, str]:
         canonical = row.get("canonical_id")
         if canonical and canonical != identifier:
             aliases[canonical] = identifier
-    for alias, target in list(aliases.items()):
-        seen = set()
-        while target in aliases and target not in seen:
-            seen.add(target)
-            target = aliases[target]
-        if target in plan["symbols"]:
-            aliases[alias] = target
-    return {
-        alias: target
-        for alias, target in aliases.items()
-        if target in plan["symbols"] and alias != target
-    }
+    return resolved_aliases(aliases, plan["symbols"])
 
 
 def generate(*, check: bool = False, update_source_lock: bool = False) -> dict:

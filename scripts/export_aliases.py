@@ -2,7 +2,10 @@
 """Read explicit exported import aliases without executing package code."""
 
 import ast
+from bisect import bisect_left
+from collections import deque
 from importlib.util import resolve_name
+from typing import Any
 
 
 def exported_aliases(tree: ast.Module, module: str, *, package: bool) -> dict[str, str]:
@@ -49,3 +52,71 @@ def exported_aliases(tree: ast.Module, module: str, *, package: bool) -> dict[st
                 else target
             )
     return aliases
+
+
+def resolved_aliases(
+    aliases: dict[str, str], symbols: dict[str, dict[str, Any]]
+) -> dict[str, str]:
+    """Resolve explicit chains and expose only source-proven descendants.
+
+    Targets remain source identities, not shared-body owners. Prefix resolution
+    supports imports through aliased modules/classes without native inspection.
+    Cycles and missing targets contribute no invented declarations.
+    """
+
+    def resolve(target: str) -> str | None:
+        seen = set()
+        while target not in symbols:
+            parts = target.split(".")
+            prefix = next(
+                (
+                    ".".join(parts[:i])
+                    for i in range(len(parts), 0, -1)
+                    if ".".join(parts[:i]) in aliases
+                ),
+                None,
+            )
+            if prefix is None or prefix in seen:
+                return None
+            seen.add(prefix)
+            target = aliases[prefix] + target[len(prefix) :]
+        return target
+
+    direct = {}
+    for alias, original in sorted(aliases.items()):
+        target = resolve(original)
+        if target is None or alias == target or alias in symbols:
+            continue
+        direct[alias] = target
+    resolved = dict(direct)
+    exposed = {**{identifier: identifier for identifier in symbols}, **direct}
+    identifiers = sorted(exposed)
+    pending = deque(
+        (alias, target, frozenset({target})) for alias, target in direct.items()
+    )
+    while pending:
+        alias, target, seen = pending.popleft()
+        if symbols[target]["kind"] not in {"class", "module"}:
+            continue
+        prefix = target + "."
+        index = bisect_left(identifiers, prefix)
+        while index < len(identifiers) and identifiers[index].startswith(prefix):
+            descendant = identifiers[index]
+            public = alias + descendant[len(target) :]
+            # Explicit aliases/declarations override inferred descendant paths.
+            if (
+                public not in aliases
+                and public not in symbols
+                and not any(
+                    part.startswith("_") and not part.startswith("__")
+                    for part in descendant[len(prefix) :].split(".")
+                )
+            ):
+                destination = exposed[descendant]
+                resolved.setdefault(public, destination)
+                # Follow source-declared re-exports inside module aliases. Stop
+                # recursive module graphs at their repeated source target.
+                if descendant in direct and destination not in seen:
+                    pending.append((public, destination, seen | {destination}))
+            index += 1
+    return dict(sorted(resolved.items()))

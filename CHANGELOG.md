@@ -4,6 +4,16 @@ this_file: CHANGELOG.md
 
 ## Unreleased — native source reference verification
 
+- Pin every consumed private/runtime/stub input once and reject duplicate lock
+  identities; source input changes still require explicit lock refresh.
+- Expand proven module/class re-exports to descendant aliases, preserving native
+  names, canonical identities and shared declaration bodies.
+- Display public package exports for authored private implementation classes while
+  retaining stable source directives, URLs and canonical anchors.
+- Classify source properties as attributes and retain getter/setter/deleter
+  provenance, exact declaration hashes and occurrence accounting.
+- Verify the changes with focused fixtures, a strict source-only MkDocs render,
+  the existing suite and a complete read-only source inventory comparison.
 - Preserve qualified native method names and exported aliases in search; skip
   stemming of API identifiers and rank module/class targets ahead of prefixes.
 - Verify every expected objects.inv URI against actual rendered HTML anchors.

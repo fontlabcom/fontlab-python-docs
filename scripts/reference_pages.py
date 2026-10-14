@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import posixpath
 from html import escape
 from typing import Any
@@ -19,18 +20,17 @@ def relative_link(page: str, url: str) -> str:
 def render_page(path: str, plan: dict[str, Any]) -> str:
     page = plan["pages"][path]
     identifier = page["id"]
+    display = plan["symbols"][identifier].get("display_id", identifier)
     kind = page["kind"]
     title = (
-        identifier
+        display
         if kind != "members"
-        else identifier
-        + " · declarations "
-        + path.rsplit("-", 1)[-1].removesuffix(".md")
+        else display + " · declarations " + path.rsplit("-", 1)[-1].removesuffix(".md")
     )
     lines = [f"---\nthis_file: {path}\n---", f"# {title}", ""]
     if kind == "members":
         lines += [
-            f"[Back to `{identifier}`]({relative_link(path, plan['symbols'][identifier]['url'])})",
+            f"[Back to `{display}`]({relative_link(path, plan['symbols'][identifier]['url'])})",
             "",
         ]
         for member in page["members"]:
@@ -42,6 +42,11 @@ def render_page(path: str, plan: dict[str, Any]) -> str:
                 "      members: false",
                 "",
             ]
+            member_display = plan["symbols"][member].get("display_id")
+            if member_display:
+                lines.insert(
+                    len(lines) - 1, "      heading: " + json.dumps(member_display)
+                )
         return "\n".join(lines)
     lines += [
         f"::: {identifier}",
@@ -51,6 +56,8 @@ def render_page(path: str, plan: dict[str, Any]) -> str:
         "      heading_level: 2",
         "",
     ]
+    if display != identifier:
+        lines.insert(len(lines) - 1, "      heading: " + json.dumps(display))
     if kind == "module":
         for label, identifiers in [
             ("Modules", page["modules"]),
