@@ -30,6 +30,12 @@ PLAN = {
         "member": "fontlab_remopy.control.FontLab.run",
         "target": "reference/fontlab_remopy/execution/ExecutionResult.html#fontlab_remopy.execution.ExecutionResult",
     },
+    "param_type_link": {
+        "case": "param_type_link",
+        "page": "reference/fontlab_glyport/receipt/members-001.html",
+        "member": "fontlab_glyport.receipt.write_receipt",
+        "target": "reference/fontlab_glyport/receipt/Receipt.html#fontlab_glyport.receipt.Receipt",
+    },
     "alias": {
         "name": "fly.fg.fgKerning",
         "canonical": "fontgate.fgKerning",
@@ -43,6 +49,13 @@ PLAN = {
         "delay_ms": 1500,
     },
     "keyboard": {"page": "reference/fontlab/flNode.html"},
+    # Documents current behaviour: a shard slower than the worker deadline shows Retry.
+    "search_slow_shard": {
+        "page": "reference/fontlab/flNode.html",
+        "query": "decode_execution",
+        "target": "reference/fontlab_remopy/execution/members-001.html#fontlab_remopy.execution.decode_execution",
+        "delay_ms": 2500,
+    },
 }
 VIEW_JS = """fragment => {
   const el = document.getElementById(fragment) || document.getElementsByName(fragment)[0];
@@ -59,10 +72,17 @@ VIEW_JS = """fragment => {
     in_view: !!hit && !covered && r.top >= -1 && r.top < innerHeight};
 }"""
 SIGNATURE_JS = """member => {
-  const heading = document.getElementById(member), code = heading?.querySelector('code');
-  return {signature: code ? code.textContent : null,
-    links: code ? [...code.querySelectorAll('a[href]')].map(a => a.href) : [],
-    page_signature_links: document.querySelectorAll('.doc-heading code a[href]').length};
+  // separate_signature puts the full signature in the object's own .doc-signature;
+  // the inline layout keeps it in the heading code. Nested members' signatures do not count.
+  const heading = document.getElementById(member), object = heading?.closest('.doc-object');
+  const own = object && [...object.querySelectorAll('.doc-signature')]
+    .find(s => s.closest('.doc-object') === object);
+  const code = own || heading?.querySelector('code');
+  const links = code ? [...code.querySelectorAll('a[href]')] : [];
+  links.forEach((a, i) => { a.dataset.r043Link = String(i); });
+  return {signature: code ? code.textContent.trim() : null, layout: own ? 'separate' : 'heading',
+    links: links.map(a => a.href),
+    page_signature_links: document.querySelectorAll('.doc-signature a[href], .doc-heading code a[href]').length};
 }"""
 TARGETS_JS = """() => {
   const rendered = e => e.getClientRects().length > 0 && getComputedStyle(e).visibility === 'visible' &&
@@ -143,7 +163,11 @@ def check_deep_link(page: Page, base: str, spec: dict, shot=no_shot) -> dict:
 
 def check_type_link(page: Page, base: str, spec: dict, shot=no_shot) -> dict:
     """Click a signature type cross-reference; it must land on the type's anchor."""
-    result = {"case": "type_link", "failures": [], "member": spec["member"]}
+    result = {
+        "case": spec.get("case", "type_link"),
+        "failures": [],
+        "member": spec["member"],
+    }
     goto(page, base, spec["page"] + "#" + spec["member"])
     found = page.evaluate(SIGNATURE_JS, spec["member"])
     result.update(found)
@@ -152,8 +176,8 @@ def check_type_link(page: Page, base: str, spec: dict, shot=no_shot) -> dict:
         fail(result, "no_type_link", signature=found["signature"], expected=expected)
         result["screen"] = shot(page)
         return finish(result)
-    heading = page.locator(f'[id="{spec["member"]}"] code a[href]')
-    heading.nth(found["links"].index(expected)).click()
+    index = found["links"].index(expected)
+    page.locator(f'[data-r043-link="{index}"]').click()
     page.wait_for_url(expected, timeout=10000)
     page.wait_for_timeout(300)
     landed_in_view(page, result, expected, "landed")
@@ -316,6 +340,42 @@ def probe_late_result(
     result["result_after_first_delay_ms"] = round((time.monotonic() - seen[0]) * 1000)
 
 
+RETRY_JS = """() => {
+  const output = document.querySelector('.md-search__output');
+  const panel = document.querySelector('[data-complete-search-status]');
+  return output?.dataset.completeSearchState === 'error' && panel && !panel.hidden
+    ? {state: 'error', text: panel.textContent.trim()} : null;
+}"""
+
+
+def check_search_slow_shard(page: Page, base: str, spec: dict, shot=no_shot) -> dict:
+    """A shard slower than the worker deadline must surface Retry, not hang silently."""
+    result = {
+        "case": "search_slow_shard",
+        "failures": [],
+        "query": spec["query"],
+        "delay_ms": spec["delay_ms"],
+        "worker_shard_deadline_ms": SHARD_DEADLINE_MS,
+    }
+    seen: list[float] = []
+    delay_shard(page, spec, seen)
+    goto(page, base, spec["page"])
+    open_search(page)
+    page.locator(".md-search__input").press_sequentially(spec["query"], delay=20)
+    timeout = spec.get("timeout_ms", 20000)
+    try:
+        result["retry"] = page.wait_for_function(RETRY_JS, timeout=timeout).json_value()
+    except PlaywrightError:
+        result["retry"] = None
+        fail(result, "retry_not_shown", delayed_requests=len(seen))
+    result["delayed_requests"] = len(seen)
+    result["result_shown"] = (
+        page.evaluate(FIND_RESULT_JS, urljoin(base, spec["target"])) is not None
+    )
+    result["screen"] = shot(page)
+    return finish(result)
+
+
 def tab_walk(page: Page) -> dict:
     """First Tab index at which each marked target receives focus."""
     reached = {}
@@ -378,9 +438,11 @@ def check_keyboard(page: Page, base: str, spec: dict, shot=no_shot) -> dict:
 CHECKS: dict[str, Callable] = {
     "deep_link": check_deep_link,
     "type_link": check_type_link,
+    "param_type_link": check_type_link,
     "alias": check_alias,
     "search": check_search,
     "keyboard": check_keyboard,
+    "search_slow_shard": check_search_slow_shard,
 }
 
 
@@ -433,9 +495,14 @@ def resolve_plan(site: Path, plan: dict) -> dict:
     }
     shard = shard_for(site, search["target"])
     search.update(shard=shard["file"], shard_id=shard["id"])
+    slow = {
+        **plan["search_slow_shard"],
+        "shard": shard["file"],
+        "shard_id": shard["id"],
+    }
     if shard["id"] == 0:
         raise ValueError("Late-search target must live in a non-initial shard")
-    return {**plan, "alias": alias, "search": search}
+    return {**plan, "alias": alias, "search": search, "search_slow_shard": slow}
 
 
 SCHEME_JS = """scheme => {
@@ -478,6 +545,8 @@ def run_entry(
             failures=[{"check": case, "reason": "runtime", "error": str(error)}],
         )
     finally:
+        # Delayed route handlers may still be waiting; let them drop quietly.
+        context.unroute_all(behavior="ignoreErrors")
         context.close()
     screen = entry.get("screen", {})
     if (

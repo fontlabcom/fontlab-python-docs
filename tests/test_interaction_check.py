@@ -14,6 +14,7 @@ from scripts.interaction_check import (
     check_deep_link,
     check_keyboard,
     check_search,
+    check_search_slow_shard,
     check_type_link,
     main,
     read_inventory,
@@ -248,3 +249,56 @@ def test_cli_when_site_missing_then_writes_failed_receipt(tmp_path, monkeypatch)
     data = json.loads(receipt.read_text())
     assert data["schema_version"] == 1 and data["passed"] is False, data
     assert data["failures"][0]["reason"] == "runtime", data
+
+
+@pytest.mark.browser
+@pytest.mark.parametrize(
+    "target,kind", [("target.html#m.T", "parameter"), ("target.html#m.U", "return")]
+)
+def test_type_link_when_separate_signature_links_type_then_lands(
+    browser, site, target, kind
+):
+    spec = {"page": "sig_separate.html", "member": "m.h", "target": target}
+    result = check_type_link(new_page(browser), site, spec)
+    assert result["passed"], (kind, result)
+    assert result["layout"] == "separate" and result["landed"] == site + target, result
+
+
+@pytest.mark.browser
+@pytest.mark.parametrize("member", ["m.k", "m.C"])
+def test_type_link_when_separate_signature_unlinked_or_only_nested_then_fails(
+    browser, site, member
+):
+    spec = {"page": "sig_separate.html", "member": member, "target": "target.html#m.T"}
+    result = check_type_link(new_page(browser), site, spec)
+    assert not result["passed"] and "no_type_link" in reasons(result), result
+    assert result["layout"] == "separate", "Must read the object's own signature block"
+
+
+SLOW = {
+    "page": "search_deadline.html",
+    "query": "m.T",
+    "target": "target.html#m.T",
+    "shard": "shard-1.json",
+    "timeout_ms": 5000,
+}
+
+
+@pytest.mark.browser
+def test_slow_shard_when_beyond_worker_deadline_then_retry_is_recorded(browser, site):
+    result = check_search_slow_shard(
+        new_page(browser), site, {**SLOW, "delay_ms": 2500}
+    )
+    assert result["passed"], result
+    assert (
+        "Retry search" in result["retry"]["text"] and result["result_shown"] is False
+    ), result
+
+
+@pytest.mark.browser
+def test_slow_shard_when_shard_arrives_in_time_then_retry_missing_fails(browser, site):
+    result = check_search_slow_shard(
+        new_page(browser), site, {**SLOW, "delay_ms": 0, "timeout_ms": 3000}
+    )
+    assert not result["passed"] and "retry_not_shown" in reasons(result), result
+    assert result["result_shown"] is True, result

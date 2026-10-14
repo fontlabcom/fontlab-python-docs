@@ -1,0 +1,23 @@
+<!-- this_file: tests/fixtures/interactions/search_deadline.html -->
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<input class="md-search__input" type="search" aria-label="Search">
+<div class="md-search__output" data-complete-search-state="ready">
+<div data-complete-search-status hidden>Documentation search is unavailable. <button>Retry search</button></div>
+<ol id="list"></ol></div>
+<script>
+// Mirrors the worker contract: each shard fetch aborts after 1800 ms and the UI shows Retry.
+const input = document.querySelector('.md-search__input'), output = input.nextElementSibling;
+input.addEventListener('input', async () => {
+  const value = input.value;
+  try {
+    const rows = await (await fetch('shard-1.json', {signal: AbortSignal.timeout(1800)})).json();
+    if (value !== input.value) return;
+    document.getElementById('list').innerHTML = rows.filter(r => r.title.includes(value) && value)
+      .map(r => `<li><a class="md-search-result__link" href="${r.location}">${r.title}</a></li>`).join('');
+  } catch (error) {
+    if (value !== input.value) return;
+    output.dataset.completeSearchState = 'error';
+    output.querySelector('[data-complete-search-status]').hidden = false;
+  }
+});
+</script></body></html>

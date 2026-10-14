@@ -456,3 +456,41 @@ Results on `.build/site`:
   keyboard-375-dark/1280-light: each shows what its receipt claims.
 
 TODO.md not ticked: R043 type links still fail.
+
+## 2026-10-14: R043 interaction receipts, fix round 1
+
+- Type-link check now reads the member's own `.doc-object` `.doc-signature`
+  (mkdocstrings-python `separate_signature` layout). It falls back to the heading
+  code for the inline layout and ignores nested members' signatures. New
+  `sig_separate.html` fixture covers a parameter link and a return link (pass),
+  plus an unlinked signature and a class with only a nested linked signature (fail).
+  The new `param_type_link` case uses `fontlab_glyport.receipt.write_receipt(receipt: Receipt, ...)`,
+  targeting `reference/fontlab_glyport/receipt/Receipt.html#fontlab_glyport.receipt.Receipt`.
+- New `search_slow_shard` case records current behaviour: with the target shard
+  delayed 2500 ms (above the 1800 ms worker deadline), search shows "Documentation
+  search is unavailable. Retry search" and no result. Passes when Retry appears. The
+  worker is unchanged. The run loop now calls `context.unroute_all(behavior="ignoreErrors")`
+  because route callbacks still waiting crashed the next context.
+- mkdocs.yml: set `separate_signature: true` and `signature_crossrefs: true`
+  (committed separately). **Not verified by a build.** `rtk proxy ./build.sh --offline`
+  exit 1 after 18 s: `ValueError: API source lock differs: fontlab_glyport/__init__.py,
+  _strict.py, errors.py, execution.py, glyphsapp/{__init__,application,bridge,defaults}.py,
+  model/{__init__,backend}.py, ...`. The sibling fontlab-glyport moved to 28b8842
+  ("Probe-safe model proxies and context close hooks"). Per instructions I did not
+  run `--update-source-lock`, so the controller must review the glyport diff and refresh the lock.
+  `.build/site` is unchanged (old inline-signature layout). So a11y_check, `--check`,
+  site verification and the rebuilt-site receipt were not re-run. The previous a11y result
+  (28/28 on this same site, baf9077) still applies to it.
+- Commands: `rtk proxy env UV_OFFLINE=true uv run --frozen python -m pytest -q tests/test_interaction_check.py`
+  exit 0, 27 passed. `rtk proxy env UV_OFFLINE=true uv run --frozen python -m pytest -q` exit 0,
+  204 passed. `rtk proxy env UV_OFFLINE=true uv run --frozen python -m scripts.interaction_check --site .build/site --out ../verification/issue-101-ecosystem/evidence/r043-interactions/interaction-receipt.json`
+  exit 1: deep_link 4/4, type_link 0/4, param_type_link 0/4, alias 4/4, search 4/4,
+  keyboard 4/4, search_slow_shard 4/4. Evidence: 28 PNGs, receipt and SHA256SUMS (29 lines).
+- Route-map question for the controller: the legacy route `fontgate.fgAnchor.html#-fontgate.fgAnchor.copy`
+  redirects (meta refresh plus `location.replace`) to
+  `archive/fontlab7/fontgate.fgAnchor.html#-fontgate.fgAnchor.copy`, which is the target in
+  `legacy-routes.json` (fragment_policy `preserve`). `route-map.json` also records
+  `current_route` `reference/fontgate/fgAnchor.html#fontgate.fgAnchor` for this page,
+  with `current: null` for the dashed fragment; undashed `fontgate.fgAnchor.copy` maps to the current page.
+  No redirect or archive banner link sends readers to the current route. Should legacy
+  routes with an exact current identity redirect to the current page, or at least link to it?
