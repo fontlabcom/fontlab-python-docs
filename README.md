@@ -88,7 +88,10 @@ than dropping declarations to fit page budgets.
 The previous FontLab7/PythonQt site is preserved byte-for-byte in a verified
 archive. Published archival pages retain original fragments and an archive banner;
 old routes redirect while preserving fragments. Legacy generators remain source
-history, not a Python2 dependency of the new build.
+history, not a Python2 dependency of the new build. Built `route-map.json` records
+every old HTML route and fragment, exact current API targets when proven, and
+internal links broken in the original snapshot. Build verification checks archive
+anchors and redirect targets against this deterministic map.
 
 ## Contribute
 

@@ -2,6 +2,13 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-10-14 — legacy route map
+
+- Emit deterministic `route-map.json` with all original HTML routes/fragments,
+  exact public identity targets and broken-in-original internal link diagnostics.
+- Verify map completeness, archived anchors and redirect agreement during build
+  and check; retain named anchors as well as HTML IDs.
+
 ## Unreleased — native source reference verification
 
 - Reopen and reconcile search status/retry channels after persisted page restoration;

@@ -71,4 +71,6 @@ def on_post_build(config):
     (Path(config.site_dir) / ".nojekyll").touch()
     from scripts.legacy_archive import publish_archive
 
-    publish_archive(Path(__file__).resolve().parents[1], Path(config.site_dir))
+    publish_archive(
+        Path(__file__).resolve().parents[1], Path(config.site_dir), _coverage
+    )

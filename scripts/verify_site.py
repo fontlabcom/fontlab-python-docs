@@ -24,9 +24,16 @@ class Anchors(HTMLParser):
                 self.identifiers.add(value)
 
 
-def verify_site(site: Path, coverage_path: Path) -> dict:
+def verify_site(
+    site: Path, coverage_path: Path, *, legacy_root: Path | None = None
+) -> dict:
     """Fail when any expected source symbol/alias lacks rendered proof."""
     coverage = json.loads(coverage_path.read_text())
+    from .legacy_route_map import verify_route_map
+
+    legacy = verify_route_map(
+        legacy_root or Path(__file__).resolve().parents[1], site, coverage
+    )
     wanted = defaultdict(set)
     for identifier, row in coverage["symbols"].items():
         url = (
@@ -75,6 +82,7 @@ def verify_site(site: Path, coverage_path: Path) -> dict:
         compressed = sharding["initial_gzip_bytes"]
     report = {
         "schema_version": 1,
+        "legacy_routes": legacy,
         "source_symbols": len(coverage["symbols"]),
         "aliases": len(coverage["aliases"]),
         "checked_pages": len(wanted),

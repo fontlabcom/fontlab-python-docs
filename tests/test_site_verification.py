@@ -33,18 +33,24 @@ def fixture_site(tmp_path, *, anchor=True):
     inventory.register("pkg.value", "py", "function", "page.html#pkg.value")
     inventory.register("pkg.alias", "py", "function", "page.html#pkg.value")
     (site / "objects.inv").write_bytes(inventory.format_sphinx())
+    from test_legacy_route_map import archive_fixture
+
+    archive_fixture(tmp_path, site)
+    from scripts.legacy_route_map import write_route_map
+
+    write_route_map(tmp_path, site, coverage)
     return site, path
 
 
 def test_site_when_anchors_and_alias_inventory_exist_then_passes(tmp_path):
     site, coverage = fixture_site(tmp_path)
-    assert verify_site(site, coverage)["passed"]
+    assert verify_site(site, coverage, legacy_root=tmp_path)["passed"]
 
 
 def test_site_when_generated_member_anchor_missing_then_fails(tmp_path):
     site, coverage = fixture_site(tmp_path, anchor=False)
     with pytest.raises(ValueError, match="acceptance failed"):
-        verify_site(site, coverage)
+        verify_site(site, coverage, legacy_root=tmp_path)
 
 
 def test_site_when_alias_inventory_points_to_missing_anchor_then_fails(tmp_path):
@@ -54,7 +60,7 @@ def test_site_when_alias_inventory_points_to_missing_anchor_then_fails(tmp_path)
     inventory.register("pkg.alias", "py", "function", "page.html#wrong")
     (site / "objects.inv").write_bytes(inventory.format_sphinx())
     with pytest.raises(ValueError, match="acceptance failed"):
-        verify_site(site, coverage)
+        verify_site(site, coverage, legacy_root=tmp_path)
 
 
 def test_sharded_site_verifies_complete_coverage_and_requires_deployed_worker(tmp_path):
@@ -95,7 +101,7 @@ def test_sharded_site_verifies_complete_coverage_and_requires_deployed_worker(tm
     ):
         (site / relative).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / "overrides" / relative, site / relative)
-    report = verify_site(site, coverage)
+    report = verify_site(site, coverage, legacy_root=tmp_path)
     assert report["search_rows"] == 1, (
         "An empty page bootstrap cannot replace complete coverage"
     )
@@ -108,7 +114,7 @@ def test_sharded_site_verifies_complete_coverage_and_requires_deployed_worker(tm
         b"a" * (5 * 1024 * 1024)
     )
     with pytest.raises(ValueError, match="acceptance failed"):
-        verify_site(site, coverage)
+        verify_site(site, coverage, legacy_root=tmp_path)
     (site / "assets/javascripts/workers/complete-search.js").unlink()
     with pytest.raises(FileNotFoundError, match="complete-search"):
-        verify_site(site, coverage)
+        verify_site(site, coverage, legacy_root=tmp_path)

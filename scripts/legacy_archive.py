@@ -9,7 +9,7 @@ from html import escape
 from pathlib import Path
 
 
-def publish_archive(root: Path, site: Path) -> dict:
+def publish_archive(root: Path, site: Path, coverage: dict | None = None) -> dict:
     """Verify every archived byte before wrapping HTML or creating redirects."""
     manifest = json.loads((root / "archive/fontlab7-manifest.json").read_text())
     archive = root / "archive/fontlab7-site.tar.gz"
@@ -30,7 +30,9 @@ def publish_archive(root: Path, site: Path) -> dict:
             target.parent.mkdir(parents=True, exist_ok=True)
             if relative.suffix == ".html":
                 html = content.decode("utf-8")
-                fragments = re.findall(r'\bid=["\']([^"\']+)', html)
+                from .legacy_route_map import LegacyHTML
+
+                fragments = sorted(LegacyHTML(html).ids)
                 current = "/".join([".."] * (len(relative.parts) + 1)) + "/index.html"
                 banner = (
                     '<div style="padding:1rem;background:#ffe7ad;color:#241900;text-align:center">FontLab7 archive · <a style="color:inherit" href="'
@@ -105,4 +107,7 @@ def publish_archive(root: Path, site: Path) -> dict:
     (site / "legacy-routes.json").write_text(
         json.dumps(report, separators=(",", ":")) + "\n"
     )
+    from .legacy_route_map import write_route_map
+
+    write_route_map(root, site, coverage or {})
     return report

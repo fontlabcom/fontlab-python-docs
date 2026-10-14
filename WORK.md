@@ -240,3 +240,48 @@ lint/diff checks pass. Current static startup is 4,940,411 bytes (production gzi
 4,859,641); the original corpus/shard counts are unchanged. The report distinguishes
 the prior 4,859,492 production accounting from 4,859,537 measured harness bytes.
 No unchanged full suite/benchmark or full-site build was repeated in this round.
+
+## 2026-10-14 — R042 legacy route map
+
+Added deterministic built-root `route-map.json` (schema 1, archive version
+`FontLab7`). Each original HTML route records archive/current targets, every ID
+and named anchor, fragment targets, match classification and reason. Only exact
+qualified filenames, IDs or heading text found in current symbols/public aliases
+receive current targets; ambiguous and unmatched fragments remain archive-only.
+All redirects continue to preserve original archive fragments. Original internal
+HTML hrefs are resolved relative to their source, including project-prefixed and
+same-site absolute URLs, queries and percent-encoded fragments. Unresolved links
+are separately classified `broken-in-original`; repeated identical hrefs on one
+page count once.
+
+The existing archive publisher emits the map through the post-build hook using
+current coverage. Site verification independently recomputes it from the pinned
+original tarball and current coverage, checks actual archived IDs/named anchors,
+and checks redirect policies, JavaScript, meta refresh, fallback links and root
+fragment migration. Missing maps, routes, fragments, archive pages or disagreeing
+current/archive targets fail. Root and 404 retain their existing current-page
+exceptions. No source-lock refresh or TODO changes.
+
+Read-only real-data probe against existing `.build/coverage.json`: 278 HTML
+routes, 128,733 unique route/fragment pairs, 221 exact current page targets,
+45,113 exact current fragment targets, 96,989 broken original source/href pairs.
+This uses the existing coverage artifact rather than regenerating producer input.
+
+Verification (commands routed through `rtk proxy`):
+- `uv run --frozen pytest -q tests`: blocked by default uv cache write permission.
+- `env UV_CACHE_DIR=/private/tmp/fontlab-route-uv UV_OFFLINE=true uv run --frozen pytest -q tests`:
+  14 collection errors because the console entry point omits the repository import path.
+- `env UV_CACHE_DIR=/private/tmp/fontlab-route-uv UV_OFFLINE=true uv run --frozen python -m pytest -q tests`:
+  145 passed, 3 failed. The same three baseline browser tests fail at Chromium
+  launch because sandboxed macOS Mach-port registration is denied; baseline was
+  131 passed, 3 failed. No network was used.
+- `env UV_CACHE_DIR=/private/tmp/fontlab-route-uv UV_OFFLINE=true uv run --frozen python -m pytest -q tests/test_legacy_route_map.py tests/test_site_verification.py`:
+  18 passed, covering exact/fallback mappings, fragment preservation, original
+  broken links, encoded/prefixed URLs, determinism and verification failures.
+- `ruff check scripts/legacy_route_map.py scripts/legacy_archive.py scripts/site_hooks.py scripts/verify_site.py tests/test_legacy_route_map.py tests/test_site_verification.py`:
+  passed. Scoped `ruff format` applied; `git diff --check` passed.
+
+Wait, but the full gate is not green in this sandbox: browser launch remains
+blocked. The controller still owns the full build/check and browser acceptance.
+No full build/native refresh, archive/manifest edits, generated-site writes,
+theme changes, dependency changes, publication or commit were performed.
