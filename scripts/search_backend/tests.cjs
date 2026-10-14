@@ -1,5 +1,6 @@
 // this_file: scripts/search_backend/tests.cjs
 const test=require("node:test"), assert=require("node:assert/strict"), fs=require("node:fs"), os=require("node:os"), path=require("node:path");
+const vm=require("node:vm");
 const {execFileSync}=require("node:child_process"),{Search}=require("./engine.cjs");
 const {candidates,hydrate,validateManifest,decodeRouting,readVarint}=require("./router.cjs"),{QueryRunner}=require("./query.cjs");
 const dir=fs.mkdtempSync(path.join(os.tmpdir(),"complete-search-test-"));
@@ -74,3 +75,69 @@ test("missing/corrupt/delayed fetch emits no partial data; cancellation releases
  global.fetch=previous;
 });
 process.on("exit",()=>fs.rmSync(dir,{recursive:true,force:true}));
+
+async function until(condition) {
+ const deadline=Date.now()+1000;
+ while(!condition()) {if(Date.now()>deadline)throw Error("Timed out waiting for fixture state");await new Promise(resolve=>setTimeout(resolve,5));}
+}
+test("persisted page restoration reopens/reconciles retry channel through repeated transitions",async()=>{
+ const channels=[];
+ class TrackedChannel extends BroadcastChannel {constructor(name){super(name);channels.push(this);}}
+ const events=new Map(), config={textContent:'{"search":"unused"}'}, meta={},list={},output={dataset:{},prepend(panel){this.panel=panel;},querySelector(selector){return selector.includes("__list")?list:meta;}};
+ const document={currentScript:{dataset:{worker:"assets/javascripts/workers/complete-search.js"}},
+  getElementById(){return config;},querySelector(){return output;},createElement(){return {dataset:{},style:{},children:[],setAttribute(){},append(...children){this.children.push(...children);}};}};
+ let reloads=0;
+ try {vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,"../../overrides/assets/javascripts/complete-search-ui.js"),"utf8"),{
+  document,URL,crypto,BroadcastChannel:TrackedChannel,setTimeout,clearTimeout,location:{href:"http://fixture.test/prefix/",reload(){reloads++;}},
+  addEventListener(name,fn,options){if(!events.has(name))events.set(name,[]);events.get(name).push({fn,once:options?.once});}
+ });} catch(error) {for(const channel of channels)channel.close();throw error;}
+ const peer=new BroadcastChannel(new URL(JSON.parse(config.textContent).search).searchParams.get("channel")), received=[];
+ let current={state:"error",phase:"query"};peer.onmessage=({data})=>{received.push(data);if(data.type==="status")peer.postMessage(current);};
+ const dispatch=(name,event)=>{for(const listener of events.get(name)||[]){listener.fn(event);if(listener.once)events.set(name,events.get(name).filter(x=>x!==listener));}};
+ const retry=output.panel.children[1];
+ try {
+  peer.postMessage(current);await until(()=>output.dataset.completeSearchState==="error");
+  assert(events.has("pageshow"),"Persisted restoration needs an explicit pageshow listener");
+  for(let i=0;i<2;i++) {
+   dispatch("pagehide",{persisted:true});current={state:"error",phase:"query"};peer.postMessage(current);
+   dispatch("pageshow",{persisted:true});await until(()=>received.filter(x=>x.type==="status").length===i+1);
+   await until(()=>output.panel.hidden===false && retry.disabled===false);
+   assert.doesNotThrow(()=>retry.onclick(),"Retry must never use a closed channel");
+   await until(()=>received.filter(x=>x.type==="retry").length===i+1);
+   current={state:"ready"};peer.postMessage(current);await until(()=>output.panel.hidden && !meta.hidden && !list.hidden);
+  }
+  current={state:"error",phase:"query"};peer.postMessage(current);await until(()=>!output.panel.hidden);
+  assert.equal(reloads,0,"Persisted restoration cannot be replaced by an automatic reload");
+ } finally {dispatch("pagehide",{persisted:false});peer.close();for(const channel of channels)channel.close();}
+});
+test("actual compiled worker returns ordinary empty results for original parser errors only",async()=>{
+ const messages=[], states=[], handlers=new Map(), channels=[], name=`parse-${crypto.randomUUID()}`;
+ class TrackedChannel extends BroadcastChannel {constructor(name){super(name);channels.push(this);}}
+ const peer=new BroadcastChannel(name);peer.onmessage=({data})=>states.push(data);
+ let missing=false;
+ const source=fs.readFileSync(path.resolve(__dirname,"../../overrides/assets/javascripts/workers/complete-search.js"),"utf8");
+ try {vm.runInNewContext(source,{URL,BroadcastChannel:TrackedChannel,crypto,AbortController,AbortSignal,TransformStream,DecompressionStream,
+  Uint8Array,Uint32Array,TextDecoder,setTimeout,clearTimeout,console,
+  location:{href:`http://fixture.test/prefix/assets/javascripts/workers/complete-search.js?channel=${name}`},
+  addEventListener(type,handler){handlers.set(type,handler);},postMessage(message){messages.push(message);},
+  fetch:async url=>missing&&url.pathname.includes("rows-")?new Response("missing",{status:404}):new Response(fs.readFileSync(path.join(dir,path.basename(url.pathname))))});
+ } catch(error) {peer.close();for(const channel of channels)channel.close();throw error;}
+ const setupBytes=fs.readFileSync(path.join(dir,"manifest.json"));
+ const spec={file:"manifest.json",raw:setupBytes.length,gzip:fs.statSync(path.join(dir,"manifest.json.gz")).size,sha256:require("node:crypto").createHash("sha256").update(setupBytes).digest("hex")};
+ const message=data=>handlers.get("message")({data});
+ try {
+  message({type:0,data:{config:{complete:{manifest:spec}},docs:[],options:{suggest:false}}});await until(()=>messages.some(x=>x.type===1));
+  for(const value of ["Signal~x","Signal^foo","title:Signal~x"]) {
+   const before=messages.length, stateBefore=states.length;message({type:2,data:value});
+   await until(()=>messages.length>before && states.slice(stateBefore).some(x=>x.state==="ready"||x.state==="error"));
+   assert.equal(JSON.stringify(messages.at(-1)),JSON.stringify({type:3,data:{items:[]}}));
+   assert(!states.slice(stateBefore).some(x=>x.state==="error"),"Invalid query syntax is not a transport outage");
+  }
+  missing=true;const before=states.length;message({type:2,data:"Signal"});
+  await until(()=>states.slice(before).some(x=>x.state==="error"));
+  assert(states.slice(before).some(x=>x.message?.includes("404")),"Network failures must remain unavailable");
+  const restored=states.length;peer.postMessage({type:"status"});
+  await until(()=>states.length>restored);
+  assert(states.slice(restored).some(x=>x.state==="error" && x.message?.includes("404")),"Restored pages must receive the actual worker's current failure status");
+ } finally {peer.close();for(const channel of channels)channel.close();}
+});

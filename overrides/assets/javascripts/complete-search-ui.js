@@ -9,9 +9,9 @@
   worker.searchParams.set("channel", name);
   config.search = worker.href;
   element.textContent = JSON.stringify(config);
-  const channel = new BroadcastChannel(name);
   const output = document.querySelector(".md-search__output");
   if (!output) return;
+  let channel, deadline;
   const panel = document.createElement("div");
   panel.className = "md-search-result__meta";
   panel.dataset.completeSearchStatus = "";
@@ -43,11 +43,25 @@
     if (list) list.hidden = data.state === "error";
     output.dataset.completeSearchState = data.state;
   };
-  const deadline = setTimeout(() => update({state:"error"}), 30000);
-  channel.onmessage = ({data}) => {
-    connected = true;
-    if (data.state === "ready" || data.state === "error") clearTimeout(deadline);
-    update(data);
+  const open = () => {
+    channel = new BroadcastChannel(name);
+    channel.onmessage = ({data}) => {
+      connected = true;
+      if (data.state === "ready" || data.state === "error") clearTimeout(deadline);
+      update(data);
+    };
+    deadline = setTimeout(() => update({state:"error"}), 30000);
   };
-  addEventListener("pagehide", () => { clearTimeout(deadline); channel.close(); }, {once:true});
+  open();
+  addEventListener("pagehide", () => {
+    clearTimeout(deadline); channel?.close(); channel = null;
+  });
+  addEventListener("pageshow", ({persisted}) => {
+    if (!persisted || channel) return;
+    connected = false;
+    open();
+    update({state:output.dataset.completeSearchState || "loading"});
+    retry.disabled = true;
+    channel.postMessage({type:"status"});
+  });
 })();

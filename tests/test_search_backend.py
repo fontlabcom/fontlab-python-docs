@@ -6,7 +6,11 @@ import subprocess
 import sys
 
 from playwright.sync_api import sync_playwright
-from search_fixture import browser_corpus, start_server
+from search_fixture import (
+    assert_malformed_queries_preserve_no_matches,
+    browser_corpus,
+    start_server,
+)
 
 from scripts.search_shards import ROOT, build_shards
 
@@ -167,6 +171,7 @@ def test_installed_template_suggestions_failure_retry_and_stale_queries(tmp_path
                 "No matching documents"
                 in page.locator(".md-search-result__meta").last.text_content()
             )
+            assert_malformed_queries_preserve_no_matches(page, query, panel)
             policy["corrupt"] = True
             page.goto(f"http://127.0.0.1:{server.server_port}/docs/nested/")
             query.fill("Beta")

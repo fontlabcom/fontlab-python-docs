@@ -1,12 +1,17 @@
 // this_file: scripts/search_backend/worker.js
 import {fetchChecked,parseJSON,validateManifest,decodeRouting} from "./validation.js";
 import {QueryRunner} from "./query.js";
+import {lunr} from "./engine.ts";
 const base=new URL("../../../search/complete/",location.href);
 const channelName=new URL(location.href).searchParams.get("channel");
 const channel=channelName ? new BroadcastChannel(channelName) : null;
 let setupData, runner, setupPromise=Promise.resolve(), queue=Promise.resolve(), generation=0, latest="", ready=false;
 let active=new AbortController(), startup=new AbortController();
-const state=data=>channel?.postMessage(data);
+let lastState={state:"loading"};
+const state=data=>{
+  if(data.state!=="metrics")lastState=data;
+  channel?.postMessage(data);
+};
 async function setup(retry=false) {
   ready=false;runner=undefined;startup.abort();startup=new AbortController();
   const signal=AbortSignal.any([startup.signal,AbortSignal.timeout(30000)]);
@@ -35,7 +40,7 @@ function submit(value,retry=false) {
     } catch(error) {
       if(id!==generation)return;
       active.abort();postMessage({type:3,data:{items:[]}});
-      state({state:"error",phase:"query",message:String(error)});
+      state(error instanceof lunr.QueryParseError ? {state:"ready"} : {state:"error",phase:"query",message:String(error)});
     }
   }).catch(error=>state({state:"error",message:String(error)}));
 }
@@ -44,6 +49,7 @@ addEventListener("message",({data})=>{
   if(data.type===2&&typeof data.data==="string")submit(data.data);
 });
 if(channel)channel.onmessage=({data})=>{
+  if(data?.type==="status") {state(lastState);return;}
   if(data?.type!=="retry"||!setupData)return;
   if(!ready)setupPromise=setup(true);
   submit(latest,true);

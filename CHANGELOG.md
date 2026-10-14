@@ -4,6 +4,8 @@ this_file: CHANGELOG.md
 
 ## Unreleased — native source reference verification
 
+- Reopen and reconcile search status/retry channels after persisted page restoration;
+  preserve the original empty-result behavior for Lunr query parse failures.
 - Shard complete search rows without dropping identities, aliases or fields;
   route globally through checked vocabulary/postings and hydrate with the original
   pinned MaterialX/Lunr engine. Gate actual initial static transfer at5MiB,

@@ -18,6 +18,11 @@ three responses at a time. `worker.js` keeps messages0/1/2/3 and aborts/suppress
 superseded work. Failure/retry status uses a per-page BroadcastChannel; no deployed
 test controls or Worker monkeypatches exist.
 
+The page closes its UI channel on pagehide, then reopens/rebinds it on persisted
+pageshow and requests the worker's current status. Retry is reconciled before it
+is enabled; restoration does not force a reload. The original Lunr QueryParseError
+returns the stock ordinary empty result rather than a transport-outage state.
+
 All worker-owned assets are fetched explicitly as `.gz` files and decoded with
 native `DecompressionStream("gzip")`, with compressed and expanded size bounds.
 The original raw assets remain for offline verification and original-consumer

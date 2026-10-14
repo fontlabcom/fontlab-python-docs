@@ -226,3 +226,17 @@ candidate statistics. Raw-cache/completed-response accounting and scheduled
 encoded-window bounds remain separate from sampled page/worker heap. Full-site
 strict build/check/links and original navigation/OOM acceptance remain controller
 Task 3 after review; no publication, native call or full-site rebuild occurred.
+
+Task 2 review fix round 1 corrects status-channel restoration after persisted
+pagehide/pageshow: close on hide, reopen/rebind on restored show, request the
+worker's current status and reconcile Retry before enabling it. A bounded real
+Node BroadcastChannel fixture covers two restoration cycles, subsequent failure,
+retry and cleanup. Actual Chrome persisted Back/Forward remains a controller gate.
+Original Lunr QueryParseError now returns an ordinary empty RESULT; network and
+corruption remain unavailable. Actual compiled-worker and configured stock UI
+fixtures cover Signal~x, Signal^foo and title:Signal~x without hiding transport errors.
+Seventeen Node checks and ten focused Python/UI/shard/site tests pass; scoped
+lint/diff checks pass. Current static startup is 4,940,411 bytes (production gzip
+4,859,641); the original corpus/shard counts are unchanged. The report distinguishes
+the prior 4,859,492 production accounting from 4,859,537 measured harness bytes.
+No unchanged full suite/benchmark or full-site build was repeated in this round.
