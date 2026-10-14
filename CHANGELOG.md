@@ -4,6 +4,13 @@ this_file: CHANGELOG.md
 
 ## Unreleased — native source reference verification
 
+- Shard complete search rows without dropping identities, aliases or fields;
+  route globally through checked vocabulary/postings and hydrate with the original
+  pinned MaterialX/Lunr engine. Gate actual initial static transfer at5MiB,
+  including explicit gzip metadata, bootstrap, worker and retry UI.
+- Preserve configured search suggestions, show unavailable/retry states separately
+  from no matches, reject corrupt metadata/shards and suppress superseded results.
+  Ordinary source builds remain offline after dependency bootstrap.
 - Keep known empty namespaces authoritative, evaluate source decorator approval
   against its active declaration/dependencies, and invalidate shared class
   attributes across aliases after source writes or deletes.

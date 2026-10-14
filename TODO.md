@@ -18,5 +18,6 @@ this_file: TODO.md
 - [x] Resolve final I1–I5 and M2/M3 documentation defects with 66-test source/browser regressions.
 - [x] Provide a build-plus-consumer command that fails on missing inputs and provisions Chromium.
 - [ ] Run final full-corpus strict build, accepted-manifest check and project-prefix/browser acceptance.
-- [ ] Split the complete search index and verify shard loading to meet the initial 5 MiB payload requirement; 7 MiB is provisional only.
+- [x] Implement complete search sharding, original consumer comparisons and checked initial5MiB startup transfer.
+- [ ] Review search implementation and complete full-site build/check/links, unchanged same-tab browser/navigation/memory acceptance and deployed asset-header verification.
 - [ ] Wire the mandatory build-plus-consumer gate into clean CI with the broader R044 gates.

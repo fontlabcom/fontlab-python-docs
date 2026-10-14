@@ -198,3 +198,31 @@ and live dependency bindings in a small independently tested helper. All 128 tes
 pass; scoped lint/diff checks pass. Full-corpus relationships/aliases/inputs/body
 targets/URLs exactly match the prior task receipt. Controller review and full-site
 acceptance remain pending; earlier failed receipts and historical bounds remain.
+
+Complete-search Task 2 implements the reviewed global token/document router with
+complete original row hydration and unchanged pinned MaterialX 10.1.5/Lunr 2.3.9
+consumer source. Reconciliation preserves 60,048 rows, 246,816 identities and
+521,767 aliases in 63 content-addressed shards; all 822,237 token lists are checked
+for valid counts/canonical varints/ranges. Original corpus remains 71,587,122 bytes
+and 6,715,183 gzip bytes. Initial static transfer is 4,939,810 bytes, including
+explicit gzip metadata plus uncompressed bootstrap/worker/retry UI, below 5 MiB
+without assuming HTTP compression. Gzip for other startup assets yields 4,859,492 bytes.
+
+All 135 tests pass with FONTLAB_REQUIRE_CONSUMER=1; the unchanged shipped worker
+loads all 60,048 original rows and passes all 19 targets (maximum 0.084 seconds).
+The new full-corpus consumer matches all 29 complete result sets, including fields,
+required/prohibited clauses, quotes, fuzzy, leading/internal wildcards and
+prohibited-only syntax. Configured suggestions, keyboard acceptance, prefix
+specialization, plain-static gzip decoding, visible startup/row failure/retry,
+corrupt metadata and stale-query suppression pass focused fixtures. Offline
+compiler provisioning/recompilation succeeds from the locked npm cache; ordinary
+source builds invoke committed bundles and perform no npm/npx/network fetch.
+
+Final 100 Mbps/20 ms same-tab UI measurement passes 19 cold/warm targets, with
+maxima 1.424/1.363 seconds after real metadata readiness. Local cold/warm also passes;
+the retained 20 Mbps/100 ms cold run takes 2.505 seconds for fly.fl and 3.748 for Signal.
+Complex complete fallback queries can take 5–8 seconds. Scores/order can vary with
+candidate statistics. Raw-cache/completed-response accounting and scheduled
+encoded-window bounds remain separate from sampled page/worker heap. Full-site
+strict build/check/links and original navigation/OOM acceptance remain controller
+Task 3 after review; no publication, native call or full-site rebuild occurred.

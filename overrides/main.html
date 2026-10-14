@@ -1,2 +1,7 @@
 {# this_file: overrides/main.html #}
 {% extends "base.html" %}
+{% block config %}
+{{ super() }}
+<script src="{{ 'assets/javascripts/complete-search-ui.js' | url }}"
+        data-worker="{{ 'assets/javascripts/workers/complete-search.js' | url }}"></script>
+{% endblock %}

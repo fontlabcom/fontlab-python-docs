@@ -152,7 +152,9 @@ def test_search_when_full_index_uses_materialx_worker_then_module_alias_is_disco
                 "Consumer acceptance requires a complete built site and coverage"
             )
         pytest.skip("Full built source inventory and MaterialX index are required")
-    data = json.loads(index_path.read_text())
+    from scripts.search_shards import read_complete_index
+
+    data = read_complete_index(index_path)
     coverage = json.loads(coverage_path.read_text())
     identities = [
         (row["location"], row["title"], row["text"], tuple(row.get("tags", [])))
@@ -213,6 +215,10 @@ def test_search_when_full_index_uses_materialx_worker_then_module_alias_is_disco
             "PythonQt.QtGui.QPushButton.resize",
             "fly.qt.QtGui.QPushButton.resize",
             "PythonQt.QtGui.QLabel.resize",
+            "typerig.proxy.fl.objects.glyph.eGlyph.addAnchor",
+            "fly.tr.proxy.fl.objects.glyph.eGlyph.addAnchor",
+            "fly.tr.proxy.fl.gui.QtGui.QDialog.accept",
+            "typerig.proxy.fl.gui.dialogs.TR1FieldDLG.accept",
         ):
             target = coverage["aliases"].get(query, query)
             queries[query] = coverage["symbols"][target]["body_url"]

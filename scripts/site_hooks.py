@@ -65,6 +65,9 @@ def on_post_build(config):
         },
     )
     path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+    from scripts.search_shards import build_shards
+
+    build_shards(path)
     (Path(config.site_dir) / ".nojekyll").touch()
     from scripts.legacy_archive import publish_archive
 

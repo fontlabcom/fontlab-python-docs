@@ -45,9 +45,34 @@ Chromium (network needed if uncached) and requires all 15 shipped-worker queries
 missing inputs cannot silently skip. Lightweight test-only runs may skip this
 full-corpus case. Wiring this mandatory gate into clean CI remains unfinished.
 
-Complete shared-member/alias coverage currently needs a provisional 7 MiB gzip
-search budget. Sharding to satisfy the initial 5 MiB payload requirement remains
-parent work; the 2 MiB API-page limit is unchanged.
+Complete search retains every original row in content-addressed page shards.
+Its checked global vocabulary/postings load before readiness; queries hydrate
+complete matching rows through the original MaterialX/Lunr engine. The initial
+5 MiB budget includes bootstrap, metadata, worker and retry UI even on a plain
+static server. Explicit `.gz` assets use native `DecompressionStream`; search
+requires a modern browser and HTTP(S). API pages retain the 2 MiB limit.
+
+Install Node 22+ before building. Ordinary builds invoke the committed pinned
+engine bundle and never run npm/npx or download language assets. The current
+English configuration remains intact; other languages fail explicitly until
+their exact engine assets are provisioned. To update handwritten backend source:
+
+```bash
+mkdir -p .build/search-compiler
+cp scripts/search_backend/package*.json .build/search-compiler/
+npm ci --prefix .build/search-compiler --ignore-scripts --no-audit --no-fund
+node scripts/search_backend/compile.cjs
+```
+
+The one-time compiler bootstrap installs locked esbuild 0.25.12. Later use
+`npm ci --offline --prefix .build/search-compiler --ignore-scripts --no-audit --no-fund`
+from its populated cache, or rebuild with the existing compiler. Commit updated
+bundles and hashes together. Regular `./build.sh --offline` needs neither compiler
+nor npm cache. Search failures expose Retry beside the stock search results.
+Complex fuzzy/wildcard/prohibited-only queries can require all shards. Tested
+100 Mbps/20 ms named-query latency passes; cold broad queries at 20 Mbps/100 ms
+can exceed two seconds. Global BM25 scores/order can vary while complete result
+sets and named target discovery are retained. Final full-site acceptance is pending.
 
 Full coverage, browser/search, CI and deployment
 acceptance remain in progress; do not treat this source rewrite as a published

@@ -22,7 +22,9 @@ No copied stubs, host imports or native inspection in normal builds.
 4. Preserve legacy routes/fragments in a versioned archive and route map.
 5. Implement ./build.sh and --check/--serve/--refresh-native, source/artifact modes,
    deterministic coverage, source privacy/license checks and offline operation.
-6. Verify actual full rendered API/inventory, search and browser interaction,
+6. Complete search sharding now retains the original corpus and uses pinned,
+   offline global routing plus the original consumer engine. Review the implementation
+   and verify actual full rendered API/inventory, search and browser interaction,
    desktop/mobile/light/dark/keyboard, page/index/resource budgets and CI.
 7. Publish only audited outputs; independently verify the deployed source
    provenance, routes, assets, search and navigation. Full goal remains active.

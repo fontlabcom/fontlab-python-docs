@@ -55,3 +55,60 @@ def test_site_when_alias_inventory_points_to_missing_anchor_then_fails(tmp_path)
     (site / "objects.inv").write_bytes(inventory.format_sphinx())
     with pytest.raises(ValueError, match="acceptance failed"):
         verify_site(site, coverage)
+
+
+def test_sharded_site_verifies_complete_coverage_and_requires_deployed_worker(tmp_path):
+    import shutil
+
+    from scripts.search_shards import ROOT, build_shards
+
+    site, coverage = fixture_site(tmp_path)
+    index = site / "search/search_index.json"
+    index.write_text(
+        json.dumps(
+            {
+                "config": {
+                    "lang": ["en"],
+                    "separator": r"[\s\-]+",
+                    "pipeline": ["trimmer"],
+                    "fields": {
+                        "title": {"boost": 1000},
+                        "text": {"boost": 1},
+                        "tags": {"boost": 1000000},
+                    },
+                },
+                "docs": [
+                    {
+                        "location": "page.html#pkg.value",
+                        "title": "pkg.value",
+                        "text": "Complete body.",
+                        "tags": ["pkg.alias"],
+                    }
+                ],
+            }
+        )
+    )
+    build_shards(index)
+    for relative in (
+        "assets/javascripts/workers/complete-search.js",
+        "assets/javascripts/complete-search-ui.js",
+    ):
+        (site / relative).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / "overrides" / relative, site / relative)
+    report = verify_site(site, coverage)
+    assert report["search_rows"] == 1, (
+        "An empty page bootstrap cannot replace complete coverage"
+    )
+    assert report["search_gzip_budget_bytes"] == 5 * 1024 * 1024
+    assert report["search_sharding"]["aggregate_bytes"] > 0
+    assert (
+        report["search_gzip_bytes"] == report["search_sharding"]["initial_gzip_bytes"]
+    )
+    (site / "assets/javascripts/workers/complete-search.js").write_bytes(
+        b"a" * (5 * 1024 * 1024)
+    )
+    with pytest.raises(ValueError, match="acceptance failed"):
+        verify_site(site, coverage)
+    (site / "assets/javascripts/workers/complete-search.js").unlink()
+    with pytest.raises(FileNotFoundError, match="complete-search"):
+        verify_site(site, coverage)

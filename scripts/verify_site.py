@@ -63,6 +63,16 @@ def verify_site(site: Path, coverage_path: Path) -> dict:
     largest = max(sizes.values(), default=0)
     search = (site / "search/search_index.json").read_bytes()
     compressed = len(gzip.compress(search, mtime=0))
+    search_data = json.loads(search)
+    sharding = None
+    if "complete" in search_data.get("config", {}):
+        from .search_identities import verify_search_coverage
+        from .search_shards import inspect_shards, read_complete_index
+
+        complete = read_complete_index(site / "search/search_index.json")
+        verify_search_coverage(complete, coverage["symbols"], coverage["aliases"])
+        sharding = inspect_shards(site / "search/search_index.json", deployed=True)
+        compressed = sharding["initial_gzip_bytes"]
     report = {
         "schema_version": 1,
         "source_symbols": len(coverage["symbols"]),
@@ -71,12 +81,22 @@ def verify_site(site: Path, coverage_path: Path) -> dict:
         "missing_anchors": missing,
         "missing_inventory": sorted(absent_inventory),
         "largest_api_page_bytes": largest,
-        "search_bytes": len(search),
+        "search_bytes": sharding["aggregate_bytes"] if sharding else len(search),
         "search_gzip_bytes": compressed,
+        "initial_search_static_bytes": sharding["initial_static_bytes"]
+        if sharding
+        else None,
+        "aggregate_search_gzip_bytes": sharding["aggregate_gzip_bytes"]
+        if sharding
+        else compressed,
+        "search_rows": sharding["rows"] if sharding else len(search_data["docs"]),
+        "search_sharding": sharding,
         "page_budget_bytes": 2 * 1024 * 1024,
-        "search_gzip_budget_bytes": 7 * 1024 * 1024,
+        "search_gzip_budget_bytes": (5 if sharding else 7) * 1024 * 1024,
         "initial_search_gzip_budget_bytes": 5 * 1024 * 1024,
-        "search_budget_status": "provisional; complete index sharding remains required",
+        "search_budget_status": "complete explicit-gzip routing plus uncompressed bootstrap/worker/UI"
+        if sharding
+        else "historical monolithic provisional budget",
         "coverage_sha256": hashlib.sha256(coverage_path.read_bytes()).hexdigest(),
     }
     report["passed"] = (
@@ -84,6 +104,11 @@ def verify_site(site: Path, coverage_path: Path) -> dict:
         and not absent_inventory
         and largest <= report["page_budget_bytes"]
         and compressed <= report["search_gzip_budget_bytes"]
+        and (
+            not sharding
+            or sharding["initial_static_bytes"]
+            <= report["initial_search_gzip_budget_bytes"]
+        )
     )
     (site.parent / "site-verification.json").write_text(
         json.dumps(report, indent=2) + "\n"
