@@ -43,7 +43,18 @@ Run `./scripts/accept-consumer.sh --offline` for the required build-plus-consume
 gate after dependency/source provisioning. The gate provisions Playwright
 Chromium (network needed if uncached) and requires all 15 shipped-worker queries;
 missing inputs cannot silently skip. Lightweight test-only runs may skip this
-full-corpus case. Wiring this mandatory gate into clean CI remains unfinished.
+full-corpus case.
+
+GitHub Actions `docs.yml` runs locked unit/browser tests, network-enabled consumer
+acceptance, build verification and R043 accessibility checks; it uploads receipts
+and the built site. Configure `FONTLAB_DOCS_READ_TOKEN` with read access to the
+eight private `fontlabcom` producer repositories (and organisation SSO approval
+if required). The lock currently pins file hashes, not Git revisions: CI checks
+out producer default branches and fails on source-byte drift. Fork pull requests
+without this secret cannot pass private-source checkout. CI proves build and
+sampled browser acceptance; it does not deploy the site or prove complete WCAG
+conformance. Run `uv run python scripts/a11y_check.py --site .build/site --out
+a11y.json` locally; `--pages` overrides the fixed representative page list.
 
 Complete search retains every original row in content-addressed page shards.
 Its checked global vocabulary/postings load before readiness; queries hydrate

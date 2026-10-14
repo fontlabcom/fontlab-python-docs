@@ -2,6 +2,23 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-10-14 — R043/R044 accessibility and CI gates
+
+- Correct accessibility checker timing for animated focus rings, hidden-control
+  naming and responsive search/navigation targeting. Test reachability in any
+  order within 40 Tabs; retain off-screen/absent focus indicators as failures.
+- Record unmeasurable contrast separately under `needs_manual`; retain the
+  strict 4.5:1 failure threshold and fail provably transparent unreadable text.
+  Add passing/failing regression fixtures for each correction.
+- Add local Playwright accessibility acceptance with JSON receipts for seven
+  representative pages at desktop/mobile sizes in light/dark schemes. Check
+  overflow, keyboard reach/focus, headings, image alternatives, control names
+  and 4.5:1 text contrast; retain unmeasurable backgrounds for manual review.
+- Add tiny passing/failing browser fixtures and workflow/receipt regression tests.
+- Add Ubuntu documentation CI with locked dependencies, sibling producer
+  checkouts, consumer/build/accessibility gates and retained artifacts. Document
+  the private-source read secret and distinguish CI acceptance from deployment.
+
 ## 2026-10-14 — legacy route map
 
 - Emit deterministic `route-map.json` with all original HTML routes/fragments,

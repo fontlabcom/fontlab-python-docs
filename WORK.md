@@ -4,6 +4,104 @@ this_file: WORK.md
 
 # Shared theme migration
 
+## 2026-10-14 — R043 checker correction from controller receipt
+
+Read the controller's complete `a11y-first.json`: 28 results with 633 failures
+(278 focus, 183 contrast, 88 unmeasurable, 56 names, 28 keyboard reach).
+The focus sample already recognised `auto` as visible; its indicator failed
+because the MaterialX skip link begins with opacity zero and fades in over
+250 ms. Focus measurement now waits two animation frames and for active-element
+and ancestor transitions (bounded at 700 ms), recognises non-none positive-width
+outlines, and records rendered/visible state. No-ring or off-screen focus still
+fails. Body focus resets the starting point before the traversal.
+
+Names now trim each candidate, resolve explicit label[for]/aria-labelledby and
+exclude unrendered controls. Any control actually reached by Tab is checked
+again, so hidden-looking but keyboard-focusable unnamed controls still fail.
+Search targets the real field or focusable trigger, not the non-focusable mobile
+icon label. Navigation targets the first rendered link rather than the hidden
+desktop logo. An absent skip link is optional; existing skip/search/nav targets
+must be reached in any order within 40 Tabs. Focus-indicator checks continue for
+the complete Tab cycle, including elements after the reachability bound. This
+is the project's sample bound,
+not a WCAG tab-count or ordering requirement.
+
+Unmeasurable contrast is retained separately as non-failing `needs_manual`.
+Known ratios below 4.5 still fail without rounding the comparison. Fully
+transparent text without a text shadow fails even over an unknown background.
+Ten new browser fixtures cover auto rings/transitions, hidden and explicitly
+labelled controls, opacity-zero unnamed focusable controls, responsive targets,
+untabbable navigation, manual contrast, transparent text and off-screen focus.
+Three browser-independent receipt tests prove manual findings remain non-failing,
+observed keyboard focus retains the naming requirement, and the reachability
+bound does not truncate focus checking.
+
+The controller's original 183 contrast failures have eight distinct combinations
+(foreground RGBA; background RGB; ratio; element/content type; occurrences):
+- (64,81,181,1); (30,33,41); 2.346942; p/body; 2.
+- (226,228,233,.56); (53.52,56.4,64.04); 4.063016; a/link; 2.
+- (147,131,226,1); (39,42,53); 4.483287; span/code; 8.
+- (230,105,91,1); (39,42,53); 4.449907; span/code; 12.
+- (84,136,232,1); (36.3,39.24,47.09); 4.298601; a/link; 136.
+- (226,228,233,.56); (53.52,56.4,64.04); 4.063016; div/body; 12.
+- (64,81,181,1); (33.4,37.8,55); 2.193786; span/link; 7.
+- (84,136,232,1); (39,42,53); 4.128278; code/code; 4.
+Values above are rounded for display only; the receipt retains full precision.
+
+Corrected existing-site audit attempted: `/private/tmp/fontlab-a11y-corrected.json`
+records installed Chromium's sandbox Mach-port launch denial (1100), zero page
+results and a failed operational gate. No corrected-site pass/count is claimed.
+Focused non-browser checker tests: 4 passed, 22 deselected. Scoped Ruff, JavaScript
+syntax and diff checks pass. Required full run with writable UV_CACHE_DIR:
+**150 passed, 3 failed, 22 browser fixture setup errors in 15.88s**. All failing
+browser launches report the sandbox Mach-port denial; the original three failures
+remain unchanged, and browser tests are not skipped for installed-but-blocked
+Chromium. The controller must rerun the corrected audit and all browser
+fixtures with Chromium launch permitted, and review `needs_manual` separately.
+No theme, generated site, archive, source lock or TODO changes in this correction.
+
+## 2026-10-14 — R043/R044 accessibility and CI
+
+Added `scripts/a11y_check.py` and its DOM measurement helper. The fixed sample is
+index, install/native/PySide guides, flNode, Signal and the FontLab 7 archive
+index. Every page runs at 1280×800 and 375×812 with light/dark media emulation
+and the MaterialX palette when available. A complete Tab cycle measures focused
+outline/shadow changes and reachability of skip/search/first navigation links.
+DOM checks cover one h1, heading progression, image alt attributes and control
+names. Text-node contrast composites ancestor backgrounds and foreground alpha
+against the browser canvas colour; the minimum remains 4.5:1. Gradients/images,
+opacity and blending produce explicit unmeasurable failures rather than passes.
+Receipts include page/viewport/scheme, selectors and measurements; operational
+errors also produce a failing receipt. Tiny static fixtures cover every rule.
+
+Added `.github/workflows/docs.yml`: Ubuntu, Python 3.12, uv, Node 22, all nine
+sibling producer checkouts, Chromium/system-library provisioning, locked tests,
+network-enabled consumer acceptance, build check and accessibility acceptance.
+Receipts/site upload even when a gate fails. `api-sources.lock.json` has only
+schema_version and source-file hashes, so producer default branches are used;
+the existing build rejects byte drift. README documents FONTLAB_DOCS_READ_TOKEN
+for eight private repositories and states that CI is not deployment.
+
+Fresh required full gate with a writable UV_CACHE_DIR: **147 passed, 3 failed,
+12 browser fixture setup errors** (12.68s). Before changes the same sandbox had
+145 passed and the same three existing browser failures. All 15 unsuccessful
+browser cases encounter installed Chromium's macOS MachPortRendezvous launch
+denial (Permission denied 1100); new tests skip only for absent Chromium, never
+for launch denial. A separate non-browser diagnostic passes all 147 tests with
+15 browser cases explicitly deselected (5.67s); this is not the required full
+gate passing. The two added non-browser regressions pass. Workflow YAML
+parses with installed locked PyYAML (21 steps); `uv lock --check`, scoped Ruff,
+JavaScript syntax and diff checks pass. The attempted existing-site audit wrote
+`/private/tmp/fontlab-a11y.json` with a browser-launch failure and zero page
+results: no real-site accessibility findings can be claimed in this sandbox.
+
+Controller must rerun the complete tests and real-site accessibility audit where
+Chromium can launch, inspect all 28 sample results, provision the read secret and
+run clean CI to verify private checkout, source-hash agreement, consumer gate,
+build check and artifact retention. Full build/consumer acceptance was not run
+locally. No theme, archive, generated output, source lock or TODO items changed;
+no commit or deployment. Browser acceptance remains unverified here.
+
 ## Expanded native reference rebuild
 
 The root build consumes captured/enriched Echopy and nine source families with
@@ -285,3 +383,14 @@ Wait, but the full gate is not green in this sandbox: browser launch remains
 blocked. The controller still owns the full build/check and browser acceptance.
 No full build/native refresh, archive/manifest edits, generated-site writes,
 theme changes, dependency changes, publication or commit were performed.
+
+## 2026-10-14: R043 accessibility audit and R044 CI workflow (controller)
+
+Controller re-ran 175 tests (pass) and the corrected checker on the strict
+offline build: 28 page/viewport/scheme results, 433 failures (focus 250:
+198 focusable elements off-viewport, e.g. closed drawer links, and 52 with no
+focus indicator, mostly search inputs; contrast 183 across 8 colour pairs,
+worst 2.19:1 link/primary on dark), 88 needs_manual. These are shared-theme
+(fltheme26/MaterialX) defects; fixes belong in fontlab-www-docstheme per
+AGENTS.md. Receipts: parent verification/issue-101-ecosystem/evidence/tg6-a11y/.
+CI workflow added but not yet run on GitHub (needs FONTLAB_DOCS_READ_TOKEN).
