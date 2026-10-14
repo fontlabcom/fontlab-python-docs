@@ -398,3 +398,12 @@ CI workflow added but not yet run on GitHub (needs FONTLAB_DOCS_READ_TOKEN).
 ## 2026-10-14: CI workflow removed (owner decision D3)
 
 Deleted .github/workflows/docs.yml and its test; the private-repository read token is not wanted. Builds, checks and accessibility audits stay local.
+
+## 2026-10-14: R043 checker — closed mobile navigation via opener (baf9077)
+
+With the fixed shared theme, closed mobile drawers are inert, so a visible nav link
+is correctly unreachable at 375 px. `a11y_checks.js` now targets the focusable
+element whose `aria-controls` panel contains navigation links; `a11y_check.py`
+activates it with Enter and requires focus inside the panel (`nav_after_open`
+failure otherwise). Two new fixtures (working and broken disclosure). 28 tests pass.
+Audit of `.build/site` against the published theme: 28/28 cases pass, 0 failures.
