@@ -13,3 +13,4 @@ this_file: TODO.md
 - [ ] Verify remaining internal links, alias families and keyboard/focus interactions.
 - [ ] Verify deterministic offline source/artifact builds and CI/privacy/licenses.
 - [ ] Publish and independently verify the actual deployed site.
+- [x] Complete consumed private-input locking, exported class-member aliases/public titles and @property index semantics; see docs/superpowers/plans/source-reference-fidelity.md.

@@ -107,3 +107,24 @@ FontLab API and PythonQt source/generator configurations use MaterialX and flthe
 Final root/child rebuilds passed in 53.43/70.31 seconds. Both API and both generator configurations now set their exact Pages site_url so 404 assets and home links retain the project prefix. The core search bridge preserves all index entries (idempotency regression passes); MaterialX header/search UI works and QAbstractButton returns a matching result without browser errors.
 
 Browser stress verification found that whole-page QtGui text was duplicated alongside section entries, consuming excessive worker memory. The search bridge now retains every section and page title while omitting duplicated whole-page bodies; payload falls from 23.8 MB to 8.0 MB and QAbstractButton search passes within a few seconds. The regression checks both preservation and idempotency.
+
+### Source-reference fidelity acceptance
+
+Reviewed implementation9980225 passes50tests, including actual MaterialX worker
+regression on the full index. Independent scoped reviews resolve alias-prefix,
+whole-page alias search, complete visible signatures/types and ranking findings.
+Root strict offline build and locked check pass:259source inputs independently
+discovered/hashed,246816unique source identities,490143aliases,4122pages. Search
+gzip3988494bytes remains below5MiB; largest API page310685bytes below2MiB.
+All12native/public browser queries resolve in at most0.030seconds after readiness;
+4desktop/mobile light/dark native-anchor/layout checks and4typed public-body cases
+pass with0errors/overflow. Shared4theme assets return200. Public class heading,
+3attribute rows, close()->None and3MappingProxyType annotations are visible.
+Exact local-path/native-review-marker scan checks4811public text assets with0hits;
+this bounded scan does not replace the broader licensing/privacy release audit.
+
+Task-specific source/render gates pass; final whole-branch review and broader
+site/runtime/corpus/publication gates remain required. Source lock/TODO/plan
+follow-up changes only input pins and progress evidence; no producer code/tag/
+release/push/deployment. Detailed receipts remain in the parent verification
+archive; historical failures are retained separately.
