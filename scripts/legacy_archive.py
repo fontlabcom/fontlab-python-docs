@@ -69,6 +69,34 @@ def publish_archive(root: Path, site: Path) -> dict:
                     old.parent.mkdir(parents=True, exist_ok=True)
                     old.write_text(redirect)
             target.write_bytes(content)
+    if "index.html" in routes:
+        route = routes["index.html"]
+        route["fragment_policy"] = "known-fragments-only"
+        route["unfragmented_policy"] = "current-root"
+        route["fragment_targets"] = {
+            fragment: route["target"] + "#" + fragment
+            for fragment in route["known_fragments"]
+        }
+        root_page = site / "index.html"
+        if not root_page.exists():
+            raise ValueError("Current root missing during legacy migration")
+        script = (
+            "<script>/* Legacy root fragments only; retain current landing page. */"
+            "(()=>{const fragments=" + json.dumps(route["known_fragments"]) + ";"
+            "function migrate(){const hash=location.hash.slice(1);"
+            "if(fragments.includes(hash)){const target=new URL("
+            + json.dumps(route["target"])
+            + ",location.href);"
+            "target.hash=location.hash;location.replace(target.href);}}"
+            "addEventListener('hashchange',migrate);migrate();})();</script>"
+        )
+        html = root_page.read_text()
+        if "</body>" not in html:
+            raise ValueError("Current root has no body for fragment migration")
+        root_page.write_text(html.replace("</body>", script + "</body>"))
+    if "404.html" in routes:
+        routes["404.html"]["fragment_policy"] = "archive-only"
+        routes["404.html"]["unfragmented_policy"] = "current-error-page"
     report = {
         "schema_version": 1,
         "archive_sha256": manifest["archive_sha256"],

@@ -49,3 +49,18 @@ this_file: CHANGELOG.md
 
 - Preserve API 404 asset/home routes under the GitHub Pages project prefix.
 - Bridge the core search index to the existing MaterialX search UI and verify index preservation.
+
+
+## Source-reference final review fixes
+
+- Index every shared occurrence and alias at its canonical body; enforce complete
+  search identity coverage and a non-skipping 15-query shipped-consumer gate.
+- Generate into fresh owned input trees and seal accepted input/rendered manifests;
+  deterministic checks reject missing baselines and stale content without rewriting
+  accepted artifacts.
+- Preserve legacy root fragments under static-host prefixes and expose the archive.
+- Render source-proven bases and inherited canonical member indexes with Griffe C3
+  ordering, authoritative overrides and nested-class navigation.
+- Correct the PySide runner guide to describe its implemented scoped contract.
+- Record the provisional 7 MiB complete-search allowance; initial 5 MiB payload
+  sharding, clean CI and broader publication acceptance remain unfinished.

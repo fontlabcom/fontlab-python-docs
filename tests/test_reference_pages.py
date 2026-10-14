@@ -87,7 +87,7 @@ def test_render_when_public_title_and_property_then_static_handler_keeps_anchors
     package = tmp_path / "pkg"
     package.mkdir()
     (package / "__init__.py").write_text(
-        "from ._impl import Handle as Public, make as create\n"
+        "from ._impl import Handle as Public, make as create, Child\n"
     )
     (package / "_impl.py").write_text(
         "raise RuntimeError('never execute')\nfrom types import MappingProxyType\n"
@@ -99,6 +99,7 @@ def test_render_when_public_title_and_property_then_static_handler_keeps_anchors
         "    @property\n    def namespace(self) -> MappingProxyType[str, object]:\n"
         "        '''Public property documentation.''' \n        return {}\n"
         "    @namespace.setter\n    def namespace(self, value: MappingProxyType[str, object]): pass\n"
+        "class Child(Handle):\n    class Nested: pass\n"
     )
     plan = plan_pages(inventory_sources([(tmp_path, "pkg")]))
     docs = tmp_path / "content"
@@ -146,6 +147,10 @@ def test_render_when_public_title_and_property_then_static_handler_keeps_anchors
     root = tmp_path / ".build/site/reference/pkg/_impl/Handle"
     class_html = root.with_suffix(".html").read_text()
     member_html = (root / "members-001.html").read_text()
+    child_html = (root.parent / "Child.html").read_text()
+    assert "Handle.html#pkg._impl.Handle" in child_html
+    assert "members-001.html#pkg._impl.Handle.close" in child_html
+    assert "Child/Nested.html" in child_html
     assert "pkg.Public" in class_html
     assert 'id="pkg._impl.Handle"' in class_html
     assert 'id="pkg._impl.Handle.namespace"' in class_html

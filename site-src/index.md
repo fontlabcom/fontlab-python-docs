@@ -53,3 +53,7 @@ upstream binding and may differ from PythonQt.
 
 Glyphs runtime/GUI adaptation and full PySide2 app compatibility are being
 implemented. Their guides distinguish current behavior from planned interfaces.
+
+## Historical documentation
+
+The <a href="archive/fontlab7/index.html">FontLab 7 and PythonQt archive</a> preserves the previous reference and its original deep links.

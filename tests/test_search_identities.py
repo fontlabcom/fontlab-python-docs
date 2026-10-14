@@ -2,6 +2,7 @@
 """Search must index native member names, not only their short headings."""
 
 import json
+import os
 from pathlib import Path
 
 import pytest
@@ -146,6 +147,10 @@ def test_search_when_full_index_uses_materialx_worker_then_module_alias_is_disco
     index_path = root / ".build/site/search/search_index.json"
     coverage_path = root / ".build/coverage.json"
     if not index_path.exists() or not coverage_path.exists():
+        if os.environ.get("FONTLAB_REQUIRE_CONSUMER") == "1":
+            pytest.fail(
+                "Consumer acceptance requires a complete built site and coverage"
+            )
         pytest.skip("Full built source inventory and MaterialX index are required")
     data = json.loads(index_path.read_text())
     coverage = json.loads(coverage_path.read_text())
@@ -154,10 +159,12 @@ def test_search_when_full_index_uses_materialx_worker_then_module_alias_is_disco
         for row in data["docs"]
     ]
     qualify_titles(data, coverage["symbols"], coverage["aliases"])
-    assert identities == [
-        (row["location"], row["title"], row["text"], tuple(row.get("tags", [])))
-        for row in data["docs"]
-    ], "Ranking changes must preserve every existing row, native identity and alias tag"
+    for previous, row in zip(identities, data["docs"], strict=True):
+        assert previous[:3] == (row["location"], row["title"], row["text"])
+        assert set(previous[3]) <= set(row.get("tags", [])), "Preserve existing tags"
+    from scripts.search_identities import verify_search_coverage
+
+    verify_search_coverage(data, coverage["symbols"], coverage["aliases"])
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     worker = next((root / ".build/site/assets/javascripts/workers").glob("search.*.js"))
     worker_source = worker.read_text()
@@ -202,6 +209,13 @@ def test_search_when_full_index_uses_materialx_worker_then_module_alias_is_disco
             "pythonqtside.AppHandle.close": "#pythonqtside._app.AppHandle.close",
             "pythonqtside.run_app": "#pythonqtside._app.run_app",
         }
+        for query in (
+            "PythonQt.QtGui.QPushButton.resize",
+            "fly.qt.QtGui.QPushButton.resize",
+            "PythonQt.QtGui.QLabel.resize",
+        ):
+            target = coverage["aliases"].get(query, query)
+            queries[query] = coverage["symbols"][target]["body_url"]
         observations = []
         for query, target in queries.items():
             result = page.evaluate(
@@ -249,3 +263,14 @@ def test_search_when_full_index_uses_materialx_worker_then_module_alias_is_disco
             sort_keys=True,
         )
     )
+
+
+def test_required_consumer_acceptance_when_inputs_missing_then_fails(
+    tmp_path, monkeypatch
+):
+    monkeypatch.setenv("FONTLAB_REQUIRE_CONSUMER", "1")
+    monkeypatch.setitem(
+        globals(), "__file__", str(tmp_path / "tests/test_search_identities.py")
+    )
+    with pytest.raises(pytest.fail.Exception, match="requires a complete built site"):
+        test_search_when_full_index_uses_materialx_worker_then_module_alias_is_discoverable()

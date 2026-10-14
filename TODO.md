@@ -14,3 +14,9 @@ this_file: TODO.md
 - [ ] Verify deterministic offline source/artifact builds and CI/privacy/licenses.
 - [ ] Publish and independently verify the actual deployed site.
 - [x] Complete consumed private-input locking, exported class-member aliases/public titles and @property index semantics; see docs/superpowers/plans/source-reference-fidelity.md.
+
+- [x] Resolve final I1–I5 and M2/M3 documentation defects with 66-test source/browser regressions.
+- [x] Provide a build-plus-consumer command that fails on missing inputs and provisions Chromium.
+- [ ] Run final full-corpus strict build, accepted-manifest check and project-prefix/browser acceptance.
+- [ ] Split the complete search index and verify shard loading to meet the initial 5 MiB payload requirement; 7 MiB is provisional only.
+- [ ] Wire the mandatory build-plus-consumer gate into clean CI with the broader R044 gates.

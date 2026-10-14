@@ -35,7 +35,21 @@ Explicit ./build.sh --refresh-native captures through the running FontLab's
 scripting surface, then regenerates/enriches Echopy before building the site.
 It requires sibling Echopy/Remopy checkouts and FontLab. Ordinary builds do not.
 
-The new build writes .build/site. Full coverage, browser/search, CI and deployment
+The new build writes .build/site. A successful strict build seals generated-input and rendered-file manifests.
+`--check` regenerates in a temporary tree and compares those manifests without
+rewriting the accepted baseline; missing baselines or stale HTML fail.
+
+Run `./scripts/accept-consumer.sh --offline` for the required build-plus-consumer
+gate after dependency/source provisioning. The gate provisions Playwright
+Chromium (network needed if uncached) and requires all 15 shipped-worker queries;
+missing inputs cannot silently skip. Lightweight test-only runs may skip this
+full-corpus case. Wiring this mandatory gate into clean CI remains unfinished.
+
+Complete shared-member/alias coverage currently needs a provisional 7 MiB gzip
+search budget. Sharding to satisfy the initial 5 MiB payload requirement remains
+parent work; the 2 MiB API-page limit is unchanged.
+
+Full coverage, browser/search, CI and deployment
 acceptance remain in progress; do not treat this source rewrite as a published
 site. The historical docs/ tree remains intact until that acceptance completes.
 

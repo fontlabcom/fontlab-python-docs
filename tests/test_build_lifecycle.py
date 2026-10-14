@@ -1,0 +1,168 @@
+# this_file: tests/test_build_lifecycle.py
+"""Generation freshness and accepted rendered provenance are separate gates."""
+
+import json
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+import pytest
+import yaml
+
+from scripts import build_reference as builder
+
+
+@pytest.fixture
+def project(tmp_path, monkeypatch):
+    root = tmp_path / "docs"
+    root.mkdir()
+    source = tmp_path / "sources"
+    (source / "fontlab_echopy").mkdir(parents=True)
+    (source / "fontlab_echopy/__init__.py").write_text("class Old: pass\n")
+    (source / "fontlab_echopy/fontlab.pyi").write_text("class Native: ...\n")
+    (root / "site-src").mkdir()
+    (root / "site-src/index.md").write_text("# Current\n")
+    (root / "site-src/old.md").write_text("# Old guide\n")
+    (root / "scripts").mkdir()
+    (root / "scripts/reference_pages.py").write_text("# renderer v1\n")
+    (root / "overrides").mkdir()
+    (root / "overrides/main.html").write_text("template v1")
+    original = Path(builder.__file__).resolve().parents[1]
+    shutil.copyfile(original / "mkdocs.yml", root / "mkdocs.yml")
+    monkeypatch.setattr(builder, "ROOT", root)
+    monkeypatch.setattr(builder, "source_roots", lambda: [(source, "fontlab_echopy")])
+    # Use actual source-only docname exporter; its code is not a native import.
+    monkeypatch.syspath_prepend(str(original.parent / "fontlab-echopy/src"))
+    from fontlab_echopy.tooling import docnames
+
+    assert callable(docnames.export_docnames)
+    return root, source
+
+
+def render_fixture(root, source):
+    """Build the generated tree with the installed source-only consumer/search."""
+    config = {
+        "site_name": "Lifecycle fixture",
+        "docs_dir": str(root / ".build/content"),
+        "site_dir": str(root / ".build/site"),
+        "use_directory_urls": False,
+        "plugins": [
+            "/search",
+            {
+                "mkdocstrings": {
+                    "handlers": {
+                        "python": {
+                            "paths": [str(root / ".build/native-names"), str(source)],
+                            "options": {
+                                "allow_inspection": False,
+                                "show_source": False,
+                            },
+                        }
+                    }
+                }
+            },
+        ],
+    }
+    path = root / "fixture.yml"
+    path.write_text(yaml.safe_dump(config))
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "mkdocs",
+            "build",
+            "--strict",
+            "--clean",
+            "-f",
+            str(path),
+        ],
+        capture_output=True,
+        text=True,
+        timeout=30,
+        check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_regeneration_removes_renamed_authored_and_api_pages(project):
+    root, source = project
+    builder.generate(update_source_lock=True)
+    render_fixture(root, source)
+    assert (root / ".build/site/old.html").exists()
+    (root / "site-src/old.md").rename(root / "site-src/new.md")
+    (source / "fontlab_echopy/__init__.py").write_text("class New: pass\n")
+    builder.generate(update_source_lock=True)
+    render_fixture(root, source)
+    assert not (root / ".build/site/old.html").exists()
+    assert not (root / ".build/site/reference/fontlab_echopy/Old.html").exists()
+    search = json.loads((root / ".build/site/search/search_index.json").read_text())
+    assert all(
+        row["location"].split("#")[0]
+        not in {"old.html", "reference/fontlab_echopy/Old.html"}
+        for row in search["docs"]
+    )
+    content = root / ".build/content"
+    assert not (content / "old.md").exists()
+    assert not (content / "reference/fontlab_echopy/Old.md").exists()
+    reused = {
+        str(p.relative_to(content)): p.read_bytes()
+        for p in content.rglob("*")
+        if p.is_file()
+    }
+    shutil.rmtree(content)
+    builder.generate()
+    fresh = {
+        str(p.relative_to(content)): p.read_bytes()
+        for p in content.rglob("*")
+        if p.is_file()
+    }
+    assert reused == fresh, "Reused and fresh input trees must be byte-identical"
+
+
+def test_check_without_accepted_baseline_fails_without_mutating_generated_files(
+    project,
+):
+    root, _ = project
+    builder.generate(update_source_lock=True)
+    before = (root / ".build/coverage.json").read_bytes()
+    with pytest.raises(ValueError, match="accepted"):
+        builder.generate(check=True)
+    assert (root / ".build/coverage.json").read_bytes() == before
+
+
+@pytest.mark.parametrize(
+    "changed", ["guide", "renderer", "config", "template", "removal", "html", "extra"]
+)
+def test_check_detects_drift_without_rewriting_accepted_baseline(project, changed):
+    from scripts.build_provenance import accept_build, verify_build
+
+    root, source = project
+    builder.generate(update_source_lock=True)
+    render_fixture(root, source)
+    site = root / ".build/site"
+    accept_build(root)
+    baseline = (root / ".build/accepted-build.json").read_bytes()
+    builder.generate(check=True)
+    verify_build(root)
+    if changed == "guide":
+        (root / "site-src/index.md").write_text("# Changed guide")
+    elif changed == "renderer":
+        (root / "scripts/reference_pages.py").write_text("# renderer v2")
+    elif changed == "config":
+        path = root / "mkdocs.yml"
+        config = yaml.safe_load(path.read_text())
+        config["site_name"] = "Changed"
+        path.write_text(yaml.safe_dump(config))
+    elif changed == "template":
+        (root / "overrides/main.html").write_text("template v2")
+    elif changed == "removal":
+        (root / "site-src/old.md").unlink()
+    elif changed == "html":
+        (site / "index.html").write_text("<h1>stale</h1>")
+    else:
+        (root / ".build/content/extra.md").write_text("# Unexpected")
+    with pytest.raises(ValueError):
+        builder.generate(check=True)
+        verify_build(root)
+    assert (root / ".build/accepted-build.json").read_bytes() == baseline

@@ -112,6 +112,8 @@ def main() -> None:
         parser.error(
             "--refresh-native performs explicit live capture/enrichment and cannot be offline"
         )
+    if args.check and (args.refresh_native or args.update_source_lock):
+        parser.error("--check cannot mutate native inputs or source locks")
     (ROOT / ".build").mkdir(exist_ok=True)
     if args.refresh_native:
         refresh_native()
@@ -120,8 +122,10 @@ def main() -> None:
         update_source_lock=args.update_source_lock or args.refresh_native,
     )
     if args.check:
+        from .build_provenance import verify_build
         from .verify_site import verify_site
 
+        verify_build(ROOT)
         verify_site(ROOT / ".build/site", ROOT / ".build/coverage.json")
         return
     command = "serve" if args.serve else "build"
@@ -140,6 +144,9 @@ def main() -> None:
         from .verify_site import verify_site
 
         verify_site(ROOT / ".build/site", ROOT / ".build/coverage.json")
+        from .build_provenance import accept_build
+
+        accept_build(ROOT)
 
 
 if __name__ == "__main__":

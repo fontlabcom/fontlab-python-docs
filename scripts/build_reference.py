@@ -9,6 +9,7 @@ import json
 import os
 import shutil
 import sys
+import tempfile
 from pathlib import Path
 
 import yaml
@@ -63,28 +64,68 @@ def _aliases(plan: dict) -> dict[str, str]:
 
 
 def generate(*, check: bool = False, update_source_lock: bool = False) -> dict:
-    """Regenerate all pages and verify coverage without host/runtime imports."""
+    """Generate in isolation; checks never rewrite accepted inputs or artifacts."""
+    from .build_provenance import check_generation, generation_manifest
+
+    if check and update_source_lock:
+        raise ValueError("A check cannot update the source lock")
+    build = ROOT / ".build"
+    build.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="generation-", dir=build) as temporary:
+        stage = Path(temporary)
+        public = _generate(stage, update_source_lock=update_source_lock)
+        manifest = generation_manifest(ROOT, stage)
+        if check:
+            check_generation(ROOT, manifest)
+            return public
+        for name in ("content", "native-names"):
+            old, fresh = build / name, stage / name
+            # Preserve Finder metadata while replacing only our owned tree.
+            if old.exists():
+                for path in old.rglob(".DS_Store"):
+                    target = fresh / path.relative_to(old)
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(path, target)
+                shutil.rmtree(old)
+            fresh.rename(old)
+        for name in ("coverage.json", "mkdocs.yml"):
+            (stage / name).replace(build / name)
+        (build / "generation-manifest.json").write_text(
+            json.dumps(manifest, sort_keys=True, separators=(",", ":")) + "\n"
+        )
+        return public
+
+
+def _generate(stage: Path, *, update_source_lock: bool) -> dict:
+    """Create one complete fresh generation without touching previous output."""
     roots = source_roots()
     native_root = next(root for root, package in roots if package == "fontlab_echopy")
-    sys.path.insert(0, str(native_root))
-    from fontlab_echopy.tooling.docnames import export_docnames
+    old_path = list(sys.path)
+    try:
+        sys.path.insert(0, str(native_root))
+        from fontlab_echopy.tooling.docnames import export_docnames
+    finally:
+        sys.path[:] = old_path
 
-    namespace_root = ROOT / ".build/native-names"
+    namespace_root = stage / "native-names"
     export_docnames(namespace_root, source=native_root / "fontlab_echopy")
     plan = plan_pages(inventory_sources(roots))
     apply_lock(
         ROOT / "api-sources.lock.json", plan["inputs"], update=update_source_lock
     )
     aliases = _aliases(plan)
-    content = ROOT / ".build/content"
+    content = stage / "content"
     content.mkdir(parents=True, exist_ok=True)
+    expected_files = set()
     for source in (ROOT / "site-src").rglob("*"):
-        if source.is_file():
+        if source.is_file() and source.name != ".DS_Store":
+            expected_files.add(source.relative_to(ROOT / "site-src").as_posix())
             target = content / source.relative_to(ROOT / "site-src")
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, target)
     page_hashes = {}
     for relative in plan["pages"]:
+        expected_files.add(relative)
         text = render_page(relative, plan)
         target = content / relative
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -131,14 +172,9 @@ def generate(*, check: bool = False, update_source_lock: bool = False) -> dict:
         "aliases": aliases,
         "pages": plan["pages"],
     }
-    metadata = ROOT / ".build/coverage.json"
+    metadata = stage / "coverage.json"
     payload = json.dumps(coverage, sort_keys=True, separators=(",", ":")) + "\n"
     digest = hashlib.sha256(payload.encode()).hexdigest()
-    previous = metadata.read_bytes() if metadata.exists() else None
-    if check and previous is not None and previous != payload.encode():
-        raise ValueError(
-            "Generated coverage changed; run a normal build after source changes."
-        )
     metadata.write_text(payload)
     public = {
         "schema_version": 1,
@@ -153,7 +189,7 @@ def generate(*, check: bool = False, update_source_lock: bool = False) -> dict:
     )
     config = yaml.safe_load((ROOT / "mkdocs.yml").read_text())
     config["plugins"][-1]["mkdocstrings"]["handlers"]["python"]["paths"] = [
-        str(namespace_root)
+        str(ROOT / ".build/native-names")
     ] + list(dict.fromkeys(str(root) for root, _ in roots))
     config["plugins"][-1]["mkdocstrings"]["handlers"]["python"]["options"][
         "extensions"
@@ -161,11 +197,19 @@ def generate(*, check: bool = False, update_source_lock: bool = False) -> dict:
         str(native_root / "fontlab_echopy/tooling/griffe_native.py"),
         str(ROOT / "scripts/griffe_sources.py"),
     ]
-    config["docs_dir"] = str(content)
+    config["docs_dir"] = str(ROOT / ".build/content")
     config["site_dir"] = str(ROOT / ".build/site")
     config["hooks"] = [str(ROOT / "scripts/site_hooks.py")]
     config["theme"]["custom_dir"] = str(ROOT / "overrides")
-    (ROOT / ".build/mkdocs.yml").write_text(yaml.safe_dump(config, sort_keys=False))
+    (stage / "mkdocs.yml").write_text(yaml.safe_dump(config, sort_keys=False))
+    expected_files.update({"reference/index.md", "build-info.json"})
+    actual_files = {
+        path.relative_to(content).as_posix()
+        for path in content.rglob("*")
+        if path.is_file()
+    }
+    if expected_files != actual_files:
+        raise ValueError("Generated input file set differs from plan")
     assert all(
         row["body_target"] in plan["symbols"] for row in plan["symbols"].values()
     )

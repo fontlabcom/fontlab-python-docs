@@ -109,6 +109,8 @@ def _declarations(
             "docstring": doc,
             "occurrences": 1,
         }
+        if isinstance(node, ast.ClassDef):
+            row["bases"] = [{"expression": ast.unparse(base)} for base in node.bases]
         if labels:
             row["labels"] = sorted(labels)
             row["declarations"] = [
@@ -281,6 +283,9 @@ def inventory_sources(sources: list[tuple[Path, str]]) -> dict[str, Any]:
                 ).hexdigest()
             else:
                 symbols[row["id"]] = row
+    from .static_inheritance import add_inheritance
+
+    add_inheritance(symbols, records, aliases)
     return {
         "schema_version": 1,
         "modules": modules,
@@ -319,6 +324,11 @@ def plan_pages(inventory: dict[str, Any], *, chunk_size: int = 40) -> dict[str, 
             part.startswith("_") for part in alias.split(".")
         ):
             continue
+        parent = symbols[target].get("parent")
+        if parent in symbols and symbols[parent]["kind"] == "class":
+            alias_parent = alias.rpartition(".")[0]
+            if inventory["aliases"].get(alias_parent, alias_parent) != parent:
+                continue  # Inheritance exposes a member but does not rename its body.
         if alias.partition(".")[0] == target.partition(".")[0]:
             public_names.setdefault(target, []).append(alias)
     for identifier, row in symbols.items():

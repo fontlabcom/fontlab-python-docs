@@ -61,7 +61,7 @@ def render_page(path: str, plan: dict[str, Any]) -> str:
     ]
     if display != identifier:
         lines.insert(len(lines) - 1, "      heading: " + json.dumps(display))
-    if kind == "module":
+    if kind in {"module", "class"}:
         for label, identifiers in [
             ("Modules", page["modules"]),
             ("Classes", page["classes"]),
@@ -74,6 +74,31 @@ def render_page(path: str, plan: dict[str, Any]) -> str:
                     for row in rows
                 ]
                 lines += [""]
+    symbol = plan["symbols"][identifier]
+    if kind == "class" and symbol.get("bases"):
+        lines += ["## Source bases", ""]
+        for base in symbol["bases"]:
+            target = base.get("target")
+            lines += [
+                f"- [`{base['expression']}`]({relative_link(path, plan['symbols'][target]['url'])})"
+                if target
+                else f"- `{base['expression']}` (not resolved from selected source)"
+            ]
+        lines += [""]
+    inherited = symbol.get("inherited_members", {})
+    if inherited:
+        lines += [
+            "## Inherited member index",
+            "",
+            "Source-proven inherited members; local declarations override these entries.",
+            "",
+        ]
+        for name, target in sorted(inherited.items()):
+            row = plan["symbols"][target]
+            lines += [
+                f"- [`{name}`]({relative_link(path, row['body_url'])}) — defined by `{target}`"
+            ]
+        lines += [""]
     if page["members"]:
         lines += [
             "## Complete member index",

@@ -128,3 +128,45 @@ site/runtime/corpus/publication gates remain required. Source lock/TODO/plan
 follow-up changes only input pins and progress evidence; no producer code/tag/
 release/push/deployment. Detailed receipts remain in the parent verification
 archive; historical failures are retained separately.
+
+## Final whole-branch review fix wave
+
+I1–I5 and M2/M3 are implemented; M1 now has an explicit non-skipping consumer
+command (`./scripts/accept-consumer.sh --offline`, provisioning Chromium first).
+All 66 tests pass with FONTLAB_REQUIRE_CONSUMER=1; scoped Ruff and diff checks
+pass. Test-first failures reproduced shared-search omission, missing inheritance,
+stale generated pages, missing accepted baseline and inaccurate root route policy.
+
+Every shared occurrence and alias is searchable at its canonical body without
+removing any existing search row/text/tag. All 15 shipped MaterialX worker queries
+pass (maximum measured 0.080 seconds). A complete current-source probe preserves
+246,816 symbols and every previous body target/alias; source-proven inheritance
+adds 20,804 aliases, for 510,947 total. Void(Point) exposes 31 inherited members.
+Griffe C3 ordering handles diamonds; local overrides remain authoritative.
+Public body names do not change merely because an inherited alias is shorter.
+
+Generation uses a fresh owned temporary tree, verifies its file set and replaces
+the previous owned input tree while preserving Finder metadata. Fixture rebuilds
+prove removed/renamed authored and API pages disappear from HTML and search.
+After strict render/coverage acceptance, the build seals input, dependency-version
+and rendered-byte manifests. --check independently regenerates and compares
+without replacing the accepted baseline; missing baseline and guide/renderer/
+config/template/removal/extra-file/HTML drift fail. Existing anchor/inventory
+checks remain. Final full-corpus build/check are assigned to the controller.
+
+Known legacy root hashes migrate under project prefixes; unfragmented root stays
+current. Browser fixtures preserve archived anchors and ordinary page redirects.
+The root exposes the archive, class pages link nested classes, and the PySide
+guide documents the implemented run_app/AppHandle contract and its limitations.
+
+Complete search has a measured cost: original gzip 3,988,494 bytes; shared-member
+completion alone 6,446,911; with new inherited aliases on the existing index
+6,571,419 bytes (69,896,577 uncompressed). The controller approved a provisional
+7 MiB gzip bound for this fix wave conditional on complete coverage and all
+15 queries within two seconds. The 2 MiB API-page bound is unchanged. R041 index
+splitting/shard acceptance and restoration of the initial 5 MiB payload behavior
+remain concrete parent work; this is not complete R041/site acceptance.
+Clean CI wiring, source/artifact bootstrap parity, full routes/accessibility,
+theme revision provenance, licenses/privacy and deployment remain unfinished.
+No producer, archive original, historical docs, user font/settings or root
+verification artifact was changed; no native imports, publication or deployment.
