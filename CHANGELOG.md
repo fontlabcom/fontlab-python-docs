@@ -4,6 +4,10 @@ this_file: CHANGELOG.md
 
 ## Unreleased — native source reference verification
 
+- Resolve source bases from declaration-time bindings and class-body scopes;
+  preserve source-known imports/aliases/star exports while leaving overwritten,
+  future and dynamic bindings unresolved. Correct Qt wrapper and dialog lineage
+  without changing source identities, URLs or existing supported aliases.
 - Rank native module namespaces ahead of descendant class prefix matches using
   supported MaterialX document boosts; verify twelve real worker queries against
   the complete index while retaining every source row and exported alias.

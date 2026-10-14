@@ -170,3 +170,23 @@ Clean CI wiring, source/artifact bootstrap parity, full routes/accessibility,
 theme revision provenance, licenses/privacy and deployment remain unfinished.
 No producer, archive original, historical docs, user font/settings or root
 verification artifact was changed; no native imports, publication or deployment.
+
+## Parent source-binding relationship correction
+
+Declaration-time AST bindings now resolve bases in source order and the current
+class-body namespace. Local declarations, subsequent imports, known class aliases
+and source-known star exports establish the binding; overwritten/deleted/future,
+conditional and unsupported dynamic bindings remain unresolved. Nested class
+bodies use module globals rather than inheriting an outer class namespace.
+Source-known registration decorators preserve class identity only under a narrow
+non-mutating pattern; unknown calls and class mutation remain unresolved.
+
+All 117 tests pass, including 51 binding cases and a strict guarded-source HTML
+fixture. Scoped Ruff and diff checks pass. A read-only complete-corpus comparison
+preserves 246,816 identities/body targets, every URL/body URL, all 259 source
+inputs and every prior alias. Eighteen relationships correct Qt wrapper bases and
+their dialog descendants, adding 10,820 proven aliases (521,767 total).
+
+The controller owns the complete rebuild, search/browser and accepted-baseline
+checks. The historical final-wave search allowance and N1 receipts remain intact;
+this source-only result does not establish current full-site or release acceptance.
