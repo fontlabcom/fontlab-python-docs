@@ -210,3 +210,25 @@ def test_audit_when_real_defect_remains_then_fails(browser_page, fixture, check)
         result = check_page(browser_page)
     assert any(f["check"] == check for f in result["failures"]), result
     assert not result["passed"], "Checker fixes must retain actual defects"
+
+
+@pytest.mark.browser
+def test_audit_when_nav_is_behind_working_disclosure_then_reach_passes(browser_page):
+    with serve_site(FIXTURES) as url:
+        browser_page.goto(url + "nav_disclosure.html")
+        result = check_page(browser_page)
+    assert result["passed"], result["failures"]
+    assert result["targets"]["nav"].endswith("button:nth-of-type(1)"), (
+        "Closed navigation is reached through its keyboard opener"
+    )
+
+
+@pytest.mark.browser
+def test_audit_when_disclosure_does_not_open_nav_then_reach_fails(browser_page):
+    with serve_site(FIXTURES) as url:
+        browser_page.goto(url + "nav_disclosure_broken.html")
+        result = check_page(browser_page)
+    assert any(
+        f["check"] == "keyboard_reach" and f["target"] == "nav_after_open"
+        for f in result["failures"]
+    ), result

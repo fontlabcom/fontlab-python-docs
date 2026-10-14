@@ -85,8 +85,33 @@ def check_page(page: Page) -> dict:
                     "tab_budget": reach_budget,
                 }
             )
+    opener = result["targets"].get("nav")
+    panel = result.get("nav_panel")
+    if panel and opener in reached and not opened_nav_is_reachable(page, opener, panel):
+        result["failures"].append(
+            {
+                "check": "keyboard_reach",
+                "selector": opener,
+                "target": "nav_after_open",
+                "panel": panel,
+            }
+        )
     result["passed"] = not result["failures"]
     return result
+
+
+def opened_nav_is_reachable(page: Page, opener: str, panel: str, tabs: int = 5) -> bool:
+    """Enter on the opener must make a navigation link keyboard-focusable."""
+    inside = f"document.activeElement?.closest({json.dumps(panel)}) != null"
+    page.focus(opener)
+    page.keyboard.press("Enter")
+    page.wait_for_timeout(300)
+    for _ in range(tabs + 1):
+        if page.evaluate(inside):
+            page.keyboard.press("Escape")
+            return True
+        page.keyboard.press("Tab")
+    return False
 
 
 def run(site: Path, pages: list[str]) -> dict:
