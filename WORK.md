@@ -494,3 +494,18 @@ TODO.md not ticked: R043 type links still fail.
   with `current: null` for the dashed fragment; undashed `fontgate.fgAnchor.copy` maps to the current page.
   No redirect or archive banner link sends readers to the current route. Should legacy
   routes with an exact current identity redirect to the current page, or at least link to it?
+
+## 2026-10-14: Controller source-lock refresh, rebuild and R043 acceptance
+
+Producer review: every changed or new API input since the last lock comes from this
+session's reviewed commits in fontlab-glyport (UI graph/vanilla slices, GlyphsApp facade,
+integration tasks) and pythonqtside (inventory routing, phases 3–3d). Then
+`./build.sh --offline --update-source-lock`: exit 0, 215.66 s, 4,509,564,928 B max RSS.
+Gates on the rebuilt site (separate_signature + signature_crossrefs):
+`uv run python -m scripts.interaction_check --site .build/site --out …/receipt-after-rebuild.json`
+PASS — deep_link, type_link, param_type_link, alias, search, keyboard, search_slow_shard
+each 4/4 (type links were 0/4 before); `scripts/a11y_check.py` PASS (28/28);
+`uv run --frozen python -m pytest -q` 204 passed; `./build.sh --offline --check` exit 0
+(56.98 s, 2.67 GB). Evidence: parent verification/issue-101-ecosystem/evidence/r043-interactions/.
+Open: route-map question (legacy fontgate.fgAnchor.html redirects to the archive though a
+current route exists); search shard timeout 1.8 s shows Retry (recorded, unchanged).
