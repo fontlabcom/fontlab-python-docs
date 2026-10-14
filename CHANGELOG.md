@@ -4,6 +4,9 @@ this_file: CHANGELOG.md
 
 ## Unreleased — native source reference verification
 
+- Rank native module namespaces ahead of descendant class prefix matches using
+  supported MaterialX document boosts; verify twelve real worker queries against
+  the complete index while retaining every source row and exported alias.
 - Keep source-derived callable signatures and property annotations visible below
   exported member headings using supported consumer signature rendering options.
 - Qualify native module/class whole-page search entries from source coverage URLs

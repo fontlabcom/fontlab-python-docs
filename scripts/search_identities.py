@@ -1,6 +1,9 @@
 # this_file: scripts/search_identities.py
 """Make captured native identities searchable through MaterialX headings."""
 
+MODULE_BOOST = 1000
+CLASS_BOOST = 100
+
 
 def qualify_titles(data: dict, symbols: dict, aliases: dict | None = None) -> None:
     """Replace short API headings with their exact captured qualified names."""
@@ -20,5 +23,8 @@ def qualify_titles(data: dict, symbols: dict, aliases: dict | None = None) -> No
             row["title"] = identifier
             names = [identifier.rsplit(".", 1)[-1], *by_target.get(identifier, [])]
             row["tags"] = sorted(set(row.get("tags", []) + names))
-            if symbols[identifier].get("kind") in {"module", "class"}:
-                row["boost"] = 100
+            kind = symbols[identifier].get("kind")
+            if kind in {"module", "class"}:
+                # MaterialX expands a query to a prefix wildcard and groups by
+                # page. Give namespace roots priority over descendant classes.
+                row["boost"] = MODULE_BOOST if kind == "module" else CLASS_BOOST

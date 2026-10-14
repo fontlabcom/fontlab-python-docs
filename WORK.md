@@ -86,6 +86,16 @@ disabled, alongside public class titles and canonical anchors. Full suite remain
 49 passing tests; root will verify actual typed body rendering and native/public
 search queries after rebuilding.
 
+Task 1 root review round 3 verifies I2 on the shipped MaterialX consumer rather
+than metadata alone. A private routed browser fixture loads the unchanged worker
+and complete 38,245,018-byte / 59,695-row index; the previous module/class-equal
+priority reproduces the missing fly.fl module. Supported module boost 1,000 and
+class boost 100 rank its native module group first. All twelve native/public
+queries pass under unchanged two-second deadlines; every original index row,
+native title, text and alias tag is retained. Root's built site is not modified;
+7 search fixtures, 36 focused regressions and all 50 tests pass. The complete UI
+rebuild/browser acceptance remains with root.
+
 Remaining acceptance: complete dynamic/short alias extraction, all internal
 links/legacy routes and keyboard/focus behavior, --serve/--refresh-native and
 artifact-mode execution, dependency/license/public-content audit, CI and actual
