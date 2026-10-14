@@ -394,3 +394,7 @@ worst 2.19:1 link/primary on dark), 88 needs_manual. These are shared-theme
 (fltheme26/MaterialX) defects; fixes belong in fontlab-www-docstheme per
 AGENTS.md. Receipts: parent verification/issue-101-ecosystem/evidence/tg6-a11y/.
 CI workflow added but not yet run on GitHub (needs FONTLAB_DOCS_READ_TOKEN).
+
+## 2026-10-14: CI workflow removed (owner decision D3)
+
+Deleted .github/workflows/docs.yml and its test; the private-repository read token is not wanted. Builds, checks and accessibility audits stay local.

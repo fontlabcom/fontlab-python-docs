@@ -11,7 +11,7 @@ this_file: TODO.md
 - [ ] Execute --serve, --refresh-native and installed-artifact build modes.
 - [x] Verify actual inventory URI anchors, nine native searches and responsive method page.
 - [ ] Verify remaining internal links, alias families and keyboard/focus interactions.
-- [ ] Verify deterministic offline source/artifact builds and CI/privacy/licenses.
+- [ ] Verify deterministic offline source/artifact builds and privacy/licenses.
 - [ ] Publish and independently verify the actual deployed site.
 - [x] Complete consumed private-input locking, exported class-member aliases/public titles and @property index semantics; see docs/superpowers/plans/source-reference-fidelity.md.
 
@@ -20,4 +20,3 @@ this_file: TODO.md
 - [ ] Run final full-corpus strict build, accepted-manifest check and project-prefix/browser acceptance.
 - [x] Implement complete search sharding, original consumer comparisons and checked initial5MiB startup transfer.
 - [ ] Review search implementation and complete full-site build/check/links, unchanged same-tab browser/navigation/memory acceptance and deployed asset-header verification.
-- [ ] Wire the mandatory build-plus-consumer gate into clean CI with the broader R044 gates.

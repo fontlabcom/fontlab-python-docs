@@ -104,3 +104,5 @@ this_file: CHANGELOG.md
 - Correct the PySide runner guide to describe its implemented scoped contract.
 - Record the provisional 7 MiB complete-search allowance; initial 5 MiB payload
   sharding, clean CI and broader publication acceptance remain unfinished.
+
+- Removed the GitHub Actions docs workflow (owner decision); acceptance gates run locally.

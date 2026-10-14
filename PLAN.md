@@ -25,6 +25,6 @@ No copied stubs, host imports or native inspection in normal builds.
 6. Complete search sharding now retains the original corpus and uses pinned,
    offline global routing plus the original consumer engine. Review the implementation
    and verify actual full rendered API/inventory, search and browser interaction,
-   desktop/mobile/light/dark/keyboard, page/index/resource budgets and CI.
+   desktop/mobile/light/dark/keyboard, page/index/resource budgets. GitHub CI is out of scope (owner decision D3).
 7. Publish only audited outputs; independently verify the deployed source
    provenance, routes, assets, search and navigation. Full goal remains active.
