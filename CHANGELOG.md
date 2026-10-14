@@ -2,6 +2,17 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-10-14 — R042 archive pages link their current page
+
+- Archived FontLab7 pages whose route map has an exact `current_route` now carry a
+  visible "Current version of this page" link in the archive banner. It is generated
+  at build time from the same `route-map.json` report; on load and on `hashchange`
+  it retargets to the mapped current anchor for the URL fragment, else the page target.
+- Legacy routes still redirect to the archive with their fragment (unchanged).
+- Site verification fails when an archived page's link, or its fragment map,
+  disagrees with the recomputed route map, or a page without a current route has one.
+- The interaction receipt now asserts the link on the archived legacy target.
+
 ## 2026-10-14 — R043 interaction receipts
 
 - Add `scripts/interaction_check.py`: Playwright receipts at 1280x800 and 375x812

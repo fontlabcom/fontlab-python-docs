@@ -9,10 +9,15 @@ import tarfile
 import pytest
 
 from scripts.legacy_archive import publish_archive
-from scripts.legacy_route_map import LegacyHTML, make_route_map, verify_route_map
+from scripts.legacy_route_map import (
+    LegacyHTML,
+    current_link_targets,
+    make_route_map,
+    verify_route_map,
+)
 
 
-def archive_fixture(root, site):
+def archive_fixture(root, site, coverage=None):
     (root / "archive").mkdir(parents=True, exist_ok=True)
     site.mkdir(parents=True, exist_ok=True)
     (site / "index.html").write_text("<html><body>Current</body></html>")
@@ -39,7 +44,7 @@ def archive_fixture(root, site):
         )
     )
     (site / "404.html").write_text("<body>Current error</body>")
-    coverage = {
+    coverage = coverage or {
         "symbols": {
             "pkg.Type": {"url": "api/type.html#pkg.Type"},
             "pkg.Type.member": {"url": "api/member.html#pkg.Type.member"},
@@ -102,6 +107,10 @@ def test_determinism_and_no_case_or_short_name_guessing():
         "root",
         "policy",
         "missing-map",
+        "link-missing",
+        "link-target",
+        "link-fragments",
+        "link-extra",
     ],
 )
 def test_verification_rejects_incomplete_or_disagreeing_targets(tmp_path, damage):
@@ -136,6 +145,26 @@ def test_verification_rejects_incomplete_or_disagreeing_targets(tmp_path, damage
         policy = json.loads((site / "legacy-routes.json").read_text())
         policy["routes"]["pkg.Type.html"]["target"] = "wrong.html"
         (site / "legacy-routes.json").write_text(json.dumps(policy))
+    elif damage.startswith("link-"):
+        archived = site / (
+            "archive/fontlab7/"
+            + ("index.html" if damage == "link-extra" else "pkg.Type.html")
+        )
+        html = archived.read_text()
+        if damage == "link-missing":
+            html = html.replace('class="fl-archive-current"', 'class="other"')
+        elif damage == "link-target":
+            html = html.replace(
+                'href="../../api/type.html', 'href="../../api/wrong.html'
+            )
+        elif damage == "link-fragments":
+            html = html.replace("member.html#pkg.Type.member", "type.html#pkg.Type")
+        else:
+            html = html.replace(
+                "<body>",
+                '<body><a class="fl-archive-current" href="x.html" data-fragment-targets="{}">x</a>',
+            )
+        archived.write_text(html)
     path.write_text(json.dumps(report))
     if damage == "missing-map":
         path.unlink()
@@ -164,3 +193,149 @@ def test_emitted_map_bytes_are_deterministic(tmp_path):
     first = (site / "route-map.json").read_bytes()
     write_route_map(root, site, coverage)
     assert (site / "route-map.json").read_bytes() == first
+
+
+def test_current_link_targets_when_nested_then_relative_and_only_mapped_fragments():
+    row = {
+        "archive_route": "archive/fontlab7/pythonqt/old.html",
+        "current_route": "api/type.html#pkg.Type",
+        "fragments": {
+            "b": {"archive": "x", "current": "api/member.html#pkg.Type.b"},
+            "a": {"archive": "x", "current": None},
+        },
+    }
+    assert current_link_targets(row) == (
+        "../../../api/type.html#pkg.Type",
+        {"b": "../../../api/member.html#pkg.Type.b"},
+    ), "Link must climb out of archive/fontlab7/pythonqt and skip unmapped fragments"
+    assert current_link_targets({**row, "current_route": None}) is None, (
+        "Pages without an exact current identity get no current link"
+    )
+
+
+def test_archive_when_current_route_exists_then_banner_links_current_page(tmp_path):
+    archive_fixture(tmp_path / "root", tmp_path / "site")
+    archived = LegacyHTML(
+        (tmp_path / "site/archive/fontlab7/pkg.Type.html").read_text()
+    )
+    assert [
+        (href, json.loads(targets)) for href, targets in archived.current_links
+    ] == [
+        (
+            "../../api/type.html#pkg.Type",
+            {
+                "pkg.Type": "../../api/type.html#pkg.Type",
+                "short": "../../api/member.html#pkg.Type.member",
+            },
+        )
+    ], "Archived page must link its current page and mapped fragment"
+    assert (
+        "Current version of this page"
+        in (tmp_path / "site/archive/fontlab7/pkg.Type.html").read_text()
+    )
+    index = LegacyHTML((tmp_path / "site/archive/fontlab7/index.html").read_text())
+    assert index.current_links == [], "Archive-only pages must not claim a current page"
+
+
+def test_archive_link_when_fragment_has_quote_backslash_and_unicode_then_round_trips(
+    tmp_path,
+):
+    identifier = 'pkg.Type.\u00fcn"i\\'
+    coverage = {
+        "symbols": {
+            "pkg.Type": {"url": "api/type.html#pkg.Type"},
+            identifier: {"url": "api/member.html#" + identifier},
+        },
+        "aliases": {},
+    }
+    root, site = tmp_path / "root", tmp_path / "site"
+    archive_fixture(root, site, coverage)
+    # Rewrite the original page so its ID carries the awkward characters.
+    archive = root / "archive/fontlab7-site.tar.gz"
+    page = ("<body><h1 id='" + identifier + "'>x</h1></body>").encode()
+    with tarfile.open(archive, "w:gz") as stream:
+        member = tarfile.TarInfo("pkg.Type.html")
+        member.size = len(page)
+        stream.addfile(member, io.BytesIO(page))
+    (root / "archive/fontlab7-manifest.json").write_text(
+        json.dumps(
+            {
+                "archive_sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
+                "files": [
+                    {
+                        "path": "pkg.Type.html",
+                        "sha256": hashlib.sha256(page).hexdigest(),
+                    }
+                ],
+            }
+        )
+    )
+    (site / "pkg.Type.html").unlink()
+    publish_archive(root, site, coverage)
+    archived = LegacyHTML((site / "archive/fontlab7/pkg.Type.html").read_text())
+    assert json.loads(archived.current_links[0][1]) == {
+        identifier: "../../api/member.html#" + identifier
+    }, "Fragment map must survive HTML attribute escaping unchanged"
+    assert verify_route_map(root, site, coverage)["routes"] == 1
+
+
+def test_archive_current_link_in_browser_lands_on_current_anchor(tmp_path):
+    from playwright.sync_api import sync_playwright
+
+    root, site = tmp_path / "root", tmp_path / "site"
+    archive_fixture(root, site)
+    (site / "api").mkdir()
+    (site / "api/type.html").write_text(
+        '<body><h1 id="pkg.Type">Type</h1><div style="height:3000px"></div></body>'
+    )
+    (site / "api/member.html").write_text(
+        '<body><div style="height:3000px"></div><h2 id="pkg.Type.member">member</h2></body>'
+    )
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        context = browser.new_context()
+
+        def serve(route):
+            from urllib.parse import urlparse
+
+            relative = urlparse(route.request.url).path.removeprefix("/project/")
+            path = site / (relative or "index.html")
+            route.fulfill(
+                body=path.read_text(), content_type="text/html"
+            ) if path.is_file() else route.fulfill(status=404)
+
+        context.route("http://legacy.test/**", serve)
+        page = context.new_page()
+        base = "http://legacy.test/project/"
+        link = page.locator("a.fl-archive-current")
+        page.goto(base + "pkg.Type.html#short")
+        page.wait_for_url("**/archive/fontlab7/pkg.Type.html#short")
+        assert page.locator("#short").count() == 1, "Old deep link keeps archive anchor"
+        assert link.get_attribute("href") == "../../api/member.html#pkg.Type.member"
+        page.goto(base + "archive/fontlab7/pkg.Type.html")
+        page.keyboard.press("Tab")
+        page.keyboard.press("Tab")
+        assert page.evaluate(
+            "document.activeElement.classList.contains('fl-archive-current')"
+        ), "Keyboard users reach the current-version link"
+        page.evaluate("location.hash = 'short'")
+        page.wait_for_function(
+            "document.querySelector('a.fl-archive-current').getAttribute('href').endsWith('#pkg.Type.member')"
+        )
+        link.focus()
+        page.keyboard.press("Enter")
+        page.wait_for_url(base + "api/member.html#pkg.Type.member")
+        assert page.evaluate(
+            "(() => { const r = document.getElementById('pkg.Type.member').getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; })()"
+        ), "Current anchor must be in view"
+        page.goto(base + "pkg.Type.html#Unknown")
+        page.wait_for_url("**/archive/fontlab7/pkg.Type.html#Unknown")
+        assert link.get_attribute("href") == "../../api/type.html#pkg.Type"
+        page.evaluate("location.hash = 'short'")
+        page.wait_for_function(
+            "document.querySelector('a.fl-archive-current').getAttribute('href').endsWith('#pkg.Type.member')"
+        )
+        page.evaluate("location.hash = 'Unknown'")
+        link.click()
+        page.wait_for_url(base + "api/type.html#pkg.Type")
+        browser.close()

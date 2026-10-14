@@ -97,7 +97,9 @@ old routes redirect while preserving fragments. Legacy generators remain source
 history, not a Python2 dependency of the new build. Built `route-map.json` records
 every old HTML route and fragment, exact current API targets when proven, and
 internal links broken in the original snapshot. Build verification checks archive
-anchors and redirect targets against this deterministic map.
+anchors and redirect targets against this deterministic map. Archived pages with an exact current
+identity link to it ("Current version of this page"), using the mapped
+current anchor for the URL fragment when one exists.
 
 ## Contribute
 

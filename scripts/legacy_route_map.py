@@ -7,8 +7,32 @@ import posixpath
 import re
 import tarfile
 from html.parser import HTMLParser
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from urllib.parse import unquote, urljoin, urlsplit
+
+CURRENT_LINK_CLASS = "fl-archive-current"
+# Retarget the archive banner's current link to the mapped fragment, if any.
+CURRENT_LINK_SCRIPT = (
+    "<script>(()=>{const link=document.currentScript.previousElementSibling,"
+    'page=link.getAttribute("href"),targets=JSON.parse(link.dataset.fragmentTargets);'
+    "function update(){let id=location.hash.slice(1);"
+    "try{id=decodeURIComponent(id)}catch(e){}"
+    'link.setAttribute("href",Object.prototype.hasOwnProperty.call(targets,id)?targets[id]:page)}'
+    'addEventListener("hashchange",update);update()})();</script>'
+)
+
+
+def current_link_targets(row: dict) -> tuple[str, dict[str, str]] | None:
+    """Relative page and fragment targets for an archived page's current-version link."""
+    if row["current_route"] is None:
+        return None
+    archive = PurePosixPath(row["archive_route"])
+    prefix = "../" * (len(archive.parts) - 1)
+    return prefix + row["current_route"], {
+        identifier: prefix + fragment["current"]
+        for identifier, fragment in sorted(row["fragments"].items())
+        if fragment["current"]
+    }
 
 
 class LegacyHTML(HTMLParser):
@@ -18,6 +42,7 @@ class LegacyHTML(HTMLParser):
         super().__init__()
         self.ids = set()
         self.hrefs = set()
+        self.current_links = []
         self.headings = {}
         self.heading = None
         self.feed(html)
@@ -31,6 +56,10 @@ class LegacyHTML(HTMLParser):
             self.ids.add(attrs["name"])
         if attrs.get("href") is not None:
             self.hrefs.add(attrs["href"])
+        if tag == "a" and CURRENT_LINK_CLASS in (attrs.get("class") or "").split():
+            self.current_links.append(
+                (attrs.get("href"), attrs.get("data-fragment-targets"))
+            )
         if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
             self.heading = (tag, identifier, [])
 
@@ -140,12 +169,15 @@ def make_route_map(pages: dict[str, LegacyHTML], coverage: dict) -> dict:
     }
 
 
-def write_route_map(root: Path, site: Path, coverage: dict) -> dict:
-    report = make_route_map(original_pages(root), coverage)
+def save_route_map(site: Path, report: dict) -> dict:
     (site / "route-map.json").write_text(
         json.dumps(report, sort_keys=True, indent=2) + "\n"
     )
     return report
+
+
+def write_route_map(root: Path, site: Path, coverage: dict) -> dict:
+    return save_route_map(site, make_route_map(original_pages(root), coverage))
 
 
 def verify_route_map(root: Path, site: Path, coverage: dict) -> dict:
@@ -162,6 +194,17 @@ def verify_route_map(root: Path, site: Path, coverage: dict) -> dict:
         page = LegacyHTML((site / archive).read_text())
         if not set(row["fragments"]) <= page.ids:
             raise ValueError("Missing archived fragment: " + route)
+        link = current_link_targets(row)
+        found = [
+            (href, json.loads(targets) if targets else None)
+            for href, targets in page.current_links
+        ]
+        if (found != [link] if link else found) or (
+            link and CURRENT_LINK_SCRIPT not in (site / archive).read_text()
+        ):
+            raise ValueError(
+                "Archive current-version link disagrees with route map: " + route
+            )
         policy = policies.get(route, {})
         if policy.get("target") != archive or set(
             policy.get("known_fragments", [])

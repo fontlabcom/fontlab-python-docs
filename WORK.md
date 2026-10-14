@@ -509,3 +509,58 @@ each 4/4 (type links were 0/4 before); `scripts/a11y_check.py` PASS (28/28);
 (56.98 s, 2.67 GB). Evidence: parent verification/issue-101-ecosystem/evidence/r043-interactions/.
 Open: route-map question (legacy fontgate.fgAnchor.html redirects to the archive though a
 current route exists); search shard timeout 1.8 s shows Retry (recorded, unchanged).
+
+## 2026-10-14: R042 route-map question resolved — archive pages link their current page
+
+Decision. Legacy routes keep redirecting to the archive; archived pages with an exact
+`current_route` gain a visible "Current version of this page" banner link. Justification
+against R042:
+- "Every known old route receives a verified redirect or preserved archived page,
+  including deep links": the archive is the only target that keeps every deep link.
+  Of 128,733 route/fragment pairs, 45,113 have a current target. Redirecting to current
+  pages would strand the rest, e.g. `fontgate.fgAnchor.html#-fontgate.fgAnchor.copy`
+  (`current: null`). The redirect target logic matches the route map (`archive_route`)
+  and `verify_route_map` already enforces it, so it is not wrong and was not changed.
+- "Archive content stays clearly versioned and discoverable" and the map's purpose
+  (old-to-current): the banner keeps "FontLab7 archive" and now links the exact
+  current page, so readers who land on the archive can reach the current version.
+- The link is generated in `publish_archive` from the same `make_route_map` report it
+  writes to `route-map.json` (no hand edits). `href` is the page-level `current_route`;
+  `data-fragment-targets` holds only fragments with a non-null current target. A small
+  inline script retargets the link on load and `hashchange` (percent-decoded hash),
+  falling back to the page target. Pages without `current_route` get no link, including
+  10 `exact-identity` pages whose only matches are fragments (out of scope, recorded here).
+- `verify_route_map` now requires, per route, exactly the expected link and fragment
+  map plus the script when `current_route` exists, and no link otherwise. The interaction
+  receipt asserts the link on the real archived legacy target.
+- The banner HTML insertion now splices at the `<body>` match, not via a regex
+  replacement string (JSON backslashes would have been reinterpreted). A page with a
+  current route and no `<body>` fails the build.
+
+Tests: `tests/test_legacy_route_map.py` adds nested-route/unmapped-fragment helper tests,
+banner presence/absence, a quote/backslash/non-ASCII fragment round trip, four
+tamper cases (missing/wrong link, wrong fragment map, extra link) and a fixture browser
+test (redirect with fragment, Tab reaches the link, Enter lands on the current anchor in
+view, unmapped fragment falls back to the page target, `hashchange` retargets).
+`tests/test_site_verification.py` fixture now publishes its archive with its own
+coverage. `tests/test_interaction_check.py` adds pass and mismatch cases.
+
+Commands (exit codes):
+- `rtk proxy env UV_OFFLINE=true uv run --frozen python -m pytest -q tests/test_legacy_route_map.py tests/test_legacy_archive.py tests/test_site_verification.py`: 0, 28 passed.
+- `rtk proxy env UV_OFFLINE=true uv run --frozen python -m pytest -q tests/test_interaction_check.py`: 0, 28 passed.
+- `rtk proxy ./build.sh --offline`: 0, 212.39 s, 4,518,182,912 B max RSS (no lock refresh).
+  Spot check: `.build/site/archive/fontlab7/fontgate.fgAnchor.html` links
+  `../../reference/fontgate/fgAnchor.html#fontgate.fgAnchor` with `fontgate.fgAnchor.copy`
+  in its fragment map; 221 archived pages carry the link (= routes with `current_route`).
+- `rtk proxy env UV_OFFLINE=true uv run --frozen python -m scripts.interaction_check --site .build/site --out ../verification/issue-101-ecosystem/evidence/r043-interactions/receipt-after-route-fix.json`:
+  0, PASS, every case 4/4; alias legacy link = `reference/fontgate/fgAnchor.html#fontgate.fgAnchor`.
+- `rtk proxy env UV_OFFLINE=true uv run --frozen python scripts/a11y_check.py --site .build/site --out ../verification/issue-101-ecosystem/evidence/r043-interactions/a11y-after-route-fix.json`:
+  0, PASS. Its page list includes only `archive/fontlab7/index.html` (no current link),
+  so link accessibility rests on the fixture browser test.
+- `rtk proxy env UV_OFFLINE=true uv run --frozen python -m pytest -q`: 0, 213 passed.
+- `rtk proxy ./build.sh --offline --check`: 0, 57.19 s, 2,532,868,096 B max RSS.
+- Evidence SHA256SUMS regenerated over 37 files (build/check logs saved as
+  `route-fix-build.log`, `route-fix-check.log`).
+
+TODO "Preserve legacy routes…" stays open: the static-host browser check at the
+deployed project prefix (R042/R044) is still outstanding.

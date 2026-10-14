@@ -28,6 +28,7 @@ ALIAS = {
     "inventory": {"alias.T": "target.html#m.T", "m.T": "target.html#m.T"},
     "legacy": "old.html#legacy.T",
     "legacy_target": "target.html#legacy.T",
+    "legacy_current_route": {"route": "target.html#m.U", "fragment": "target.html#m.T"},
 }
 SEARCH = {
     "page": "search.html",
@@ -156,6 +157,7 @@ def test_alias_when_inventory_search_and_legacy_resolve_then_passes(browser, sit
         "Folded alias hit must be opened like a user"
     )
     assert result["legacy_landed"] == site + "target.html#legacy.T", result
+    assert result["legacy_current_link"] == site + "target.html#m.T", result
 
 
 @pytest.mark.browser
@@ -168,6 +170,10 @@ def test_alias_when_inventory_search_and_legacy_resolve_then_passes(browser, sit
         ),
         ({"legacy": "old_broken.html#legacy.T"}, "legacy_not_resolved"),
         ({"name": "nothing.T"}, "search_result_missing"),
+        (
+            {"legacy_current_route": {"route": "target.html#m.U", "fragment": None}},
+            "legacy_current_link_mismatch",
+        ),
     ],
 )
 def test_alias_when_any_route_misresolves_then_fails(browser, site, override, reason):

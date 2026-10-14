@@ -35,10 +35,7 @@ def fixture_site(tmp_path, *, anchor=True):
     (site / "objects.inv").write_bytes(inventory.format_sphinx())
     from test_legacy_route_map import archive_fixture
 
-    archive_fixture(tmp_path, site)
-    from scripts.legacy_route_map import write_route_map
-
-    write_route_map(tmp_path, site, coverage)
+    archive_fixture(tmp_path, site, coverage)
     return site, path
 
 

@@ -8,6 +8,30 @@ import tarfile
 from html import escape
 from pathlib import Path
 
+from .legacy_route_map import (
+    CURRENT_LINK_CLASS,
+    CURRENT_LINK_SCRIPT,
+    LegacyHTML,
+    current_link_targets,
+    make_route_map,
+    original_pages,
+    save_route_map,
+)
+
+
+def current_link(page: str, targets: dict[str, str]) -> str:
+    """Visible archive-banner link to the page's exact current identity."""
+    return (
+        ' · <a class="'
+        + CURRENT_LINK_CLASS
+        + '" style="color:inherit;font-weight:bold" href="'
+        + escape(page, quote=True)
+        + '" data-fragment-targets="'
+        + escape(json.dumps(targets, sort_keys=True, separators=(",", ":")), quote=True)
+        + '">Current version of this page</a>'
+        + CURRENT_LINK_SCRIPT
+    )
+
 
 def publish_archive(root: Path, site: Path, coverage: dict | None = None) -> dict:
     """Verify every archived byte before wrapping HTML or creating redirects."""
@@ -17,6 +41,8 @@ def publish_archive(root: Path, site: Path, coverage: dict | None = None) -> dic
         raise ValueError("Legacy archive checksum mismatch")
     destination = site / "archive/fontlab7"
     routes = {}
+    route_map = make_route_map(original_pages(root), coverage or {})
+    mapped = {row["old_route"]: row for row in route_map["routes"]}
     with tarfile.open(archive) as data:
         for row in manifest["files"]:
             relative = Path(row["path"])
@@ -30,16 +56,21 @@ def publish_archive(root: Path, site: Path, coverage: dict | None = None) -> dic
             target.parent.mkdir(parents=True, exist_ok=True)
             if relative.suffix == ".html":
                 html = content.decode("utf-8")
-                from .legacy_route_map import LegacyHTML
-
                 fragments = sorted(LegacyHTML(html).ids)
                 current = "/".join([".."] * (len(relative.parts) + 1)) + "/index.html"
+                link = current_link_targets(mapped[row["path"]])
                 banner = (
                     '<div style="padding:1rem;background:#ffe7ad;color:#241900;text-align:center">FontLab7 archive · <a style="color:inherit" href="'
                     + current
-                    + '">Current Python reference</a></div>'
+                    + '">Current Python reference</a>'
+                    + (current_link(*link) if link else "")
+                    + "</div>"
                 )
-                html = re.sub(r"(<body\b[^>]*>)", r"\1" + banner, html, count=1)
+                body = re.search(r"<body\b[^>]*>", html)
+                if body:
+                    html = html[: body.end()] + banner + html[body.end() :]
+                elif link:
+                    raise ValueError("Archived page has no body for its current link")
                 content = html.encode("utf-8")
                 routes[row["path"]] = {
                     "target": "archive/fontlab7/" + row["path"],
@@ -107,7 +138,5 @@ def publish_archive(root: Path, site: Path, coverage: dict | None = None) -> dic
     (site / "legacy-routes.json").write_text(
         json.dumps(report, separators=(",", ":")) + "\n"
     )
-    from .legacy_route_map import write_route_map
-
-    write_route_map(root, site, coverage or {})
+    save_route_map(site, route_map)
     return report

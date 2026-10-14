@@ -270,6 +270,15 @@ def check_legacy(page: Page, base: str, spec: dict, result: dict) -> None:
         fail(result, "legacy_target_missing", fragment=expected.partition("#")[2])
     elif not view["in_view"]:
         fail(result, "legacy_target_not_in_view", **view)
+    current = spec.get("legacy_current_route") or {}
+    if current.get("route"):
+        # Archive pages with an exact current identity link to it (fragment first).
+        wanted = urljoin(base, current["fragment"] or current["route"])
+        link = page.locator("a.fl-archive-current")
+        found = link.first.evaluate("a => a.href") if link.count() == 1 else None
+        result["legacy_current_link"] = found
+        if found != wanted:
+            fail(result, "legacy_current_link_mismatch", expected=wanted, actual=found)
 
 
 def delay_shard(page: Page, spec: dict, seen: list) -> None:
@@ -486,7 +495,7 @@ def resolve_plan(site: Path, plan: dict) -> dict:
     routes = json.loads((site / "legacy-routes.json").read_text())["routes"]
     old, _, fragment = alias["legacy"].partition("#")
     alias["legacy_target"] = routes[old]["target"] + "#" + fragment
-    # Recorded, not asserted: legacy routes redirect to the archive, not the current API page.
+    # Legacy routes redirect to the archive; its banner must link the exact current page.
     mapped = json.loads((site / "route-map.json").read_text())["routes"]
     entry = next((r for r in mapped if r["old_route"] == old), {})
     alias["legacy_current_route"] = {
