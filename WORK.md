@@ -63,6 +63,13 @@ classes, 244,682 member identities, 33,331 bodies and 4,122 pages. Complete alia
 expansion produces 490,143 aliases, including fly.qt descendants; full render and
 search-size acceptance plus source-lock refresh remain with the root task.
 
+Task 1 review round 1 fixes alias prefix overrides: replacement aliases, source
+declarations and unresolved explicit prefixes suppress every inherited descendant
+below that prefix, including forwarded member targets. Four covering fixtures,
+37 source-inventory regressions and the 45-test full suite pass. The read-only
+current-source probe matches root's refreshed 259-input lock and preserves all
+490,143 existing aliases, previous symbols and body targets without build writes.
+
 Remaining acceptance: complete dynamic/short alias extraction, all internal
 links/legacy routes and keyboard/focus behavior, --serve/--refresh-native and
 artifact-mode execution, dependency/license/public-content audit, CI and actual

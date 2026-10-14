@@ -1,6 +1,8 @@
 # this_file: tests/test_export_aliases.py
 """Statically exported package APIs must not disappear behind lazy imports."""
 
+import pytest
+
 from scripts.api_inventory import inventory_sources, plan_pages
 from scripts.build_reference import _aliases
 from scripts.export_aliases import resolved_aliases
@@ -131,4 +133,72 @@ def test_export_when_target_is_member_through_alias_prefix_then_real_identity_is
     resolved = resolved_aliases(aliases, symbols)
     assert (
         resolved["pkg.close"] == resolved["pkg.Public.close"] == "pkg.impl.Handle.close"
+    )
+
+
+@pytest.mark.parametrize("override", ["alias", "declaration", "unresolved"])
+def test_export_when_intervening_prefix_is_overridden_then_old_members_are_absent(
+    override,
+):
+    aliases = {
+        "pkg.api": "pkg.impl",
+        "pkg.forwarded_close": "pkg.api.Handle.close",
+    }
+    symbols = {
+        "pkg.impl": {"kind": "module"},
+        "pkg.impl.Handle": {"kind": "class"},
+        "pkg.impl.Handle.close": {"kind": "function"},
+        "pkg.impl.Handle.Nested": {"kind": "class"},
+        "pkg.impl.Handle.Nested.close": {"kind": "function"},
+        "pkg.impl.value": {"kind": "function"},
+        "pkg.other.Replacement": {"kind": "class"},
+        "pkg.other.Replacement.open": {"kind": "function"},
+    }
+    if override == "declaration":
+        symbols["pkg.api.Handle"] = {"kind": "class"}
+        symbols["pkg.api.Handle.open"] = {"kind": "function"}
+    else:
+        aliases["pkg.api.Handle"] = (
+            "pkg.other.Replacement" if override == "alias" else "native.Unknown"
+        )
+    resolved = resolved_aliases(aliases, symbols)
+    assert "pkg.api.Handle.close" not in resolved, (
+        "old class members leak through replacement"
+    )
+    assert "pkg.forwarded_close" not in resolved, (
+        "forwarded member targets must respect the same replacement prefix"
+    )
+    assert "pkg.api.Handle.Nested" not in resolved, (
+        "nested old classes leak through replacement"
+    )
+    assert "pkg.api.Handle.Nested.close" not in resolved, (
+        "deep descendants ignore replacement prefix"
+    )
+    assert resolved["pkg.api.value"] == "pkg.impl.value", (
+        "unrelated source exports must survive"
+    )
+    if override == "alias":
+        assert resolved["pkg.api.Handle.open"] == "pkg.other.Replacement.open"
+
+
+def test_export_when_source_module_class_is_replaced_then_only_replacement_members_are_exported(
+    tmp_path,
+):
+    package = tmp_path / "pkg"
+    package.mkdir()
+    (package / "__init__.py").write_text(
+        "ALIASES = {'api': 'pkg._impl', 'api.Handle': 'pkg._other.Replacement'}\n"
+    )
+    (package / "_impl.py").write_text("class Handle:\n    def close(self): ...\n")
+    (package / "_other.py").write_text("class Replacement:\n    def open(self): ...\n")
+    plan = plan_pages(inventory_sources([(tmp_path, "pkg")]))
+    aliases = _aliases(plan)
+    assert aliases["pkg.api.Handle"] == "pkg._other.Replacement"
+    assert aliases["pkg.api.Handle.open"] == "pkg._other.Replacement.open"
+    assert "pkg.api.Handle.close" not in aliases, (
+        "replacement does not expose old close method"
+    )
+    assert (
+        plan["symbols"]["pkg._other.Replacement.open"]["body_target"]
+        == "pkg._other.Replacement.open"
     )

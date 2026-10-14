@@ -72,15 +72,26 @@ def resolved_aliases(
                 (
                     ".".join(parts[:i])
                     for i in range(len(parts), 0, -1)
-                    if ".".join(parts[:i]) in aliases
+                    if ".".join(parts[:i]) in aliases or ".".join(parts[:i]) in symbols
                 ),
                 None,
             )
-            if prefix is None or prefix in seen:
+            # A real replacement declaration also blocks ancestor alias fallback
+            # when the requested descendant does not exist on that declaration.
+            if prefix is None or prefix in symbols or prefix in seen:
                 return None
             seen.add(prefix)
             target = aliases[prefix] + target[len(prefix) :]
         return target
+
+    def overridden(public: str, root: str) -> bool:
+        """Respect every explicit prefix below the alias being expanded."""
+        prefix = root
+        for part in public[len(root) + 1 :].split("."):
+            prefix += "." + part
+            if prefix in aliases or prefix in symbols:
+                return True
+        return False
 
     direct = {}
     for alias, original in sorted(aliases.items()):
@@ -103,14 +114,10 @@ def resolved_aliases(
         while index < len(identifiers) and identifiers[index].startswith(prefix):
             descendant = identifiers[index]
             public = alias + descendant[len(target) :]
-            # Explicit aliases/declarations override inferred descendant paths.
-            if (
-                public not in aliases
-                and public not in symbols
-                and not any(
-                    part.startswith("_") and not part.startswith("__")
-                    for part in descendant[len(prefix) :].split(".")
-                )
+            # A replacement at any intervening prefix owns all its descendants.
+            if not overridden(public, alias) and not any(
+                part.startswith("_") and not part.startswith("__")
+                for part in descendant[len(prefix) :].split(".")
             ):
                 destination = exposed[descendant]
                 resolved.setdefault(public, destination)

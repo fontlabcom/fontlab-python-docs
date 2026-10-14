@@ -4,6 +4,9 @@ this_file: CHANGELOG.md
 
 ## Unreleased — native source reference verification
 
+- Respect explicit aliases and source declarations at every intervening export
+  prefix; replacement classes cannot inherit unsupported descendant aliases or
+  resolve nonexistent forwarded members through an overridden ancestor.
 - Pin every consumed private/runtime/stub input once and reject duplicate lock
   identities; source input changes still require explicit lock refresh.
 - Expand proven module/class re-exports to descendant aliases, preserving native
