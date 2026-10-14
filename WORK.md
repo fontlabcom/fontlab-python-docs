@@ -190,3 +190,11 @@ their dialog descendants, adding 10,820 proven aliases (521,767 total).
 The controller owns the complete rebuild, search/browser and accepted-baseline
 checks. The historical final-wave search allowance and N1 receipts remain intact;
 this source-only result does not establish current full-site or release acceptance.
+
+Parent source-binding review round 1 fixes deleted declarations recovered from
+empty namespaces, stale decorator approvals/dependencies and alias-mediated class
+attribute writes/deletes. Decorator policy now receives the active function AST
+and live dependency bindings in a small independently tested helper. All 128 tests
+pass; scoped lint/diff checks pass. Full-corpus relationships/aliases/inputs/body
+targets/URLs exactly match the prior task receipt. Controller review and full-site
+acceptance remain pending; earlier failed receipts and historical bounds remain.

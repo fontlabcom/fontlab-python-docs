@@ -4,6 +4,8 @@
 import ast
 from importlib.util import resolve_name
 
+from .source_decorators import preserves_class
+
 
 def _reference(node: ast.AST) -> str | None:
     """Accept only names and dotted attributes; calls/subscripts remain unknown."""
@@ -67,62 +69,11 @@ def bind_bases(records: list, classes: dict, aliases: dict) -> set[str]:
     unresolved = set()
     modules = {name: record for record in records for name in (record[1], record[2])}
     namespaces, class_namespaces, pending = {}, {}, set()
-    identity_decorators = set()
-    for record in records:
-        dictionaries = {
-            target.id
-            for statement in record[5].body
-            if isinstance(statement, ast.Assign)
-            and isinstance(statement.value, ast.Dict)
-            for target in statement.targets
-            if isinstance(target, ast.Name)
-        }
-        for node in record[5].body:
-            if not isinstance(node, ast.FunctionDef) or node.decorator_list:
-                continue
-            parameters = [*node.args.posonlyargs, *node.args.args]
-            if (
-                len(parameters) != 1
-                or not node.body
-                or not isinstance(node.body[-1], ast.Return)
-            ):
-                continue
-            parameter = parameters[0].arg
-            returns = [
-                value for value in ast.walk(node) if isinstance(value, ast.Return)
-            ]
-            effects = {name for statement in node.body for name in _effects(statement)}
-            unsafe = any(
-                isinstance(value, (ast.Yield, ast.YieldFrom))
-                or isinstance(value, ast.stmt)
-                and value is not node
-                and not isinstance(
-                    value, (ast.Expr, ast.If, ast.Assign, ast.Return, ast.Pass)
-                )
-                or isinstance(value, ast.NamedExpr)
-                or isinstance(value, ast.Call)
-                and _reference(value.func) != "hasattr"
-                or isinstance(value, ast.Assign)
-                and any(
-                    not isinstance(target, ast.Subscript)
-                    or not isinstance(target.value, ast.Name)
-                    or target.value.id not in dictionaries
-                    for target in value.targets
-                )
-                for value in ast.walk(node)
-            )
-            if (
-                parameter not in effects
-                and "*" not in effects
-                and all(
-                    isinstance(value.value, ast.Name) and value.value.id == parameter
-                    for value in returns
-                )
-                and not unsafe
-            ):
-                identity_decorators.add(record[1] + "." + node.name)
+    function_scopes = {}
 
     def member(origin, name):
+        if not isinstance(origin, str):
+            return None
         origin = aliases.get(origin, origin)
         target = origin + "." + name
         record = modules.get(origin)
@@ -131,11 +82,13 @@ def bind_bases(records: list, classes: dict, aliases: dict) -> set[str]:
                 return target if target in modules else None
             namespace = bind(record)
         else:
-            namespace = class_namespaces.get(origin, {})
-        if name in namespace:
+            namespace = class_namespaces.get(origin)
+        if namespace is not None and name in namespace:
             return namespace[name]
         return (
-            aliases.get(target, target) if target in modules or not namespace else None
+            aliases.get(target, target)
+            if target in modules or namespace is None
+            else None
         )
 
     def star_exports(origin):
@@ -194,6 +147,29 @@ def bind_bases(records: list, classes: dict, aliases: dict) -> set[str]:
             return aliases.get(origin, origin)
 
         def invalidate(node, names):
+            def attributes(value):
+                if isinstance(
+                    value, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)
+                ):
+                    return
+                if isinstance(value, ast.Attribute) and isinstance(
+                    value.ctx, (ast.Store, ast.Del)
+                ):
+                    yield value
+                for child in ast.iter_child_nodes(value):
+                    yield from attributes(child)
+
+            for target in attributes(node):
+                reference = _reference(target.value)
+                origin = lookup(reference, names) if reference else None
+                namespace = class_namespaces.get(origin)
+                if origin in modules and modules[origin][1] not in pending:
+                    namespace = bind(modules[origin])
+                if namespace is not None:
+                    if isinstance(target.ctx, ast.Del):
+                        namespace.pop(target.attr, None)
+                    else:
+                        namespace[target.attr] = None
             for name in _effects(node):
                 if name == "*":
                     names.update(dict.fromkeys(globals_))
@@ -242,7 +218,10 @@ def bind_bases(records: list, classes: dict, aliases: dict) -> set[str]:
                         identifier
                         if known
                         and all(
-                            lookup(reference, names) in identity_decorators
+                            preserves_class(
+                                decorator_binding := lookup(reference, names),
+                                function_scopes.get(decorator_binding, {}),
+                            )
                             if (reference := _reference(decorator))
                             else False
                             for decorator in node.decorator_list
@@ -278,7 +257,13 @@ def bind_bases(records: list, classes: dict, aliases: dict) -> set[str]:
                     )
                     for assigned in targets:
                         if isinstance(assigned, ast.Name):
-                            names[assigned.id] = target if target in classes else None
+                            names[assigned.id] = (
+                                node.value
+                                if isinstance(node.value, ast.Dict)
+                                else target
+                                if target in classes
+                                else None
+                            )
                 elif isinstance(node, ast.Delete):
                     for target in node.targets:
                         if isinstance(target, ast.Name):
@@ -287,9 +272,8 @@ def bind_bases(records: list, classes: dict, aliases: dict) -> set[str]:
                             invalidate(target, names)
                 elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
                     invalidate(node, names)
-                    names[node.name] = (
-                        parent + "." + node.name if not node.decorator_list else None
-                    )
+                    names[node.name] = node if not node.decorator_list else None
+                    function_scopes[node] = globals_
                 else:
                     invalidate(node, names)
                 if (

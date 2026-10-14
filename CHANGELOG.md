@@ -4,6 +4,9 @@ this_file: CHANGELOG.md
 
 ## Unreleased — native source reference verification
 
+- Keep known empty namespaces authoritative, evaluate source decorator approval
+  against its active declaration/dependencies, and invalidate shared class
+  attributes across aliases after source writes or deletes.
 - Resolve source bases from declaration-time bindings and class-body scopes;
   preserve source-known imports/aliases/star exports while leaving overwritten,
   future and dynamic bindings unresolved. Correct Qt wrapper and dialog lineage

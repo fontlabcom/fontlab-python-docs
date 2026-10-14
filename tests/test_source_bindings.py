@@ -9,6 +9,7 @@ import yaml
 
 from scripts.api_inventory import inventory_sources, plan_pages
 from scripts.reference_pages import relative_link, render_page
+from scripts.source_decorators import preserves_class
 
 LOCAL = "class Base:\n    def local(self): pass\n"
 IMPORTED = "from .base import Base\n"
@@ -386,3 +387,104 @@ def test_render_when_local_class_replaces_import_then_links_local_source(tmp_pat
         in (site / "reference/pkg/child/Base/members-001.html").read_text()
     )
     assert "pkg.base.Base.imported" not in child
+
+
+@pytest.mark.parametrize(
+    ("base", "source"),
+    [
+        (
+            "class Base:\n    def value(self): pass\ndel Base\n",
+            "from .base import Base\nclass Child(Base): pass\n",
+        ),
+        (
+            "class Base:\n    def value(self): pass\ndel Base\n",
+            "import pkg.base as origin\nclass Child(origin.Base): pass\n",
+        ),
+        (
+            "",
+            "class Outer:\n    class Base:\n        def value(self): pass\n    del Base\nclass Child(Outer.Base): pass\n",
+        ),
+        (
+            "",
+            "def keep(cls): return cls\ndef keep(cls):\n    mutate(cls)\n    return cls\n@keep\nclass Base:\n    def value(self): pass\nclass Child(Base): pass\n",
+        ),
+        (
+            "",
+            "registry = {}\nhasattr = mutate\ndef keep(cls):\n    if hasattr(cls, '__name__'):\n        registry[cls.__name__] = cls\n    return cls\n@keep\nclass Base:\n    def value(self): pass\nclass Child(Base): pass\n",
+        ),
+        (
+            "",
+            "registry = {}\ndef keep(cls):\n    registry[cls.__name__] = cls\n    return cls\nregistry = replacement\n@keep\nclass Base:\n    def value(self): pass\nclass Child(Base): pass\n",
+        ),
+        (
+            "",
+            "class Outer:\n    class Base:\n        def value(self): pass\nAlias = Outer\nOuter.Base = replacement\nclass Child(Alias.Base): pass\n",
+        ),
+        (
+            "",
+            "class Outer:\n    class Base:\n        def value(self): pass\nAlias = Outer\ndel Outer.Base\nclass Child(Alias.Base): pass\n",
+        ),
+        (
+            "",
+            "class Outer:\n    class Base:\n        def value(self): pass\nAlias = Outer\nAlias.Base = replacement\nclass Child(Outer.Base): pass\n",
+        ),
+        (
+            "",
+            "class Outer:\n    class Base:\n        def value(self): pass\nAlias = Outer\ndel Alias.Base\nclass Child(Outer.Base): pass\n",
+        ),
+    ],
+    ids=[
+        "deleted-direct-import",
+        "deleted-dotted-import",
+        "empty-class-namespace",
+        "unsafe-active-decorator",
+        "shadowed-hasattr",
+        "reassigned-registry",
+        "write-through-original",
+        "delete-through-original",
+        "write-through-alias",
+        "delete-through-alias",
+    ],
+)
+def test_review_when_binding_is_invalidated_then_no_relationship_alias_or_rendered_link(
+    tmp_path, base, source
+):
+    pkg = tmp_path / "pkg"
+    pkg.mkdir()
+    (pkg / "__init__.py").write_text("from .child import Child as Public\n")
+    (pkg / "base.py").write_text("raise RuntimeError('never import')\n" + base)
+    (pkg / "child.py").write_text("raise RuntimeError('never import')\n" + source)
+    plan = plan_pages(inventory_sources([(tmp_path, "pkg")]))
+    child = plan["symbols"]["pkg.child.Child"]
+    assert child["bases"][0]["target"] is None, (
+        "Invalidated binding must never recover an inventoried declaration"
+    )
+    assert child["inheritance_status"] == "Unresolved source base: pkg.child.Child"
+    assert not child["inherited_members"]
+    assert "pkg.child.Child.value" not in plan["aliases"]
+    assert "pkg.Public.value" not in plan["aliases"]
+    rendered = render_page("reference/pkg/child/Child.md", plan)
+    assert "not resolved from selected source" in rendered
+    assert "Inherited member index" not in rendered
+
+
+def test_decorator_proof_when_dependencies_change_then_uses_active_bindings():
+    import ast
+
+    safe = ast.parse(
+        "def keep(cls):\n    if hasattr(cls, '__name__'):\n        registry[cls.__name__] = cls\n    return cls\n"
+    ).body[0]
+    unsafe = ast.parse("def keep(cls):\n    mutate(cls)\n    return cls\n").body[0]
+    dependencies = {"registry": ast.parse("{}").body[0].value}
+    assert preserves_class(safe, dependencies), (
+        "Known dictionary and builtin callable preserve registration"
+    )
+    assert not preserves_class(unsafe, dependencies), (
+        "A later unsafe declaration cannot inherit earlier approval"
+    )
+    assert not preserves_class(safe, {**dependencies, "hasattr": None}), (
+        "Shadowed builtin is an unsafe dependency"
+    )
+    assert not preserves_class(safe, {"registry": None}), (
+        "A reassigned registry cannot retain dictionary approval"
+    )
