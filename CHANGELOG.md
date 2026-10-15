@@ -2,6 +2,27 @@
 this_file: CHANGELOG.md
 ---
 
+## Issue 104 — completed (lane L5, 2026-10-15)
+
+- [x] Coverage reconciled against Echopy's capture identity manifest in every
+  build: 242,654/242,654 captured identities documented, 0 unexplained; native
+  spellings recorded; single-underscore native members documented (R014, G09).
+- [x] Shim references: `fontlabapp_shim`, `GlyphsApp`, `GlyphsApp.plugins`,
+  `vanilla`, `vanilla.dialogs`, `AppKit`, `Cocoa`, `Foundation`, `objc`,
+  `aidus_code_tools`; unresolved shim exports and discarded aliases fail the build.
+- [x] `./build.sh --serve` (under `/fontlab-python-docs/`) and installed-artifact
+  mode (`FONTLAB_API_SOURCE_ROOT`) run and recorded (R039).
+- [x] Deterministic rebuild: source and artifact modes render identical bytes;
+  privacy/licence audit of site, search shards and source maps (R044, R055).
+- [x] Decisions: archive routing (redirect + current link) and shard deadline
+  (no partial results; Retry doubles the deadline to 30 s).
+- [x] Publication runbook with deployed-host checks (`deployed_check.py`,
+  `interaction_check --base`), previous deployment kept by tag (R042, R044).
+- [x] Browser checks fixed at their cause (server backlog, readiness waits);
+  five consecutive interaction runs pass.
+- [x] Examples docs export integrated and pinned.
+- [x] Review rounds R-L5-docs, RR-docs, RR2-docs fixed test-first.
+
 ## Unreleased — issue 104 review fixes (R-L5-docs)
 
 - Release audit: current credential formats (incl. `github_pat_`), inline
