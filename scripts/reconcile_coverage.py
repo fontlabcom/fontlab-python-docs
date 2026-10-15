@@ -42,6 +42,8 @@ REVIEWED_REDEFINITIONS: dict[str, tuple[tuple[int, ...], str]] = {
         "empty placeholder before class Menu; the final value is assigned after it",
     ),
     "typerig.core.objects.matrix.Table.__eq__": ((78, 181), "upstream defines __eq__ twice; the second wins"),
+    "typerig.core.objects.test_objects.d1": ((405, 407), "upstream test script reassigns a module variable"),
+    "typerig.core.objects.test_objects.d2": ((405, 407), "upstream test script reassigns a module variable"),
     "typerig.core.objects.test_objects.la": ((89, 575), "upstream test script reassigns a module variable"),
     "typerig.core.objects.test_objects.lb": ((89, 514, 576), "upstream test script reassigns a module variable"),
     "typerig.core.objects.test_objects.r": ((65, 67), "upstream test script reassigns a module variable"),
