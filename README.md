@@ -139,7 +139,10 @@ A missing export fails the build.
 `uv run python scripts/release_audit.py --site .build/site --out audit.json` reads
 every published byte (gzip shards and `objects.inv` decompressed) and fails on
 local paths, the auditing user's identity, credentials, unreviewed e-mail
-addresses, absolute source-map sources and missing licence texts. Upstream Qt
+addresses, absolute source-map sources and missing licence texts. Text is checked
+raw and after each decoded layer (JSON/JS escapes, percent-encoding, HTML character
+references, JSON nested in strings); content deeper than the decoder's bounds is a
+`decode-limit` finding, so the audit fails closed. Upstream Qt
 examples such as `/home/bob/` are allowed only in the reviewed list and scope.
 The site's [licences page](site-src/licenses.md) carries every applicable text.
 The written receipt redacts every finding's text and filename (digests only);

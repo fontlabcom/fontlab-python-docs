@@ -708,3 +708,14 @@ generated file-set check failed and stage removal hit "Directory not empty". Fix
 `content_files()` ignores `.DS_Store` like `file_manifest` already does;
 `stage_directory()` repeats a failed stage removal once. Two tests failed first; 22
 lifecycle tests pass.
+
+## 2026-10-16: issue 106 lane C3 — final-5 (echopy v3 facades, GetGo examples page)
+
+Lock refresh reviewed before commit: echopy 3db4bc9 (generator v3: facades read export
+names lazily; 19 shim files + tooling/shims.py) and fontlab-python-examples f151195
+(docs-export adds `getgo.md`, the 13 GetGo examples with their native receipt; `index.md`
+link; `manifest.json`). Runbook final-5 (evidence parent
+`verification/issue-106/evidence/C3/final-5/`): all 16 gates exit 0; 285 docs tests;
+release audit 5,827 files, 0 findings; 5/5 interaction; determinism identical;
+242,654/242,654 identities; 4,919 pages. README: release-audit decoding and fail-closed
+bounds documented.
