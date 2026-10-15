@@ -176,3 +176,16 @@ def test_inventory_when_native_member_is_private_then_it_is_kept(tmp_path):
         "captured native members were dropped"
     )
     assert "pkg.api.Tool._helper" not in symbols, "ecosystem private policy changed"
+
+
+def test_reconcile_when_shim_export_resolves_nowhere_then_reported():
+    report = reconcile(
+        MANIFEST,
+        {**_symbols(), "GlyphsApp": {"id": "GlyphsApp", "kind": "module", "occurrences": 1}},
+        {"GlyphsApp.GSFont": "fontlab.Node"},
+        provenance_capture_sha256="a" * 64,
+        shim_exports={"GlyphsApp": ["GSFont", "GSAxis"]},
+    )
+    assert {(r["problem"], r["id"]) for r in report["unexplained"]} == {
+        ("shim-export-unresolved", "GlyphsApp.GSAxis")
+    }

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import json
 import os
@@ -131,6 +132,22 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         ROOT / "api-sources.lock.json", plan["inputs"], update=update_source_lock
     )
     aliases = _aliases(plan)
+    shim_exports = {}
+    for shim in shims:
+        tree = ast.parse(
+            (native_root / "fontlab_echopy" / shim)
+            .with_name("__init__.pyi")
+            .read_bytes()
+        )
+        shim_exports[shim.partition("/")[0]] = next(
+            (
+                ast.literal_eval(node.value)
+                for node in tree.body
+                if isinstance(node, ast.Assign)
+                and getattr(node.targets[0], "id", "") == "__all__"
+            ),
+            [],
+        )  # Without __all__, every export is a declaration the inventory already holds.
     reconciliation = reconcile(
         json.loads(identity_files["_identities.json"]),
         plan["symbols"],
@@ -138,6 +155,7 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         provenance_capture_sha256=json.loads(identity_files["_provenance.json"])
         .get("capture_identity", {})
         .get("sha256"),
+        shim_exports=shim_exports,
     )
     enforce(reconciliation)
     content = stage / "content"
@@ -167,6 +185,11 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         "fontlabapp",
         "fontlabapp_shim",
         "GlyphsApp",
+        "vanilla",
+        "AppKit",
+        "Cocoa",
+        "Foundation",
+        "objc",
         "aidus_code_tools",
         "fontlab_remopy",
         "grablab",

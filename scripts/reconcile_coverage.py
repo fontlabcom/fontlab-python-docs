@@ -56,6 +56,7 @@ def reconcile(
     aliases: dict[str, str],
     *,
     provenance_capture_sha256: str | None,
+    shim_exports: dict[str, list[str]] | None = None,
 ) -> dict[str, Any]:
     """Return the reconciliation report; `unexplained` must be empty to publish."""
     unexplained: list[dict[str, Any]] = []
@@ -107,6 +108,11 @@ def reconcile(
     for alias, target in sorted(aliases.items()):
         if target not in symbols:
             gap("alias-target-missing", alias, target=target)
+    for shim, names in sorted((shim_exports or {}).items()):
+        for name in names:
+            identity = shim + "." + name
+            if identity not in symbols and aliases.get(identity) not in symbols:
+                gap("shim-export-unresolved", identity)
     gaps = manifest["enrichment_gaps"]
     for name in sorted(set(gaps["qt_document_failures"]) | set(gaps["unmatched_native_classes"])):
         if name not in classes:
@@ -120,6 +126,7 @@ def reconcile(
             "documented_under_native_spelling": spelled,
             "maintained_extensions": len(extensions),
             "aliases": len(aliases),
+            "shim_exports": sum(len(v) for v in (shim_exports or {}).values()),
             "unexplained": len(unexplained),
         },
         "native_spellings": dict(sorted(spellings.items())),
