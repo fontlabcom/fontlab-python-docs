@@ -2,10 +2,12 @@
 """Privacy and licence audit of the built site, search index and source maps (R044, R055).
 
 Reads every published byte: gzip members, the zlib body of objects.inv, inline
-`data:` source maps, and JSON-escaped strings (`\\/`). Fails on local or mounted
-paths, credentials, unreviewed e-mail addresses, private repository URLs, checkout
-paths and names, absolute source-map sources, and licence texts that differ from
-their reviewed digests or are not linked from the licences page.
+`data:` source maps, and escaped text (JSON/JS escapes, percent-encoding, HTML
+character references, JSON nested in strings) with bounds that fail closed.
+Fails on local or mounted paths, credentials, unreviewed e-mail addresses,
+private repository URLs, checkout paths and names, absolute source-map sources,
+and licence texts that differ from their reviewed digests or are not linked from
+the licences page.
 
 Private repository names come from the local workspace's git remotes at audit
 time, so this public script never lists them.
@@ -19,6 +21,7 @@ import configparser
 import getpass
 import gzip
 import hashlib
+import html
 import json
 import re
 import sys
@@ -155,46 +158,114 @@ def published_bytes(path: Path) -> bytes:
     return data
 
 
-ESCAPE = re.compile(rb"\\u([0-9a-fA-F]{4})|\\(/)")
+# Bounds of the decoder. Text still changing after DECODE_ROUNDS layers, JSON
+# nested deeper than MAX_NESTING, or JSON-in-string beyond JSON_LAYERS is reported
+# as a `decode-limit` finding: the audit fails closed instead of skipping it.
+DECODE_ROUNDS = 6
+JSON_LAYERS = 4
+MAX_NESTING = 256
+
+ESCAPE = re.compile(rb"\\(?:u([0-9a-fA-F]{4})|x([0-9a-fA-F]{2})|(/)|(\\))")
+PERCENT = re.compile(rb"%([0-9a-fA-F]{2})")
+ENTITY = re.compile(rb"&(?:#[0-9]+|#[xX][0-9a-fA-F]+|[A-Za-z][A-Za-z0-9]*);")
+
+
+class DecodeLimit(ValueError):
+    """A published value nests deeper than the audit decodes."""
+
+
+def _escape(match: re.Match) -> bytes:
+    if match[1]:
+        return chr(int(match[1], 16)).encode("utf-8", "replace")
+    if match[2]:
+        return bytes([int(match[2], 16)])
+    return match[3] or match[4]
 
 
 def unescape(data: bytes) -> bytes:
-    """Decode JSON/JavaScript `\\uXXXX` and `\\/` escapes inside any text."""
-    return ESCAPE.sub(
-        lambda m: chr(int(m[1], 16)).encode("utf-8", "replace") if m[1] else b"/", data
-    )
+    """Decode one layer: JS/JSON escapes (`\\uXXXX`, `\\xXX`, `\\/`, `\\\\`),
+    percent-encoding and HTML character references."""
+    data = ESCAPE.sub(_escape, data)
+    data = PERCENT.sub(lambda m: bytes([int(m[1], 16)]), data)
+    if ENTITY.search(data):
+        text = html.unescape(data.decode("utf-8", "surrogateescape"))
+        data = text.encode("utf-8", "surrogateescape")
+    return data
+
+
+def text_layers(data: bytes) -> tuple[list[bytes], bool]:
+    """`data` and each decoded layer until nothing changes; True if the bound cut it off."""
+    layers = [data]
+    for _ in range(DECODE_ROUNDS):
+        decoded = unescape(layers[-1])
+        if decoded == layers[-1]:
+            return layers, False
+        layers.append(decoded)
+    return layers, unescape(layers[-1]) != layers[-1]
 
 
 def json_strings(value: object) -> list[str]:
-    """Every string (keys too) in parsed JSON, already escape-decoded by the parser."""
-    if isinstance(value, str):
-        return [value]
-    if isinstance(value, dict):
-        return [s for k, v in value.items() for s in (k, *json_strings(v))]
-    if isinstance(value, list):
-        return [s for item in value for s in json_strings(item)]
-    return []
+    """Every string (keys too) in parsed JSON, walked without recursion.
 
-
-def decoded_forms(raw: bytes, depth: int = 3) -> list[bytes]:
-    """The text a reader can recover: raw, escape-decoded, and parsed JSON strings.
-
-    Decoded strings are escape-decoded again, and strings that are JSON themselves
-    are parsed again (up to `depth` levels), so double escapes and JSON nested in a
-    string cannot hide a path.
+    Raises DecodeLimit beyond MAX_NESTING levels of arrays/objects.
     """
-    forms = [raw, unescape(raw)]
+    strings, stack = [], [(value, 0)]
+    while stack:
+        item, depth = stack.pop()
+        if isinstance(item, str):
+            strings.append(item)
+        elif isinstance(item, (dict, list)):
+            if depth >= MAX_NESTING:
+                raise DecodeLimit("json-nesting")
+            pairs = item.items() if isinstance(item, dict) else ((None, v) for v in item)
+            for key, child in pairs:
+                if key is not None:
+                    strings.append(key)
+                stack.append((child, depth + 1))
+    return strings
+
+
+def _parse_json(data: bytes | str) -> object:
+    """Parsed JSON, or None for non-JSON; DecodeLimit when the parser runs out of depth."""
     try:
-        strings = json_strings(json.loads(raw))
+        return json.loads(data)
+    except RecursionError as error:
+        raise DecodeLimit("json-nesting") from error
     except (ValueError, UnicodeDecodeError):
-        return forms
-    text = "\n".join(strings).encode()
-    forms += [text, unescape(text)]
-    if depth:
+        return None
+
+
+def decoded_forms(raw: bytes) -> tuple[list[bytes], list[str]]:
+    """The text a reader can recover, and the bounds that stopped decoding.
+
+    Forms: raw, its decoded layers, and for JSON every string (layers decoded too).
+    Strings that are JSON themselves (objects, arrays, serialized string scalars)
+    are parsed again, up to JSON_LAYERS times.
+    """
+    forms, exhausted = text_layers(raw)
+    limits = ["decode-rounds"] if exhausted else []
+    pending: list[tuple[bytes | str, int]] = [(raw, 0)]
+    while pending:
+        document, layer = pending.pop()
+        try:
+            parsed = _parse_json(document)
+            strings = json_strings(parsed) if parsed is not None else []
+        except DecodeLimit as limit:
+            limits.append(str(limit))
+            continue
+        if not strings:
+            continue
+        layers, exhausted = text_layers("\n".join(strings).encode("utf-8", "replace"))
+        forms += layers
+        limits += ["decode-rounds"] if exhausted else []
         for value in strings:
-            if value.lstrip()[:1] in ("{", "["):
-                forms += decoded_forms(value.encode(), depth - 1)[2:]
-    return forms
+            if value.lstrip()[:1] not in ("{", "[", '"'):
+                continue
+            if layer + 1 <= JSON_LAYERS:
+                pending.append((value, layer + 1))
+            elif _parse_json(value) is not None:
+                limits.append("json-layers")
+    return forms, limits
 
 
 def _source_map_problems(source_map: dict) -> list[str]:
@@ -230,17 +301,24 @@ def audit(site: Path, *, licences: dict[str, str] = LICENCES, workspace: Path | 
         relative = path.relative_to(site).as_posix()
         raw = published_bytes(path)
         files += 1
-        decoded = decoded_forms(raw)
-        for match in INLINE_MAP.finditer(raw):
-            inline = base64.b64decode(match[1])
-            decoded += decoded_forms(inline)
-            bad = _source_map_problems(json.loads(inline))
-            if bad:
-                findings["absolute-source-map-source"].append({"file": relative, "sources": bad})
+        decoded, limits = decoded_forms(raw)
+        maps_found = [base64.b64decode(m[1]) for m in INLINE_MAP.finditer(raw)]
+        for inline in maps_found:
+            forms, more = decoded_forms(inline)
+            decoded += forms
+            limits += more
         if path.suffix == ".map":
-            bad = _source_map_problems(json.loads(raw))
+            maps_found.append(raw)
+        for source_map in maps_found:
+            try:
+                bad = _source_map_problems(json.loads(source_map))
+            except RecursionError:
+                limits.append("json-nesting")
+                continue
             if bad:
                 findings["absolute-source-map-source"].append({"file": relative, "sources": bad})
+        for reason in sorted(set(limits)):
+            record("decode-limit", relative, reason.encode())
         per_form: list[defaultdict] = []
         for data in decoded:
             found = defaultdict(int)

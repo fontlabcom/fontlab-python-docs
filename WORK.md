@@ -682,3 +682,17 @@ carrier (nested JSON whose inner value is double-escaped) that fails with `depth
 and passes with the shipped `depth=3` (21 passed). Test-only change: the 88 build
 inputs (`scripts/`, `site-src/`, `overrides/`, `archive/`, config) equal final-2's
 accepted manifest. Final-2 (runbook at a211a02): all 16 gates exit 0, 270 docs tests.
+
+## 2026-10-15: issue 106 lane C3 — X4b audit findings fixed
+
+X4b (REQUEST CHANGES) on a211a02: percent, HTML-entity and `\x` encodings bypassed the
+audit; serialized JSON string scalars were never re-parsed; container traversal was
+recursive and crashed at 1,000 levels. Tests first (13 failed): eight encoded forms incl.
+double percent, entity-in-percent and escaped-percent mixes; 2× and 3× serialized
+scalars; 1,000 and 100,000 nesting levels; 12 encoding layers. Fix: `unescape` decodes one
+layer (JS/JSON `\uXXXX \xXX \/ \\`, percent, HTML references) and `text_layers` repeats
+to a fixed point (6 rounds); `decoded_forms` re-parses strings starting with `{`, `[` or
+`"` (4 JSON layers); `json_strings` walks iteratively (256 levels). Any exhausted bound
+or parser `RecursionError` (also in source maps) is a `decode-limit` finding: fail closed.
+`pytest -q tests/test_release_audit.py`: 34 passed; ruff check clean. Real built site
+(final-2 `.build/site`): exit 0, 5,817 files, 0 findings, 128 s.

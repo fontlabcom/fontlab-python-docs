@@ -252,3 +252,56 @@ def test_receipt_when_html_links_private_hosts_then_hosts_are_redacted(tmp_path)
     (site / "x.html").write_text('<a href="https://vault-priv.internal/x">x</a>')
     written = json.dumps(receipt(_audit(site, tmp_path)))
     assert "vault-priv.internal" not in written and "i.fontlab.com" not in written
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "%2FUsers%2Fsomeone%2Fx.py",
+        "%252FUsers%252Fsomeone%252Fx.py",  # percent-encoded twice
+        "&#47;Users&#47;someone&#47;x.py",
+        "&#x2f;Users&#x2F;someone&#x2f;x.py",
+        "&sol;Users&sol;someone&sol;x.py",
+        "\\x2fUsers\\x2fsomeone\\x2fx.py",
+        "%26%2347%3BUsers%26%2347%3Bsomeone%26%2347%3Bx.py",  # entity inside percent
+        "\\\\u0025\\\\u0032\\\\u0046Users%2Fsomeone%2Fx.py",  # escaped percent, mixed
+    ],
+)
+def test_audit_when_path_is_percent_entity_or_hex_encoded_then_fails(tmp_path, text):
+    """X4b (issue 106): URL, HTML-entity and \\x escapes, alone and combined."""
+    site = _site(tmp_path)
+    (site / "page.js").write_text(f'var p = "{text}";')
+    findings = _audit(site, tmp_path)["findings"]
+    assert [r["file"] for r in findings.get("user-path", [])] == ["page.js"], findings
+
+
+@pytest.mark.parametrize("times", [2, 3])
+def test_audit_when_json_string_scalar_is_serialized_repeatedly_then_fails(tmp_path, times):
+    """X4b (issue 106): a path inside a JSON string scalar serialized again and again."""
+    value = "\\/Users\\/someone\\/x.py"
+    for _ in range(times):
+        value = json.dumps(value)
+    site = _site(tmp_path)
+    (site / "data.json").write_text(json.dumps({"v": value}))
+    findings = _audit(site, tmp_path)["findings"]
+    assert [r["file"] for r in findings.get("user-path", [])] == ["data.json"], findings
+
+
+@pytest.mark.parametrize("depth", [1000, 100_000])
+def test_audit_when_json_nesting_exceeds_the_bound_then_fails_closed(tmp_path, depth):
+    """X4b (issue 106): unbounded nesting must not crash or pass; it is a finding."""
+    site = _site(tmp_path)
+    (site / "deep.json").write_text("[" * depth + '"x"' + "]" * depth)
+    report = _audit(site, tmp_path)
+    assert [r["file"] for r in report["findings"]["decode-limit"]] == ["deep.json"]
+    assert report["pass"] is False
+
+
+def test_audit_when_encoding_layers_exceed_the_bound_then_fails_closed(tmp_path):
+    """Layers beyond the decode bound are reported, never silently skipped."""
+    text = "/Users/someone/x.py"
+    for _ in range(12):
+        text = text.replace("%", "%25").replace("/", "%2F")
+    site = _site(tmp_path)
+    (site / "page.js").write_text(f'var p = "{text}";')
+    assert [r["file"] for r in _audit(site, tmp_path)["findings"]["decode-limit"]] == ["page.js"]
