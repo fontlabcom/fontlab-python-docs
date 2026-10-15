@@ -7,6 +7,7 @@ import re
 import time
 import zlib
 from collections.abc import Callable
+from contextlib import nullcontext
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -577,15 +578,20 @@ def run_entry(
     return entry
 
 
-def run(site: Path, out_dir: Path, plan: dict = PLAN) -> dict:
-    """Every case x viewport x scheme; the receipt keeps measurements and failures."""
+def run(site: Path, out_dir: Path, plan: dict = PLAN, base: str | None = None) -> dict:
+    """Every case x viewport x scheme; the receipt keeps measurements and failures.
+
+    With `base` (a deployed URL ending in `/`), pages load from that host; `site`
+    must hold the same published bytes, which the plan reads for shard names.
+    """
     receipt = {"schema_version": 1, "results": [], "failures": []}
     try:
         if not site.is_dir():
             raise ValueError(f"Built site directory does not exist: {site}")
         resolved = resolve_plan(site, plan)
         receipt["plan"] = resolved
-        with sync_playwright() as playwright, serve_site(site) as base:
+        server = nullcontext(base) if base else serve_site(site)
+        with sync_playwright() as playwright, server as base:
             browser = playwright.chromium.launch(headless=True)
             try:
                 for case, spec in resolved.items():
@@ -626,10 +632,13 @@ def main() -> int:
     parser.add_argument(
         "--out", type=Path, required=True, help="Receipt JSON; screenshots go beside it"
     )
+    parser.add_argument("--base", help="Deployed site URL, e.g. https://host/prefix/")
     args = parser.parse_args()
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    receipt = run(args.site.resolve(), args.out.parent)
+    base = args.base.rstrip("/") + "/" if args.base else None
+    receipt = run(args.site.resolve(), args.out.parent, base=base)
     receipt["site"] = str(args.site)
+    receipt["base"] = base
     args.out.write_text(json.dumps(receipt, indent=2) + "\n")
     print(
         f"Interaction acceptance: {'PASS' if receipt['passed'] else 'FAIL'} {receipt['summary']}; receipt: {args.out}"

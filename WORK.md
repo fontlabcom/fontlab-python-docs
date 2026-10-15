@@ -586,3 +586,29 @@ staged root holding exactly the locked bytes.
 - `FONTLAB_API_SOURCE_ROOT=<staged locked root> ./build.sh --offline`: 0, 223.76 s,
   4,515,446,784 B max RSS; reconciliation 242,654/242,654 documented, 0 unexplained.
   Evidence: verification/issue-101-ecosystem/evidence/docs-104/r014-*.
+
+## 2026-10-15: Issue 104 lane L5 — build modes, determinism, audit, decisions
+
+All builds below ran from the locked bytes (artifact root staged with
+`evidence/docs-104/stage_locked.py`; source mode in a sibling-layout copy of the
+same bytes, because other lanes' unreviewed changes fail the lock).
+
+- Shard deadline decision: no partial results after 1.8 s; Retry doubles the
+  deadline (cap 30 s). `node --test scripts/search_backend/tests.cjs`: 18 pass.
+  `search_slow_shard` now clicks Retry and requires recovery: 4/4 on the real site.
+- Archive routing decision recorded in README (unchanged behaviour, see 2026-10-14).
+- `scripts/release_audit.py`: 5,193 files incl. decompressed shards and
+  objects.inv; pass, 0 findings; upstream Qt examples (`/home/bob/`, `file:///`,
+  `user@foo.com`) allowed only by reviewed list and scope. Licences page added.
+- Artifact rebuild twice: generation and 5,191 rendered files identical.
+- Source mode vs artifact mode: rendered files identical; only the generation
+  `config` digest differs (absolute source paths in mkdocs.yml, by design).
+- `./build.sh --offline --check` (artifact): exit 0, 62 s.
+- `./build.sh --offline --serve` (source mode): serving on
+  `http://127.0.0.1:8000/fontlab-python-docs/`; probed pages 200; stopped by signal.
+- `scripts/deployed_check.py` and `interaction_check --base` against the real site
+  mounted under `/fontlab-python-docs/` locally: 785 targets byte-equal; all
+  interaction cases 4/4.
+- Tests: `UV_OFFLINE=true uv run --frozen python -m pytest -q` 226 passed before
+  deployed_check; deployed_check + interaction tests 31 passed.
+Evidence: parent `verification/issue-101-ecosystem/evidence/docs-104/`.
