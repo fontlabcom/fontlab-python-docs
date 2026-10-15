@@ -1,22 +1,11 @@
 ---
 this_file: TODO.md
 ---
-- [x] Verify source-only native documentation names through actual mkdocstrings.
-- [x] Add explicit locked mkdocstrings Python handler/autorefs/Griffe dependencies.
-- [x] Test full-occurrence inventory, exact body sharing, pagination and facets.
-- [ ] Generate complete current native and ecosystem API pages/coverage/aliases.
-- [x] Rebuild the current local root with verified shared theme asset/search ownership.
-- [ ] Preserve legacy routes, fragments and a versioned archive.
-- [x] Implement and verify locked offline build/check and API source byte pins.
-- [ ] Execute --serve, --refresh-native and installed-artifact build modes.
-- [x] Verify actual inventory URI anchors, nine native searches and responsive method page.
-- [ ] Verify remaining internal links, alias families and keyboard/focus interactions.
-- [ ] Verify deterministic offline source/artifact builds and privacy/licenses.
-- [ ] Publish and independently verify the actual deployed site.
-- [x] Complete consumed private-input locking, exported class-member aliases/public titles and @property index semantics; see docs/superpowers/plans/source-reference-fidelity.md.
 
-- [x] Resolve final I1–I5 and M2/M3 documentation defects with 66-test source/browser regressions.
-- [x] Provide a build-plus-consumer command that fails on missing inputs and provisions Chromium.
-- [ ] Run final full-corpus strict build, accepted-manifest check and project-prefix/browser acceptance.
-- [x] Implement complete search sharding, original consumer comparisons and checked initial5MiB startup transfer.
-- [ ] Review search implementation and complete full-site build/check/links, unchanged same-tab browser/navigation/memory acceptance and deployed asset-header verification.
+# Tasks
+
+- [ ] Reconcile `.build/coverage.json` against the raw Echopy capture: every captured symbol, member and alias accounted for, zero unexplained capture/merge/extraction errors (R014, G09; shared with fontlab-echopy).
+- [ ] Run and record `./build.sh --serve` and the installed-artifact mode (`FONTLAB_API_SOURCE_ROOT`); run `--refresh-native` only when the owner asks (R039).
+- [ ] Deterministic offline rebuild in source and artifact modes; privacy and licence audit of site, search index and source maps (R044, R055).
+- [ ] Decide archive-vs-current routing for pages present in both, and the behaviour after the 1.8 s shard timeout.
+- [ ] Publish the audited site; on the deployed host verify redirects/fragments in a browser, routes, asset headers, build provenance, live search and navigation, the site under its URL path prefix, and same-tab navigation/memory; keep the previous deployment (R042, R044).

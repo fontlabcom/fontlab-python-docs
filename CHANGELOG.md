@@ -2,6 +2,21 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-10-15 — completed checklist (moved from TODO.md)
+
+- Verify source-only native documentation names through actual mkdocstrings.
+- Add explicit locked mkdocstrings Python handler/autorefs/Griffe dependencies.
+- Test full-occurrence inventory, exact body sharing, pagination and facets.
+- Generate current native and ecosystem API pages, coverage report and aliases: strict full build 212 s, 4,331 pages, 245,151 member identities, 60,048 search rows, `--check` pass (docs f8bb92a, 3ddc4e0). Reconciliation against the raw Echopy capture (R014) remains open.
+- Rebuild the current local root with verified shared theme asset/search ownership.
+- Implement and verify locked offline build/check and API source byte pins.
+- Verify actual inventory URI anchors, nine native searches and responsive method page.
+- Verify remaining internal links, alias families and keyboard/focus interactions (R043 receipts: deep/type/param-type links, aliases, late shard search and keyboard 4/4 each; a11y 28/28; workspace evidence r043-interactions/, tg8-theme/).
+- Complete consumed private-input locking, exported class-member aliases/public titles and @property index semantics; see docs/superpowers/plans/source-reference-fidelity.md.
+- Resolve final I1–I5 and M2/M3 documentation defects with 66-test source/browser regressions.
+- Provide a build-plus-consumer command that fails on missing inputs and provisions Chromium.
+- Implement complete search sharding, original consumer comparisons and checked initial5MiB startup transfer.
+
 ## 2026-10-14 — R042 archive pages link their current page
 
 - Archived FontLab7 pages whose route map has an exact `current_route` now carry a

@@ -1,30 +1,25 @@
 ---
 this_file: PLAN.md
 ---
-# Current native Python reference rebuild
 
-Authority: parent issues/101.md R037–R044 and the user's explicit source/code
-interplay requirement. The old FontLab7/Python2 reference remains a historical
-source/archive until the complete new root and route preservation are verified.
+# Plan
 
-Use current captured/enriched Echopy as the native API authority. Its docnames
-command projects ordinary explicit aliases for fontlab/fontgate/fontpr/optional
-fontlabpr/PythonQt, and its Griffe extension preserves class/namespace collisions.
-No copied stubs, host imports or native inspection in normal builds.
+Authority: parent `issues/101.md` R037–R044 and G09–G10. Completed work is
+summarised in README.md "Status". Remaining work:
 
-1. Extract every source identity and exact shared body, with native public names,
-   hashes and complete class/member/alias coverage. Parser/planner tests pass.
-2. Generate module/class/member pages with complete per-class occurrence indexes
-   and exact-body links; paginate bodies without losing declarations or guessing
-   native inheritance. Preserve class/pseudo-namespace facets explicitly.
-3. Build the full current reference and ecosystem guides using locked ProperDocs,
-   MaterialX, fltheme26, mkdocstrings Python handler and explicit autorefs.
-4. Preserve legacy routes/fragments in a versioned archive and route map.
-5. Implement ./build.sh and --check/--serve/--refresh-native, source/artifact modes,
-   deterministic coverage, source privacy/license checks and offline operation.
-6. Complete search sharding now retains the original corpus and uses pinned,
-   offline global routing plus the original consumer engine. Review the implementation
-   and verify actual full rendered API/inventory, search and browser interaction,
-   desktop/mobile/light/dark/keyboard, page/index/resource budgets. GitHub CI is out of scope (owner decision D3).
-7. Publish only audited outputs; independently verify the deployed source
-   provenance, routes, assets, search and navigation. Full goal remains active.
+1. **Coverage reconciliation (R014).** Check `.build/coverage.json` against the raw
+   Echopy capture; report every unaccounted symbol and error.
+2. **Build modes (R039).** Run and record `./build.sh --serve`, the
+   installed-artifact mode (`FONTLAB_API_SOURCE_ROOT`) and, when the owner asks,
+   `--refresh-native`.
+3. **Release audit (R044, R055).** Deterministic offline rebuild from both source
+   and artifact modes; privacy and licence audit of the built site, search index
+   and source maps.
+4. **Open questions.** Decide archive-vs-current routing for pages that exist in
+   both, and the behaviour after the 1.8 s shard timeout.
+5. **Publication (R042, R044).** Publish the audited site; on the deployed host
+   verify redirects and fragments in a browser, routes, asset headers, build
+   provenance, live search and navigation, the URL path prefix and same-tab
+   navigation/memory; keep the previous deployment.
+
+GitHub CI is out of scope (owner decision D3).

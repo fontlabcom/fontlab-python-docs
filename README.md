@@ -109,3 +109,24 @@ Update source/enrichment or authored guides, regenerate, and verify real rendere
 anchors, inventory, search and browser behavior. Do not edit generated output as
 its source. Documentation retains the repository Apache2 license and upstream
 Qt/PySide documentation attribution. Shared theme ownership is in THEME.md.
+
+## Status
+
+Built and verified locally (unpublished; evidence in the workspace
+`verification/issue-101-ecosystem/evidence/`):
+
+- Source-only reference from Echopy and the ecosystem packages with ProperDocs,
+  MaterialX, fltheme26, mkdocstrings (Python handler), autorefs and Griffe; no
+  native imports in normal builds. Strict full build about 212 s / 4.5 GB.
+- Coverage report: 245,151 member identities on 4,331 pages, native aliases,
+  per-class inherited indexes, declaration-time base binding (N1). Reconciliation
+  against the raw Echopy capture (R014) is still open.
+- Sharded search over all 60,048 rows with a 4,940,411-byte initial transfer;
+  named native searches reach the right anchors.
+- Legacy routes: route map, versioned archive, fragment mapping; archived pages
+  link to their current page.
+- Browser acceptance (R043): keyboard, focus, deep/type links, aliases, late shard
+  search, accessibility 28/28 against the published fltheme26 theme.
+- Pinned API sources (`api-sources.lock.json`) and `--check` regeneration.
+
+GitHub CI was removed by owner decision (workspace DECISIONS.md D3).
