@@ -1841,7 +1841,10 @@ var require_lunr = __commonJS({
 // scripts/search_backend/query.js
 var query_exports = {};
 __export(query_exports, {
-  QueryRunner: () => QueryRunner
+  MAX_SHARD_DEADLINE_MS: () => MAX_SHARD_DEADLINE_MS,
+  QueryRunner: () => QueryRunner,
+  SHARD_DEADLINE_MS: () => SHARD_DEADLINE_MS,
+  shardDeadline: () => shardDeadline
 });
 module.exports = __toCommonJS(query_exports);
 
@@ -2387,6 +2390,9 @@ function hydrate(rows, spec, wanted) {
 
 // scripts/search_backend/query.js
 var CACHE_LIMIT = 3 * 1024 * 1024;
+var SHARD_DEADLINE_MS = 1800;
+var MAX_SHARD_DEADLINE_MS = 3e4;
+var shardDeadline = (attempt) => Math.min(MAX_SHARD_DEADLINE_MS, SHARD_DEADLINE_MS * 2 ** attempt);
 var QueryRunner = class {
   constructor(manifest, routing, options, base, notify) {
     Object.assign(this, { manifest, routing, options, base, notify });
@@ -2407,12 +2413,12 @@ var QueryRunner = class {
     this.cacheBytes += bytes.length;
     this.peakCacheBytes = Math.max(this.peakCacheBytes, this.cacheBytes);
   }
-  async execute(value, signal, current, fetchCache = "default") {
+  async execute(value, signal, current, fetchCache = "default", deadline = SHARD_DEADLINE_MS) {
     const { selected, docs } = candidates(value, this.manifest, this.routing), pending = /* @__PURE__ */ new Map(), groups = [], suggestions = /* @__PURE__ */ new Set();
     let scheduledWindowBound = 0;
     const take = async (id) => {
       const spec = this.manifest.shards[id], cached = this.cache.get(id);
-      const bytes = cached || await fetchChecked(spec, this.base, AbortSignal.any([signal, AbortSignal.timeout(1800)]), fetchCache);
+      const bytes = cached || await fetchChecked(spec, this.base, AbortSignal.any([signal, AbortSignal.timeout(deadline)]), fetchCache);
       this.liveBytes += bytes.length;
       this.peakLiveBytes = Math.max(this.peakLiveBytes, this.liveBytes);
       return bytes;
@@ -2457,5 +2463,8 @@ var QueryRunner = class {
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  QueryRunner
+  MAX_SHARD_DEADLINE_MS,
+  QueryRunner,
+  SHARD_DEADLINE_MS,
+  shardDeadline
 });

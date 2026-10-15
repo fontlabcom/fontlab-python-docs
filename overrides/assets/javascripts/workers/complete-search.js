@@ -2415,6 +2415,9 @@
 
   // scripts/search_backend/query.js
   var CACHE_LIMIT = 3 * 1024 * 1024;
+  var SHARD_DEADLINE_MS = 1800;
+  var MAX_SHARD_DEADLINE_MS = 3e4;
+  var shardDeadline = (attempt2) => Math.min(MAX_SHARD_DEADLINE_MS, SHARD_DEADLINE_MS * 2 ** attempt2);
   var QueryRunner = class {
     constructor(manifest, routing, options, base2, notify) {
       Object.assign(this, { manifest, routing, options, base: base2, notify });
@@ -2435,12 +2438,12 @@
       this.cacheBytes += bytes.length;
       this.peakCacheBytes = Math.max(this.peakCacheBytes, this.cacheBytes);
     }
-    async execute(value, signal, current, fetchCache = "default") {
+    async execute(value, signal, current, fetchCache = "default", deadline = SHARD_DEADLINE_MS) {
       const { selected, docs } = candidates(value, this.manifest, this.routing), pending = /* @__PURE__ */ new Map(), groups = [], suggestions = /* @__PURE__ */ new Set();
       let scheduledWindowBound = 0;
       const take = async (id) => {
         const spec = this.manifest.shards[id], cached = this.cache.get(id);
-        const bytes = cached || await fetchChecked(spec, this.base, AbortSignal.any([signal, AbortSignal.timeout(1800)]), fetchCache);
+        const bytes = cached || await fetchChecked(spec, this.base, AbortSignal.any([signal, AbortSignal.timeout(deadline)]), fetchCache);
         this.liveBytes += bytes.length;
         this.peakLiveBytes = Math.max(this.peakLiveBytes, this.liveBytes);
         return bytes;
@@ -2495,6 +2498,7 @@
   var generation = 0;
   var latest = "";
   var ready = false;
+  var attempt = 0;
   var active = new AbortController();
   var startup = new AbortController();
   var lastState = { state: "loading" };
@@ -2526,6 +2530,8 @@
   }
   function submit(value, retry = false) {
     latest = value;
+    attempt = retry ? attempt + 1 : 0;
+    const deadline = shardDeadline(attempt);
     const id = ++generation;
     active.abort();
     active = new AbortController();
@@ -2535,7 +2541,7 @@
       if (id !== generation || !ready) return;
       state({ state: "query" });
       try {
-        const result = await runner.execute(value, signal, () => id === generation, retry ? "reload" : "default");
+        const result = await runner.execute(value, signal, () => id === generation, retry ? "reload" : "default", deadline);
         if (result && id === generation) {
           postMessage({ type: 3, data: result });
           state({ state: "ready" });

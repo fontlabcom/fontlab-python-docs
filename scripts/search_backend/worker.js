@@ -1,11 +1,11 @@
 // this_file: scripts/search_backend/worker.js
 import {fetchChecked,parseJSON,validateManifest,decodeRouting} from "./validation.js";
-import {QueryRunner} from "./query.js";
+import {QueryRunner,shardDeadline} from "./query.js";
 import {lunr} from "./engine.ts";
 const base=new URL("../../../search/complete/",location.href);
 const channelName=new URL(location.href).searchParams.get("channel");
 const channel=channelName ? new BroadcastChannel(channelName) : null;
-let setupData, runner, setupPromise=Promise.resolve(), queue=Promise.resolve(), generation=0, latest="", ready=false;
+let setupData, runner, setupPromise=Promise.resolve(), queue=Promise.resolve(), generation=0, latest="", ready=false, attempt=0;
 let active=new AbortController(), startup=new AbortController();
 let lastState={state:"loading"};
 const state=data=>{
@@ -29,13 +29,13 @@ async function setup(retry=false) {
   }
 }
 function submit(value,retry=false) {
-  latest=value;const id=++generation;active.abort();active=new AbortController();const signal=active.signal;
+  latest=value;attempt=retry ? attempt+1 : 0;const deadline=shardDeadline(attempt);const id=++generation;active.abort();active=new AbortController();const signal=active.signal;
   queue=queue.then(async()=>{
     await setupPromise;
     if(id!==generation||!ready)return;
     state({state:"query"});
     try {
-      const result=await runner.execute(value,signal,()=>id===generation,retry ? "reload" : "default");
+      const result=await runner.execute(value,signal,()=>id===generation,retry ? "reload" : "default",deadline);
       if(result&&id===generation) {postMessage({type:3,data:result});state({state:"ready"});}
     } catch(error) {
       if(id!==generation)return;

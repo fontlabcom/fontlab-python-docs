@@ -49,7 +49,8 @@ PLAN = {
         "delay_ms": 1500,
     },
     "keyboard": {"page": "reference/fontlab/flNode.html"},
-    # Documents current behaviour: a shard slower than the worker deadline shows Retry.
+    # Decision (issue 104): a shard slower than the 1.8 s deadline shows Retry with no
+    # partial results; Retry doubles the deadline (3.6 s here), so the slow shard completes.
     "search_slow_shard": {
         "page": "reference/fontlab/flNode.html",
         "query": "decode_execution",
@@ -377,11 +378,18 @@ def check_search_slow_shard(page: Page, base: str, spec: dict, shot=no_shot) -> 
     except PlaywrightError:
         result["retry"] = None
         fail(result, "retry_not_shown", delayed_requests=len(seen))
+    expected = urljoin(base, spec["target"])
+    result["result_shown"] = page.evaluate(FIND_RESULT_JS, expected) is not None
+    if result["result_shown"] and result["retry"]:
+        fail(result, "partial_result_with_retry")
+    if result["retry"]:
+        result["screen"] = shot(page)
+        page.locator("[data-complete-search-status] button").click()
+        result["retry_recovered"] = find_result(page, expected, timeout) is not None
+        if not result["retry_recovered"]:
+            fail(result, "retry_did_not_recover", delay_ms=spec["delay_ms"])
     result["delayed_requests"] = len(seen)
-    result["result_shown"] = (
-        page.evaluate(FIND_RESULT_JS, urljoin(base, spec["target"])) is not None
-    )
-    result["screen"] = shot(page)
+    result["screen_after"] = shot(page)
     return finish(result)
 
 

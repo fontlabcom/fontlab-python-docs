@@ -15,7 +15,8 @@ syntax. `query.js` hydrates complete matching rows and original parent articles,
 retains the unchanged engine result fields, and merges optional suggestions.
 Its raw byte cache is at most3MiB except a single oversize page group; it schedules
 three responses at a time. `worker.js` keeps messages0/1/2/3 and aborts/suppresses
-superseded work. Failure/retry status uses a per-page BroadcastChannel; no deployed
+superseded work. A new query's shard fetches abort after 1.8 s; each consecutive Retry doubles
+that deadline up to 30 s (`shardDeadline`). Failure/retry status uses a per-page BroadcastChannel; no deployed
 test controls or Worker monkeypatches exist.
 
 The page closes its UI channel on pagehide, then reopens/rebinds it on persisted

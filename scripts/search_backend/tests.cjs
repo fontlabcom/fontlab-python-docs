@@ -74,6 +74,19 @@ test("missing/corrupt/delayed fetch emits no partial data; cancellation releases
  await assert.rejects(pending);assert.equal(metrics.liveBytes,0);
  global.fetch=previous;
 });
+test("shard deadline fails fast, then doubles per Retry up to the startup cap",async()=>{
+ const {shardDeadline}=require("./query.cjs");
+ assert.deepEqual([0,1,2,3,4,5,9].map(shardDeadline),[1800,3600,7200,14400,28800,30000,30000]);
+ const previous=global.fetch;
+ global.fetch=(url,{signal})=>new Promise((resolve,reject)=>{
+  const timer=setTimeout(()=>resolve(new Response(fs.readFileSync(path.join(dir,path.basename(url.pathname))))),60);
+  signal.addEventListener("abort",()=>{clearTimeout(timer);reject(signal.reason);},{once:true});
+ });
+ const runner=new QueryRunner(manifest,routing,{suggest:false},new URL("http://fixture.test/search/complete/"),()=>{});
+ await assert.rejects(runner.execute("Signal",new AbortController().signal,()=>true,"default",10),/TimeoutError|timed out|aborted/i);
+ assert.deepEqual(locations(await runner.execute("Signal",new AbortController().signal,()=>true,"reload",1000)),locations(original.search("Signal")));
+ global.fetch=previous;
+});
 process.on("exit",()=>fs.rmSync(dir,{recursive:true,force:true}));
 
 async function until(condition) {

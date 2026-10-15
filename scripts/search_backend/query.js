@@ -3,6 +3,10 @@ import {Search} from "./engine.ts";
 import {candidates, hydrate} from "./router.js";
 import {fetchChecked, parseJSON} from "./validation.js";
 const CACHE_LIMIT = 3*1024*1024;
+export const SHARD_DEADLINE_MS=1800, MAX_SHARD_DEADLINE_MS=30000;
+// A new query fails fast; each consecutive Retry doubles the per-shard deadline
+// (capped like startup) so a slow but live host can still complete.
+export const shardDeadline=attempt=>Math.min(MAX_SHARD_DEADLINE_MS,SHARD_DEADLINE_MS*2**attempt);
 // Cache owns original bytes only. Query-specific indexes never persist between queries.
 export class QueryRunner {
   constructor(manifest,routing,options,base,notify) {
@@ -16,12 +20,12 @@ export class QueryRunner {
     }
     this.cache.set(id,bytes);this.cacheBytes+=bytes.length;this.peakCacheBytes=Math.max(this.peakCacheBytes,this.cacheBytes);
   }
-  async execute(value,signal,current,fetchCache="default") {
+  async execute(value,signal,current,fetchCache="default",deadline=SHARD_DEADLINE_MS) {
     const {selected,docs}=candidates(value,this.manifest,this.routing), pending=new Map(), groups=[], suggestions=new Set();
     let scheduledWindowBound=0;
     const take = async id => {
       const spec=this.manifest.shards[id], cached=this.cache.get(id);
-      const bytes=cached || await fetchChecked(spec,this.base,AbortSignal.any([signal,AbortSignal.timeout(1800)]),fetchCache);
+      const bytes=cached || await fetchChecked(spec,this.base,AbortSignal.any([signal,AbortSignal.timeout(deadline)]),fetchCache);
       this.liveBytes+=bytes.length;this.peakLiveBytes=Math.max(this.peakLiveBytes,this.liveBytes);
       return bytes;
     };

@@ -299,6 +299,17 @@ def test_slow_shard_when_beyond_worker_deadline_then_retry_is_recorded(browser, 
     assert (
         "Retry search" in result["retry"]["text"] and result["result_shown"] is False
     ), result
+    assert result["retry_recovered"] is True and result["delayed_requests"] >= 2, result
+
+
+@pytest.mark.browser
+def test_slow_shard_when_slower_than_doubled_deadline_then_retry_failure_recorded(
+    browser, site
+):
+    result = check_search_slow_shard(
+        new_page(browser), site, {**SLOW, "delay_ms": 4500, "timeout_ms": 4000}
+    )
+    assert not result["passed"] and "retry_did_not_recover" in reasons(result), result
 
 
 @pytest.mark.browser

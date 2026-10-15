@@ -5,19 +5,28 @@
 <div data-complete-search-status hidden>Documentation search is unavailable. <button>Retry search</button></div>
 <ol id="list"></ol></div>
 <script>
-// Mirrors the worker contract: each shard fetch aborts after 1800 ms and the UI shows Retry.
+// Mirrors the worker contract: a new query's shard fetch aborts after 1800 ms and
+// the UI shows Retry; each consecutive Retry doubles the deadline (cap 30 s).
 const input = document.querySelector('.md-search__input'), output = input.nextElementSibling;
-input.addEventListener('input', async () => {
+const panel = output.querySelector('[data-complete-search-status]');
+let attempt = 0;
+const run = async retry => {
   const value = input.value;
+  attempt = retry ? attempt + 1 : 0;
   try {
-    const rows = await (await fetch('shard-1.json', {signal: AbortSignal.timeout(1800)})).json();
+    const deadline = Math.min(30000, 1800 * 2 ** attempt);
+    const rows = await (await fetch('shard-1.json', {signal: AbortSignal.timeout(deadline)})).json();
+    output.dataset.completeSearchState = 'ready';
+    panel.hidden = true;
     if (value !== input.value) return;
     document.getElementById('list').innerHTML = rows.filter(r => r.title.includes(value) && value)
       .map(r => `<li><a class="md-search-result__link" href="${r.location}">${r.title}</a></li>`).join('');
   } catch (error) {
     if (value !== input.value) return;
     output.dataset.completeSearchState = 'error';
-    output.querySelector('[data-complete-search-status]').hidden = false;
+    panel.hidden = false;
   }
-});
+};
+input.addEventListener('input', () => run(false));
+panel.querySelector('button').addEventListener('click', () => run(true));
 </script></body></html>

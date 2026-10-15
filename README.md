@@ -74,7 +74,7 @@ The one-time compiler bootstrap installs locked esbuild 0.25.12. Later use
 `npm ci --offline --prefix .build/search-compiler --ignore-scripts --no-audit --no-fund`
 from its populated cache, or rebuild with the existing compiler. Commit updated
 bundles and hashes together. Regular `./build.sh --offline` needs neither compiler
-nor npm cache. Search failures expose Retry beside the stock search results.
+nor npm cache. Search failures expose Retry beside the stock search results; each Retry doubles the shard deadline.
 Complex fuzzy/wildcard/prohibited-only queries can require all shards. Tested
 100 Mbps/20 ms named-query latency passes; cold broad queries at 20 Mbps/100 ms
 can exceed two seconds. Global BM25 scores/order can vary while complete result
@@ -100,6 +100,30 @@ internal links broken in the original snapshot. Build verification checks archiv
 anchors and redirect targets against this deterministic map. Archived pages with an exact current
 identity link to it ("Current version of this page"), using the mapped
 current anchor for the URL fragment when one exists.
+
+## Routing and search decisions (issue 104)
+
+- **Pages present in the archive and the current reference.** Old FontLab7 routes
+  keep redirecting to their archived page, with the fragment. Only the archive
+  preserves every one of the 128,733 old route/fragment pairs; 45,113 have a current
+  target. Archived pages with an exact current identity carry a "Current version of
+  this page" link that follows the mapped fragment. `verify_site` enforces both.
+- **After the 1.8 s shard deadline.** A search whose shard misses the deadline
+  shows no partial results (ranking and completeness need every candidate shard);
+  it shows "Documentation search is unavailable" with Retry. Each consecutive Retry
+  of the same query doubles the per-shard deadline (3.6, 7.2, 14.4, 28.8 s, capped
+  at the 30 s startup deadline), so a slow but live host completes while a dead host
+  still fails fast. Typing a new query resets the deadline to 1.8 s. Tested in
+  `scripts/search_backend/tests.cjs` and the `search_slow_shard` interaction case.
+
+## Release audit
+
+`uv run python scripts/release_audit.py --site .build/site --out audit.json` reads
+every published byte (gzip shards and `objects.inv` decompressed) and fails on
+local paths, the auditing user's identity, credentials, unreviewed e-mail
+addresses, absolute source-map sources and missing licence texts. Upstream Qt
+examples such as `/home/bob/` are allowed only in the reviewed list and scope.
+The site's [licences page](site-src/licenses.md) carries every applicable text.
 
 ## Contribute
 
