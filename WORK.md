@@ -624,3 +624,17 @@ Artifact build (locked bytes): exit 0, 216 s; 4,503 pages, 246,038 member
 identities; fontlabapp_shim 920, GlyphsApp 21, aidus_code_tools 5 identities;
 reconciliation 242,654/242,654, 0 unexplained. `--check` 0; release audit pass
 (5,365 files); interaction 4/4 all cases; a11y PASS.
+
+## 2026-10-15: Issue 104 lane L5 — intermittent keyboard check fixed at the root
+
+Two harness causes, no site bug (diagnosis: parent
+`verification/issue-101-ecosystem/evidence/docs-104/keyboard-flake-fix/DIAGNOSIS.md`):
+1. `serve_site` listened with Python's default backlog of 5; Chromium's
+   per-load socket burst reset the MaterialX bundle request in ~1 load in 30, so
+   `no-js` stayed and `.no-js .md-search` hid search. `SiteServer` sets 128:
+   0 resets in 300 loads; real keyboard check 0 failures in 200.
+2. `networkidle` waited on MaterialX's api.github.com repository facts (8–10 s,
+   rate-limited): 4 timeouts in 120 loads. `open_page()` waits for `load` plus the
+   page's own readiness (`no-js` removed): 0 timeouts, none over 3 s in 120.
+Five consecutive `interaction_check` runs: all PASS, every case 4/4. a11y PASS.
+`UV_OFFLINE=true uv run --frozen python -m pytest -q`: 233 passed.

@@ -14,7 +14,7 @@ from urllib.parse import urljoin
 from playwright.sync_api import Error as PlaywrightError
 from playwright.sync_api import Page, sync_playwright
 
-from scripts.a11y_check import opened_nav_is_reachable, serve_site
+from scripts.a11y_check import open_page, opened_nav_is_reachable, serve_site
 
 VIEWPORTS = [{"width": 1280, "height": 800}, {"width": 375, "height": 812}]
 SCHEMES = ("light", "dark")
@@ -128,7 +128,7 @@ def finish(result: dict) -> dict:
 
 
 def goto(page: Page, base: str, route: str) -> None:
-    response = page.goto(urljoin(base, route), wait_until="networkidle")
+    response = open_page(page, urljoin(base, route))
     if response is None or response.status != 200:
         raise ValueError(
             f"HTTP status {response.status if response else None} for {route}"
@@ -324,7 +324,7 @@ def check_search(page: Page, base: str, spec: dict, shot=no_shot) -> dict:
         return finish(result)
     if open_result(page, result, expected, 1000, shot):
         landed_in_view(page, result, expected, "landed")
-        page.go_back(wait_until="networkidle")
+        open_page(page, "", back=True)
         result["back_url"] = page.url
         if page.url != start_url:
             fail(result, "back_did_not_return", expected=start_url, actual=page.url)

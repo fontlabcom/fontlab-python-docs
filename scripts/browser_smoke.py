@@ -8,6 +8,8 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
+from scripts.a11y_check import open_page
+
 QUERIES = {
     "flNode": "reference/fontlab/flNode.html",
     "fontgate": "reference/fontgate.html",
@@ -60,7 +62,7 @@ def main() -> None:
             ),
         )
         try:
-            page.goto(args.url, wait_until="networkidle")
+            open_page(page, args.url)
             assert page.locator(".md-search__input").count() == 1, (
                 "one search owner required"
             )
@@ -84,10 +86,10 @@ def main() -> None:
                     "scheme => document.body.setAttribute('data-md-color-scheme', scheme)",
                     scheme,
                 )
-                page.goto(
+                open_page(
+                    page,
                     args.url
                     + "reference/PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.resize",
-                    wait_until="networkidle",
                 )
                 page.evaluate(
                     "scheme => document.body.setAttribute('data-md-color-scheme', scheme)",

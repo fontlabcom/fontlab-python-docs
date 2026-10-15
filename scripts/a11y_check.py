@@ -9,6 +9,7 @@ from contextlib import contextmanager
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from typing import Any
 from urllib.parse import quote
 
 from playwright.sync_api import Error as PlaywrightError
@@ -27,10 +28,38 @@ VIEWPORTS = [{"width": 1280, "height": 800}, {"width": 375, "height": 812}]
 AUDIT = Path(__file__).with_name("a11y_checks.js").read_text()
 
 
+class SiteServer(ThreadingHTTPServer):
+    """Static server for browser checks.
+
+    Chromium opens a burst of sockets per page load. Python's default listen
+    backlog (5) overflowed about 1 load in 30: the MaterialX bundle request was
+    reset, `no-js` stayed on <html> and its `.no-js .md-search` rule hid search.
+    """
+
+    request_queue_size = 128
+
+
+# MaterialX replaces `no-js` once its bundle has run. Waiting for this, not for
+# network idle, keeps checks independent of third-party requests such as the
+# header's GitHub repository facts (api.github.com is slow and rate-limited).
+READY_JS = "() => !document.documentElement.classList.contains('no-js')"
+
+
+def open_page(
+    page: Page, url: str, *, back: bool = False, timeout_ms: int = 15000
+) -> Any:
+    """Navigate (or go back) and wait until the page's own scripts are active."""
+    response = (
+        page.go_back(wait_until="load") if back else page.goto(url, wait_until="load")
+    )
+    page.wait_for_function(READY_JS, timeout=timeout_ms)
+    return response
+
+
 @contextmanager
 def serve_site(site: Path) -> Iterator[str]:
     """Own a loopback-only static server and always release its socket/thread."""
-    server = ThreadingHTTPServer(
+    server = SiteServer(
         ("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(site))
     )
     thread = threading.Thread(target=server.serve_forever, daemon=True)
@@ -137,9 +166,8 @@ def run(site: Path, pages: list[str]) -> dict:
                                     "scheme": scheme,
                                 }
                                 try:
-                                    response = page.goto(
-                                        url + quote(path, safe="/"),
-                                        wait_until="networkidle",
+                                    response = open_page(
+                                        page, url + quote(path, safe="/")
                                     )
                                     if response is None or response.status != 200:
                                         raise ValueError(

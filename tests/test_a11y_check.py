@@ -6,9 +6,10 @@ from pathlib import Path
 from unittest.mock import Mock
 
 import pytest
+from playwright.sync_api import Error as PlaywrightError
 from playwright.sync_api import sync_playwright
 
-from scripts.a11y_check import check_page, main, serve_site
+from scripts.a11y_check import SiteServer, check_page, main, open_page, serve_site
 
 FIXTURES = Path(__file__).parent / "fixtures/a11y"
 
@@ -232,3 +233,33 @@ def test_audit_when_disclosure_does_not_open_nav_then_reach_fails(browser_page):
         f["check"] == "keyboard_reach" and f["target"] == "nav_after_open"
         for f in result["failures"]
     ), result
+
+
+def test_site_server_when_browser_bursts_connections_then_backlog_holds_them():
+    """Backlog 5 reset ~1 in 30 page loads' script requests (issue 104 blocker 4)."""
+    assert SiteServer.request_queue_size >= 128
+
+
+def test_open_page_when_third_party_request_hangs_then_ready_after_scripts_run(tmp_path):
+    """networkidle waited on api.github.com; readiness is the page's own JS."""
+    import time
+
+    (tmp_path / "page.html").write_text(
+        '<html class="no-js"><body><script>fetch("https://api.github.invalid/repo");'
+        'setTimeout(() => document.documentElement.className = "js", 200)</script></body></html>'
+    )
+    (tmp_path / "broken.html").write_text('<html class="no-js"><body></body></html>')
+    with sync_playwright() as playwright, serve_site(tmp_path) as url:
+        if not Path(playwright.chromium.executable_path).exists():
+            pytest.skip("Chromium is not installed")
+        browser = playwright.chromium.launch(headless=True)
+        try:
+            page = browser.new_page()
+            page.route("https://api.github.invalid/**", lambda route: None)  # never answers
+            started = time.monotonic()
+            open_page(page, url + "page.html")
+            assert time.monotonic() - started < 5, "readiness waited on the hanging request"
+            with pytest.raises(PlaywrightError):
+                open_page(page, url + "broken.html", timeout_ms=1000)
+        finally:
+            browser.close()
