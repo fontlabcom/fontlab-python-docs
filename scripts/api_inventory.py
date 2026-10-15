@@ -12,6 +12,9 @@ from typing import Any
 from .export_aliases import exported_aliases, resolved_aliases
 
 
+NATIVE_FAMILIES = {"fontlab", "fontgate", "fontpr", "fontlabpr", "PythonQt"}
+
+
 def _name(node: ast.AST) -> str | None:
     if isinstance(node, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)):
         return node.name
@@ -231,12 +234,13 @@ def inventory_sources(sources: list[tuple[Path, str]]) -> dict[str, Any]:
                 module = module.removeprefix("fontlab_echopy.")
             source = path.relative_to(source_root).as_posix()
             # Single-underscore members of captured native classes are native API.
+            # Only Echopy's native sidecars lose their package prefix.
             declarations = _declarations(
                 tree.body,
                 module,
                 source,
                 _decorator_imports(tree),
-                keep_private=module != canonical_module,
+                keep_private=module.partition(".")[0] in NATIVE_FAMILIES,
             )
             available[module] = {"kind": "module"}
             available.update({row["id"]: row for row in declarations})

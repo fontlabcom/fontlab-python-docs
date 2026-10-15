@@ -196,3 +196,30 @@ def test_check_detects_drift_without_rewriting_accepted_baseline(project, change
         builder.generate(check=True)
         verify_build(root)
     assert (root / ".build/accepted-build.json").read_bytes() == baseline
+
+
+def test_echopy_shim_when_generated_then_documented_under_its_own_name(project):
+    root, source = project
+    shim = source / "fontlab_echopy/fontlabapp_shim"
+    shim.mkdir()
+    (shim / "__init__.py").write_text('"""Facade."""\n')
+    (shim / "__init__.pyi").write_text(
+        '"""Static shim of the FontLab menu tree."""\n'
+        "class Menu:\n"
+        '    """Main menu."""\n'
+        "    def add_component(self) -> None:\n"
+        '        """Glyph > Add Component."""\n'
+        "    def _hidden(self) -> None: ...\n"
+    )
+    (shim / "_shim.json").write_text('{"capture_sha256": "' + "d" * 64 + '"}\n')
+    builder.generate(update_source_lock=True)
+    render_fixture(root, source)
+    coverage = json.loads((root / ".build/coverage.json").read_text())
+    assert "fontlabapp_shim.Menu.add_component" in coverage["symbols"]
+    assert "fontlabapp_shim.Menu._hidden" not in coverage["symbols"], (
+        "private names are kept only in captured native sidecars"
+    )
+    page = (root / ".build/site/reference/fontlabapp_shim/Menu.html").read_text()
+    assert 'id="fontlabapp_shim.Menu"' in page
+    lock = json.loads((root / "api-sources.lock.json").read_text())["sources"]
+    assert "fontlab_echopy/fontlabapp_shim/_shim.json" in lock

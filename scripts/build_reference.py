@@ -112,7 +112,11 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
     export_docnames(namespace_root, source=native_root / "fontlab_echopy")
     plan = plan_pages(inventory_sources(roots))
     identity_files = {}
-    for name in ("_identities.json", "_provenance.json"):
+    shims = sorted(
+        path.relative_to(native_root / "fontlab_echopy").as_posix()
+        for path in (native_root / "fontlab_echopy").glob("*/_shim.json")
+    )
+    for name in ("_identities.json", "_provenance.json", *shims):
         data = (native_root / "fontlab_echopy" / name).read_bytes()
         identity_files[name] = data
         plan["inputs"].append(
