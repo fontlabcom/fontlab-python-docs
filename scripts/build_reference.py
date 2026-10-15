@@ -156,6 +156,7 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         .get("capture_identity", {})
         .get("sha256"),
         shim_exports=shim_exports,
+        raw_aliases=plan["aliases"],
     )
     enforce(reconciliation)
     content = stage / "content"

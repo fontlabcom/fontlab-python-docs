@@ -78,10 +78,19 @@ IDS = [
 ]
 
 
-def _symbols():
+def _symbols(redefined=False):
     rows = {i: {"id": i, "kind": "function", "occurrences": 1} for i in IDS}
-    rows["PythonQt.BoolResult"].update(kind="class", occurrences=2, facets=[{"kind": "module"}])
-    rows["typerig"].update(occurrences=2, declarations=[{"line": 1}, {"line": 9}])
+    rows["PythonQt.BoolResult"].update(
+        kind="class",
+        occurrences=2,
+        facets=[{"kind": "module"}],
+        declarations=[{"kind": "module", "line": 1}, {"kind": "class", "line": 3}],
+    )
+    if redefined:
+        rows["typerig"].update(
+            occurrences=2,
+            declarations=[{"kind": "function", "line": 1}, {"kind": "function", "line": 9}],
+        )
     return rows
 
 
@@ -95,8 +104,11 @@ def _unexplained(manifest=MANIFEST, symbols=None, aliases=None):
     return report, {(row["problem"], row["id"]) for row in report["unexplained"]}
 
 
-def test_reconcile_when_everything_is_documented_or_explained_then_no_gap():
-    report, unexplained = _unexplained()
+def test_reconcile_when_everything_is_documented_or_explained_then_no_gap(monkeypatch):
+    import scripts.reconcile_coverage as module
+
+    monkeypatch.setattr(module, "REVIEWED_REDEFINITIONS", {"typerig": ((1, 9), "upstream")})
+    report, unexplained = _unexplained(symbols=_symbols(redefined=True))
     assert unexplained == set(), unexplained
     assert report["counts"]["captured_identities"] == 12
     assert report["counts"]["documented_under_native_spelling"] == 4
@@ -106,7 +118,7 @@ def test_reconcile_when_everything_is_documented_or_explained_then_no_gap():
     }
     assert report["explained"]["multiple_declarations"] == {
         "PythonQt.BoolResult": "module-and-class-facet",
-        "typerig": "ecosystem-source-redefinition",
+        "typerig": "reviewed-redefinition: upstream",
     }
     assert report["native_spellings"]["fontlab.Node.raise"] == "fontlab.Node.raise_"
     enforce(report)
@@ -188,4 +200,57 @@ def test_reconcile_when_shim_export_resolves_nowhere_then_reported():
     )
     assert {(r["problem"], r["id"]) for r in report["unexplained"]} == {
         ("shim-export-unresolved", "GlyphsApp.GSAxis")
+    }
+
+
+def _declared(*items):
+    return [{"kind": kind, "accessor": accessor, "line": line} for kind, accessor, line in items]
+
+
+@pytest.mark.parametrize(
+    "row",
+    [
+        {"labels": ["property"], "occurrences": 2,
+         "declarations": _declared(("function", "getter", 1), ("function", None, 5))},
+        {"labels": ["property"], "occurrences": 2,
+         "declarations": _declared(("function", "getter", 1), ("function", "getter", 5))},
+        {"facets": [{"kind": "module"}], "occurrences": 3,
+         "declarations": _declared(("module", None, 1), ("class", None, 2), ("class", None, 9))},
+        {"occurrences": 2, "declarations": _declared(("function", None, 1), ("function", None, 2))},
+    ],
+    ids=["getter-plus-plain", "two-getters", "facet-extra-class", "unreviewed-redefinition"],
+)
+def test_reconcile_when_declarations_do_not_match_reason_then_reported(row):
+    """R-L5-docs P2: reasons are validated by structure, not by labels."""
+    symbols = _symbols()
+    symbols["typerig"] = {"id": "typerig", "kind": "attribute", **row}
+    _, unexplained = _unexplained(symbols=symbols)
+    assert ("multiple-declarations", "typerig") in unexplained
+
+
+def test_reconcile_when_redefinition_is_reviewed_at_its_lines_then_explained(monkeypatch):
+    import scripts.reconcile_coverage as module
+
+    monkeypatch.setattr(module, "REVIEWED_REDEFINITIONS", {"typerig": ((1, 9), "upstream")})
+    report, unexplained = _unexplained(symbols=_symbols(redefined=True))
+    assert unexplained == set()
+    assert report["explained"]["multiple_declarations"]["typerig"] == "reviewed-redefinition: upstream"
+    symbols = _symbols(redefined=True)
+    symbols["typerig"]["declarations"].append({"line": 12})
+    symbols["typerig"]["occurrences"] = 3
+    _, unexplained = _unexplained(symbols=symbols)
+    assert ("multiple-declarations", "typerig") in unexplained, "a new redefinition slipped through"
+
+
+def test_reconcile_when_raw_alias_was_discarded_by_resolution_then_reported():
+    """R-L5-docs P2: aliases dropped by resolved_aliases() must still be seen."""
+    report = reconcile(
+        MANIFEST,
+        _symbols(),
+        {"fly.qt": "PythonQt"},
+        provenance_capture_sha256="a" * 64,
+        raw_aliases={"fly.qt": "PythonQt", "GlyphsApp.GSAxis": "fontlab_glyport.model.GSAxis"},
+    )
+    assert ("alias-unresolved", "GlyphsApp.GSAxis") in {
+        (r["problem"], r["id"]) for r in report["unexplained"]
     }

@@ -223,3 +223,17 @@ def test_echopy_shim_when_generated_then_documented_under_its_own_name(project):
     assert 'id="fontlabapp_shim.Menu"' in page
     lock = json.loads((root / "api-sources.lock.json").read_text())["sources"]
     assert "fontlab_echopy/fontlabapp_shim/_shim.json" in lock
+
+
+def test_generate_when_shim_reexports_missing_target_then_build_fails(project):
+    """R-L5-docs P2: aliases discarded by resolution must fail through the pipeline."""
+    root, source = project
+    shim = source / "fontlab_echopy/GlyphsApp"
+    shim.mkdir()
+    (shim / "__init__.py").write_text('"""Facade."""\n')
+    (shim / "__init__.pyi").write_text(
+        "from fontlab_glyport.model import GSAxis as GSAxis\n__all__ = ['GSAxis']\n"
+    )
+    (shim / "_shim.json").write_text('{"capture_sha256": "' + "e" * 64 + '"}\n')
+    with pytest.raises(ValueError, match="alias-unresolved: GlyphsApp.GSAxis"):
+        builder.generate(update_source_lock=True)

@@ -9,6 +9,7 @@ is reported as unexplained, which fails the build.
 
 from __future__ import annotations
 
+from collections import Counter
 from typing import Any
 
 NATIVE = {"fontlab", "fontgate", "fontpr", "fontlabpr", "PythonQt"}
@@ -33,20 +34,55 @@ def _captured(manifest: dict[str, Any], gap) -> tuple[set[str], dict[str, str], 
     return captured, absent, classes
 
 
+# Upstream source that declares one identity more than once, reviewed with the
+# exact declaration lines; any further declaration makes the row unexplained.
+REVIEWED_REDEFINITIONS: dict[str, tuple[tuple[int, ...], str]] = {
+    "typerig.core.objects.matrix.Table.__eq__": ((78, 181), "upstream defines __eq__ twice; the second wins"),
+    "typerig.core.objects.test_objects.la": ((89, 575), "upstream test script reassigns a module variable"),
+    "typerig.core.objects.test_objects.lb": ((89, 514, 576), "upstream test script reassigns a module variable"),
+    "typerig.core.objects.test_objects.r": ((65, 67), "upstream test script reassigns a module variable"),
+    "typerig.core.objects.test_objects.t2": ((147, 196), "upstream test script reassigns a module variable"),
+    "typerig.proxy.fl.objects.font.pFont.symbols": ((387, 702), "upstream defines pFont.symbols twice; the second wins"),
+    "typerig.proxy.tr.objects.anchor.trAnchor.y": (
+        (78, 82),
+        "upstream bug: `def y(self, other)` lacks @y.setter and replaces the property",
+    ),
+}
+
+
 def _declaration_reason(
     identifier: str, row: dict[str, Any], manifest: dict[str, Any]
 ) -> str | None:
-    """Explain why one identity has several source declarations, if it can."""
+    """Explain several declarations of one identity from their exact structure."""
+    declarations = row.get("declarations", [])
+    kinds = Counter(d.get("kind") for d in declarations)
+    if len(declarations) != row.get("occurrences", 1):
+        return None
     if row.get("facets"):
-        return "module-and-class-facet"
+        facets = [f.get("kind") for f in row["facets"]]
+        if facets == ["module"] and kinds == Counter({"module": 1, "class": 1}):
+            return "module-and-class-facet"
+        return None
     if "property" in row.get("labels", []):
-        return "property-accessors"
+        accessors = Counter(d.get("accessor") for d in declarations)
+        if (
+            accessors["getter"] == 1
+            and set(accessors) <= {"getter", "setter", "deleter"}
+            and max(accessors.values()) == 1
+        ):
+            return "property-accessors"
+        # Otherwise fall through: a plain redefinition needs an explicit review.
     parent, _, name = identifier.rpartition(".")
     scopes = manifest["scopes"]
-    if identifier in scopes and name in scopes.get(parent, {}).get("names", []):
+    if (
+        identifier in scopes
+        and name in scopes.get(parent, {}).get("names", [])
+        and kinds == Counter({"module": 1, "attribute": 1})
+    ):
         return "module-and-parent-attribute"
-    if identifier.partition(".")[0] not in NATIVE and row.get("declarations"):
-        return "ecosystem-source-redefinition"
+    reviewed = REVIEWED_REDEFINITIONS.get(identifier)
+    if reviewed and tuple(sorted(d.get("line") for d in declarations)) == reviewed[0]:
+        return "reviewed-redefinition: " + reviewed[1]
     return None
 
 
@@ -57,6 +93,7 @@ def reconcile(
     *,
     provenance_capture_sha256: str | None,
     shim_exports: dict[str, list[str]] | None = None,
+    raw_aliases: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """Return the reconciliation report; `unexplained` must be empty to publish."""
     unexplained: list[dict[str, Any]] = []
@@ -108,6 +145,10 @@ def reconcile(
     for alias, target in sorted(aliases.items()):
         if target not in symbols:
             gap("alias-target-missing", alias, target=target)
+    # Declared aliases that resolution discarded (missing or cyclic targets).
+    for alias, target in sorted((raw_aliases or {}).items()):
+        if alias not in aliases and target not in symbols:
+            gap("alias-unresolved", alias, target=target)
     for shim, names in sorted((shim_exports or {}).items()):
         for name in names:
             identity = shim + "." + name

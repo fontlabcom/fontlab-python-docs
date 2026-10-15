@@ -2,6 +2,19 @@
 this_file: CHANGELOG.md
 ---
 
+## Unreleased — issue 104 review fixes (R-L5-docs)
+
+- Release audit: current credential formats (incl. `github_pat_`), inline
+  `data:` source maps and JSON-escaped strings decoded, mounted-volume and
+  checkout paths, private repository URLs and names (from local git remotes),
+  exact reviewed example values instead of a `file:///` prefix, licence texts
+  verified by digest and linked from the licences page.
+- Reconciliation: multiple declarations explained only by exact structure
+  (getter/setter/deleter, module+class facet, module+parent attribute) or a
+  line-pinned review; aliases discarded by resolution are reported.
+- `deployed_check`: every `assets/` file (worker, search UI, theme) and header
+  validation (media types; no Content-Encoding on explicit `.gz`).
+
 ## Unreleased — issue 104 coverage reconciliation (R014)
 
 - `scripts/reconcile_coverage.py` reconciles every build against Echopy's capture

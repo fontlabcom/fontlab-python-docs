@@ -18,6 +18,34 @@ from pathlib import Path
 
 HEADERS = ("content-type", "content-encoding", "cache-control", "content-length")
 SAMPLE_EVERY = 50  # one reference page in fifty, by sorted path
+# Acceptable media types by suffix; the search worker decodes explicit `.gz`
+# itself, so a host must not also mark those files Content-Encoding: gzip.
+TYPES = {
+    ".html": ("text/html",),
+    ".js": ("text/javascript", "application/javascript"),
+    ".css": ("text/css",),
+    ".json": ("application/json",),
+    ".gz": ("application/gzip", "application/x-gzip", "application/octet-stream"),
+    ".svg": ("image/svg+xml",),
+    ".png": ("image/png",),
+    ".woff2": ("font/woff2",),
+    ".xml": ("application/xml", "text/xml"),
+    ".txt": ("text/plain",),
+}
+
+
+def header_problem(relative: str, header: dict[str, str]) -> str | None:
+    """Why a response's headers would break the browser for this asset, if they would."""
+    encoding = (header.get("content-encoding") or "identity").lower()
+    if relative.endswith(".gz") and encoding != "identity":
+        return f"content-encoding {encoding} on an explicit .gz asset"
+    if encoding != "identity":
+        return f"content-encoding {encoding} despite Accept-Encoding: identity"
+    expected = TYPES.get(Path(relative).suffix)
+    media = (header.get("content-type") or "").split(";")[0].strip().lower()
+    if expected and media not in expected:
+        return f"content-type {media or 'missing'}"
+    return None
 
 
 def fetch(url: str) -> tuple[int, dict[str, str], bytes]:
@@ -36,8 +64,12 @@ def targets(site: Path) -> list[str]:
     pages = sorted(
         p.relative_to(site).as_posix() for p in (site / "reference").rglob("*.html")
     )
-    search = sorted(
-        p.relative_to(site).as_posix() for p in (site / "search").rglob("*") if p.is_file()
+    # Every search shard plus every theme/worker/UI asset the pages load.
+    assets = sorted(
+        p.relative_to(site).as_posix()
+        for folder in ("search", "assets")
+        for p in (site / folder).rglob("*")
+        if p.is_file() and p.name != ".DS_Store"
     )
     fixed = [
         "index.html",
@@ -49,7 +81,7 @@ def targets(site: Path) -> list[str]:
         "sitemap.xml",
     ]
     legacy = sorted({r["old_route"] for r in routes} | {r["archive_route"] for r in routes})
-    return [t for t in fixed if (site / t).exists()] + legacy + pages[::SAMPLE_EVERY] + search
+    return [t for t in fixed if (site / t).exists()] + legacy + pages[::SAMPLE_EVERY] + assets
 
 
 def check(base: str, site: Path) -> dict:
@@ -62,7 +94,10 @@ def check(base: str, site: Path) -> dict:
             continue
         if hashlib.sha256(body).digest() != hashlib.sha256((site / relative).read_bytes()).digest():
             failures.append({"path": relative, "reason": "bytes differ from local build"})
-        suffix = "".join(Path(relative).suffixes[-2:]) or relative
+        problem = header_problem(relative, header)
+        if problem:
+            failures.append({"path": relative, "reason": problem})
+        suffix = "".join(Path(relative).suffixes[-2:]) if relative.endswith(".gz") else Path(relative).suffix
         headers.setdefault(suffix, {k: header.get(k) for k in HEADERS})
     status, _, _ = fetch(base + "no-such-page-r042.html")
     if status != 404:
