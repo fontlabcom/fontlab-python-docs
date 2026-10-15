@@ -4,16 +4,15 @@ this_file: PLAN.md
 
 # Plan
 
-Authority: parent `issues/104.md` (section `./fontlab-python-docs/`). Completed
-issue 104 work is in CHANGELOG.md ("Issue 104 — completed"). Publication is the
-controller's (runbook: workspace `verification/issue-104/reports/L5-echopy-docs.md`, Task 7).
+Authority: parent `issues/104.md` and `issues/106.md`. Completed work is in
+CHANGELOG.md. Publication is the controller's (runbook: workspace
+`verification/issue-104/reports/L5-echopy-docs.md`, Task 7; D11).
 
-1. **Final consolidated rebuild (blocked on two inputs).** Run
-   `verification/issue-101-ecosystem/evidence/docs-104/final-rebuild.sh` once:
-   - lane L6 has replaced the three examples-export links to private
-     repositories (recipes glyph_actions_batch, glyphs_path_report,
-     glyphs_tabular_figures), which the release audit correctly rejects; and
-   - the controller has merged glyport `issue-104-glyport-r020` and echopy has
-     committed the regenerated `GlyphsApp/_shim.json`.
-   Every gate must exit 0, including five consecutive interaction runs, the
-   prefix rehearsal and determinism; commit the refreshed source lock.
+1. **Independent review of the consolidated rebuild.** Final-2 at a211a02 passed
+   every gate of `verification/issue-101-ecosystem/evidence/docs-104/final-rebuild.sh`
+   (evidence: workspace `verification/issue-106/evidence/C3/final-2/`). The
+   escaped-JSON audit (RR-docs P2, extended in a211a02 for double escapes and JSON
+   nested in strings) needs an X4 re-review before this item closes.
+2. **Short rebuild after the issue-106 glyport merge.** Regenerate echopy shims from the
+   merged glyport, commit them in echopy, then rerun the runbook; refresh the lock only
+   after reviewing the producer diff and commit it if it changed.

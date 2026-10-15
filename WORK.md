@@ -677,3 +677,8 @@ decoded text still holds `\/Users\/…` and JSON nested inside a JSON string wer
 `decoded_forms` now escape-decodes parsed strings again and re-parses JSON-looking
 strings (depth 3). New test failed first, then 21/21 audit tests pass; the real site
 still passes (5,817 files, 135 s); the clone flags all six carriers.
+Follow-up: the first new test cases were caught by the second unescape alone; added a
+carrier (nested JSON whose inner value is double-escaped) that fails with `depth=0`
+and passes with the shipped `depth=3` (21 passed). Test-only change: the 88 build
+inputs (`scripts/`, `site-src/`, `overrides/`, `archive/`, config) equal final-2's
+accepted manifest. Final-2 (runbook at a211a02): all 16 gates exit 0, 270 docs tests.

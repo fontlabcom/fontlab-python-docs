@@ -187,8 +187,15 @@ def test_audit_when_escaped_path_survives_json_decoding_then_fails(tmp_path):
     (site / "nested.json").write_text(
         '{"inner": "{\\"p\\": \\"\\\\/Users\\\\/someone\\\\/nested.py\\"}"}'
     )
+    # Only the re-parse finds this: the inner JSON value is itself double-escaped.
+    inner = json.dumps({"p": "\\/Users\\/someone\\/deep.py"})
+    (site / "deep.json").write_text(json.dumps({"inner": inner}))
     findings = _audit(site, tmp_path)["findings"]
-    assert {r["file"] for r in findings["user-path"]} == {"double.json", "nested.json"}
+    assert {r["file"] for r in findings["user-path"]} == {
+        "double.json",
+        "nested.json",
+        "deep.json",
+    }
 
 
 def test_receipt_when_findings_name_private_things_then_nothing_private_is_written(tmp_path):
