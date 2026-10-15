@@ -37,6 +37,10 @@ def _captured(manifest: dict[str, Any], gap) -> tuple[set[str], dict[str, str], 
 # Upstream source that declares one identity more than once, reviewed with the
 # exact declaration lines; any further declaration makes the row unexplained.
 REVIEWED_REDEFINITIONS: dict[str, tuple[tuple[int, ...], str]] = {
+    "fontlabapp.host.MENU_API": (
+        (29, 337),
+        "empty placeholder before class Menu; the final value is assigned after it",
+    ),
     "typerig.core.objects.matrix.Table.__eq__": ((78, 181), "upstream defines __eq__ twice; the second wins"),
     "typerig.core.objects.test_objects.la": ((89, 575), "upstream test script reassigns a module variable"),
     "typerig.core.objects.test_objects.lb": ((89, 514, 576), "upstream test script reassigns a module variable"),

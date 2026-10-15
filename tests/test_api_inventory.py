@@ -176,3 +176,19 @@ def test_inventory_when_shim_reexports_class_then_alias_uses_documented_name(tmp
     aliases = inventory_sources([(tmp_path, "fontlab_echopy"), (tmp_path, "pkg")])["aliases"]
     assert aliases["GlyphsApp.GSFont"] == "pkg.model.GSFont"
     assert aliases["GlyphsApp.GSFont.save"] == "pkg.model.GSFont.save"
+
+
+def test_inventory_when_tuple_assignment_declares_names_then_each_is_indexed(tmp_path):
+    """`A, B = 0, 1` declares A and B; imports of them must resolve (final rebuild)."""
+    (tmp_path / "pkg").mkdir()
+    (tmp_path / "pkg/__init__.py").write_text("")
+    (tmp_path / "pkg/views.py").write_text("NSOffState, NSOnState = 0, 1\n[LEFT, RIGHT] = 'l', 'r'\n")
+    (tmp_path / "pkg/controls.py").write_text(
+        "from .views import NSOnState\n__all__ = ['NSOnState']\n"
+    )
+    inventory = inventory_sources([(tmp_path, "pkg")])
+    symbols = inventory["symbols"]
+    for name in ("NSOffState", "NSOnState", "LEFT", "RIGHT"):
+        assert symbols["pkg.views." + name]["kind"] == "attribute", name
+    assert symbols["pkg.views.NSOnState"]["declaration_sha256"] != symbols["pkg.views.NSOffState"]["declaration_sha256"]
+    assert inventory["aliases"]["pkg.controls.NSOnState"] == "pkg.views.NSOnState"

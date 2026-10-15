@@ -29,6 +29,28 @@ def _name(node: ast.AST) -> str | None:
     return None
 
 
+def _unpacked(body: list[ast.stmt]) -> list[ast.stmt]:
+    """Split `A, B = 0, 1` into one declaration per name, keeping each value."""
+    result = []
+    for node in body:
+        target = node.targets[0] if isinstance(node, ast.Assign) and len(node.targets) == 1 else None
+        if isinstance(target, (ast.Tuple, ast.List)) and all(
+            isinstance(element, ast.Name) for element in target.elts
+        ):
+            values = (
+                node.value.elts
+                if isinstance(node.value, (ast.Tuple, ast.List))
+                and len(node.value.elts) == len(target.elts)
+                else [node.value] * len(target.elts)
+            )
+            for element, value in zip(target.elts, values):
+                single = ast.Assign(targets=[ast.Name(id=element.id, ctx=ast.Store())], value=value)
+                result.append(ast.copy_location(single, node))
+        else:
+            result.append(node)
+    return result
+
+
 def _declarations(
     body: list[ast.stmt],
     parent: str,
@@ -41,6 +63,7 @@ def _declarations(
     rows = []
     properties = set()
     decorator_imports = decorator_imports or {}
+    body = _unpacked(body)
     for index, node in enumerate(body):
         name = _name(node)
         if (
