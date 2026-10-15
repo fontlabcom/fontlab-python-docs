@@ -167,7 +167,8 @@ MAX_NESTING = 256
 
 ESCAPE = re.compile(rb"\\(?:u([0-9a-fA-F]{4})|x([0-9a-fA-F]{2})|(/)|(\\))")
 PERCENT = re.compile(rb"%([0-9a-fA-F]{2})")
-ENTITY = re.compile(rb"&(?:#[0-9]+|#[xX][0-9a-fA-F]+|[A-Za-z][A-Za-z0-9]*);")
+# Numeric references decode without their semicolon too (HTML5 parsing, html.unescape).
+ENTITY = re.compile(rb"&(?:#[0-9]+;?|#[xX][0-9a-fA-F]+;?|[A-Za-z][A-Za-z0-9]*;)")
 
 
 class DecodeLimit(ValueError):
@@ -263,8 +264,12 @@ def decoded_forms(raw: bytes) -> tuple[list[bytes], list[str]]:
                 continue
             if layer + 1 <= JSON_LAYERS:
                 pending.append((value, layer + 1))
-            elif _parse_json(value) is not None:
-                limits.append("json-layers")
+            else:
+                try:
+                    if _parse_json(value) is not None:
+                        limits.append("json-layers")
+                except DecodeLimit as limit:  # Too deep and too many layers at once.
+                    limits.append(str(limit))
     return forms, limits
 
 

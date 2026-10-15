@@ -305,3 +305,28 @@ def test_audit_when_encoding_layers_exceed_the_bound_then_fails_closed(tmp_path)
     site = _site(tmp_path)
     (site / "page.js").write_text(f'var p = "{text}";')
     assert [r["file"] for r in _audit(site, tmp_path)["findings"]["decode-limit"]] == ["page.js"]
+
+
+@pytest.mark.parametrize(
+    "text",
+    ["&#47Users&#47someone&#47x.py", "&#x2fUsers&#x2fsomeone&#x2fx.py", "&#X2FUsers&#X2Fsomeone&#X2Fx.py"],
+)
+def test_audit_when_numeric_reference_lacks_semicolon_then_fails(tmp_path, text):
+    """X4c (issue 106): browsers decode numeric references without the semicolon."""
+    site = _site(tmp_path)
+    (site / "page.html").write_text(f"<p>{text}</p>")
+    findings = _audit(site, tmp_path)["findings"]
+    assert [r["file"] for r in findings.get("user-path", [])] == ["page.html"], findings
+
+
+@pytest.mark.parametrize("times", range(3, 8))
+def test_audit_when_deep_json_is_serialized_beyond_the_layer_bound_then_fails_closed(tmp_path, times):
+    """X4c (issue 106): nesting and layer bounds combined return a failing report, never raise."""
+    value = "[" * 100_000 + "]" * 100_000
+    for _ in range(times):
+        value = json.dumps(value)
+    site = _site(tmp_path)
+    (site / "data.json").write_text(json.dumps({"v": value}))
+    report = _audit(site, tmp_path)
+    assert {r["file"] for r in report["findings"]["decode-limit"]} == {"data.json"}
+    assert report["pass"] is False

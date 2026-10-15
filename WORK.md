@@ -719,3 +719,15 @@ link; `manifest.json`). Runbook final-5 (evidence parent
 release audit 5,827 files, 0 findings; 5/5 interaction; determinism identical;
 242,654/242,654 identities; 4,919 pages. README: release-audit decoding and fail-closed
 bounds documented.
+
+## 2026-10-16: issue 106 lane C3 — X4c audit findings fixed
+
+X4c: echopy APPROVE (836bdfa..0d48b79); audit REQUEST CHANGES, two Important.
+(a) numeric HTML references without `;` (`&#47Users`, `&#x2fUsers`) bypassed: ENTITY now
+accepts an optional `;` for numeric references (html.unescape decodes them).
+(b) the boundary parse beyond JSON_LAYERS ran outside the DecodeLimit handler, so a
+100,000-level array serialized 4 times raised from audit(); it now records the limit.
+Tests first: 3 semicolon cases and the combined-limit case at 4 serializations failed
+(RecursionError -> DecodeLimit escaped); combined case parametrized over 3–7 times.
+`pytest -q tests/test_release_audit.py`: 42 passed; ruff clean. Real site (final-5
+`.build/site`): exit 0, 5,827 files, 0 findings, 128 s.
