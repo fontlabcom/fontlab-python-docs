@@ -224,3 +224,13 @@ def test_reveal_when_requested_then_terminal_shows_detail_and_file_does_not(tmp_
     main(["--site", str(site), "--out", str(out), "--workspace", str(tmp_path), "--reveal"])
     assert "fontlabcom/fontlab-glyport" in capsys.readouterr().err
     assert "fontlab-glyport" not in out.read_text()
+
+
+def test_receipt_when_html_links_private_hosts_then_hosts_are_redacted(tmp_path):
+    """RR3-docs: external_hosts goes through the same redaction helper."""
+    from scripts.release_audit import receipt
+
+    site = _site(tmp_path)
+    (site / "x.html").write_text('<a href="https://vault-priv.internal/x">x</a>')
+    written = json.dumps(receipt(_audit(site, tmp_path)))
+    assert "vault-priv.internal" not in written and "i.fontlab.com" not in written

@@ -8,6 +8,7 @@ import ast
 import hashlib
 import json
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -36,6 +37,18 @@ PACKAGES = {
 
 
 EXAMPLES_FORMAT = "fontlab-python-examples.docs-export.v1"
+# Relative POSIX page paths only: no absolute paths, `..`, backslashes or dots.
+EXAMPLES_PAGE = re.compile(r"[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+)*\.md")
+
+
+def _contained(folder: Path, path: object) -> Path:
+    """Validate a manifest page path before any read or write uses it."""
+    if not isinstance(path, str) or not EXAMPLES_PAGE.fullmatch(path):
+        raise ValueError(f"Unsafe examples export path: {path!r}")
+    target = (folder / path).resolve()
+    if not target.is_relative_to(folder.resolve()):
+        raise ValueError(f"Examples export path leaves its folder: {path!r}")
+    return target
 
 
 def examples_export() -> dict[str, bytes]:
@@ -53,8 +66,9 @@ def examples_export() -> dict[str, bytes]:
     if manifest.get("format") != EXAMPLES_FORMAT:
         raise ValueError(f"Unsupported examples export format: {manifest.get('format')}")
     pages = {"manifest.json": manifest_bytes}
+    targets = {row.get("path"): _contained(folder, row.get("path")) for row in manifest["pages"]}
     for row in manifest["pages"]:
-        data = (folder / row["path"]).read_bytes()
+        data = targets[row["path"]].read_bytes()
         if hashlib.sha256(data).hexdigest() != row["sha256"]:
             raise ValueError("Examples export page differs from its manifest: " + row["path"])
         pages[row["path"]] = data
@@ -206,7 +220,7 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         if path == "manifest.json":
             continue
         expected_files.add("examples/" + path)
-        target = content / "examples" / path
+        target = _contained(content / "examples", path)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
     page_hashes = {}

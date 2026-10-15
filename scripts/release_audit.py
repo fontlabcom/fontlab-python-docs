@@ -328,6 +328,7 @@ def receipt(report: dict) -> dict:
     }
     return {
         **report,
+        "external_hosts": [redact(host) for host in report["external_hosts"]],
         "findings": findings,
         "source_map_references": {
             redact(page): [redact(target) for target in targets]

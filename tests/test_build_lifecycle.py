@@ -278,3 +278,25 @@ def test_examples_export_when_tampered_or_absent_then_generation_fails(project, 
         monkeypatch.setenv("FONTLAB_EXAMPLES_EXPORT", str(tmp_path / "absent"))
     with pytest.raises((ValueError, FileNotFoundError)):
         builder.generate(update_source_lock=True)
+
+
+@pytest.mark.parametrize("path", ["../../../victim.txt", "/tmp/absolute-victim.md", "a/../../b.md", "a\\\\..\\\\b.md", ""])
+def test_examples_export_when_manifest_path_escapes_then_rejected_before_io(project, monkeypatch, tmp_path, path):
+    """RR3-docs: manifest paths must be relative POSIX paths inside the export."""
+    import hashlib
+
+    root, _ = project
+    export = tmp_path / "hostile-export"
+    export.mkdir()
+    victim = tmp_path / "victim.txt"
+    victim.write_text("keep me")
+    manifest = {"format": "fontlab-python-examples.docs-export.v1", "entry": "index.md",
+                "pages": [{"path": path, "title": "x", "sha256": hashlib.sha256(b"keep me").hexdigest()}]}
+    (export / "manifest.json").write_text(json.dumps(manifest))
+    monkeypatch.setenv("FONTLAB_EXAMPLES_EXPORT", str(export))
+    with pytest.raises(ValueError, match="path"):
+        builder.generate(update_source_lock=True)
+    assert victim.read_text() == "keep me"
+    assert not (root / ".build/content").exists() or not any(
+        (root / ".build/content").rglob("victim.txt")
+    )
