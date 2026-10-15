@@ -220,18 +220,16 @@ def inventory_sources(sources: list[tuple[Path, str]]) -> dict[str, Any]:
         for relative, path in sorted(paths.items(), key=lambda pair: str(pair[0])):
             data = source_bytes[path]
             tree = ast.parse(data)
-            parsed_module = ".".join(relative.parts).removesuffix(".__init__")
-            aliases.update(
-                exported_aliases(
-                    tree, parsed_module, package=relative.name == "__init__"
-                )
-            )
             module = ".".join(relative.parts)
             if module.endswith(".__init__"):
                 module = module.removesuffix(".__init__")
             canonical_module = module
             if package == "fontlab_echopy" and path.suffix == ".pyi":
                 module = module.removeprefix("fontlab_echopy.")
+            # Echopy sidecars and shims export under their documented name.
+            aliases.update(
+                exported_aliases(tree, module, package=relative.name == "__init__")
+            )
             source = path.relative_to(source_root).as_posix()
             # Single-underscore members of captured native classes are native API.
             # Only Echopy's native sidecars lose their package prefix.

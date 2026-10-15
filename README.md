@@ -101,6 +101,15 @@ anchors and redirect targets against this deterministic map. Archived pages with
 identity link to it ("Current version of this page"), using the mapped
 current anchor for the URL fragment when one exists.
 
+## Shims of runtime-built APIs (issue 104)
+
+Echopy ships static shims for APIs that only exist at run time; they render as
+their own top-level references: `fontlabapp_shim` (FontLab menus, 606 QActions,
+panels, glyph actions; from fontlabapp's read-only capture), `GlyphsApp` (the
+module glyport synthesizes per Glyphs script; GS* classes link to fontlab_glyport)
+and `aidus_code_tools` (the FontLab tools the Aidus agent calls). A shim is a
+`fontlab_echopy/<name>/` package marked by `_shim.json`, which is a locked input.
+
 ## Routing and search decisions (issue 104)
 
 - **Pages present in the archive and the current reference.** Old FontLab7 routes

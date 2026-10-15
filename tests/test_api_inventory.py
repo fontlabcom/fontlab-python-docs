@@ -164,3 +164,15 @@ def test_inventory_when_shared_properties_then_each_occurrence_keeps_body_identi
     assert first["body_target"] == second["body_target"] == "pkg.api.First.value"
     assert first["url"] != second["url"]
     assert first["declarations"][0]["line"] != second["declarations"][0]["line"]
+
+
+def test_inventory_when_shim_reexports_class_then_alias_uses_documented_name(tmp_path):
+    (tmp_path / "fontlab_echopy/GlyphsApp").mkdir(parents=True)
+    (tmp_path / "fontlab_echopy/GlyphsApp/__init__.pyi").write_text(
+        "from pkg.model import GSFont as GSFont\n__all__ = ['GSFont']\n"
+    )
+    (tmp_path / "pkg").mkdir()
+    (tmp_path / "pkg/model.py").write_text("class GSFont:\n    def save(self): ...\n")
+    aliases = inventory_sources([(tmp_path, "fontlab_echopy"), (tmp_path, "pkg")])["aliases"]
+    assert aliases["GlyphsApp.GSFont"] == "pkg.model.GSFont"
+    assert aliases["GlyphsApp.GSFont.save"] == "pkg.model.GSFont.save"
