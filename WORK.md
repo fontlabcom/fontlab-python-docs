@@ -654,3 +654,8 @@ upstream redefinitions (fontlabapp MENU_API, TypeRig test_objects d1/d2,
 TypeRig trAnchor.y missing @y.setter). The runbook now builds from a
 git-archive snapshot of producer HEADs. Docs tests: 257 passed.
 Evidence: parent `verification/issue-101-ecosystem/evidence/docs-104/final*`.
+
+2026-10-15 workspace reconciliation: fresh source suite 269passed/0skipped, exit0.
+Exact command and retained initial failures: parent verification/plan-todo-audit-20261015/baseline-tests.json.
+Completed repository plans were archived where no repository tasks remain;
+workspace integration/release gates remain separate.
