@@ -180,6 +180,17 @@ def test_audit_when_paths_hide_behind_json_or_js_escapes_then_fails(tmp_path):
     assert findings["volume-path"][0]["file"] == "inline.js"
 
 
+def test_audit_when_escaped_path_survives_json_decoding_then_fails(tmp_path):
+    """C3 replay (issue 106): escapes left inside decoded strings, and JSON nested in a string."""
+    site = _site(tmp_path)
+    (site / "double.json").write_text('{"x": "\\\\/Users\\\\/someone\\\\/x.py"}')
+    (site / "nested.json").write_text(
+        '{"inner": "{\\"p\\": \\"\\\\/Users\\\\/someone\\\\/nested.py\\"}"}'
+    )
+    findings = _audit(site, tmp_path)["findings"]
+    assert {r["file"] for r in findings["user-path"]} == {"double.json", "nested.json"}
+
+
 def test_receipt_when_findings_name_private_things_then_nothing_private_is_written(tmp_path):
     """RR2-docs: no category may write a private name, path or URL into the receipt."""
     from scripts.release_audit import main

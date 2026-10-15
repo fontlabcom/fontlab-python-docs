@@ -176,13 +176,24 @@ def json_strings(value: object) -> list[str]:
     return []
 
 
-def decoded_forms(raw: bytes) -> list[bytes]:
-    """The text a reader can recover: raw, escape-decoded, and parsed JSON strings."""
+def decoded_forms(raw: bytes, depth: int = 3) -> list[bytes]:
+    """The text a reader can recover: raw, escape-decoded, and parsed JSON strings.
+
+    Decoded strings are escape-decoded again, and strings that are JSON themselves
+    are parsed again (up to `depth` levels), so double escapes and JSON nested in a
+    string cannot hide a path.
+    """
     forms = [raw, unescape(raw)]
     try:
-        forms.append("\n".join(json_strings(json.loads(raw))).encode())
+        strings = json_strings(json.loads(raw))
     except (ValueError, UnicodeDecodeError):
-        pass
+        return forms
+    text = "\n".join(strings).encode()
+    forms += [text, unescape(text)]
+    if depth:
+        for value in strings:
+            if value.lstrip()[:1] in ("{", "["):
+                forms += decoded_forms(value.encode(), depth - 1)[2:]
     return forms
 
 

@@ -659,3 +659,21 @@ Evidence: parent `verification/issue-101-ecosystem/evidence/docs-104/final*`.
 Exact command and retained initial failures: parent verification/plan-todo-audit-20261015/baseline-tests.json.
 Completed repository plans were archived where no repository tasks remain;
 workspace integration/release gates remain separate.
+
+## 2026-10-15: issue 106 lane C3 — consolidated rebuild; nested-escape audit gap
+
+Lock review: inputs computed from a git-archive snapshot of every producer HEAD
+(echopy 6ff0d24, fontlabapp dd96cb0, remopy 0eeb15a, grablab 2473ee1, pythonqtside
+0255411, fly bc20854, typerig-lib ccb2f0b, glyport df8afe6, aidus-code 957ff44,
+examples 605f829) equal the committed lock f790088: 0 package differences, 41/41
+examples pins. Runbook `final-rebuild.sh` (evidence parent
+`verification/issue-106/evidence/C3/final-1/`): all 16 gates exit 0, 5/5 interaction
+runs, determinism identical, 242,654/242,654 identities, 652 shim exports, 269 docs
+tests, release audit 5,817 files pass; lock unchanged afterwards (`git diff --quiet`).
+
+End-to-end replay on an APFS clone of the built site (evidence `C3/escaped-json-replay/`):
+`\/`, `/`, gzip JSON and `github_pat_` carriers were flagged, but a JSON value whose
+decoded text still holds `\/Users\/…` and JSON nested inside a JSON string were not.
+`decoded_forms` now escape-decodes parsed strings again and re-parses JSON-looking
+strings (depth 3). New test failed first, then 21/21 audit tests pass; the real site
+still passes (5,817 files, 135 s); the clone flags all six carriers.
