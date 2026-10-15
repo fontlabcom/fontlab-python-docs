@@ -43,3 +43,22 @@ def test_source_when_tuple_assignment_declares_names_then_griffe_has_attributes(
     package = loader.load("pkg")
     assert package["NSBevel"].is_attribute and str(package["NSBevel"].value) == "2"
     assert str(package["Style.RIGHT"].value) == "'r'"
+
+
+def test_docstring_when_it_names_a_raw_text_element_then_it_is_escaped(tmp_path):
+    """A literal `<title>` swallowed the rest of FontLabPluginHost's page and search rows."""
+    root = tmp_path / "pkg"
+    root.mkdir()
+    (root / "__init__.py").write_text(
+        'def export():\n    """File > "Export with <title>..." uses `<title>` and <b>bold</b>.\n\n'
+        '    ```html\n    <script>x()</script>\n    ```\n    """\n'
+    )
+    loader = griffe.GriffeLoader(
+        search_paths=[tmp_path],
+        allow_inspection=False,
+        extensions=griffe.load_extensions("scripts/griffe_sources.py"),
+    )
+    doc = loader.load("pkg")["export"].docstring.value
+    assert 'Export with &lt;title>..."' in doc
+    assert "`<title>`" in doc and "<b>bold</b>" in doc, "code spans and inline HTML stay"
+    assert "<script>x()</script>" in doc, "fenced code stays verbatim"

@@ -2,6 +2,7 @@
 """Load actual source in namespace directories that Griffe skips by default."""
 
 import ast
+import re
 from pathlib import Path
 from typing import Any
 
@@ -92,3 +93,31 @@ class TupleAssignmentExtension(Extension):
 
     def on_class_members(self, *, node: Any, cls: Any, **kwargs: Any) -> None:
         self._add(node, cls)
+
+
+# Elements whose content is raw text, or that restructure a document. In a
+# docstring they are always literal prose (`<title>` as a placeholder) and,
+# rendered as HTML, swallow the rest of the page and its search rows.
+SWALLOWING = re.compile(
+    r"<(/?)(title|textarea|script|style|xmp|iframe|noembed|noframes|noscript"
+    r"|plaintext|html|head|body|meta|link|base)\b",
+    re.IGNORECASE,
+)
+CODE = re.compile(r"(^[ \t]*(?:```|~~~).*?^[ \t]*(?:```|~~~)[^\n]*$|`[^`\n]+`)", re.DOTALL | re.MULTILINE)
+
+
+def escape_swallowing_tags(text: str) -> str:
+    """Escape swallowing tags outside code fences and code spans."""
+    parts = CODE.split(text)
+    return "".join(
+        part if index % 2 else SWALLOWING.sub(r"&lt;\1\2", part)
+        for index, part in enumerate(parts)
+    )
+
+
+class SwallowingTagExtension(Extension):
+    """Keep literal `<title>`-like text from becoming page-breaking HTML."""
+
+    def on_instance(self, *, obj: Any, **kwargs: Any) -> None:
+        if obj.docstring is not None:
+            obj.docstring.value = escape_swallowing_tags(obj.docstring.value)
