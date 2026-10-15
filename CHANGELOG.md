@@ -2,6 +2,15 @@
 this_file: CHANGELOG.md
 ---
 
+## Unreleased — issue 104 coverage reconciliation (R014)
+
+- `scripts/reconcile_coverage.py` reconciles every build against Echopy's capture
+  identity manifest; the build fails on any missing, uncaptured or multiply
+  declared native identity, capture error, unmatched overlay or dangling alias.
+- Single-underscore members of captured native classes (14, e.g.
+  `PythonQt.private.MainWindow._clear_outline_controls`) are now documented.
+- `_identities.json` and `_provenance.json` are pinned in the API source lock.
+
 ## 2026-10-15 — completed checklist (moved from TODO.md)
 
 - Verify source-only native documentation names through actual mkdocstrings.

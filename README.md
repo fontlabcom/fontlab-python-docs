@@ -118,9 +118,16 @@ Built and verified locally (unpublished; evidence in the workspace
 - Source-only reference from Echopy and the ecosystem packages with ProperDocs,
   MaterialX, fltheme26, mkdocstrings (Python handler), autorefs and Griffe; no
   native imports in normal builds. Strict full build about 212 s / 4.5 GB.
-- Coverage report: 245,151 member identities on 4,331 pages, native aliases,
-  per-class inherited indexes, declaration-time base binding (N1). Reconciliation
-  against the raw Echopy capture (R014) is still open.
+- Coverage report: 245,169 member identities on 4,333 pages, native aliases,
+  per-class inherited indexes, declaration-time base binding (N1).
+- Reconciliation (R014): every build checks coverage against Echopy's shipped
+  capture identity manifest (`fontlab_echopy/_identities.json`, locked). All
+  242,654 captured identities are documented, 1,216 of them under the source
+  spelling of a sanitized native name (`QWidget.raise` → `raise_`,
+  `QPainter::PixmapFragment` → `QPainter__PixmapFragment`), recorded in
+  `coverage.json` `reconciliation.native_spellings`. Extensions, the absent
+  `fontlabpr`, multiple declarations and enrichment gaps carry derived reasons.
+  Any unexplained row fails the build.
 - Sharded search over all 60,048 rows with a 4,940,411-byte initial transfer;
   named native searches reach the right anchors.
 - Legacy routes: route map, versioned archive, fragment mapping; archived pages

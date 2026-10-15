@@ -31,7 +31,10 @@ def _declarations(
     parent: str,
     source: str,
     decorator_imports: dict[str, str] | None = None,
+    *,
+    keep_private: bool = False,
 ) -> list[dict[str, Any]]:
+    """Index public declarations; captured native sidecars keep `_x` names too."""
     rows = []
     properties = set()
     decorator_imports = decorator_imports or {}
@@ -39,7 +42,7 @@ def _declarations(
         name = _name(node)
         if (
             name is None
-            or (name.startswith("_") and not name.startswith("__"))
+            or (name.startswith("_") and not name.startswith("__") and not keep_private)
             or name == "__all__"
         ):
             continue
@@ -125,7 +128,15 @@ def _declarations(
             ]
         rows.append(row)
         if isinstance(node, ast.ClassDef):
-            rows.extend(_declarations(node.body, row["id"], source, decorator_imports))
+            rows.extend(
+                _declarations(
+                    node.body,
+                    row["id"],
+                    source,
+                    decorator_imports,
+                    keep_private=keep_private,
+                )
+            )
     return rows
 
 
@@ -219,8 +230,13 @@ def inventory_sources(sources: list[tuple[Path, str]]) -> dict[str, Any]:
             if package == "fontlab_echopy" and path.suffix == ".pyi":
                 module = module.removeprefix("fontlab_echopy.")
             source = path.relative_to(source_root).as_posix()
+            # Single-underscore members of captured native classes are native API.
             declarations = _declarations(
-                tree.body, module, source, _decorator_imports(tree)
+                tree.body,
+                module,
+                source,
+                _decorator_imports(tree),
+                keep_private=module != canonical_module,
             )
             available[module] = {"kind": "module"}
             available.update({row["id"]: row for row in declarations})

@@ -16,6 +16,7 @@ import yaml
 
 from .api_inventory import inventory_sources, plan_pages
 from .export_aliases import resolved_aliases
+from .reconcile_coverage import enforce, reconcile
 from .reference_pages import relative_link, render_page
 from .source_lock import apply_lock
 
@@ -110,10 +111,31 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
     namespace_root = stage / "native-names"
     export_docnames(namespace_root, source=native_root / "fontlab_echopy")
     plan = plan_pages(inventory_sources(roots))
+    identity_files = {}
+    for name in ("_identities.json", "_provenance.json"):
+        data = (native_root / "fontlab_echopy" / name).read_bytes()
+        identity_files[name] = data
+        plan["inputs"].append(
+            {
+                "source": "fontlab_echopy/" + name,
+                "sha256": hashlib.sha256(data).hexdigest(),
+                "bytes": len(data),
+            }
+        )
+    plan["inputs"].sort(key=lambda row: row["source"])
     apply_lock(
         ROOT / "api-sources.lock.json", plan["inputs"], update=update_source_lock
     )
     aliases = _aliases(plan)
+    reconciliation = reconcile(
+        json.loads(identity_files["_identities.json"]),
+        plan["symbols"],
+        aliases,
+        provenance_capture_sha256=json.loads(identity_files["_provenance.json"])
+        .get("capture_identity", {})
+        .get("sha256"),
+    )
+    enforce(reconciliation)
     content = stage / "content"
     content.mkdir(parents=True, exist_ok=True)
     expected_files = set()
@@ -171,6 +193,7 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         },
         "aliases": aliases,
         "pages": plan["pages"],
+        "reconciliation": reconciliation,
     }
     metadata = stage / "coverage.json"
     payload = json.dumps(coverage, sort_keys=True, separators=(",", ":")) + "\n"
@@ -183,6 +206,10 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         "source_inputs": plan["inputs"],
         "generated_pages": page_hashes,
         "runtime_inspection": False,
+        "reconciliation": {
+            "capture_sha256": reconciliation["capture_sha256"],
+            **reconciliation["counts"],
+        },
     }
     (content / "build-info.json").write_text(
         json.dumps(public, indent=2, sort_keys=True) + "\n"
@@ -215,7 +242,12 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
     )
     print(
         json.dumps(
-            {**plan["summary"], "aliases": len(aliases), "coverage_sha256": digest},
+            {
+                **plan["summary"],
+                "aliases": len(aliases),
+                "coverage_sha256": digest,
+                "reconciliation": reconciliation["counts"],
+            },
             indent=2,
         )
     )

@@ -21,6 +21,36 @@ def project(tmp_path, monkeypatch):
     (source / "fontlab_echopy").mkdir(parents=True)
     (source / "fontlab_echopy/__init__.py").write_text("class Old: pass\n")
     (source / "fontlab_echopy/fontlab.pyi").write_text("class Native: ...\n")
+    (source / "fontlab_echopy/_provenance.json").write_text(
+        json.dumps({"capture_identity": {"sha256": "c" * 64}})
+    )
+    (source / "fontlab_echopy/_identities.json").write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "producer": "fontlab_echopy.tooling.identities",
+                "capture_sha256": "c" * 64,
+                "scopes": {
+                    "fontlab": {
+                        "available": True,
+                        "kind": "module",
+                        "names": ["Native"],
+                        "errors": [],
+                        "classes": {
+                            "Native": {"members": [], "constructors": [], "errors": []}
+                        },
+                    }
+                },
+                "native_spellings": {},
+                "maintained_extensions": [],
+                "merge_unmatched": [],
+                "enrichment_gaps": {
+                    "qt_document_failures": {},
+                    "unmatched_native_classes": [],
+                },
+            }
+        )
+    )
     (root / "site-src").mkdir()
     (root / "site-src/index.md").write_text("# Current\n")
     (root / "site-src/old.md").write_text("# Old guide\n")

@@ -564,3 +564,25 @@ Commands (exit codes):
 
 TODO "Preserve legacy routes…" stays open: the static-host browser check at the
 deployed project prefix (R042/R044) is still outstanding.
+
+## 2026-10-15: Issue 104 lane L5 — R014 coverage reconciliation
+
+Capture `5a405eb5…` (verification/issue-101-ecosystem/echopy-refresh/) is the
+generation input; `fontlab-echopy/.local/native.json` (`d7d0c6f1…`) is not.
+Before: 1,230 of 242,654 captured identities had no coverage symbol or alias
+(573 keyword members, 15 C++-named classes with 628 constructors/members, 14
+single-underscore members dropped by the inventory). Fixes: Echopy ships the
+identity manifest with native spellings; the inventory keeps `_x` members in
+native sidecars; `reconcile_coverage` runs in every build.
+
+Lock: only Echopy-owned entries refreshed by hand (`_identities.json`,
+`_provenance.json`, `tooling/cli.py`, `tooling/identities.py`). Other lanes'
+uncommitted/unreviewed changes (fontlabapp, pythonqtside, glyport,
+aidus-code) are not locked, so source-mode builds fail the lock until the
+controller reviews them. The build ran in installed-artifact mode against a
+staged root holding exactly the locked bytes.
+
+- `UV_OFFLINE=true uv run --frozen python -m pytest -q`: 0, 220 passed.
+- `FONTLAB_API_SOURCE_ROOT=<staged locked root> ./build.sh --offline`: 0, 223.76 s,
+  4,515,446,784 B max RSS; reconciliation 242,654/242,654 documented, 0 unexplained.
+  Evidence: verification/issue-101-ecosystem/evidence/docs-104/r014-*.
