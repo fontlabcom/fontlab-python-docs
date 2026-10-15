@@ -5,6 +5,10 @@ this_file: site-src/guide/glyphs.md
 
 `GlyphsApp` scripts and plugins are the target of this compatibility layer.
 
+The [`GlyphsApp` reference](../reference/GlyphsApp.md) lists the module that
+glyport gives each Glyphs script: `Glyphs`, callback events, dialogs and the GS*
+model classes.
+
 Glyport owns the Glyphs-to-FontLab model, script/plugin execution and dynamic
 Vanilla/AppKit/NIB/XIB-to-Qt translation. Current implementation provides
 read-only inspection of original scripts and plugin bundles.

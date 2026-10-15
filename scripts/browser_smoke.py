@@ -15,7 +15,8 @@ QUERIES = {
     "fontlabpr": "guide/native.html",
     "PythonQt.QtGui.QWidget.resize": "#PythonQt.QtGui.QWidget.resize",
     "fly.fl": "reference/fontlab.html",
-    "GlyphsApp": "guide/glyphs.html",
+    "GlyphsApp": "reference/GlyphsApp.html",
+    "+Glyphs +compatibility": "guide/glyphs.html",
     "Signal": "reference/PythonQt/QtCore/Signal.html",
     "PythonQt.QtXmlPatterns.QXmlQuery.setQuery": "#PythonQt.QtXmlPatterns.QXmlQuery.setQuery",
 }

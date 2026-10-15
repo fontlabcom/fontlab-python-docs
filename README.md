@@ -41,7 +41,7 @@ rewriting the accepted baseline; missing baselines or stale HTML fail.
 
 Run `./scripts/accept-consumer.sh --offline` for the required build-plus-consumer
 gate after dependency/source provisioning. The gate provisions Playwright
-Chromium (network needed if uncached) and requires all 15 shipped-worker queries;
+Chromium (network needed if uncached) and requires all 20 shipped-worker queries;
 missing inputs cannot silently skip. Lightweight test-only runs may skip this
 full-corpus case.
 
