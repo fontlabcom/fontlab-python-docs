@@ -155,9 +155,6 @@ def published_bytes(path: Path) -> bytes:
     return data
 
 
-# Findings whose matched text would itself disclose a private name are stored
-# as a short digest; the file path still locates them.
-REDACTED = {"private-repository-url", "private-repository-name", "checkout-path"}
 ESCAPE = re.compile(rb"\\u([0-9a-fA-F]{4})|\\(/)")
 
 
@@ -215,9 +212,8 @@ def audit(site: Path, *, licences: dict[str, str] = LICENCES, workspace: Path | 
         if (category, relative, match) in seen:  # Same text found in two decoded forms.
             return
         seen.add((category, relative, match))
-        text = match.decode(errors="replace")
-        shown = redact(text) if category in REDACTED else text
-        findings[category].append({"file": relative, "match": shown})
+        # Full detail stays in memory; receipt() redacts before anything is written.
+        findings[category].append({"file": relative, "match": match.decode(errors="replace")})
     files = 0
     for path in sorted(p for p in site.rglob("*") if p.is_file()):
         relative = path.relative_to(site).as_posix()

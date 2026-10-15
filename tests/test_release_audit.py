@@ -113,10 +113,12 @@ def test_audit_when_private_repository_or_volume_path_published_then_fails(tmp_p
     assert len(findings["private-repository-url"]) == 2
     assert findings["volume-path"][0]["file"] == "a.html"
     assert len(findings["checkout-path"]) == 1 and len(findings["private-repository-name"]) == 1
-    report = json.dumps(audit(site, licences=DIGESTS, workspace=workspace))
+    from scripts.release_audit import receipt
+
+    written = json.dumps(receipt(audit(site, licences=DIGESTS, workspace=workspace)))
     for secret in ("secret-assets-priv", "fontlab-glyport/src", "fontlabcom/fontlab-glyport"):
-        assert secret not in report, f"receipt leaks {secret}"
-    assert findings["private-repository-name"][0]["match"].startswith("redacted:")
+        assert secret not in written, f"receipt leaks {secret}"
+    assert findings["private-repository-name"][0]["match"] == "secret-assets-priv", "audit() keeps detail"
 
 
 def test_audit_when_file_url_is_not_a_reviewed_example_then_fails(tmp_path):
@@ -211,3 +213,14 @@ def test_receipt_when_findings_name_private_things_then_nothing_private_is_writt
     assert {"volume-path", "file-url", "user-path", "email-address", "credential",
             "private-repository-name", "private-repository-url",
             "absolute-source-map-source", "dangling-source-map"} <= set(findings)
+
+
+def test_reveal_when_requested_then_terminal_shows_detail_and_file_does_not(tmp_path, capsys):
+    from scripts.release_audit import main
+
+    site = _site(tmp_path)
+    (site / "a.html").write_text("https://github.com/fontlabcom/fontlab-glyport")
+    out = tmp_path / "receipt.json"
+    main(["--site", str(site), "--out", str(out), "--workspace", str(tmp_path), "--reveal"])
+    assert "fontlabcom/fontlab-glyport" in capsys.readouterr().err
+    assert "fontlab-glyport" not in out.read_text()
