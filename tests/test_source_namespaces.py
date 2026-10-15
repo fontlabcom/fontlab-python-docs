@@ -25,3 +25,21 @@ def test_source_when_namespace_inside_package_then_static_consumer_retains_modul
     value = package.get_member("namespace.actual.value")
     assert str(value.returns) == "int"
     assert value.docstring.value == "An actual source function."
+
+
+def test_source_when_tuple_assignment_declares_names_then_griffe_has_attributes(tmp_path):
+    """The inventory indexes `A, B = 0, 1`; mkdocstrings must be able to render them."""
+    root = tmp_path / "pkg"
+    root.mkdir()
+    (root / "__init__.py").write_text(
+        "NSMiter, NSRound, NSBevel = 0, 1, 2\n"
+        "class Style:\n    LEFT, RIGHT = 'l', 'r'\n"
+    )
+    loader = griffe.GriffeLoader(
+        search_paths=[tmp_path],
+        allow_inspection=False,
+        extensions=griffe.load_extensions("scripts/griffe_sources.py"),
+    )
+    package = loader.load("pkg")
+    assert package["NSBevel"].is_attribute and str(package["NSBevel"].value) == "2"
+    assert str(package["Style.RIGHT"].value) == "'r'"

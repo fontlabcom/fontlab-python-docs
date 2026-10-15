@@ -1,10 +1,11 @@
 # this_file: scripts/griffe_sources.py
 """Load actual source in namespace directories that Griffe skips by default."""
 
+import ast
 from pathlib import Path
 from typing import Any
 
-from griffe import Extension, Module, visit
+from griffe import Attribute, Extension, Module, visit
 
 
 class SourceNamespaceExtension(Extension):
@@ -50,3 +51,44 @@ class SourceNamespaceExtension(Extension):
                         lines_collection=loader.lines_collection,
                     )
                     parent.set_member(path.stem, model)
+
+
+class TupleAssignmentExtension(Extension):
+    """Declare each name of `A, B = 0, 1` as an attribute, like the inventory does.
+
+    Griffe does not model tuple-unpacked assignments; without this the coverage
+    report lists identities that mkdocstrings cannot collect.
+    """
+
+    def _add(self, node: Any, owner: Any) -> None:
+        for statement in getattr(node, "body", []):
+            if not (isinstance(statement, ast.Assign) and len(statement.targets) == 1):
+                continue
+            target = statement.targets[0]
+            if not isinstance(target, (ast.Tuple, ast.List)) or not all(
+                isinstance(element, ast.Name) for element in target.elts
+            ):
+                continue
+            value = statement.value
+            values = (
+                value.elts
+                if isinstance(value, (ast.Tuple, ast.List)) and len(value.elts) == len(target.elts)
+                else [value] * len(target.elts)
+            )
+            for element, item in zip(target.elts, values):
+                if element.id not in owner.members:
+                    owner.set_member(
+                        element.id,
+                        Attribute(
+                            element.id,
+                            value=ast.unparse(item),
+                            lineno=statement.lineno,
+                            endlineno=statement.end_lineno,
+                        ),
+                    )
+
+    def on_module_members(self, *, node: Any, mod: Any, **kwargs: Any) -> None:
+        self._add(node, mod)
+
+    def on_class_members(self, *, node: Any, cls: Any, **kwargs: Any) -> None:
+        self._add(node, cls)
