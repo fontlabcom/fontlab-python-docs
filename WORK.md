@@ -696,3 +696,15 @@ to a fixed point (6 rounds); `decoded_forms` re-parses strings starting with `{`
 or parser `RecursionError` (also in source maps) is a `decode-limit` finding: fail closed.
 `pytest -q tests/test_release_audit.py`: 34 passed; ruff check clean. Real built site
 (final-2 `.build/site`): exit 0, 5,817 files, 0 findings, 128 s.
+
+## 2026-10-15/16: issue 106 lane C3 — echopy v2 stubs; Finder metadata race
+
+Echopy 0d48b79 (generator v2, declared class members) changed 12 locked inputs
+(11 shim files + tooling/shims.py); reviewed and refreshed by the runbook (final-3).
+Final-3: build/check, 283 docs tests, release audit (5,823 files), a11y, 5/5 interaction,
+prefix rehearsal all exit 0; build-2 and check-after exit 1: Finder wrote `.DS_Store`
+into the temporary generation stage (`content/`, `content/reference/`) mid-build, so the
+generated file-set check failed and stage removal hit "Directory not empty". Fix:
+`content_files()` ignores `.DS_Store` like `file_manifest` already does;
+`stage_directory()` repeats a failed stage removal once. Two tests failed first; 22
+lifecycle tests pass.

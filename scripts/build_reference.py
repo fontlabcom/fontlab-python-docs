@@ -12,6 +12,8 @@ import re
 import shutil
 import sys
 import tempfile
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 
 import yaml
@@ -108,6 +110,32 @@ def _aliases(plan: dict) -> dict[str, str]:
     return resolved_aliases(aliases, plan["symbols"])
 
 
+def content_files(content: Path) -> set[str]:
+    """Generated input pages; Finder's .DS_Store (written while a window shows .build) is not one."""
+    return {
+        path.relative_to(content).as_posix()
+        for path in content.rglob("*")
+        if path.is_file() and path.name != ".DS_Store"
+    }
+
+
+@contextmanager
+def stage_directory(build: Path) -> Iterator[Path]:
+    """A fresh generation stage inside .build, removed afterwards.
+
+    Finder can add .DS_Store to a directory while it is being removed, so a failed
+    removal is repeated once; the build result never depends on that cleanup.
+    """
+    stage = Path(tempfile.mkdtemp(prefix="generation-", dir=build))
+    try:
+        yield stage
+    finally:
+        try:
+            shutil.rmtree(stage)
+        except OSError:
+            shutil.rmtree(stage, ignore_errors=True)
+
+
 def generate(*, check: bool = False, update_source_lock: bool = False) -> dict:
     """Generate in isolation; checks never rewrite accepted inputs or artifacts."""
     from .build_provenance import check_generation, generation_manifest
@@ -116,8 +144,7 @@ def generate(*, check: bool = False, update_source_lock: bool = False) -> dict:
         raise ValueError("A check cannot update the source lock")
     build = ROOT / ".build"
     build.mkdir(exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="generation-", dir=build) as temporary:
-        stage = Path(temporary)
+    with stage_directory(build) as stage:
         public = _generate(stage, update_source_lock=update_source_lock)
         manifest = generation_manifest(ROOT, stage)
         if check:
@@ -316,12 +343,7 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
     config["theme"]["custom_dir"] = str(ROOT / "overrides")
     (stage / "mkdocs.yml").write_text(yaml.safe_dump(config, sort_keys=False))
     expected_files.update({"reference/index.md", "build-info.json"})
-    actual_files = {
-        path.relative_to(content).as_posix()
-        for path in content.rglob("*")
-        if path.is_file()
-    }
-    if expected_files != actual_files:
+    if expected_files != content_files(content):
         raise ValueError("Generated input file set differs from plan")
     assert all(
         row["body_target"] in plan["symbols"] for row in plan["symbols"].values()

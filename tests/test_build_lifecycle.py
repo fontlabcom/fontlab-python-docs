@@ -300,3 +300,20 @@ def test_examples_export_when_manifest_path_escapes_then_rejected_before_io(proj
     assert not (root / ".build/content").exists() or not any(
         (root / ".build/content").rglob("victim.txt")
     )
+
+
+def test_content_files_when_finder_writes_metadata_then_it_is_not_generated_input(tmp_path):
+    """Finder's .DS_Store appearing mid-build is not a generated page (final-3, issue 106)."""
+    (tmp_path / "reference").mkdir()
+    (tmp_path / "reference" / "a.md").write_text("a")
+    (tmp_path / ".DS_Store").write_bytes(b"\0")
+    (tmp_path / "reference" / ".DS_Store").write_bytes(b"\0")
+    assert builder.content_files(tmp_path) == {"reference/a.md"}
+
+
+def test_stage_cleanup_when_finder_writes_metadata_then_build_does_not_fail(tmp_path):
+    """Removing the stage tolerates .DS_Store files Finder adds while it is removed."""
+    with builder.stage_directory(tmp_path) as stage:
+        (stage / "content").mkdir()
+        (stage / "content" / ".DS_Store").write_bytes(b"\0")
+    assert not list(tmp_path.glob("generation-*"))
