@@ -155,6 +155,40 @@ def published_bytes(path: Path) -> bytes:
     return data
 
 
+# Findings whose matched text would itself disclose a private name are stored
+# as a short digest; the file path still locates them.
+REDACTED = {"private-repository-url", "private-repository-name", "checkout-path"}
+ESCAPE = re.compile(rb"\\u([0-9a-fA-F]{4})|\\(/)")
+
+
+def unescape(data: bytes) -> bytes:
+    """Decode JSON/JavaScript `\\uXXXX` and `\\/` escapes inside any text."""
+    return ESCAPE.sub(
+        lambda m: chr(int(m[1], 16)).encode("utf-8", "replace") if m[1] else b"/", data
+    )
+
+
+def json_strings(value: object) -> list[str]:
+    """Every string (keys too) in parsed JSON, already escape-decoded by the parser."""
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, dict):
+        return [s for k, v in value.items() for s in (k, *json_strings(v))]
+    if isinstance(value, list):
+        return [s for item in value for s in json_strings(item)]
+    return []
+
+
+def decoded_forms(raw: bytes) -> list[bytes]:
+    """The text a reader can recover: raw, escape-decoded, and parsed JSON strings."""
+    forms = [raw, unescape(raw)]
+    try:
+        forms.append("\n".join(json_strings(json.loads(raw))).encode())
+    except (ValueError, UnicodeDecodeError):
+        pass
+    return forms
+
+
 def _source_map_problems(source_map: dict) -> list[str]:
     sources = list(source_map.get("sources", [])) + [source_map.get("sourceRoot") or ""]
     return [s for s in sources if s and (s.startswith("/") or "://" in s)]
@@ -175,15 +209,27 @@ def audit(site: Path, *, licences: dict[str, str] = LICENCES, workspace: Path | 
     findings, emails, maps, external = defaultdict(list), defaultdict(list), {}, set()
     allowed = defaultdict(int)
     local = local_identities()
+    seen: set[tuple[str, str, bytes]] = set()
+
+    def record(category: str, relative: str, match: bytes) -> None:
+        if (category, relative, match) in seen:  # Same text found in two decoded forms.
+            return
+        seen.add((category, relative, match))
+        shown = (
+            "redacted:" + hashlib.sha256(match).hexdigest()[:12]
+            if category in REDACTED
+            else match.decode(errors="replace")
+        )
+        findings[category].append({"file": relative, "match": shown})
     files = 0
     for path in sorted(p for p in site.rglob("*") if p.is_file()):
         relative = path.relative_to(site).as_posix()
         raw = published_bytes(path)
         files += 1
-        decoded = [raw.replace(b"\\/", b"/")]
+        decoded = decoded_forms(raw)
         for match in INLINE_MAP.finditer(raw):
             inline = base64.b64decode(match[1])
-            decoded.append(inline)
+            decoded += decoded_forms(inline)
             bad = _source_map_problems(json.loads(inline))
             if bad:
                 findings["absolute-source-map-source"].append({"file": relative, "sources": bad})
@@ -191,29 +237,35 @@ def audit(site: Path, *, licences: dict[str, str] = LICENCES, workspace: Path | 
             bad = _source_map_problems(json.loads(raw))
             if bad:
                 findings["absolute-source-map-source"].append({"file": relative, "sources": bad})
+        per_form: list[defaultdict] = []
         for data in decoded:
+            found = defaultdict(int)
+            per_form.append(found)
             for value in local:
-                if value in data:
+                if value in data and ("local-identity", relative, b"") not in seen:
+                    seen.add(("local-identity", relative, b""))
                     findings["local-identity"].append({"file": relative})
             for name, pattern in PRIVATE.items():
                 for match in pattern.finditer(data):
                     if reviewed(match.group(0), relative):
-                        allowed[match.group(0).decode()] += 1
+                        found[match.group(0).decode()] += 1
                         continue
-                    findings[name].append({"file": relative, "match": match.group(0).decode(errors="replace")})
+                    record(name, relative, match.group(0))
             for match in REPOSITORY_URL.finditer(data):
                 slug = (match[1] + b"/" + match[2]).decode().lower()
                 if slug not in PUBLIC_REPOSITORIES:
-                    findings["private-repository-url"].append({"file": relative, "match": match.group(0).decode()})
+                    record("private-repository-url", relative, match.group(0))
             if private_name:
                 for match in private_name.finditer(data):
-                    findings["private-repository-name"].append({"file": relative, "match": match.group(0).decode()})
+                    record("private-repository-name", relative, match.group(0))
             if not relative.startswith("licenses/"):  # Licence texts keep author lines.
                 for match in EMAIL.finditer(data):
                     if reviewed(match.group(0), relative):
-                        allowed[match.group(0).decode()] += 1
+                        found[match.group(0).decode()] += 1
                     elif not EMAIL_ALLOWLIST.search(match.group(0)):
                         emails[match.group(0).decode(errors="replace")].append(relative)
+        for value in {v for form in per_form for v in form}:
+            allowed[value] += max(form.get(value, 0) for form in per_form)
         for match in SOURCE_MAP_URL.finditer(raw):
             target = match.group(1).decode(errors="replace")
             if target.startswith("data:"):

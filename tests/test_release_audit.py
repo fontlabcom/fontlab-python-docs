@@ -110,13 +110,13 @@ def test_audit_when_private_repository_or_volume_path_published_then_fails(tmp_p
     )
     (site / "b.html").write_text("public https://github.com/fontlabcom/fontlab-python-docs")
     findings = audit(site, licences=DIGESTS, workspace=workspace)["findings"]
-    assert {r["match"] for r in findings["private-repository-url"]} == {
-        "github.com/fontlabcom/fontlab-glyport",
-        "github.com:fontlabcom/secret-assets-priv",
-    }
+    assert len(findings["private-repository-url"]) == 2
     assert findings["volume-path"][0]["file"] == "a.html"
-    assert findings["checkout-path"][0]["match"].startswith("fontlab-glyport/src/")
-    assert findings["private-repository-name"][0]["match"] == "secret-assets-priv"
+    assert len(findings["checkout-path"]) == 1 and len(findings["private-repository-name"]) == 1
+    report = json.dumps(audit(site, licences=DIGESTS, workspace=workspace))
+    for secret in ("secret-assets-priv", "fontlab-glyport/src", "fontlabcom/fontlab-glyport"):
+        assert secret not in report, f"receipt leaks {secret}"
+    assert findings["private-repository-name"][0]["match"].startswith("redacted:")
 
 
 def test_audit_when_file_url_is_not_a_reviewed_example_then_fails(tmp_path):
@@ -159,3 +159,20 @@ def test_audit_when_value_is_reviewed_upstream_example_then_allowed_only_in_scop
     report = _audit(site, tmp_path)
     assert [row["file"] for row in report["findings"]["user-path"]] == ["guide.html"]
     assert report["reviewed_public_values"]["/home/user/"]["count"] == 1
+
+
+def test_audit_when_paths_hide_behind_json_or_js_escapes_then_fails(tmp_path):
+    """RR-docs P2: \\u002f and \\/ escapes in gzip JSON, inline maps and scripts."""
+    site = _site(tmp_path)
+    (site / "rows.json.gz").write_bytes(
+        gzip.compress(b'{"t":"\\u002fUsers\\u002fsomeone\\u002fsecret.py"}')
+    )
+    source_map = '{"sources":["app.ts"],"sourcesContent":["// \\/home\\/dev\\/x \\u002fVolumes\\u002fDisk\\u002fa"]}'
+    encoded = base64.b64encode(source_map.encode()).decode()
+    (site / "inline.js").write_text(
+        f"x()\n//# sourceMappingURL=data:application/json;base64,{encoded}\n"
+    )
+    (site / "app.js").write_text('const p = "\\u002fUsers\\u002fother\\u002fx";')
+    findings = _audit(site, tmp_path)["findings"]
+    assert {r["file"] for r in findings["user-path"]} >= {"rows.json.gz", "inline.js", "app.js"}
+    assert findings["volume-path"][0]["file"] == "inline.js"
