@@ -13,6 +13,21 @@ import yaml
 from scripts import build_reference as builder
 
 
+def _write_export(folder, pages):
+    """A fontlab-python-examples docs export: pages plus their manifest."""
+    import hashlib
+
+    rows = []
+    for path, text in sorted(pages.items()):
+        target = folder / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(text)
+        rows.append({"path": path, "title": text.splitlines()[0][2:],
+                     "sha256": hashlib.sha256(text.encode()).hexdigest()})
+    manifest = {"format": "fontlab-python-examples.docs-export.v1", "entry": "index.md", "pages": rows}
+    (folder / "manifest.json").write_text(json.dumps(manifest))
+
+
 @pytest.fixture
 def project(tmp_path, monkeypatch):
     root = tmp_path / "docs"
@@ -60,6 +75,10 @@ def project(tmp_path, monkeypatch):
     (root / "overrides/main.html").write_text("template v1")
     original = Path(builder.__file__).resolve().parents[1]
     shutil.copyfile(original / "mkdocs.yml", root / "mkdocs.yml")
+    export = tmp_path / "examples-export"
+    _write_export(export, {"index.md": "# Python examples for FontLab\n\nSee [recipes](recipes/index.md).\n",
+                           "recipes/index.md": "# Recipes\n"})
+    monkeypatch.setenv("FONTLAB_EXAMPLES_EXPORT", str(export))
     monkeypatch.setattr(builder, "ROOT", root)
     monkeypatch.setattr(builder, "source_roots", lambda: [(source, "fontlab_echopy")])
     # Use actual source-only docname exporter; its code is not a native import.
@@ -236,4 +255,26 @@ def test_generate_when_shim_reexports_missing_target_then_build_fails(project):
     )
     (shim / "_shim.json").write_text('{"capture_sha256": "' + "e" * 64 + '"}\n')
     with pytest.raises(ValueError, match="alias-unresolved: GlyphsApp.GSAxis"):
+        builder.generate(update_source_lock=True)
+
+
+def test_examples_export_when_generated_then_pages_copied_and_locked(project):
+    root, _ = project
+    builder.generate(update_source_lock=True)
+    assert (root / ".build/content/examples/recipes/index.md").read_text() == "# Recipes\n"
+    lock = json.loads((root / "api-sources.lock.json").read_text())["sources"]
+    assert {"examples/manifest.json", "examples/index.md", "examples/recipes/index.md"} <= set(lock)
+
+
+@pytest.mark.parametrize("damage", ["edited", "unlisted", "missing"])
+def test_examples_export_when_tampered_or_absent_then_generation_fails(project, monkeypatch, tmp_path, damage):
+    root, _ = project
+    export = tmp_path / "examples-export"
+    if damage == "edited":
+        (export / "index.md").write_text("# Changed\n")
+    elif damage == "unlisted":
+        (export / "extra.md").write_text("# Extra\n")
+    else:
+        monkeypatch.setenv("FONTLAB_EXAMPLES_EXPORT", str(tmp_path / "absent"))
+    with pytest.raises((ValueError, FileNotFoundError)):
         builder.generate(update_source_lock=True)

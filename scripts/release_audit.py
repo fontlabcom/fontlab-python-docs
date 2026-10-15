@@ -215,11 +215,8 @@ def audit(site: Path, *, licences: dict[str, str] = LICENCES, workspace: Path | 
         if (category, relative, match) in seen:  # Same text found in two decoded forms.
             return
         seen.add((category, relative, match))
-        shown = (
-            "redacted:" + hashlib.sha256(match).hexdigest()[:12]
-            if category in REDACTED
-            else match.decode(errors="replace")
-        )
+        text = match.decode(errors="replace")
+        shown = redact(text) if category in REDACTED else text
         findings[category].append({"file": relative, "match": shown})
     files = 0
     for path in sorted(p for p in site.rglob("*") if p.is_file()):
@@ -305,13 +302,61 @@ def audit(site: Path, *, licences: dict[str, str] = LICENCES, workspace: Path | 
     }
 
 
-if __name__ == "__main__":
+# Fields of a finding that can carry site text, paths or names.
+SENSITIVE_FIELDS = {"match", "file", "address", "files", "sources", "target"}
+
+
+def redact(text: str) -> str:
+    """The single redaction used for receipts: a stable digest, never the text."""
+    return "redacted:" + hashlib.sha256(text.encode()).hexdigest()[:12]
+
+
+def receipt(report: dict) -> dict:
+    """Report safe to write to disk: every finding field and filename redacted.
+
+    Public, reviewed data (counts, categories, reviewed example values, external
+    hosts of the published theme) stays; use `--reveal` to see findings.
+    """
+
+    def clean(value):
+        if isinstance(value, list):
+            return [clean(item) for item in value]
+        return redact(value) if isinstance(value, str) else value
+
+    findings = {
+        category: [
+            {key: clean(value) if key in SENSITIVE_FIELDS else value for key, value in row.items()}
+            for row in rows
+        ]
+        for category, rows in report["findings"].items()
+    }
+    return {
+        **report,
+        "findings": findings,
+        "source_map_references": {
+            redact(page): [redact(target) for target in targets]
+            for page, targets in report["source_map_references"].items()
+        },
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--site", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
-    args = parser.parse_args()
-    report = audit(args.site)
-    args.out.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    parser.add_argument("--workspace", type=Path, help="Folder of sibling git checkouts")
+    parser.add_argument(
+        "--reveal", action="store_true", help="Print unredacted findings to stderr only"
+    )
+    args = parser.parse_args(argv)
+    report = audit(args.site, workspace=args.workspace)
+    args.out.write_text(json.dumps(receipt(report), indent=2, sort_keys=True) + "\n")
+    if args.reveal:
+        print(json.dumps(report["findings"], indent=2, sort_keys=True), file=sys.stderr)
     print(json.dumps({"pass": report["pass"], "files": report["files_scanned"],
                       "findings": {k: len(v) for k, v in report["findings"].items()}}))
-    raise SystemExit(0 if report["pass"] else 1)
+    return 0 if report["pass"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

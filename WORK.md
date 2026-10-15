@@ -638,3 +638,19 @@ Two harness causes, no site bug (diagnosis: parent
    page's own readiness (`no-js` removed): 0 timeouts, none over 3 s in 120.
 Five consecutive `interaction_check` runs: all PASS, every case 4/4. a11y PASS.
 `UV_OFFLINE=true uv run --frozen python -m pytest -q`: 233 passed.
+
+## 2026-10-15: Issue 104 lane L5 — review rounds R-L5-docs and RR-docs, final rebuild
+
+Fixed test-first: credential formats (incl. `github_pat_`); JSON parsed and
+`\u002f`/`\/` escapes decoded (inline maps, gzip shards, scripts) before path
+and secret checks; private repository URLs/names (from local git remotes,
+redacted in receipts), volume and checkout paths; exact reviewed values;
+licence texts by digest and page links; structural declaration reasons with
+line-pinned reviews; aliases discarded by resolution; deployed_check asset
+coverage and header validation. Final-rebuild attempts exposed and fixed:
+tuple-unpacked declarations never indexed (inventory + Griffe extension), a
+literal `<title>` docstring swallowing three pages (escaped outside code), and
+upstream redefinitions (fontlabapp MENU_API, TypeRig test_objects d1/d2,
+TypeRig trAnchor.y missing @y.setter). The runbook now builds from a
+git-archive snapshot of producer HEADs. Docs tests: 257 passed.
+Evidence: parent `verification/issue-101-ecosystem/evidence/docs-104/final*`.

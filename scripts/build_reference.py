@@ -35,6 +35,35 @@ PACKAGES = {
 }
 
 
+EXAMPLES_FORMAT = "fontlab-python-examples.docs-export.v1"
+
+
+def examples_export() -> dict[str, bytes]:
+    """Verified pages of the fontlab-python-examples docs export, keyed by path.
+
+    Every page must match the manifest's sha256 and no unlisted page may exist.
+    A missing export fails the build; examples are never silently skipped.
+    """
+    folder = Path(
+        os.environ.get("FONTLAB_EXAMPLES_EXPORT")
+        or ROOT.parent / "fontlab-python-examples" / "docs-export"
+    )
+    manifest_bytes = (folder / "manifest.json").read_bytes()
+    manifest = json.loads(manifest_bytes)
+    if manifest.get("format") != EXAMPLES_FORMAT:
+        raise ValueError(f"Unsupported examples export format: {manifest.get('format')}")
+    pages = {"manifest.json": manifest_bytes}
+    for row in manifest["pages"]:
+        data = (folder / row["path"]).read_bytes()
+        if hashlib.sha256(data).hexdigest() != row["sha256"]:
+            raise ValueError("Examples export page differs from its manifest: " + row["path"])
+        pages[row["path"]] = data
+    present = {p.relative_to(folder).as_posix() for p in folder.rglob("*.md")}
+    if present - set(pages):
+        raise ValueError("Examples export pages missing from its manifest: " + ", ".join(sorted(present - set(pages))))
+    return pages
+
+
 def source_roots() -> list[tuple[Path, str]]:
     """Use sibling checkouts or an explicit installed-artifact source directory."""
     artifact_root = os.environ.get("FONTLAB_API_SOURCE_ROOT")
@@ -127,6 +156,11 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
                 "bytes": len(data),
             }
         )
+    examples = examples_export()
+    plan["inputs"] += [
+        {"source": "examples/" + path, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+        for path, data in examples.items()
+    ]
     plan["inputs"].sort(key=lambda row: row["source"])
     apply_lock(
         ROOT / "api-sources.lock.json", plan["inputs"], update=update_source_lock
@@ -168,6 +202,13 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
             target = content / source.relative_to(ROOT / "site-src")
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, target)
+    for path, data in examples.items():
+        if path == "manifest.json":
+            continue
+        expected_files.add("examples/" + path)
+        target = content / "examples" / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(data)
     page_hashes = {}
     for relative in plan["pages"]:
         expected_files.add(relative)

@@ -176,3 +176,38 @@ def test_audit_when_paths_hide_behind_json_or_js_escapes_then_fails(tmp_path):
     findings = _audit(site, tmp_path)["findings"]
     assert {r["file"] for r in findings["user-path"]} >= {"rows.json.gz", "inline.js", "app.js"}
     assert findings["volume-path"][0]["file"] == "inline.js"
+
+
+def test_receipt_when_findings_name_private_things_then_nothing_private_is_written(tmp_path):
+    """RR2-docs: no category may write a private name, path or URL into the receipt."""
+    from scripts.release_audit import main
+
+    workspace = tmp_path / "workspace"
+    (workspace / "vault" / ".git").mkdir(parents=True)
+    (workspace / "vault" / ".git" / "config").write_text(
+        '[remote "origin"]\n\turl = https://github.com/fontlabcom/vault-priv.git\n'
+    )
+    site = _site(tmp_path)
+    private = [
+        "vault-priv",
+        "/Volumes/VaultDisk/",
+        "file:///Volumes/VaultDisk/x.py",
+        "/Users/vaultowner/",
+        "owner@vault.example",
+        "github.com/fontlabcom/vault-priv",
+        GITHUB_PAT,
+    ]
+    (site / "vault-priv-notes.html").write_text(" ".join(private))
+    (site / "map.js").write_text("//# sourceMappingURL=vault-priv.js.map\n")
+    (site / "real.js").write_text("//# sourceMappingURL=real.js.map\n")
+    (site / "real.js.map").write_text('{"sources":["/Users/vaultowner/app.ts"]}')
+    out = tmp_path / "receipt.json"
+    code = main(["--site", str(site), "--out", str(out), "--workspace", str(workspace)])
+    receipt = out.read_text()
+    assert code == 1 and '"pass": false' in receipt
+    for text in private + ["vault-priv.js.map", "vault-priv-notes.html", "/Users/vaultowner/app.ts"]:
+        assert text not in receipt, f"receipt leaks {text}"
+    findings = json.loads(receipt)["findings"]
+    assert {"volume-path", "file-url", "user-path", "email-address", "credential",
+            "private-repository-name", "private-repository-url",
+            "absolute-source-map-source", "dangling-source-map"} <= set(findings)

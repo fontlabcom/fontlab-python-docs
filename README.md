@@ -125,6 +125,15 @@ and `aidus_code_tools` (the FontLab tools the Aidus agent calls). A shim is a
   still fails fast. Typing a new query resets the deadline to 1.8 s. Tested in
   `scripts/search_backend/tests.cjs` and the `search_slow_shard` interaction case.
 
+## Examples
+
+`examples/` is the docs export of fontlab-python-examples (`tools/docs_export.py`
+there): an index, 28 category pages, insights and recipes. The build reads it
+from `FONTLAB_EXAMPLES_EXPORT` (default `../fontlab-python-examples/docs-export`),
+verifies every page against the export's `manifest.json` sha256s, rejects
+unlisted pages, and pins the manifest and pages in `api-sources.lock.json`.
+A missing export fails the build.
+
 ## Release audit
 
 `uv run python scripts/release_audit.py --site .build/site --out audit.json` reads
@@ -133,6 +142,8 @@ local paths, the auditing user's identity, credentials, unreviewed e-mail
 addresses, absolute source-map sources and missing licence texts. Upstream Qt
 examples such as `/home/bob/` are allowed only in the reviewed list and scope.
 The site's [licences page](site-src/licenses.md) carries every applicable text.
+The written receipt redacts every finding's text and filename (digests only);
+`--reveal` prints the unredacted findings to the terminal, never to a file.
 
 ## Contribute
 
