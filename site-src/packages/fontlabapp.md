@@ -99,7 +99,15 @@ browser.close()
 ```
 
 Editors stage changes and apply them in one validated batch; a model without a
-batch apply opens read-only. `batch_panel` runs work in a separate Python 3.11+
+batch apply opens read-only. The font information editor also offers the
+structured fields OS/2 weight and width class, Panose (ten integers) and
+horizontal and vertical stem snaps; it labels them "key master" because Fontport
+writes them to the current key master only. Name records are not offered.
+
+While a script has unfinished point edits on a font, the controls that follow
+FontLab changes skip that font's reload rather than discard the edits, and show
+"A font has unfinished script edits; its view updates when the script finishes."
+The view updates on the next change after the script completes. `batch_panel` runs work in a separate Python 3.11+
 process so FontLab stays responsive.
 
 ## Limits

@@ -60,7 +60,7 @@ font.info.apply({"familyName": "My Family", "ascender": 810.5},
                 undo_name="Edit font information")
 ```
 
-## Behaviour and limits (Fontport v1.0.1)
+## Behaviour and limits (Fontport v1.0.2)
 
 - **Undo:** an edit through the live binding is undone by the first Edit > Undo.
   FontLab records one extra, empty Undo row with it (exact one-row Undo is the
@@ -71,8 +71,10 @@ font.info.apply({"familyName": "My Family", "ascender": 810.5},
   only; family name, version fields, copyright and units per em are stored on the
   font. Supported fields: `familyName`, `styleName`, `unitsPerEm`, `ascender`,
   `descender`, `capHeight`, `xHeight`, `italicAngle`, `versionMajor`, `versionMinor`,
-  `note` and `copyright`. OpenType name records are refused, since FontLab does not
-  persist them through this route.
+  `note` and `copyright`. The structured fields `openTypeOS2Panose`,
+  `openTypeOS2WeightClass`, `openTypeOS2WidthClass`, `postscriptStemSnapH` and
+  `postscriptStemSnapV` are also written to the key master only. OpenType name
+  records are refused, since FontLab does not persist them through this route.
 - **Default and strict modes:** the v1.0.0 editing contract is the default. Stricter
   guarantees are opt-in: `require_single_undo=True` on `font.info.apply` and
   `require_persistence=True` on group and save operations refuse instead of
