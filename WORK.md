@@ -752,3 +752,11 @@ Fix, test-first (both new node tests and 5 Python tests failed first):
   engine/router/query/complete-search changes by one line. `node --test`: 20 passed.
 - `scripts/lunr_patch.py` rewrites the key in the stock MaterialX worker after each build
   (`on_post_build`), failing unless it matches exactly once (MaterialX upgrades fail loudly).
+
+Final-7 (glyport 0baafb4, fly c8e7b44, typerig-lib fc802ef, examples 3106531): build exit 1,
+R014 "1 unexplained coverage gaps: alias-unresolved: fly.fp". fly c8e7b44 added `fp` ->
+`fontlab_fontport`; fontlab-fontport is a private repository and not a documented package.
+Not documented without an owner decision (as D10 was for Remopy/Aidus): reconcile now
+explains exactly `fly.fp -> fontlab_fontport` (`REVIEWED_UNDOCUMENTED_ALIASES`, reported
+under `explained.undocumented_alias_target`); any other target or alias stays a gap.
+Test first (the explained case failed); 17 reconcile tests pass.
