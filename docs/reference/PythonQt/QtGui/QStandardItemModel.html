@@ -1,0 +1,3065 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/QtGui/QStandardItemModel.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.QtGui.QStandardItemModel - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtguiqstandarditemmodel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.QtGui.QStandardItemModel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QStandardItemModel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QStandardItemModel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QStandardItemModel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QStandardItemModel--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtguiqstandarditemmodel">PythonQt.QtGui.QStandardItemModel</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.QtGui.QStandardItemModel" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QStandardItemModel</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.QtGui.QStandardItemModel--detailed-description">Detailed Description</h4>
+<p>QStandardItemModel can be used as a repository for standard Qt data types. It is one of
+the <a href="https://doc.qt.io/archives/qt-5.15/model-view-programming.html#model-view-classes">Model/View
+Classes</a>
+and is part of Qt's
+<a href="https://doc.qt.io/archives/qt-5.15/model-view-programming.html">model/view</a> framework.</p>
+<p>QStandardItemModel provides a classic item-based approach to working with the model. The
+items in a QStandardItemModel are provided by
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditem.html">QStandardItem</a>.</p>
+<p>QStandardItemModel implements the
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemmodel.html">QAbstractItemModel</a>
+interface, which means that the model can be used to provide data in any view that
+supports that interface (such as
+<a href="https://doc.qt.io/archives/qt-5.15/qlistview.html">QListView</a>,
+<a href="https://doc.qt.io/archives/qt-5.15/qtableview.html">QTableView</a> and
+<a href="https://doc.qt.io/archives/qt-5.15/qtreeview.html">QTreeView</a>, and your own custom
+views). For performance and flexibility, you may want to subclass
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemmodel.html">QAbstractItemModel</a> to
+provide support for different kinds of data repositories. For example, the QDirModel
+provides a model interface to the underlying file system.</p>
+<p>When you want a list or tree, you typically create an empty QStandardItemModel and use
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#appendRow">appendRow</a>() to
+add items to the model, and
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#item">item</a>() to access an
+item. If your model represents a table, you typically pass the dimensions of the table
+to the QStandardItemModel constructor and use
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#setItem">setItem</a>() to
+position items into the table. You can also use
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#setRowCount">setRowCount</a>()
+and
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#setColumnCount">setColumnCount</a>()
+to alter the dimensions of the model. To insert items, use
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#insertRow">insertRow</a>() or
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#insertColumn">insertColumn</a>(),
+and to remove items, use
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemmodel.html#removeRow">removeRow</a>() or
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemmodel.html#removeColumn">removeColumn</a>().</p>
+<p>You can set the header labels of your model with
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#setHorizontalHeaderLabels">setHorizontalHeaderLabels</a>()
+and
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#setVerticalHeaderLabels">setVerticalHeaderLabels</a>().</p>
+<p>You can search for items in the model with
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#findItems">findItems</a>(), and
+sort the model by calling
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#sort">sort</a>().</p>
+<p>Call <a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#clear">clear</a>() to
+remove all items from the model.</p>
+<p>An example usage of QStandardItemModel to create a table:</p>
+<div class="highlight"><pre><span></span><code>QStandardItemModel model(4, 4);
+for (int row = 0; row &lt; model.rowCount(); ++row) {
+    for (int column = 0; column &lt; model.columnCount(); ++column) {
+        QStandardItem *item = new QStandardItem(QString(&quot;row %0, column %1&quot;).arg(row).arg(column));
+        model.setItem(row, column, item);
+    }
+}
+</code></pre></div>
+<p>An example usage of QStandardItemModel to create a tree:</p>
+<div class="highlight"><pre><span></span><code>QStandardItemModel model;
+QStandardItem *parentItem = model.invisibleRootItem();
+for (int i = 0; i &lt; 4; ++i) {
+    QStandardItem *item = new QStandardItem(QString(&quot;item %0&quot;).arg(i));
+    parentItem-&gt;appendRow(item);
+    parentItem = item;
+}
+</code></pre></div>
+<p>After setting the model on a view, you typically want to react to user actions, such as
+an item being clicked. Since a
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemview.html">QAbstractItemView</a> provides
+<a href="https://doc.qt.io/archives/qt-5.15/qmodelindex.html">QModelIndex</a>-based signals and
+functions, you need a way to obtain the
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditem.html">QStandardItem</a> that corresponds
+to a given <a href="https://doc.qt.io/archives/qt-5.15/qmodelindex.html">QModelIndex</a>, and vice
+versa.
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#itemFromIndex">itemFromIndex</a>()
+and
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#indexFromItem">indexFromItem</a>()
+provide this mapping. Typical usage of
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#itemFromIndex">itemFromIndex</a>()
+includes obtaining the item at the current index in a view, and obtaining the item that
+corresponds to an index carried by a
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemview.html">QAbstractItemView</a> signal,
+such as
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemview.html#clicked">QAbstractItemView::clicked</a>().
+First you connect the view's signal to a slot in your class:</p>
+<div class="highlight"><pre><span></span><code>QTreeView *treeView = new QTreeView(this);
+treeView-&gt;setModel(myStandardItemModel);
+connect(treeView, &amp;QTreeView::clicked,
+        this, &amp;MyWidget::clicked);
+</code></pre></div>
+<p>When you receive the signal, you call
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#itemFromIndex">itemFromIndex</a>()
+on the given model index to get a pointer to the item:</p>
+<div class="highlight"><pre><span></span><code>void MyWidget::clicked(const QModelIndex &amp;index)
+{
+    QStandardItem *item = myStandardItemModel-&gt;itemFromIndex(index);
+    // Do stuff with the item ...
+}
+</code></pre></div>
+<p>Conversely, you must obtain the
+<a href="https://doc.qt.io/archives/qt-5.15/qmodelindex.html">QModelIndex</a> of an item when you
+want to invoke a model/view function that takes an index as argument. You can obtain the
+index either by using the model's
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html#indexFromItem">indexFromItem</a>()
+function, or, equivalently, by calling
+<a href="https://doc.qt.io/archives/qt-5.15/qstandarditem.html#index">QStandardItem::index</a>():</p>
+<div class="highlight"><pre><span></span><code>treeView-&gt;scrollTo(item-&gt;index());
+</code></pre></div>
+<p>You are, of course, not required to use the item-based approach; you could instead rely
+entirely on the
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemmodel.html">QAbstractItemModel</a>
+interface when working with the model, or use a combination of the two as appropriate.</p>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qstandarditemmodel.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.CheckIndexOption"></span><code>CheckIndexOption</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractItemModel/members-001.html#PythonQt.QtCore.QAbstractItemModel.CheckIndexOption">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.DoNotUseParent"></span><code>DoNotUseParent</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractItemModel/members-001.html#PythonQt.QtCore.QAbstractItemModel.DoNotUseParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.HorizontalSortHint"></span><code>HorizontalSortHint</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractItemModel/members-001.html#PythonQt.QtCore.QAbstractItemModel.HorizontalSortHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.IndexIsValid"></span><code>IndexIsValid</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractItemModel/members-001.html#PythonQt.QtCore.QAbstractItemModel.IndexIsValid">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.LayoutChangeHint"></span><code>LayoutChangeHint</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractItemModel/members-001.html#PythonQt.QtCore.QAbstractItemModel.LayoutChangeHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.NoLayoutChangeHint"></span><code>NoLayoutChangeHint</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractItemModel/members-001.html#PythonQt.QtCore.QAbstractItemModel.NoLayoutChangeHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.NoOption"></span><code>NoOption</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractItemModel/members-001.html#PythonQt.QtCore.QAbstractItemModel.NoOption">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.ParentIsInvalid"></span><code>ParentIsInvalid</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractItemModel/members-001.html#PythonQt.QtCore.QAbstractItemModel.ParentIsInvalid">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.VerticalSortHint"></span><code>VerticalSortHint</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractItemModel/members-001.html#PythonQt.QtCore.QAbstractItemModel.VerticalSortHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.appendColumn"></span><code>appendColumn</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.appendColumn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.appendRow"></span><code>appendRow</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.appendRow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.beginInsertColumns"></span><code>beginInsertColumns</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.beginInsertColumns">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.beginInsertRows"></span><code>beginInsertRows</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.beginInsertRows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.beginMoveColumns"></span><code>beginMoveColumns</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.beginMoveColumns">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.beginMoveRows"></span><code>beginMoveRows</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.beginMoveRows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.beginRemoveColumns"></span><code>beginRemoveColumns</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.beginRemoveColumns">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.beginRemoveRows"></span><code>beginRemoveRows</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.beginRemoveRows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.beginResetModel"></span><code>beginResetModel</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.beginResetModel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.blockSignals"></span><code>blockSignals</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.blockSignals">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.buddy"></span><code>buddy</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.buddy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.canDropMimeData"></span><code>canDropMimeData</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.canDropMimeData">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.canFetchMore"></span><code>canFetchMore</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.canFetchMore">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.changePersistentIndex"></span><code>changePersistentIndex</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.changePersistentIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.changePersistentIndexList"></span><code>changePersistentIndexList</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.changePersistentIndexList">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.childEvent"></span><code>childEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.childEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.children"></span><code>children</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.children">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.clear"></span><code>clear</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.clear">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.columnCount"></span><code>columnCount</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.columnCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.columnsAboutToBeInserted"></span><code>columnsAboutToBeInserted</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.columnsAboutToBeInserted">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.columnsAboutToBeMoved"></span><code>columnsAboutToBeMoved</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.columnsAboutToBeMoved">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.columnsAboutToBeRemoved"></span><code>columnsAboutToBeRemoved</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.columnsAboutToBeRemoved">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.columnsInserted"></span><code>columnsInserted</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.columnsInserted">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.columnsMoved"></span><code>columnsMoved</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.columnsMoved">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.columnsRemoved"></span><code>columnsRemoved</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.columnsRemoved">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.connect"></span><code>connect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.connect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.createIndex"></span><code>createIndex</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.createIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.customEvent"></span><code>customEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.customEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.data"></span><code>data</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.data">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.dataChanged"></span><code>dataChanged</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.dataChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.decodeData"></span><code>decodeData</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.decodeData">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.deleteLater"></span><code>deleteLater</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.deleteLater">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.destroyed"></span><code>destroyed</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.destroyed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.disconnect"></span><code>disconnect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.disconnect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.dropMimeData"></span><code>dropMimeData</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.dropMimeData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.dumpObjectInfo"></span><code>dumpObjectInfo</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectInfo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.dumpObjectTree"></span><code>dumpObjectTree</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectTree">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.dynamicPropertyNames"></span><code>dynamicPropertyNames</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dynamicPropertyNames">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.encodeData"></span><code>encodeData</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.encodeData">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.endInsertColumns"></span><code>endInsertColumns</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.endInsertColumns">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.endInsertRows"></span><code>endInsertRows</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.endInsertRows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.endMoveColumns"></span><code>endMoveColumns</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.endMoveColumns">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.endMoveRows"></span><code>endMoveRows</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.endMoveRows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.endRemoveColumns"></span><code>endRemoveColumns</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.endRemoveColumns">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.endRemoveRows"></span><code>endRemoveRows</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.endRemoveRows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.endResetModel"></span><code>endResetModel</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.endResetModel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.event"></span><code>event</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractItemModel/members-002.html#PythonQt.QtCore.QAbstractItemModel.event">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.eventFilter"></span><code>eventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.eventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.fetchMore"></span><code>fetchMore</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.fetchMore">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.findChild"></span><code>findChild</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.findChildren"></span><code>findChildren</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChildren">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.findItems"></span><code>findItems</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.findItems">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.flags"></span><code>flags</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.flags">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.hasChildren"></span><code>hasChildren</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.hasChildren">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.hasIndex"></span><code>hasIndex</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-001.html#PythonQt.QtCore.QAbstractListModel.hasIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.headerData"></span><code>headerData</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.headerData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.headerDataChanged"></span><code>headerDataChanged</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.headerDataChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.horizontalHeaderItem"></span><code>horizontalHeaderItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.horizontalHeaderItem">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.index"></span><code>index</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.index">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.indexFromItem"></span><code>indexFromItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.indexFromItem">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.insertColumn"></span><code>insertColumn</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.insertColumn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.insertColumns"></span><code>insertColumns</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.insertColumns">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.insertRow"></span><code>insertRow</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.insertRow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.insertRows"></span><code>insertRows</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.insertRows">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.installEventFilter"></span><code>installEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.installEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.invisibleRootItem"></span><code>invisibleRootItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.invisibleRootItem">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.isSignalConnected"></span><code>isSignalConnected</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.isSignalConnected">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.isWidgetType"></span><code>isWidgetType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWidgetType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.isWindowType"></span><code>isWindowType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWindowType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.item"></span><code>item</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.item">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.itemChanged"></span><code>itemChanged</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.itemChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.itemData"></span><code>itemData</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.itemData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.itemFromIndex"></span><code>itemFromIndex</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.itemFromIndex">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.itemPrototype"></span><code>itemPrototype</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.itemPrototype">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.killTimer"></span><code>killTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.killTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.layoutAboutToBeChanged"></span><code>layoutAboutToBeChanged</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.layoutAboutToBeChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.layoutChanged"></span><code>layoutChanged</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.layoutChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.match"></span><code>match</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.match">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.metaObject"></span><code>metaObject</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.metaObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.mimeData"></span><code>mimeData</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.mimeData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.mimeTypes"></span><code>mimeTypes</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.mimeTypes">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.modelAboutToBeReset"></span><code>modelAboutToBeReset</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.modelAboutToBeReset">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.modelReset"></span><code>modelReset</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.modelReset">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.moveColumn"></span><code>moveColumn</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.moveColumn">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.moveColumns"></span><code>moveColumns</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.moveColumns">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.moveRow"></span><code>moveRow</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.moveRow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.moveRows"></span><code>moveRows</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.moveRows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.moveToThread"></span><code>moveToThread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.moveToThread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.objectName"></span><code>objectName</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.objectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.objectNameChanged"></span><code>objectNameChanged</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.objectNameChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.parent"></span><code>parent</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-001.html#PythonQt.QtGui.QStandardItemModel.parent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.persistentIndexList"></span><code>persistentIndexList</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.persistentIndexList">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.property"></span><code>property</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.property">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.removeColumn"></span><code>removeColumn</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.removeColumn">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.removeColumns"></span><code>removeColumns</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.removeColumns">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.removeEventFilter"></span><code>removeEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.removeEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.removeRow"></span><code>removeRow</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.removeRow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.removeRows"></span><code>removeRows</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.removeRows">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.revert"></span><code>revert</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.revert">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.roleNames"></span><code>roleNames</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.roleNames">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.rowCount"></span><code>rowCount</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.rowCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.rowsAboutToBeInserted"></span><code>rowsAboutToBeInserted</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.rowsAboutToBeInserted">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.rowsAboutToBeMoved"></span><code>rowsAboutToBeMoved</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.rowsAboutToBeMoved">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.rowsAboutToBeRemoved"></span><code>rowsAboutToBeRemoved</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.rowsAboutToBeRemoved">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.rowsInserted"></span><code>rowsInserted</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.rowsInserted">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.rowsMoved"></span><code>rowsMoved</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.rowsMoved">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.rowsRemoved"></span><code>rowsRemoved</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.rowsRemoved">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.sender"></span><code>sender</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.sender">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.senderSignalIndex"></span><code>senderSignalIndex</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.senderSignalIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setColumnCount"></span><code>setColumnCount</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setColumnCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setData"></span><code>setData</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setHeaderData"></span><code>setHeaderData</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setHeaderData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setHorizontalHeaderItem"></span><code>setHorizontalHeaderItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setHorizontalHeaderItem">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setHorizontalHeaderLabels"></span><code>setHorizontalHeaderLabels</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setHorizontalHeaderLabels">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setItem"></span><code>setItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setItem">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setItemData"></span><code>setItemData</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setItemData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setItemPrototype"></span><code>setItemPrototype</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setItemPrototype">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setItemRoleNames"></span><code>setItemRoleNames</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setItemRoleNames">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setObjectName"></span><code>setObjectName</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setObjectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setParent"></span><code>setParent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setProperty"></span><code>setProperty</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setRowCount"></span><code>setRowCount</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setRowCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setSortRole"></span><code>setSortRole</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setSortRole">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setVerticalHeaderItem"></span><code>setVerticalHeaderItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setVerticalHeaderItem">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.setVerticalHeaderLabels"></span><code>setVerticalHeaderLabels</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.setVerticalHeaderLabels">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.sibling"></span><code>sibling</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.sibling">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.signalsBlocked"></span><code>signalsBlocked</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.signalsBlocked">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.sort"></span><code>sort</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.sort">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.sortRole"></span><code>sortRole</code></td>
+<td>attribute</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.sortRole">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.span"></span><code>span</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.span">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.startTimer"></span><code>startTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.startTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.submit"></span><code>submit</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.submit">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.supportedDragActions"></span><code>supportedDragActions</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractListModel/members-002.html#PythonQt.QtCore.QAbstractListModel.supportedDragActions">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.supportedDropActions"></span><code>supportedDropActions</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.supportedDropActions">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.takeColumn"></span><code>takeColumn</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.takeColumn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.takeHorizontalHeaderItem"></span><code>takeHorizontalHeaderItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.takeHorizontalHeaderItem">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.takeItem"></span><code>takeItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.takeItem">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.takeRow"></span><code>takeRow</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.takeRow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.takeVerticalHeaderItem"></span><code>takeVerticalHeaderItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.takeVerticalHeaderItem">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.thread"></span><code>thread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.thread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.timerEvent"></span><code>timerEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.timerEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.tr"></span><code>tr</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.tr">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QStandardItemModel.verticalHeaderItem"></span><code>verticalHeaderItem</code></td>
+<td>function</td>
+<td><a href="QStandardItemModel/members-002.html#PythonQt.QtGui.QStandardItemModel.verticalHeaderItem">Signature and documentation</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

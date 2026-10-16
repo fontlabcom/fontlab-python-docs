@@ -1,0 +1,3353 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/Qt/QTextCharFormat.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.Qt.QTextCharFormat - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtqtextcharformat" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.Qt.QTextCharFormat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QTextCharFormat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QTextCharFormat
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QTextCharFormat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QTextCharFormat--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtqtextcharformat">PythonQt.Qt.QTextCharFormat</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.Qt.QTextCharFormat" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QTextCharFormat</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.Qt.QTextCharFormat--detailed-description">Detailed Description</h4>
+<p>The character format of text in a document specifies the visual properties of the text,
+as well as information about its role in a hypertext document.</p>
+<p>The font used can be set by supplying a font to the
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setFont">setFont</a>() function,
+and each aspect of its appearance can be adjusted to give the desired effect.
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setFontFamily">setFontFamily</a>()
+and
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setFontPointSize">setFontPointSize</a>()
+define the font's family (e.g. Times) and printed size;
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setFontWeight">setFontWeight</a>()
+and
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setFontItalic">setFontItalic</a>()
+provide control over the style of the font.
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setFontUnderline">setFontUnderline</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setFontOverline">setFontOverline</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setFontStrikeOut">setFontStrikeOut</a>(),
+and
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setFontFixedPitch">setFontFixedPitch</a>()
+provide additional effects for text.</p>
+<p>The color is set with
+<a href="https://doc.qt.io/archives/qt-5.15/qtextformat.html#setForeground">setForeground</a>(). If
+the text is intended to be used as an anchor (for hyperlinks), this can be enabled with
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setAnchor">setAnchor</a>(). The
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setAnchorHref">setAnchorHref</a>()
+and
+<a href="https://doc.qt.io/archives/qt-5.15/qtextcharformat.html#setAnchorNames">setAnchorNames</a>()
+functions are used to specify the information about the hyperlink's destination and the
+anchor's name.</p>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qtextcharformat.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.AlignBaseline"></span><code>AlignBaseline</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/Qt/members-001.html#PythonQt.QtCore.Qt.AlignBaseline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.AlignBottom"></span><code>AlignBottom</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/Qt/members-001.html#PythonQt.QtCore.Qt.AlignBottom">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.AlignMiddle"></span><code>AlignMiddle</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.AlignMiddle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.AlignNormal"></span><code>AlignNormal</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.AlignNormal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.AlignSubScript"></span><code>AlignSubScript</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.AlignSubScript">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.AlignSuperScript"></span><code>AlignSuperScript</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.AlignSuperScript">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.AlignTop"></span><code>AlignTop</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/Qt/members-001.html#PythonQt.QtCore.Qt.AlignTop">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.AnchorHref"></span><code>AnchorHref</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.AnchorHref">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.AnchorName"></span><code>AnchorName</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.AnchorName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BackgroundBrush"></span><code>BackgroundBrush</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BackgroundBrush">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BackgroundImageUrl"></span><code>BackgroundImageUrl</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BackgroundImageUrl">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BlockAlignment"></span><code>BlockAlignment</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BlockAlignment">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BlockBottomMargin"></span><code>BlockBottomMargin</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BlockBottomMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BlockFormat"></span><code>BlockFormat</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BlockFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BlockIndent"></span><code>BlockIndent</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BlockIndent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BlockLeftMargin"></span><code>BlockLeftMargin</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BlockLeftMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BlockNonBreakableLines"></span><code>BlockNonBreakableLines</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BlockNonBreakableLines">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BlockRightMargin"></span><code>BlockRightMargin</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BlockRightMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BlockTopMargin"></span><code>BlockTopMargin</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BlockTopMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.BlockTrailingHorizontalRulerWidth"></span><code>BlockTrailingHorizontalRulerWidth</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.BlockTrailingHorizontalRulerWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.CharFormat"></span><code>CharFormat</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.CharFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.CssFloat"></span><code>CssFloat</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.CssFloat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.DashDotDotLine"></span><code>DashDotDotLine</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/Qt/members-004.html#PythonQt.QtCore.Qt.DashDotDotLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.DashDotLine"></span><code>DashDotLine</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/Qt/members-004.html#PythonQt.QtCore.Qt.DashDotLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.DashUnderline"></span><code>DashUnderline</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.DashUnderline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.DotLine"></span><code>DotLine</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/Qt/members-004.html#PythonQt.QtCore.Qt.DotLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FirstFontProperty"></span><code>FirstFontProperty</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FirstFontProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontCapitalization"></span><code>FontCapitalization</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontCapitalization">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontFamily"></span><code>FontFamily</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontFamily">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontFixedPitch"></span><code>FontFixedPitch</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontFixedPitch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontHintingPreference"></span><code>FontHintingPreference</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontHintingPreference">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontItalic"></span><code>FontItalic</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontItalic">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontKerning"></span><code>FontKerning</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontKerning">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontLetterSpacing"></span><code>FontLetterSpacing</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontLetterSpacing">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontLetterSpacingType"></span><code>FontLetterSpacingType</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontLetterSpacingType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontOverline"></span><code>FontOverline</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontOverline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontPixelSize"></span><code>FontPixelSize</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontPixelSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontPointSize"></span><code>FontPointSize</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontPointSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontPropertiesAll"></span><code>FontPropertiesAll</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.FontPropertiesAll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontPropertiesInheritanceBehavior"></span><code>FontPropertiesInheritanceBehavior</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.FontPropertiesInheritanceBehavior">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontPropertiesSpecifiedOnly"></span><code>FontPropertiesSpecifiedOnly</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.FontPropertiesSpecifiedOnly">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontSizeAdjustment"></span><code>FontSizeAdjustment</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontSizeAdjustment">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontSizeIncrement"></span><code>FontSizeIncrement</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontSizeIncrement">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontStretch"></span><code>FontStretch</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontStretch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontStrikeOut"></span><code>FontStrikeOut</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontStrikeOut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontStyleHint"></span><code>FontStyleHint</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontStyleHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontStyleStrategy"></span><code>FontStyleStrategy</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontStyleStrategy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontUnderline"></span><code>FontUnderline</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontUnderline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontWeight"></span><code>FontWeight</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontWeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FontWordSpacing"></span><code>FontWordSpacing</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FontWordSpacing">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ForegroundBrush"></span><code>ForegroundBrush</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.ForegroundBrush">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FormatType"></span><code>FormatType</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QLocale/members-006.html#PythonQt.QtCore.QLocale.FormatType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameBorder"></span><code>FrameBorder</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FrameBorder">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameBorderBrush"></span><code>FrameBorderBrush</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-001.html#PythonQt.QtGui.QTextBlockFormat.FrameBorderBrush">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameBorderStyle"></span><code>FrameBorderStyle</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FrameBorderStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameBottomMargin"></span><code>FrameBottomMargin</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FrameBottomMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameFormat"></span><code>FrameFormat</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FrameFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameHeight"></span><code>FrameHeight</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FrameHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameLeftMargin"></span><code>FrameLeftMargin</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FrameLeftMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameMargin"></span><code>FrameMargin</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FrameMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FramePadding"></span><code>FramePadding</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FramePadding">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameRightMargin"></span><code>FrameRightMargin</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FrameRightMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameTopMargin"></span><code>FrameTopMargin</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FrameTopMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FrameWidth"></span><code>FrameWidth</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FrameWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.FullWidthSelection"></span><code>FullWidthSelection</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.FullWidthSelection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ImageHeight"></span><code>ImageHeight</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ImageHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ImageName"></span><code>ImageName</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ImageName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ImageObject"></span><code>ImageObject</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ImageObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ImageWidth"></span><code>ImageWidth</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ImageWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.InvalidFormat"></span><code>InvalidFormat</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QSettings/members-001.html#PythonQt.QtCore.QSettings.InvalidFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.IsAnchor"></span><code>IsAnchor</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.IsAnchor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.LastFontProperty"></span><code>LastFontProperty</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.LastFontProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.LayoutDirection"></span><code>LayoutDirection</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.LayoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.LineHeight"></span><code>LineHeight</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.LineHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.LineHeightType"></span><code>LineHeightType</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.LineHeightType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ListFormat"></span><code>ListFormat</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ListFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ListIndent"></span><code>ListIndent</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ListIndent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ListNumberPrefix"></span><code>ListNumberPrefix</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ListNumberPrefix">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ListNumberSuffix"></span><code>ListNumberSuffix</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ListNumberSuffix">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ListStyle"></span><code>ListStyle</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ListStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.NoObject"></span><code>NoObject</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.NoObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.NoUnderline"></span><code>NoUnderline</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.NoUnderline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ObjectIndex"></span><code>ObjectIndex</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ObjectIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ObjectType"></span><code>ObjectType</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ObjectType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.ObjectTypes"></span><code>ObjectTypes</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.ObjectTypes">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.OutlinePen"></span><code>OutlinePen</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.OutlinePen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.PageBreakFlag"></span><code>PageBreakFlag</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.PageBreakFlag">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.PageBreakFlags"></span><code>PageBreakFlags</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.PageBreakFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.PageBreakPolicy"></span><code>PageBreakPolicy</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.PageBreakPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.PageBreak_AlwaysAfter"></span><code>PageBreak_AlwaysAfter</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.PageBreak_AlwaysAfter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.PageBreak_AlwaysBefore"></span><code>PageBreak_AlwaysBefore</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.PageBreak_AlwaysBefore">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.PageBreak_Auto"></span><code>PageBreak_Auto</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.PageBreak_Auto">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.Property"></span><code>Property</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-002.html#PythonQt.QtGui.QTextBlockFormat.Property">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.SingleUnderline"></span><code>SingleUnderline</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.SingleUnderline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.SpellCheckUnderline"></span><code>SpellCheckUnderline</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.SpellCheckUnderline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TabPositions"></span><code>TabPositions</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TabPositions">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableCellBottomPadding"></span><code>TableCellBottomPadding</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableCellBottomPadding">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableCellColumnSpan"></span><code>TableCellColumnSpan</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableCellColumnSpan">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableCellLeftPadding"></span><code>TableCellLeftPadding</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableCellLeftPadding">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableCellObject"></span><code>TableCellObject</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableCellObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableCellPadding"></span><code>TableCellPadding</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableCellPadding">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableCellRightPadding"></span><code>TableCellRightPadding</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableCellRightPadding">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableCellRowSpan"></span><code>TableCellRowSpan</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableCellRowSpan">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableCellSpacing"></span><code>TableCellSpacing</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableCellSpacing">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableCellTopPadding"></span><code>TableCellTopPadding</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableCellTopPadding">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableColumnWidthConstraints"></span><code>TableColumnWidthConstraints</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableColumnWidthConstraints">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableColumns"></span><code>TableColumns</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableColumns">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableFormat"></span><code>TableFormat</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableHeaderRowCount"></span><code>TableHeaderRowCount</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableHeaderRowCount">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TableObject"></span><code>TableObject</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TableObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TextIndent"></span><code>TextIndent</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TextIndent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TextOutline"></span><code>TextOutline</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TextOutline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TextToolTip"></span><code>TextToolTip</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TextToolTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TextUnderlineColor"></span><code>TextUnderlineColor</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TextUnderlineColor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TextUnderlineStyle"></span><code>TextUnderlineStyle</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TextUnderlineStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.TextVerticalAlignment"></span><code>TextVerticalAlignment</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.TextVerticalAlignment">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.UnderlineStyle"></span><code>UnderlineStyle</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.UnderlineStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.UserFormat"></span><code>UserFormat</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.UserFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.UserObject"></span><code>UserObject</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.UserObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.UserProperty"></span><code>UserProperty</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.UserProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.VerticalAlignment"></span><code>VerticalAlignment</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.VerticalAlignment">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.WaveUnderline"></span><code>WaveUnderline</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.WaveUnderline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.anchorHref"></span><code>anchorHref</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.anchorHref">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.anchorNames"></span><code>anchorNames</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.anchorNames">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.background"></span><code>background</code></td>
+<td>function</td>
+<td><a href="../QtGui/QStylePainter/members-001.html#PythonQt.QtGui.QStylePainter.background">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.boolProperty"></span><code>boolProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.boolProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.brushProperty"></span><code>brushProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.brushProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.clearBackground"></span><code>clearBackground</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.clearBackground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.clearForeground"></span><code>clearForeground</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.clearForeground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.clearProperty"></span><code>clearProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.clearProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.colorProperty"></span><code>colorProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.colorProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.doubleProperty"></span><code>doubleProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.doubleProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.font"></span><code>font</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.font">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontCapitalization"></span><code>fontCapitalization</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontCapitalization">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontFamily"></span><code>fontFamily</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontFamily">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontFixedPitch"></span><code>fontFixedPitch</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontFixedPitch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontHintingPreference"></span><code>fontHintingPreference</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontHintingPreference">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontItalic"></span><code>fontItalic</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontItalic">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontKerning"></span><code>fontKerning</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontKerning">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontLetterSpacing"></span><code>fontLetterSpacing</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontLetterSpacing">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontLetterSpacingType"></span><code>fontLetterSpacingType</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontLetterSpacingType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontOverline"></span><code>fontOverline</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontOverline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontPointSize"></span><code>fontPointSize</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontPointSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontStretch"></span><code>fontStretch</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontStretch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontStrikeOut"></span><code>fontStrikeOut</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontStrikeOut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontStyleHint"></span><code>fontStyleHint</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontStyleHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontStyleStrategy"></span><code>fontStyleStrategy</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontStyleStrategy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontUnderline"></span><code>fontUnderline</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontUnderline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontWeight"></span><code>fontWeight</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontWeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.fontWordSpacing"></span><code>fontWordSpacing</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.fontWordSpacing">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.foreground"></span><code>foreground</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.foreground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.hasProperty"></span><code>hasProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.hasProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.intProperty"></span><code>intProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.intProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isAnchor"></span><code>isAnchor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.isAnchor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isBlockFormat"></span><code>isBlockFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-003.html#PythonQt.QtGui.QTextBlockFormat.isBlockFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isCharFormat"></span><code>isCharFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.isCharFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isEmpty"></span><code>isEmpty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QBoxLayout/members-002.html#PythonQt.QtGui.QBoxLayout.isEmpty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isFrameFormat"></span><code>isFrameFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.isFrameFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isImageFormat"></span><code>isImageFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.isImageFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isListFormat"></span><code>isListFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.isListFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isTableCellFormat"></span><code>isTableCellFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.isTableCellFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isTableFormat"></span><code>isTableFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.isTableFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.isValid"></span><code>isValid</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.isValid">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.layoutDirection"></span><code>layoutDirection</code></td>
+<td>function</td>
+<td><a href="../QtGui/QStylePainter/members-002.html#PythonQt.QtGui.QStylePainter.layoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.lengthProperty"></span><code>lengthProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.lengthProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.lengthVectorProperty"></span><code>lengthVectorProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.lengthVectorProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.merge"></span><code>merge</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.merge">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.objectIndex"></span><code>objectIndex</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.objectIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.objectType"></span><code>objectType</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.objectType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.penProperty"></span><code>penProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.penProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.properties"></span><code>properties</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.properties">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.property"></span><code>property</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.property">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.propertyCount"></span><code>propertyCount</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.propertyCount">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.readFrom"></span><code>readFrom</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBitArray/members-001.html#PythonQt.QtCore.QBitArray.readFrom">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setAnchor"></span><code>setAnchor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.setAnchor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setAnchorHref"></span><code>setAnchorHref</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.setAnchorHref">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setAnchorNames"></span><code>setAnchorNames</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.setAnchorNames">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setBackground"></span><code>setBackground</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.setBackground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFont"></span><code>setFont</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-001.html#PythonQt.QtGui.QTextCharFormat.setFont">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontCapitalization"></span><code>setFontCapitalization</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontCapitalization">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontFamily"></span><code>setFontFamily</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontFamily">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontFixedPitch"></span><code>setFontFixedPitch</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontFixedPitch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontHintingPreference"></span><code>setFontHintingPreference</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontHintingPreference">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontItalic"></span><code>setFontItalic</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontItalic">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontKerning"></span><code>setFontKerning</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontKerning">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontLetterSpacing"></span><code>setFontLetterSpacing</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontLetterSpacing">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontLetterSpacingType"></span><code>setFontLetterSpacingType</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontLetterSpacingType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontOverline"></span><code>setFontOverline</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontOverline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontPointSize"></span><code>setFontPointSize</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontPointSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontStretch"></span><code>setFontStretch</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontStretch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontStrikeOut"></span><code>setFontStrikeOut</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontStrikeOut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontStyleHint"></span><code>setFontStyleHint</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontStyleHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontStyleStrategy"></span><code>setFontStyleStrategy</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontStyleStrategy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontUnderline"></span><code>setFontUnderline</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontUnderline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontWeight"></span><code>setFontWeight</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontWeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setFontWordSpacing"></span><code>setFontWordSpacing</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setFontWordSpacing">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setForeground"></span><code>setForeground</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.setForeground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setLayoutDirection"></span><code>setLayoutDirection</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setLayoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setObjectIndex"></span><code>setObjectIndex</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.setObjectIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setObjectType"></span><code>setObjectType</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.setObjectType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setProperty"></span><code>setProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.setProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setTableCellColumnSpan"></span><code>setTableCellColumnSpan</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setTableCellColumnSpan">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setTableCellRowSpan"></span><code>setTableCellRowSpan</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setTableCellRowSpan">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setTextOutline"></span><code>setTextOutline</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setTextOutline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setToolTip"></span><code>setToolTip</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setToolTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setUnderlineColor"></span><code>setUnderlineColor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setUnderlineColor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setUnderlineStyle"></span><code>setUnderlineStyle</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setUnderlineStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.setVerticalAlignment"></span><code>setVerticalAlignment</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.setVerticalAlignment">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.stringProperty"></span><code>stringProperty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.stringProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.swap"></span><code>swap</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-004.html#PythonQt.QtGui.QTextBlockFormat.swap">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.tableCellColumnSpan"></span><code>tableCellColumnSpan</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.tableCellColumnSpan">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.tableCellRowSpan"></span><code>tableCellRowSpan</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.tableCellRowSpan">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.textOutline"></span><code>textOutline</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.textOutline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.toBlockFormat"></span><code>toBlockFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-005.html#PythonQt.QtGui.QTextBlockFormat.toBlockFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.toCharFormat"></span><code>toCharFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-005.html#PythonQt.QtGui.QTextBlockFormat.toCharFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.toFrameFormat"></span><code>toFrameFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-005.html#PythonQt.QtGui.QTextBlockFormat.toFrameFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.toImageFormat"></span><code>toImageFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-005.html#PythonQt.QtGui.QTextBlockFormat.toImageFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.toListFormat"></span><code>toListFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-005.html#PythonQt.QtGui.QTextBlockFormat.toListFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.toTableCellFormat"></span><code>toTableCellFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-005.html#PythonQt.QtGui.QTextBlockFormat.toTableCellFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.toTableFormat"></span><code>toTableFormat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextBlockFormat/members-005.html#PythonQt.QtGui.QTextBlockFormat.toTableFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.toolTip"></span><code>toolTip</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.toolTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.type"></span><code>type</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractGraphicsShapeItem/members-006.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.type">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.underlineColor"></span><code>underlineColor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.underlineColor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.underlineStyle"></span><code>underlineStyle</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.underlineStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.verticalAlignment"></span><code>verticalAlignment</code></td>
+<td>function</td>
+<td><a href="../QtGui/QTextCharFormat/members-002.html#PythonQt.QtGui.QTextCharFormat.verticalAlignment">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QTextCharFormat.writeTo"></span><code>writeTo</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBitArray/members-001.html#PythonQt.QtCore.QBitArray.writeTo">Shared captured text</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3200 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/QtGui/QImage.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.QtGui.QImage - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtguiqimage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.QtGui.QImage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QImage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QImage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QImage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QImage--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QImage--reading-and-writing-image-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading and Writing Image Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QImage--image-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QImage--pixel-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pixel Manipulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QImage--image-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QImage--image-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Transformations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtguiqimage">PythonQt.QtGui.QImage</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.QtGui.QImage" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QImage</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.QtGui.QImage--detailed-description">Detailed Description</h4>
+<p>Qt provides four classes for handling image data: QImage,
+<a href="https://doc.qt.io/archives/qt-5.15/qpixmap.html">QPixmap</a>,
+<a href="https://doc.qt.io/archives/qt-5.15/qbitmap.html">QBitmap</a> and
+<a href="https://doc.qt.io/archives/qt-5.15/qpicture.html">QPicture</a>. QImage is designed and
+optimized for I/O, and for direct pixel access and manipulation, while
+<a href="https://doc.qt.io/archives/qt-5.15/qpixmap.html">QPixmap</a> is designed and optimized for
+showing images on screen. <a href="https://doc.qt.io/archives/qt-5.15/qbitmap.html">QBitmap</a> is
+only a convenience class that inherits
+<a href="https://doc.qt.io/archives/qt-5.15/qpixmap.html">QPixmap</a>, ensuring a depth of 1.
+Finally, the <a href="https://doc.qt.io/archives/qt-5.15/qpicture.html">QPicture</a> class is a
+paint device that records and replays
+<a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a> commands.</p>
+<p>Because QImage is a <a href="https://doc.qt.io/archives/qt-5.15/qpaintdevice.html">QPaintDevice</a>
+subclass, <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a> can be used to
+draw directly onto images. When using
+<a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a> on a QImage, the painting
+can be performed in another thread than the current GUI thread.</p>
+<p>The QImage class supports several image formats described by the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#Format-enum">Format</a> enum. These include
+monochrome, 8-bit, 32-bit and alpha-blended images which are available in all versions
+of Qt 4.x.</p>
+<p>QImage provides a collection of functions that can be used to obtain a variety of
+information about the image. There are also several functions that enables
+transformation of the image.</p>
+<p>QImage objects can be passed around by value since the QImage class uses <a href="https://doc.qt.io/archives/qt-5.15/implicit-sharing.html">implicit data
+sharing</a>. QImage objects can
+also be streamed and compared.</p>
+<p><strong>Note:</strong> If you would like to load QImage objects in a static build of Qt, refer to the
+<a href="https://doc.qt.io/archives/qt-5.15/plugins-howto.html">Plugin HowTo</a>.</p>
+<p><strong>Warning:</strong> Painting on a QImage with the format
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#Format-enum">QImage::Format_Indexed8</a>
+is not supported.</p>
+<h5 id="PythonQt.QtGui.QImage--reading-and-writing-image-files">Reading and Writing Image Files</h5>
+<p>QImage provides several ways of loading an image file: The file can be loaded when
+constructing the QImage object, or by using the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#load">load</a>() or
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#loadFromData">loadFromData</a>() functions
+later on. QImage also provides the static
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#fromData">fromData</a>() function,
+constructing a QImage from the given data. When loading an image, the file name can
+either refer to an actual file on disk or to one of the application's embedded
+resources. See <a href="https://doc.qt.io/archives/qt-5.15/resources.html">The Qt Resource
+System</a> overview for details on how
+to embed images and other resource files in the application's executable.</p>
+<p>Simply call the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#save">save</a>() function
+to save a QImage object.</p>
+<p>The complete list of supported file formats are available through the
+<a href="https://doc.qt.io/archives/qt-5.15/qimagereader.html#supportedImageFormats">QImageReader::supportedImageFormats</a>()
+and
+<a href="https://doc.qt.io/archives/qt-5.15/qimagewriter.html#supportedImageFormats">QImageWriter::supportedImageFormats</a>()
+functions. New file formats can be added as plugins. By default, Qt supports the
+following formats:</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+<th>Qt's support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BMP</td>
+<td>Windows Bitmap</td>
+<td>Read/write</td>
+</tr>
+<tr>
+<td>GIF</td>
+<td>Graphic Interchange Format (optional)</td>
+<td>Read</td>
+</tr>
+<tr>
+<td>JPG</td>
+<td>Joint Photographic Experts Group</td>
+<td>Read/write</td>
+</tr>
+<tr>
+<td>JPEG</td>
+<td>Joint Photographic Experts Group</td>
+<td>Read/write</td>
+</tr>
+<tr>
+<td>PNG</td>
+<td>Portable Network Graphics</td>
+<td>Read/write</td>
+</tr>
+<tr>
+<td>PBM</td>
+<td>Portable Bitmap</td>
+<td>Read</td>
+</tr>
+<tr>
+<td>PGM</td>
+<td>Portable Graymap</td>
+<td>Read</td>
+</tr>
+<tr>
+<td>PPM</td>
+<td>Portable Pixmap</td>
+<td>Read/write</td>
+</tr>
+<tr>
+<td>XBM</td>
+<td>X11 Bitmap</td>
+<td>Read/write</td>
+</tr>
+<tr>
+<td>XPM</td>
+<td>X11 Pixmap</td>
+<td>Read/write</td>
+</tr>
+</tbody>
+</table>
+<h5 id="PythonQt.QtGui.QImage--image-information">Image Information</h5>
+<p>QImage provides a collection of functions that can be used to obtain a variety of
+information about the image:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Available Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#size">size</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#width">width</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#height">height</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#dotsPerMeterX">dotsPerMeterX</a>(), and <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#dotsPerMeterY">dotsPerMeterY</a>() functions provide information about the image size and aspect ratio. The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#rect">rect</a>() function returns the image's enclosing rectangle. The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#valid">valid</a>() function tells if a given pair of coordinates is within this rectangle. The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#offset">offset</a>() function returns the number of pixels by which the image is intended to be offset by when positioned relative to other images, which also can be manipulated using the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setOffset">setOffset</a>() function.</td>
+</tr>
+<tr>
+<td>Colors</td>
+<td>The color of a pixel can be retrieved by passing its coordinates to the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#pixel">pixel</a>() function. The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#pixel">pixel</a>() function returns the color as a <a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#QRgb-typedef">QRgb</a> value indepedent of the image's format. In case of monochrome and 8-bit images, the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#colorCount">colorCount</a>() and <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#colorTable">colorTable</a>() functions provide information about the color components used to store the image data: The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#colorTable">colorTable</a>() function returns the image's entire color table. To obtain a single entry, use the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#pixelIndex">pixelIndex</a>() function to retrieve the pixel index for a given pair of coordinates, then use the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#color">color</a>() function to retrieve the color. Note that if you create an 8-bit image manually, you have to set a valid color table on the image as well.  The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#hasAlphaChannel">hasAlphaChannel</a>() function tells if the image's format respects the alpha channel, or not. The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#allGray">allGray</a>() and <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#isGrayscale">isGrayscale</a>() functions tell whether an image's colors are all shades of gray.  See also the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#pixel-manipulation">Pixel Manipulation</a> and <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#image-transformations">Image Transformations</a> sections.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#text">text</a>() function returns the image text associated with the given text key. An image's text keys can be retrieved using the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#textKeys">textKeys</a>() function. Use the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setText">setText</a>() function to alter an image's text.</td>
+</tr>
+<tr>
+<td>Low-level information</td>
+<td>The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#depth">depth</a>() function returns the depth of the image. The supported depths are 1 (monochrome), 8, 16, 24 and 32 bits. The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#bitPlaneCount">bitPlaneCount</a>() function tells how many of those bits that are used. For more information see the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#image-formats">Image Formats</a> section. The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#format">format</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#bytesPerLine">bytesPerLine</a>(), and <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#sizeInBytes">sizeInBytes</a>() functions provide low-level information about the data stored in the image.  The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#cacheKey">cacheKey</a>() function returns a number that uniquely identifies the contents of this QImage object.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="PythonQt.QtGui.QImage--pixel-manipulation">Pixel Manipulation</h5>
+<p>The functions used to manipulate an image's pixels depend on the image format. The
+reason is that monochrome and 8-bit images are index-based and use a color lookup table,
+while 32-bit images store ARGB values directly. For more information on image formats,
+see the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#image-formats">Image Formats</a>
+section.</p>
+<p>In case of a 32-bit image, the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setPixel">setPixel</a>() function can be
+used to alter the color of the pixel at the given coordinates to any other color
+specified as an ARGB quadruplet. To make a suitable
+<a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#QRgb-typedef">QRgb</a> value, use the
+<a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#qRgb">qRgb</a>() (adding a default alpha
+component to the given RGB values, i.e. creating an opaque color) or
+<a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#qRgba">qRgba</a>() function. For example:</p>
+<table>
+<thead>
+<tr>
+<th>32-bit</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>QImage image(3, 3, QImage::Format_RGB32); QRgb value;  value = qRgb(189, 149, 39); // 0xffbd9527 image.setPixel(1, 1, value);  value = qRgb(122, 163, 39); // 0xff7aa327 image.setPixel(0, 1, value); image.setPixel(1, 0, value);  value = qRgb(237, 187, 51); // 0xffedba31 image.setPixel(2, 1, value);</code></td>
+</tr>
+</tbody>
+</table>
+<p>In case of a 8-bit and monchrome images, the pixel value is only an index from the
+image's color table. So the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setPixel">setPixel</a>() function can only
+be used to alter the color of the pixel at the given coordinates to a predefined color
+from the image's color table, i.e. it can only change the pixel's index value. To alter
+or add a color to an image's color table, use the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setColor">setColor</a>() function.</p>
+<p>An entry in the color table is an ARGB quadruplet encoded as an
+<a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#QRgb-typedef">QRgb</a> value. Use the
+<a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#qRgb">qRgb</a>() and
+<a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#qRgba">qRgba</a>() functions to make a
+suitable <a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#QRgb-typedef">QRgb</a> value for
+use with the <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setColor">setColor</a>()
+function. For example:</p>
+<table>
+<thead>
+<tr>
+<th>8-bit</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>QImage image(3, 3, QImage::Format_Indexed8); QRgb value;  value = qRgb(122, 163, 39); // 0xff7aa327 image.setColor(0, value);  value = qRgb(237, 187, 51); // 0xffedba31 image.setColor(1, value);  value = qRgb(189, 149, 39); // 0xffbd9527 image.setColor(2, value);  image.setPixel(0, 1, 0); image.setPixel(1, 0, 0); image.setPixel(1, 1, 2); image.setPixel(2, 1, 1);</code></td>
+</tr>
+</tbody>
+</table>
+<p>For images with more than 8-bit per color-channel. The methods
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setPixelColor">setPixelColor</a>() and
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#pixelColor">pixelColor</a>() can be used to
+set and get with <a href="https://doc.qt.io/archives/qt-5.15/qcolor.html">QColor</a> values.</p>
+<p>QImage also provide the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#scanLine">scanLine</a>() function which
+returns a pointer to the pixel data at the scanline with the given index, and the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#bits">bits</a>() function which returns a
+pointer to the first pixel data (this is equivalent to <code>scanLine(0)</code>).</p>
+<h5 id="PythonQt.QtGui.QImage--image-formats">Image Formats</h5>
+<p>Each pixel stored in a QImage is represented by an integer. The size of the integer
+varies depending on the format. QImage supports several image formats described by the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#Format-enum">Format</a> enum.</p>
+<p>Monochrome images are stored using 1-bit indexes into a color table with at most two
+colors. There are two different types of monochrome images: big endian (MSB first) or
+little endian (LSB first) bit order.</p>
+<p>8-bit images are stored using 8-bit indexes into a color table, i.e. they have a single
+byte per pixel. The color table is a
+<a href="https://doc.qt.io/archives/qt-5.15/qvector.html">QVector</a>\&lt;<a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#QRgb-typedef">QRgb</a>&gt;,
+and the <a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#QRgb-typedef">QRgb</a> typedef is
+equivalent to an unsigned int containing an ARGB quadruplet on the format 0xAARRGGBB.</p>
+<p>32-bit images have no color table; instead, each pixel contains an
+<a href="https://doc.qt.io/archives/qt-5.15/qcolor.html#QRgb-typedef">QRgb</a> value. There are
+three different types of 32-bit images storing RGB (i.e. 0xffRRGGBB), ARGB and
+premultiplied ARGB values respectively. In the premultiplied format the red, green, and
+blue channels are multiplied by the alpha component divided by 255.</p>
+<p>An image's format can be retrieved using the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#format">format</a>() function. Use the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#convertToFormat">convertToFormat</a>()
+functions to convert an image into another format. The
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#allGray">allGray</a>() and
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#isGrayscale">isGrayscale</a>() functions
+tell whether a color image can safely be converted to a grayscale image.</p>
+<h5 id="PythonQt.QtGui.QImage--image-transformations">Image Transformations</h5>
+<p>QImage supports a number of functions for creating a new image that is a transformed
+version of the original: The
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#createAlphaMask">createAlphaMask</a>()
+function builds and returns a 1-bpp mask from the alpha buffer in this image, and the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#createHeuristicMask">createHeuristicMask</a>()
+function creates and returns a 1-bpp heuristic mask for this image. The latter function
+works by selecting a color from one of the corners, then chipping away pixels of that
+color starting at all the edges.</p>
+<p>The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#mirrored">mirrored</a>() function
+returns a mirror of the image in the desired direction, the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#scaled">scaled</a>() returns a copy of the
+image scaled to a rectangle of the desired measures, and the
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#rgbSwapped">rgbSwapped</a>() function
+constructs a BGR image from a RGB image.</p>
+<p>The <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#scaledToWidth">scaledToWidth</a>() and
+<a href="https://doc.qt.io/archives/qt-5.15/qimage.html#scaledToHeight">scaledToHeight</a>()
+functions return scaled copies of the image.</p>
+<p>The transformed() function returns a copy of the image that is transformed with the
+given transformation matrix and transformation mode: Internally, the transformation
+matrix is adjusted to compensate for unwanted translation, i.e. transformed() returns
+the smallest image containing all transformed points of the original image. The static
+trueMatrix() function returns the actual matrix used for transforming the image.</p>
+<p>There are also functions for changing attributes of an image in-place:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setDotsPerMeterX">setDotsPerMeterX</a>()</td>
+<td>Defines the aspect ratio by setting the number of pixels that fit horizontally in a physical meter.</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setDotsPerMeterY">setDotsPerMeterY</a>()</td>
+<td>Defines the aspect ratio by setting the number of pixels that fit vertically in a physical meter.</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qimage.html#fill">fill</a>()</td>
+<td>Fills the entire image with the given pixel value.</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qimage.html#invertPixels">invertPixels</a>()</td>
+<td>Inverts all pixel values in the image using the given <a href="https://doc.qt.io/archives/qt-5.15/qimage.html#InvertMode-enum">InvertMode</a> value.</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setColorTable">setColorTable</a>()</td>
+<td>Sets the color table used to translate color indexes. Only monochrome and 8-bit formats.</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qimage.html#setColorCount">setColorCount</a>()</td>
+<td>Resizes the color table. Only monochrome and 8-bit formats.</td>
+</tr>
+</tbody>
+</table>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qimage.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format"></span><code>Format</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QSettings/members-001.html#PythonQt.QtCore.QSettings.Format">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_A2BGR30_Premultiplied"></span><code>Format_A2BGR30_Premultiplied</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_A2BGR30_Premultiplied">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_A2RGB30_Premultiplied"></span><code>Format_A2RGB30_Premultiplied</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_A2RGB30_Premultiplied">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_ARGB32"></span><code>Format_ARGB32</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_ARGB32">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_ARGB32_Premultiplied"></span><code>Format_ARGB32_Premultiplied</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_ARGB32_Premultiplied">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_ARGB4444_Premultiplied"></span><code>Format_ARGB4444_Premultiplied</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_ARGB4444_Premultiplied">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_ARGB6666_Premultiplied"></span><code>Format_ARGB6666_Premultiplied</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_ARGB6666_Premultiplied">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_ARGB8555_Premultiplied"></span><code>Format_ARGB8555_Premultiplied</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_ARGB8555_Premultiplied">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_ARGB8565_Premultiplied"></span><code>Format_ARGB8565_Premultiplied</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_ARGB8565_Premultiplied">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_Alpha8"></span><code>Format_Alpha8</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_Alpha8">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_BGR30"></span><code>Format_BGR30</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_BGR30">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_Grayscale8"></span><code>Format_Grayscale8</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_Grayscale8">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_Indexed8"></span><code>Format_Indexed8</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_Indexed8">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_Invalid"></span><code>Format_Invalid</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_Invalid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_Mono"></span><code>Format_Mono</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_Mono">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_MonoLSB"></span><code>Format_MonoLSB</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_MonoLSB">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGB16"></span><code>Format_RGB16</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGB16">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGB30"></span><code>Format_RGB30</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGB30">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGB32"></span><code>Format_RGB32</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGB32">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGB444"></span><code>Format_RGB444</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGB444">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGB555"></span><code>Format_RGB555</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGB555">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGB666"></span><code>Format_RGB666</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGB666">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGB888"></span><code>Format_RGB888</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGB888">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGBA8888"></span><code>Format_RGBA8888</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGBA8888">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGBA8888_Premultiplied"></span><code>Format_RGBA8888_Premultiplied</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGBA8888_Premultiplied">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.Format_RGBX8888"></span><code>Format_RGBX8888</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.Format_RGBX8888">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.InvertMode"></span><code>InvertMode</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.InvertMode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.InvertRgb"></span><code>InvertRgb</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.InvertRgb">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.InvertRgba"></span><code>InvertRgba</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.InvertRgba">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.NImageFormats"></span><code>NImageFormats</code></td>
+<td>attribute</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.NImageFormats">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PaintDeviceMetric"></span><code>PaintDeviceMetric</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PaintDeviceMetric">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmDepth"></span><code>PdmDepth</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDepth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmDevicePixelRatio"></span><code>PdmDevicePixelRatio</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDevicePixelRatio">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmDevicePixelRatioScaled"></span><code>PdmDevicePixelRatioScaled</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDevicePixelRatioScaled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmDpiX"></span><code>PdmDpiX</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmDpiY"></span><code>PdmDpiY</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmHeight"></span><code>PdmHeight</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmHeightMM"></span><code>PdmHeightMM</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmHeightMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmNumColors"></span><code>PdmNumColors</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmNumColors">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmPhysicalDpiX"></span><code>PdmPhysicalDpiX</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmPhysicalDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmPhysicalDpiY"></span><code>PdmPhysicalDpiY</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmPhysicalDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmWidth"></span><code>PdmWidth</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.PdmWidthMM"></span><code>PdmWidthMM</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmWidthMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.allGray"></span><code>allGray</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.allGray">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.alphaChannel"></span><code>alphaChannel</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.alphaChannel">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.bitPlaneCount"></span><code>bitPlaneCount</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.bitPlaneCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.bits"></span><code>bits</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.bits">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.byteCount"></span><code>byteCount</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.byteCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.bytesPerLine"></span><code>bytesPerLine</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.bytesPerLine">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.cacheKey"></span><code>cacheKey</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.cacheKey">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.color"></span><code>color</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.color">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.colorCount"></span><code>colorCount</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.colorCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.colorTable"></span><code>colorTable</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.colorTable">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.constBits"></span><code>constBits</code></td>
+<td>function</td>
+<td><a href="QImage/members-001.html#PythonQt.QtGui.QImage.constBits">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.constScanLine"></span><code>constScanLine</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.constScanLine">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.convertToFormat"></span><code>convertToFormat</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.convertToFormat">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.convertToFormat_helper"></span><code>convertToFormat_helper</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.convertToFormat_helper">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.convertToFormat_inplace"></span><code>convertToFormat_inplace</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.convertToFormat_inplace">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.copy"></span><code>copy</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.copy">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.createAlphaMask"></span><code>createAlphaMask</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.createAlphaMask">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.createHeuristicMask"></span><code>createHeuristicMask</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.createHeuristicMask">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.createMaskFromColor"></span><code>createMaskFromColor</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.createMaskFromColor">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.depth"></span><code>depth</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.depth">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.devType"></span><code>devType</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.devType">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.devicePixelRatio"></span><code>devicePixelRatio</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.devicePixelRatio">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.devicePixelRatioF"></span><code>devicePixelRatioF</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatioF">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.devicePixelRatioFScale"></span><code>devicePixelRatioFScale</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatioFScale">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.dotsPerMeterX"></span><code>dotsPerMeterX</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.dotsPerMeterX">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.dotsPerMeterY"></span><code>dotsPerMeterY</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.dotsPerMeterY">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.fill"></span><code>fill</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.fill">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.format"></span><code>format</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.format">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.fromData"></span><code>fromData</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.fromData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.hasAlphaChannel"></span><code>hasAlphaChannel</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.hasAlphaChannel">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.height"></span><code>height</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.height">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.heightMM"></span><code>heightMM</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.heightMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.initPainter"></span><code>initPainter</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.initPainter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.invertPixels"></span><code>invertPixels</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.invertPixels">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.isGrayscale"></span><code>isGrayscale</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.isGrayscale">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.isNull"></span><code>isNull</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.isNull">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.load"></span><code>load</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.load">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.loadFromData"></span><code>loadFromData</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.loadFromData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.logicalDpiX"></span><code>logicalDpiX</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.logicalDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.logicalDpiY"></span><code>logicalDpiY</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.logicalDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.metric"></span><code>metric</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.metric">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.mirrored"></span><code>mirrored</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.mirrored">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.mirrored_helper"></span><code>mirrored_helper</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.mirrored_helper">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.mirrored_inplace"></span><code>mirrored_inplace</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.mirrored_inplace">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.offset"></span><code>offset</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.offset">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.paintEngine"></span><code>paintEngine</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.paintEngine">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.paintingActive"></span><code>paintingActive</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.paintingActive">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.physicalDpiX"></span><code>physicalDpiX</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.physicalDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.physicalDpiY"></span><code>physicalDpiY</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.physicalDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.pixel"></span><code>pixel</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.pixel">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.pixelColor"></span><code>pixelColor</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.pixelColor">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.pixelFormat"></span><code>pixelFormat</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.pixelFormat">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.pixelIndex"></span><code>pixelIndex</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.pixelIndex">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.readFrom"></span><code>readFrom</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBitArray/members-001.html#PythonQt.QtCore.QBitArray.readFrom">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.rect"></span><code>rect</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.rect">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.redirected"></span><code>redirected</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.redirected">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.rgbSwapped"></span><code>rgbSwapped</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.rgbSwapped">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.rgbSwapped_helper"></span><code>rgbSwapped_helper</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.rgbSwapped_helper">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.rgbSwapped_inplace"></span><code>rgbSwapped_inplace</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.rgbSwapped_inplace">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.save"></span><code>save</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.save">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.scaled"></span><code>scaled</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.scaled">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.scaledToHeight"></span><code>scaledToHeight</code></td>
+<td>function</td>
+<td><a href="QImage/members-002.html#PythonQt.QtGui.QImage.scaledToHeight">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.scaledToWidth"></span><code>scaledToWidth</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.scaledToWidth">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.scanLine"></span><code>scanLine</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.scanLine">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setAlphaChannel"></span><code>setAlphaChannel</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setAlphaChannel">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setColor"></span><code>setColor</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setColor">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setColorCount"></span><code>setColorCount</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setColorCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setDevicePixelRatio"></span><code>setDevicePixelRatio</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setDevicePixelRatio">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setDotsPerMeterX"></span><code>setDotsPerMeterX</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setDotsPerMeterX">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setDotsPerMeterY"></span><code>setDotsPerMeterY</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setDotsPerMeterY">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setOffset"></span><code>setOffset</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setOffset">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setPixel"></span><code>setPixel</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setPixel">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setPixelColor"></span><code>setPixelColor</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setPixelColor">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.setText"></span><code>setText</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.setText">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.sharedPainter"></span><code>sharedPainter</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.sharedPainter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.size"></span><code>size</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.size">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.smoothScaled"></span><code>smoothScaled</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.smoothScaled">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.swap"></span><code>swap</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.swap">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.text"></span><code>text</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.text">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.textKeys"></span><code>textKeys</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.textKeys">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.toImageFormat"></span><code>toImageFormat</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.toImageFormat">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.toPixelFormat"></span><code>toPixelFormat</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.toPixelFormat">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.transformed"></span><code>transformed</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.transformed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.trueMatrix"></span><code>trueMatrix</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.trueMatrix">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.valid"></span><code>valid</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.valid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.width"></span><code>width</code></td>
+<td>function</td>
+<td><a href="QImage/members-003.html#PythonQt.QtGui.QImage.width">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.widthMM"></span><code>widthMM</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.widthMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QImage.writeTo"></span><code>writeTo</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBitArray/members-001.html#PythonQt.QtCore.QBitArray.writeTo">Shared captured text</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4926 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/fontlab/flPreferences.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>fontlab.flPreferences - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fontlabflpreferences" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              fontlab.flPreferences
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#fontlab.flPreferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flPreferences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="fontlabflpreferences">fontlab.flPreferences</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fontlab.flPreferences" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">flPreferences</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>flPreferences representation</p>
+<p>Constructors:
+  flPreferences()</p>
+<p>Native bases: object</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="fontlab.flPreferences.ConflictOverwrite"></span><code>ConflictOverwrite</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.ConflictOverwrite">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ConflictRename"></span><code>ConflictRename</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.ConflictRename">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ConflictSkip"></span><code>ConflictSkip</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.ConflictSkip">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ConflictTrash"></span><code>ConflictTrash</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.ConflictTrash">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ContentCurrent"></span><code>ContentCurrent</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.ContentCurrent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ContentInstances"></span><code>ContentInstances</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.ContentInstances">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ContentMasters"></span><code>ContentMasters</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.ContentMasters">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ContentVisible"></span><code>ContentVisible</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.ContentVisible">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.CoordinanesNone"></span><code>CoordinanesNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.CoordinanesNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.CoordinatesAll"></span><code>CoordinatesAll</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.CoordinatesAll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.CoordinatesSelected"></span><code>CoordinatesSelected</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.CoordinatesSelected">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.CurvatureLarge"></span><code>CurvatureLarge</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.CurvatureLarge">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.CurvatureMedium"></span><code>CurvatureMedium</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.CurvatureMedium">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.CurvatureSmall"></span><code>CurvatureSmall</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.CurvatureSmall">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.CurvatureSmart"></span><code>CurvatureSmart</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.CurvatureSmart">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DestinationAsk"></span><code>DestinationAsk</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DestinationAsk">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DestinationFolder"></span><code>DestinationFolder</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DestinationFolder">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DestinationSource"></span><code>DestinationSource</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DestinationSource">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DrawFocusAlways"></span><code>DrawFocusAlways</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DrawFocusAlways">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DrawFocusNever"></span><code>DrawFocusNever</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DrawFocusNever">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DrawFocusPanels"></span><code>DrawFocusPanels</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DrawFocusPanels">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DsigAlgorithmMD5"></span><code>DsigAlgorithmMD5</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DsigAlgorithmMD5">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DsigAlgorithmSHA1"></span><code>DsigAlgorithmSHA1</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DsigAlgorithmSHA1">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DsigAlgorithmSHA256"></span><code>DsigAlgorithmSHA256</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DsigAlgorithmSHA256">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DsigAlgorithmSHA384"></span><code>DsigAlgorithmSHA384</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DsigAlgorithmSHA384">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DsigAlgorithmSHA512"></span><code>DsigAlgorithmSHA512</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DsigAlgorithmSHA512">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DsigAuthorityCommercial"></span><code>DsigAuthorityCommercial</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DsigAuthorityCommercial">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DsigAuthorityDefault"></span><code>DsigAuthorityDefault</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DsigAuthorityDefault">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.DsigAuthorityIndividual"></span><code>DsigAuthorityIndividual</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.DsigAuthorityIndividual">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.FontCaptionAuto"></span><code>FontCaptionAuto</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.FontCaptionAuto">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.FontCaptionLarge"></span><code>FontCaptionLarge</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.FontCaptionLarge">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.FontCaptionMedium"></span><code>FontCaptionMedium</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.FontCaptionMedium">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.FontCaptionSmall"></span><code>FontCaptionSmall</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.FontCaptionSmall">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.GroupsAlignCenter"></span><code>GroupsAlignCenter</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.GroupsAlignCenter">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.GroupsAlignLeft"></span><code>GroupsAlignLeft</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.GroupsAlignLeft">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.GroupsAlignRight"></span><code>GroupsAlignRight</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.GroupsAlignRight">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.GroupsFillAlways"></span><code>GroupsFillAlways</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.GroupsFillAlways">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.GroupsFillAuto"></span><code>GroupsFillAuto</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.GroupsFillAuto">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.GroupsFillNever"></span><code>GroupsFillNever</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.GroupsFillNever">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.GroupsMaskMask"></span><code>GroupsMaskMask</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-001.html#fontlab.flPreferences.GroupsMaskMask">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.GroupsMaskNone"></span><code>GroupsMaskNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.GroupsMaskNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.GroupsMaskOutline"></span><code>GroupsMaskOutline</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.GroupsMaskOutline">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.InactiveNodeNone"></span><code>InactiveNodeNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.InactiveNodeNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.InactiveNodeNormal"></span><code>InactiveNodeNormal</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.InactiveNodeNormal">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.InactiveNodeSmall"></span><code>InactiveNodeSmall</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.InactiveNodeSmall">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.InterpretName"></span><code>InterpretName</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.InterpretName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.InterpretWeight"></span><code>InterpretWeight</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.InterpretWeight">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.InterpretWidth"></span><code>InterpretWidth</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.InterpretWidth">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.KeepDraw"></span><code>KeepDraw</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.KeepDraw">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.KeepGuidesHints"></span><code>KeepGuidesHints</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.KeepGuidesHints">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.KeepInsertDelete"></span><code>KeepInsertDelete</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.KeepInsertDelete">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.KeepNone"></span><code>KeepNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.KeepNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MastersBackground"></span><code>MastersBackground</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MastersBackground">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MastersBar"></span><code>MastersBar</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MastersBar">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MastersNone"></span><code>MastersNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MastersNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MatchAll"></span><code>MatchAll</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MatchAll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MatchConvertSegment"></span><code>MatchConvertSegment</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MatchConvertSegment">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MatchDeleteNode"></span><code>MatchDeleteNode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MatchDeleteNode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MatchGuides"></span><code>MatchGuides</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MatchGuides">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MatchHints"></span><code>MatchHints</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MatchHints">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MatchInsertNode"></span><code>MatchInsertNode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MatchInsertNode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MatchInsertShape"></span><code>MatchInsertShape</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MatchInsertShape">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MatchPins"></span><code>MatchPins</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MatchPins">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MatchRenameNode"></span><code>MatchRenameNode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MatchRenameNode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MetricsHideAnchors"></span><code>MetricsHideAnchors</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MetricsHideAnchors">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MetricsHideFontGuides"></span><code>MetricsHideFontGuides</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MetricsHideFontGuides">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MetricsHideFontMetrics"></span><code>MetricsHideFontMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MetricsHideFontMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MetricsHideGlyphMetrics"></span><code>MetricsHideGlyphMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MetricsHideGlyphMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MetricsHideGrid"></span><code>MetricsHideGrid</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MetricsHideGrid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MetricsHideGuides"></span><code>MetricsHideGuides</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MetricsHideGuides">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MetricsHideHints"></span><code>MetricsHideHints</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MetricsHideHints">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.MetricsHideZones"></span><code>MetricsHideZones</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.MetricsHideZones">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ModeCategories"></span><code>ModeCategories</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.ModeCategories">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ModeCodepages"></span><code>ModeCodepages</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.ModeCodepages">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ModeIndex"></span><code>ModeIndex</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.ModeIndex">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ModeNames"></span><code>ModeNames</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.ModeNames">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ModeNone"></span><code>ModeNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.ModeNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ModeRanges"></span><code>ModeRanges</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.ModeRanges">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ModeScripts"></span><code>ModeScripts</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.ModeScripts">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NiceGlyphs"></span><code>NiceGlyphs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-002.html#fontlab.flPreferences.NiceGlyphs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NiceNone"></span><code>NiceNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NiceNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NicePdf"></span><code>NicePdf</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NicePdf">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NiceRobo"></span><code>NiceRobo</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NiceRobo">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NiceUni"></span><code>NiceUni</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NiceUni">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NodeNameAlways"></span><code>NodeNameAlways</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NodeNameAlways">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NodeNameCoordinates"></span><code>NodeNameCoordinates</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NodeNameCoordinates">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NodeNameNever"></span><code>NodeNameNever</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NodeNameNever">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NodeStyleAuto"></span><code>NodeStyleAuto</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NodeStyleAuto">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NodeStyleFlat"></span><code>NodeStyleFlat</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NodeStyleFlat">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.NodeStyleFrame"></span><code>NodeStyleFrame</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.NodeStyleFrame">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.OrganizeNone"></span><code>OrganizeNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.OrganizeNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.OrganizePSN"></span><code>OrganizePSN</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.OrganizePSN">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.OrganizeProfile"></span><code>OrganizeProfile</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.OrganizeProfile">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.OrganizeSGN"></span><code>OrganizeSGN</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.OrganizeSGN">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.OrganizeTFN"></span><code>OrganizeTFN</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.OrganizeTFN">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.OrganizeTFN_Profile"></span><code>OrganizeTFN_Profile</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.OrganizeTFN_Profile">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PasteAlign"></span><code>PasteAlign</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PasteAlign">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PasteAscender_Descender"></span><code>PasteAscender_Descender</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PasteAscender_Descender">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PasteCapsHeight_Baseline"></span><code>PasteCapsHeight_Baseline</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PasteCapsHeight_Baseline">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PasteCapsHeight_Descender"></span><code>PasteCapsHeight_Descender</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PasteCapsHeight_Descender">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PasteUPM_Descender"></span><code>PasteUPM_Descender</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PasteUPM_Descender">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PasteUnscaled"></span><code>PasteUnscaled</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PasteUnscaled">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PowerAll"></span><code>PowerAll</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PowerAll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PowerFont"></span><code>PowerFont</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PowerFont">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PowerGlyph"></span><code>PowerGlyph</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PowerGlyph">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PowerMetrics"></span><code>PowerMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PowerMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.PowerZones"></span><code>PowerZones</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.PowerZones">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.RainbowNoCenterline"></span><code>RainbowNoCenterline</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.RainbowNoCenterline">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.RainbowNoEdges"></span><code>RainbowNoEdges</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.RainbowNoEdges">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.RainbowNoRainbow"></span><code>RainbowNoRainbow</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.RainbowNoRainbow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.RainbowNone"></span><code>RainbowNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.RainbowNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.RainbowShow"></span><code>RainbowShow</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.RainbowShow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.RoundAll"></span><code>RoundAll</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.RoundAll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.RoundNone"></span><code>RoundNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.RoundNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.RoundOn"></span><code>RoundOn</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.RoundOn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.SaveFolderAsk"></span><code>SaveFolderAsk</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.SaveFolderAsk">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.SaveFolderFolder"></span><code>SaveFolderFolder</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.SaveFolderFolder">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.SaveFolderSource"></span><code>SaveFolderSource</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.SaveFolderSource">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.SaveWorkspacePanels"></span><code>SaveWorkspacePanels</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.SaveWorkspacePanels">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.SaveWorkspaceWindows"></span><code>SaveWorkspaceWindows</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-003.html#fontlab.flPreferences.SaveWorkspaceWindows">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.SingleBreak"></span><code>SingleBreak</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.SingleBreak">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.SingleRemove"></span><code>SingleRemove</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.SingleRemove">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.TaperBody"></span><code>TaperBody</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.TaperBody">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.TaperEdge"></span><code>TaperEdge</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.TaperEdge">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.TaperEverywhere"></span><code>TaperEverywhere</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.TaperEverywhere">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.TaperNone"></span><code>TaperNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.TaperNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ThicknessNormal"></span><code>ThicknessNormal</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ThicknessNormal">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ThicknessThick"></span><code>ThicknessThick</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ThicknessThick">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ThicknessThin"></span><code>ThicknessThin</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ThicknessThin">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.TransformModeRotate"></span><code>TransformModeRotate</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.TransformModeRotate">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.TransformModeScale"></span><code>TransformModeScale</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.TransformModeScale">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.TransformModeSlant"></span><code>TransformModeSlant</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.TransformModeSlant">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.UseItalicAll"></span><code>UseItalicAll</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.UseItalicAll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.UseItalicMetrics"></span><code>UseItalicMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.UseItalicMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.UseItalicNone"></span><code>UseItalicNone</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.UseItalicNone">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewAnchorGroups"></span><code>ViewAnchorGroups</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewAnchorGroups">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewAnchors"></span><code>ViewAnchors</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewAnchors">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewBackground"></span><code>ViewBackground</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewBackground">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewContourDirection"></span><code>ViewContourDirection</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewContourDirection">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewCoordinates"></span><code>ViewCoordinates</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewCoordinates">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewCount"></span><code>ViewCount</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewCounters"></span><code>ViewCounters</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewCounters">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewCurvature"></span><code>ViewCurvature</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewCurvature">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewFilledPreview"></span><code>ViewFilledPreview</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewFilledPreview">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewFontAudit"></span><code>ViewFontAudit</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewFontAudit">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewFontGuides"></span><code>ViewFontGuides</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewFontGuides">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewFontMetrics"></span><code>ViewFontMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewFontMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewGlobalMask"></span><code>ViewGlobalMask</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewGlobalMask">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewGlyphBar"></span><code>ViewGlyphBar</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewGlyphBar">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewGlyphGuides"></span><code>ViewGlyphGuides</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewGlyphGuides">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewGlyphMetrics"></span><code>ViewGlyphMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewGlyphMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewGrid"></span><code>ViewGrid</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewGrid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewGroups"></span><code>ViewGroups</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewGroups">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewHandles"></span><code>ViewHandles</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewHandles">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewHintShadows"></span><code>ViewHintShadows</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewHintShadows">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewHints"></span><code>ViewHints</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewHints">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewInactiveGlyphs"></span><code>ViewInactiveGlyphs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewInactiveGlyphs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewKerningGroups"></span><code>ViewKerningGroups</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewKerningGroups">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewLocalMask"></span><code>ViewLocalMask</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewLocalMask">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewMasterLinks"></span><code>ViewMasterLinks</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-004.html#fontlab.flPreferences.ViewMasterLinks">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewMeasurement"></span><code>ViewMeasurement</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewMeasurement">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewMeasurementPanel"></span><code>ViewMeasurementPanel</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewMeasurementPanel">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewMetricsTable"></span><code>ViewMetricsTable</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewMetricsTable">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewModeKerning"></span><code>ViewModeKerning</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewModeKerning">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewModeMetrics"></span><code>ViewModeMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewModeMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewModeOutline"></span><code>ViewModeOutline</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewModeOutline">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewModePreview"></span><code>ViewModePreview</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewModePreview">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewModeText"></span><code>ViewModeText</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewModeText">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewNodeLinks"></span><code>ViewNodeLinks</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewNodeLinks">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewNodes"></span><code>ViewNodes</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewNodes">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewPins"></span><code>ViewPins</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewPins">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewRulers"></span><code>ViewRulers</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewRulers">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewSelectionFrame"></span><code>ViewSelectionFrame</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewSelectionFrame">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewShapeConnection"></span><code>ViewShapeConnection</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewShapeConnection">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewShapeFrame"></span><code>ViewShapeFrame</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewShapeFrame">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewShapeGuides"></span><code>ViewShapeGuides</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewShapeGuides">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewShapeLinks"></span><code>ViewShapeLinks</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewShapeLinks">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewStickers"></span><code>ViewStickers</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewStickers">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewString"></span><code>ViewString</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewString">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewTapeLine"></span><code>ViewTapeLine</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewTapeLine">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewThickness"></span><code>ViewThickness</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewThickness">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewTunni"></span><code>ViewTunni</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewTunni">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ViewZones"></span><code>ViewZones</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ViewZones">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.WindowsFontTabs"></span><code>WindowsFontTabs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.WindowsFontTabs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.WindowsTabs"></span><code>WindowsTabs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.WindowsTabs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.WindowsWindows"></span><code>WindowsWindows</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.WindowsWindows">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ZoomModeLines"></span><code>ZoomModeLines</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ZoomModeLines">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ZoomModeMetrics"></span><code>ZoomModeMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ZoomModeMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ZoomModeSafe"></span><code>ZoomModeSafe</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ZoomModeSafe">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.ZoomModeSize"></span><code>ZoomModeSize</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.ZoomModeSize">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../PythonQt/BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorEncoding"></span><code>colorEncoding</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorEncoding">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorFontCell"></span><code>colorFontCell</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorFontCell">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorGrid"></span><code>colorGrid</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorGrid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorKerning"></span><code>colorKerning</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorKerning">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorMask"></span><code>colorMask</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorMask">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorMaskGlobal"></span><code>colorMaskGlobal</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorMaskGlobal">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorMaskLocal"></span><code>colorMaskLocal</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorMaskLocal">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorMetrics"></span><code>colorMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorMetricsLines"></span><code>colorMetricsLines</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorMetricsLines">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.colorWorkspace"></span><code>colorWorkspace</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-005.html#fontlab.flPreferences.colorWorkspace">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.convertDetectZoneTags"></span><code>convertDetectZoneTags</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.convertDetectZoneTags">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.convertPostScriptPrecision"></span><code>convertPostScriptPrecision</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.convertPostScriptPrecision">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.convertTrueTypePrecision"></span><code>convertTrueTypePrecision</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.convertTrueTypePrecision">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.convertTrueTypeShortCurves"></span><code>convertTrueTypeShortCurves</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.convertTrueTypeShortCurves">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dataPath"></span><code>dataPath</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dataPath">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dataPathDefault"></span><code>dataPathDefault</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dataPathDefault">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.defaultTexts"></span><code>defaultTexts</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.defaultTexts">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.developerBacklightUpdate"></span><code>developerBacklightUpdate</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.developerBacklightUpdate">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.developerLargeQuickHelp"></span><code>developerLargeQuickHelp</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.developerLargeQuickHelp">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.developerNoParameters"></span><code>developerNoParameters</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.developerNoParameters">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.developerOpenGL"></span><code>developerOpenGL</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.developerOpenGL">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.developerShowKeys"></span><code>developerShowKeys</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.developerShowKeys">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.doInterpolate"></span><code>doInterpolate</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.doInterpolate">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.drawFocusRect"></span><code>drawFocusRect</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.drawFocusRect">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dsigAlgorithm"></span><code>dsigAlgorithm</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dsigAlgorithm">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dsigAuthority"></span><code>dsigAuthority</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dsigAuthority">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dsigCertificatePath"></span><code>dsigCertificatePath</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dsigCertificatePath">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dsigPassword"></span><code>dsigPassword</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dsigPassword">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dsigPrivateKeyPath"></span><code>dsigPrivateKeyPath</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dsigPrivateKeyPath">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dsigTimestamp"></span><code>dsigTimestamp</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dsigTimestamp">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dsigTimestampUrl"></span><code>dsigTimestampUrl</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dsigTimestampUrl">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dsigUrl"></span><code>dsigUrl</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dsigUrl">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.dsigWrite"></span><code>dsigWrite</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.dsigWrite">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorAcrossGlyphs"></span><code>editorAcrossGlyphs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorAcrossGlyphs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorAcrossLayers"></span><code>editorAcrossLayers</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorAcrossLayers">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorAcrossShapes"></span><code>editorAcrossShapes</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorAcrossShapes">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorAllowCache"></span><code>editorAllowCache</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorAllowCache">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorAlternativePencil"></span><code>editorAlternativePencil</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorAlternativePencil">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorAutoNonSpacing"></span><code>editorAutoNonSpacing</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorAutoNonSpacing">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCenterGlyph"></span><code>editorCenterGlyph</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorCenterGlyph">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorClickSelectsCurve"></span><code>editorClickSelectsCurve</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorClickSelectsCurve">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCloseDistance"></span><code>editorCloseDistance</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorCloseDistance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCommandSelector"></span><code>editorCommandSelector</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorCommandSelector">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorContrast"></span><code>editorContrast</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorContrast">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCoordinates"></span><code>editorCoordinates</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorCoordinates">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCoordinatesEditable"></span><code>editorCoordinatesEditable</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorCoordinatesEditable">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCopyText"></span><code>editorCopyText</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorCopyText">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCross"></span><code>editorCross</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorCross">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCtrl100"></span><code>editorCtrl100</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorCtrl100">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCurvatureOpacity"></span><code>editorCurvatureOpacity</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-006.html#fontlab.flPreferences.editorCurvatureOpacity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorCurvatureSize"></span><code>editorCurvatureSize</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorCurvatureSize">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorDarkPreview"></span><code>editorDarkPreview</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorDarkPreview">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorDeleteSingleNode"></span><code>editorDeleteSingleNode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorDeleteSingleNode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorDirectKerning"></span><code>editorDirectKerning</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorDirectKerning">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorDragInactiveShape"></span><code>editorDragInactiveShape</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorDragInactiveShape">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorFastPreview"></span><code>editorFastPreview</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorFastPreview">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorFeatures"></span><code>editorFeatures</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorFeatures">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorFillOpacity"></span><code>editorFillOpacity</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorFillOpacity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorFillOpenContours"></span><code>editorFillOpenContours</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorFillOpenContours">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorFixedBCP"></span><code>editorFixedBCP</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorFixedBCP">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorFocus"></span><code>editorFocus</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorFocus">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorForcedGrid"></span><code>editorForcedGrid</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorForcedGrid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorForcedSnap"></span><code>editorForcedSnap</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorForcedSnap">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorFrameSelectsOnNodes"></span><code>editorFrameSelectsOnNodes</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorFrameSelectsOnNodes">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorGestures"></span><code>editorGestures</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorGestures">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorGuideHitDistance"></span><code>editorGuideHitDistance</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorGuideHitDistance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorHidePlaceholders"></span><code>editorHidePlaceholders</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorHidePlaceholders">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorInactiveHandles"></span><code>editorInactiveHandles</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorInactiveHandles">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorInactiveNodes"></span><code>editorInactiveNodes</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorInactiveNodes">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorInactiveWireframe"></span><code>editorInactiveWireframe</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorInactiveWireframe">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorInertion"></span><code>editorInertion</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorInertion">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorInstanceLayer"></span><code>editorInstanceLayer</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorInstanceLayer">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorInterpolate"></span><code>editorInterpolate</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorInterpolate">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorInterpolateModifier"></span><code>editorInterpolateModifier</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorInterpolateModifier">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorKeyboardJoin"></span><code>editorKeyboardJoin</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorKeyboardJoin">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorLayerDoubleClick"></span><code>editorLayerDoubleClick</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorLayerDoubleClick">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorListMaskLayers"></span><code>editorListMaskLayers</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorListMaskLayers">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorLockInactiveGlyphs"></span><code>editorLockInactiveGlyphs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorLockInactiveGlyphs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorMatch"></span><code>editorMatch</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorMatch">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorMeterCoordinates"></span><code>editorMeterCoordinates</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorMeterCoordinates">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorMetricsDoubleClick"></span><code>editorMetricsDoubleClick</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorMetricsDoubleClick">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorMinHandle"></span><code>editorMinHandle</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorMinHandle">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorMissingGlyphs"></span><code>editorMissingGlyphs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorMissingGlyphs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorModalPen"></span><code>editorModalPen</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorModalPen">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorNodeColor"></span><code>editorNodeColor</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorNodeColor">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorNodeFontDefault"></span><code>editorNodeFontDefault</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorNodeFontDefault">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorNodeFontHovered"></span><code>editorNodeFontHovered</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorNodeFontHovered">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorNodeHighlightDistance"></span><code>editorNodeHighlightDistance</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorNodeHighlightDistance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorNodeHitDistance"></span><code>editorNodeHitDistance</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorNodeHitDistance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorNodeSize"></span><code>editorNodeSize</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-007.html#fontlab.flPreferences.editorNodeSize">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorNoteExpanded"></span><code>editorNoteExpanded</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorNoteExpanded">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorNudge1"></span><code>editorNudge1</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorNudge1">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorNudge10"></span><code>editorNudge10</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorNudge10">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorOffsetDuplicate"></span><code>editorOffsetDuplicate</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorOffsetDuplicate">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorOffsetPaste"></span><code>editorOffsetPaste</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorOffsetPaste">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorOutlineThickness"></span><code>editorOutlineThickness</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorOutlineThickness">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorPantographCurve"></span><code>editorPantographCurve</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorPantographCurve">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorPantographKerning"></span><code>editorPantographKerning</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorPantographKerning">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorPantographNode"></span><code>editorPantographNode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorPantographNode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorPasteArtwork"></span><code>editorPasteArtwork</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorPasteArtwork">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorPasteContourVisual"></span><code>editorPasteContourVisual</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorPasteContourVisual">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorPasteReplace"></span><code>editorPasteReplace</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorPasteReplace">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorPenCorrection"></span><code>editorPenCorrection</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorPenCorrection">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorPenPreview"></span><code>editorPenPreview</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorPenPreview">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorPreviewPowerNudge"></span><code>editorPreviewPowerNudge</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorPreviewPowerNudge">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorProportionalThickness"></span><code>editorProportionalThickness</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorProportionalThickness">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorRoundKerning"></span><code>editorRoundKerning</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorRoundKerning">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorRoundMetrics"></span><code>editorRoundMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorRoundMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorScrollBars"></span><code>editorScrollBars</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorScrollBars">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorSetMetrics2Frame"></span><code>editorSetMetrics2Frame</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorSetMetrics2Frame">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorShiftConstrains"></span><code>editorShiftConstrains</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorShiftConstrains">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorShiftExtendsSelection"></span><code>editorShiftExtendsSelection</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorShiftExtendsSelection">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorShortGuides"></span><code>editorShortGuides</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorShortGuides">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorShowCoordinates"></span><code>editorShowCoordinates</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorShowCoordinates">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorShowCurves"></span><code>editorShowCurves</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorShowCurves">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorShowHiddenNodeName"></span><code>editorShowHiddenNodeName</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorShowHiddenNodeName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorShowNodeName"></span><code>editorShowNodeName</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorShowNodeName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorShowSb"></span><code>editorShowSb</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorShowSb">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorSidebarInactive"></span><code>editorSidebarInactive</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorSidebarInactive">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorSmartDelay"></span><code>editorSmartDelay</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorSmartDelay">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorSnapDistance"></span><code>editorSnapDistance</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorSnapDistance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorStrongRound"></span><code>editorStrongRound</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorStrongRound">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorTaperMode"></span><code>editorTaperMode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorTaperMode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorTextWidth"></span><code>editorTextWidth</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorTextWidth">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorTopBottom"></span><code>editorTopBottom</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorTopBottom">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorUndoSelection"></span><code>editorUndoSelection</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorUndoSelection">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorUseItalicAngle"></span><code>editorUseItalicAngle</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorUseItalicAngle">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorZoneNodes"></span><code>editorZoneNodes</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorZoneNodes">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.editorZoomAscender"></span><code>editorZoomAscender</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.editorZoomAscender">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportConflictMode"></span><code>exportConflictMode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-008.html#fontlab.flPreferences.exportConflictMode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportContent"></span><code>exportContent</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportContent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportDestinationFolder"></span><code>exportDestinationFolder</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportDestinationFolder">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportDestinationMode"></span><code>exportDestinationMode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportDestinationMode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportJsonContours"></span><code>exportJsonContours</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportJsonContours">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportJsonFormatting"></span><code>exportJsonFormatting</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportJsonFormatting">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportOrganizeMode"></span><code>exportOrganizeMode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportOrganizeMode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportPPM"></span><code>exportPPM</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportPPM">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportSaveFolder"></span><code>exportSaveFolder</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportSaveFolder">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportSaveSketchboard"></span><code>exportSaveSketchboard</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportSaveSketchboard">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportSaveVFJ"></span><code>exportSaveVFJ</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportSaveVFJ">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportSaveWorkspaceVFC"></span><code>exportSaveWorkspaceVFC</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportSaveWorkspaceVFC">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportSaveWorkspaceVFJ"></span><code>exportSaveWorkspaceVFJ</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportSaveWorkspaceVFJ">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.exportSessionVFJ"></span><code>exportSessionVFJ</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.exportSessionVFJ">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.featuresAddKerningClasses"></span><code>featuresAddKerningClasses</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.featuresAddKerningClasses">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.featuresAddOpenTypeClasses"></span><code>featuresAddOpenTypeClasses</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.featuresAddOpenTypeClasses">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.featuresAddTags"></span><code>featuresAddTags</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.featuresAddTags">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.featuresAddVirtualTags"></span><code>featuresAddVirtualTags</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.featuresAddVirtualTags">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontAbsentGray"></span><code>fontAbsentGray</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontAbsentGray">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontAllGlyphs"></span><code>fontAllGlyphs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontAllGlyphs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontAskFileName"></span><code>fontAskFileName</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontAskFileName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontAuditInPlace"></span><code>fontAuditInPlace</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontAuditInPlace">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontAuditStemTolerance"></span><code>fontAuditStemTolerance</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontAuditStemTolerance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontAuditTests"></span><code>fontAuditTests</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontAuditTests">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontCaptionEditable"></span><code>fontCaptionEditable</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontCaptionEditable">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontCaptionHeight"></span><code>fontCaptionHeight</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontCaptionHeight">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontCaptionTop"></span><code>fontCaptionTop</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontCaptionTop">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontClose"></span><code>fontClose</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontClose">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontColoredCaption"></span><code>fontColoredCaption</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontColoredCaption">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontColoredItems"></span><code>fontColoredItems</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontColoredItems">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontCreateDynamic"></span><code>fontCreateDynamic</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontCreateDynamic">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontCreateGenerate"></span><code>fontCreateGenerate</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontCreateGenerate">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontDefaultEncoding"></span><code>fontDefaultEncoding</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontDefaultEncoding">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontDefaultMode"></span><code>fontDefaultMode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontDefaultMode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontDefaultSorting"></span><code>fontDefaultSorting</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontDefaultSorting">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontDrawLines"></span><code>fontDrawLines</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontDrawLines">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontExtraIcons"></span><code>fontExtraIcons</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontExtraIcons">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontFriendlyEncoding"></span><code>fontFriendlyEncoding</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontFriendlyEncoding">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontMarkBright"></span><code>fontMarkBright</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontMarkBright">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontMarkOpacity"></span><code>fontMarkOpacity</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontMarkOpacity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontMetricsLimit"></span><code>fontMetricsLimit</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-009.html#fontlab.flPreferences.fontMetricsLimit">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontMonospaced"></span><code>fontMonospaced</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontMonospaced">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontNamFileName"></span><code>fontNamFileName</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontNamFileName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontNamFileNameDefault"></span><code>fontNamFileNameDefault</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontNamFileNameDefault">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontNameUnicode"></span><code>fontNameUnicode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontNameUnicode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontNewNames"></span><code>fontNewNames</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontNewNames">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontNewWindow"></span><code>fontNewWindow</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontNewWindow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontNoteIcon"></span><code>fontNoteIcon</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontNoteIcon">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontNoteText"></span><code>fontNoteText</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontNoteText">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontPropertyIcon"></span><code>fontPropertyIcon</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontPropertyIcon">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontRedBar"></span><code>fontRedBar</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontRedBar">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontShowGlyphMetrics"></span><code>fontShowGlyphMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontShowGlyphMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontSpaceScroll"></span><code>fontSpaceScroll</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontSpaceScroll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontUnicodeName"></span><code>fontUnicodeName</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontUnicodeName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontUnicodeUppercase"></span><code>fontUnicodeUppercase</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontUnicodeUppercase">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontWheelBrowse"></span><code>fontWheelBrowse</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontWheelBrowse">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontWheelScroll"></span><code>fontWheelScroll</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontWheelScroll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.fontsAutoSaveTimeInterval"></span><code>fontsAutoSaveTimeInterval</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.fontsAutoSaveTimeInterval">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalActivatePanels"></span><code>generalActivatePanels</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalActivatePanels">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalBeta"></span><code>generalBeta</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalBeta">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalCheckUpdates"></span><code>generalCheckUpdates</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalCheckUpdates">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalClosePanels"></span><code>generalClosePanels</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalClosePanels">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalDarkFont"></span><code>generalDarkFont</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalDarkFont">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalDarkGlyph"></span><code>generalDarkGlyph</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalDarkGlyph">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalSketchboard"></span><code>generalSketchboard</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalSketchboard">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalTabs"></span><code>generalTabs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalTabs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalTabsDrag"></span><code>generalTabsDrag</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalTabsDrag">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalTabsPreview"></span><code>generalTabsPreview</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalTabsPreview">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.generalVirtualKeys"></span><code>generalVirtualKeys</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.generalVirtualKeys">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.gridDistanceX"></span><code>gridDistanceX</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.gridDistanceX">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.gridDistanceY"></span><code>gridDistanceY</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.gridDistanceY">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.gridItalicAngle"></span><code>gridItalicAngle</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.gridItalicAngle">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.gridOpacity"></span><code>gridOpacity</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.gridOpacity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.gridPointOpacity"></span><code>gridPointOpacity</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.gridPointOpacity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.gridSlant"></span><code>gridSlant</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.gridSlant">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsAlign"></span><code>groupsAlign</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.groupsAlign">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsColor"></span><code>groupsColor</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.groupsColor">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsContent"></span><code>groupsContent</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.groupsContent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsDoubleClick"></span><code>groupsDoubleClick</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.groupsDoubleClick">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsFill"></span><code>groupsFill</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.groupsFill">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsMask"></span><code>groupsMask</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-010.html#fontlab.flPreferences.groupsMask">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsMasters"></span><code>groupsMasters</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.groupsMasters">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsMetrics"></span><code>groupsMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.groupsMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsOpacity"></span><code>groupsOpacity</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.groupsOpacity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsPreview"></span><code>groupsPreview</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.groupsPreview">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsShiftX"></span><code>groupsShiftX</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.groupsShiftX">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.groupsShiftY"></span><code>groupsShiftY</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.groupsShiftY">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.hintMaxH"></span><code>hintMaxH</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.hintMaxH">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.hintMaxV"></span><code>hintMaxV</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.hintMaxV">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.hintMinH"></span><code>hintMinH</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.hintMinH">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.hintMinV"></span><code>hintMinV</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.hintMinV">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.historyStoreSelection"></span><code>historyStoreSelection</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.historyStoreSelection">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.historyStoreViewPoint"></span><code>historyStoreViewPoint</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.historyStoreViewPoint">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importCompileFeatures"></span><code>importCompileFeatures</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importCompileFeatures">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importComponents"></span><code>importComponents</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importComponents">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importConvertCurves"></span><code>importConvertCurves</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importConvertCurves">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importConvertNames"></span><code>importConvertNames</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importConvertNames">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importDecompileFeatures"></span><code>importDecompileFeatures</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importDecompileFeatures">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importDecompileTables"></span><code>importDecompileTables</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importDecompileTables">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importDecompose"></span><code>importDecompose</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importDecompose">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importDetectGenius"></span><code>importDetectGenius</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importDetectGenius">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importDetectServant"></span><code>importDetectServant</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importDetectServant">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importExcludeTables"></span><code>importExcludeTables</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importExcludeTables">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importLockComposites"></span><code>importLockComposites</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importLockComposites">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importOpenFontWindow"></span><code>importOpenFontWindow</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importOpenFontWindow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importRenameCID"></span><code>importRenameCID</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importRenameCID">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importRoundCoordinates"></span><code>importRoundCoordinates</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importRoundCoordinates">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importSeparateMasters"></span><code>importSeparateMasters</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importSeparateMasters">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.importTrueTypeShortCurves"></span><code>importTrueTypeShortCurves</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.importTrueTypeShortCurves">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.inactiveMastersOpacity"></span><code>inactiveMastersOpacity</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.inactiveMastersOpacity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.instance"></span><code>instance</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.instance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.interpolateSmartRound"></span><code>interpolateSmartRound</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.interpolateSmartRound">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.isDark"></span><code>isDark</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.isDark">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.kerningAuditExceptions"></span><code>kerningAuditExceptions</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.kerningAuditExceptions">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.kerningAutoToleranceNegative"></span><code>kerningAutoToleranceNegative</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.kerningAutoToleranceNegative">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.kerningAutoTolerancePositive"></span><code>kerningAutoTolerancePositive</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.kerningAutoTolerancePositive">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.kerningPairs"></span><code>kerningPairs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.kerningPairs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.load"></span><code>load</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.load">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockFontGuidelines"></span><code>lockFontGuidelines</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.lockFontGuidelines">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockFontMetrics"></span><code>lockFontMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.lockFontMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockGrid"></span><code>lockGrid</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-011.html#fontlab.flPreferences.lockGrid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockGuidelines"></span><code>lockGuidelines</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.lockGuidelines">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockHints"></span><code>lockHints</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.lockHints">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockMask"></span><code>lockMask</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.lockMask">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockMaskGlobal"></span><code>lockMaskGlobal</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.lockMaskGlobal">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockMetrics"></span><code>lockMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.lockMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockOutline"></span><code>lockOutline</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.lockOutline">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockPinPoints"></span><code>lockPinPoints</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.lockPinPoints">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.lockZones"></span><code>lockZones</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.lockZones">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.mastersBackgroundBrightness"></span><code>mastersBackgroundBrightness</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.mastersBackgroundBrightness">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.mastersBarThickness"></span><code>mastersBarThickness</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.mastersBarThickness">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.mastersPreviewColor"></span><code>mastersPreviewColor</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.mastersPreviewColor">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.match"></span><code>match</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.match">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.matchNudge"></span><code>matchNudge</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.matchNudge">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.meterToolActive"></span><code>meterToolActive</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.meterToolActive">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.meterToolDrag"></span><code>meterToolDrag</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.meterToolDrag">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.metricsFreeMetrics"></span><code>metricsFreeMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.metricsFreeMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.metricsHideCursor"></span><code>metricsHideCursor</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.metricsHideCursor">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.metricsNudge1"></span><code>metricsNudge1</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.metricsNudge1">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.metricsNudge10"></span><code>metricsNudge10</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.metricsNudge10">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.metricsSamples"></span><code>metricsSamples</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.metricsSamples">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.metricsSmartNavigation"></span><code>metricsSmartNavigation</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.metricsSmartNavigation">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.metricsTableArrowsNavigation"></span><code>metricsTableArrowsNavigation</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.metricsTableArrowsNavigation">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.metricsToStroke"></span><code>metricsToStroke</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.metricsToStroke">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.namecaptionFont"></span><code>namecaptionFont</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.namecaptionFont">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.namecaptionFontFamilyName"></span><code>namecaptionFontFamilyName</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.namecaptionFontFamilyName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.namecaptionFontId"></span><code>namecaptionFontId</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.namecaptionFontId">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.openRestorePanels"></span><code>openRestorePanels</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.openRestorePanels">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.openRestoreWindows"></span><code>openRestoreWindows</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.openRestoreWindows">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.openRestoreWindowsGlyphs"></span><code>openRestoreWindowsGlyphs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.openRestoreWindowsGlyphs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.operationsOCR"></span><code>operationsOCR</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.operationsOCR">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.operationsPowerGuides"></span><code>operationsPowerGuides</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.operationsPowerGuides">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.operationsSeparateDetectStrings"></span><code>operationsSeparateDetectStrings</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.operationsSeparateDetectStrings">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.operationsSeparateMergeOverlapped"></span><code>operationsSeparateMergeOverlapped</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.operationsSeparateMergeOverlapped">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.operationsSeparateMergeStacked"></span><code>operationsSeparateMergeStacked</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.operationsSeparateMergeStacked">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.operationsTesseractLanguages"></span><code>operationsTesseractLanguages</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.operationsTesseractLanguages">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.operationsTracePrecision"></span><code>operationsTracePrecision</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.operationsTracePrecision">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.operationsTraceSmoothness"></span><code>operationsTraceSmoothness</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.operationsTraceSmoothness">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.options2tracer_precision"></span><code>options2tracer_precision</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.options2tracer_precision">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.options2tracer_smoothness"></span><code>options2tracer_smoothness</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.options2tracer_smoothness">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.panelFontSize"></span><code>panelFontSize</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-012.html#fontlab.flPreferences.panelFontSize">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.panelTabs"></span><code>panelTabs</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.panelTabs">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.panelWrap"></span><code>panelWrap</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.panelWrap">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.pantographActive"></span><code>pantographActive</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.pantographActive">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.pasteEPS"></span><code>pasteEPS</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.pasteEPS">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.pasteIgnoreAppearance"></span><code>pasteIgnoreAppearance</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.pasteIgnoreAppearance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.pathAutoSave"></span><code>pathAutoSave</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.pathAutoSave">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.pythonClearContext"></span><code>pythonClearContext</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.pythonClearContext">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.qobject"></span><code>qobject</code></td>
+<td>attribute</td>
+<td><a href="flItems/members-004.html#fontlab.flItems.qobject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.renderBlackWhite"></span><code>renderBlackWhite</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.renderBlackWhite">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.renderClearType"></span><code>renderClearType</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.renderClearType">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.renderGrayScale"></span><code>renderGrayScale</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.renderGrayScale">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.save"></span><code>save</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.save">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.saveBackupFolder"></span><code>saveBackupFolder</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.saveBackupFolder">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.saveConflictMode"></span><code>saveConflictMode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.saveConflictMode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.saveView"></span><code>saveView</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.saveView">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.setFontAuditTest"></span><code>setFontAuditTest</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.setFontAuditTest">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.setGridDistances"></span><code>setGridDistances</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.setGridDistances">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.showAnchorCloudSelected"></span><code>showAnchorCloudSelected</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.showAnchorCloudSelected">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.showElementNote"></span><code>showElementNote</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.showElementNote">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.showHoveredCoordinates"></span><code>showHoveredCoordinates</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.showHoveredCoordinates">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.showNodePositionLarge"></span><code>showNodePositionLarge</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.showNodePositionLarge">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.showNodeStyle"></span><code>showNodeStyle</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.showNodeStyle">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.showPinName"></span><code>showPinName</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.showPinName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.showSelectionGlow"></span><code>showSelectionGlow</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.showSelectionGlow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.showStemThickness"></span><code>showStemThickness</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.showStemThickness">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.showTapeLine"></span><code>showTapeLine</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.showTapeLine">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.sketchboardAutoSaveTimeInterval"></span><code>sketchboardAutoSaveTimeInterval</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.sketchboardAutoSaveTimeInterval">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.smartGuides"></span><code>smartGuides</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.smartGuides">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToBounds"></span><code>snapToBounds</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToBounds">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToCenters"></span><code>snapToCenters</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToCenters">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToDistance"></span><code>snapToDistance</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToDistance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToFontGuidelines"></span><code>snapToFontGuidelines</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToFontGuidelines">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToFontMetrics"></span><code>snapToFontMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToFontMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToGrid"></span><code>snapToGrid</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToGrid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToGuidelines"></span><code>snapToGuidelines</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToGuidelines">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToHints"></span><code>snapToHints</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToHints">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToMask"></span><code>snapToMask</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToMask">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToMaskGlobal"></span><code>snapToMaskGlobal</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToMaskGlobal">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToMetrics"></span><code>snapToMetrics</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToMetrics">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToOutline"></span><code>snapToOutline</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToOutline">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToPinPoints"></span><code>snapToPinPoints</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-013.html#fontlab.flPreferences.snapToPinPoints">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToStems"></span><code>snapToStems</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.snapToStems">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.snapToZones"></span><code>snapToZones</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.snapToZones">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.sourceMetricsSamples"></span><code>sourceMetricsSamples</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.sourceMetricsSamples">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.stringIconLong"></span><code>stringIconLong</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.stringIconLong">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.stringIconShort"></span><code>stringIconShort</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.stringIconShort">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.stringNewTextBlock"></span><code>stringNewTextBlock</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.stringNewTextBlock">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.stringPreview"></span><code>stringPreview</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.stringPreview">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.stringSizeGlyphWaterfall"></span><code>stringSizeGlyphWaterfall</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.stringSizeGlyphWaterfall">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.stringSizeTextWaterfall"></span><code>stringSizeTextWaterfall</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.stringSizeTextWaterfall">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.stringSticker"></span><code>stringSticker</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.stringSticker">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.templateFont"></span><code>templateFont</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.templateFont">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.templateFontFamilyName"></span><code>templateFontFamilyName</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.templateFontFamilyName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.templateFontId"></span><code>templateFontId</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.templateFontId">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.texts"></span><code>texts</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.texts">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.tracer2options_precision"></span><code>tracer2options_precision</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.tracer2options_precision">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.tracer2options_smoothness"></span><code>tracer2options_smoothness</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.tracer2options_smoothness">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.tthHintingFlag"></span><code>tthHintingFlag</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.tthHintingFlag">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.tthHintingTolerance"></span><code>tthHintingTolerance</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.tthHintingTolerance">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.tthPPM"></span><code>tthPPM</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.tthPPM">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.tthRender"></span><code>tthRender</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.tthRender">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.tthSamples"></span><code>tthSamples</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.tthSamples">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.unicode2text"></span><code>unicode2text</code></td>
+<td>function</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.unicode2text">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.viewAlternative"></span><code>viewAlternative</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.viewAlternative">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.viewAntialiasing"></span><code>viewAntialiasing</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.viewAntialiasing">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.workFont"></span><code>workFont</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.workFont">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.workFontFamilyName"></span><code>workFontFamilyName</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.workFontFamilyName">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.workFontId"></span><code>workFontId</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.workFontId">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.zoomAscender"></span><code>zoomAscender</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.zoomAscender">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.zoomDescender"></span><code>zoomDescender</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.zoomDescender">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.zoomFactorKeyboard"></span><code>zoomFactorKeyboard</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.zoomFactorKeyboard">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.zoomFactorWheel"></span><code>zoomFactorWheel</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.zoomFactorWheel">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.zoomMode"></span><code>zoomMode</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.zoomMode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab.flPreferences.zoomSize"></span><code>zoomSize</code></td>
+<td>attribute</td>
+<td><a href="flPreferences/members-014.html#fontlab.flPreferences.zoomSize">Signature and documentation</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

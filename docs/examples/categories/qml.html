@@ -1,0 +1,2938 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/examples/categories/qml.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>Examples: qml - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#examples-qml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Examples: qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#official-abstractitemmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official abstractitemmodel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-adding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official adding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official animation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-attached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official attached
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official binding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official canvas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-chapter1-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official chapter1-basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-chapter2-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official chapter2-methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-chapter3-bindings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official chapter3-bindings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-chapter4-custompropertytypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official chapter4-customPropertyTypes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-chapter5-listproperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official chapter5-listproperties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-coercion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official coercion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-customgeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official customgeometry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official default
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-grouped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official grouped
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-objectlistmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official objectlistmodel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official signal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-stringlistmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official stringlistmodel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#official-valuesource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official valuesource
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qml-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QML Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-demoscalqlatrmain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples demos/calqlatr/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-demosclocksmain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples demos/clocks/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-demoscoffeemain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples demos/coffee/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-demosmaroonmain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples demos/maroon/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-demosphotosurfacemain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples demos/photosurface/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-dynamicqmltablemain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples dynamicqmltable/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-quickcontrols2flatstylemain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples quickcontrols2/flatstyle/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-quickcontrols2gallerymain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples quickcontrols2/gallery/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-quickcontrols2imagineautomotivemain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples quickcontrols2/imagine/automotive/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-quickcontrols2imaginemusicplayermain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples quickcontrols2/imagine/musicplayer/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qtexamples-quickcontrols2swipetoremovemain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QtExamples quickcontrols2/swipetoremove/main
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="examples-qml">Examples: qml</h1>
+<p>33 records: 0 implemented, 33 blocked.</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Implementation</th>
+<th>Native</th>
+<th>Licence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#official-abstractitemmodel">Official abstractitemmodel</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-adding">Official adding</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-animation">Official animation</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-attached">Official attached</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-binding">Official binding</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-canvas">Official canvas</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-chapter1-basics">Official chapter1-basics</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-chapter2-methods">Official chapter2-methods</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-chapter3-bindings">Official chapter3-bindings</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-chapter4-custompropertytypes">Official chapter4-customPropertyTypes</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-chapter5-listproperties">Official chapter5-listproperties</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-coercion">Official coercion</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-customgeometry">Official customgeometry</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-default">Official default</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-grouped">Official grouped</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-methods">Official methods</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-objectlistmodel">Official objectlistmodel</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-properties">Official properties</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-signal">Official signal</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-stringlistmodel">Official stringlistmodel</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#official-valuesource">Official valuesource</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td><a href="#qml-python">QML Python</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-demoscalqlatrmain">QtExamples demos/calqlatr/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-demosclocksmain">QtExamples demos/clocks/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-demoscoffeemain">QtExamples demos/coffee/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-demosmaroonmain">QtExamples demos/maroon/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-demosphotosurfacemain">QtExamples demos/photosurface/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-dynamicqmltablemain">QtExamples dynamicqmltable/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-quickcontrols2flatstylemain">QtExamples quickcontrols2/flatstyle/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-quickcontrols2gallerymain">QtExamples quickcontrols2/gallery/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-quickcontrols2imagineautomotivemain">QtExamples quickcontrols2/imagine/automotive/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-quickcontrols2imaginemusicplayermain">QtExamples quickcontrols2/imagine/musicplayer/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+<tr>
+<td><a href="#qtexamples-quickcontrols2swipetoremovemain">QtExamples quickcontrols2/swipetoremove/main</a></td>
+<td>blocked</td>
+<td>not run</td>
+<td>GPL-3.0-only</td>
+</tr>
+</tbody>
+</table>
+<h3 id="official-abstractitemmodel">Official abstractitemmodel</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/models/abstractitemmodel/abstractitemmodel.py">pyqt/examples / src/pyqt-official/quick/models/abstractitemmodel/abstractitemmodel.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/abstractitemmodel-e1316fee99c63555.py"><code>ports/quick/pyqt-official/abstractitemmodel-e1316fee99c63555.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-adding">Official adding</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/adding.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/adding.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/adding-8847cbce50b72500.py"><code>ports/qml/pyqt-official/adding-8847cbce50b72500.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-animation">Official animation</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/animation/animation.py">pyqt/examples / src/pyqt-official/quick/animation/animation.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/animation-835281a1ab864833.py"><code>ports/quick/pyqt-official/animation-835281a1ab864833.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-attached">Official attached</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/attached.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/attached.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/attached-dd226ba9fbb7b330.py"><code>ports/qml/pyqt-official/attached-dd226ba9fbb7b330.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-binding">Official binding</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/binding.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/binding.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/binding-eb7a89f07f63cca7.py"><code>ports/qml/pyqt-official/binding-eb7a89f07f63cca7.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-canvas">Official canvas</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/canvas/canvas.py">pyqt/examples / src/pyqt-official/quick/canvas/canvas.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/canvas-36246fcbffecdeba.py"><code>ports/quick/pyqt-official/canvas-36246fcbffecdeba.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-chapter1-basics">Official chapter1-basics</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/tutorials/extending/chapter1-basics/chapter1-basics.py">pyqt/examples / src/pyqt-official/quick/tutorials/extending/chapter1-basics/chapter1-basics.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/chapter1-basics-6b1f4f5590a5518a.py"><code>ports/quick/pyqt-official/chapter1-basics-6b1f4f5590a5518a.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-chapter2-methods">Official chapter2-methods</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/tutorials/extending/chapter2-methods/chapter2-methods.py">pyqt/examples / src/pyqt-official/quick/tutorials/extending/chapter2-methods/chapter2-methods.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/chapter2-methods-8d1557cbfed9c7a0.py"><code>ports/quick/pyqt-official/chapter2-methods-8d1557cbfed9c7a0.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-chapter3-bindings">Official chapter3-bindings</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/tutorials/extending/chapter3-bindings/chapter3-bindings.py">pyqt/examples / src/pyqt-official/quick/tutorials/extending/chapter3-bindings/chapter3-bindings.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/chapter3-bindings-3cd3713a5dc9f6dc.py"><code>ports/quick/pyqt-official/chapter3-bindings-3cd3713a5dc9f6dc.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-chapter4-custompropertytypes">Official chapter4-customPropertyTypes</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/tutorials/extending/chapter4-customPropertyTypes/chapter4-customPropertyTypes.py">pyqt/examples / src/pyqt-official/quick/tutorials/extending/chapter4-customPropertyTypes/chapter4-customPropertyTypes.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/chapter4-custompropertytypes-831ac8ea61da03f3.py"><code>ports/quick/pyqt-official/chapter4-custompropertytypes-831ac8ea61da03f3.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-chapter5-listproperties">Official chapter5-listproperties</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/tutorials/extending/chapter5-listproperties/chapter5-listproperties.py">pyqt/examples / src/pyqt-official/quick/tutorials/extending/chapter5-listproperties/chapter5-listproperties.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/chapter5-listproperties-b88e7eb0fcb53264.py"><code>ports/quick/pyqt-official/chapter5-listproperties-b88e7eb0fcb53264.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-coercion">Official coercion</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/coercion.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/coercion.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/coercion-ad499afe23726248.py"><code>ports/qml/pyqt-official/coercion-ad499afe23726248.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-customgeometry">Official customgeometry</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/scenegraph/customgeometry/customgeometry.py">pyqt/examples / src/pyqt-official/quick/scenegraph/customgeometry/customgeometry.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/customgeometry-34538a4e2600b918.py"><code>ports/quick/pyqt-official/customgeometry-34538a4e2600b918.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-default">Official default</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/default.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/default.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/default-6417cdcf1bfd1752.py"><code>ports/qml/pyqt-official/default-6417cdcf1bfd1752.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-grouped">Official grouped</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/grouped.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/grouped.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/grouped-81a6f0d16c203608.py"><code>ports/qml/pyqt-official/grouped-81a6f0d16c203608.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-methods">Official methods</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/methods.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/methods.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/methods-75ca5ac77ecefd6d.py"><code>ports/qml/pyqt-official/methods-75ca5ac77ecefd6d.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-objectlistmodel">Official objectlistmodel</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/models/objectlistmodel/objectlistmodel.py">pyqt/examples / src/pyqt-official/quick/models/objectlistmodel/objectlistmodel.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/objectlistmodel-68d664f95f48ce52.py"><code>ports/quick/pyqt-official/objectlistmodel-68d664f95f48ce52.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-properties">Official properties</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/properties.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/properties.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/properties-d0a18273fa604bb6.py"><code>ports/qml/pyqt-official/properties-d0a18273fa604bb6.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-signal">Official signal</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/signal.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/signal.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/signal-0a13f60f5f0561db.py"><code>ports/qml/pyqt-official/signal-0a13f60f5f0561db.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-stringlistmodel">Official stringlistmodel</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/quick/models/stringlistmodel/stringlistmodel.py">pyqt/examples / src/pyqt-official/quick/models/stringlistmodel/stringlistmodel.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/quick/pyqt-official/stringlistmodel-b64d66dbce7274fe.py"><code>ports/quick/pyqt-official/stringlistmodel-b64d66dbce7274fe.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQuick and QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="official-valuesource">Official valuesource</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/pyqt-official/qml/referenceexamples/valuesource.py">pyqt/examples / src/pyqt-official/qml/referenceexamples/valuesource.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-official/valuesource-738a22ef3062ed51.py"><code>ports/qml/pyqt-official/valuesource-738a22ef3062ed51.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: Apache-2.0</li>
+<li>Blocked: FontLab does not expose QtQml; this declarative example cannot start.</li>
+</ul>
+<h3 id="qml-python">QML Python</h3>
+<ul>
+<li>Source: <a href="https://github.com/pyqt/examples/blob/83eed0514582c8deb60d9e9e6bff31ceffe4eaeb/src/06%20QML%20Python%20example/main.py">pyqt/examples / src/06 QML Python example/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/pyqt-examples/main-f951474f74775c14.py"><code>ports/qml/pyqt-examples/main-f951474f74775c14.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: MIT</li>
+<li>Blocked: PythonQt does not expose QtQml/QQmlApplicationEngine or QtQuick; cannot load the QML window.</li>
+</ul>
+<h3 id="qtexamples-demoscalqlatrmain">QtExamples demos/calqlatr/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/demos/calqlatr/main.py">eyllanesc/QtExamples / official/demos/calqlatr/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-9d1a670d70c19b6a.py"><code>ports/qml/eyllanesc/main-9d1a670d70c19b6a.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQuickView. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-demosclocksmain">QtExamples demos/clocks/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/demos/clocks/main.py">eyllanesc/QtExamples / official/demos/clocks/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-3299c18eadf92b5d.py"><code>ports/qml/eyllanesc/main-3299c18eadf92b5d.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQuickView. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-demoscoffeemain">QtExamples demos/coffee/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/demos/coffee/main.py">eyllanesc/QtExamples / official/demos/coffee/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-f581c1e4f121df88.py"><code>ports/qml/eyllanesc/main-f581c1e4f121df88.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQmlApplicationEngine. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-demosmaroonmain">QtExamples demos/maroon/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/demos/maroon/main.py">eyllanesc/QtExamples / official/demos/maroon/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-2529316479664459.py"><code>ports/qml/eyllanesc/main-2529316479664459.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQuickView. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-demosphotosurfacemain">QtExamples demos/photosurface/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/demos/photosurface/main.py">eyllanesc/QtExamples / official/demos/photosurface/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-6386ec6f1ca4ffd4.py"><code>ports/qml/eyllanesc/main-6386ec6f1ca4ffd4.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQmlApplicationEngine, QQmlContext, QQuickWindow. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-dynamicqmltablemain">QtExamples dynamicqmltable/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/others/dynamicqmltable/main.py">eyllanesc/QtExamples / others/dynamicqmltable/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-08ba2f1b1fe02894.py"><code>ports/qml/eyllanesc/main-08ba2f1b1fe02894.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQmlApplicationEngine. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-quickcontrols2flatstylemain">QtExamples quickcontrols2/flatstyle/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/quickcontrols2/flatstyle/main.py">eyllanesc/QtExamples / official/quickcontrols2/flatstyle/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-8284e0348b6f7020.py"><code>ports/qml/eyllanesc/main-8284e0348b6f7020.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQmlApplicationEngine. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-quickcontrols2gallerymain">QtExamples quickcontrols2/gallery/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/quickcontrols2/gallery/main.py">eyllanesc/QtExamples / official/quickcontrols2/gallery/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-b4d27c5a05969f77.py"><code>ports/qml/eyllanesc/main-b4d27c5a05969f77.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQmlApplicationEngine, QQuickStyle. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-quickcontrols2imagineautomotivemain">QtExamples quickcontrols2/imagine/automotive/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/quickcontrols2/imagine/automotive/main.py">eyllanesc/QtExamples / official/quickcontrols2/imagine/automotive/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-f5ecef06968ffad8.py"><code>ports/qml/eyllanesc/main-f5ecef06968ffad8.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQmlApplicationEngine. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-quickcontrols2imaginemusicplayermain">QtExamples quickcontrols2/imagine/musicplayer/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/quickcontrols2/imagine/musicplayer/main.py">eyllanesc/QtExamples / official/quickcontrols2/imagine/musicplayer/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-bd4a25944ae5b2d7.py"><code>ports/qml/eyllanesc/main-bd4a25944ae5b2d7.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQmlApplicationEngine. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+<h3 id="qtexamples-quickcontrols2swipetoremovemain">QtExamples quickcontrols2/swipetoremove/main</h3>
+<ul>
+<li>Source: <a href="https://github.com/eyllanesc/QtExamples/blob/a01fd7d10d45801b10876f94c07aaefb11bc2e12/official/quickcontrols2/swipetoremove/main.py">eyllanesc/QtExamples / official/quickcontrols2/swipetoremove/main.py</a></li>
+<li>Port: <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/ports/qml/eyllanesc/main-9e402cdc525108dd.py"><code>ports/qml/eyllanesc/main-9e402cdc525108dd.py</code></a></li>
+<li>Implementation: <strong>blocked</strong></li>
+<li>Native acceptance: not run (blocked)</li>
+<li>Licence: GPL-3.0-only</li>
+<li>Blocked: PythonQt does not export QtQml / QtQuick; required native APIs: QQmlApplicationEngine. The pinned behavior requires these capabilities; no alternate Qt binding or replacement UI is supplied.</li>
+</ul>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

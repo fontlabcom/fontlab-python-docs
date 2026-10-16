@@ -1,0 +1,3301 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/Qt/QKeySequence.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.Qt.QKeySequence - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtqkeysequence" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.Qt.QKeySequence
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QKeySequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QKeySequence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QKeySequence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QKeySequence--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QKeySequence--standard-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Shortcuts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QKeySequence--keyboard-layout-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard Layout Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QKeySequence--gnu-emacs-style-key-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GNU Emacs Style Key Sequences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtqkeysequence">PythonQt.Qt.QKeySequence</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.Qt.QKeySequence" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QKeySequence</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.Qt.QKeySequence--detailed-description">Detailed Description</h4>
+<p>In its most common form, a key sequence describes a combination of keys that must be
+used together to perform some action. Key sequences are used with
+<a href="https://doc.qt.io/archives/qt-5.15/qaction.html">QAction</a> objects to specify which
+keyboard shortcuts can be used to trigger actions.</p>
+<p>Key sequences can be constructed for use as keyboard shortcuts in three different ways:</p>
+<ul>
+<li>For standard shortcuts, a <a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">standard key</a> can be used to request the platform-specific key sequence associated with each shortcut.</li>
+<li>For custom shortcuts, human-readable strings such as "Ctrl+X" can be used, and these can be translated into the appropriate shortcuts for users of different languages. Translations are made in the "<a href="https://doc.qt.io/archives/qt-5.15/qshortcut.html">QShortcut</a>" context.</li>
+<li>For hard-coded shortcuts, integer key codes can be specified with a combination of values defined by the <a href="https://doc.qt.io/archives/qt-5.15/qt.html#Key-enum">Qt::Key</a> and <a href="https://doc.qt.io/archives/qt-5.15/qt.html#Modifier-enum">Qt::Modifier</a> enum values. Each key code consists of a single <a href="https://doc.qt.io/archives/qt-5.15/qt.html#Key-enum">Qt::Key</a> value and zero or more modifiers, such as <a href="https://doc.qt.io/archives/qt-5.15/qt.html#Modifier-enum">Qt::SHIFT</a>, <a href="https://doc.qt.io/archives/qt-5.15/qt.html#Modifier-enum">Qt::CTRL</a>, <a href="https://doc.qt.io/archives/qt-5.15/qt.html#Modifier-enum">Qt::ALT</a> and <a href="https://doc.qt.io/archives/qt-5.15/qt.html#Modifier-enum">Qt::META</a>.</li>
+</ul>
+<p>For example, <strong>Ctrl P</strong> might be a sequence used as a shortcut for printing a document,
+and can be specified in any of the following ways:</p>
+<div class="highlight"><pre><span></span><code>QKeySequence(QKeySequence::Print);
+QKeySequence(tr(&quot;Ctrl+P&quot;));
+QKeySequence(tr(&quot;Ctrl+p&quot;));
+QKeySequence(Qt::CTRL + Qt::Key_P);
+</code></pre></div>
+<p>Note that, for letters, the case used in the specification string does not matter. In
+the above examples, the user does not need to hold down the <strong>Shift</strong> key to activate a
+shortcut specified with "Ctrl+P". However, for other keys, the use of <strong>Shift</strong> as an
+unspecified extra modifier key can lead to confusion for users of an application whose
+keyboards have different layouts to those used by the developers. See the <a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#keyboard-layout-issues">Keyboard
+Layout
+Issues</a>
+section below for more details.</p>
+<p>It is preferable to use standard shortcuts where possible. When creating key sequences
+for non-standard shortcuts, you should use human-readable strings in preference to
+hard-coded integer values.</p>
+<p>QKeySequence objects can be cast to a
+<a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> to obtain a human-readable
+translated version of the sequence. Similarly, the
+<a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#toString">toString</a>() function
+produces human-readable strings for use in menus. On macOS, the appropriate symbols are
+used to describe keyboard shortcuts using special keys on the Macintosh keyboard.</p>
+<p>An alternative way to specify hard-coded key codes is to use the Unicode code point of
+the character; for example, 'A' gives the same key sequence as
+<a href="https://doc.qt.io/archives/qt-5.15/qt.html#Key-enum">Qt::Key_A</a>.</p>
+<p><strong>Note:</strong> On macOS, references to "Ctrl",
+<a href="https://doc.qt.io/archives/qt-5.15/qt.html#Modifier-enum">Qt::CTRL</a>,
+<a href="https://doc.qt.io/archives/qt-5.15/qt.html#Key-enum">Qt::Key_Control</a> and
+<a href="https://doc.qt.io/archives/qt-5.15/qt.html#KeyboardModifier-enum">Qt::ControlModifier</a>
+correspond to the <strong>Command</strong> keys on the Macintosh keyboard, and references to "Meta",
+<a href="https://doc.qt.io/archives/qt-5.15/qt.html#Modifier-enum">Qt::META</a>,
+<a href="https://doc.qt.io/archives/qt-5.15/qt.html#Key-enum">Qt::Key_Meta</a> and
+<a href="https://doc.qt.io/archives/qt-5.15/qt.html#KeyboardModifier-enum">Qt::MetaModifier</a>
+correspond to the <strong>Control</strong> keys. Developers on macOS can use the same shortcut
+descriptions across all platforms, and their applications will automatically work as
+expected on macOS.</p>
+<h5 id="PythonQt.Qt.QKeySequence--standard-shortcuts">Standard Shortcuts</h5>
+<p>QKeySequence defines many <a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">standard keyboard
+shortcuts</a> to
+reduce the amount of effort required when setting up actions in a typical application.
+The table below shows some common key sequences that are often used for these standard
+shortcuts by applications on four widely-used platforms. Note that on macOS, the
+<strong>Ctrl</strong> value corresponds to the <strong>Command</strong> keys on the Macintosh keyboard, and the
+<strong>Meta</strong> value corresponds to the <strong>Control</strong> keys.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">StandardKey</a></th>
+<th>Windows</th>
+<th>macOS</th>
+<th>KDE Plasma</th>
+<th>GNOME</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">HelpContents</a></td>
+<td>F1</td>
+<td>Ctrl+?</td>
+<td>F1</td>
+<td>F1</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">WhatsThis</a></td>
+<td>Shift+F1</td>
+<td>Shift+F1</td>
+<td>Shift+F1</td>
+<td>Shift+F1</td>
+</tr>
+<tr>
+<td>Open</td>
+<td>Ctrl+O</td>
+<td>Ctrl+O</td>
+<td>Ctrl+O</td>
+<td>Ctrl+O</td>
+</tr>
+<tr>
+<td>Close</td>
+<td>Ctrl+F4, Ctrl+W</td>
+<td>Ctrl+W, Ctrl+F4</td>
+<td>Ctrl+W</td>
+<td>Ctrl+W</td>
+</tr>
+<tr>
+<td>Save</td>
+<td>Ctrl+S</td>
+<td>Ctrl+S</td>
+<td>Ctrl+S</td>
+<td>Ctrl+S</td>
+</tr>
+<tr>
+<td>Quit</td>
+<td></td>
+<td>Ctrl+Q</td>
+<td>Ctrl+Q</td>
+<td>Ctrl+Q</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SaveAs</a></td>
+<td></td>
+<td>Ctrl+Shift+S</td>
+<td></td>
+<td>Ctrl+Shift+S</td>
+</tr>
+<tr>
+<td>New</td>
+<td>Ctrl+N</td>
+<td>Ctrl+N</td>
+<td>Ctrl+N</td>
+<td>Ctrl+N</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>Del</td>
+<td>Del, Meta+D</td>
+<td>Del, Ctrl+D</td>
+<td>Del, Ctrl+D</td>
+</tr>
+<tr>
+<td>Cut</td>
+<td>Ctrl+X, Shift+Del</td>
+<td>Ctrl+X, Meta+K</td>
+<td>Ctrl+X, F20, Shift+Del</td>
+<td>Ctrl+X, F20, Shift+Del</td>
+</tr>
+<tr>
+<td>Copy</td>
+<td>Ctrl+C, Ctrl+Ins</td>
+<td>Ctrl+C</td>
+<td>Ctrl+C, F16, Ctrl+Ins</td>
+<td>Ctrl+C, F16, Ctrl+Ins</td>
+</tr>
+<tr>
+<td>Paste</td>
+<td>Ctrl+V, Shift+Ins</td>
+<td>Ctrl+V, Meta+Y</td>
+<td>Ctrl+V, F18, Shift+Ins</td>
+<td>Ctrl+V, F18, Shift+Ins</td>
+</tr>
+<tr>
+<td>Preferences</td>
+<td></td>
+<td>Ctrl+,</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Undo</td>
+<td>Ctrl+Z, Alt+Backspace</td>
+<td>Ctrl+Z</td>
+<td>Ctrl+Z, F14</td>
+<td>Ctrl+Z, F14</td>
+</tr>
+<tr>
+<td>Redo</td>
+<td>Ctrl+Y, Shift+Ctrl+Z, Alt+Shift+Backspace</td>
+<td>Ctrl+Shift+Z</td>
+<td>Ctrl+Shift+Z</td>
+<td>Ctrl+Shift+Z</td>
+</tr>
+<tr>
+<td>Back</td>
+<td>Alt+Left, Backspace</td>
+<td>Ctrl+[</td>
+<td>Alt+Left</td>
+<td>Alt+Left</td>
+</tr>
+<tr>
+<td>Forward</td>
+<td>Alt+Right, Shift+Backspace</td>
+<td>Ctrl+]</td>
+<td>Alt+Right</td>
+<td>Alt+Right</td>
+</tr>
+<tr>
+<td>Refresh</td>
+<td>F5</td>
+<td>F5</td>
+<td>F5</td>
+<td>Ctrl+R, F5</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">ZoomIn</a></td>
+<td>Ctrl+Plus</td>
+<td>Ctrl+Plus</td>
+<td>Ctrl+Plus</td>
+<td>Ctrl+Plus</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">ZoomOut</a></td>
+<td>Ctrl+Minus</td>
+<td>Ctrl+Minus</td>
+<td>Ctrl+Minus</td>
+<td>Ctrl+Minus</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">FullScreen</a></td>
+<td>F11, Alt+Enter</td>
+<td>Ctrl+Meta+F</td>
+<td>F11, Ctrl+Shift+F</td>
+<td>Ctrl+F11</td>
+</tr>
+<tr>
+<td>Print</td>
+<td>Ctrl+P</td>
+<td>Ctrl+P</td>
+<td>Ctrl+P</td>
+<td>Ctrl+P</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">AddTab</a></td>
+<td>Ctrl+T</td>
+<td>Ctrl+T</td>
+<td>Ctrl+Shift+N, Ctrl+T</td>
+<td>Ctrl+T</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">NextChild</a></td>
+<td>Ctrl+Tab, Forward, Ctrl+F6</td>
+<td>Ctrl+}, Forward, Ctrl+Tab</td>
+<td>Ctrl+Tab, Forward, Ctrl+Comma</td>
+<td>Ctrl+Tab, Forward</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">PreviousChild</a></td>
+<td>Ctrl+Shift+Tab, Back, Ctrl+Shift+F6</td>
+<td>Ctrl+{, Back, Ctrl+Shift+Tab</td>
+<td>Ctrl+Shift+Tab, Back, Ctrl+Period</td>
+<td>Ctrl+Shift+Tab, Back</td>
+</tr>
+<tr>
+<td>Find</td>
+<td>Ctrl+F</td>
+<td>Ctrl+F</td>
+<td>Ctrl+F</td>
+<td>Ctrl+F</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">FindNext</a></td>
+<td>F3, Ctrl+G</td>
+<td>Ctrl+G</td>
+<td>F3</td>
+<td>Ctrl+G, F3</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">FindPrevious</a></td>
+<td>Shift+F3, Ctrl+Shift+G</td>
+<td>Ctrl+Shift+G</td>
+<td>Shift+F3</td>
+<td>Ctrl+Shift+G, Shift+F3</td>
+</tr>
+<tr>
+<td>Replace</td>
+<td>Ctrl+H</td>
+<td>(none)</td>
+<td>Ctrl+R</td>
+<td>Ctrl+H</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectAll</a></td>
+<td>Ctrl+A</td>
+<td>Ctrl+A</td>
+<td>Ctrl+A</td>
+<td>Ctrl+A</td>
+</tr>
+<tr>
+<td>Deselect</td>
+<td></td>
+<td></td>
+<td>Ctrl+Shift+A</td>
+<td>Ctrl+Shift+A</td>
+</tr>
+<tr>
+<td>Bold</td>
+<td>Ctrl+B</td>
+<td>Ctrl+B</td>
+<td>Ctrl+B</td>
+<td>Ctrl+B</td>
+</tr>
+<tr>
+<td>Italic</td>
+<td>Ctrl+I</td>
+<td>Ctrl+I</td>
+<td>Ctrl+I</td>
+<td>Ctrl+I</td>
+</tr>
+<tr>
+<td>Underline</td>
+<td>Ctrl+U</td>
+<td>Ctrl+U</td>
+<td>Ctrl+U</td>
+<td>Ctrl+U</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToNextChar</a></td>
+<td>Right</td>
+<td>Right, Meta+F</td>
+<td>Right</td>
+<td>Right</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToPreviousChar</a></td>
+<td>Left</td>
+<td>Left, Meta+B</td>
+<td>Left</td>
+<td>Left</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToNextWord</a></td>
+<td>Ctrl+Right</td>
+<td>Alt+Right</td>
+<td>Ctrl+Right</td>
+<td>Ctrl+Right</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToPreviousWord</a></td>
+<td>Ctrl+Left</td>
+<td>Alt+Left</td>
+<td>Ctrl+Left</td>
+<td>Ctrl+Left</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToNextLine</a></td>
+<td>Down</td>
+<td>Down, Meta+N</td>
+<td>Down</td>
+<td>Down</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToPreviousLine</a></td>
+<td>Up</td>
+<td>Up, Meta+P</td>
+<td>Up</td>
+<td>Up</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToNextPage</a></td>
+<td>PgDown</td>
+<td>PgDown, Alt+PgDown, Meta+Down, Meta+PgDown, Meta+V</td>
+<td>PgDown</td>
+<td>PgDown</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToPreviousPage</a></td>
+<td>PgUp</td>
+<td>PgUp, Alt+PgUp, Meta+Up, Meta+PgUp</td>
+<td>PgUp</td>
+<td>PgUp</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToStartOfLine</a></td>
+<td>Home</td>
+<td>Ctrl+Left, Meta+Left</td>
+<td>Home</td>
+<td>Home</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToEndOfLine</a></td>
+<td>End</td>
+<td>Ctrl+Right, Meta+Right</td>
+<td>End, Ctrl+E</td>
+<td>End, Ctrl+E</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToStartOfBlock</a></td>
+<td>(none)</td>
+<td>Alt+Up, Meta+A</td>
+<td>(none)</td>
+<td>(none)</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToEndOfBlock</a></td>
+<td>(none)</td>
+<td>Alt+Down, Meta+E</td>
+<td>(none)</td>
+<td>(none)</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToStartOfDocument</a></td>
+<td>Ctrl+Home</td>
+<td>Ctrl+Up, Home</td>
+<td>Ctrl+Home</td>
+<td>Ctrl+Home</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">MoveToEndOfDocument</a></td>
+<td>Ctrl+End</td>
+<td>Ctrl+Down, End</td>
+<td>Ctrl+End</td>
+<td>Ctrl+End</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectNextChar</a></td>
+<td>Shift+Right</td>
+<td>Shift+Right</td>
+<td>Shift+Right</td>
+<td>Shift+Right</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectPreviousChar</a></td>
+<td>Shift+Left</td>
+<td>Shift+Left</td>
+<td>Shift+Left</td>
+<td>Shift+Left</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectNextWord</a></td>
+<td>Ctrl+Shift+Right</td>
+<td>Alt+Shift+Right</td>
+<td>Ctrl+Shift+Right</td>
+<td>Ctrl+Shift+Right</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectPreviousWord</a></td>
+<td>Ctrl+Shift+Left</td>
+<td>Alt+Shift+Left</td>
+<td>Ctrl+Shift+Left</td>
+<td>Ctrl+Shift+Left</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectNextLine</a></td>
+<td>Shift+Down</td>
+<td>Shift+Down</td>
+<td>Shift+Down</td>
+<td>Shift+Down</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectPreviousLine</a></td>
+<td>Shift+Up</td>
+<td>Shift+Up</td>
+<td>Shift+Up</td>
+<td>Shift+Up</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectNextPage</a></td>
+<td>Shift+PgDown</td>
+<td>Shift+PgDown</td>
+<td>Shift+PgDown</td>
+<td>Shift+PgDown</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectPreviousPage</a></td>
+<td>Shift+PgUp</td>
+<td>Shift+PgUp</td>
+<td>Shift+PgUp</td>
+<td>Shift+PgUp</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectStartOfLine</a></td>
+<td>Shift+Home</td>
+<td>Ctrl+Shift+Left</td>
+<td>Shift+Home</td>
+<td>Shift+Home</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectEndOfLine</a></td>
+<td>Shift+End</td>
+<td>Ctrl+Shift+Right</td>
+<td>Shift+End</td>
+<td>Shift+End</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectStartOfBlock</a></td>
+<td>(none)</td>
+<td>Alt+Shift+Up, Meta+Shift+A</td>
+<td>(none)</td>
+<td>(none)</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectEndOfBlock</a></td>
+<td>(none)</td>
+<td>Alt+Shift+Down, Meta+Shift+E</td>
+<td>(none)</td>
+<td>(none)</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectStartOfDocument</a></td>
+<td>Ctrl+Shift+Home</td>
+<td>Ctrl+Shift+Up, Shift+Home</td>
+<td>Ctrl+Shift+Home</td>
+<td>Ctrl+Shift+Home</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">SelectEndOfDocument</a></td>
+<td>Ctrl+Shift+End</td>
+<td>Ctrl+Shift+Down, Shift+End</td>
+<td>Ctrl+Shift+End</td>
+<td>Ctrl+Shift+End</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">DeleteStartOfWord</a></td>
+<td>Ctrl+Backspace</td>
+<td>Alt+Backspace</td>
+<td>Ctrl+Backspace</td>
+<td>Ctrl+Backspace</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">DeleteEndOfWord</a></td>
+<td>Ctrl+Del</td>
+<td>(none)</td>
+<td>Ctrl+Del</td>
+<td>Ctrl+Del</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">DeleteEndOfLine</a></td>
+<td>(none)</td>
+<td>(none)</td>
+<td>Ctrl+K</td>
+<td>Ctrl+K</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">DeleteCompleteLine</a></td>
+<td>(none)</td>
+<td>(none)</td>
+<td>Ctrl+U</td>
+<td>Ctrl+U</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">InsertParagraphSeparator</a></td>
+<td>Enter</td>
+<td>Enter</td>
+<td>Enter</td>
+<td>Enter</td>
+</tr>
+<tr>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">InsertLineSeparator</a></td>
+<td>Shift+Enter</td>
+<td>Meta+Enter, Meta+O</td>
+<td>Shift+Enter</td>
+<td>Shift+Enter</td>
+</tr>
+<tr>
+<td>Backspace</td>
+<td>(none)</td>
+<td>Meta+H</td>
+<td>(none)</td>
+<td>(none)</td>
+</tr>
+<tr>
+<td>Cancel</td>
+<td>Escape</td>
+<td>Escape, Ctrl+.</td>
+<td>Escape</td>
+<td>Escape</td>
+</tr>
+</tbody>
+</table>
+<p>Note that, since the key sequences used for the standard shortcuts differ between
+platforms, you still need to test your shortcuts on each platform to ensure that you do
+not unintentionally assign the same key sequence to many actions.</p>
+<h5 id="PythonQt.Qt.QKeySequence--keyboard-layout-issues">Keyboard Layout Issues</h5>
+<p>Many key sequence specifications are chosen by developers based on the layout of certain
+types of keyboard, rather than choosing keys that represent the first letter of an
+action's name, such as <strong>Ctrl S</strong> ("Ctrl+S") or <strong>Ctrl C</strong> ("Ctrl+C"). Additionally,
+because certain symbols can only be entered with the help of modifier keys on certain
+keyboard layouts, key sequences intended for use with one keyboard layout may map to a
+different key, map to no keys at all, or require an additional modifier key to be used
+on different keyboard layouts.</p>
+<p>For example, the shortcuts, <strong>Ctrl plus</strong> and <strong>Ctrl minus</strong>, are often used as
+shortcuts for zoom operations in graphics applications, and these may be specified as
+"Ctrl++" and "Ctrl+-" respectively. However, the way these shortcuts are specified
+and interpreted depends on the keyboard layout. Users of Norwegian keyboards will note
+that the <strong>+</strong> and <strong>-</strong> keys are not adjacent on the keyboard, but will still be able
+to activate both shortcuts without needing to press the <strong>Shift</strong> key. However, users
+with British keyboards will need to hold down the <strong>Shift</strong> key to enter the <strong>+</strong>
+symbol, making the shortcut effectively the same as "Ctrl+Shift+\=".</p>
+<p>Although some developers might resort to fully specifying all the modifiers they use on
+their keyboards to activate a shortcut, this will also result in unexpected behavior for
+users of different keyboard layouts.</p>
+<p>For example, a developer using a British keyboard may decide to specify
+"Ctrl+Shift+\=" as the key sequence in order to create a shortcut that coincidentally
+behaves in the same way as <strong>Ctrl plus</strong>. However, the <strong>\=</strong> key needs to be accessed
+using the <strong>Shift</strong> key on Norwegian keyboard, making the required shortcut effectively
+<strong>Ctrl Shift Shift \=</strong> (an impossible key combination).</p>
+<p>As a result, both human-readable strings and hard-coded key codes can both be
+problematic to use when specifying a key sequence that can be used on a variety of
+different keyboard layouts. Only the use of <a href="https://doc.qt.io/archives/qt-5.15/qkeysequence.html#StandardKey-enum">standard
+shortcuts</a>
+guarantees that the user will be able to use the shortcuts that the developer intended.</p>
+<p>Despite this, we can address this issue by ensuring that human-readable strings are
+used, making it possible for translations of key sequences to be made for users of
+different languages. This approach will be successful for users whose keyboards have the
+most typical layout for the language they are using.</p>
+<h5 id="PythonQt.Qt.QKeySequence--gnu-emacs-style-key-sequences">GNU Emacs Style Key Sequences</h5>
+<p>Key sequences similar to those used in <a href="http://www.gnu.org/software/emacs/">GNU Emacs</a>,
+allowing up to four key codes, can be created by using the multiple argument
+constructor, or by passing a human-readable string of comma-separated key sequences.</p>
+<p>For example, the key sequence, <strong>Ctrl X</strong> followed by <strong>Ctrl C</strong>, can be specified using
+either of the following ways:</p>
+<div class="highlight"><pre><span></span><code>QKeySequence(tr(&quot;Ctrl+X, Ctrl+C&quot;));
+QKeySequence(Qt::CTRL + Qt::Key_X, Qt::CTRL + Qt::Key_C);
+</code></pre></div>
+<p><strong>Warning:</strong> A <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html">QApplication</a>
+instance must have been constructed before a QKeySequence is created; otherwise, your
+application may crash.</p>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qkeysequence.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.AddTab"></span><code>AddTab</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.AddTab">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Back"></span><code>Back</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.Back">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Backspace"></span><code>Backspace</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.Backspace">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Bold"></span><code>Bold</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QFont/members-001.html#PythonQt.QtGui.QFont.Bold">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Cancel"></span><code>Cancel</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Cancel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Close"></span><code>Close</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QApplicationStateChangeEvent/members-001.html#PythonQt.QtCore.QApplicationStateChangeEvent.Close">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Copy"></span><code>Copy</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.Copy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Cut"></span><code>Cut</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.Cut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Delete"></span><code>Delete</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.Delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.DeleteCompleteLine"></span><code>DeleteCompleteLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.DeleteCompleteLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.DeleteEndOfLine"></span><code>DeleteEndOfLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.DeleteEndOfLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.DeleteEndOfWord"></span><code>DeleteEndOfWord</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.DeleteEndOfWord">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.DeleteStartOfWord"></span><code>DeleteStartOfWord</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.DeleteStartOfWord">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Deselect"></span><code>Deselect</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QItemSelectionModel/members-001.html#PythonQt.QtGui.QItemSelectionModel.Deselect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.ExactMatch"></span><code>ExactMatch</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.ExactMatch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Find"></span><code>Find</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.Find">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.FindNext"></span><code>FindNext</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.FindNext">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.FindPrevious"></span><code>FindPrevious</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.FindPrevious">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Forward"></span><code>Forward</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.Forward">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.FullScreen"></span><code>FullScreen</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.FullScreen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.HelpContents"></span><code>HelpContents</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.HelpContents">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.InsertLineSeparator"></span><code>InsertLineSeparator</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.InsertLineSeparator">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.InsertParagraphSeparator"></span><code>InsertParagraphSeparator</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.InsertParagraphSeparator">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Italic"></span><code>Italic</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.Italic">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToEndOfBlock"></span><code>MoveToEndOfBlock</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToEndOfBlock">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToEndOfDocument"></span><code>MoveToEndOfDocument</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToEndOfDocument">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToEndOfLine"></span><code>MoveToEndOfLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToEndOfLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToNextChar"></span><code>MoveToNextChar</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToNextChar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToNextLine"></span><code>MoveToNextLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToNextLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToNextPage"></span><code>MoveToNextPage</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToNextPage">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToNextWord"></span><code>MoveToNextWord</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToNextWord">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToPreviousChar"></span><code>MoveToPreviousChar</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToPreviousChar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToPreviousLine"></span><code>MoveToPreviousLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToPreviousLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToPreviousPage"></span><code>MoveToPreviousPage</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToPreviousPage">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToPreviousWord"></span><code>MoveToPreviousWord</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToPreviousWord">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToStartOfBlock"></span><code>MoveToStartOfBlock</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToStartOfBlock">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToStartOfDocument"></span><code>MoveToStartOfDocument</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToStartOfDocument">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.MoveToStartOfLine"></span><code>MoveToStartOfLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.MoveToStartOfLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.NativeText"></span><code>NativeText</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.NativeText">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.New"></span><code>New</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.New">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.NextChild"></span><code>NextChild</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.NextChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.NoMatch"></span><code>NoMatch</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QRegularExpression/members-001.html#PythonQt.QtCore.QRegularExpression.NoMatch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Open"></span><code>Open</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QSystemSemaphore/members-001.html#PythonQt.QtCore.QSystemSemaphore.Open">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.PartialMatch"></span><code>PartialMatch</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.PartialMatch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Paste"></span><code>Paste</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.Paste">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.PortableText"></span><code>PortableText</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.PortableText">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Preferences"></span><code>Preferences</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-001.html#PythonQt.QtGui.QKeySequence.Preferences">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.PreviousChild"></span><code>PreviousChild</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.PreviousChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Print"></span><code>Print</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.Print">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Quit"></span><code>Quit</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QApplicationStateChangeEvent/members-003.html#PythonQt.QtCore.QApplicationStateChangeEvent.Quit">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Redo"></span><code>Redo</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.Redo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Refresh"></span><code>Refresh</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.Refresh">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Replace"></span><code>Replace</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.Replace">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Save"></span><code>Save</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Save">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SaveAs"></span><code>SaveAs</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SaveAs">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectAll"></span><code>SelectAll</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectAll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectEndOfBlock"></span><code>SelectEndOfBlock</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectEndOfBlock">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectEndOfDocument"></span><code>SelectEndOfDocument</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectEndOfDocument">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectEndOfLine"></span><code>SelectEndOfLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectEndOfLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectNextChar"></span><code>SelectNextChar</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectNextChar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectNextLine"></span><code>SelectNextLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectNextLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectNextPage"></span><code>SelectNextPage</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectNextPage">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectNextWord"></span><code>SelectNextWord</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectNextWord">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectPreviousChar"></span><code>SelectPreviousChar</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectPreviousChar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectPreviousLine"></span><code>SelectPreviousLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectPreviousLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectPreviousPage"></span><code>SelectPreviousPage</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectPreviousPage">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectPreviousWord"></span><code>SelectPreviousWord</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectPreviousWord">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectStartOfBlock"></span><code>SelectStartOfBlock</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectStartOfBlock">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectStartOfDocument"></span><code>SelectStartOfDocument</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectStartOfDocument">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SelectStartOfLine"></span><code>SelectStartOfLine</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SelectStartOfLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SequenceFormat"></span><code>SequenceFormat</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SequenceFormat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.SequenceMatch"></span><code>SequenceMatch</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.SequenceMatch">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.StandardKey"></span><code>StandardKey</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.StandardKey">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Underline"></span><code>Underline</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QGlyphRun/members-001.html#PythonQt.QtGui.QGlyphRun.Underline">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.Undo"></span><code>Undo</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.Undo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.UnknownKey"></span><code>UnknownKey</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.UnknownKey">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.WhatsThis"></span><code>WhatsThis</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QApplicationStateChangeEvent/members-004.html#PythonQt.QtCore.QApplicationStateChangeEvent.WhatsThis">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.ZoomIn"></span><code>ZoomIn</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.ZoomIn">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.ZoomOut"></span><code>ZoomOut</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.ZoomOut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.count"></span><code>count</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.count">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.fromString"></span><code>fromString</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.fromString">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.isEmpty"></span><code>isEmpty</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.isEmpty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.keyBindings"></span><code>keyBindings</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.keyBindings">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.listFromString"></span><code>listFromString</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.listFromString">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.listToString"></span><code>listToString</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.listToString">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.matches"></span><code>matches</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.matches">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.mnemonic"></span><code>mnemonic</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.mnemonic">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.operator_subscript"></span><code>operator_subscript</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.operator_subscript">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.readFrom"></span><code>readFrom</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.readFrom">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.swap"></span><code>swap</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.swap">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.toString"></span><code>toString</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-002.html#PythonQt.QtGui.QKeySequence.toString">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QKeySequence.writeTo"></span><code>writeTo</code></td>
+<td>function</td>
+<td><a href="../QtGui/QKeySequence/members-003.html#PythonQt.QtGui.QKeySequence.writeTo">Shared captured text</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

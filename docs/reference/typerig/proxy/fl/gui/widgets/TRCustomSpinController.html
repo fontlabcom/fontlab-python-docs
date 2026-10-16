@@ -1,0 +1,2553 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/typerig/proxy/fl/gui/widgets/TRCustomSpinController.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>typerig.proxy.fl.gui.widgets.TRCustomSpinController - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#typerigproxyflguiwidgetstrcustomspincontroller" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              typerig.proxy.fl.gui.widgets.TRCustomSpinController
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#typerig.proxy.fl.gui.widgets.TRCustomSpinController" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TRCustomSpinController
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source bases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inherited-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inherited member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="typerigproxyflguiwidgetstrcustomspincontroller">typerig.proxy.fl.gui.widgets.TRCustomSpinController</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="typerig.proxy.fl.gui.widgets.TRCustomSpinController" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">TRCustomSpinController</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="source-bases">Source bases</h2>
+<ul>
+<li><a href="../../../../../PythonQt/QtGui/QWidget.html#PythonQt.QtGui.QWidget"><code>QtGui.QWidget</code></a></li>
+</ul>
+<h2 id="inherited-member-index">Inherited member index</h2>
+<p>Source-proven inherited members; local declarations override these entries.</p>
+<ul>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.DrawChildren"><code>DrawChildren</code></a> — defined by <code>PythonQt.QtGui.QWidget.DrawChildren</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.DrawWindowBackground"><code>DrawWindowBackground</code></a> — defined by <code>PythonQt.QtGui.QWidget.DrawWindowBackground</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.IgnoreMask"><code>IgnoreMask</code></a> — defined by <code>PythonQt.QtGui.QWidget.IgnoreMask</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PaintDeviceMetric"><code>PaintDeviceMetric</code></a> — defined by <code>PythonQt.QtGui.QWidget.PaintDeviceMetric</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDepth"><code>PdmDepth</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmDepth</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDevicePixelRatio"><code>PdmDevicePixelRatio</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmDevicePixelRatio</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDevicePixelRatioScaled"><code>PdmDevicePixelRatioScaled</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmDevicePixelRatioScaled</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDpiX"><code>PdmDpiX</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmDpiX</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDpiY"><code>PdmDpiY</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmDpiY</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmHeight"><code>PdmHeight</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmHeight</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmHeightMM"><code>PdmHeightMM</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmHeightMM</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmNumColors"><code>PdmNumColors</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmNumColors</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmPhysicalDpiX"><code>PdmPhysicalDpiX</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmPhysicalDpiX</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmPhysicalDpiY"><code>PdmPhysicalDpiY</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmPhysicalDpiY</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmWidth"><code>PdmWidth</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmWidth</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmWidthMM"><code>PdmWidthMM</code></a> — defined by <code>PythonQt.QtGui.QWidget.PdmWidthMM</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.RenderFlag"><code>RenderFlag</code></a> — defined by <code>PythonQt.QtGui.QWidget.RenderFlag</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.RenderFlags"><code>RenderFlags</code></a> — defined by <code>PythonQt.QtGui.QWidget.RenderFlags</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.acceptDrops"><code>acceptDrops</code></a> — defined by <code>PythonQt.QtGui.QWidget.acceptDrops</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.accessibleDescription"><code>accessibleDescription</code></a> — defined by <code>PythonQt.QtGui.QWidget.accessibleDescription</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.accessibleName"><code>accessibleName</code></a> — defined by <code>PythonQt.QtGui.QWidget.accessibleName</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.actionEvent"><code>actionEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.actionEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.actions"><code>actions</code></a> — defined by <code>PythonQt.QtGui.QWidget.actions</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.activateWindow"><code>activateWindow</code></a> — defined by <code>PythonQt.QtGui.QWidget.activateWindow</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.addAction"><code>addAction</code></a> — defined by <code>PythonQt.QtGui.QWidget.addAction</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.addActions"><code>addActions</code></a> — defined by <code>PythonQt.QtGui.QWidget.addActions</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.adjustSize"><code>adjustSize</code></a> — defined by <code>PythonQt.QtGui.QWidget.adjustSize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.autoFillBackground"><code>autoFillBackground</code></a> — defined by <code>PythonQt.QtGui.QWidget.autoFillBackground</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.backgroundRole"><code>backgroundRole</code></a> — defined by <code>PythonQt.QtGui.QWidget.backgroundRole</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.backingStore"><code>backingStore</code></a> — defined by <code>PythonQt.QtGui.QWidget.backingStore</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.baseSize"><code>baseSize</code></a> — defined by <code>PythonQt.QtGui.QWidget.baseSize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.changeEvent"><code>changeEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.changeEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.childAt"><code>childAt</code></a> — defined by <code>PythonQt.QtGui.QWidget.childAt</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.childEvent"><code>childEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.childEvent</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.children"><code>children</code></a> — defined by <code>PythonQt.QtGui.QWidget.children</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.childrenRect"><code>childrenRect</code></a> — defined by <code>PythonQt.QtGui.QWidget.childrenRect</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.childrenRegion"><code>childrenRegion</code></a> — defined by <code>PythonQt.QtGui.QWidget.childrenRegion</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className"><code>className</code></a> — defined by <code>PythonQt.QtGui.QWidget.className</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.clearFocus"><code>clearFocus</code></a> — defined by <code>PythonQt.QtGui.QWidget.clearFocus</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.clearMask"><code>clearMask</code></a> — defined by <code>PythonQt.QtGui.QWidget.clearMask</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.close"><code>close</code></a> — defined by <code>PythonQt.QtGui.QWidget.close</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.closeEvent"><code>closeEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.closeEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.colorCount"><code>colorCount</code></a> — defined by <code>PythonQt.QtGui.QWidget.colorCount</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.connect"><code>connect</code></a> — defined by <code>PythonQt.QtGui.QWidget.connect</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.contentsMargins"><code>contentsMargins</code></a> — defined by <code>PythonQt.QtGui.QWidget.contentsMargins</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.contentsRect"><code>contentsRect</code></a> — defined by <code>PythonQt.QtGui.QWidget.contentsRect</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.contextMenuEvent"><code>contextMenuEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.contextMenuEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.contextMenuPolicy"><code>contextMenuPolicy</code></a> — defined by <code>PythonQt.QtGui.QWidget.contextMenuPolicy</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.createWinId"><code>createWinId</code></a> — defined by <code>PythonQt.QtGui.QWidget.createWinId</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.createWindowContainer"><code>createWindowContainer</code></a> — defined by <code>PythonQt.QtGui.QWidget.createWindowContainer</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.cursor"><code>cursor</code></a> — defined by <code>PythonQt.QtGui.QWidget.cursor</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.customContextMenuRequested"><code>customContextMenuRequested</code></a> — defined by <code>PythonQt.QtGui.QWidget.customContextMenuRequested</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.customEvent"><code>customEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.customEvent</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete"><code>delete</code></a> — defined by <code>PythonQt.QtGui.QWidget.delete</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.deleteLater"><code>deleteLater</code></a> — defined by <code>PythonQt.QtGui.QWidget.deleteLater</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.depth"><code>depth</code></a> — defined by <code>PythonQt.QtGui.QWidget.depth</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.destroy"><code>destroy</code></a> — defined by <code>PythonQt.QtGui.QWidget.destroy</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.destroyed"><code>destroyed</code></a> — defined by <code>PythonQt.QtGui.QWidget.destroyed</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.devType"><code>devType</code></a> — defined by <code>PythonQt.QtGui.QWidget.devType</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatio"><code>devicePixelRatio</code></a> — defined by <code>PythonQt.QtGui.QWidget.devicePixelRatio</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatioF"><code>devicePixelRatioF</code></a> — defined by <code>PythonQt.QtGui.QWidget.devicePixelRatioF</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatioFScale"><code>devicePixelRatioFScale</code></a> — defined by <code>PythonQt.QtGui.QWidget.devicePixelRatioFScale</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.disconnect"><code>disconnect</code></a> — defined by <code>PythonQt.QtGui.QWidget.disconnect</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.dragEnterEvent"><code>dragEnterEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.dragEnterEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.dragLeaveEvent"><code>dragLeaveEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.dragLeaveEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.dragMoveEvent"><code>dragMoveEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.dragMoveEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.dropEvent"><code>dropEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.dropEvent</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectInfo"><code>dumpObjectInfo</code></a> — defined by <code>PythonQt.QtGui.QWidget.dumpObjectInfo</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectTree"><code>dumpObjectTree</code></a> — defined by <code>PythonQt.QtGui.QWidget.dumpObjectTree</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dynamicPropertyNames"><code>dynamicPropertyNames</code></a> — defined by <code>PythonQt.QtGui.QWidget.dynamicPropertyNames</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.echopy_object_name"><code>echopy_object_name</code></a> — defined by <code>PythonQt.QtGui.QWidget.echopy_object_name</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.effectiveWinId"><code>effectiveWinId</code></a> — defined by <code>PythonQt.QtGui.QWidget.effectiveWinId</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.enabled"><code>enabled</code></a> — defined by <code>PythonQt.QtGui.QWidget.enabled</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-001.html#PythonQt.QtGui.QWidget.ensurePolished"><code>ensurePolished</code></a> — defined by <code>PythonQt.QtGui.QWidget.ensurePolished</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.enterEvent"><code>enterEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.enterEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.event"><code>event</code></a> — defined by <code>PythonQt.QtGui.QWidget.event</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.eventFilter"><code>eventFilter</code></a> — defined by <code>PythonQt.QtGui.QWidget.eventFilter</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChild"><code>findChild</code></a> — defined by <code>PythonQt.QtGui.QWidget.findChild</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChildren"><code>findChildren</code></a> — defined by <code>PythonQt.QtGui.QWidget.findChildren</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.focus"><code>focus</code></a> — defined by <code>PythonQt.QtGui.QWidget.focus</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.focusInEvent"><code>focusInEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.focusInEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.focusNextChild"><code>focusNextChild</code></a> — defined by <code>PythonQt.QtGui.QWidget.focusNextChild</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.focusNextPrevChild"><code>focusNextPrevChild</code></a> — defined by <code>PythonQt.QtGui.QWidget.focusNextPrevChild</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.focusOutEvent"><code>focusOutEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.focusOutEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.focusPolicy"><code>focusPolicy</code></a> — defined by <code>PythonQt.QtGui.QWidget.focusPolicy</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.focusPreviousChild"><code>focusPreviousChild</code></a> — defined by <code>PythonQt.QtGui.QWidget.focusPreviousChild</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.focusProxy"><code>focusProxy</code></a> — defined by <code>PythonQt.QtGui.QWidget.focusProxy</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.focusWidget"><code>focusWidget</code></a> — defined by <code>PythonQt.QtGui.QWidget.focusWidget</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.font"><code>font</code></a> — defined by <code>PythonQt.QtGui.QWidget.font</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.fontInfo"><code>fontInfo</code></a> — defined by <code>PythonQt.QtGui.QWidget.fontInfo</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.fontMetrics"><code>fontMetrics</code></a> — defined by <code>PythonQt.QtGui.QWidget.fontMetrics</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.foregroundRole"><code>foregroundRole</code></a> — defined by <code>PythonQt.QtGui.QWidget.foregroundRole</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.frameGeometry"><code>frameGeometry</code></a> — defined by <code>PythonQt.QtGui.QWidget.frameGeometry</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.frameSize"><code>frameSize</code></a> — defined by <code>PythonQt.QtGui.QWidget.frameSize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.fullScreen"><code>fullScreen</code></a> — defined by <code>PythonQt.QtGui.QWidget.fullScreen</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.geometry"><code>geometry</code></a> — defined by <code>PythonQt.QtGui.QWidget.geometry</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.grab"><code>grab</code></a> — defined by <code>PythonQt.QtGui.QWidget.grab</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.grabGesture"><code>grabGesture</code></a> — defined by <code>PythonQt.QtGui.QWidget.grabGesture</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.grabKeyboard"><code>grabKeyboard</code></a> — defined by <code>PythonQt.QtGui.QWidget.grabKeyboard</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.grabMouse"><code>grabMouse</code></a> — defined by <code>PythonQt.QtGui.QWidget.grabMouse</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.grabShortcut"><code>grabShortcut</code></a> — defined by <code>PythonQt.QtGui.QWidget.grabShortcut</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.graphicsEffect"><code>graphicsEffect</code></a> — defined by <code>PythonQt.QtGui.QWidget.graphicsEffect</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.graphicsProxyWidget"><code>graphicsProxyWidget</code></a> — defined by <code>PythonQt.QtGui.QWidget.graphicsProxyWidget</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.hasFocus"><code>hasFocus</code></a> — defined by <code>PythonQt.QtGui.QWidget.hasFocus</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.hasHeightForWidth"><code>hasHeightForWidth</code></a> — defined by <code>PythonQt.QtGui.QWidget.hasHeightForWidth</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.hasMouseTracking"><code>hasMouseTracking</code></a> — defined by <code>PythonQt.QtGui.QWidget.hasMouseTracking</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.height"><code>height</code></a> — defined by <code>PythonQt.QtGui.QWidget.height</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.heightForWidth"><code>heightForWidth</code></a> — defined by <code>PythonQt.QtGui.QWidget.heightForWidth</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.heightMM"><code>heightMM</code></a> — defined by <code>PythonQt.QtGui.QWidget.heightMM</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help"><code>help</code></a> — defined by <code>PythonQt.QtGui.QWidget.help</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.hide"><code>hide</code></a> — defined by <code>PythonQt.QtGui.QWidget.hide</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.hideEvent"><code>hideEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.hideEvent</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits"><code>inherits</code></a> — defined by <code>PythonQt.QtGui.QWidget.inherits</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.initPainter"><code>initPainter</code></a> — defined by <code>PythonQt.QtGui.QWidget.initPainter</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.inputMethodEvent"><code>inputMethodEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.inputMethodEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.inputMethodHints"><code>inputMethodHints</code></a> — defined by <code>PythonQt.QtGui.QWidget.inputMethodHints</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.inputMethodQuery"><code>inputMethodQuery</code></a> — defined by <code>PythonQt.QtGui.QWidget.inputMethodQuery</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.insertAction"><code>insertAction</code></a> — defined by <code>PythonQt.QtGui.QWidget.insertAction</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.insertActions"><code>insertActions</code></a> — defined by <code>PythonQt.QtGui.QWidget.insertActions</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.installEventFilter"><code>installEventFilter</code></a> — defined by <code>PythonQt.QtGui.QWidget.installEventFilter</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-002.html#PythonQt.QtGui.QWidget.isActiveWindow"><code>isActiveWindow</code></a> — defined by <code>PythonQt.QtGui.QWidget.isActiveWindow</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isAncestorOf"><code>isAncestorOf</code></a> — defined by <code>PythonQt.QtGui.QWidget.isAncestorOf</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isEnabled"><code>isEnabled</code></a> — defined by <code>PythonQt.QtGui.QWidget.isEnabled</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isEnabledTo"><code>isEnabledTo</code></a> — defined by <code>PythonQt.QtGui.QWidget.isEnabledTo</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isFullScreen"><code>isFullScreen</code></a> — defined by <code>PythonQt.QtGui.QWidget.isFullScreen</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isHidden"><code>isHidden</code></a> — defined by <code>PythonQt.QtGui.QWidget.isHidden</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isLeftToRight"><code>isLeftToRight</code></a> — defined by <code>PythonQt.QtGui.QWidget.isLeftToRight</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isMaximized"><code>isMaximized</code></a> — defined by <code>PythonQt.QtGui.QWidget.isMaximized</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isMinimized"><code>isMinimized</code></a> — defined by <code>PythonQt.QtGui.QWidget.isMinimized</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isModal"><code>isModal</code></a> — defined by <code>PythonQt.QtGui.QWidget.isModal</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isRightToLeft"><code>isRightToLeft</code></a> — defined by <code>PythonQt.QtGui.QWidget.isRightToLeft</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.isSignalConnected"><code>isSignalConnected</code></a> — defined by <code>PythonQt.QtGui.QWidget.isSignalConnected</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isVisible"><code>isVisible</code></a> — defined by <code>PythonQt.QtGui.QWidget.isVisible</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isVisibleTo"><code>isVisibleTo</code></a> — defined by <code>PythonQt.QtGui.QWidget.isVisibleTo</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWidgetType"><code>isWidgetType</code></a> — defined by <code>PythonQt.QtGui.QWidget.isWidgetType</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isWindow"><code>isWindow</code></a> — defined by <code>PythonQt.QtGui.QWidget.isWindow</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.isWindowModified"><code>isWindowModified</code></a> — defined by <code>PythonQt.QtGui.QWidget.isWindowModified</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWindowType"><code>isWindowType</code></a> — defined by <code>PythonQt.QtGui.QWidget.isWindowType</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.keyPressEvent"><code>keyPressEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.keyPressEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.keyReleaseEvent"><code>keyReleaseEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.keyReleaseEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.keyboardGrabber"><code>keyboardGrabber</code></a> — defined by <code>PythonQt.QtGui.QWidget.keyboardGrabber</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.killTimer"><code>killTimer</code></a> — defined by <code>PythonQt.QtGui.QWidget.killTimer</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.layout"><code>layout</code></a> — defined by <code>PythonQt.QtGui.QWidget.layout</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.layoutDirection"><code>layoutDirection</code></a> — defined by <code>PythonQt.QtGui.QWidget.layoutDirection</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.leaveEvent"><code>leaveEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.leaveEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.locale"><code>locale</code></a> — defined by <code>PythonQt.QtGui.QWidget.locale</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.logicalDpiX"><code>logicalDpiX</code></a> — defined by <code>PythonQt.QtGui.QWidget.logicalDpiX</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.logicalDpiY"><code>logicalDpiY</code></a> — defined by <code>PythonQt.QtGui.QWidget.logicalDpiY</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.lower"><code>lower</code></a> — defined by <code>PythonQt.QtGui.QWidget.lower</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.mapFrom"><code>mapFrom</code></a> — defined by <code>PythonQt.QtGui.QWidget.mapFrom</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.mapFromGlobal"><code>mapFromGlobal</code></a> — defined by <code>PythonQt.QtGui.QWidget.mapFromGlobal</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.mapFromParent"><code>mapFromParent</code></a> — defined by <code>PythonQt.QtGui.QWidget.mapFromParent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.mapTo"><code>mapTo</code></a> — defined by <code>PythonQt.QtGui.QWidget.mapTo</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.mapToGlobal"><code>mapToGlobal</code></a> — defined by <code>PythonQt.QtGui.QWidget.mapToGlobal</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.mapToParent"><code>mapToParent</code></a> — defined by <code>PythonQt.QtGui.QWidget.mapToParent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.mask"><code>mask</code></a> — defined by <code>PythonQt.QtGui.QWidget.mask</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.maximized"><code>maximized</code></a> — defined by <code>PythonQt.QtGui.QWidget.maximized</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.maximumHeight"><code>maximumHeight</code></a> — defined by <code>PythonQt.QtGui.QWidget.maximumHeight</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.maximumSize"><code>maximumSize</code></a> — defined by <code>PythonQt.QtGui.QWidget.maximumSize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.maximumWidth"><code>maximumWidth</code></a> — defined by <code>PythonQt.QtGui.QWidget.maximumWidth</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.metaObject"><code>metaObject</code></a> — defined by <code>PythonQt.QtGui.QWidget.metaObject</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.metric"><code>metric</code></a> — defined by <code>PythonQt.QtGui.QWidget.metric</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.minimized"><code>minimized</code></a> — defined by <code>PythonQt.QtGui.QWidget.minimized</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.minimumHeight"><code>minimumHeight</code></a> — defined by <code>PythonQt.QtGui.QWidget.minimumHeight</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.minimumSize"><code>minimumSize</code></a> — defined by <code>PythonQt.QtGui.QWidget.minimumSize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.minimumSizeHint"><code>minimumSizeHint</code></a> — defined by <code>PythonQt.QtGui.QWidget.minimumSizeHint</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.minimumWidth"><code>minimumWidth</code></a> — defined by <code>PythonQt.QtGui.QWidget.minimumWidth</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-003.html#PythonQt.QtGui.QWidget.modal"><code>modal</code></a> — defined by <code>PythonQt.QtGui.QWidget.modal</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.mouseDoubleClickEvent"><code>mouseDoubleClickEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.mouseDoubleClickEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.mouseGrabber"><code>mouseGrabber</code></a> — defined by <code>PythonQt.QtGui.QWidget.mouseGrabber</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.mouseMoveEvent"><code>mouseMoveEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.mouseMoveEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.mousePressEvent"><code>mousePressEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.mousePressEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.mouseReleaseEvent"><code>mouseReleaseEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.mouseReleaseEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.mouseTracking"><code>mouseTracking</code></a> — defined by <code>PythonQt.QtGui.QWidget.mouseTracking</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.move"><code>move</code></a> — defined by <code>PythonQt.QtGui.QWidget.move</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.moveEvent"><code>moveEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.moveEvent</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.moveToThread"><code>moveToThread</code></a> — defined by <code>PythonQt.QtGui.QWidget.moveToThread</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.nativeEvent"><code>nativeEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.nativeEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.nativeParentWidget"><code>nativeParentWidget</code></a> — defined by <code>PythonQt.QtGui.QWidget.nativeParentWidget</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.nextInFocusChain"><code>nextInFocusChain</code></a> — defined by <code>PythonQt.QtGui.QWidget.nextInFocusChain</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.normalGeometry"><code>normalGeometry</code></a> — defined by <code>PythonQt.QtGui.QWidget.normalGeometry</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.objectName"><code>objectName</code></a> — defined by <code>PythonQt.QtGui.QWidget.objectName</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.objectNameChanged"><code>objectNameChanged</code></a> — defined by <code>PythonQt.QtGui.QWidget.objectNameChanged</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.overrideWindowFlags"><code>overrideWindowFlags</code></a> — defined by <code>PythonQt.QtGui.QWidget.overrideWindowFlags</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.overrideWindowState"><code>overrideWindowState</code></a> — defined by <code>PythonQt.QtGui.QWidget.overrideWindowState</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.paintEngine"><code>paintEngine</code></a> — defined by <code>PythonQt.QtGui.QWidget.paintEngine</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.paintEvent"><code>paintEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.paintEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.paintingActive"><code>paintingActive</code></a> — defined by <code>PythonQt.QtGui.QWidget.paintingActive</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.palette"><code>palette</code></a> — defined by <code>PythonQt.QtGui.QWidget.palette</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.parent"><code>parent</code></a> — defined by <code>PythonQt.QtGui.QWidget.parent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.parentWidget"><code>parentWidget</code></a> — defined by <code>PythonQt.QtGui.QWidget.parentWidget</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.physicalDpiX"><code>physicalDpiX</code></a> — defined by <code>PythonQt.QtGui.QWidget.physicalDpiX</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.physicalDpiY"><code>physicalDpiY</code></a> — defined by <code>PythonQt.QtGui.QWidget.physicalDpiY</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.pos"><code>pos</code></a> — defined by <code>PythonQt.QtGui.QWidget.pos</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.previousInFocusChain"><code>previousInFocusChain</code></a> — defined by <code>PythonQt.QtGui.QWidget.previousInFocusChain</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.property"><code>property</code></a> — defined by <code>PythonQt.QtGui.QWidget.property</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.raise_"><code>raise_</code></a> — defined by <code>PythonQt.QtGui.QWidget.raise_</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.rect"><code>rect</code></a> — defined by <code>PythonQt.QtGui.QWidget.rect</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.redirected"><code>redirected</code></a> — defined by <code>PythonQt.QtGui.QWidget.redirected</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.releaseKeyboard"><code>releaseKeyboard</code></a> — defined by <code>PythonQt.QtGui.QWidget.releaseKeyboard</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.releaseMouse"><code>releaseMouse</code></a> — defined by <code>PythonQt.QtGui.QWidget.releaseMouse</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.releaseShortcut"><code>releaseShortcut</code></a> — defined by <code>PythonQt.QtGui.QWidget.releaseShortcut</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.removeAction"><code>removeAction</code></a> — defined by <code>PythonQt.QtGui.QWidget.removeAction</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.removeEventFilter"><code>removeEventFilter</code></a> — defined by <code>PythonQt.QtGui.QWidget.removeEventFilter</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.render"><code>render</code></a> — defined by <code>PythonQt.QtGui.QWidget.render</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.repaint"><code>repaint</code></a> — defined by <code>PythonQt.QtGui.QWidget.repaint</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.resize"><code>resize</code></a> — defined by <code>PythonQt.QtGui.QWidget.resize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.resizeEvent"><code>resizeEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.resizeEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.restoreGeometry"><code>restoreGeometry</code></a> — defined by <code>PythonQt.QtGui.QWidget.restoreGeometry</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.saveGeometry"><code>saveGeometry</code></a> — defined by <code>PythonQt.QtGui.QWidget.saveGeometry</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.scroll"><code>scroll</code></a> — defined by <code>PythonQt.QtGui.QWidget.scroll</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.sender"><code>sender</code></a> — defined by <code>PythonQt.QtGui.QWidget.sender</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.senderSignalIndex"><code>senderSignalIndex</code></a> — defined by <code>PythonQt.QtGui.QWidget.senderSignalIndex</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.setAcceptDrops"><code>setAcceptDrops</code></a> — defined by <code>PythonQt.QtGui.QWidget.setAcceptDrops</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.setAccessibleDescription"><code>setAccessibleDescription</code></a> — defined by <code>PythonQt.QtGui.QWidget.setAccessibleDescription</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.setAccessibleName"><code>setAccessibleName</code></a> — defined by <code>PythonQt.QtGui.QWidget.setAccessibleName</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.setAttribute"><code>setAttribute</code></a> — defined by <code>PythonQt.QtGui.QWidget.setAttribute</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-004.html#PythonQt.QtGui.QWidget.setAutoFillBackground"><code>setAutoFillBackground</code></a> — defined by <code>PythonQt.QtGui.QWidget.setAutoFillBackground</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setBackgroundRole"><code>setBackgroundRole</code></a> — defined by <code>PythonQt.QtGui.QWidget.setBackgroundRole</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setBaseSize"><code>setBaseSize</code></a> — defined by <code>PythonQt.QtGui.QWidget.setBaseSize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setContentsMargins"><code>setContentsMargins</code></a> — defined by <code>PythonQt.QtGui.QWidget.setContentsMargins</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setContextMenuPolicy"><code>setContextMenuPolicy</code></a> — defined by <code>PythonQt.QtGui.QWidget.setContextMenuPolicy</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setCursor"><code>setCursor</code></a> — defined by <code>PythonQt.QtGui.QWidget.setCursor</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setDisabled"><code>setDisabled</code></a> — defined by <code>PythonQt.QtGui.QWidget.setDisabled</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setFixedHeight"><code>setFixedHeight</code></a> — defined by <code>PythonQt.QtGui.QWidget.setFixedHeight</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setFixedSize"><code>setFixedSize</code></a> — defined by <code>PythonQt.QtGui.QWidget.setFixedSize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setFixedWidth"><code>setFixedWidth</code></a> — defined by <code>PythonQt.QtGui.QWidget.setFixedWidth</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setFocus"><code>setFocus</code></a> — defined by <code>PythonQt.QtGui.QWidget.setFocus</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setFocusPolicy"><code>setFocusPolicy</code></a> — defined by <code>PythonQt.QtGui.QWidget.setFocusPolicy</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setFocusProxy"><code>setFocusProxy</code></a> — defined by <code>PythonQt.QtGui.QWidget.setFocusProxy</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setFont"><code>setFont</code></a> — defined by <code>PythonQt.QtGui.QWidget.setFont</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setForegroundRole"><code>setForegroundRole</code></a> — defined by <code>PythonQt.QtGui.QWidget.setForegroundRole</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setGeometry"><code>setGeometry</code></a> — defined by <code>PythonQt.QtGui.QWidget.setGeometry</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setGraphicsEffect"><code>setGraphicsEffect</code></a> — defined by <code>PythonQt.QtGui.QWidget.setGraphicsEffect</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setHidden"><code>setHidden</code></a> — defined by <code>PythonQt.QtGui.QWidget.setHidden</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setInputMethodHints"><code>setInputMethodHints</code></a> — defined by <code>PythonQt.QtGui.QWidget.setInputMethodHints</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setLayout"><code>setLayout</code></a> — defined by <code>PythonQt.QtGui.QWidget.setLayout</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setLayoutDirection"><code>setLayoutDirection</code></a> — defined by <code>PythonQt.QtGui.QWidget.setLayoutDirection</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setLocale"><code>setLocale</code></a> — defined by <code>PythonQt.QtGui.QWidget.setLocale</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setMask"><code>setMask</code></a> — defined by <code>PythonQt.QtGui.QWidget.setMask</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setMaximumHeight"><code>setMaximumHeight</code></a> — defined by <code>PythonQt.QtGui.QWidget.setMaximumHeight</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setMaximumSize"><code>setMaximumSize</code></a> — defined by <code>PythonQt.QtGui.QWidget.setMaximumSize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setMaximumWidth"><code>setMaximumWidth</code></a> — defined by <code>PythonQt.QtGui.QWidget.setMaximumWidth</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setMinimumHeight"><code>setMinimumHeight</code></a> — defined by <code>PythonQt.QtGui.QWidget.setMinimumHeight</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setMinimumSize"><code>setMinimumSize</code></a> — defined by <code>PythonQt.QtGui.QWidget.setMinimumSize</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setMinimumWidth"><code>setMinimumWidth</code></a> — defined by <code>PythonQt.QtGui.QWidget.setMinimumWidth</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setMouseTracking"><code>setMouseTracking</code></a> — defined by <code>PythonQt.QtGui.QWidget.setMouseTracking</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setObjectName"><code>setObjectName</code></a> — defined by <code>PythonQt.QtGui.QWidget.setObjectName</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setPalette"><code>setPalette</code></a> — defined by <code>PythonQt.QtGui.QWidget.setPalette</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setParent"><code>setParent</code></a> — defined by <code>PythonQt.QtGui.QWidget.setParent</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setProperty"><code>setProperty</code></a> — defined by <code>PythonQt.QtGui.QWidget.setProperty</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setShortcutAutoRepeat"><code>setShortcutAutoRepeat</code></a> — defined by <code>PythonQt.QtGui.QWidget.setShortcutAutoRepeat</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setShortcutEnabled"><code>setShortcutEnabled</code></a> — defined by <code>PythonQt.QtGui.QWidget.setShortcutEnabled</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setSizeIncrement"><code>setSizeIncrement</code></a> — defined by <code>PythonQt.QtGui.QWidget.setSizeIncrement</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setSizePolicy"><code>setSizePolicy</code></a> — defined by <code>PythonQt.QtGui.QWidget.setSizePolicy</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setStatusTip"><code>setStatusTip</code></a> — defined by <code>PythonQt.QtGui.QWidget.setStatusTip</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setStyle"><code>setStyle</code></a> — defined by <code>PythonQt.QtGui.QWidget.setStyle</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setStyleSheet"><code>setStyleSheet</code></a> — defined by <code>PythonQt.QtGui.QWidget.setStyleSheet</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-005.html#PythonQt.QtGui.QWidget.setTabOrder"><code>setTabOrder</code></a> — defined by <code>PythonQt.QtGui.QWidget.setTabOrder</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setToolTip"><code>setToolTip</code></a> — defined by <code>PythonQt.QtGui.QWidget.setToolTip</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setToolTipDuration"><code>setToolTipDuration</code></a> — defined by <code>PythonQt.QtGui.QWidget.setToolTipDuration</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setUpdatesEnabled"><code>setUpdatesEnabled</code></a> — defined by <code>PythonQt.QtGui.QWidget.setUpdatesEnabled</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setVisible"><code>setVisible</code></a> — defined by <code>PythonQt.QtGui.QWidget.setVisible</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWhatsThis"><code>setWhatsThis</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWhatsThis</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowFilePath"><code>setWindowFilePath</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowFilePath</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowFlags"><code>setWindowFlags</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowFlags</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowIcon"><code>setWindowIcon</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowIcon</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowIconText"><code>setWindowIconText</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowIconText</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowModality"><code>setWindowModality</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowModality</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowModified"><code>setWindowModified</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowModified</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowOpacity"><code>setWindowOpacity</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowOpacity</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowRole"><code>setWindowRole</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowRole</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowState"><code>setWindowState</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowState</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.setWindowTitle"><code>setWindowTitle</code></a> — defined by <code>PythonQt.QtGui.QWidget.setWindowTitle</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.sharedPainter"><code>sharedPainter</code></a> — defined by <code>PythonQt.QtGui.QWidget.sharedPainter</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.show"><code>show</code></a> — defined by <code>PythonQt.QtGui.QWidget.show</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.showEvent"><code>showEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.showEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.showFullScreen"><code>showFullScreen</code></a> — defined by <code>PythonQt.QtGui.QWidget.showFullScreen</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.showMaximized"><code>showMaximized</code></a> — defined by <code>PythonQt.QtGui.QWidget.showMaximized</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.showMinimized"><code>showMinimized</code></a> — defined by <code>PythonQt.QtGui.QWidget.showMinimized</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.showNormal"><code>showNormal</code></a> — defined by <code>PythonQt.QtGui.QWidget.showNormal</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.signalsBlocked"><code>signalsBlocked</code></a> — defined by <code>PythonQt.QtGui.QWidget.signalsBlocked</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.size"><code>size</code></a> — defined by <code>PythonQt.QtGui.QWidget.size</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.sizeHint"><code>sizeHint</code></a> — defined by <code>PythonQt.QtGui.QWidget.sizeHint</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.sizeIncrement"><code>sizeIncrement</code></a> — defined by <code>PythonQt.QtGui.QWidget.sizeIncrement</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.sizePolicy"><code>sizePolicy</code></a> — defined by <code>PythonQt.QtGui.QWidget.sizePolicy</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.stackUnder"><code>stackUnder</code></a> — defined by <code>PythonQt.QtGui.QWidget.stackUnder</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.startTimer"><code>startTimer</code></a> — defined by <code>PythonQt.QtGui.QWidget.startTimer</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.statusTip"><code>statusTip</code></a> — defined by <code>PythonQt.QtGui.QWidget.statusTip</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.style"><code>style</code></a> — defined by <code>PythonQt.QtGui.QWidget.style</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.styleSheet"><code>styleSheet</code></a> — defined by <code>PythonQt.QtGui.QWidget.styleSheet</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.tabletEvent"><code>tabletEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.tabletEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.tabletTracking"><code>tabletTracking</code></a> — defined by <code>PythonQt.QtGui.QWidget.tabletTracking</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.testAttribute"><code>testAttribute</code></a> — defined by <code>PythonQt.QtGui.QWidget.testAttribute</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.thread"><code>thread</code></a> — defined by <code>PythonQt.QtGui.QWidget.thread</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.timerEvent"><code>timerEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.timerEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.toolTip"><code>toolTip</code></a> — defined by <code>PythonQt.QtGui.QWidget.toolTip</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.toolTipDuration"><code>toolTipDuration</code></a> — defined by <code>PythonQt.QtGui.QWidget.toolTipDuration</code></li>
+<li><a href="../../../../../PythonQt/QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.tr"><code>tr</code></a> — defined by <code>PythonQt.QtGui.QWidget.tr</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.underMouse"><code>underMouse</code></a> — defined by <code>PythonQt.QtGui.QWidget.underMouse</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.ungrabGesture"><code>ungrabGesture</code></a> — defined by <code>PythonQt.QtGui.QWidget.ungrabGesture</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.unsetCursor"><code>unsetCursor</code></a> — defined by <code>PythonQt.QtGui.QWidget.unsetCursor</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.unsetLayoutDirection"><code>unsetLayoutDirection</code></a> — defined by <code>PythonQt.QtGui.QWidget.unsetLayoutDirection</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-006.html#PythonQt.QtGui.QWidget.unsetLocale"><code>unsetLocale</code></a> — defined by <code>PythonQt.QtGui.QWidget.unsetLocale</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.update"><code>update</code></a> — defined by <code>PythonQt.QtGui.QWidget.update</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.updateGeometry"><code>updateGeometry</code></a> — defined by <code>PythonQt.QtGui.QWidget.updateGeometry</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.updatesEnabled"><code>updatesEnabled</code></a> — defined by <code>PythonQt.QtGui.QWidget.updatesEnabled</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.visible"><code>visible</code></a> — defined by <code>PythonQt.QtGui.QWidget.visible</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.visibleRegion"><code>visibleRegion</code></a> — defined by <code>PythonQt.QtGui.QWidget.visibleRegion</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.whatsThis"><code>whatsThis</code></a> — defined by <code>PythonQt.QtGui.QWidget.whatsThis</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.wheelEvent"><code>wheelEvent</code></a> — defined by <code>PythonQt.QtGui.QWidget.wheelEvent</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.width"><code>width</code></a> — defined by <code>PythonQt.QtGui.QWidget.width</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.widthMM"><code>widthMM</code></a> — defined by <code>PythonQt.QtGui.QWidget.widthMM</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.winId"><code>winId</code></a> — defined by <code>PythonQt.QtGui.QWidget.winId</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.window"><code>window</code></a> — defined by <code>PythonQt.QtGui.QWidget.window</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowFilePath"><code>windowFilePath</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowFilePath</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowFlags"><code>windowFlags</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowFlags</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowHandle"><code>windowHandle</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowHandle</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowIcon"><code>windowIcon</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowIcon</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowIconChanged"><code>windowIconChanged</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowIconChanged</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowIconText"><code>windowIconText</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowIconText</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowIconTextChanged"><code>windowIconTextChanged</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowIconTextChanged</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowModality"><code>windowModality</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowModality</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowModified"><code>windowModified</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowModified</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowOpacity"><code>windowOpacity</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowOpacity</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowRole"><code>windowRole</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowRole</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowState"><code>windowState</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowState</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowTitle"><code>windowTitle</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowTitle</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowTitleChanged"><code>windowTitleChanged</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowTitleChanged</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.windowType"><code>windowType</code></a> — defined by <code>PythonQt.QtGui.QWidget.windowType</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.x"><code>x</code></a> — defined by <code>PythonQt.QtGui.QWidget.x</code></li>
+<li><a href="../../../../../PythonQt/QtGui/QWidget/members-007.html#PythonQt.QtGui.QWidget.y"><code>y</code></a> — defined by <code>PythonQt.QtGui.QWidget.y</code></li>
+</ul>
+<h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="typerig.proxy.fl.gui.widgets.TRCustomSpinController.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="TRCustomSpinController/members-001.html#typerig.proxy.fl.gui.widgets.TRCustomSpinController.__init__">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.proxy.fl.gui.widgets.TRCustomSpinController.__set_slider_no_signal"></span><code>__set_slider_no_signal</code></td>
+<td>function</td>
+<td><a href="TRCustomSpinController/members-001.html#typerig.proxy.fl.gui.widgets.TRCustomSpinController.__set_slider_no_signal">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.proxy.fl.gui.widgets.TRCustomSpinController.__toggle_slider"></span><code>__toggle_slider</code></td>
+<td>function</td>
+<td><a href="TRCustomSpinController/members-001.html#typerig.proxy.fl.gui.widgets.TRCustomSpinController.__toggle_slider">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.proxy.fl.gui.widgets.TRCustomSpinController.blockSignals"></span><code>blockSignals</code></td>
+<td>function</td>
+<td><a href="TRCustomSpinController/members-001.html#typerig.proxy.fl.gui.widgets.TRCustomSpinController.blockSignals">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.proxy.fl.gui.widgets.TRCustomSpinController.contract"></span><code>contract</code></td>
+<td>function</td>
+<td><a href="TRCustomSpinController/members-001.html#typerig.proxy.fl.gui.widgets.TRCustomSpinController.contract">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.proxy.fl.gui.widgets.TRCustomSpinController.expand"></span><code>expand</code></td>
+<td>function</td>
+<td><a href="TRCustomSpinController/members-001.html#typerig.proxy.fl.gui.widgets.TRCustomSpinController.expand">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.proxy.fl.gui.widgets.TRCustomSpinController.getValue"></span><code>getValue</code></td>
+<td>function</td>
+<td><a href="TRCustomSpinController/members-001.html#typerig.proxy.fl.gui.widgets.TRCustomSpinController.getValue">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.proxy.fl.gui.widgets.TRCustomSpinController.setEnabled"></span><code>setEnabled</code></td>
+<td>function</td>
+<td><a href="TRCustomSpinController/members-001.html#typerig.proxy.fl.gui.widgets.TRCustomSpinController.setEnabled">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.proxy.fl.gui.widgets.TRCustomSpinController.setValue"></span><code>setValue</code></td>
+<td>function</td>
+<td><a href="TRCustomSpinController/members-001.html#typerig.proxy.fl.gui.widgets.TRCustomSpinController.setValue">Signature and documentation</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

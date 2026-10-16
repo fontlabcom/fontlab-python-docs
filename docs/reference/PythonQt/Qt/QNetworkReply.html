@@ -1,0 +1,3017 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/Qt/QNetworkReply.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.Qt.QNetworkReply - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtqnetworkreply" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.Qt.QNetworkReply
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QNetworkReply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QNetworkReply
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QNetworkReply">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QNetworkReply--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtqnetworkreply">PythonQt.Qt.QNetworkReply</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.Qt.QNetworkReply" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QNetworkReply</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.Qt.QNetworkReply--detailed-description">Detailed Description</h4>
+<p>The QNetworkReply class contains the data and meta data related to a request posted with
+<a href="https://doc.qt.io/archives/qt-5.15/qnetworkaccessmanager.html">QNetworkAccessManager</a>.
+Like <a href="https://doc.qt.io/archives/qt-5.15/qnetworkrequest.html">QNetworkRequest</a>, it
+contains a URL and headers (both in parsed and raw form), some information about the
+reply's state and the contents of the reply itself.</p>
+<p>QNetworkReply is a sequential-access
+<a href="https://doc.qt.io/archives/qt-5.15/qiodevice.html">QIODevice</a>, which means that once
+data is read from the object, it is no longer kept by the device. It is therefore the
+application's responsibility to keep this data if it needs to. Whenever more data is
+received from the network and processed, the
+<a href="https://doc.qt.io/archives/qt-5.15/qiodevice.html#readyRead">readyRead</a>() signal is
+emitted.</p>
+<p>The
+<a href="https://doc.qt.io/archives/qt-5.15/qnetworkreply.html#downloadProgress">downloadProgress</a>()
+signal is also emitted when data is received, but the number of bytes contained in it
+may not represent the actual bytes received, if any transformation is done to the
+contents (for example, decompressing and removing the protocol overhead).</p>
+<p>Even though QNetworkReply is a
+<a href="https://doc.qt.io/archives/qt-5.15/qiodevice.html">QIODevice</a> connected to the contents
+of the reply, it also emits the
+<a href="https://doc.qt.io/archives/qt-5.15/qnetworkreply.html#uploadProgress">uploadProgress</a>()
+signal, which indicates the progress of the upload for operations that have such
+content.</p>
+<p><strong>Note:</strong> Do not delete the object in the slot connected to the
+<a href="https://doc.qt.io/archives/qt-5.15/qnetworkreply.html#errorOccurred">errorOccurred</a>()
+or <a href="https://doc.qt.io/archives/qt-5.15/qnetworkreply.html#finished">finished</a>() signal.
+Use <a href="https://doc.qt.io/archives/qt-5.15/qobject.html#deleteLater">deleteLater</a>().</p>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qnetworkreply.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.Append"></span><code>Append</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.Append">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.AuthenticationRequiredError"></span><code>AuthenticationRequiredError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.AuthenticationRequiredError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.BackgroundRequestNotAllowedError"></span><code>BackgroundRequestNotAllowedError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.BackgroundRequestNotAllowedError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ConnectionRefusedError"></span><code>ConnectionRefusedError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QAbstractSocket/members-001.html#PythonQt.QtNetwork.QAbstractSocket.ConnectionRefusedError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ContentAccessDenied"></span><code>ContentAccessDenied</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ContentAccessDenied">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ContentConflictError"></span><code>ContentConflictError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ContentConflictError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ContentGoneError"></span><code>ContentGoneError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ContentGoneError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ContentNotFoundError"></span><code>ContentNotFoundError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ContentNotFoundError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ContentOperationNotPermittedError"></span><code>ContentOperationNotPermittedError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ContentOperationNotPermittedError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ContentReSendError"></span><code>ContentReSendError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ContentReSendError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.HostNotFoundError"></span><code>HostNotFoundError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QAbstractSocket/members-001.html#PythonQt.QtNetwork.QAbstractSocket.HostNotFoundError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.InsecureRedirectError"></span><code>InsecureRedirectError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.InsecureRedirectError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.InternalServerError"></span><code>InternalServerError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.InternalServerError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.NetworkError"></span><code>NetworkError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.NetworkError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.NetworkSessionFailedError"></span><code>NetworkSessionFailedError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.NetworkSessionFailedError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.NoError"></span><code>NoError</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QFile/members-001.html#PythonQt.QtCore.QFile.NoError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.NotOpen"></span><code>NotOpen</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.NotOpen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.OpenMode"></span><code>OpenMode</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.OpenMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.OpenModeFlag"></span><code>OpenModeFlag</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.OpenModeFlag">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.OperationCanceledError"></span><code>OperationCanceledError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.OperationCanceledError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.OperationNotImplementedError"></span><code>OperationNotImplementedError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.OperationNotImplementedError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ProtocolFailure"></span><code>ProtocolFailure</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ProtocolFailure">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ProtocolInvalidOperationError"></span><code>ProtocolInvalidOperationError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ProtocolInvalidOperationError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ProtocolUnknownError"></span><code>ProtocolUnknownError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ProtocolUnknownError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ProxyAuthenticationRequiredError"></span><code>ProxyAuthenticationRequiredError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QAbstractSocket/members-001.html#PythonQt.QtNetwork.QAbstractSocket.ProxyAuthenticationRequiredError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ProxyConnectionClosedError"></span><code>ProxyConnectionClosedError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QAbstractSocket/members-001.html#PythonQt.QtNetwork.QAbstractSocket.ProxyConnectionClosedError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ProxyConnectionRefusedError"></span><code>ProxyConnectionRefusedError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QAbstractSocket/members-001.html#PythonQt.QtNetwork.QAbstractSocket.ProxyConnectionRefusedError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ProxyNotFoundError"></span><code>ProxyNotFoundError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QAbstractSocket/members-001.html#PythonQt.QtNetwork.QAbstractSocket.ProxyNotFoundError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ProxyTimeoutError"></span><code>ProxyTimeoutError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ProxyTimeoutError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ReadOnly"></span><code>ReadOnly</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.ReadOnly">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ReadWrite"></span><code>ReadWrite</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.ReadWrite">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.RemoteHostClosedError"></span><code>RemoteHostClosedError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QAbstractSocket/members-001.html#PythonQt.QtNetwork.QAbstractSocket.RemoteHostClosedError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ServiceUnavailableError"></span><code>ServiceUnavailableError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.ServiceUnavailableError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.SslHandshakeFailedError"></span><code>SslHandshakeFailedError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QAbstractSocket/members-002.html#PythonQt.QtNetwork.QAbstractSocket.SslHandshakeFailedError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.TemporaryNetworkFailureError"></span><code>TemporaryNetworkFailureError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.TemporaryNetworkFailureError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.Text"></span><code>Text</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.Text">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.TimeoutError"></span><code>TimeoutError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.TimeoutError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.TooManyRedirectsError"></span><code>TooManyRedirectsError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.TooManyRedirectsError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.Truncate"></span><code>Truncate</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.Truncate">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.Unbuffered"></span><code>Unbuffered</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.Unbuffered">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.UnknownContentError"></span><code>UnknownContentError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.UnknownContentError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.UnknownNetworkError"></span><code>UnknownNetworkError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.UnknownNetworkError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.UnknownProxyError"></span><code>UnknownProxyError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.UnknownProxyError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.UnknownServerError"></span><code>UnknownServerError</code></td>
+<td>attribute</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.UnknownServerError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.WriteOnly"></span><code>WriteOnly</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.WriteOnly">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.abort"></span><code>abort</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.abort">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.aboutToClose"></span><code>aboutToClose</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.aboutToClose">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.atEnd"></span><code>atEnd</code></td>
+<td>function</td>
+<td><a href="../QtCore/QFile/members-001.html#PythonQt.QtCore.QFile.atEnd">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.attribute"></span><code>attribute</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.attribute">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.blockSignals"></span><code>blockSignals</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.blockSignals">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.bytesAvailable"></span><code>bytesAvailable</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.bytesAvailable">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.bytesToWrite"></span><code>bytesToWrite</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.bytesToWrite">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.bytesWritten"></span><code>bytesWritten</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.bytesWritten">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.canReadLine"></span><code>canReadLine</code></td>
+<td>function</td>
+<td><a href="../QtCore/QFile/members-002.html#PythonQt.QtCore.QFile.canReadLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.channelBytesWritten"></span><code>channelBytesWritten</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.channelBytesWritten">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.channelReadyRead"></span><code>channelReadyRead</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.channelReadyRead">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.childEvent"></span><code>childEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.childEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.children"></span><code>children</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.children">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.close"></span><code>close</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.close">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.connect"></span><code>connect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.connect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.customEvent"></span><code>customEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.customEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.deleteLater"></span><code>deleteLater</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.deleteLater">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.destroyed"></span><code>destroyed</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.destroyed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.disconnect"></span><code>disconnect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.disconnect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.downloadProgress"></span><code>downloadProgress</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.downloadProgress">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.dumpObjectInfo"></span><code>dumpObjectInfo</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectInfo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.dumpObjectTree"></span><code>dumpObjectTree</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectTree">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.dynamicPropertyNames"></span><code>dynamicPropertyNames</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dynamicPropertyNames">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.encrypted"></span><code>encrypted</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.encrypted">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.error"></span><code>error</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.error">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.errorOccurred"></span><code>errorOccurred</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.errorOccurred">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.errorString"></span><code>errorString</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.errorString">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.event"></span><code>event</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractItemModel/members-002.html#PythonQt.QtCore.QAbstractItemModel.event">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.eventFilter"></span><code>eventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.eventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.findChild"></span><code>findChild</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.findChildren"></span><code>findChildren</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChildren">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.finished"></span><code>finished</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.finished">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.getChar"></span><code>getChar</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.getChar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.hasRawHeader"></span><code>hasRawHeader</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-001.html#PythonQt.QtNetwork.QNetworkReply.hasRawHeader">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.header"></span><code>header</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.header">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ignoreSslErrors"></span><code>ignoreSslErrors</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.ignoreSslErrors">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ignoreSslErrorsImplementation"></span><code>ignoreSslErrorsImplementation</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.ignoreSslErrorsImplementation">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.installEventFilter"></span><code>installEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.installEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isFinished"></span><code>isFinished</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.isFinished">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isOpen"></span><code>isOpen</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.isOpen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isReadable"></span><code>isReadable</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.isReadable">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isRunning"></span><code>isRunning</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.isRunning">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isSequential"></span><code>isSequential</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.isSequential">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isSignalConnected"></span><code>isSignalConnected</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.isSignalConnected">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isTextModeEnabled"></span><code>isTextModeEnabled</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.isTextModeEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isWidgetType"></span><code>isWidgetType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWidgetType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isWindowType"></span><code>isWindowType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWindowType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.isWritable"></span><code>isWritable</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.isWritable">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.killTimer"></span><code>killTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.killTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.manager"></span><code>manager</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.manager">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.metaDataChanged"></span><code>metaDataChanged</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.metaDataChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.metaObject"></span><code>metaObject</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.metaObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.moveToThread"></span><code>moveToThread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.moveToThread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.objectName"></span><code>objectName</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.objectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.objectNameChanged"></span><code>objectNameChanged</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.objectNameChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.open"></span><code>open</code></td>
+<td>function</td>
+<td><a href="../QtCore/QFileDevice/members-001.html#PythonQt.QtCore.QFileDevice.open">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.openMode"></span><code>openMode</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.openMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.operation"></span><code>operation</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.operation">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.parent"></span><code>parent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.parent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.peek"></span><code>peek</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.peek">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.pos"></span><code>pos</code></td>
+<td>function</td>
+<td><a href="../QtCore/QFile/members-002.html#PythonQt.QtCore.QFile.pos">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.preSharedKeyAuthenticationRequired"></span><code>preSharedKeyAuthenticationRequired</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.preSharedKeyAuthenticationRequired">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.property"></span><code>property</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.property">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.putChar"></span><code>putChar</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.putChar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.rawHeader"></span><code>rawHeader</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.rawHeader">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.rawHeaderList"></span><code>rawHeaderList</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.rawHeaderList">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.rawHeaderPairs"></span><code>rawHeaderPairs</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.rawHeaderPairs">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.read"></span><code>read</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.read">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.readAll"></span><code>readAll</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-001.html#PythonQt.QtCore.QBuffer.readAll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.readBufferSize"></span><code>readBufferSize</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.readBufferSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.readChannelFinished"></span><code>readChannelFinished</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.readChannelFinished">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.readData"></span><code>readData</code></td>
+<td>function</td>
+<td><a href="../QtCore/QFile/members-002.html#PythonQt.QtCore.QFile.readData">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.readLine"></span><code>readLine</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.readLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.readLineData"></span><code>readLineData</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.readLineData">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.readyRead"></span><code>readyRead</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.readyRead">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.redirectAllowed"></span><code>redirectAllowed</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.redirectAllowed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.redirected"></span><code>redirected</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.redirected">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.removeEventFilter"></span><code>removeEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.removeEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.request"></span><code>request</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.request">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.reset"></span><code>reset</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.reset">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.seek"></span><code>seek</code></td>
+<td>function</td>
+<td><a href="../QtCore/QProcess/members-002.html#PythonQt.QtCore.QProcess.seek">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.sender"></span><code>sender</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.sender">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.senderSignalIndex"></span><code>senderSignalIndex</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.senderSignalIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setAttribute"></span><code>setAttribute</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setAttribute">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setError"></span><code>setError</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setError">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setErrorString"></span><code>setErrorString</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.setErrorString">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setFinished"></span><code>setFinished</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setFinished">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setHeader"></span><code>setHeader</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setHeader">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setObjectName"></span><code>setObjectName</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setObjectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setOpenMode"></span><code>setOpenMode</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.setOpenMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setOperation"></span><code>setOperation</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setOperation">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setParent"></span><code>setParent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setProperty"></span><code>setProperty</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setRawHeader"></span><code>setRawHeader</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setRawHeader">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setReadBufferSize"></span><code>setReadBufferSize</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setReadBufferSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setRequest"></span><code>setRequest</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setRequest">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setSslConfigurationImplementation"></span><code>setSslConfigurationImplementation</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setSslConfigurationImplementation">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setTextModeEnabled"></span><code>setTextModeEnabled</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.setTextModeEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.setUrl"></span><code>setUrl</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.setUrl">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.signalsBlocked"></span><code>signalsBlocked</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.signalsBlocked">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.size"></span><code>size</code></td>
+<td>function</td>
+<td><a href="../QtCore/QProcess/members-002.html#PythonQt.QtCore.QProcess.size">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.sslConfigurationImplementation"></span><code>sslConfigurationImplementation</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.sslConfigurationImplementation">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.sslErrors"></span><code>sslErrors</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.sslErrors">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.startTimer"></span><code>startTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.startTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.thread"></span><code>thread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.thread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.timerEvent"></span><code>timerEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.timerEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.tr"></span><code>tr</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.tr">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.ungetChar"></span><code>ungetChar</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.ungetChar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.uploadProgress"></span><code>uploadProgress</code></td>
+<td>function</td>
+<td><a href="QNetworkReply/members-001.html#PythonQt.Qt.QNetworkReply.uploadProgress">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.url"></span><code>url</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.url">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.waitForBytesWritten"></span><code>waitForBytesWritten</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.waitForBytesWritten">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.waitForReadyRead"></span><code>waitForReadyRead</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.waitForReadyRead">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.write"></span><code>write</code></td>
+<td>function</td>
+<td><a href="../QtCore/QBuffer/members-002.html#PythonQt.QtCore.QBuffer.write">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QNetworkReply.writeData"></span><code>writeData</code></td>
+<td>function</td>
+<td><a href="../QtNetwork/QNetworkReply/members-002.html#PythonQt.QtNetwork.QNetworkReply.writeData">Shared captured text</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>
