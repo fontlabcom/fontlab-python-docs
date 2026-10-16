@@ -784,3 +784,11 @@ Upstream lunr report found: https://github.com/olivernn/lunr.js/issues/503 (open
 `TokenSet.toString` collision, also seen in Material for MkDocs). Cited in `bundles.json`
 (patch record) and `scripts/search_backend/README.md`; bundles recompile byte-identically.
 Final-9 (glyport 0baafb4 etc.): 13 gates green, stopped by the controller during build-2.
+
+Final-10 (glyport 0baafb4, echopy 3b213dc, fly c8e7b44, typerig-lib fc802ef, examples 3106531,
+fontport c9fee00; evidence `verification/issue-106/evidence/C3/final-10/`): runbook exit 0,
+all 16 gates exit 0; 300 docs tests; release audit 6,002 files, 0 findings (covers the new
+Fontport pages); 5/5 interaction; determinism identical; 242,654/242,654 identities,
+0 unexplained; `fly.fp` -> fontlab_fontport (215 symbols, 358 fly.fp.* aliases). Lock diff
+reviewed against the committed lock: fly (1 file, reviewed gp/fp aliases) and
+fontlab_fontport (26 new files, canonical main c9fee00).
