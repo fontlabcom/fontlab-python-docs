@@ -68,6 +68,9 @@ def on_post_build(config):
     from scripts.search_shards import build_shards
 
     build_shards(path)
+    from scripts.lunr_patch import patch_stock_worker
+
+    patch_stock_worker(Path(config.site_dir))
     (Path(config.site_dir) / ".nojekyll").touch()
     from scripts.legacy_archive import publish_archive
 

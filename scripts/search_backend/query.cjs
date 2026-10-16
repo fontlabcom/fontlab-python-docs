@@ -938,7 +938,7 @@ var require_lunr = __commonJS({
         var str = this.final ? "1" : "0", labels = Object.keys(this.edges).sort(), len = labels.length;
         for (var i = 0; i < len; i++) {
           var label = labels[i], node = this.edges[label];
-          str = str + label + node.id;
+          str = str + label + node.id + ";";
         }
         return str;
       };

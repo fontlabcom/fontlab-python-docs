@@ -1,9 +1,15 @@
 {
   "esbuild": "0.25.12",
   "files": {
-    "engine.cjs": "753f89499c80514fdf2e988f203f6735182911ea40e5ba649cab07a70e8e7d32",
-    "router.cjs": "1352616d08c9c3f87ef69035490a2f6b90fef5725cdc19f3ac2c950dd42ab678",
-    "query.cjs": "8ed8bdf887f8c1f95a5ac789c6e2990430dd13557e7cf9a0e95bdd640874e568",
-    "../../overrides/assets/javascripts/workers/complete-search.js": "33328c2b2e39d8e8a6d83f3846952dece9605c0f6611c17fd5014d795337822f"
+    "engine.cjs": "6c932a66499a8343eb6d424a1750a0681e0c2b5b6550943eb4f7a0b202c35f6a",
+    "router.cjs": "bb0c2abbb1d0c3bdf5aad2f8acc19957774be9d0405d29565a166a00feb355ad",
+    "query.cjs": "3c6589feb0edb879b23a797f933a7e3a34b220a7741040db9f12ad2547a700e7",
+    "../../overrides/assets/javascripts/workers/complete-search.js": "da3b066249528ea74afc9adcf4bf0390e52c9c463c16b3c91285f875fee902e3"
+  },
+  "patches": {
+    "vendor/lunr.js": {
+      "from": "    str = str + label + node.id\n",
+      "to": "    str = str + label + node.id + \";\"\n"
+    }
   }
 }

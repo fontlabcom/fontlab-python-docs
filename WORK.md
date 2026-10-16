@@ -731,3 +731,24 @@ Tests first: 3 semicolon cases and the combined-limit case at 4 serializations f
 (RecursionError -> DecodeLimit escaped); combined case parametrized over 3–7 times.
 `pytest -q tests/test_release_audit.py`: 42 passed; ruff clean. Real site (final-5
 `.build/site`): exit 0, 5,827 files, 0 findings, 128 s.
+
+## 2026-10-16: issue 106 lane C3 — final-6 and the lunr 2.3.9 TokenSet defect
+
+Final-6 (glyport cb611bd, echopy d5c0ba3, docs 9633e1d): 15/16 gates exit 0; docs-tests
+1 failed / 292 passed: `test_search_when_full_index_uses_materialx_worker_then_module_alias_is_discoverable`
+(stock MaterialX worker, full index: `fontgate`/`fontlab` -> 0 groups; console
+"Cannot read properties of undefined (reading '_index')" in lunr Index.query).
+Deterministic (3/3 reruns). No single document causes it (bisect: needs both halves).
+Cause: upstream lunr 2.3.9 `TokenSet.prototype.toString` keys nodes as `label + id`
+without a terminator; a digit label beside an id collides and minimisation merges
+distinct nodes. Query-independent check: full-index `tokenSet.toArray()` != sorted
+`invertedIndex` keys; all 68 complete-search shards equal. Confirmed by patching the
+key to `label + ":" + id + ";"`: fontgate 250 groups (reference/fontgate.html first),
+fontlab 4,256. The live sharded path already returned those counts.
+Fix, test-first (both new node tests and 5 Python tests failed first):
+- `compile.cjs` rewrites the one `toString` line of the byte-exact vendored lunr.js while
+  bundling (async esbuild 0.25.12 plugin, exactly-one match) and records the patch in
+  `bundles.json`; before the patch the bundles reproduced byte-for-byte; after it each of
+  engine/router/query/complete-search changes by one line. `node --test`: 20 passed.
+- `scripts/lunr_patch.py` rewrites the key in the stock MaterialX worker after each build
+  (`on_post_build`), failing unless it matches exactly once (MaterialX upgrades fail loudly).

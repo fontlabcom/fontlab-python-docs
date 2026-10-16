@@ -154,3 +154,21 @@ test("actual compiled worker returns ordinary empty results for original parser 
   assert(states.slice(restored).some(x=>x.state==="error" && x.message?.includes("404")),"Restored pages must receive the actual worker's current failure status");
  } finally {peer.close();for(const channel of channels)channel.close();}
 });
+test("lunr TokenSet keys stay distinct when a digit label meets a node id (lunr 2.3.9 defect)",()=>{
+ // Unpatched lunr keys both nodes as "01234": minimisation merged them and the full
+ // index lost words (issue 106, final-6). Keys must encode label, id and a terminator.
+ const TokenSet=original.index.tokenSet.constructor, node=id=>Object.assign(new TokenSet(),{id});
+ const a=new TokenSet(), b=new TokenSet();
+ a.edges={"1":node(234)};
+ b.edges={"1":node(2),"3":node(4)};
+ assert.notEqual(a.toString(),b.toString());
+});
+test("every shipped lunr copy carries the TokenSet key patch exactly once",()=>{
+ const root=path.resolve(__dirname,"../..");
+ for(const file of ["scripts/search_backend/engine.cjs","scripts/search_backend/router.cjs","scripts/search_backend/query.cjs",
+  "overrides/assets/javascripts/workers/complete-search.js"]){
+  const source=fs.readFileSync(path.join(root,file),"utf8");
+  assert.equal(source.split("str + label + node.id;").length-1,0,file+": unpatched lunr TokenSet key");
+  assert.equal(source.split('str + label + node.id + ";";').length-1,1,file+": patched lunr TokenSet key");
+ }
+});
