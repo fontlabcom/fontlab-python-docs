@@ -1085,10 +1085,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#limits" class="md-nav__link">
+  <a href="#limits-fontport-v100" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Limits
+        Limits (Fontport v1.0.0)
       
     </span>
   </a>
@@ -2103,10 +2103,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#limits" class="md-nav__link">
+  <a href="#limits-fontport-v100" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Limits
+        Limits (Fontport v1.0.0)
       
     </span>
   </a>
@@ -2165,14 +2165,27 @@ Importing the package outside FontLab is safe; native access loads on demand.</p
 <span class="n">font</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">600</span>                     <span class="c1"># updates the FontLab glyph</span>
 <span class="n">font</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                              <span class="c1"># detaches; the document stays open</span>
 </code></pre></div>
-<h2 id="limits">Limits</h2>
+<p>Stage font information and apply it in one validated batch:</p>
+<div class="highlight"><pre><span></span><code><span class="n">font</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">apply</span><span class="p">({</span><span class="s2">&quot;familyName&quot;</span><span class="p">:</span> <span class="s2">&quot;My Family&quot;</span><span class="p">,</span> <span class="s2">&quot;ascender&quot;</span><span class="p">:</span> <span class="mf">810.5</span><span class="p">},</span>
+                <span class="n">undo_name</span><span class="o">=</span><span class="s2">&quot;Edit font information&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="limits-fontport-v100">Limits (Fontport v1.0.0)</h2>
 <ul>
-<li>Fontport is work in progress (issue 105): groups, kerning, features, font lib,
-  layer operations and glyph undo are still being completed.</li>
+<li><strong>Undo of geometry edits is not reliable yet.</strong> Treat outline, component and
+  anchor edits through the live binding as permanent and work on a copy of your font.</li>
+<li><strong>Font information writes go to the current key master only</strong> for metrics
+  (<code>ascender</code>, <code>descender</code>, <code>capHeight</code>, <code>xHeight</code>, <code>italicAngle</code>), <code>styleName</code>
+  and <code>note</code>; family name, version fields, copyright and units per em are stored on
+  the font. Supported fields: <code>familyName</code>, <code>styleName</code>, <code>unitsPerEm</code>, <code>ascender</code>,
+  <code>descender</code>, <code>capHeight</code>, <code>xHeight</code>, <code>italicAngle</code>, <code>versionMajor</code>, <code>versionMinor</code>,
+  <code>note</code> and <code>copyright</code>; unknown fields are refused.</li>
+<li>An information or groups batch is undone by the first Edit &gt; Undo, but adds one
+  extra no-op Undo row.</li>
+<li>Groups and kerning cover the current key master's classes and pairs.</li>
 <li>UFO object identifiers, anchor colours, guidelines and images are refused
-  explicitly rather than dropped.</li>
-<li>Develop with copies of fonts: a failure during the final write can leave
-  partial changes until native transactions land.</li>
+  explicitly rather than dropped; glyph rename and fractional anchor positions are
+  refused too.</li>
+<li>An unexpected FontLab error during the final write can leave partial changes.</li>
 </ul>
 <p>Reference: <a href="../reference/fontlab_fontport.html">fontlab_fontport</a>. Licence:
 Apache 2.0.</p>
