@@ -836,6 +836,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Install into FontLab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editable-install-from-a-checkout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editable install from a checkout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2056,6 +2073,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Install into FontLab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editable-install-from-a-checkout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editable install from a checkout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2156,6 +2190,19 @@ into FontLab 9's per-user Python folder with a Python 3.11 resolver:</p>
 <span class="w">  </span>--target<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Library/Application Support/FontLab/FontLab 9/python/3.11/site-packages&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>PATH_TO_WHEEL
 </code></pre></div>
+<h3 id="editable-install-from-a-checkout">Editable install from a checkout</h3>
+<p>To work on a package, install its Git checkout in editable mode into FontLab's
+per-user Python environment. When that folder is the <code>site-packages</code> of a virtual
+environment (for example a link into <code>FontLab 9/.venv</code>), point <code>--python</code> at that
+environment's interpreter; <code>--link-mode=copy</code> copies files from uv's cache instead
+of linking them:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">FL_PY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Library/Application Support/FontLab/FontLab 9/.venv/bin/python&quot;</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--python<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FL_PY</span><span class="s2">&quot;</span><span class="w"> </span>--link-mode<span class="o">=</span>copy<span class="w"> </span>-e<span class="w"> </span>path/to/fontlab-glyport
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--python<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FL_PY</span><span class="s2">&quot;</span><span class="w"> </span>--link-mode<span class="o">=</span>copy<span class="w"> </span>-e<span class="w"> </span>path/to/fontlab-fontport
+</code></pre></div>
+<p>Repeat for each checkout you develop
+(Echopy, Fly, Fontlabapp, Grablab, Remopy, Aidus Code, Glyport, Fontport). Source
+edits are live in FontLab once the package's modules are reloaded.</p>
 <p>Restart FontLab, or remove the package's modules from <code>sys.modules</code>, to load a
 new version: FontLab keeps imported modules between script runs. Packages with
 compiled extensions must match FontLab's architecture (arm64 on Apple silicon).</p>

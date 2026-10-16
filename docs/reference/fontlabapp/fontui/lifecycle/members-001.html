@@ -2178,9 +2178,10 @@ a single-shot timer that later signals never restart, so callback runs at
 most delay_ms after the first change even under a steady stream. Signals
 emitted while any follower's callback runs (refresh reads or writes, also
 from other open controls) are ignored, no callback is re-entered, and a
-timer that fires during another follower's callback runs after it. Before it, each FontLab-backed font that
-offers invalidate() drops its cached glyphs. owner.close() disconnects
-everything; a pending timer then fires into nothing.</p>
+timer that fires during another follower's callback runs after it. Before
+it, each FontLab-backed (Fontport) font is refreshed, which drops its
+loaded glyph and layer handles. owner.close() disconnects everything; a
+pending timer then fires into nothing.</p>
 
 
     </div>

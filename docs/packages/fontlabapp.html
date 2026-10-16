@@ -2222,8 +2222,10 @@ Install the extra that matches the tools you need:</p>
 </tr>
 </tbody>
 </table>
-<p>Each function returns a handle. Keep a reference to it, show its <code>.widget</code>,
-call <code>.refresh()</code> after edits made elsewhere and <code>.close()</code> when you are done:</p>
+<p>Each function returns a handle. Keep a reference to it, show its <code>.widget</code> and
+call <code>.close()</code> when you are done. The browsers, preview, sequence and the info,
+groups, kerning and features editors also have <code>.refresh()</code> for edits made
+elsewhere; <code>batch_panel</code>, <code>transform_editor</code> and <code>designspace_panel</code> do not:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inside FontLab, with the fontui extra and ufoLib2 installed</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ufoLib2</span><span class="w"> </span><span class="kn">import</span> <span class="n">Font</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlabapp.fontui</span><span class="w"> </span><span class="kn">import</span> <span class="n">font_browser</span>
