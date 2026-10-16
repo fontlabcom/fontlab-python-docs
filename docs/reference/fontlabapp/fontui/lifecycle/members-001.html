@@ -1968,6 +1968,39 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#fontlabapp.fontui.lifecycle.CHANGE_DELAY_MS" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CHANGE_DELAY_MS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlabapp.fontui.lifecycle.CHANGE_SIGNALS" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CHANGE_SIGNALS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlabapp.fontui.lifecycle.GLYPH_SIGNALS" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GLYPH_SIGNALS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlabapp.fontui.lifecycle.HISTORY_ACTIONS" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1979,10 +2012,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlabapp.fontui.lifecycle.follow_changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        follow_changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlabapp.fontui.lifecycle.follow_history" class="md-nav__link">
     <span class="md-ellipsis">
       
         follow_history
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlabapp.fontui.lifecycle.native_ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        native_ids
       
     </span>
   </a>
@@ -2012,6 +2067,72 @@
 
 
 
+<h2 id="fontlabapp.fontui.lifecycle.CHANGE_DELAY_MS" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">CHANGE_DELAY_MS</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">CHANGE_DELAY_MS</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="fontlabapp.fontui.lifecycle.CHANGE_SIGNALS" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">CHANGE_SIGNALS</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">CHANGE_SIGNALS</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="fontlabapp.fontui.lifecycle.GLYPH_SIGNALS" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">GLYPH_SIGNALS</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">GLYPH_SIGNALS</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
 <h2 id="fontlabapp.fontui.lifecycle.HISTORY_ACTIONS" class="doc doc-heading">
             <span class="doc doc-object-name doc-attribute-name">HISTORY_ACTIONS</span>
 
@@ -2025,6 +2146,42 @@
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlabapp.fontui.lifecycle.follow_changes" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">follow_changes</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">follow_changes</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">fonts</span><span class="p">,</span> <span class="n">delay_ms</span><span class="o">=</span><span class="n"><a class="autorefs autorefs-internal" title="CHANGE_DELAY_MS
+
+
+  
+      module-attribute
+   (fontlabapp.fontui.lifecycle.CHANGE_DELAY_MS)" href="#fontlabapp.fontui.lifecycle.CHANGE_DELAY_MS">CHANGE_DELAY_MS</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Call callback after FontLab reports changes; return signals connected.</p>
+<p>Connected whenever FontLab is present (nothing outside it); fonts() is
+read at each signal, so an owner whose fonts appear later starts
+following then. Signals count only while fonts() holds a FontLab-backed
+font, and glyph(s)Updated only for those documents. The first signal arms
+a single-shot timer that later signals never restart, so callback runs at
+most delay_ms after the first change even under a steady stream. Signals
+emitted while any follower's callback runs (refresh reads or writes, also
+from other open controls) are ignored, no callback is re-entered, and a
+timer that fires during another follower's callback runs after it. Before it, each FontLab-backed font that
+offers invalidate() drops its cached glyphs. owner.close() disconnects
+everything; a pending timer then fires into nothing.</p>
+
 
     </div>
 
@@ -2047,6 +2204,26 @@
 <p>FontLab connects its own handlers first, so ours run after the history step.
 Outside FontLab (no fontlab module) nothing is connected. owner.close()
 disconnects these like every other owned connection.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlabapp.fontui.lifecycle.native_ids" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">native_ids</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">native_ids</span><span class="p">(</span><span class="n">fonts</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>FontLab package ids of Fontport-backed fonts among fonts.</p>
 
 
     </div>

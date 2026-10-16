@@ -2309,6 +2309,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.set_font_selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_font_selection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.set_glyph_selected" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2390,17 +2401,6 @@
     <span class="md-ellipsis">
       
         set_lib
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.set_mark" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        set_mark
       
     </span>
   </a>
@@ -3023,6 +3023,29 @@ the glyph at <code>index</code>, else the nearest glyph before it.</p>
 <div class="doc doc-object doc-function">
 
 
+<h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.set_font_selection" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">set_font_selection</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">set_font_selection</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="n">glyph_ids</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Use the Font Window's native batch slot, never text-item flags.</p>
+<p>MainWindow.selectGlyphs edits text when the Font Window is inactive,
+and returns immediately for []. Refuse those contexts rather than
+silently editing a tab or pretending to clear the selection.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.set_glyph_selected" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">set_glyph_selected</span>
 
@@ -3168,27 +3191,6 @@ expression-driven hints, while a name-only edit is accepted.</p>
     <div class="doc doc-contents first">
 
         <p>Assign the whole lib, read it back, and revert if anything was lost.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.set_mark" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">set_mark</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">set_mark</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">hue</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>flGlyph.mark / flLayer.mark: a hue, 0 = no mark (TypeRig's
-fontMarkColors use the same scale).</p>
 
 
     </div>
