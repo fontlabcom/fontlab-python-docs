@@ -177,3 +177,17 @@ def test_render_when_public_title_and_property_then_static_handler_keeps_anchors
     assert "namespace: MappingProxyType[str, object]" in codes, (
         "public property headings must retain the getter's declared annotation"
     )
+
+
+def test_package_page_when_a_guide_exists_then_it_links_overview_install_and_quick_start(
+    tmp_path,
+):
+    """X4r (issue 106): API landing pages lead to the package's narrative guide."""
+    pkg = tmp_path / "fly"
+    pkg.mkdir()
+    (pkg / "__init__.py").write_text('"""Aliases."""\nfl = None\n')
+    (pkg / "sub.py").write_text('"""Child."""\n')
+    plan = plan_pages(inventory_sources([(tmp_path, "fly")]))
+    page = render_page("reference/fly.md", plan)
+    assert "[Fly guide](../packages/fly.md)" in page
+    assert "packages/" not in render_page("reference/fly/sub.md", plan)
