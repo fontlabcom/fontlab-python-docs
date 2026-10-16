@@ -814,3 +814,15 @@ exempt. Tests first (4 failed); 8 site-verification tests pass; final-10 site: 0
 Narrative docs: new Packages section (overview/install/quick start/examples/limits for all
 ten packages, verified against the packages' source APIs); the stale Glyphs guide is
 rewritten for `run_script`/`install_plugin`; the start page links the package pages.
+
+Final-11 (evidence `verification/issue-106/evidence/C3/final-11/`; failed attempts kept as
+`final-11-shimdrift/` (aidus 7da6a08 changed executor.py -> echopy 10427cd provenance refresh) and
+`final-11-menuapi/` (fontlabapp 43cc126 moved the reviewed MENU_API lines -> 4f331a1)):
+producers echopy 10427cd, fontlabapp 43cc126, remopy 824d690, grablab 2473ee1, pythonqtside
+2777e85, fly a35a09d, typerig-lib f589189, glyport 0baafb4, aidus-code c8c1537, fontport
+77aa6df, examples 37924b6. Runbook exit 0, all 16 gates exit 0; 304 docs tests; release audit
+6,018 files, 0 findings; package-content gate 0 problems (23 packages); 11 package pages built;
+242,654/242,654 identities. Lock delta (11 inputs): fly/__init__.py,
+fontlab_aidus_code/install.py, fontlab_echopy/aidus_code_tools/_shim.json, fontlab_fontport
+native_feature_split.py + native_features.py, fontlabapp _qtsafe.py + application/ui.py +
+host.py + views.py, pythonqtside _app.py + _app_native.py.
