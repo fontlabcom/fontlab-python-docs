@@ -11,6 +11,8 @@ The FontLab plugin runs in FontLab's Python 3.11. The AI "brain" runs in a
 separate Python 3.13+ process, so no AI libraries go into FontLab. The AI provider
 you configure receives your prompts and the tool results the agent uses.
 
+This page describes Aidus Code v0.2.1.
+
 ## Install
 
 1. Install the host package into a dedicated folder (Python 3.11):
@@ -33,6 +35,10 @@ you configure receives your prompts and the tool results the agent uses.
     PYTHONPATH=~/.local/share/fontlab-aidus/host python3 -m fontlab_aidus_code.install install
     PYTHONPATH=~/.local/share/fontlab-aidus/host python3 -m fontlab_aidus_code.install check
     ```
+
+    The installer records the files it owns. Reinstalling or uninstalling keeps
+    your own files. An install stops before changing anything when a script it
+    would replace was modified, is not its own or is a symlink.
 
 4. Configure the brain Python path and your AI provider keys as described in the
    package's configuration guide.

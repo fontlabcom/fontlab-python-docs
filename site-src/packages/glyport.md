@@ -8,6 +8,8 @@ the original source (including Glyphs 2 / Python 2 code), gives each run a live
 `GlyphsApp` model backed by the FontLab font, and translates Vanilla, AppKit and
 NIB/XIB interfaces to FontLab's Qt. Original files are never modified.
 
+This page describes Glyport v1.0.1.
+
 ## Install
 
 Install `fontlab-glyport` into FontLab's Python folder; see
@@ -78,6 +80,10 @@ print(adapted.translate(1, 1))     # generated position -> original position
 - FontLab host limits block `SelectTool` and drawing before FontLab's own glyph
   layer; plugins that need them are reported as blocked.
 - Bundles that ship only compiled macOS code cannot run.
+- Creating glyphs makes FontLab rebuild auto-layer composites. Glyport restores
+  existing composites afterwards and refuses with a named reason when it cannot.
+  A FontLab defect can still drop component locks and attaching anchors on
+  composites it rebuilds.
 - Test with a copy of your font: scripts can change the font they run on.
 
 See the [Glyphs compatibility guide](../guide/glyphs.md). Reference:
