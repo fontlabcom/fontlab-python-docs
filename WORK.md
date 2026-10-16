@@ -846,3 +846,11 @@ byte-identical over https and http. Feature branch: same ignore fix (bfabe26); p
 copies exactly the manifest (stray __pycache__ test failed first; 3 tests pass); Fontlabapp
 guide gains a FontUI section (extras, minimal font_browser example with handle retention,
 show, close), verified against fontlabapp's fontui API and examples/font_browser.py.
+
+2026-10-16 (later): v1.0.2 live check: Instance.html 200 over https; http now 301-redirects to
+https (controller enforced HTTPS); origin/master tracks 6,016 docs/ files. `.worktrees/rel-docs`
+removed after the hotfix. Feature branch: 6d75b38 (promotion refuses git-ignored pages;
+`--verify-tracked` compares the docs/ index with the manifest); search UI falls back to
+`crypto.getRandomValues` when `crypto.randomUUID` is absent (plain-http pages). Local gates
+serve 127.0.0.1, a secure context, so they could not catch that; the new node vm test (UI
+script with a crypto lacking randomUUID) failed first, then 23 node tests pass.
