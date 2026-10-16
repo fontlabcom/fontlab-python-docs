@@ -771,3 +771,58 @@ terms.json.gz 3,678,973 -> 1,501,986 bytes. `encodeTerms` lives beside `decodeRo
 (validation.js, exported by router.cjs) and `build.cjs` uses it; bundles recompiled with
 esbuild 0.25.12. Tests first (3 failed): round-trip, built asset format, 9 malformed
 encodings rejected. `node --test`: 22 passed; Python search tests 6 passed.
+
+## 2026-10-16: issue 106 lane C3 — D14 Fontport reference; lunr upstream reference
+
+D14 (owner): document fontlab-fontport (docstrings/signatures, Apache-2.0). `PACKAGES` gains
+`fontlab-fontport` (src/fontlab_fontport, canonical main c9fee00), nav "Ecosystem > Fontport",
+licences row "Pythonqtside, Fly, Fontport: Apache 2.0". The reviewed `fly.fp` exception is
+removed: no alias may target an undocumented package (test: fly.fp/fly.zz to missing targets
+are gaps; 16 reconcile tests pass). Being a documented package also exempts the Fontport repo
+name from the release audit's private-name check, as for the other documented packages.
+Upstream lunr report found: https://github.com/olivernn/lunr.js/issues/503 (open; same
+`TokenSet.toString` collision, also seen in Material for MkDocs). Cited in `bundles.json`
+(patch record) and `scripts/search_backend/README.md`; bundles recompile byte-identically.
+Final-9 (glyport 0baafb4 etc.): 13 gates green, stopped by the controller during build-2.
+
+Final-10 (glyport 0baafb4, echopy 3b213dc, fly c8e7b44, typerig-lib fc802ef, examples 3106531,
+fontport c9fee00; evidence `verification/issue-106/evidence/C3/final-10/`): runbook exit 0,
+all 16 gates exit 0; 300 docs tests; release audit 6,002 files, 0 findings (covers the new
+Fontport pages); 5/5 interaction; determinism identical; 242,654/242,654 identities,
+0 unexplained; `fly.fp` -> fontlab_fontport (215 symbols, 358 fly.fp.* aliases). Lock diff
+reviewed against the committed lock: fly (1 file, reviewed gp/fp aliases) and
+fontlab_fontport (26 new files, canonical main c9fee00).
+
+## 2026-10-16: owner tag v1.0.0; package content gate; package narrative docs
+
+Owner tag: `v1.0.0` (e3afa28) was created by the owner's own `gitnextver` run at 02:03. Its
+lock is the final-6 state: docs-tests 1 of 293 failing (the lunr 2.3.9 TokenSet collision,
+upstream olivernn/lunr.js#503). The fix (3ad6570) and everything after it ship under the next
+tag. The tag is never moved or deleted.
+
+API page production (owner request), measured on the final-10 site:
+- native `fontlab`, `fontgate`, `fontpr`, `PythonQt`: Echopy in-host captures (`.pyi`
+  sidecars), reconciled 242,654/242,654; `fontlabpr` documented as absent (D8);
+- runtime-built APIs (`GlyphsApp`, `vanilla`, `AppKit`, `Cocoa`, `Foundation`, `objc`,
+  `aidus_code_tools`, `fontlabapp_shim`): Echopy shims generated from the real providers;
+- ecosystem packages (echopy, fontlabapp, remopy, grablab, pythonqtside, fly, typerig,
+  glyport, aidus-code, fontport): static source analysis (Griffe), never imported, so code
+  that needs FontLab documents completely.
+New gate `verify_site.package_content_problems`: every documented top-level package (23)
+must render a page with member headings and docstrings; only `fontlabpr` (absent, D8) is
+exempt. Tests first (4 failed); 8 site-verification tests pass; final-10 site: 0 problems.
+Narrative docs: new Packages section (overview/install/quick start/examples/limits for all
+ten packages, verified against the packages' source APIs); the stale Glyphs guide is
+rewritten for `run_script`/`install_plugin`; the start page links the package pages.
+
+Final-11 (evidence `verification/issue-106/evidence/C3/final-11/`; failed attempts kept as
+`final-11-shimdrift/` (aidus 7da6a08 changed executor.py -> echopy 10427cd provenance refresh) and
+`final-11-menuapi/` (fontlabapp 43cc126 moved the reviewed MENU_API lines -> 4f331a1)):
+producers echopy 10427cd, fontlabapp 43cc126, remopy 824d690, grablab 2473ee1, pythonqtside
+2777e85, fly a35a09d, typerig-lib f589189, glyport 0baafb4, aidus-code c8c1537, fontport
+77aa6df, examples 37924b6. Runbook exit 0, all 16 gates exit 0; 304 docs tests; release audit
+6,018 files, 0 findings; package-content gate 0 problems (23 packages); 11 package pages built;
+242,654/242,654 identities. Lock delta (11 inputs): fly/__init__.py,
+fontlab_aidus_code/install.py, fontlab_echopy/aidus_code_tools/_shim.json, fontlab_fontport
+native_feature_split.py + native_features.py, fontlabapp _qtsafe.py + application/ui.py +
+host.py + views.py, pythonqtside _app.py + _app_native.py.

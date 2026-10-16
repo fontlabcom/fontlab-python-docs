@@ -34,16 +34,11 @@ def _captured(manifest: dict[str, Any], gap) -> tuple[set[str], dict[str, str], 
     return captured, absent, classes
 
 
-# Aliases whose target package the public reference does not document, reviewed as
-# exact alias -> target pairs. fly.fp -> fontlab_fontport: Fontport is a private
-# repository; publishing its API needs an owner decision like D10 (issue 106).
-REVIEWED_UNDOCUMENTED_ALIASES: dict[str, str] = {"fly.fp": "fontlab_fontport"}
-
 # Upstream source that declares one identity more than once, reviewed with the
 # exact declaration lines; any further declaration makes the row unexplained.
 REVIEWED_REDEFINITIONS: dict[str, tuple[tuple[int, ...], str]] = {
     "fontlabapp.host.MENU_API": (
-        (29, 337),
+        (30, 338),
         "empty placeholder before class Menu; the final value is assigned after it",
     ),
     "typerig.core.objects.matrix.Table.__eq__": ((78, 181), "upstream defines __eq__ twice; the second wins"),
@@ -157,13 +152,9 @@ def reconcile(
         if target not in symbols:
             gap("alias-target-missing", alias, target=target)
     # Declared aliases that resolution discarded (missing or cyclic targets).
-    undocumented = {}
     for alias, target in sorted((raw_aliases or {}).items()):
         if alias not in aliases and target not in symbols:
-            if REVIEWED_UNDOCUMENTED_ALIASES.get(alias) == target:
-                undocumented[alias] = target
-            else:
-                gap("alias-unresolved", alias, target=target)
+            gap("alias-unresolved", alias, target=target)
     for shim, names in sorted((shim_exports or {}).items()):
         for name in names:
             identity = shim + "." + name
@@ -190,7 +181,6 @@ def reconcile(
             "maintained_extension": extensions,
             "absent_optional_module": absent,
             "multiple_declarations": multiple,
-            "undocumented_alias_target": undocumented,
             "enrichment_gaps": {
                 "reason": "documented from captured source without upstream Qt prose",
                 **gaps,

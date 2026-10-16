@@ -4,6 +4,7 @@
 import gzip
 import hashlib
 import json
+import re
 from collections import defaultdict
 from html.parser import HTMLParser
 from pathlib import Path
@@ -22,6 +23,36 @@ class Anchors(HTMLParser):
         for key, value in attrs:
             if key == "id":
                 self.identifiers.add(value)
+
+
+# Optional native modules the captured host did not ship (D8): documented as absent.
+REVIEWED_ABSENT_PACKAGES = {"fontlabpr": "absent from FontLab 9.0.9780; documented as absent (D8)"}
+HEADING = re.compile(r'class="doc doc-heading')
+DOCSTRING = re.compile(r'class="doc doc-contents[^"]*">\s*<p>')
+
+
+def package_content_problems(site: Path, packages: list[str]) -> list[dict]:
+    """Every documented package renders members and docstrings, never an empty page.
+
+    Packages that only import inside FontLab are documented from Echopy captures or
+    static source; this gate catches any path that would silently render nothing.
+    """
+    problems = []
+    for package in packages:
+        page = site / "reference" / f"{package}.html"
+        if not page.exists():
+            problems.append({"package": package, "problem": "missing page"})
+            continue
+        if package in REVIEWED_ABSENT_PACKAGES:
+            continue
+        folder = site / "reference" / package
+        pages = [page, *(sorted(folder.rglob("*.html")) if folder.is_dir() else [])]
+        html = "".join(path.read_text() for path in pages)
+        if not HEADING.search(html):
+            problems.append({"package": package, "problem": "no rendered members"})
+        elif not DOCSTRING.search(html):
+            problems.append({"package": package, "problem": "no docstrings"})
+    return problems
 
 
 def verify_site(
@@ -80,8 +111,12 @@ def verify_site(
         verify_search_coverage(complete, coverage["symbols"], coverage["aliases"])
         sharding = inspect_shards(site / "search/search_index.json", deployed=True)
         compressed = sharding["initial_gzip_bytes"]
+    packages = sorted({identifier.split(".")[0] for identifier in coverage["symbols"]})
+    content_problems = package_content_problems(site, packages)
     report = {
         "schema_version": 1,
+        "documented_packages": packages,
+        "package_content_problems": content_problems,
         "legacy_routes": legacy,
         "source_symbols": len(coverage["symbols"]),
         "aliases": len(coverage["aliases"]),
@@ -109,6 +144,7 @@ def verify_site(
     }
     report["passed"] = (
         not missing
+        and not content_problems
         and not absent_inventory
         and largest <= report["page_budget_bytes"]
         and compressed <= report["search_gzip_budget_bytes"]

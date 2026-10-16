@@ -8,6 +8,8 @@ from mkdocstrings import Inventory
 
 from scripts.verify_site import verify_site
 
+MEMBER = '<div class="doc doc-object"><h2 class="doc doc-heading"><code>f()</code></h2><div class="doc doc-contents "><p>Docs.</p></div></div>'
+
 
 def fixture_site(tmp_path, *, anchor=True):
     site = tmp_path / "site"
@@ -29,6 +31,8 @@ def fixture_site(tmp_path, *, anchor=True):
     }
     path = tmp_path / "coverage.json"
     path.write_text(json.dumps(coverage))
+    (site / "reference").mkdir()
+    (site / "reference/pkg.html").write_text(MEMBER)  # package content gate
     inventory = Inventory(project="fixture", version="1")
     inventory.register("pkg.value", "py", "function", "page.html#pkg.value")
     inventory.register("pkg.alias", "py", "function", "page.html#pkg.value")
@@ -115,3 +119,36 @@ def test_sharded_site_verifies_complete_coverage_and_requires_deployed_worker(tm
     (site / "assets/javascripts/workers/complete-search.js").unlink()
     with pytest.raises(FileNotFoundError, match="complete-search"):
         verify_site(site, coverage, legacy_root=tmp_path)
+
+
+def _package_page(site, name, body):
+    page = site / "reference" / f"{name}.html"
+    page.parent.mkdir(parents=True, exist_ok=True)
+    page.write_text(f"<html><body><article>{body}</article></body></html>")
+
+
+
+
+def test_package_content_when_every_package_renders_members_and_docs_then_no_problem(tmp_path):
+    from scripts.verify_site import package_content_problems
+
+    _package_page(tmp_path, "glyport", MEMBER)
+    _package_page(tmp_path, "fontlabpr", "<p>This optional module was absent from the captured host.</p>")
+    assert package_content_problems(tmp_path, ["glyport", "fontlabpr"]) == []
+
+
+@pytest.mark.parametrize(
+    ("body", "problem"),
+    [
+        (None, "missing page"),
+        ("<p>Overview only.</p>", "no rendered members"),
+        ('<h2 class="doc doc-heading"><code>f()</code></h2><div class="doc doc-contents "></div>', "no docstrings"),
+    ],
+)
+def test_package_content_when_package_page_is_empty_or_stubless_then_reported(tmp_path, body, problem):
+    """Owner (issue 106): a package that only imports inside FontLab must never render empty."""
+    from scripts.verify_site import package_content_problems
+
+    if body is not None:
+        _package_page(tmp_path, "fontport", body)
+    assert package_content_problems(tmp_path, ["fontport"]) == [{"package": "fontport", "problem": problem}]

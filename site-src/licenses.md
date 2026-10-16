@@ -18,7 +18,7 @@ docstrings and signatures from the packages below; each keeps its own terms.
 | Fontlabapp | [BSD 3-Clause and MIT](licenses/bsd-3-clause-fontlabapp.txt) |
 | Grablab | [BSD 3-Clause](licenses/bsd-3-clause-grablab.txt) |
 | Glyport | [MIT](licenses/mit-glyport.txt) |
-| Pythonqtside, Fly | [Apache 2.0](licenses/apache-2.0.txt) |
+| Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
 | Remopy and Aidus, © Fontlab Ltd | Proprietary. Only API docstrings and signatures are rendered; no package files are published here. |
 
 Qt documentation and PySide2 signatures were transformed into Python
