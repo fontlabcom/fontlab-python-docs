@@ -2,6 +2,17 @@
 this_file: CHANGELOG.md
 ---
 
+## v1.0.4 — Fontport v1.0.2 and Fontlabapp v0.2.4 (2026-10-16)
+
+- Rebuilt from Fontport v1.0.2 and Fontlabapp v0.2.4 (with glyport acca128, Echopy 791fa55).
+- Fontport guide describes v1.0.2: the first Undo restores glyph edits (one extra empty row,
+  `glyph.exactSingleUndo`); info metrics, style name, note and the structured Panose, OS/2
+  weight/width class and stem snaps go to the key master only; named refusals; opt-in strict mode.
+- Fontlabapp guide: FontUI structured info fields (key master), unfinished-script-edits note,
+  `.refresh()` availability per tool.
+- Packages page: editable install from a checkout into FontLab's Python environment.
+- Artifact: final-17 (docs 266b3f3), all 16 gates passed; review X4r7 APPROVE.
+
 ## v1.0.3 — reference rebuilt on the latest packages (2026-10-16)
 
 - Rebuilt from glyport acca128 (Glyphs 4.1.1 profile, geometry helpers), Echopy shims 791fa55
