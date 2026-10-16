@@ -8,7 +8,7 @@ readable Python source form: classes, signatures, types and documentation that
 editors, type checkers and this site can read. At run time it hands you the
 original native objects, so nothing changes in behaviour.
 
-This page describes Echopy v0.2.2.
+This page describes Echopy v0.2.3.
 
 ## Install
 
