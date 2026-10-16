@@ -2,6 +2,17 @@
 this_file: CHANGELOG.md
 ---
 
+## v1.0.3 — reference rebuilt on the latest packages (2026-10-16)
+
+- Rebuilt from glyport acca128 (Glyphs 4.1.1 profile, geometry helpers), Echopy shims 791fa55
+  (adds `vanilla.test` and `vanilla.vanillaBase`), Fontlabapp v0.2.2 (FontUI browsers and editors)
+  and Fontport v1.0.0.
+- Fontlabapp guide: new FontUI section (extras, minimal browser example, handle lifecycle).
+- Search starts on plain-http pages too (fallback when `crypto.randomUUID` is unavailable).
+- Publication safety: `docs/` is promoted from the accepted build path for path, and the release
+  checks that git tracks every published page.
+- Artifact: final-13 (docs a54ee2d), all 16 gates passed; review X4r4 APPROVE.
+
 ## v1.0.2 — complete v1.0.1 publication (2026-10-16)
 
 - Publishes 4 TypeRig pages (`typerig.core.objects.instance`) that a template `.gitignore` rule
