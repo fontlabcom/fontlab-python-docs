@@ -1,0 +1,9 @@
+<!-- this_file: tests/fixtures/interactions/keyboard.html -->
+<!doctype html><html><head><style>:focus { outline: 3px solid #111; }</style></head><body>
+<a class="md-skip" href="#title">Skip to content</a>
+<input class="md-search__input" type="search" aria-label="Search">
+<nav><a href="#title">Home</a></nav>
+<main class="md-content"><h1 id="title" tabindex="-1">Title</h1><p>Body <a href="#title">first link</a></p></main>
+<script>addEventListener('keydown', e => { if (e.key === '/' && document.activeElement === document.body) {
+  e.preventDefault(); document.querySelector('.md-search__input').focus(); } });</script>
+</body></html>

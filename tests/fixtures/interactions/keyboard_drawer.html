@@ -1,0 +1,8 @@
+<!-- this_file: tests/fixtures/interactions/keyboard_drawer.html -->
+<!doctype html><html><head><style>:focus { outline: 3px solid #111; }</style></head><body>
+<a class="md-skip" href="#title">Skip to content</a>
+<input class="md-search__input" type="search" aria-label="Search">
+<button aria-label="Site navigation" aria-controls="drawer" aria-expanded="false" onclick="const p=document.getElementById('drawer');p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));if(!p.hidden)p.querySelector('a').focus()">Menu</button>
+<nav id="drawer" hidden><a href="#title">Home</a></nav>
+<main class="md-content"><h1 id="title" tabindex="-1">Title</h1><p>Body <a href="#title">first link</a></p></main>
+</body></html>

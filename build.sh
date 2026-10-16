@@ -2,6 +2,8 @@
 # this_file: build.sh
 set -euo pipefail
 cd "$(dirname "$0")"
-uv run properdocs build -f fontlab7/mkdocs.yml
-uv run properdocs build -f pythonqt/mkdocs.yml
-touch docs/.nojekyll
+for argument in "$@"; do
+  if [[ "$argument" == "--offline" ]]; then export UV_OFFLINE=true; fi
+done
+uv sync --locked
+uv run --no-sync python -m scripts.build_site "$@"
