@@ -826,3 +826,11 @@ producers echopy 10427cd, fontlabapp 43cc126, remopy 824d690, grablab 2473ee1, p
 fontlab_aidus_code/install.py, fontlab_echopy/aidus_code_tools/_shim.json, fontlab_fontport
 native_feature_split.py + native_features.py, fontlabapp _qtsafe.py + application/ui.py +
 host.py + views.py, pythonqtside _app.py + _app_native.py.
+
+Final-12 (evidence `verification/issue-106/evidence/C3/final-12/`; failed attempts kept:
+`final-12-shimdrift/` (glyport 526f165 -> echopy a65a488) and `final-12-guidelinks/` (9 lifecycle
+fixtures without site-src/packages -> be174ae)): producers echopy a65a488, fontlabapp 4557967,
+glyport 526f165, aidus-code ed318c3, others as final-11. All 16 gates exit 0; 307 docs tests;
+release audit 6,128 files 0 findings; 242,654/242,654 identities; 820 shim exports. Lock delta:
+echopy shims (+ vanilla.test, vanilla.vanillaBase), glyport src (F25–F47), fontlabapp `fontui`
+(21 new modules from issue 105, merged into canonical fontlabapp).
