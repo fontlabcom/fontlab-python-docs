@@ -53,14 +53,44 @@ font["A"].width = 600                     # updates the FontLab glyph
 font.close()                              # detaches; the document stays open
 ```
 
-## Limits
+Stage font information and apply it in one validated batch:
 
-- Fontport is work in progress (issue 105): groups, kerning, features, font lib,
-  layer operations and glyph undo are still being completed.
-- UFO object identifiers, anchor colours, guidelines and images are refused
-  explicitly rather than dropped.
-- Develop with copies of fonts: a failure during the final write can leave
-  partial changes until native transactions land.
+```python
+font.info.apply({"familyName": "My Family", "ascender": 810.5},
+                undo_name="Edit font information")
+```
+
+## Behaviour and limits (Fontport v1.0.2)
+
+- **Undo:** an edit through the live binding is undone by the first Edit > Undo.
+  FontLab records one extra, empty Undo row with it (exact one-row Undo is the
+  unsupported capability `glyph.exactSingleUndo`; information batches likewise
+  report `info.exactSingleUndo`).
+- **Font information:** metrics (`ascender`, `descender`, `capHeight`, `xHeight`,
+  `italicAngle`), `styleName` and `note` are written to the current key master
+  only; family name, version fields, copyright and units per em are stored on the
+  font. Supported fields: `familyName`, `styleName`, `unitsPerEm`, `ascender`,
+  `descender`, `capHeight`, `xHeight`, `italicAngle`, `versionMajor`, `versionMinor`,
+  `note` and `copyright`. The structured fields `openTypeOS2Panose`,
+  `openTypeOS2WeightClass`, `openTypeOS2WidthClass`, `postscriptStemSnapH` and
+  `postscriptStemSnapV` are also written to the key master only. OpenType name
+  records are refused, since FontLab does not persist them through this route.
+- **Default and strict modes:** the v1.0.0 editing contract is the default. Stricter
+  guarantees are opt-in: `require_single_undo=True` on `font.info.apply` and
+  `require_persistence=True` on group and save operations refuse instead of
+  accepting the extra Undo row or a legacy group mode.
+- **Named refusals:** layer create, delete and rename; glyph rename; guidelines and
+  images; hinted outlines; fractional anchors and kerning; non-ASCII names for new
+  glyphs and groups; multi-layer UFO import; world selection. Each raises
+  `UnsupportedCapability` with its name before anything is written.
+- `font.capabilities()` lists every capability with its evidence. Edits made in
+  FontLab itself do not notify the binding: call `font.refresh()` and reacquire
+  glyph and layer handles afterwards.
+- FontParts coverage (FontParts 1.1.1 upstream tests, host-free backend run):
+  1,748 of 1,797 pass, 48 raise a named `UnsupportedCapability`, one is skipped
+  upstream, none fail unclassified. These are not FontLab-native passes.
+- An unexpected FontLab error during the final write can leave partial changes;
+  develop on a copy of your font.
 
 Reference: [fontlab_fontport](../reference/fontlab_fontport.md). Licence:
 Apache 2.0.
