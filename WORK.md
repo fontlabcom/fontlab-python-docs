@@ -866,3 +866,15 @@ https deployed_check exit 0, 859 targets, 0 failures; https interaction_check ex
 seven cases 4/4; packages/fontport.html: "key master" x2, "v1.0.2" x3; packages/fontlabapp.html:
 "key master" x2, unfinished-edits note x1, no "v0.2.4" label (the guide describes v0.2.4
 behaviour without naming the version); http -> 301 https; typerig instance pages 200.
+
+## 2026-10-16 — v1.0.5 published (final-18: glyport v1.0.1, aidus 32523d4, echopy v0.2.2)
+
+- Feature range 6d387d2..deb4171 (X4s APPROVE, no findings); master merge 9901de8, tag v1.0.5
+  e5d604f; Pages `built e5d604f`. `git diff --quiet deb4171 9901de8 -- docs` exit 0.
+- final-18: 16 gates exit 0, runbook exit 0 (evidence verification/issue-106/evidence/C3/final-18;
+  the stopped first attempt is final-18-echopy-release). Promote 6211 files, `--verify-tracked` 0,
+  release_audit on docs/ 0 (promote-final-18).
+- Live (release-v1.0.5): `deployed_check --base https://code.fontlab.com/fontlab-python-docs/
+  --site docs` exit 0, 861 checked, 0 failures; `interaction_check --base ...` exit 0, PASS all 7
+  cases 4/4; version lines Fontlabapp v0.2.4, Glyport v1.0.1, Aidus Code v0.2.1, Echopy v0.2.2
+  and both new notes found once each; http 301 to https; instance pages 200.
