@@ -54,3 +54,31 @@ def test_promote_when_site_holds_files_outside_the_manifest_then_they_are_not_pu
     docs = tmp_path / "docs"
     assert sorted(p.relative_to(docs).as_posix() for p in docs.rglob("*") if p.is_file()) == [
         ".nojekyll", "build-provenance.json", "index.html"]
+
+
+def _git(root, *args):
+    import subprocess
+
+    return subprocess.run(["git", "-C", str(root), *args], check=True, capture_output=True, text=True).stdout
+
+
+def test_promote_when_git_would_ignore_a_published_page_then_fails(tmp_path):
+    """v1.0.1 lost 4 pages to the template rule `instance/` (issue 106): never again."""
+    _git(tmp_path, "init", "-q")
+    (tmp_path / ".gitignore").write_text("instance/\n")
+    _accepted(tmp_path, {"index.html": "new", ".nojekyll": "", "reference/instance/A.html": "a"})
+    with pytest.raises(ValueError, match="ignored by git"):
+        promote(tmp_path)
+
+
+def test_verify_tracked_when_committed_docs_match_the_manifest_then_passes_else_fails(tmp_path):
+    from scripts.promote_site import verify_tracked
+
+    _git(tmp_path, "init", "-q")
+    _accepted(tmp_path, {"index.html": "new", ".nojekyll": "", "reference/a.html": "a"})
+    promote(tmp_path)
+    _git(tmp_path, "add", "docs/index.html", "docs/.nojekyll", "docs/build-provenance.json")
+    with pytest.raises(ValueError, match="reference/a.html"):
+        verify_tracked(tmp_path)
+    _git(tmp_path, "add", "docs")
+    assert verify_tracked(tmp_path) == 4
