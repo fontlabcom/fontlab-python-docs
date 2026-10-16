@@ -945,6 +945,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontui-font-and-glyph-browsers-and-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FontUI: font and glyph browsers and editors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#limits" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2103,6 +2114,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontui-font-and-glyph-browsers-and-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FontUI: font and glyph browsers and editors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#limits" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2174,6 +2196,54 @@ the context exits:</p>
 </code></pre></div>
 <p>The <code>fontlabapp_shim</code> reference lists FontLab's menus, actions and panels as
 Python names (788 of 788 resolve in FontLab 9).</p>
+<h2 id="fontui-font-and-glyph-browsers-and-editors">FontUI: font and glyph browsers and editors</h2>
+<p><code>fontlabapp.fontui</code> provides ready-made Qt tools that work on an explicit font
+model (ufoLib2, defcon, or live FontParts objects from <a href="fontport.html">Fontport</a>).
+Install the extra that matches the tools you need:</p>
+<table>
+<thead>
+<tr>
+<th>Extra</th>
+<th>Adds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fontlab-fontlabapp[fontui]</code></td>
+<td><code>font_browser</code>, <code>glyph_browser</code>, <code>glyph_preview</code></td>
+</tr>
+<tr>
+<td><code>fontlab-fontlabapp[fontsequence]</code></td>
+<td><code>glyph_sequence</code></td>
+</tr>
+<tr>
+<td><code>fontlab-fontlabapp[fontedit]</code></td>
+<td><code>font_info_editor</code>, <code>groups_editor</code>, <code>kerning_editor</code>, <code>features_editor</code>, <code>designspace_panel</code>, <code>transform_editor</code>, <code>batch_panel</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each function returns a handle. Keep a reference to it, show its <code>.widget</code>,
+call <code>.refresh()</code> after edits made elsewhere and <code>.close()</code> when you are done:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inside FontLab, with the fontui extra and ufoLib2 installed</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ufoLib2</span><span class="w"> </span><span class="kn">import</span> <span class="n">Font</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlabapp.fontui</span><span class="w"> </span><span class="kn">import</span> <span class="n">font_browser</span>
+
+<span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="p">()</span>                       <span class="c1"># a detached demonstration model</span>
+<span class="n">font</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">familyName</span> <span class="o">=</span> <span class="s2">&quot;Browser demonstration&quot;</span>
+<span class="n">glyph</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">newGlyph</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">glyph</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">pen</span> <span class="o">=</span> <span class="n">glyph</span><span class="o">.</span><span class="n">getPen</span><span class="p">()</span>
+<span class="n">pen</span><span class="o">.</span><span class="n">moveTo</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span> <span class="n">pen</span><span class="o">.</span><span class="n">lineTo</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span> <span class="mi">700</span><span class="p">));</span> <span class="n">pen</span><span class="o">.</span><span class="n">lineTo</span><span class="p">((</span><span class="mi">550</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span> <span class="n">pen</span><span class="o">.</span><span class="n">closePath</span><span class="p">()</span>
+
+<span class="n">browser</span> <span class="o">=</span> <span class="n">font_browser</span><span class="p">([</span><span class="n">font</span><span class="p">])</span>      <span class="c1"># keep this handle alive</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">850</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># ... later:</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>Editors stage changes and apply them in one validated batch; a model without a
+batch apply opens read-only. <code>batch_panel</code> runs work in a separate Python 3.11+
+process so FontLab stays responsive.</p>
 <h2 id="limits">Limits</h2>
 <ul>
 <li><code>Application(with_preflib=False)</code> inspects the application without opening or

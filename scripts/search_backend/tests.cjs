@@ -186,3 +186,15 @@ test("malformed front-coded vocabularies fail before READY",()=>{
    {...good,prefix:[1,1]}])
   assert.throws(()=>decodeRouting(one,bad,empty),/terms/,JSON.stringify(bad));
 });
+test("search UI starts on plain-http pages, where crypto.randomUUID is unavailable",()=>{
+ // Browsers expose randomUUID only in secure contexts; getRandomValues works everywhere.
+ const source=fs.readFileSync(path.resolve(__dirname,"../../overrides/assets/javascripts/complete-search-ui.js"),"utf8");
+ const element={textContent:JSON.stringify({search:"assets/javascripts/workers/search.js"})};
+ const context={URL,location:{href:"http://code.example/docs/"},
+  crypto:{getRandomValues:array=>require("node:crypto").webcrypto.getRandomValues(array)},
+  document:{currentScript:{dataset:{worker:"assets/javascripts/workers/complete-search.js"}},
+   getElementById:()=>element,querySelector:()=>null}};
+ vm.runInNewContext(source,context);
+ const search=new URL(JSON.parse(element.textContent).search);
+ assert.match(search.searchParams.get("channel"),/^complete-search-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
+});

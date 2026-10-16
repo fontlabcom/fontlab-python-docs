@@ -21,7 +21,7 @@ import yaml
 from .api_inventory import inventory_sources, plan_pages
 from .export_aliases import resolved_aliases
 from .reconcile_coverage import enforce, reconcile
-from .reference_pages import relative_link, render_page
+from .reference_pages import PACKAGE_GUIDES, relative_link, render_page
 from .source_lock import apply_lock
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -252,6 +252,12 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
     page_hashes = {}
+    # Link a package's guide only when site-src actually ships it (strict links).
+    plan["guides"] = {
+        package: guide
+        for package, guide in PACKAGE_GUIDES.items()
+        if (ROOT / "site-src/packages" / f"{guide[1]}.md").exists()
+    }
     for relative in plan["pages"]:
         expected_files.add(relative)
         text = render_page(relative, plan)

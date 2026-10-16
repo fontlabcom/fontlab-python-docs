@@ -4,7 +4,15 @@
   const script = document.currentScript;
   const element = document.getElementById("__config");
   const config = JSON.parse(element.textContent);
-  const name = `complete-search-${crypto.randomUUID()}`;
+  // randomUUID exists only in secure contexts; plain-http pages use getRandomValues.
+  const uuid = () => {
+    if (crypto.randomUUID) return crypto.randomUUID();
+    const bytes = crypto.getRandomValues(new Uint8Array(16));
+    bytes[6] = (bytes[6] & 0x0f) | 0x40; bytes[8] = (bytes[8] & 0x3f) | 0x80;
+    const hex = Array.from(bytes, b => b.toString(16).padStart(2, "0")).join("");
+    return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+  };
+  const name = `complete-search-${uuid()}`;
   const worker = new URL(script.dataset.worker, location.href);
   worker.searchParams.set("channel", name);
   config.search = worker.href;

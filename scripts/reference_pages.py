@@ -17,6 +17,21 @@ def relative_link(page: str, url: str) -> str:
     )
 
 
+# Narrative guide for each documented package root (site-src/packages/).
+PACKAGE_GUIDES = {
+    "fontlab_echopy": ("Echopy", "echopy"),
+    "fly": ("Fly", "fly"),
+    "fontlabapp": ("Fontlabapp", "fontlabapp"),
+    "fontlab_remopy": ("Remopy", "remopy"),
+    "grablab": ("Grablab", "grablab"),
+    "pythonqtside": ("Pythonqtside", "pythonqtside"),
+    "fontlab_glyport": ("Glyport", "glyport"),
+    "fontlab_fontport": ("Fontport", "fontport"),
+    "typerig": ("TypeRig", "typerig"),
+    "fontlab_aidus_code": ("Aidus Code", "aidus-code"),
+}
+
+
 def render_page(path: str, plan: dict[str, Any]) -> str:
     page = plan["pages"][path]
     identifier = page["id"]
@@ -28,6 +43,11 @@ def render_page(path: str, plan: dict[str, Any]) -> str:
         else display + " · declarations " + path.rsplit("-", 1)[-1].removesuffix(".md")
     )
     lines = [f"---\nthis_file: {path}\n---", f"# {title}", ""]
+    guides = plan.get("guides", PACKAGE_GUIDES)  # the build passes only existing guides
+    if kind == "module" and identifier in guides:
+        name, slug = guides[identifier]
+        guide = posixpath.relpath(f"packages/{slug}.md", posixpath.dirname(path))
+        lines += [f"Overview, install and quick start: [{name} guide]({guide}).", ""]
     if kind == "members":
         lines += [
             f"[Back to `{display}`]({relative_link(path, plan['symbols'][identifier]['url'])})",

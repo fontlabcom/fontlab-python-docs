@@ -826,3 +826,31 @@ producers echopy 10427cd, fontlabapp 43cc126, remopy 824d690, grablab 2473ee1, p
 fontlab_aidus_code/install.py, fontlab_echopy/aidus_code_tools/_shim.json, fontlab_fontport
 native_feature_split.py + native_features.py, fontlabapp _qtsafe.py + application/ui.py +
 host.py + views.py, pythonqtside _app.py + _app_native.py.
+
+Final-12 (evidence `verification/issue-106/evidence/C3/final-12/`; failed attempts kept:
+`final-12-shimdrift/` (glyport 526f165 -> echopy a65a488) and `final-12-guidelinks/` (9 lifecycle
+fixtures without site-src/packages -> be174ae)): producers echopy a65a488, fontlabapp 4557967,
+glyport 526f165, aidus-code ed318c3, others as final-11. All 16 gates exit 0; 307 docs tests;
+release audit 6,128 files 0 findings; 242,654/242,654 identities; 820 shim exports. Lock delta:
+echopy shims (+ vanilla.test, vanilla.vanillaBase), glyport src (F25–F47), fontlabapp `fontui`
+(21 new modules from issue 105, merged into canonical fontlabapp).
+
+## 2026-10-16: v1.0.1/v1.0.2 published; X4r3 follow-ups
+
+v1.0.1 (master 2bcb0c7): final-11 artifact rebuilt at 9161c0c, 6,015 rendered files equal to the
+accepted manifest; https deployed_check pass (855), interaction PASS; http deployed_check pass,
+http search fails (`crypto.randomUUID` needs a secure context). X4r3: `.gitignore` `instance/`
+dropped 4 TypeRig pages from git -> v1.0.2 (master 9cedbc1, tag v1.0.2): rule anchored
+(`/instance/`), `!docs/**` added; all 6,015 manifest paths tracked; the 4 pages served
+byte-identical over https and http. Feature branch: same ignore fix (bfabe26); promote_site
+copies exactly the manifest (stray __pycache__ test failed first; 3 tests pass); Fontlabapp
+guide gains a FontUI section (extras, minimal font_browser example with handle retention,
+show, close), verified against fontlabapp's fontui API and examples/font_browser.py.
+
+2026-10-16 (later): v1.0.2 live check: Instance.html 200 over https; http now 301-redirects to
+https (controller enforced HTTPS); origin/master tracks 6,016 docs/ files. `.worktrees/rel-docs`
+removed after the hotfix. Feature branch: 6d75b38 (promotion refuses git-ignored pages;
+`--verify-tracked` compares the docs/ index with the manifest); search UI falls back to
+`crypto.getRandomValues` when `crypto.randomUUID` is absent (plain-http pages). Local gates
+serve 127.0.0.1, a secure context, so they could not catch that; the new node vm test (UI
+script with a crypto lacking randomUUID) failed first, then 23 node tests pass.
