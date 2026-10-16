@@ -2,6 +2,17 @@
 this_file: CHANGELOG.md
 ---
 
+## v1.0.1 — published reference (2026-10-16)
+
+- Publishes the reviewed reference at https://code.fontlab.com/fontlab-python-docs/ (master:/docs):
+  242,654 captured native identities documented; Echopy shims for GlyphsApp, vanilla, AppKit,
+  Cocoa, Foundation, objc, FontLab menus/panels and the Aidus tools; ecosystem packages Echopy,
+  Fly, Fontlabapp, Remopy, Grablab, Pythonqtside, Glyport, Fontport (D14), TypeRig and Aidus Code.
+- New Packages section: overview, install, quick start, examples and limits for each package.
+- The previous FontLab 7 / PythonQt reference stays available under `archive/fontlab7/` with its
+  original routes.
+- Artifact: final-11 (docs 9161c0c), all 16 gates passed; review X4r2 APPROVE.
+
 ## Issue 106 — completed (lane C3, 2026-10-16)
 
 - [x] Release audit decodes layered escapes (JSON/JS `\uXXXX \xXX \/ \\`, percent, HTML
