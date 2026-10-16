@@ -1,0 +1,2893 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/Cocoa.html">
+      
+      
+        <link rel="prev" href="AppKit.html">
+      
+      
+        <link rel="next" href="Foundation.html">
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>Cocoa (glyport) - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../assets/reference.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cocoa" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cocoa (glyport)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Cocoa.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#Cocoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cocoa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#Cocoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cocoa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="cocoa">Cocoa</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="Cocoa" class="doc doc-heading">
+            <span class="doc doc-object-name doc-module-name">Cocoa</span>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>The <code>Cocoa</code> module glyport gives Glyphs scripts: Cocoa value types plus Qt-backed classes, menus, drawing and events. It never imports PyObjC.</p>
+<p>Re-exported from glyport: <code>GSInspectorView</code>, <code>GSMouseOverButton</code>, <code>GSPaletteView</code>, <code>GSSteppingTextField</code>, <code>NSAffineTransform</code>, <code>NSAffineTransformStruct</code>, <code>NSArray</code>, <code>NSArrayController</code>, <code>NSAttributedString</code>, <code>NSBezierPath</code>, <code>NSBox</code>, <code>NSButton</code>, <code>NSColor</code>, <code>NSComboBox</code>, <code>NSControl</code>, <code>NSCursor</code>, <code>NSDate</code>, <code>NSEdgeInsetsMake</code>, <code>NSEvent</code>, <code>NSFont</code>, <code>NSFrameRect</code>, <code>NSGraphicsContext</code>, <code>NSGridView</code>, <code>NSHeight</code>, <code>NSImage</code>, <code>NSImageView</code>, <code>NSIndexSet</code>, <code>NSInsetRect</code>, <code>NSLog</code>, <code>NSMakePoint</code>, <code>NSMakeRange</code>, <code>NSMakeRect</code>, <code>NSMakeSize</code>, <code>NSMatrix</code>, <code>NSMaxX</code>, <code>NSMaxY</code>, <code>NSMenu</code>, <code>NSMenuItem</code>, <code>NSMidX</code>, <code>NSMidY</code>, <code>NSMinX</code>, <code>NSMinY</code>, <code>NSMutableArray</code>, <code>NSMutableOrderedSet</code>, <code>NSMutableParagraphStyle</code>, <code>NSMutableSet</code>, <code>NSNotification</code>, <code>NSNumberFormatter</code>, <code>NSObject</code>, <code>NSPanel</code>, <code>NSPathControl</code>, <code>NSPoint</code>, <code>NSPopUpButton</code>, <code>NSProgressIndicator</code>, <code>NSRange</code>, <code>NSRect</code>, <code>NSRectFill</code>, <code>NSRunLoop</code>, <code>NSScrollView</code>, <code>NSSearchField</code>, <code>NSSecureTextField</code>, <code>NSSegmentedControl</code>, <code>NSSize</code>, <code>NSSlider</code>, <code>NSSplitView</code>, <code>NSStackView</code>, <code>NSString</code>, <code>NSSwitch</code>, <code>NSTabView</code>, <code>NSTabViewItem</code>, <code>NSTableCellView</code>, <code>NSTableColumn</code>, <code>NSTableView</code>, <code>NSTextField</code>, <code>NSTextView</code>, <code>NSURL</code>, <code>NSUnionRect</code>, <code>NSUserDefaultsController</code>, <code>NSView</code>, <code>NSVisualEffectView</code>, <code>NSWidth</code>, <code>NSWindow</code>.</p>
+<p>Names not listed here raise UnsupportedCapability at runtime.</p>
+<p>Documentation is derived from captured and enriched Echopy source.
+Native objects are supplied by FontLab.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="classes">Classes</h2>
+<ul>
+<li><a href="Cocoa/NSAlert.html#Cocoa.NSAlert"><code>NSAlert</code></a></li>
+<li><a href="Cocoa/NSApplication.html#Cocoa.NSApplication"><code>NSApplication</code></a></li>
+<li><a href="Cocoa/NSBitmapImageRep.html#Cocoa.NSBitmapImageRep"><code>NSBitmapImageRep</code></a></li>
+<li><a href="Cocoa/NSBundle.html#Cocoa.NSBundle"><code>NSBundle</code></a></li>
+<li><a href="Cocoa/NSButtonCell.html#Cocoa.NSButtonCell"><code>NSButtonCell</code></a></li>
+<li><a href="Cocoa/NSNotificationCenter.html#Cocoa.NSNotificationCenter"><code>NSNotificationCenter</code></a></li>
+<li><a href="Cocoa/NSPasteboard.html#Cocoa.NSPasteboard"><code>NSPasteboard</code></a></li>
+<li><a href="Cocoa/NSScreen.html#Cocoa.NSScreen"><code>NSScreen</code></a></li>
+<li><a href="Cocoa/NSTimer.html#Cocoa.NSTimer"><code>NSTimer</code></a></li>
+<li><a href="Cocoa/NSUserDefaults.html#Cocoa.NSUserDefaults"><code>NSUserDefaults</code></a></li>
+</ul>
+<h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="Cocoa.NSAlertFirstButtonReturn"></span><code>NSAlertFirstButtonReturn</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSAlertFirstButtonReturn">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSAlertStyleCritical"></span><code>NSAlertStyleCritical</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSAlertStyleCritical">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSAlertStyleInformational"></span><code>NSAlertStyleInformational</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSAlertStyleInformational">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSAlertStyleWarning"></span><code>NSAlertStyleWarning</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSAlertStyleWarning">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSAlternateKeyMask"></span><code>NSAlternateKeyMask</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSAlternateKeyMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSApp"></span><code>NSApp</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSApp">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSAppearanceNameAqua"></span><code>NSAppearanceNameAqua</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSAppearanceNameAqua">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSAppearanceNameDarkAqua"></span><code>NSAppearanceNameDarkAqua</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSAppearanceNameDarkAqua">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSApplicationDidBecomeActiveNotification"></span><code>NSApplicationDidBecomeActiveNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSApplicationDidBecomeActiveNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSApplicationWillResignActiveNotification"></span><code>NSApplicationWillResignActiveNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSApplicationWillResignActiveNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSApplicationWillTerminateNotification"></span><code>NSApplicationWillTerminateNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSApplicationWillTerminateNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSBackgroundColorAttributeName"></span><code>NSBackgroundColorAttributeName</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSBackgroundColorAttributeName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSBackingStoreBuffered"></span><code>NSBackingStoreBuffered</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSBackingStoreBuffered">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSBevelLineJoinStyle"></span><code>NSBevelLineJoinStyle</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSBevelLineJoinStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSButtLineCapStyle"></span><code>NSButtLineCapStyle</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSButtLineCapStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSCenterTextAlignment"></span><code>NSCenterTextAlignment</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSCenterTextAlignment">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSChangeCleared"></span><code>NSChangeCleared</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSChangeCleared">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSClassFromString"></span><code>NSClassFromString</code></td>
+<td>function</td>
+<td><a href="AppKit/members-001.html#AppKit.NSClassFromString">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSCommandKeyMask"></span><code>NSCommandKeyMask</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSCommandKeyMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSCompositingOperationSourceOver"></span><code>NSCompositingOperationSourceOver</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSCompositingOperationSourceOver">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSControlKeyMask"></span><code>NSControlKeyMask</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSControlKeyMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSControlStateValueOff"></span><code>NSControlStateValueOff</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSControlStateValueOff">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSControlStateValueOn"></span><code>NSControlStateValueOn</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSControlStateValueOn">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSControlTextDidBeginEditingNotification"></span><code>NSControlTextDidBeginEditingNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSControlTextDidBeginEditingNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSControlTextDidChangeNotification"></span><code>NSControlTextDidChangeNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSControlTextDidChangeNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSDefaultRunLoopMode"></span><code>NSDefaultRunLoopMode</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSDefaultRunLoopMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSEvenOddWindingRule"></span><code>NSEvenOddWindingRule</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSEvenOddWindingRule">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSEventMaskAny"></span><code>NSEventMaskAny</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSEventMaskAny">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSEventModifierFlagCommand"></span><code>NSEventModifierFlagCommand</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSEventModifierFlagCommand">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSEventModifierFlagControl"></span><code>NSEventModifierFlagControl</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSEventModifierFlagControl">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSEventModifierFlagOption"></span><code>NSEventModifierFlagOption</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSEventModifierFlagOption">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSEventModifierFlagShift"></span><code>NSEventModifierFlagShift</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSEventModifierFlagShift">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSFontAttributeName"></span><code>NSFontAttributeName</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSFontAttributeName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSFontChangedNotification"></span><code>NSFontChangedNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSFontChangedNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSFontWeightRegular"></span><code>NSFontWeightRegular</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSFontWeightRegular">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSForegroundColorAttributeName"></span><code>NSForegroundColorAttributeName</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSForegroundColorAttributeName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSHighlightModeMatrix"></span><code>NSHighlightModeMatrix</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSHighlightModeMatrix">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageAbove"></span><code>NSImageAbove</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSImageAbove">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageBelow"></span><code>NSImageBelow</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSImageBelow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageLeading"></span><code>NSImageLeading</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-001.html#AppKit.NSImageLeading">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageLeft"></span><code>NSImageLeft</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSImageLeft">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageOnly"></span><code>NSImageOnly</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSImageOnly">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageOverlaps"></span><code>NSImageOverlaps</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSImageOverlaps">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageRight"></span><code>NSImageRight</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSImageRight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageScaleAxesIndependently"></span><code>NSImageScaleAxesIndependently</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSImageScaleAxesIndependently">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageScaleNone"></span><code>NSImageScaleNone</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSImageScaleNone">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageScaleProportionallyDown"></span><code>NSImageScaleProportionallyDown</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSImageScaleProportionallyDown">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageScaleProportionallyUpOrDown"></span><code>NSImageScaleProportionallyUpOrDown</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSImageScaleProportionallyUpOrDown">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSImageTrailing"></span><code>NSImageTrailing</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSImageTrailing">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSLineBreakByCharWrapping"></span><code>NSLineBreakByCharWrapping</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSLineBreakByCharWrapping">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSLineBreakByClipping"></span><code>NSLineBreakByClipping</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSLineBreakByClipping">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSLineBreakByTruncatingHead"></span><code>NSLineBreakByTruncatingHead</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSLineBreakByTruncatingHead">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSLineBreakByTruncatingMiddle"></span><code>NSLineBreakByTruncatingMiddle</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSLineBreakByTruncatingMiddle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSLineBreakByTruncatingTail"></span><code>NSLineBreakByTruncatingTail</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSLineBreakByTruncatingTail">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSLineBreakByWordWrapping"></span><code>NSLineBreakByWordWrapping</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSLineBreakByWordWrapping">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSListModeMatrix"></span><code>NSListModeMatrix</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSListModeMatrix">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSMaxXEdge"></span><code>NSMaxXEdge</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSMaxXEdge">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSMiterLineJoinStyle"></span><code>NSMiterLineJoinStyle</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSMiterLineJoinStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSMixedState"></span><code>NSMixedState</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSMixedState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSModalPanelWindowLevel"></span><code>NSModalPanelWindowLevel</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSModalPanelWindowLevel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSMomentaryLightButton"></span><code>NSMomentaryLightButton</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSMomentaryLightButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSMomentaryPushInButton"></span><code>NSMomentaryPushInButton</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSMomentaryPushInButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSNoImage"></span><code>NSNoImage</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSNoImage">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSNonZeroWindingRule"></span><code>NSNonZeroWindingRule</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSNonZeroWindingRule">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSNotFound"></span><code>NSNotFound</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSNotFound">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSOffState"></span><code>NSOffState</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSOffState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSOnState"></span><code>NSOnState</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSOnState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSPNGFileType"></span><code>NSPNGFileType</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSPNGFileType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSParagraphStyleAttributeName"></span><code>NSParagraphStyleAttributeName</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSParagraphStyleAttributeName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSPasteboardTypeString"></span><code>NSPasteboardTypeString</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSPasteboardTypeString">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSRadioButton"></span><code>NSRadioButton</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSRadioButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSRadioModeMatrix"></span><code>NSRadioModeMatrix</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSRadioModeMatrix">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSRoundLineCapStyle"></span><code>NSRoundLineCapStyle</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSRoundLineCapStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSRoundLineJoinStyle"></span><code>NSRoundLineJoinStyle</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSRoundLineJoinStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSRunLoopCommonModes"></span><code>NSRunLoopCommonModes</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSRunLoopCommonModes">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentStyleAutomatic"></span><code>NSSegmentStyleAutomatic</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSSegmentStyleAutomatic">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentStyleCapsule"></span><code>NSSegmentStyleCapsule</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSSegmentStyleCapsule">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentStyleRoundRect"></span><code>NSSegmentStyleRoundRect</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSSegmentStyleRoundRect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentStyleRounded"></span><code>NSSegmentStyleRounded</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSSegmentStyleRounded">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentStyleSeparated"></span><code>NSSegmentStyleSeparated</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-002.html#AppKit.NSSegmentStyleSeparated">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentStyleSmallSquare"></span><code>NSSegmentStyleSmallSquare</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSegmentStyleSmallSquare">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentStyleTexturedRounded"></span><code>NSSegmentStyleTexturedRounded</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSegmentStyleTexturedRounded">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentStyleTexturedSquare"></span><code>NSSegmentStyleTexturedSquare</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSegmentStyleTexturedSquare">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentSwitchTrackingMomentary"></span><code>NSSegmentSwitchTrackingMomentary</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSegmentSwitchTrackingMomentary">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentSwitchTrackingSelectAny"></span><code>NSSegmentSwitchTrackingSelectAny</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSegmentSwitchTrackingSelectAny">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSegmentSwitchTrackingSelectOne"></span><code>NSSegmentSwitchTrackingSelectOne</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSegmentSwitchTrackingSelectOne">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSShiftKeyMask"></span><code>NSShiftKeyMask</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSShiftKeyMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSplitViewDividerStylePaneSplitter"></span><code>NSSplitViewDividerStylePaneSplitter</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSplitViewDividerStylePaneSplitter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSplitViewDividerStyleThick"></span><code>NSSplitViewDividerStyleThick</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSplitViewDividerStyleThick">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSplitViewDividerStyleThin"></span><code>NSSplitViewDividerStyleThin</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSplitViewDividerStyleThin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSquareLineCapStyle"></span><code>NSSquareLineCapStyle</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSquareLineCapStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSStringPboardType"></span><code>NSStringPboardType</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSStringPboardType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSSwitchButton"></span><code>NSSwitchButton</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSSwitchButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSTextAlignmentCenter"></span><code>NSTextAlignmentCenter</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSTextAlignmentCenter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSTextAlignmentJustified"></span><code>NSTextAlignmentJustified</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSTextAlignmentJustified">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSTextAlignmentLeft"></span><code>NSTextAlignmentLeft</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSTextAlignmentLeft">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSTextAlignmentNatural"></span><code>NSTextAlignmentNatural</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSTextAlignmentNatural">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSTextAlignmentRight"></span><code>NSTextAlignmentRight</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSTextAlignmentRight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSTextDidChangeNotification"></span><code>NSTextDidChangeNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSTextDidChangeNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSTextStorageDidProcessEditingNotification"></span><code>NSTextStorageDidProcessEditingNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSTextStorageDidProcessEditingNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSTextViewDidChangeSelectionNotification"></span><code>NSTextViewDidChangeSelectionNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSTextViewDidChangeSelectionNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSTrackModeMatrix"></span><code>NSTrackModeMatrix</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSTrackModeMatrix">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSUserDefaultsDidChangeNotification"></span><code>NSUserDefaultsDidChangeNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSUserDefaultsDidChangeNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSUserInterfaceLayoutOrientationHorizontal"></span><code>NSUserInterfaceLayoutOrientationHorizontal</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSUserInterfaceLayoutOrientationHorizontal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSUserInterfaceLayoutOrientationVertical"></span><code>NSUserInterfaceLayoutOrientationVertical</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSUserInterfaceLayoutOrientationVertical">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSViewBoundsDidChangeNotification"></span><code>NSViewBoundsDidChangeNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSViewBoundsDidChangeNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSViewHeightSizable"></span><code>NSViewHeightSizable</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSViewHeightSizable">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSViewMaxXMargin"></span><code>NSViewMaxXMargin</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSViewMaxXMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSViewMaxYMargin"></span><code>NSViewMaxYMargin</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSViewMaxYMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSViewMinXMargin"></span><code>NSViewMinXMargin</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSViewMinXMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSViewMinYMargin"></span><code>NSViewMinYMargin</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSViewMinYMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSViewWidthSizable"></span><code>NSViewWidthSizable</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSViewWidthSizable">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowDidBecomeKeyNotification"></span><code>NSWindowDidBecomeKeyNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSWindowDidBecomeKeyNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowDidBecomeMainNotification"></span><code>NSWindowDidBecomeMainNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSWindowDidBecomeMainNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowDidMoveNotification"></span><code>NSWindowDidMoveNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSWindowDidMoveNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowDidResignMainNotification"></span><code>NSWindowDidResignMainNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSWindowDidResignMainNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowDidResizeNotification"></span><code>NSWindowDidResizeNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSWindowDidResizeNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowStyleMaskClosable"></span><code>NSWindowStyleMaskClosable</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSWindowStyleMaskClosable">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowStyleMaskMiniaturizable"></span><code>NSWindowStyleMaskMiniaturizable</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSWindowStyleMaskMiniaturizable">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowStyleMaskResizable"></span><code>NSWindowStyleMaskResizable</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-003.html#AppKit.NSWindowStyleMaskResizable">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowStyleMaskTitled"></span><code>NSWindowStyleMaskTitled</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-004.html#AppKit.NSWindowStyleMaskTitled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowStyleMaskUtilityWindow"></span><code>NSWindowStyleMaskUtilityWindow</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-004.html#AppKit.NSWindowStyleMaskUtilityWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSWindowWillCloseNotification"></span><code>NSWindowWillCloseNotification</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-004.html#AppKit.NSWindowWillCloseNotification">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSZeroPoint"></span><code>NSZeroPoint</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-004.html#AppKit.NSZeroPoint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSZeroRect"></span><code>NSZeroRect</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-004.html#AppKit.NSZeroRect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="Cocoa.NSZeroSize"></span><code>NSZeroSize</code></td>
+<td>attribute</td>
+<td><a href="AppKit/members-004.html#AppKit.NSZeroSize">Shared captured text</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../assets/javascripts/complete-search-ui.js"
+        data-worker="../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

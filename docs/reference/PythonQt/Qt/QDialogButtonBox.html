@@ -1,0 +1,4236 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/Qt/QDialogButtonBox.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.Qt.QDialogButtonBox - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtqdialogbuttonbox" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.Qt.QDialogButtonBox
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QDialogButtonBox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QDialogButtonBox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QDialogButtonBox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QDialogButtonBox--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtqdialogbuttonbox">PythonQt.Qt.QDialogButtonBox</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.Qt.QDialogButtonBox" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QDialogButtonBox</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.Qt.QDialogButtonBox--detailed-description">Detailed Description</h4>
+<p>Dialogs and message boxes typically present buttons in a layout that conforms to the
+interface guidelines for that platform. Invariably, different platforms have different
+layouts for their dialogs. QDialogButtonBox allows a developer to add buttons to it and
+will automatically use the appropriate layout for the user's desktop environment.</p>
+<p>Most buttons for a dialog follow certain roles. Such roles include:</p>
+<ul>
+<li>Accepting or rejecting the dialog.</li>
+<li>Asking for help.</li>
+<li>Performing actions on the dialog itself (such as resetting fields or applying changes).</li>
+</ul>
+<p>There can also be alternate ways of dismissing the dialog which may cause destructive
+results.</p>
+<p>Most dialogs have buttons that can almost be considered standard (e.g. <strong>OK</strong> and
+<strong>Cancel</strong> buttons). It is sometimes convenient to create these buttons in a standard
+way.</p>
+<p>There are a couple ways of using QDialogButtonBox. One ways is to create the buttons (or
+button texts) yourself and add them to the button box, specifying their role.</p>
+<div class="highlight"><pre><span></span><code>    findButton = new QPushButton(tr(&quot;&amp;Find&quot;));
+    findButton-&gt;setDefault(true);
+
+    moreButton = new QPushButton(tr(&quot;&amp;More&quot;));
+    moreButton-&gt;setCheckable(true);
+    moreButton-&gt;setAutoDefault(false);
+</code></pre></div>
+<p>Alternatively, QDialogButtonBox provides several standard buttons (e.g. OK, Cancel,
+Save) that you can use. They exist as flags so you can OR them together in the
+constructor.</p>
+<div class="highlight"><pre><span></span><code>    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
+                                     | QDialogButtonBox::Cancel);
+
+    connect(buttonBox, &amp;QDialogButtonBox::accepted, this, &amp;QDialog::accept);
+    connect(buttonBox, &amp;QDialogButtonBox::rejected, this, &amp;QDialog::reject);
+</code></pre></div>
+<p>You can mix and match normal buttons and standard buttons.</p>
+<p>Currently the buttons are laid out in the following way if the button box is horizontal:</p>
+<table>
+<thead>
+<tr>
+<th>GnomeLayout Horizontal</th>
+<th>Button box laid out in horizontal <a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">GnomeLayout</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KdeLayout Horizontal</td>
+<td>Button box laid out in horizontal <a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">KdeLayout</a></td>
+</tr>
+<tr>
+<td>MacLayout Horizontal</td>
+<td>Button box laid out in horizontal <a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">MacLayout</a></td>
+</tr>
+<tr>
+<td>WinLayout Horizontal</td>
+<td>Button box laid out in horizontal <a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">WinLayout</a></td>
+</tr>
+</tbody>
+</table>
+<p>The buttons are laid out the following way if the button box is vertical:</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">GnomeLayout</a></th>
+<th><a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">KdeLayout</a></th>
+<th><a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">MacLayout</a></th>
+<th><a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">WinLayout</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GnomeLayout Vertical</td>
+<td>KdeLayout Vertical</td>
+<td>MacLayout Vertical</td>
+<td>WinLayout Vertical</td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, button boxes that contain only buttons with
+<a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonRole-enum">ActionRole</a>
+or <a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonRole-enum">HelpRole</a>
+can be considered modeless and have an alternate look on macOS:</p>
+<table>
+<thead>
+<tr>
+<th>modeless horizontal <a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">MacLayout</a></th>
+<th>Screenshot of modeless horizontal MacLayout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>modeless vertical <a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonLayout-enum">MacLayout</a></td>
+<td>Screenshot of modeless vertical MacLayout</td>
+</tr>
+</tbody>
+</table>
+<p>When a button is clicked in the button box, the
+<a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#clicked">clicked</a>() signal is
+emitted for the actual button is that is pressed. For convenience, if the button has an
+<a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonRole-enum">AcceptRole</a>,
+<a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonRole-enum">RejectRole</a>,
+or <a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#ButtonRole-enum">HelpRole</a>,
+the <a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#accepted">accepted</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#rejected">rejected</a>(), or
+<a href="https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html#helpRequested">helpRequested</a>()
+signals are emitted respectively.</p>
+<p>If you want a specific button to be default you need to call
+<a href="https://doc.qt.io/archives/qt-5.15/qpushbutton.html#default-prop">QPushButton::setDefault</a>()
+on it yourself. However, if there is no default button set and to preserve which button
+is the default button across platforms when using the
+<a href="https://doc.qt.io/archives/qt-5.15/qpushbutton.html#autoDefault-prop">QPushButton::autoDefault</a>
+property, the first push button with the accept role is made the default button when the
+QDialogButtonBox is shown,</p>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qdialogbuttonbox.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Abort"></span><code>Abort</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Abort">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.AcceptRole"></span><code>AcceptRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.AcceptRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.ActionRole"></span><code>ActionRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.ActionRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Apply"></span><code>Apply</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Apply">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.ApplyRole"></span><code>ApplyRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.ApplyRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.ButtonLayout"></span><code>ButtonLayout</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.ButtonLayout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.ButtonRole"></span><code>ButtonRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.ButtonRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Cancel"></span><code>Cancel</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Cancel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Close"></span><code>Close</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QApplicationStateChangeEvent/members-001.html#PythonQt.QtCore.QApplicationStateChangeEvent.Close">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.DestructiveRole"></span><code>DestructiveRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.DestructiveRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Discard"></span><code>Discard</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Discard">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.DrawChildren"></span><code>DrawChildren</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.DrawChildren">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.DrawWindowBackground"></span><code>DrawWindowBackground</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.DrawWindowBackground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.FirstButton"></span><code>FirstButton</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.FirstButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.GnomeLayout"></span><code>GnomeLayout</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.GnomeLayout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Help"></span><code>Help</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.HelpRole"></span><code>HelpRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.HelpRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Ignore"></span><code>Ignore</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Ignore">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.IgnoreMask"></span><code>IgnoreMask</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.IgnoreMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.InvalidRole"></span><code>InvalidRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.InvalidRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.KdeLayout"></span><code>KdeLayout</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.KdeLayout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.LastButton"></span><code>LastButton</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.LastButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.MacLayout"></span><code>MacLayout</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.MacLayout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.NRoles"></span><code>NRoles</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.NRoles">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.No"></span><code>No</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.No">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.NoButton"></span><code>NoButton</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/Qt/members-021.html#PythonQt.QtCore.Qt.NoButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.NoRole"></span><code>NoRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAction/members-001.html#PythonQt.QtGui.QAction.NoRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.NoToAll"></span><code>NoToAll</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.NoToAll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Ok"></span><code>Ok</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QDataStream/members-001.html#PythonQt.QtCore.QDataStream.Ok">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Open"></span><code>Open</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QSystemSemaphore/members-001.html#PythonQt.QtCore.QSystemSemaphore.Open">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PaintDeviceMetric"></span><code>PaintDeviceMetric</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PaintDeviceMetric">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmDepth"></span><code>PdmDepth</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDepth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmDevicePixelRatio"></span><code>PdmDevicePixelRatio</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDevicePixelRatio">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmDevicePixelRatioScaled"></span><code>PdmDevicePixelRatioScaled</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDevicePixelRatioScaled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmDpiX"></span><code>PdmDpiX</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmDpiY"></span><code>PdmDpiY</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmHeight"></span><code>PdmHeight</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmHeightMM"></span><code>PdmHeightMM</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmHeightMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmNumColors"></span><code>PdmNumColors</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmNumColors">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmPhysicalDpiX"></span><code>PdmPhysicalDpiX</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmPhysicalDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmPhysicalDpiY"></span><code>PdmPhysicalDpiY</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmPhysicalDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmWidth"></span><code>PdmWidth</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.PdmWidthMM"></span><code>PdmWidthMM</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmWidthMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.RejectRole"></span><code>RejectRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.RejectRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.RenderFlag"></span><code>RenderFlag</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.RenderFlag">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.RenderFlags"></span><code>RenderFlags</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.RenderFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Reset"></span><code>Reset</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Reset">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.ResetRole"></span><code>ResetRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.ResetRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.RestoreDefaults"></span><code>RestoreDefaults</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.RestoreDefaults">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Retry"></span><code>Retry</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Retry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Save"></span><code>Save</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Save">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.SaveAll"></span><code>SaveAll</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.SaveAll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.StandardButton"></span><code>StandardButton</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.StandardButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.StandardButtons"></span><code>StandardButtons</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.StandardButtons">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.WinLayout"></span><code>WinLayout</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.WinLayout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.Yes"></span><code>Yes</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.Yes">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.YesRole"></span><code>YesRole</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.YesRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.YesToAll"></span><code>YesToAll</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.YesToAll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.acceptDrops"></span><code>acceptDrops</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.acceptDrops">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.accepted"></span><code>accepted</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.accepted">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.accessibleDescription"></span><code>accessibleDescription</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.accessibleDescription">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.accessibleName"></span><code>accessibleName</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.accessibleName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.actionEvent"></span><code>actionEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.actionEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.actions"></span><code>actions</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.actions">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.activateWindow"></span><code>activateWindow</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.activateWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.addAction"></span><code>addAction</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.addAction">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.addActions"></span><code>addActions</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.addActions">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.addButton"></span><code>addButton</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.addButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.adjustSize"></span><code>adjustSize</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.adjustSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.autoFillBackground"></span><code>autoFillBackground</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.autoFillBackground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.backgroundRole"></span><code>backgroundRole</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.backgroundRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.backingStore"></span><code>backingStore</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.backingStore">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.baseSize"></span><code>baseSize</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.baseSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.blockSignals"></span><code>blockSignals</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.blockSignals">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.button"></span><code>button</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.button">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.buttonRole"></span><code>buttonRole</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.buttonRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.buttons"></span><code>buttons</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-001.html#PythonQt.QtGui.QDialogButtonBox.buttons">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.centerButtons"></span><code>centerButtons</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.centerButtons">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.changeEvent"></span><code>changeEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.changeEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.childAt"></span><code>childAt</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.childAt">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.childEvent"></span><code>childEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.childEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.children"></span><code>children</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.children">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.childrenRect"></span><code>childrenRect</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.childrenRect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.childrenRegion"></span><code>childrenRegion</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.childrenRegion">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.clear"></span><code>clear</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.clear">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.clearFocus"></span><code>clearFocus</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.clearFocus">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.clearMask"></span><code>clearMask</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.clearMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.clicked"></span><code>clicked</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.clicked">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.close"></span><code>close</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.close">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.closeEvent"></span><code>closeEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.closeEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.colorCount"></span><code>colorCount</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.colorCount">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.connect"></span><code>connect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.connect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.contentsMargins"></span><code>contentsMargins</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.contentsMargins">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.contentsRect"></span><code>contentsRect</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.contentsRect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.contextMenuEvent"></span><code>contextMenuEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.contextMenuEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.contextMenuPolicy"></span><code>contextMenuPolicy</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.contextMenuPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.createWinId"></span><code>createWinId</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.createWinId">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.createWindowContainer"></span><code>createWindowContainer</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.createWindowContainer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.cursor"></span><code>cursor</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.cursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.customContextMenuRequested"></span><code>customContextMenuRequested</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.customContextMenuRequested">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.customEvent"></span><code>customEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.customEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.deleteLater"></span><code>deleteLater</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.deleteLater">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.depth"></span><code>depth</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.depth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.destroy"></span><code>destroy</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.destroy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.destroyed"></span><code>destroyed</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.destroyed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.devType"></span><code>devType</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.devicePixelRatio"></span><code>devicePixelRatio</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatio">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.devicePixelRatioF"></span><code>devicePixelRatioF</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatioF">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.devicePixelRatioFScale"></span><code>devicePixelRatioFScale</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatioFScale">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.disconnect"></span><code>disconnect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.disconnect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.dragEnterEvent"></span><code>dragEnterEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.dragEnterEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.dragLeaveEvent"></span><code>dragLeaveEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.dragLeaveEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.dragMoveEvent"></span><code>dragMoveEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.dragMoveEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.dropEvent"></span><code>dropEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.dropEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.dumpObjectInfo"></span><code>dumpObjectInfo</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectInfo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.dumpObjectTree"></span><code>dumpObjectTree</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectTree">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.dynamicPropertyNames"></span><code>dynamicPropertyNames</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dynamicPropertyNames">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.effectiveWinId"></span><code>effectiveWinId</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.effectiveWinId">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.enabled"></span><code>enabled</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.enabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.ensurePolished"></span><code>ensurePolished</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.ensurePolished">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.enterEvent"></span><code>enterEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.enterEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.event"></span><code>event</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.event">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.eventFilter"></span><code>eventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.eventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.findChild"></span><code>findChild</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.findChildren"></span><code>findChildren</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChildren">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.focus"></span><code>focus</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.focus">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.focusInEvent"></span><code>focusInEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractGraphicsShapeItem/members-003.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.focusInEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.focusNextChild"></span><code>focusNextChild</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.focusNextChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.focusNextPrevChild"></span><code>focusNextPrevChild</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.focusNextPrevChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.focusOutEvent"></span><code>focusOutEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractGraphicsShapeItem/members-003.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.focusOutEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.focusPolicy"></span><code>focusPolicy</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.focusPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.focusPreviousChild"></span><code>focusPreviousChild</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.focusPreviousChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.focusProxy"></span><code>focusProxy</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.focusProxy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.focusWidget"></span><code>focusWidget</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.focusWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.font"></span><code>font</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.font">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.fontInfo"></span><code>fontInfo</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.fontInfo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.fontMetrics"></span><code>fontMetrics</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.fontMetrics">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.foregroundRole"></span><code>foregroundRole</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.foregroundRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.frameGeometry"></span><code>frameGeometry</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.frameGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.frameSize"></span><code>frameSize</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.frameSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.fullScreen"></span><code>fullScreen</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.fullScreen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.geometry"></span><code>geometry</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.geometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.grab"></span><code>grab</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grab">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.grabGesture"></span><code>grabGesture</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grabGesture">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.grabKeyboard"></span><code>grabKeyboard</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grabKeyboard">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.grabMouse"></span><code>grabMouse</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grabMouse">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.grabShortcut"></span><code>grabShortcut</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grabShortcut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.graphicsEffect"></span><code>graphicsEffect</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.graphicsEffect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.graphicsProxyWidget"></span><code>graphicsProxyWidget</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.graphicsProxyWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.hasFocus"></span><code>hasFocus</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hasFocus">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.hasHeightForWidth"></span><code>hasHeightForWidth</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hasHeightForWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.hasMouseTracking"></span><code>hasMouseTracking</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hasMouseTracking">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.height"></span><code>height</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.height">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.heightForWidth"></span><code>heightForWidth</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.heightForWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.heightMM"></span><code>heightMM</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.heightMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.helpRequested"></span><code>helpRequested</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.helpRequested">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.hide"></span><code>hide</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hide">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.hideEvent"></span><code>hideEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hideEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.initPainter"></span><code>initPainter</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.initPainter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.inputMethodEvent"></span><code>inputMethodEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.inputMethodEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.inputMethodHints"></span><code>inputMethodHints</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.inputMethodHints">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.inputMethodQuery"></span><code>inputMethodQuery</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.inputMethodQuery">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.insertAction"></span><code>insertAction</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.insertAction">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.insertActions"></span><code>insertActions</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.insertActions">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.installEventFilter"></span><code>installEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.installEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isActiveWindow"></span><code>isActiveWindow</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.isActiveWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isAncestorOf"></span><code>isAncestorOf</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.isAncestorOf">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isEnabled"></span><code>isEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isEnabledTo"></span><code>isEnabledTo</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isEnabledTo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isFullScreen"></span><code>isFullScreen</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isFullScreen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isHidden"></span><code>isHidden</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isHidden">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isLeftToRight"></span><code>isLeftToRight</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isLeftToRight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isMaximized"></span><code>isMaximized</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isMaximized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isMinimized"></span><code>isMinimized</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isMinimized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isModal"></span><code>isModal</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isModal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isRightToLeft"></span><code>isRightToLeft</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isRightToLeft">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isSignalConnected"></span><code>isSignalConnected</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.isSignalConnected">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isVisible"></span><code>isVisible</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isVisible">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isVisibleTo"></span><code>isVisibleTo</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isVisibleTo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isWidgetType"></span><code>isWidgetType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWidgetType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isWindow"></span><code>isWindow</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isWindowModified"></span><code>isWindowModified</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isWindowModified">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.isWindowType"></span><code>isWindowType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWindowType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.keyPressEvent"></span><code>keyPressEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractGraphicsShapeItem/members-004.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.keyPressEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.keyReleaseEvent"></span><code>keyReleaseEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractGraphicsShapeItem/members-004.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.keyReleaseEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.keyboardGrabber"></span><code>keyboardGrabber</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.keyboardGrabber">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.killTimer"></span><code>killTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.killTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.layout"></span><code>layout</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.layout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.layoutDirection"></span><code>layoutDirection</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.layoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.leaveEvent"></span><code>leaveEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.leaveEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.locale"></span><code>locale</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.locale">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.logicalDpiX"></span><code>logicalDpiX</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.logicalDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.logicalDpiY"></span><code>logicalDpiY</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.logicalDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.lower"></span><code>lower</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.lower">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mapFrom"></span><code>mapFrom</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapFrom">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mapFromGlobal"></span><code>mapFromGlobal</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapFromGlobal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mapFromParent"></span><code>mapFromParent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapFromParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mapTo"></span><code>mapTo</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapTo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mapToGlobal"></span><code>mapToGlobal</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapToGlobal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mapToParent"></span><code>mapToParent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapToParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mask"></span><code>mask</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.maximized"></span><code>maximized</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.maximized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.maximumHeight"></span><code>maximumHeight</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.maximumHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.maximumSize"></span><code>maximumSize</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.maximumSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.maximumWidth"></span><code>maximumWidth</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.maximumWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.metaObject"></span><code>metaObject</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.metaObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.metric"></span><code>metric</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.metric">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.minimized"></span><code>minimized</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.minimized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.minimumHeight"></span><code>minimumHeight</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.minimumHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.minimumSize"></span><code>minimumSize</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.minimumSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.minimumSizeHint"></span><code>minimumSizeHint</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.minimumSizeHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.minimumWidth"></span><code>minimumWidth</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.minimumWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.modal"></span><code>modal</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.modal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mouseDoubleClickEvent"></span><code>mouseDoubleClickEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.mouseDoubleClickEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mouseGrabber"></span><code>mouseGrabber</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.mouseGrabber">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mouseMoveEvent"></span><code>mouseMoveEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractGraphicsShapeItem/members-004.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.mouseMoveEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mousePressEvent"></span><code>mousePressEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractGraphicsShapeItem/members-004.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.mousePressEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mouseReleaseEvent"></span><code>mouseReleaseEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractGraphicsShapeItem/members-004.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.mouseReleaseEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.mouseTracking"></span><code>mouseTracking</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.mouseTracking">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.move"></span><code>move</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.move">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.moveEvent"></span><code>moveEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.moveEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.moveToThread"></span><code>moveToThread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.moveToThread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.nativeEvent"></span><code>nativeEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.nativeEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.nativeParentWidget"></span><code>nativeParentWidget</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.nativeParentWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.nextInFocusChain"></span><code>nextInFocusChain</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.nextInFocusChain">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.normalGeometry"></span><code>normalGeometry</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.normalGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.objectName"></span><code>objectName</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.objectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.objectNameChanged"></span><code>objectNameChanged</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.objectNameChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.orientation"></span><code>orientation</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.orientation">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.overrideWindowFlags"></span><code>overrideWindowFlags</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.overrideWindowFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.overrideWindowState"></span><code>overrideWindowState</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.overrideWindowState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.paintEngine"></span><code>paintEngine</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.paintEngine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.paintEvent"></span><code>paintEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractPrintDialog/members-001.html#PythonQt.QtGui.QAbstractPrintDialog.paintEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.paintingActive"></span><code>paintingActive</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.paintingActive">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.palette"></span><code>palette</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.palette">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.parent"></span><code>parent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.parent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.parentWidget"></span><code>parentWidget</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.parentWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.physicalDpiX"></span><code>physicalDpiX</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.physicalDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.physicalDpiY"></span><code>physicalDpiY</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.physicalDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.pos"></span><code>pos</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.pos">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.previousInFocusChain"></span><code>previousInFocusChain</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.previousInFocusChain">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.property"></span><code>property</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.property">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.raise_"></span><code>raise_</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.raise_">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.rect"></span><code>rect</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.rect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.redirected"></span><code>redirected</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.redirected">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.rejected"></span><code>rejected</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.rejected">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.releaseKeyboard"></span><code>releaseKeyboard</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.releaseKeyboard">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.releaseMouse"></span><code>releaseMouse</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.releaseMouse">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.releaseShortcut"></span><code>releaseShortcut</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.releaseShortcut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.removeAction"></span><code>removeAction</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.removeAction">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.removeButton"></span><code>removeButton</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.removeButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.removeEventFilter"></span><code>removeEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.removeEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.render"></span><code>render</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.render">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.repaint"></span><code>repaint</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.repaint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.resize"></span><code>resize</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.resize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.resizeEvent"></span><code>resizeEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.resizeEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.restoreGeometry"></span><code>restoreGeometry</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.restoreGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.saveGeometry"></span><code>saveGeometry</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.saveGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.scroll"></span><code>scroll</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.scroll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.sender"></span><code>sender</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.sender">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.senderSignalIndex"></span><code>senderSignalIndex</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.senderSignalIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setAcceptDrops"></span><code>setAcceptDrops</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAcceptDrops">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setAccessibleDescription"></span><code>setAccessibleDescription</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAccessibleDescription">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setAccessibleName"></span><code>setAccessibleName</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAccessibleName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setAttribute"></span><code>setAttribute</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAttribute">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setAutoFillBackground"></span><code>setAutoFillBackground</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAutoFillBackground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setBackgroundRole"></span><code>setBackgroundRole</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setBackgroundRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setBaseSize"></span><code>setBaseSize</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setBaseSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setCenterButtons"></span><code>setCenterButtons</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.setCenterButtons">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setContentsMargins"></span><code>setContentsMargins</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setContentsMargins">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setContextMenuPolicy"></span><code>setContextMenuPolicy</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setContextMenuPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setCursor"></span><code>setCursor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setCursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setDisabled"></span><code>setDisabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setDisabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setEnabled"></span><code>setEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setFixedHeight"></span><code>setFixedHeight</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFixedHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setFixedSize"></span><code>setFixedSize</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFixedSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setFixedWidth"></span><code>setFixedWidth</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFixedWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setFocus"></span><code>setFocus</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFocus">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setFocusPolicy"></span><code>setFocusPolicy</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFocusPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setFocusProxy"></span><code>setFocusProxy</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFocusProxy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setFont"></span><code>setFont</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFont">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setForegroundRole"></span><code>setForegroundRole</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setForegroundRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setGeometry"></span><code>setGeometry</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setGraphicsEffect"></span><code>setGraphicsEffect</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setGraphicsEffect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setHidden"></span><code>setHidden</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setHidden">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setInputMethodHints"></span><code>setInputMethodHints</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setInputMethodHints">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setLayout"></span><code>setLayout</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setLayout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setLayoutDirection"></span><code>setLayoutDirection</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setLayoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setLocale"></span><code>setLocale</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setLocale">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setMask"></span><code>setMask</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setMaximumHeight"></span><code>setMaximumHeight</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMaximumHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setMaximumSize"></span><code>setMaximumSize</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMaximumSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setMaximumWidth"></span><code>setMaximumWidth</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMaximumWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setMinimumHeight"></span><code>setMinimumHeight</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMinimumHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setMinimumSize"></span><code>setMinimumSize</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMinimumSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setMinimumWidth"></span><code>setMinimumWidth</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMinimumWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setMouseTracking"></span><code>setMouseTracking</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMouseTracking">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setObjectName"></span><code>setObjectName</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setObjectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setOrientation"></span><code>setOrientation</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.setOrientation">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setPalette"></span><code>setPalette</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setPalette">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setParent"></span><code>setParent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setProperty"></span><code>setProperty</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setShortcutAutoRepeat"></span><code>setShortcutAutoRepeat</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setShortcutAutoRepeat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setShortcutEnabled"></span><code>setShortcutEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setShortcutEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setSizeIncrement"></span><code>setSizeIncrement</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setSizeIncrement">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setSizePolicy"></span><code>setSizePolicy</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setSizePolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setStandardButtons"></span><code>setStandardButtons</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.setStandardButtons">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setStatusTip"></span><code>setStatusTip</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setStatusTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setStyle"></span><code>setStyle</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setStyleSheet"></span><code>setStyleSheet</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setStyleSheet">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setTabOrder"></span><code>setTabOrder</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setTabOrder">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setToolTip"></span><code>setToolTip</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setToolTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setToolTipDuration"></span><code>setToolTipDuration</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setToolTipDuration">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setUpdatesEnabled"></span><code>setUpdatesEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setUpdatesEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setVisible"></span><code>setVisible</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setVisible">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWhatsThis"></span><code>setWhatsThis</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWhatsThis">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowFilePath"></span><code>setWindowFilePath</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowFilePath">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowFlags"></span><code>setWindowFlags</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowIcon"></span><code>setWindowIcon</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowIcon">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowIconText"></span><code>setWindowIconText</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowIconText">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowModality"></span><code>setWindowModality</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowModality">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowModified"></span><code>setWindowModified</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowModified">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowOpacity"></span><code>setWindowOpacity</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowOpacity">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowRole"></span><code>setWindowRole</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowState"></span><code>setWindowState</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.setWindowTitle"></span><code>setWindowTitle</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowTitle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.sharedPainter"></span><code>sharedPainter</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.sharedPainter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.show"></span><code>show</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.show">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.showEvent"></span><code>showEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.showEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.showFullScreen"></span><code>showFullScreen</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.showFullScreen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.showMaximized"></span><code>showMaximized</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.showMaximized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.showMinimized"></span><code>showMinimized</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.showMinimized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.showNormal"></span><code>showNormal</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.showNormal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.signalsBlocked"></span><code>signalsBlocked</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.signalsBlocked">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.size"></span><code>size</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.size">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.sizeHint"></span><code>sizeHint</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.sizeHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.sizeIncrement"></span><code>sizeIncrement</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.sizeIncrement">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.sizePolicy"></span><code>sizePolicy</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.sizePolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.stackUnder"></span><code>stackUnder</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.stackUnder">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.standardButton"></span><code>standardButton</code></td>
+<td>function</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.standardButton">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.standardButtons"></span><code>standardButtons</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QDialogButtonBox/members-002.html#PythonQt.QtGui.QDialogButtonBox.standardButtons">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.startTimer"></span><code>startTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.startTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.statusTip"></span><code>statusTip</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.statusTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.style"></span><code>style</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.style">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.styleSheet"></span><code>styleSheet</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.styleSheet">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.tabletEvent"></span><code>tabletEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.tabletEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.tabletTracking"></span><code>tabletTracking</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.tabletTracking">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.testAttribute"></span><code>testAttribute</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.testAttribute">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.thread"></span><code>thread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.thread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.timerEvent"></span><code>timerEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.timerEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.toolTip"></span><code>toolTip</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.toolTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.toolTipDuration"></span><code>toolTipDuration</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.toolTipDuration">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.tr"></span><code>tr</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.tr">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.underMouse"></span><code>underMouse</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.underMouse">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.ungrabGesture"></span><code>ungrabGesture</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.ungrabGesture">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.unsetCursor"></span><code>unsetCursor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.unsetCursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.unsetLayoutDirection"></span><code>unsetLayoutDirection</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.unsetLayoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.unsetLocale"></span><code>unsetLocale</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.unsetLocale">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.update"></span><code>update</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.update">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.updateGeometry"></span><code>updateGeometry</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.updateGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.updatesEnabled"></span><code>updatesEnabled</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.updatesEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.visible"></span><code>visible</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.visible">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.visibleRegion"></span><code>visibleRegion</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.visibleRegion">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.whatsThis"></span><code>whatsThis</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.whatsThis">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.wheelEvent"></span><code>wheelEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.wheelEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.width"></span><code>width</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.width">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.widthMM"></span><code>widthMM</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.widthMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.winId"></span><code>winId</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.winId">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.window"></span><code>window</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.window">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowFilePath"></span><code>windowFilePath</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.windowFilePath">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowFlags"></span><code>windowFlags</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.windowFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowHandle"></span><code>windowHandle</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.windowHandle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowIcon"></span><code>windowIcon</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.windowIcon">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowIconChanged"></span><code>windowIconChanged</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.windowIconChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowIconText"></span><code>windowIconText</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowIconText">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowIconTextChanged"></span><code>windowIconTextChanged</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.windowIconTextChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowModality"></span><code>windowModality</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowModality">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowModified"></span><code>windowModified</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowModified">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowOpacity"></span><code>windowOpacity</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowOpacity">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowRole"></span><code>windowRole</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowState"></span><code>windowState</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowTitle"></span><code>windowTitle</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowTitle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowTitleChanged"></span><code>windowTitleChanged</code></td>
+<td>function</td>
+<td><a href="QDialogButtonBox/members-001.html#PythonQt.Qt.QDialogButtonBox.windowTitleChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.windowType"></span><code>windowType</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.x"></span><code>x</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.x">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QDialogButtonBox.y"></span><code>y</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.y">Shared captured text</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

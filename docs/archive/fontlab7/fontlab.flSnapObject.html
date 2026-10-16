@@ -1,0 +1,10301 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="FontLab 7 Python API">
+      
+      
+        <meta name="author" content="Fontlab Ltd.">
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/fontlab.flSnapObject.html">
+      
+      
+        <link rel="prev" href="fontlab.flSnapLine.html">
+      
+      
+        <link rel="next" href="fontlab.flStem.html">
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>flSnapObject - FontLab 7 Python API</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="style/fontlab_pyapi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass"><div style="padding:1rem;background:#ffe7ad;color:#241900;text-align:center">FontLab7 archive · <a style="color:inherit" href="../../index.html">Current Python reference</a> · <a class="fl-archive-current" style="color:inherit;font-weight:bold" href="../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject" data-fragment-targets="{&quot;fontlab.flSnapObject&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject&quot;,&quot;fontlab.flSnapObject.changed&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.changed&quot;,&quot;fontlab.flSnapObject.checkInitHistoryState&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.checkInitHistoryState&quot;,&quot;fontlab.flSnapObject.clearAboveHistory&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.clearAboveHistory&quot;,&quot;fontlab.flSnapObject.clearFlag&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.clearFlag&quot;,&quot;fontlab.flSnapObject.clearFlags&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.clearFlags&quot;,&quot;fontlab.flSnapObject.clone&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.clone&quot;,&quot;fontlab.flSnapObject.cloneObject&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.cloneObject&quot;,&quot;fontlab.flSnapObject.createObject&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.createObject&quot;,&quot;fontlab.flSnapObject.currentHistoryState&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.currentHistoryState&quot;,&quot;fontlab.flSnapObject.distanceTo&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.distanceTo&quot;,&quot;fontlab.flSnapObject.flObjectFlags&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.flObjectFlags&quot;,&quot;fontlab.flSnapObject.flag&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.flag&quot;,&quot;fontlab.flSnapObject.getHashCode&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.getHashCode&quot;,&quot;fontlab.flSnapObject.getProperties&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.getProperties&quot;,&quot;fontlab.flSnapObject.getProperty&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.getProperty&quot;,&quot;fontlab.flSnapObject.getPropertyFloat&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.getPropertyFloat&quot;,&quot;fontlab.flSnapObject.getPropertyInt&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.getPropertyInt&quot;,&quot;fontlab.flSnapObject.hasChanges&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.hasChanges&quot;,&quot;fontlab.flSnapObject.hasHistoryState&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.hasHistoryState&quot;,&quot;fontlab.flSnapObject.hasHistoryStates&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.hasHistoryStates&quot;,&quot;fontlab.flSnapObject.haveObject&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.haveObject&quot;,&quot;fontlab.flSnapObject.historyStates&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.historyStates&quot;,&quot;fontlab.flSnapObject.id&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.id&quot;,&quot;fontlab.flSnapObject.independedAll&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.independedAll&quot;,&quot;fontlab.flSnapObject.initialHistoryState&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.initialHistoryState&quot;,&quot;fontlab.flSnapObject.instanceType&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.instanceType&quot;,&quot;fontlab.flSnapObject.isChanged&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isChanged&quot;,&quot;fontlab.flSnapObject.isEqual&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isEqual&quot;,&quot;fontlab.flSnapObject.isExluded&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isExluded&quot;,&quot;fontlab.flSnapObject.isHint&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isHint&quot;,&quot;fontlab.flSnapObject.isInUse&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isInUse&quot;,&quot;fontlab.flSnapObject.isMeasurementLine&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isMeasurementLine&quot;,&quot;fontlab.flSnapObject.isNull&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isNull&quot;,&quot;fontlab.flSnapObject.isPassive&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isPassive&quot;,&quot;fontlab.flSnapObject.isPresent&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isPresent&quot;,&quot;fontlab.flSnapObject.isReleased&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isReleased&quot;,&quot;fontlab.flSnapObject.isValid&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isValid&quot;,&quot;fontlab.flSnapObject.isZone&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.isZone&quot;,&quot;fontlab.flSnapObject.name&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.name&quot;,&quot;fontlab.flSnapObject.offsetTo&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.offsetTo&quot;,&quot;fontlab.flSnapObject.refCnt&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.refCnt&quot;,&quot;fontlab.flSnapObject.release&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.release&quot;,&quot;fontlab.flSnapObject.remove&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.remove&quot;,&quot;fontlab.flSnapObject.removeChild&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.removeChild&quot;,&quot;fontlab.flSnapObject.reset&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.reset&quot;,&quot;fontlab.flSnapObject.restoreHistoryState&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.restoreHistoryState&quot;,&quot;fontlab.flSnapObject.setFlag&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.setFlag&quot;,&quot;fontlab.flSnapObject.setProperty&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.setProperty&quot;,&quot;fontlab.flSnapObject.setPropertyFloat&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.setPropertyFloat&quot;,&quot;fontlab.flSnapObject.setPropertyInt&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.setPropertyInt&quot;,&quot;fontlab.flSnapObject.setSnapFlag&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.setSnapFlag&quot;,&quot;fontlab.flSnapObject.setSnapFlagValue&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.setSnapFlagValue&quot;,&quot;fontlab.flSnapObject.snapFlag&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.snapFlag&quot;,&quot;fontlab.flSnapObject.snapFlags&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.snapFlags&quot;,&quot;fontlab.flSnapObject.style&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.style&quot;,&quot;fontlab.flSnapObject.tag&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.tag&quot;,&quot;fontlab.flSnapObject.type&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.type&quot;,&quot;fontlab.flSnapObject.update&quot;:&quot;../../reference/fontlab/flSnapObject.html#fontlab.flSnapObject.update&quot;}">Current version of this page</a><script>(()=>{const link=document.currentScript.previousElementSibling,page=link.getAttribute("href"),targets=JSON.parse(link.dataset.fragmentTargets);function update(){let id=location.hash.slice(1);try{id=decodeURIComponent(id)}catch(e){}link.setAttribute("href",Object.prototype.hasOwnProperty.call(targets,id)?targets[id]:page)}addEventListener("hashchange",update);update()})();</script></div>
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#flsnapobject" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="FontLab 7 Python API" class="md-header__button md-logo" aria-label="FontLab 7 Python API" data-md-component="logo">
+      
+  <img src="https://res.cloudinary.com/fontlab/image/fetch/f_auto,w_48,c_scale/https://www.fontlab.com/img/icon-fontlab-7.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab 7 Python API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              flSnapObject
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://www.fontlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Www
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="FontLab 7 Python API" class="md-nav__button md-logo" aria-label="FontLab 7 Python API" data-md-component="logo">
+      
+  <img src="https://res.cloudinary.com/fontlab/image/fetch/f_auto,w_48,c_scale/https://www.fontlab.com/img/icon-fontlab-7.png" alt="logo">
+
+    </a>
+    FontLab 7 Python API
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://www.fontlab.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Www
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    typerig
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    typerig
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    typerig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.base.message.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.base.message
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.fileio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.fileio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.fileio.cla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.fileio.cla
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.fileio.flc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.fileio.flc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.fileio.krn.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.fileio.krn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.fileio.nam.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.fileio.nam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.func.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.func
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.func.collection.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.func.collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.func.geometry.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.func.geometry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.func.math.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.func.math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.func.string.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.func.string
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.func.transform.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.func.transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.func.utils.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.func.utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.array.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.atom.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.atom
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.collection.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.cubicbezier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.cubicbezier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.delta.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.delta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.line.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.matrix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.point.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.point
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.transform.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.core.objects.utils.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    core.objects.utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.gui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gui
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.gui.QtGui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gui.QtGui
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.gui.widgets.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gui.widgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.application.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.application.app.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.application.app
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.application.automat.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.application.automat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.composer.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.composer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.contour.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.contour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.curve.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.curve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.font.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.font
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.glyph.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.glyph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.kern.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.kern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.node.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.node
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.shape.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.objects.string.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.objects.string
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.pens.abstractPen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.pens.abstractPen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="typerig.proxy.pens.outlinePen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    proxy.pens.outlinePen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    fontgate
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgAnchor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgAnchor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgAnchors.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgAnchors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgAxes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgAxes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgAxis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgAxis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgCMaps.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgCMaps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgCaret.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgCaret
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgCarets.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgCarets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgCmapRecord.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgCmapRecord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgCoding.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgCoding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgComponent.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgComponent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgComponents.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgComponents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgContour.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgContour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgContours.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgContours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgCuspPoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgCuspPoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgCuspPoints.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgCuspPoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.pyfgDataOwnerData.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pyfgDataOwnerData
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgDesignPosition.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgDesignPosition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgDeviceRecord.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgDeviceRecord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgDeviceRecords.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgDeviceRecords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgExtMapUIntToString.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgExtMapUIntToString
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgFont.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgFont
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgFontHinting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgFontHinting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgFontInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgFontInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgFontInfoDict.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgFontInfoDict
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGaspRecord.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGaspRecord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGaspRecords.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGaspRecords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGlyph.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGlyph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGlyphsR.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGlyphsR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGlyphDict.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGlyphDict
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGlyphIDsSet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGlyphIDsSet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGlyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGlyphs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGroup.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGroups.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGuide.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGuide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGuides.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGuides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgHint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgHint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgHintCommand.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgHintCommand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgHintCommands.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgHintCommands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgHints.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgHints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgKerning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgKerning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgKerningGroups.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgKerningGroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgKerningObject.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgKerningObject
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgKerningObjectPair.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgKerningObjectPair
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgLayer.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgLayer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgLayers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgLayers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgLib.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgLib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgMapBytes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgMapBytes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgExtMapIntTofgShape.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgExtMapIntTofgShape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgFlagsDict.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgFlagsDict
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgValuesDict.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgValuesDict
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgIntDict.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgIntDict
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgStringDict.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgStringDict
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgMaster.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgMaster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgMasters.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgMasters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgMaxP.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgMaxP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgMetricsClass.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgMetricsClass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgMetricsClasses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgMetricsClasses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgNametable.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgNametable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgNodes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgNodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOTLayout.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOTLayout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOtInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOtInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOtValue.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOtValue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgPackages.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgPackages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgPen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgPen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgExtMapUShortToShort.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgExtMapUShortToShort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgShape.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgShape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgShapes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgShapes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgStem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgStem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgStems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgStems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgTrueTypePoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgTrueTypePoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgTrueTypePoints.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgTrueTypePoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgTTInterpreter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgTTInterpreter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVdmxRecord.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVdmxRecord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVdmxRecords.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVdmxRecords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVectorBool.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVectorBool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVectorChar.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVectorChar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVectorDouble.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVectorDouble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVectorInt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVectorInt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVectorUInt16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVectorUInt16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVectorUInt32.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVectorUInt32
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVectorPoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVectorPoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgZone.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgZone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgZones.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgZones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_T1Import.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_T1Import
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_OTImport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_OTImport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_UfoFontImport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_UfoFontImport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_VfbImport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_VfbImport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_VfbExport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_VfbExport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_UfoFontExport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_UfoFontExport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_OTExport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_OTExport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_T1Export.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_T1Export
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_EOTExport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_EOTExport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_WOFFExport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_WOFFExport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_Font.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_Font
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_KerningOptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_KerningOptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_OTExportFeaFile.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_OTExportFeaFile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_TTAutohint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_TTAutohint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_T1Autohint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_T1Autohint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_TTFAutohint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_TTFAutohint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_AutoMetrics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_AutoMetrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_ExpandKerning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_ExpandKerning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgOpt_Optimize.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgOpt_Optimize
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgBitmap.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgBitmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgBitmaps.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgBitmaps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgBitmapsData.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgBitmapsData
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgBrush.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgBrush
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgColor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgColor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgCurve.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgCurve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgFontGateData.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgFontGateData
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgGlyphData.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgGlyphData
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgExtMapUCharToUChar.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgExtMapUCharToUChar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgMatrix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgMatrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgPoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgPoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgPointU.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgPointU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgRect.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgRect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgRendered.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgRendered
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgTrueTypeData.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgTrueTypeData
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontgate.fgVector.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgVector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    fontlab
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.CurveEx.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CurveEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.ExportControl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExportControl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.FaBasicPtr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FaBasicPtr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.Interval.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.PaintBrush.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaintBrush
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.TransformFrame.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransformFrame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.fgSymbol.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgSymbol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.fgSymbolList.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fgSymbolList
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flAbstractEditor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flAbstractEditor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flAbstractVectorNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flAbstractVectorNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flAnchor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flAnchor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flAuditInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flAuditInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flAxis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flAxis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flBasicTool.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flBasicTool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flCanvas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flCanvas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flContour.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flContour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flContourInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flContourInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flContourMarker.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flContourMarker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flEvent.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flEvent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flExpression.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flExpression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flGlyph.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flGlyph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flGlyphInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flGlyphInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flGraphicsInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flGraphicsInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flGuideLine.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flGuideLine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flHintingParameters.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flHintingParameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flInstance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flInstance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flItems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flItems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flLayer.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flLayer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flLayerInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flLayerInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flLocation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flLocation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.LocationValue.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LocationValue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flMarkerPoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flMarkerPoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flMouseEvent.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flMouseEvent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flModelProducer.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flModelProducer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flNodeInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flNodeInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flObject.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flObject
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flPackage.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flPackage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flPaper.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flPaper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flPinPoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flPinPoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flPreferences.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flPreferences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flProperty.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flProperty
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flPropertyDouble.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flPropertyDouble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flPropertyPoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flPropertyPoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flSearchInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flSearchInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flShape.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flShape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flShapeBuilder.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flShapeBuilder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flShapeData.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flShapeData
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flShapeInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flShapeInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flSnapLine.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flSnapLine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flSnapObject
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="fontlab.flSnapObject.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flSnapObject
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        changed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkinithistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        checkInitHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearabovehistory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearAboveHistory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearFlag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearflags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearFlags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloneobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cloneObject
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createhistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createObject
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#currenthistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        currentHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distanceto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        distanceTo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flobjectflags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flObjectFlags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gethashcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getHashCode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getproperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getProperties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getProperty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getpropertyfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getPropertyFloat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getpropertyint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getPropertyInt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#haschanges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hasChanges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hashistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hasHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hashistorystates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hasHistoryStates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#haveobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        haveObject
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historystates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        historyStates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        id
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#independedall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        independedAll
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialhistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initialHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        instanceType
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ischanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isChanged
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isequal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isEqual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isexluded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isExluded
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ishint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isHint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isinuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isInUse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ismeasurementline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isMeasurementLine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isnull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isNull
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ispassive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isPassive
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ispresent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isPresent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isreleased" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isReleased
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isvalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isValid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iszone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isZone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offsetto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        offsetTo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refcnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        refCnt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removechild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeChild
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeProperty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restorehistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        restoreHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setFlag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setProperty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setpropertyfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setPropertyFloat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setpropertyint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setPropertyInt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setsnapflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setSnapFlag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setsnapflagvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setSnapFlagValue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        snapFlag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapflags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        snapFlags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flStem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flStem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flZone.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flZone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flSticker.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flSticker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flTextBlock.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flTextBlock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flTransform.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flTransform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flVectorNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flVectorNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flVisualItem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flVisualItem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flWorkspace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flWorkspace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.FontMetrics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontMetrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.GlyphComponent.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphComponent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flTTHCommand.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flTTHCommand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.YPanelManager.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YPanelManager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.YPanelWidget.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YPanelWidget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.Info.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.FontLayer.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLayer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flSnaps.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flSnaps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flModel.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flModel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.PaintBrushShape.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PaintBrushShape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.SmartCornerParameters.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SmartCornerParameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.AccentInfo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AccentInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fontlab.flLayerAttributes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flLayerAttributes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FL
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Anchor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anchor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Canvas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canvas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Component.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Dialog.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dialog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Encoding.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encoding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.EncodingRecord.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EncodingRecord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Feature.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.fl.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Font.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Glyph.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Guide.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Hint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Image.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.KerningPair.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KerningPair
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Link.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Link
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Matrix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Node.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Point.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Point
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.Rect.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.TrueTypeTable.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TrueTypeTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FL.TTPoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TTPoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        changed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkinithistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        checkInitHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearabovehistory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearAboveHistory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearFlag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearflags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearFlags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloneobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cloneObject
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createhistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createObject
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#currenthistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        currentHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distanceto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        distanceTo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flobjectflags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flObjectFlags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gethashcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getHashCode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getproperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getProperties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getProperty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getpropertyfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getPropertyFloat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getpropertyint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getPropertyInt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#haschanges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hasChanges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hashistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hasHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hashistorystates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hasHistoryStates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#haveobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        haveObject
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historystates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        historyStates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        id
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#independedall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        independedAll
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialhistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initialHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        instanceType
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ischanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isChanged
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isequal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isEqual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isexluded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isExluded
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ishint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isHint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isinuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isInUse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ismeasurementline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isMeasurementLine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isnull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isNull
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ispassive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isPassive
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ispresent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isPresent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isreleased" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isReleased
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isvalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isValid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iszone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isZone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offsetto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        offsetTo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refcnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        refCnt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removechild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeChild
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeProperty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restorehistorystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        restoreHistoryState
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setFlag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setProperty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setpropertyfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setPropertyFloat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setpropertyint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setPropertyInt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setsnapflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setSnapFlag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setsnapflagvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setSnapFlagValue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        snapFlag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapflags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        snapFlags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<p><a name="fontlab.flSnapObject"></a></p>
+<h1 id="flsnapobject"><code>flSnapObject</code></h1>
+<dt class="class"><h2><span class="class-name">fontlab.flSnapObject</span> = <a name="fontlab.flSnapObject" href="#fontlab.flSnapObject">class flSnapObject</a>(<a href="./__builtin__.html#object">object</a>)</h2></dt>
+<dd class="class"><dd>
+
+
+<pre class="doc" markdown="0">flSnapObject representation
+
+Constructors:
+  flSnapObject()
+  flSnapObject(flObject)
+  flSnapObject(flSnapObject)</pre>
+
+
+</dd><h4 class="head-methods">Methods </h4><dl class="function"><dt><a name="flSnapObject-__delattr__" href="#flSnapObject-__delattr__"><span class="function-name">__delattr__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__delattr__">__delattr__</a>('name') <==> del x.name</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__eq__" href="#flSnapObject-__eq__"><span class="function-name">__eq__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__eq__">__eq__</a>(y) <==> x==y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__ge__" href="#flSnapObject-__ge__"><span class="function-name">__ge__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__ge__">__ge__</a>(y) <==> x>=y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__getattribute__" href="#flSnapObject-__getattribute__"><span class="function-name">__getattribute__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__getattribute__">__getattribute__</a>('name') <==> x.name</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__gt__" href="#flSnapObject-__gt__"><span class="function-name">__gt__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__gt__">__gt__</a>(y) <==> x>y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__init__" href="#flSnapObject-__init__"><span class="function-name">__init__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__init__">__init__</a>(...) initializes x; see help(<a href="#fontlab.flSnapObject-type">type</a>(x)) for signature</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__le__" href="#flSnapObject-__le__"><span class="function-name">__le__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__le__">__le__</a>(y) <==> x<=y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__lt__" href="#flSnapObject-__lt__"><span class="function-name">__lt__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__lt__">__lt__</a>(y) <==> x<y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__ne__" href="#flSnapObject-__ne__"><span class="function-name">__ne__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__ne__">__ne__</a>(y) <==> x!=y</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__repr__" href="#flSnapObject-__repr__"><span class="function-name">__repr__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__repr__">__repr__</a>() <==> repr(x)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-__setattr__" href="#flSnapObject-__setattr__"><span class="function-name">__setattr__</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">x.<a href="#fontlab.flSnapObject-__setattr__">__setattr__</a>('name', value) <==> x.name = value</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-changed" href="#flSnapObject-changed"><span class="function-name">changed</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-changed">changed</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-checkInitHistoryState" href="#flSnapObject-checkInitHistoryState"><span class="function-name">checkInitHistoryState</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-checkInitHistoryState">checkInitHistoryState</a>(uint history_ix)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-clearAboveHistory" href="#flSnapObject-clearAboveHistory"><span class="function-name">clearAboveHistory</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-clearAboveHistory">clearAboveHistory</a>(uint history_ix)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-clearFlag" href="#flSnapObject-clearFlag"><span class="function-name">clearFlag</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-clearFlag">clearFlag</a>(uint f)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-clearFlags" href="#flSnapObject-clearFlags"><span class="function-name">clearFlags</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-clearFlags">clearFlags</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-clone" href="#flSnapObject-clone"><span class="function-name">clone</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">Clone the object</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-createHistoryState" href="#flSnapObject-createHistoryState"><span class="function-name">createHistoryState</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-createHistoryState">createHistoryState</a>(uint history_ix)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-currentHistoryState" href="#flSnapObject-currentHistoryState"><span class="function-name">currentHistoryState</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">currentHistoryIx()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-distanceTo" href="#flSnapObject-distanceTo"><span class="function-name">distanceTo</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">double <a href="#fontlab.flSnapObject-distanceTo">distanceTo</a>(QPointF, uint mode)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-flag" href="#flSnapObject-flag"><span class="function-name">flag</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-flag">flag</a>(uint f)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-getHashCode" href="#flSnapObject-getHashCode"><span class="function-name">getHashCode</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">SnapHashCode <a href="#fontlab.flSnapObject-getHashCode">getHashCode</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-getProperties" href="#flSnapObject-getProperties"><span class="function-name">getProperties</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">Get object's properties list</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-getProperty" href="#flSnapObject-getProperty"><span class="function-name">getProperty</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-getProperty">getProperty</a>('key') - get object property by 'key' or number</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-getPropertyFloat" href="#flSnapObject-getPropertyFloat"><span class="function-name">getPropertyFloat</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-getPropertyFloat">getPropertyFloat</a>('key') - get float object property by 'key'</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-getPropertyInt" href="#flSnapObject-getPropertyInt"><span class="function-name">getPropertyInt</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-getPropertyInt">getPropertyInt</a>('key') - get int object property by 'key'</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-hasHistoryState" href="#flSnapObject-hasHistoryState"><span class="function-name">hasHistoryState</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-hasHistoryState">hasHistoryState</a>(uint history_ix)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-historyStates" href="#flSnapObject-historyStates"><span class="function-name">historyStates</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-historyStates">historyStates</a>(bool accepted_state)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-independedAll" href="#flSnapObject-independedAll"><span class="function-name">independedAll</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-independedAll">independedAll</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-initialHistoryState" href="#flSnapObject-initialHistoryState"><span class="function-name">initialHistoryState</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">initialHistoryIx()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-isEqual" href="#flSnapObject-isEqual"><span class="function-name">isEqual</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-isEqual">isEqual</a>(flObject)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-offsetTo" href="#flSnapObject-offsetTo"><span class="function-name">offsetTo</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">QPointF <a href="#fontlab.flSnapObject-offsetTo">offsetTo</a>(QPointF, uint mode)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-release" href="#flSnapObject-release"><span class="function-name">release</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-release">release</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-remove" href="#flSnapObject-remove"><span class="function-name">remove</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-remove">remove</a>([flObject])</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-removeChild" href="#flSnapObject-removeChild"><span class="function-name">removeChild</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-removeChild">removeChild</a>(flObject)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-removeProperty" href="#flSnapObject-removeProperty"><span class="function-name">removeProperty</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-removeProperty">removeProperty</a>('key')</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-reset" href="#flSnapObject-reset"><span class="function-name">reset</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-reset">reset</a>()</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-restoreHistoryState" href="#flSnapObject-restoreHistoryState"><span class="function-name">restoreHistoryState</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-restoreHistoryState">restoreHistoryState</a>(uint history_ix)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-setFlag" href="#flSnapObject-setFlag"><span class="function-name">setFlag</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-setFlag">setFlag</a>(uint f [, bool value])</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-setProperty" href="#flSnapObject-setProperty"><span class="function-name">setProperty</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-setProperty">setProperty</a>('key', value) - set object property by 'key' or number</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-setPropertyFloat" href="#flSnapObject-setPropertyFloat"><span class="function-name">setPropertyFloat</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-setPropertyFloat">setPropertyFloat</a>('key', value) - set float object property by 'key'</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-setPropertyInt" href="#flSnapObject-setPropertyInt"><span class="function-name">setPropertyInt</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-setPropertyInt">setPropertyInt</a>('key', value) - set int object property by 'key'</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-setSnapFlag" href="#flSnapObject-setSnapFlag"><span class="function-name">setSnapFlag</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-setSnapFlag">setSnapFlag</a>(uint role, uint snapFlags)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-setSnapFlagValue" href="#flSnapObject-setSnapFlagValue"><span class="function-name">setSnapFlagValue</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-setSnapFlagValue">setSnapFlagValue</a>(uint role, bool)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-snapFlag" href="#flSnapObject-snapFlag"><span class="function-name">snapFlag</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">uint <a href="#fontlab.flSnapObject-snapFlag">snapFlag</a>(uint role)</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-tag" href="#flSnapObject-tag"><span class="function-name">tag</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-tag">tag</a>([string])</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-update" href="#flSnapObject-update"><span class="function-name">update</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0"><a href="#fontlab.flSnapObject-update">update</a>()</pre>
+
+</dd></dl>
+
+  <h4 class="head-static-methods">Static methods </h4><dl class="function"><dt><a name="flSnapObject-cloneObject" href="#flSnapObject-cloneObject"><span class="function-name">cloneObject</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">flObject <a href="#fontlab.flSnapObject-cloneObject">cloneObject</a>(const flObject&);</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-createObject" href="#flSnapObject-createObject"><span class="function-name">createObject</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">flObject/Nothing <a href="#fontlab.flSnapObject-createObject">createObject</a>(int);</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-haveObject" href="#flSnapObject-haveObject"><span class="function-name">haveObject</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">bool <a href="#fontlab.flSnapObject-haveObject">haveObject</a>(uint);</pre>
+
+</dd></dl>
+<dl class="function"><dt><a name="flSnapObject-instanceType" href="#flSnapObject-instanceType"><span class="function-name">instanceType</span></a><span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int <a href="#fontlab.flSnapObject-instanceType">instanceType</a>();</pre>
+
+</dd></dl>
+
+  <h4 class="head-desc">Descriptors </h4><dl class="descriptor"><dt>hasChanges</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>hasHistoryStates</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>id</dt>
+<dd>
+
+<pre class="doc" markdown="0">object id</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isChanged</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isExluded</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isHint</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isInUse</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isMeasurementLine</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isNull</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isPassive</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isPresent</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isReleased</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isValid</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>isZone</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>name</dt>
+<dd>
+
+<pre class="doc" markdown="0">object name</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>refCnt</dt>
+<dd>
+
+<pre class="doc" markdown="0">object references count</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>snapFlags</dt>
+<dd>
+
+<pre class="doc" markdown="0">uint</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>style</dt>
+<dd>
+
+<pre class="doc" markdown="0">SnapObjectsStyle</pre>
+
+</dd>
+</dl>
+<dl class="descriptor"><dt>type</dt>
+<dd>
+
+<pre class="doc" markdown="0">object type</pre>
+
+</dd>
+</dl>
+
+  <h4 class="head-attrs">Attributes </h4><dl><dt><span class="other-name">__new__</span> = &lt;built-in method __new__ of type object&gt;<dd>
+
+<pre class="doc" markdown="0">T.<a href="#fontlab.flSnapObject-__new__">__new__</a>(S, ...) -> a new object with type S, a subtype of T</pre>
+
+</dd></dl>
+<dl><dt><span class="other-name">flObjectFlags</span> = {'ofAnchored': 64, 'ofChanged': 2, 'ofHistory': 128, 'ofIgnore': 8, 'ofIgnoreChanges': 4, 'ofPassive': 16, 'ofReleased': 1, 'ofSlowUpdate': 32}</dt></dl>
+</dd>
+
+<p><a name="fontlab.flSnapObject.changed"></a></p>
+<h2 id="changed"><code>changed</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.changed" href="#-fontlab.flSnapObject.changed"><span class="function-name">fontlab.flSnapObject.changed</span></a> = changed<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">changed()</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.checkInitHistoryState"></a></p>
+<h2 id="checkinithistorystate"><code>checkInitHistoryState</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.checkInitHistoryState" href="#-fontlab.flSnapObject.checkInitHistoryState"><span class="function-name">fontlab.flSnapObject.checkInitHistoryState</span></a> = checkInitHistoryState<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">checkInitHistoryState(uint history_ix)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.clearAboveHistory"></a></p>
+<h2 id="clearabovehistory"><code>clearAboveHistory</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.clearAboveHistory" href="#-fontlab.flSnapObject.clearAboveHistory"><span class="function-name">fontlab.flSnapObject.clearAboveHistory</span></a> = clearAboveHistory<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">clearAboveHistory(uint history_ix)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.clearFlag"></a></p>
+<h2 id="clearflag"><code>clearFlag</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.clearFlag" href="#-fontlab.flSnapObject.clearFlag"><span class="function-name">fontlab.flSnapObject.clearFlag</span></a> = clearFlag<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">clearFlag(uint f)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.clearFlags"></a></p>
+<h2 id="clearflags"><code>clearFlags</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.clearFlags" href="#-fontlab.flSnapObject.clearFlags"><span class="function-name">fontlab.flSnapObject.clearFlags</span></a> = clearFlags<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">clearFlags()</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.clone"></a></p>
+<h2 id="clone"><code>clone</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.clone" href="#-fontlab.flSnapObject.clone"><span class="function-name">fontlab.flSnapObject.clone</span></a> = clone<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">Clone the object</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.cloneObject"></a></p>
+<h2 id="cloneobject"><code>cloneObject</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.cloneObject" href="#-fontlab.flSnapObject.cloneObject"><span class="function-name">fontlab.flSnapObject.cloneObject</span></a> = cloneObject<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">flObject cloneObject(const flObject&);</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.createHistoryState"></a></p>
+<h2 id="createhistorystate"><code>createHistoryState</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.createHistoryState" href="#-fontlab.flSnapObject.createHistoryState"><span class="function-name">fontlab.flSnapObject.createHistoryState</span></a> = createHistoryState<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">createHistoryState(uint history_ix)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.createObject"></a></p>
+<h2 id="createobject"><code>createObject</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.createObject" href="#-fontlab.flSnapObject.createObject"><span class="function-name">fontlab.flSnapObject.createObject</span></a> = createObject<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">flObject/Nothing createObject(int);</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.currentHistoryState"></a></p>
+<h2 id="currenthistorystate"><code>currentHistoryState</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.currentHistoryState" href="#-fontlab.flSnapObject.currentHistoryState"><span class="function-name">fontlab.flSnapObject.currentHistoryState</span></a> = currentHistoryState<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">currentHistoryIx()</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.distanceTo"></a></p>
+<h2 id="distanceto"><code>distanceTo</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.distanceTo" href="#-fontlab.flSnapObject.distanceTo"><span class="function-name">fontlab.flSnapObject.distanceTo</span></a> = distanceTo<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">double distanceTo(QPointF, uint mode)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.flag"></a></p>
+<h2 id="flag"><code>flag</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.flag" href="#-fontlab.flSnapObject.flag"><span class="function-name">fontlab.flSnapObject.flag</span></a> = flag<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">flag(uint f)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.flObjectFlags"></a></p>
+<h2 id="flobjectflags"><code>flObjectFlags</code></h2>
+<p><span class="other-name">fontlab.flSnapObject.flObjectFlags</span> = {'ofAnchored': 64, 'ofChanged': 2, 'ofHistory': 128, 'ofIgnore': 8, 'ofIgnoreChanges': 4, 'ofPassive': 16, 'ofReleased': 1, 'ofSlowUpdate': 32}</p>
+<p><a name="fontlab.flSnapObject.getHashCode"></a></p>
+<h2 id="gethashcode"><code>getHashCode</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.getHashCode" href="#-fontlab.flSnapObject.getHashCode"><span class="function-name">fontlab.flSnapObject.getHashCode</span></a> = getHashCode<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">SnapHashCode getHashCode()</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.getProperties"></a></p>
+<h2 id="getproperties"><code>getProperties</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.getProperties" href="#-fontlab.flSnapObject.getProperties"><span class="function-name">fontlab.flSnapObject.getProperties</span></a> = getProperties<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">Get object's properties list</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.getProperty"></a></p>
+<h2 id="getproperty"><code>getProperty</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.getProperty" href="#-fontlab.flSnapObject.getProperty"><span class="function-name">fontlab.flSnapObject.getProperty</span></a> = getProperty<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">getProperty('key') - get object property by 'key' or number</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.getPropertyFloat"></a></p>
+<h2 id="getpropertyfloat"><code>getPropertyFloat</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.getPropertyFloat" href="#-fontlab.flSnapObject.getPropertyFloat"><span class="function-name">fontlab.flSnapObject.getPropertyFloat</span></a> = getPropertyFloat<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">getPropertyFloat('key') - get float object property by 'key'</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.getPropertyInt"></a></p>
+<h2 id="getpropertyint"><code>getPropertyInt</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.getPropertyInt" href="#-fontlab.flSnapObject.getPropertyInt"><span class="function-name">fontlab.flSnapObject.getPropertyInt</span></a> = getPropertyInt<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">getPropertyInt('key') - get int object property by 'key'</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.hasChanges"></a></p>
+<h2 id="haschanges"><code>hasChanges</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.hasChanges</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.hasHistoryState"></a></p>
+<h2 id="hashistorystate"><code>hasHistoryState</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.hasHistoryState" href="#-fontlab.flSnapObject.hasHistoryState"><span class="function-name">fontlab.flSnapObject.hasHistoryState</span></a> = hasHistoryState<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">hasHistoryState(uint history_ix)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.hasHistoryStates"></a></p>
+<h2 id="hashistorystates"><code>hasHistoryStates</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.hasHistoryStates</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.haveObject"></a></p>
+<h2 id="haveobject"><code>haveObject</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.haveObject" href="#-fontlab.flSnapObject.haveObject"><span class="function-name">fontlab.flSnapObject.haveObject</span></a> = haveObject<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">bool haveObject(uint);</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.historyStates"></a></p>
+<h2 id="historystates"><code>historyStates</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.historyStates" href="#-fontlab.flSnapObject.historyStates"><span class="function-name">fontlab.flSnapObject.historyStates</span></a> = historyStates<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">historyStates(bool accepted_state)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.id"></a></p>
+<h2 id="id"><code>id</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.id</dt>
+<dd>
+
+<pre class="doc" markdown="0">object id</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.independedAll"></a></p>
+<h2 id="independedall"><code>independedAll</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.independedAll" href="#-fontlab.flSnapObject.independedAll"><span class="function-name">fontlab.flSnapObject.independedAll</span></a> = independedAll<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">independedAll()</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.initialHistoryState"></a></p>
+<h2 id="initialhistorystate"><code>initialHistoryState</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.initialHistoryState" href="#-fontlab.flSnapObject.initialHistoryState"><span class="function-name">fontlab.flSnapObject.initialHistoryState</span></a> = initialHistoryState<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">initialHistoryIx()</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.instanceType"></a></p>
+<h2 id="instancetype"><code>instanceType</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.instanceType" href="#-fontlab.flSnapObject.instanceType"><span class="function-name">fontlab.flSnapObject.instanceType</span></a> = instanceType<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">int instanceType();</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.isChanged"></a></p>
+<h2 id="ischanged"><code>isChanged</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isChanged</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isEqual"></a></p>
+<h2 id="isequal"><code>isEqual</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.isEqual" href="#-fontlab.flSnapObject.isEqual"><span class="function-name">fontlab.flSnapObject.isEqual</span></a> = isEqual<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">isEqual(flObject)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.isExluded"></a></p>
+<h2 id="isexluded"><code>isExluded</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isExluded</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isHint"></a></p>
+<h2 id="ishint"><code>isHint</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isHint</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isInUse"></a></p>
+<h2 id="isinuse"><code>isInUse</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isInUse</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isMeasurementLine"></a></p>
+<h2 id="ismeasurementline"><code>isMeasurementLine</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isMeasurementLine</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isNull"></a></p>
+<h2 id="isnull"><code>isNull</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isNull</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isPassive"></a></p>
+<h2 id="ispassive"><code>isPassive</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isPassive</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isPresent"></a></p>
+<h2 id="ispresent"><code>isPresent</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isPresent</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isReleased"></a></p>
+<h2 id="isreleased"><code>isReleased</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isReleased</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isValid"></a></p>
+<h2 id="isvalid"><code>isValid</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isValid</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.isZone"></a></p>
+<h2 id="iszone"><code>isZone</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.isZone</dt>
+<dd>
+
+<pre class="doc" markdown="0">bool</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.name"></a></p>
+<h2 id="name"><code>name</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.name</dt>
+<dd>
+
+<pre class="doc" markdown="0">object name</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.offsetTo"></a></p>
+<h2 id="offsetto"><code>offsetTo</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.offsetTo" href="#-fontlab.flSnapObject.offsetTo"><span class="function-name">fontlab.flSnapObject.offsetTo</span></a> = offsetTo<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">QPointF offsetTo(QPointF, uint mode)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.refCnt"></a></p>
+<h2 id="refcnt"><code>refCnt</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.refCnt</dt>
+<dd>
+
+<pre class="doc" markdown="0">object references count</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.release"></a></p>
+<h2 id="release"><code>release</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.release" href="#-fontlab.flSnapObject.release"><span class="function-name">fontlab.flSnapObject.release</span></a> = release<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">release()</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.remove"></a></p>
+<h2 id="remove"><code>remove</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.remove" href="#-fontlab.flSnapObject.remove"><span class="function-name">fontlab.flSnapObject.remove</span></a> = remove<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">remove([flObject])</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.removeChild"></a></p>
+<h2 id="removechild"><code>removeChild</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.removeChild" href="#-fontlab.flSnapObject.removeChild"><span class="function-name">fontlab.flSnapObject.removeChild</span></a> = removeChild<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">removeChild(flObject)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.removeProperty"></a></p>
+<h2 id="removeproperty"><code>removeProperty</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.removeProperty" href="#-fontlab.flSnapObject.removeProperty"><span class="function-name">fontlab.flSnapObject.removeProperty</span></a> = removeProperty<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">removeProperty('key')</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.reset"></a></p>
+<h2 id="reset"><code>reset</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.reset" href="#-fontlab.flSnapObject.reset"><span class="function-name">fontlab.flSnapObject.reset</span></a> = reset<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">reset()</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.restoreHistoryState"></a></p>
+<h2 id="restorehistorystate"><code>restoreHistoryState</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.restoreHistoryState" href="#-fontlab.flSnapObject.restoreHistoryState"><span class="function-name">fontlab.flSnapObject.restoreHistoryState</span></a> = restoreHistoryState<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">restoreHistoryState(uint history_ix)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.setFlag"></a></p>
+<h2 id="setflag"><code>setFlag</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.setFlag" href="#-fontlab.flSnapObject.setFlag"><span class="function-name">fontlab.flSnapObject.setFlag</span></a> = setFlag<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">setFlag(uint f [, bool value])</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.setProperty"></a></p>
+<h2 id="setproperty"><code>setProperty</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.setProperty" href="#-fontlab.flSnapObject.setProperty"><span class="function-name">fontlab.flSnapObject.setProperty</span></a> = setProperty<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">setProperty('key', value) - set object property by 'key' or number</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.setPropertyFloat"></a></p>
+<h2 id="setpropertyfloat"><code>setPropertyFloat</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.setPropertyFloat" href="#-fontlab.flSnapObject.setPropertyFloat"><span class="function-name">fontlab.flSnapObject.setPropertyFloat</span></a> = setPropertyFloat<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">setPropertyFloat('key', value) - set float object property by 'key'</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.setPropertyInt"></a></p>
+<h2 id="setpropertyint"><code>setPropertyInt</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.setPropertyInt" href="#-fontlab.flSnapObject.setPropertyInt"><span class="function-name">fontlab.flSnapObject.setPropertyInt</span></a> = setPropertyInt<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">setPropertyInt('key', value) - set int object property by 'key'</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.setSnapFlag"></a></p>
+<h2 id="setsnapflag"><code>setSnapFlag</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.setSnapFlag" href="#-fontlab.flSnapObject.setSnapFlag"><span class="function-name">fontlab.flSnapObject.setSnapFlag</span></a> = setSnapFlag<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">setSnapFlag(uint role, uint snapFlags)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.setSnapFlagValue"></a></p>
+<h2 id="setsnapflagvalue"><code>setSnapFlagValue</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.setSnapFlagValue" href="#-fontlab.flSnapObject.setSnapFlagValue"><span class="function-name">fontlab.flSnapObject.setSnapFlagValue</span></a> = setSnapFlagValue<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">setSnapFlagValue(uint role, bool)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.snapFlag"></a></p>
+<h2 id="snapflag"><code>snapFlag</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.snapFlag" href="#-fontlab.flSnapObject.snapFlag"><span class="function-name">fontlab.flSnapObject.snapFlag</span></a> = snapFlag<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">uint snapFlag(uint role)</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.snapFlags"></a></p>
+<h2 id="snapflags"><code>snapFlags</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.snapFlags</dt>
+<dd>
+
+<pre class="doc" markdown="0">uint</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.style"></a></p>
+<h2 id="style"><code>style</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.style</dt>
+<dd>
+
+<pre class="doc" markdown="0">SnapObjectsStyle</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.tag"></a></p>
+<h2 id="tag"><code>tag</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.tag" href="#-fontlab.flSnapObject.tag"><span class="function-name">fontlab.flSnapObject.tag</span></a> = tag<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">tag([string])</pre>
+
+</dd></dl>
+
+<p><a name="fontlab.flSnapObject.type"></a></p>
+<h2 id="type"><code>type</code></h2>
+<dl class="descriptor"><dt>fontlab.flSnapObject.type</dt>
+<dd>
+
+<pre class="doc" markdown="0">object type</pre>
+
+</dd>
+</dl>
+
+<p><a name="fontlab.flSnapObject.update"></a></p>
+<h2 id="update"><code>update</code></h2>
+<dl class="function"><dt><a name="-fontlab.flSnapObject.update" href="#-fontlab.flSnapObject.update"><span class="function-name">fontlab.flSnapObject.update</span></a> = update<span class="argspec">(...)</span></dt><dd>
+
+<pre class="doc" markdown="0">update()</pre>
+
+</dd></dl>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2016–2020 <a href="http://www.fontlab.com/">Fontlab Ltd.</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "2020.08.06"}</script>
+    
+    
+      <script src="assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

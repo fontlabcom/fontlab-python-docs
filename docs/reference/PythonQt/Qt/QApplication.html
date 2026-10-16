@@ -1,0 +1,3232 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/Qt/QApplication.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.Qt.QApplication - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtqapplication" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.Qt.QApplication
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QApplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QApplication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QApplication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.Qt.QApplication--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtqapplication">PythonQt.Qt.QApplication</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.Qt.QApplication" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QApplication</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.Qt.QApplication--detailed-description">Detailed Description</h4>
+<p>QApplication specializes
+<a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html">QGuiApplication</a> with some
+functionality needed for
+<a href="https://doc.qt.io/archives/qt-5.15/qwidget.html">QWidget</a>-based applications. It
+handles widget specific initialization, finalization.</p>
+<p>For any GUI application using Qt, there is precisely <strong>one</strong> QApplication object, no
+matter whether the application has 0, 1, 2 or more windows at any given time. For
+non-<a href="https://doc.qt.io/archives/qt-5.15/qwidget.html">QWidget</a> based Qt applications,
+use <a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html">QGuiApplication</a> instead,
+as it does not depend on the
+<a href="https://doc.qt.io/archives/qt-5.15/qtwidgets-module.html">QtWidgets</a> library.</p>
+<p>Some GUI applications provide a special batch mode ie. provide command line arguments
+for executing tasks without manual intervention. In such non-GUI mode, it is often
+sufficient to instantiate a plain
+<a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html">QCoreApplication</a> to avoid
+unnecessarily initializing resources needed for a graphical user interface. The
+following example shows how to dynamically create an appropriate type of application
+instance:</p>
+<div class="highlight"><pre><span></span><code>QCoreApplication* createApplication(int &amp;argc, char *argv[])
+{
+    for (int i = 1; i &lt; argc; ++i) {
+        if (!qstrcmp(argv[i], &quot;-no-gui&quot;))
+            return new QCoreApplication(argc, argv);
+    }
+    return new QApplication(argc, argv);
+}
+
+int main(int argc, char* argv[])
+{
+    QScopedPointer&lt;QCoreApplication&gt; app(createApplication(argc, argv));
+
+    if (qobject_cast&lt;QApplication *&gt;(app.data())) {
+       // start GUI version...
+    } else {
+       // start non-GUI version...
+    }
+
+    return app-&gt;exec();
+}
+</code></pre></div>
+<p>The QApplication object is accessible through the
+<a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#instance">instance</a>() function
+that returns a pointer equivalent to the global
+<a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#qApp">qApp</a> pointer.</p>
+<p>QApplication's main areas of responsibility are:</p>
+<ul>
+<li>It initializes the application with the user's desktop settings such as <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#palette">palette</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#font">font</a>() and <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#doubleClickInterval-prop">doubleClickInterval</a>(). It keeps track of these properties in case the user changes the desktop globally, for example through some kind of control panel.</li>
+<li>It performs event handling, meaning that it receives events from the underlying window system and dispatches them to the relevant widgets. By using <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#sendEvent">sendEvent</a>() and <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#postEvent">postEvent</a>() you can send your own events to widgets.</li>
+<li>It parses common command line arguments and sets its internal state accordingly. See the <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#QApplication">constructor documentation</a> below for more details.</li>
+<li>It defines the application's look and feel, which is encapsulated in a <a href="https://doc.qt.io/archives/qt-5.15/qstyle.html">QStyle</a> object. This can be changed at runtime with <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#setStyle">setStyle</a>().</li>
+<li>It provides localization of strings that are visible to the user via <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#translate">translate</a>().</li>
+<li>It provides some magical objects like the desktop() and the <a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html#clipboard">clipboard</a>().</li>
+<li>It knows about the application's windows. You can ask which widget is at a certain position using <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#widgetAt">widgetAt</a>(), get a list of <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#topLevelWidgets">topLevelWidgets</a>() and <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#closeAllWindows">closeAllWindows</a>(), etc.</li>
+<li>It manages the application's mouse cursor handling, see <a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html#setOverrideCursor">setOverrideCursor</a>()</li>
+</ul>
+<p>Since the QApplication object does so much initialization, it <em>must</em> be created before
+any other objects related to the user interface are created. QApplication also deals
+with common command line arguments. Hence, it is usually a good idea to create it
+<em>before</em> any interpretation or modification of <code>argv</code> is done in the application itself.</p>
+<table>
+<thead>
+<tr>
+<th>Groups of functions</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System settings</td>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html#desktopSettingsAware">desktopSettingsAware</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html#setDesktopSettingsAware">setDesktopSettingsAware</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#cursorFlashTime-prop">cursorFlashTime</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#cursorFlashTime-prop">setCursorFlashTime</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#doubleClickInterval-prop">doubleClickInterval</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#doubleClickInterval-prop">setDoubleClickInterval</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#keyboardInputInterval-prop">setKeyboardInputInterval</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#wheelScrollLines-prop">wheelScrollLines</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#wheelScrollLines-prop">setWheelScrollLines</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#palette">palette</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#setPalette">setPalette</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#font">font</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#setFont">setFont</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#fontMetrics">fontMetrics</a>().</td>
+</tr>
+<tr>
+<td>Event handling</td>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#exec">exec</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#processEvents">processEvents</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#exit">exit</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#quit">quit</a>(). <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#sendEvent">sendEvent</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#postEvent">postEvent</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#sendPostedEvents">sendPostedEvents</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#removePostedEvents">removePostedEvents</a>(), hasPendingEvents(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#notify">notify</a>().</td>
+</tr>
+<tr>
+<td>GUI Styles</td>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#style">style</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#setStyle">setStyle</a>().</td>
+</tr>
+<tr>
+<td>Text handling</td>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#installTranslator">installTranslator</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#removeTranslator">removeTranslator</a>() <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#translate">translate</a>().</td>
+</tr>
+<tr>
+<td>Widgets</td>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#allWidgets">allWidgets</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#topLevelWidgets">topLevelWidgets</a>(), desktop(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#activePopupWidget">activePopupWidget</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#activeModalWidget">activeModalWidget</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html#clipboard">clipboard</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#focusWidget">focusWidget</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#activeWindow">activeWindow</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#widgetAt">widgetAt</a>().</td>
+</tr>
+<tr>
+<td>Advanced cursor handling</td>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html#overrideCursor">overrideCursor</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html#setOverrideCursor">setOverrideCursor</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>().</td>
+</tr>
+<tr>
+<td>Miscellaneous</td>
+<td><a href="https://doc.qt.io/archives/qt-5.15/qapplication.html#closeAllWindows">closeAllWindows</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#startingUp">startingUp</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#closingDown">closingDown</a>().</td>
+</tr>
+</tbody>
+</table>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qapplication.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.ApplicationFlags"></span><code>ApplicationFlags</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QCoreApplication/members-001.html#PythonQt.QtCore.QCoreApplication.ApplicationFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.ColorSpec"></span><code>ColorSpec</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.ColorSpec">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.CustomColor"></span><code>CustomColor</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.CustomColor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.ManyColor"></span><code>ManyColor</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.ManyColor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.NormalColor"></span><code>NormalColor</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.NormalColor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.aboutQt"></span><code>aboutQt</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.aboutQt">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.aboutToQuit"></span><code>aboutToQuit</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.aboutToQuit">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.activeModalWidget"></span><code>activeModalWidget</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.activeModalWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.activePopupWidget"></span><code>activePopupWidget</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.activePopupWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.activeWindow"></span><code>activeWindow</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.activeWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.addLibraryPath"></span><code>addLibraryPath</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.addLibraryPath">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.alert"></span><code>alert</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.alert">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.allWidgets"></span><code>allWidgets</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.allWidgets">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.allWindows"></span><code>allWindows</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.allWindows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationDirPath"></span><code>applicationDirPath</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.applicationDirPath">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationDisplayName"></span><code>applicationDisplayName</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.applicationDisplayName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationDisplayNameChanged"></span><code>applicationDisplayNameChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.applicationDisplayNameChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationFilePath"></span><code>applicationFilePath</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.applicationFilePath">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationName"></span><code>applicationName</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.applicationName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationNameChanged"></span><code>applicationNameChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.applicationNameChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationPid"></span><code>applicationPid</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.applicationPid">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationState"></span><code>applicationState</code></td>
+<td>function</td>
+<td><a href="../QtCore/QApplicationStateChangeEvent/members-005.html#PythonQt.QtCore.QApplicationStateChangeEvent.applicationState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationStateChanged"></span><code>applicationStateChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.applicationStateChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationVersion"></span><code>applicationVersion</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.applicationVersion">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.applicationVersionChanged"></span><code>applicationVersionChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.applicationVersionChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.arguments"></span><code>arguments</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.arguments">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.autoSipEnabled"></span><code>autoSipEnabled</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.autoSipEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.beep"></span><code>beep</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.beep">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.blockSignals"></span><code>blockSignals</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.blockSignals">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.changeOverrideCursor"></span><code>changeOverrideCursor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.changeOverrideCursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.childEvent"></span><code>childEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.childEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.children"></span><code>children</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.children">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.clipboard"></span><code>clipboard</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.clipboard">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.closeAllWindows"></span><code>closeAllWindows</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.closeAllWindows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.closingDown"></span><code>closingDown</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.closingDown">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.colorSpec"></span><code>colorSpec</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.colorSpec">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.commitDataRequest"></span><code>commitDataRequest</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.commitDataRequest">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.connect"></span><code>connect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.connect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.cursorFlashTime"></span><code>cursorFlashTime</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.cursorFlashTime">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.customEvent"></span><code>customEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.customEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.deleteLater"></span><code>deleteLater</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.deleteLater">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.desktop"></span><code>desktop</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.desktop">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.desktopFileName"></span><code>desktopFileName</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.desktopFileName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.desktopSettingsAware"></span><code>desktopSettingsAware</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.desktopSettingsAware">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.destroyed"></span><code>destroyed</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.destroyed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.devicePixelRatio"></span><code>devicePixelRatio</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.devicePixelRatio">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.disconnect"></span><code>disconnect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.disconnect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.doubleClickInterval"></span><code>doubleClickInterval</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.doubleClickInterval">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.dumpObjectInfo"></span><code>dumpObjectInfo</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectInfo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.dumpObjectTree"></span><code>dumpObjectTree</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectTree">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.dynamicPropertyNames"></span><code>dynamicPropertyNames</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dynamicPropertyNames">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.enum_1"></span><code>enum_1</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QCoreApplication/members-001.html#PythonQt.QtCore.QCoreApplication.enum_1">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.event"></span><code>event</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-001.html#PythonQt.QtGui.QApplication.event">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.eventDispatcher"></span><code>eventDispatcher</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.eventDispatcher">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.eventFilter"></span><code>eventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.eventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.exec"></span><code>exec</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.exec">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.exit"></span><code>exit</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.exit">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.findChild"></span><code>findChild</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.findChildren"></span><code>findChildren</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChildren">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.flush"></span><code>flush</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.flush">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.focusChanged"></span><code>focusChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.focusChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.focusObject"></span><code>focusObject</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.focusObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.focusObjectChanged"></span><code>focusObjectChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.focusObjectChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.focusWidget"></span><code>focusWidget</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.focusWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.focusWindow"></span><code>focusWindow</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.focusWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.focusWindowChanged"></span><code>focusWindowChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.focusWindowChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.font"></span><code>font</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.font">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.fontChanged"></span><code>fontChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.fontChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.fontDatabaseChanged"></span><code>fontDatabaseChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.fontDatabaseChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.fontMetrics"></span><code>fontMetrics</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.fontMetrics">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.globalStrut"></span><code>globalStrut</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.globalStrut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.hasPendingEvents"></span><code>hasPendingEvents</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.hasPendingEvents">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.inputMethod"></span><code>inputMethod</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.inputMethod">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.installEventFilter"></span><code>installEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.installEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.installTranslator"></span><code>installTranslator</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.installTranslator">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.instance"></span><code>instance</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.instance">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isEffectEnabled"></span><code>isEffectEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.isEffectEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isFallbackSessionManagementEnabled"></span><code>isFallbackSessionManagementEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.isFallbackSessionManagementEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isLeftToRight"></span><code>isLeftToRight</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isLeftToRight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isQuitLockEnabled"></span><code>isQuitLockEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.isQuitLockEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isRightToLeft"></span><code>isRightToLeft</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isRightToLeft">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isSavingSession"></span><code>isSavingSession</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.isSavingSession">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isSessionRestored"></span><code>isSessionRestored</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.isSessionRestored">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isSetuidAllowed"></span><code>isSetuidAllowed</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.isSetuidAllowed">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isSignalConnected"></span><code>isSignalConnected</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.isSignalConnected">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isWidgetType"></span><code>isWidgetType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWidgetType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.isWindowType"></span><code>isWindowType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWindowType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.keyboardInputInterval"></span><code>keyboardInputInterval</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.keyboardInputInterval">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.keyboardModifiers"></span><code>keyboardModifiers</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.keyboardModifiers">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.killTimer"></span><code>killTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.killTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.lastWindowClosed"></span><code>lastWindowClosed</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.lastWindowClosed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.layoutDirection"></span><code>layoutDirection</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.layoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.layoutDirectionChanged"></span><code>layoutDirectionChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.layoutDirectionChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.libraryPaths"></span><code>libraryPaths</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.libraryPaths">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.metaObject"></span><code>metaObject</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.metaObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.modalWindow"></span><code>modalWindow</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.modalWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.mouseButtons"></span><code>mouseButtons</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.mouseButtons">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.moveToThread"></span><code>moveToThread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.moveToThread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.notify"></span><code>notify</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.notify">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.objectName"></span><code>objectName</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.objectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.objectNameChanged"></span><code>objectNameChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.objectNameChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.organizationDomain"></span><code>organizationDomain</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.organizationDomain">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.organizationDomainChanged"></span><code>organizationDomainChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.organizationDomainChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.organizationName"></span><code>organizationName</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.organizationName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.organizationNameChanged"></span><code>organizationNameChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.organizationNameChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.overrideCursor"></span><code>overrideCursor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.overrideCursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.palette"></span><code>palette</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-002.html#PythonQt.QtGui.QApplication.palette">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.paletteChanged"></span><code>paletteChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.paletteChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.parent"></span><code>parent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.parent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.platformName"></span><code>platformName</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.platformName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.postEvent"></span><code>postEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.postEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.primaryScreen"></span><code>primaryScreen</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.primaryScreen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.primaryScreenChanged"></span><code>primaryScreenChanged</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.primaryScreenChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.processEvents"></span><code>processEvents</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.processEvents">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.property"></span><code>property</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.property">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.queryKeyboardModifiers"></span><code>queryKeyboardModifiers</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.queryKeyboardModifiers">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.quit"></span><code>quit</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.quit">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.quitLockEnabled"></span><code>quitLockEnabled</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.quitLockEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.quitOnLastWindowClosed"></span><code>quitOnLastWindowClosed</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.quitOnLastWindowClosed">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.removeEventFilter"></span><code>removeEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.removeEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.removeLibraryPath"></span><code>removeLibraryPath</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.removeLibraryPath">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.removePostedEvents"></span><code>removePostedEvents</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.removePostedEvents">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.removeTranslator"></span><code>removeTranslator</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.removeTranslator">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.restoreOverrideCursor"></span><code>restoreOverrideCursor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.restoreOverrideCursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.saveStateRequest"></span><code>saveStateRequest</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.saveStateRequest">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.screenAdded"></span><code>screenAdded</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.screenAdded">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.screenRemoved"></span><code>screenRemoved</code></td>
+<td>function</td>
+<td><a href="QApplication/members-001.html#PythonQt.Qt.QApplication.screenRemoved">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.screens"></span><code>screens</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.screens">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.sendEvent"></span><code>sendEvent</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.sendEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.sendPostedEvents"></span><code>sendPostedEvents</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.sendPostedEvents">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.sender"></span><code>sender</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.sender">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.senderSignalIndex"></span><code>senderSignalIndex</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.senderSignalIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.sessionId"></span><code>sessionId</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.sessionId">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.sessionKey"></span><code>sessionKey</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.sessionKey">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setActiveWindow"></span><code>setActiveWindow</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setActiveWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setApplicationDisplayName"></span><code>setApplicationDisplayName</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setApplicationDisplayName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setApplicationName"></span><code>setApplicationName</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setApplicationName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setApplicationVersion"></span><code>setApplicationVersion</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setApplicationVersion">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setAttribute"></span><code>setAttribute</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setAttribute">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setAutoSipEnabled"></span><code>setAutoSipEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setAutoSipEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setColorSpec"></span><code>setColorSpec</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setColorSpec">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setCursorFlashTime"></span><code>setCursorFlashTime</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setCursorFlashTime">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setDesktopSettingsAware"></span><code>setDesktopSettingsAware</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setDesktopSettingsAware">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setDoubleClickInterval"></span><code>setDoubleClickInterval</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setDoubleClickInterval">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setEffectEnabled"></span><code>setEffectEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setEffectEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setEventDispatcher"></span><code>setEventDispatcher</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setEventDispatcher">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setFallbackSessionManagementEnabled"></span><code>setFallbackSessionManagementEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setFallbackSessionManagementEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setFont"></span><code>setFont</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setFont">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setGlobalStrut"></span><code>setGlobalStrut</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setGlobalStrut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setKeyboardInputInterval"></span><code>setKeyboardInputInterval</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setKeyboardInputInterval">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setLayoutDirection"></span><code>setLayoutDirection</code></td>
+<td>function</td>
+<td><a href="../QtGui/QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setLayoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setLibraryPaths"></span><code>setLibraryPaths</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setLibraryPaths">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setObjectName"></span><code>setObjectName</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setObjectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setOrganizationDomain"></span><code>setOrganizationDomain</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-003.html#PythonQt.QtGui.QApplication.setOrganizationDomain">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setOrganizationName"></span><code>setOrganizationName</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setOrganizationName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setOverrideCursor"></span><code>setOverrideCursor</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setOverrideCursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setPalette"></span><code>setPalette</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setPalette">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setParent"></span><code>setParent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setProperty"></span><code>setProperty</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setQuitLockEnabled"></span><code>setQuitLockEnabled</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setQuitLockEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setQuitOnLastWindowClosed"></span><code>setQuitOnLastWindowClosed</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setQuitOnLastWindowClosed">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setSetuidAllowed"></span><code>setSetuidAllowed</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setSetuidAllowed">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setStartDragDistance"></span><code>setStartDragDistance</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setStartDragDistance">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setStartDragTime"></span><code>setStartDragTime</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setStartDragTime">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setStyle"></span><code>setStyle</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setStyleSheet"></span><code>setStyleSheet</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setStyleSheet">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setWheelScrollLines"></span><code>setWheelScrollLines</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setWheelScrollLines">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.setWindowIcon"></span><code>setWindowIcon</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.setWindowIcon">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.signalsBlocked"></span><code>signalsBlocked</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.signalsBlocked">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.startDragDistance"></span><code>startDragDistance</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.startDragDistance">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.startDragTime"></span><code>startDragTime</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.startDragTime">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.startTimer"></span><code>startTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.startTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.startingUp"></span><code>startingUp</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.startingUp">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.style"></span><code>style</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.style">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.styleHints"></span><code>styleHints</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.styleHints">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.styleSheet"></span><code>styleSheet</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.styleSheet">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.sync"></span><code>sync</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.sync">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.testAttribute"></span><code>testAttribute</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.testAttribute">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.thread"></span><code>thread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.thread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.timerEvent"></span><code>timerEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.timerEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.topLevelAt"></span><code>topLevelAt</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.topLevelAt">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.topLevelWidgets"></span><code>topLevelWidgets</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.topLevelWidgets">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.topLevelWindows"></span><code>topLevelWindows</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.topLevelWindows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.tr"></span><code>tr</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.tr">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.translate"></span><code>translate</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.translate">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.wheelScrollLines"></span><code>wheelScrollLines</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.wheelScrollLines">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.widgetAt"></span><code>widgetAt</code></td>
+<td>function</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.widgetAt">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.Qt.QApplication.windowIcon"></span><code>windowIcon</code></td>
+<td>attribute</td>
+<td><a href="../QtGui/QApplication/members-004.html#PythonQt.QtGui.QApplication.windowIcon">Shared captured text</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

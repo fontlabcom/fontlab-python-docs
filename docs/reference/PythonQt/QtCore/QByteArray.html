@@ -1,0 +1,2778 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/QtCore/QByteArray.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.QtCore.QByteArray - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtcoreqbytearray" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.QtCore.QByteArray
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QByteArray" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QByteArray
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QByteArray">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QByteArray--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QByteArray--maximum-size-and-out-of-memory-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maximum size and out-of-memory conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QByteArray--notes-on-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes on Locale
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes on Locale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QByteArray--number-string-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Number-String Conversions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QByteArray--8-bit-character-comparisons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8-bit Character Comparisons
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtcoreqbytearray">PythonQt.QtCore.QByteArray</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.QtCore.QByteArray" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QByteArray</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.QtCore.QByteArray--detailed-description">Detailed Description</h4>
+<p>QByteArray can be used to store both raw bytes (including '\0's) and traditional 8-bit
+'\0'-terminated strings. Using QByteArray is much more convenient than using <code>const
+char *</code>. Behind the scenes, it always ensures that the data is followed by a '\0'
+terminator, and uses <a href="https://doc.qt.io/archives/qt-5.15/implicit-sharing.html">implicit
+sharing</a> (copy-on-write) to
+reduce memory usage and avoid needless copying of data.</p>
+<p>In addition to QByteArray, Qt also provides the
+<a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> class to store string data.
+For most purposes, <a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> is the
+class you want to use. It stores 16-bit Unicode characters, making it easy to store
+non-ASCII/non-Latin-1 characters in your application. Furthermore,
+<a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> is used throughout in the Qt
+API. The two main cases where QByteArray is appropriate are when you need to store raw
+binary data, and when memory conservation is critical (e.g., with Qt for Embedded
+Linux).</p>
+<p>One way to initialize a QByteArray is simply to pass a <code>const char *</code> to its
+constructor. For example, the following code creates a byte array of size 5 containing
+the data "Hello":</p>
+<div class="highlight"><pre><span></span><code>QByteArray ba(&quot;Hello&quot;);
+</code></pre></div>
+<p>Although the <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#size">size</a>() is 5, the
+byte array also maintains an extra '\0' character at the end so that if a function is
+used that asks for a pointer to the underlying data (e.g. a call to
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#data">data</a>()), the data pointed to
+is guaranteed to be '\0'-terminated.</p>
+<p>QByteArray makes a deep copy of the <code>const char *</code> data, so you can modify it later
+without experiencing side effects. (If for performance reasons you don't want to take a
+deep copy of the character data, use
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#fromRawData">QByteArray::fromRawData</a>()
+instead.)</p>
+<p>Another approach is to set the size of the array using
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#resize">resize</a>() and to initialize
+the data byte per byte. QByteArray uses 0-based indexes, just like C++ arrays. To
+access the byte at a particular index position, you can use operator[](). On non-const
+byte arrays, operator[]() returns a reference to a byte that can be used on the left
+side of an assignment. For example:</p>
+<div class="highlight"><pre><span></span><code>QByteArray ba;
+ba.resize(5);
+ba[0] = 0x3c;
+ba[1] = 0xb8;
+ba[2] = 0x64;
+ba[3] = 0x18;
+ba[4] = 0xca;
+</code></pre></div>
+<p>For read-only access, an alternative syntax is to use
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#at">at</a>():</p>
+<div class="highlight"><pre><span></span><code>for (int i = 0; i &lt; ba.size(); ++i) {
+    if (ba.at(i) &gt;= &#39;a&#39; &amp;&amp; ba.at(i) &lt;= &#39;f&#39;)
+        cout &lt;&lt; &quot;Found character in range [a-f]&quot; &lt;&lt; Qt::endl;
+}
+</code></pre></div>
+<p><a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#at">at</a>() can be faster than
+operator[](), because it never causes a <a href="https://doc.qt.io/archives/qt-5.15/implicit-sharing.html#deep-copy">deep
+copy</a> to occur.</p>
+<p>To extract many bytes at a time, use
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#left">left</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#right">right</a>(), or
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#mid">mid</a>().</p>
+<p>A QByteArray can embed '\0' bytes. The
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#size">size</a>() function always
+returns the size of the whole array, including embedded '\0' bytes, but excluding the
+terminating '\0' added by QByteArray. For example:</p>
+<div class="highlight"><pre><span></span><code>QByteArray ba1(&quot;ca\0r\0t&quot;);
+ba1.size();                     // Returns 2.
+ba1.constData();                // Returns &quot;ca&quot; with terminating \0.
+
+QByteArray ba2(&quot;ca\0r\0t&quot;, 3);
+ba2.size();                     // Returns 3.
+ba2.constData();                // Returns &quot;ca\0&quot; with terminating \0.
+
+QByteArray ba3(&quot;ca\0r\0t&quot;, 4);
+ba3.size();                     // Returns 4.
+ba3.constData();                // Returns &quot;ca\0r&quot; with terminating \0.
+
+const char cart[] = {&#39;c&#39;, &#39;a&#39;, &#39;\0&#39;, &#39;r&#39;, &#39;\0&#39;, &#39;t&#39;};
+QByteArray ba4(QByteArray::fromRawData(cart, 6));
+ba4.size();                     // Returns 6.
+ba4.constData();                // Returns &quot;ca\0r\0t&quot; without terminating \0.
+</code></pre></div>
+<p>If you want to obtain the length of the data up to and excluding the first '\0'
+character, call <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#qstrlen">qstrlen</a>()
+on the byte array.</p>
+<p>After a call to <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#resize">resize</a>(),
+newly allocated bytes have undefined values. To set all the bytes to a particular value,
+call <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#fill">fill</a>().</p>
+<p>To obtain a pointer to the actual character data, call
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#data">data</a>() or
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#constData">constData</a>(). These
+functions return a pointer to the beginning of the data. The pointer is guaranteed to
+remain valid until a non-const function is called on the QByteArray. It is also
+guaranteed that the data ends with a '\0' byte unless the QByteArray was created from a
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#fromRawData">raw data</a>. This '\0'
+byte is automatically provided by QByteArray and is not counted in
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#size">size</a>().</p>
+<p>QByteArray provides the following basic functions for modifying the byte data:
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#append">append</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#prepend">prepend</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#insert">insert</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#replace">replace</a>(), and
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#remove">remove</a>(). For example:</p>
+<div class="highlight"><pre><span></span><code>QByteArray x(&quot;and&quot;);
+x.prepend(&quot;rock &quot;);         // x == &quot;rock and&quot;
+x.append(&quot; roll&quot;);          // x == &quot;rock and roll&quot;
+x.replace(5, 3, &quot;&amp;&quot;);       // x == &quot;rock &amp; roll&quot;
+</code></pre></div>
+<p>The <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#replace">replace</a>() and
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#remove">remove</a>() functions' first
+two arguments are the position from which to start erasing and the number of bytes that
+should be erased.</p>
+<p>When you <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#append">append</a>() data to a
+non-empty array, the array will be reallocated and the new data copied to it. You can
+avoid this behavior by calling
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#reserve">reserve</a>(), which
+preallocates a certain amount of memory. You can also call
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#capacity">capacity</a>() to find out
+how much memory QByteArray actually allocated. Data appended to an empty array is not
+copied.</p>
+<p>A frequent requirement is to remove whitespace characters from a byte array ('\n',
+'\t', ' ', etc.). If you want to remove whitespace from both ends of a QByteArray, use
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#trimmed">trimmed</a>(). If you want to
+remove whitespace from both ends and replace multiple consecutive whitespaces with a
+single space character within the byte array, use
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#simplified">simplified</a>().</p>
+<p>If you want to find all occurrences of a particular character or substring in a
+QByteArray, use <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#indexOf">indexOf</a>()
+or <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#lastIndexOf">lastIndexOf</a>(). The
+former searches forward starting from a given index position, the latter searches
+backward. Both return the index position of the character or substring if they find it;
+otherwise, they return -1. For example, here's a typical loop that finds all occurrences
+of a particular substring:</p>
+<div class="highlight"><pre><span></span><code>QByteArray ba(&quot;We must be &lt;b&gt;bold&lt;/b&gt;, very &lt;b&gt;bold&lt;/b&gt;&quot;);
+int j = 0;
+while ((j = ba.indexOf(&quot;&lt;b&gt;&quot;, j)) != -1) {
+    cout &lt;&lt; &quot;Found &lt;b&gt; tag at index position &quot; &lt;&lt; j &lt;&lt; Qt::endl;
+    ++j;
+}
+</code></pre></div>
+<p>If you simply want to check whether a QByteArray contains a particular character or
+substring, use
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#contains">contains</a>(). If you want
+to find out how many times a particular character or substring occurs in the byte array,
+use <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#count-3">count</a>(). If you want
+to replace all occurrences of a particular value with another, use one of the
+two-parameter <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#replace">replace</a>()
+overloads.</p>
+<p><a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html">QByteArray</a>s can be compared using
+overloaded operators such as operator\&lt;(), operator\&lt;\=(), operator\=\=(),
+operator&gt;\=(), and so on. The comparison is based exclusively on the numeric values of
+the characters and is very fast, but is not what a human would expect.
+<a href="https://doc.qt.io/archives/qt-5.15/qstring.html#localeAwareCompare">QString::localeAwareCompare</a>()
+is a better choice for sorting user-interface strings.</p>
+<p>For historical reasons, QByteArray distinguishes between a null byte array and an empty
+byte array. A <em>null</em> byte array is a byte array that is initialized using QByteArray's
+default constructor or by passing (const char *)0 to the constructor. An <em>empty</em> byte
+array is any byte array with size 0. A null byte array is always empty, but an empty
+byte array isn't necessarily null:</p>
+<div class="highlight"><pre><span></span><code>QByteArray().isNull();          // returns true
+QByteArray().isEmpty();         // returns true
+
+QByteArray(&quot;&quot;).isNull();        // returns false
+QByteArray(&quot;&quot;).isEmpty();       // returns true
+
+QByteArray(&quot;abc&quot;).isNull();     // returns false
+QByteArray(&quot;abc&quot;).isEmpty();    // returns false
+</code></pre></div>
+<p>All functions except
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#isNull">isNull</a>() treat null byte
+arrays the same as empty byte arrays. For example,
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#data">data</a>() returns a valid
+pointer (<em>not</em> nullptr) to a '\0' character for a byte array and QByteArray() compares
+equal to QByteArray(""). We recommend that you always use
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#isEmpty">isEmpty</a>() and avoid
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#isNull">isNull</a>().</p>
+<h5 id="PythonQt.QtCore.QByteArray--maximum-size-and-out-of-memory-conditions">Maximum size and out-of-memory conditions</h5>
+<p>The current version of QByteArray is limited to just under 2 GB (2^31 bytes) in size.
+The exact value is architecture-dependent, since it depends on the overhead required for
+managing the data block, but is no more than 32 bytes. Raw data blocks are also limited
+by the use of <code>int</code> type in the current version to 2 GB minus 1 byte.</p>
+<p>In case memory allocation fails, QByteArray will throw a <code>std::bad_alloc</code> exception. Out
+of memory conditions in the Qt containers are the only case where Qt will throw
+exceptions.</p>
+<p>Note that the operating system may impose further limits on applications holding a lot
+of allocated memory, especially large, contiguous blocks. Such considerations, the
+configuration of such behavior or any mitigation are outside the scope of the QByteArray
+API.</p>
+<h5 id="PythonQt.QtCore.QByteArray--notes-on-locale">Notes on Locale</h5>
+<h6 id="PythonQt.QtCore.QByteArray--number-string-conversions">Number-String Conversions</h6>
+<p>Functions that perform conversions between numeric data types and strings are performed
+in the C locale, irrespective of the user's locale settings. Use
+<a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> to perform locale-aware
+conversions between numbers and strings.</p>
+<h6 id="PythonQt.QtCore.QByteArray--8-bit-character-comparisons">8-bit Character Comparisons</h6>
+<p>In QByteArray, the notion of uppercase and lowercase and of which character is greater
+than or less than another character is done in the Latin-1 locale. This affects
+functions that support a case insensitive option or that compare or lowercase or
+uppercase their arguments. Case insensitive operations and comparisons will be accurate
+if both strings contain only Latin-1 characters. Functions that this affects include
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#contains">contains</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#indexOf">indexOf</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#lastIndexOf">lastIndexOf</a>(),
+operator\&lt;(), operator\&lt;\=(), operator&gt;(), operator&gt;\=(),
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#isLower">isLower</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#isUpper">isUpper</a>(),
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#toLower">toLower</a>() and
+<a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#toUpper">toUpper</a>().</p>
+<p>This issue does not apply to <a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a>s
+since they represent characters using Unicode.</p>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qbytearray.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.Base64Encoding"></span><code>Base64Encoding</code></td>
+<td>attribute</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.Base64Encoding">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.Base64Option"></span><code>Base64Option</code></td>
+<td>attribute</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.Base64Option">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.Base64Options"></span><code>Base64Options</code></td>
+<td>attribute</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.Base64Options">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.Base64UrlEncoding"></span><code>Base64UrlEncoding</code></td>
+<td>attribute</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.Base64UrlEncoding">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.KeepTrailingEquals"></span><code>KeepTrailingEquals</code></td>
+<td>attribute</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.KeepTrailingEquals">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.OmitTrailingEquals"></span><code>OmitTrailingEquals</code></td>
+<td>attribute</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.OmitTrailingEquals">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.append"></span><code>append</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.append">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.at"></span><code>at</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.at">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.capacity"></span><code>capacity</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.capacity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.cbegin"></span><code>cbegin</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.cbegin">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.cend"></span><code>cend</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.cend">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.chop"></span><code>chop</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.chop">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.clear"></span><code>clear</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.clear">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.contains"></span><code>contains</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.contains">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.count"></span><code>count</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.count">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.data"></span><code>data</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.data">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.endsWith"></span><code>endsWith</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.endsWith">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.fill"></span><code>fill</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.fill">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.fromBase64"></span><code>fromBase64</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.fromBase64">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.fromHex"></span><code>fromHex</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.fromHex">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.fromPercentEncoding"></span><code>fromPercentEncoding</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.fromPercentEncoding">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.indexOf"></span><code>indexOf</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.indexOf">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.insert"></span><code>insert</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.insert">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.isEmpty"></span><code>isEmpty</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.isEmpty">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.isNull"></span><code>isNull</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.isNull">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.isSharedWith"></span><code>isSharedWith</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.isSharedWith">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.lastIndexOf"></span><code>lastIndexOf</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.lastIndexOf">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.left"></span><code>left</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.left">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.leftJustified"></span><code>leftJustified</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.leftJustified">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.length"></span><code>length</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.length">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.mid"></span><code>mid</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.mid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.number"></span><code>number</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.number">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.operator_assign"></span><code>operator_assign</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.operator_assign">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.prepend"></span><code>prepend</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.prepend">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.push_back"></span><code>push_back</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.push_back">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.push_front"></span><code>push_front</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.push_front">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.readFrom"></span><code>readFrom</code></td>
+<td>function</td>
+<td><a href="QBitArray/members-001.html#PythonQt.QtCore.QBitArray.readFrom">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.remove"></span><code>remove</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.remove">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.repeated"></span><code>repeated</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.repeated">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.replace"></span><code>replace</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.replace">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.reserve"></span><code>reserve</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-001.html#PythonQt.QtCore.QByteArray.reserve">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.resize"></span><code>resize</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.resize">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.right"></span><code>right</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.right">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.rightJustified"></span><code>rightJustified</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.rightJustified">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.setNum"></span><code>setNum</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.setNum">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.setRawData"></span><code>setRawData</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.setRawData">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.simplified"></span><code>simplified</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.simplified">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.size"></span><code>size</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.size">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.split"></span><code>split</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.split">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.squeeze"></span><code>squeeze</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.squeeze">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.startsWith"></span><code>startsWith</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.startsWith">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.swap"></span><code>swap</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.swap">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.toBase64"></span><code>toBase64</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.toBase64">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.toDouble"></span><code>toDouble</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.toDouble">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.toFloat"></span><code>toFloat</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.toFloat">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.toHex"></span><code>toHex</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.toHex">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.toInt"></span><code>toInt</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.toInt">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.toLower"></span><code>toLower</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.toLower">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.toPercentEncoding"></span><code>toPercentEncoding</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.toPercentEncoding">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.toUShort"></span><code>toUShort</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.toUShort">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.toUpper"></span><code>toUpper</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.toUpper">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.trimmed"></span><code>trimmed</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.trimmed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.truncate"></span><code>truncate</code></td>
+<td>function</td>
+<td><a href="QByteArray/members-002.html#PythonQt.QtCore.QByteArray.truncate">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QByteArray.writeTo"></span><code>writeTo</code></td>
+<td>function</td>
+<td><a href="QBitArray/members-001.html#PythonQt.QtCore.QBitArray.writeTo">Shared captured text</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

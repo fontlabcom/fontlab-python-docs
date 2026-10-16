@@ -1,0 +1,5319 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/QtGui/QTreeView.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.QtGui.QTreeView - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtguiqtreeview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.QtGui.QTreeView
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QTreeView" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QTreeView
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QTreeView">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QTreeView--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QTreeView--key-bindings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Bindings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtGui.QTreeView--improving-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Improving Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtguiqtreeview">PythonQt.QtGui.QTreeView</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.QtGui.QTreeView" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QTreeView</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.QtGui.QTreeView--detailed-description">Detailed Description</h4>
+<p><img alt="" src="https://doc.qt.io/archives/qt-5.15/images/windows-treeview.png" /></p>
+<p>A QTreeView implements a tree representation of items from a model. This class is used
+to provide standard hierarchical lists that were previously provided by the <code>QListView</code>
+class, but using the more flexible approach provided by Qt's model/view architecture.</p>
+<p>The QTreeView class is one of the <a href="https://doc.qt.io/archives/qt-5.15/model-view-programming.html#model-view-classes">Model/View
+Classes</a>
+and is part of Qt's <a href="https://doc.qt.io/archives/qt-5.15/model-view-programming.html">model/view
+framework</a>.</p>
+<p>QTreeView implements the interfaces defined by the
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemview.html">QAbstractItemView</a> class to
+allow it to display data provided by models derived from the
+<a href="https://doc.qt.io/archives/qt-5.15/qabstractitemmodel.html">QAbstractItemModel</a> class.</p>
+<p>It is simple to construct a tree view displaying data from a model. In the following
+example, the contents of a directory are supplied by a
+<a href="https://doc.qt.io/archives/qt-5.15/qfilesystemmodel.html">QFileSystemModel</a> and
+displayed as a tree:</p>
+<div class="highlight"><pre><span></span><code>    QFileSystemModel *model = new QFileSystemModel;
+    model-&gt;setRootPath(QDir::currentPath());
+    QTreeView *tree = new QTreeView(splitter);
+    tree-&gt;setModel(model);
+</code></pre></div>
+<p>The model/view architecture ensures that the contents of the tree view are updated as
+the model changes.</p>
+<p>Items that have children can be in an expanded (children are visible) or collapsed
+(children are hidden) state. When this state changes a
+<a href="https://doc.qt.io/archives/qt-5.15/qtreeview.html#collapsed">collapsed</a>() or
+<a href="https://doc.qt.io/archives/qt-5.15/qtreeview.html#expanded">expanded</a>() signal is
+emitted with the model index of the relevant item.</p>
+<p>The amount of indentation used to indicate levels of hierarchy is controlled by the
+<a href="https://doc.qt.io/archives/qt-5.15/qtreeview.html#indentation-prop">indentation</a>
+property.</p>
+<p>Headers in tree views are constructed using the
+<a href="https://doc.qt.io/archives/qt-5.15/qheaderview.html">QHeaderView</a> class and can be
+hidden using <code>header()-&gt;hide()</code>. Note that each header is configured with its
+<a href="https://doc.qt.io/archives/qt-5.15/qheaderview.html#stretchLastSection-prop">stretchLastSection</a>
+property set to true, ensuring that the view does not waste any of the space assigned to
+it for its header. If this value is set to true, this property will override the resize
+mode set on the last section in the header.</p>
+<p>By default, all columns in a tree view are movable except the first. To disable movement
+of these columns, use
+<a href="https://doc.qt.io/archives/qt-5.15/qheaderview.html">QHeaderView</a>'s
+<a href="https://doc.qt.io/archives/qt-5.15/qheaderview.html#setSectionsMovable">setSectionsMovable()</a>
+function. For more information about rearranging sections, see <a href="https://doc.qt.io/archives/qt-5.15/qheaderview.html#moving-header-sections">Moving Header
+Sections</a>.</p>
+<h5 id="PythonQt.QtGui.QTreeView--key-bindings">Key Bindings</h5>
+<p>QTreeView supports a set of key bindings that enable the user to navigate in the view
+and interact with the contents of items:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Up</td>
+<td>Moves the cursor to the item in the same column on the previous row. If the parent of the current item has no more rows to navigate to, the cursor moves to the relevant item in the last row of the sibling that precedes the parent.</td>
+</tr>
+<tr>
+<td>Down</td>
+<td>Moves the cursor to the item in the same column on the next row. If the parent of the current item has no more rows to navigate to, the cursor moves to the relevant item in the first row of the sibling that follows the parent.</td>
+</tr>
+<tr>
+<td>Left</td>
+<td>Hides the children of the current item (if present) by collapsing a branch.</td>
+</tr>
+<tr>
+<td>Minus</td>
+<td>Same as Left.</td>
+</tr>
+<tr>
+<td>Right</td>
+<td>Reveals the children of the current item (if present) by expanding a branch.</td>
+</tr>
+<tr>
+<td>Plus</td>
+<td>Same as Right.</td>
+</tr>
+<tr>
+<td>Asterisk</td>
+<td>Expands the current item and all its children (if present).</td>
+</tr>
+<tr>
+<td>PageUp</td>
+<td>Moves the cursor up one page.</td>
+</tr>
+<tr>
+<td>PageDown</td>
+<td>Moves the cursor down one page.</td>
+</tr>
+<tr>
+<td>Home</td>
+<td>Moves the cursor to an item in the same column of the first row of the first top-level item in the model.</td>
+</tr>
+<tr>
+<td>End</td>
+<td>Moves the cursor to an item in the same column of the last row of the last top-level item in the model.</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>In editable models, this opens the current item for editing. The Escape key can be used to cancel the editing process and revert any changes to the data displayed.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="PythonQt.QtGui.QTreeView--improving-performance">Improving Performance</h5>
+<p>It is possible to give the view hints about the data it is handling in order to improve
+its performance when displaying large numbers of items. One approach that can be taken
+for views that are intended to display items with equal heights is to set the
+<a href="https://doc.qt.io/archives/qt-5.15/qtreeview.html#uniformRowHeights-prop">uniformRowHeights</a>
+property to true.</p>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qtreeview.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.AboveItem"></span><code>AboveItem</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.AboveItem">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.AdjustIgnored"></span><code>AdjustIgnored</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.AdjustIgnored">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.AdjustToContents"></span><code>AdjustToContents</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.AdjustToContents">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.AdjustToContentsOnFirstShow"></span><code>AdjustToContentsOnFirstShow</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.AdjustToContentsOnFirstShow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.AllEditTriggers"></span><code>AllEditTriggers</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.AllEditTriggers">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.AnimatingState"></span><code>AnimatingState</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.AnimatingState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.AnyKeyPressed"></span><code>AnyKeyPressed</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.AnyKeyPressed">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.BelowItem"></span><code>BelowItem</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.BelowItem">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.Box"></span><code>Box</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.Box">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.CollapsingState"></span><code>CollapsingState</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.CollapsingState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.ContiguousSelection"></span><code>ContiguousSelection</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.ContiguousSelection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.CurrentChanged"></span><code>CurrentChanged</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.CurrentChanged">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.CursorAction"></span><code>CursorAction</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.CursorAction">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DoubleClicked"></span><code>DoubleClicked</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.DoubleClicked">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DragDrop"></span><code>DragDrop</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.DragDrop">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DragDropMode"></span><code>DragDropMode</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.DragDropMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DragOnly"></span><code>DragOnly</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.DragOnly">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DragSelectingState"></span><code>DragSelectingState</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.DragSelectingState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DraggingState"></span><code>DraggingState</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.DraggingState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DrawChildren"></span><code>DrawChildren</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.DrawChildren">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DrawWindowBackground"></span><code>DrawWindowBackground</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.DrawWindowBackground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DropIndicatorPosition"></span><code>DropIndicatorPosition</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.DropIndicatorPosition">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.DropOnly"></span><code>DropOnly</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.DropOnly">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.EditKeyPressed"></span><code>EditKeyPressed</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.EditKeyPressed">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.EditTrigger"></span><code>EditTrigger</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.EditTrigger">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.EditTriggers"></span><code>EditTriggers</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.EditTriggers">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.EditingState"></span><code>EditingState</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.EditingState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.EnsureVisible"></span><code>EnsureVisible</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.EnsureVisible">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.ExpandingState"></span><code>ExpandingState</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.ExpandingState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.ExtendedSelection"></span><code>ExtendedSelection</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.ExtendedSelection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.HLine"></span><code>HLine</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.HLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.IgnoreMask"></span><code>IgnoreMask</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.IgnoreMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.InternalMove"></span><code>InternalMove</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.InternalMove">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MoveDown"></span><code>MoveDown</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MoveDown">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MoveEnd"></span><code>MoveEnd</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MoveEnd">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MoveHome"></span><code>MoveHome</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MoveHome">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MoveLeft"></span><code>MoveLeft</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MoveLeft">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MoveNext"></span><code>MoveNext</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MoveNext">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MovePageDown"></span><code>MovePageDown</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MovePageDown">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MovePageUp"></span><code>MovePageUp</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MovePageUp">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MovePrevious"></span><code>MovePrevious</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MovePrevious">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MoveRight"></span><code>MoveRight</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MoveRight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MoveUp"></span><code>MoveUp</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-001.html#PythonQt.QtGui.QAbstractItemView.MoveUp">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.MultiSelection"></span><code>MultiSelection</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.MultiSelection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.NoDragDrop"></span><code>NoDragDrop</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.NoDragDrop">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.NoEditTriggers"></span><code>NoEditTriggers</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.NoEditTriggers">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.NoFrame"></span><code>NoFrame</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.NoFrame">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.NoSelection"></span><code>NoSelection</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.NoSelection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.NoState"></span><code>NoState</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.NoState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.OnItem"></span><code>OnItem</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.OnItem">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.OnViewport"></span><code>OnViewport</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.OnViewport">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PaintDeviceMetric"></span><code>PaintDeviceMetric</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PaintDeviceMetric">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.Panel"></span><code>Panel</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.Panel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmDepth"></span><code>PdmDepth</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDepth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmDevicePixelRatio"></span><code>PdmDevicePixelRatio</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDevicePixelRatio">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmDevicePixelRatioScaled"></span><code>PdmDevicePixelRatioScaled</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDevicePixelRatioScaled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmDpiX"></span><code>PdmDpiX</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmDpiY"></span><code>PdmDpiY</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmHeight"></span><code>PdmHeight</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmHeightMM"></span><code>PdmHeightMM</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmHeightMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmNumColors"></span><code>PdmNumColors</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmNumColors">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmPhysicalDpiX"></span><code>PdmPhysicalDpiX</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmPhysicalDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmPhysicalDpiY"></span><code>PdmPhysicalDpiY</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmPhysicalDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmWidth"></span><code>PdmWidth</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PdmWidthMM"></span><code>PdmWidthMM</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.PdmWidthMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.Plain"></span><code>Plain</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.Plain">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PositionAtBottom"></span><code>PositionAtBottom</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.PositionAtBottom">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PositionAtCenter"></span><code>PositionAtCenter</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.PositionAtCenter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.PositionAtTop"></span><code>PositionAtTop</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.PositionAtTop">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.Raised"></span><code>Raised</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.Raised">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.RenderFlag"></span><code>RenderFlag</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.RenderFlag">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.RenderFlags"></span><code>RenderFlags</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.RenderFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.ScrollHint"></span><code>ScrollHint</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.ScrollHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.ScrollMode"></span><code>ScrollMode</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.ScrollMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.ScrollPerItem"></span><code>ScrollPerItem</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.ScrollPerItem">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.ScrollPerPixel"></span><code>ScrollPerPixel</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.ScrollPerPixel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.SelectColumns"></span><code>SelectColumns</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.SelectColumns">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.SelectItems"></span><code>SelectItems</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.SelectItems">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.SelectRows"></span><code>SelectRows</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.SelectRows">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.SelectedClicked"></span><code>SelectedClicked</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.SelectedClicked">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.SelectionBehavior"></span><code>SelectionBehavior</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.SelectionBehavior">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.SelectionMode"></span><code>SelectionMode</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.SelectionMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.Shadow"></span><code>Shadow</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.Shadow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.Shadow_Mask"></span><code>Shadow_Mask</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.Shadow_Mask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.Shape"></span><code>Shape</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.Shape">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.Shape_Mask"></span><code>Shape_Mask</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.Shape_Mask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.SingleSelection"></span><code>SingleSelection</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.SingleSelection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.SizeAdjustPolicy"></span><code>SizeAdjustPolicy</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.SizeAdjustPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.State"></span><code>State</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.State">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.StyleMask"></span><code>StyleMask</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.StyleMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.StyledPanel"></span><code>StyledPanel</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.StyledPanel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.Sunken"></span><code>Sunken</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.Sunken">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.VLine"></span><code>VLine</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.VLine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.WinPanel"></span><code>WinPanel</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.WinPanel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.acceptDrops"></span><code>acceptDrops</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.acceptDrops">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.accessibleDescription"></span><code>accessibleDescription</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.accessibleDescription">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.accessibleName"></span><code>accessibleName</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.accessibleName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.actionEvent"></span><code>actionEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.actionEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.actions"></span><code>actions</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.actions">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.activateWindow"></span><code>activateWindow</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.activateWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.activated"></span><code>activated</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.activated">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.addAction"></span><code>addAction</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.addAction">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.addActions"></span><code>addActions</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.addActions">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.addScrollBarWidget"></span><code>addScrollBarWidget</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-002.html#PythonQt.QtGui.QAbstractItemView.addScrollBarWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.adjustSize"></span><code>adjustSize</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.adjustSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.allColumnsShowFocus"></span><code>allColumnsShowFocus</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.allColumnsShowFocus">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.alternatingRowColors"></span><code>alternatingRowColors</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.alternatingRowColors">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.animated"></span><code>animated</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.animated">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.autoExpandDelay"></span><code>autoExpandDelay</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.autoExpandDelay">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.autoFillBackground"></span><code>autoFillBackground</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.autoFillBackground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.autoScroll"></span><code>autoScroll</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.autoScroll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.autoScrollMargin"></span><code>autoScrollMargin</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.autoScrollMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.backgroundRole"></span><code>backgroundRole</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.backgroundRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.backingStore"></span><code>backingStore</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.backingStore">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.baseSize"></span><code>baseSize</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-001.html#PythonQt.QtGui.QAbstractButton.baseSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.blockSignals"></span><code>blockSignals</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.blockSignals">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.changeEvent"></span><code>changeEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.changeEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.childAt"></span><code>childAt</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.childAt">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.childEvent"></span><code>childEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.childEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.children"></span><code>children</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.children">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.childrenRect"></span><code>childrenRect</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.childrenRect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.childrenRegion"></span><code>childrenRegion</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.childrenRegion">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.clearFocus"></span><code>clearFocus</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.clearFocus">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.clearMask"></span><code>clearMask</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.clearMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.clearSelection"></span><code>clearSelection</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.clearSelection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.clicked"></span><code>clicked</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.clicked">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.close"></span><code>close</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.close">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.closeEvent"></span><code>closeEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.closeEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.closePersistentEditor"></span><code>closePersistentEditor</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.closePersistentEditor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.collapse"></span><code>collapse</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.collapse">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.collapseAll"></span><code>collapseAll</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.collapseAll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.collapsed"></span><code>collapsed</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.collapsed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.colorCount"></span><code>colorCount</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.colorCount">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.columnAt"></span><code>columnAt</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.columnAt">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.columnViewportPosition"></span><code>columnViewportPosition</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.columnViewportPosition">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.columnWidth"></span><code>columnWidth</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.columnWidth">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.connect"></span><code>connect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.connect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.contentsMargins"></span><code>contentsMargins</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.contentsMargins">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.contentsRect"></span><code>contentsRect</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.contentsRect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.contextMenuEvent"></span><code>contextMenuEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.contextMenuEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.contextMenuPolicy"></span><code>contextMenuPolicy</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.contextMenuPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.cornerWidget"></span><code>cornerWidget</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.cornerWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.createWinId"></span><code>createWinId</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.createWinId">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.createWindowContainer"></span><code>createWindowContainer</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.createWindowContainer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.currentIndex"></span><code>currentIndex</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.currentIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.cursor"></span><code>cursor</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.cursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.customContextMenuRequested"></span><code>customContextMenuRequested</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.customContextMenuRequested">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.customEvent"></span><code>customEvent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.customEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.defaultDropAction"></span><code>defaultDropAction</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.defaultDropAction">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.deleteLater"></span><code>deleteLater</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.deleteLater">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.depth"></span><code>depth</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.depth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.destroy"></span><code>destroy</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.destroy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.destroyed"></span><code>destroyed</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.destroyed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.devType"></span><code>devType</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.devicePixelRatio"></span><code>devicePixelRatio</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatio">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.devicePixelRatioF"></span><code>devicePixelRatioF</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatioF">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.devicePixelRatioFScale"></span><code>devicePixelRatioFScale</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.devicePixelRatioFScale">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dirtyRegionOffset"></span><code>dirtyRegionOffset</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.dirtyRegionOffset">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.disconnect"></span><code>disconnect</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.disconnect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.doAutoScroll"></span><code>doAutoScroll</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.doAutoScroll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.doItemsLayout"></span><code>doItemsLayout</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.doItemsLayout">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.doubleClicked"></span><code>doubleClicked</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.doubleClicked">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dragDropMode"></span><code>dragDropMode</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.dragDropMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dragDropOverwriteMode"></span><code>dragDropOverwriteMode</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.dragDropOverwriteMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dragEnabled"></span><code>dragEnabled</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.dragEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dragEnterEvent"></span><code>dragEnterEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.dragEnterEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dragLeaveEvent"></span><code>dragLeaveEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.dragLeaveEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dragMoveEvent"></span><code>dragMoveEvent</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.dragMoveEvent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.drawBranches"></span><code>drawBranches</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.drawBranches">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.drawFrame"></span><code>drawFrame</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.drawFrame">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.drawRow"></span><code>drawRow</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.drawRow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.drawTree"></span><code>drawTree</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.drawTree">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dropEvent"></span><code>dropEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.dropEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dropIndicatorPosition"></span><code>dropIndicatorPosition</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.dropIndicatorPosition">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dumpObjectInfo"></span><code>dumpObjectInfo</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectInfo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dumpObjectTree"></span><code>dumpObjectTree</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dumpObjectTree">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.dynamicPropertyNames"></span><code>dynamicPropertyNames</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.dynamicPropertyNames">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.edit"></span><code>edit</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.edit">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.editTriggers"></span><code>editTriggers</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.editTriggers">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.effectiveWinId"></span><code>effectiveWinId</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.effectiveWinId">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.enabled"></span><code>enabled</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.enabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.ensurePolished"></span><code>ensurePolished</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.ensurePolished">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.enterEvent"></span><code>enterEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.enterEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.entered"></span><code>entered</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.entered">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.event"></span><code>event</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractItemModel/members-002.html#PythonQt.QtCore.QAbstractItemModel.event">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.eventFilter"></span><code>eventFilter</code></td>
+<td>function</td>
+<td><a href="QAbstractPrintDialog/members-001.html#PythonQt.QtGui.QAbstractPrintDialog.eventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.executeDelayedItemsLayout"></span><code>executeDelayedItemsLayout</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.executeDelayedItemsLayout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.expand"></span><code>expand</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.expand">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.expandAll"></span><code>expandAll</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.expandAll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.expandRecursively"></span><code>expandRecursively</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.expandRecursively">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.expandToDepth"></span><code>expandToDepth</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.expandToDepth">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.expanded"></span><code>expanded</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.expanded">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.expandsOnDoubleClick"></span><code>expandsOnDoubleClick</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.expandsOnDoubleClick">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.findChild"></span><code>findChild</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.findChildren"></span><code>findChildren</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.findChildren">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.focus"></span><code>focus</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.focus">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.focusInEvent"></span><code>focusInEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractGraphicsShapeItem/members-003.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.focusInEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.focusNextChild"></span><code>focusNextChild</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.focusNextChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.focusNextPrevChild"></span><code>focusNextPrevChild</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-002.html#PythonQt.QtGui.QAbstractButton.focusNextPrevChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.focusOutEvent"></span><code>focusOutEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractGraphicsShapeItem/members-003.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.focusOutEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.focusPolicy"></span><code>focusPolicy</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.focusPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.focusPreviousChild"></span><code>focusPreviousChild</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.focusPreviousChild">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.focusProxy"></span><code>focusProxy</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.focusProxy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.focusWidget"></span><code>focusWidget</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.focusWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.font"></span><code>font</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.font">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.fontInfo"></span><code>fontInfo</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.fontInfo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.fontMetrics"></span><code>fontMetrics</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.fontMetrics">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.foregroundRole"></span><code>foregroundRole</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.foregroundRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.frameGeometry"></span><code>frameGeometry</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.frameGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.frameRect"></span><code>frameRect</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.frameRect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.frameShadow"></span><code>frameShadow</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.frameShadow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.frameShape"></span><code>frameShape</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.frameShape">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.frameSize"></span><code>frameSize</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.frameSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.frameStyle"></span><code>frameStyle</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.frameStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.frameWidth"></span><code>frameWidth</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.frameWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.fullScreen"></span><code>fullScreen</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.fullScreen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.geometry"></span><code>geometry</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.geometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.grab"></span><code>grab</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grab">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.grabGesture"></span><code>grabGesture</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grabGesture">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.grabKeyboard"></span><code>grabKeyboard</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grabKeyboard">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.grabMouse"></span><code>grabMouse</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grabMouse">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.grabShortcut"></span><code>grabShortcut</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.grabShortcut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.graphicsEffect"></span><code>graphicsEffect</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.graphicsEffect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.graphicsProxyWidget"></span><code>graphicsProxyWidget</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.graphicsProxyWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.hasAutoScroll"></span><code>hasAutoScroll</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.hasAutoScroll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.hasFocus"></span><code>hasFocus</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hasFocus">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.hasHeightForWidth"></span><code>hasHeightForWidth</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hasHeightForWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.hasMouseTracking"></span><code>hasMouseTracking</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hasMouseTracking">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.header"></span><code>header</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.header">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.headerHidden"></span><code>headerHidden</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.headerHidden">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.height"></span><code>height</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.height">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.heightForWidth"></span><code>heightForWidth</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.heightForWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.heightMM"></span><code>heightMM</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.heightMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.hide"></span><code>hide</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hide">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.hideColumn"></span><code>hideColumn</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.hideColumn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.hideEvent"></span><code>hideEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.hideEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.horizontalOffset"></span><code>horizontalOffset</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.horizontalOffset">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.horizontalScrollBar"></span><code>horizontalScrollBar</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-003.html#PythonQt.QtGui.QAbstractItemView.horizontalScrollBar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.horizontalScrollBarPolicy"></span><code>horizontalScrollBarPolicy</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-004.html#PythonQt.QtGui.QAbstractItemView.horizontalScrollBarPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.horizontalScrollMode"></span><code>horizontalScrollMode</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.horizontalScrollMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.iconSize"></span><code>iconSize</code></td>
+<td>attribute</td>
+<td><a href="QCheckBox/members-001.html#PythonQt.QtGui.QCheckBox.iconSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.iconSizeChanged"></span><code>iconSizeChanged</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.iconSizeChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.indentation"></span><code>indentation</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.indentation">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.indexAbove"></span><code>indexAbove</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.indexAbove">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.indexAt"></span><code>indexAt</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.indexAt">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.indexBelow"></span><code>indexBelow</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.indexBelow">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.indexRowSizeHint"></span><code>indexRowSizeHint</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.indexRowSizeHint">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.indexWidget"></span><code>indexWidget</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.indexWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.initPainter"></span><code>initPainter</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.initPainter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.initStyleOption"></span><code>initStyleOption</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-004.html#PythonQt.QtGui.QAbstractItemView.initStyleOption">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.inputMethodEvent"></span><code>inputMethodEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractGraphicsShapeItem/members-003.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.inputMethodEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.inputMethodHints"></span><code>inputMethodHints</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.inputMethodHints">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.inputMethodQuery"></span><code>inputMethodQuery</code></td>
+<td>function</td>
+<td><a href="QAbstractGraphicsShapeItem/members-003.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.inputMethodQuery">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.insertAction"></span><code>insertAction</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.insertAction">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.insertActions"></span><code>insertActions</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.insertActions">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.installEventFilter"></span><code>installEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.installEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isActiveWindow"></span><code>isActiveWindow</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.isActiveWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isAncestorOf"></span><code>isAncestorOf</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-003.html#PythonQt.QtGui.QAbstractButton.isAncestorOf">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isAnimated"></span><code>isAnimated</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.isAnimated">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isColumnHidden"></span><code>isColumnHidden</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.isColumnHidden">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isEnabled"></span><code>isEnabled</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isEnabledTo"></span><code>isEnabledTo</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isEnabledTo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isExpanded"></span><code>isExpanded</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.isExpanded">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isFirstColumnSpanned"></span><code>isFirstColumnSpanned</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-001.html#PythonQt.QtGui.QTreeView.isFirstColumnSpanned">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isFullScreen"></span><code>isFullScreen</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isFullScreen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isHeaderHidden"></span><code>isHeaderHidden</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.isHeaderHidden">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isHidden"></span><code>isHidden</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isHidden">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isIndexHidden"></span><code>isIndexHidden</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.isIndexHidden">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isLeftToRight"></span><code>isLeftToRight</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isLeftToRight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isMaximized"></span><code>isMaximized</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isMaximized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isMinimized"></span><code>isMinimized</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isMinimized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isModal"></span><code>isModal</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isModal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isRightToLeft"></span><code>isRightToLeft</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isRightToLeft">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isRowHidden"></span><code>isRowHidden</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.isRowHidden">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isSignalConnected"></span><code>isSignalConnected</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.isSignalConnected">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isSortingEnabled"></span><code>isSortingEnabled</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.isSortingEnabled">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isVisible"></span><code>isVisible</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isVisible">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isVisibleTo"></span><code>isVisibleTo</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isVisibleTo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isWidgetType"></span><code>isWidgetType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWidgetType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isWindow"></span><code>isWindow</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isWindow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isWindowModified"></span><code>isWindowModified</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.isWindowModified">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.isWindowType"></span><code>isWindowType</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.isWindowType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.itemDelegate"></span><code>itemDelegate</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.itemDelegate">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.itemDelegateForColumn"></span><code>itemDelegateForColumn</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.itemDelegateForColumn">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.itemDelegateForRow"></span><code>itemDelegateForRow</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.itemDelegateForRow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.itemsExpandable"></span><code>itemsExpandable</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.itemsExpandable">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.keyPressEvent"></span><code>keyPressEvent</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.keyPressEvent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.keyReleaseEvent"></span><code>keyReleaseEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractGraphicsShapeItem/members-004.html#PythonQt.QtGui.QAbstractGraphicsShapeItem.keyReleaseEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.keyboardGrabber"></span><code>keyboardGrabber</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.keyboardGrabber">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.keyboardSearch"></span><code>keyboardSearch</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.keyboardSearch">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.killTimer"></span><code>killTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.killTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.layout"></span><code>layout</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.layout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.layoutDirection"></span><code>layoutDirection</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.layoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.leaveEvent"></span><code>leaveEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.leaveEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.lineWidth"></span><code>lineWidth</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-004.html#PythonQt.QtGui.QAbstractItemView.lineWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.locale"></span><code>locale</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.locale">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.logicalDpiX"></span><code>logicalDpiX</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.logicalDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.logicalDpiY"></span><code>logicalDpiY</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.logicalDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.lower"></span><code>lower</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.lower">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mapFrom"></span><code>mapFrom</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapFrom">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mapFromGlobal"></span><code>mapFromGlobal</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapFromGlobal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mapFromParent"></span><code>mapFromParent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapFromParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mapTo"></span><code>mapTo</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapTo">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mapToGlobal"></span><code>mapToGlobal</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapToGlobal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mapToParent"></span><code>mapToParent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mapToParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mask"></span><code>mask</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.mask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.maximized"></span><code>maximized</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.maximized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.maximumHeight"></span><code>maximumHeight</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.maximumHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.maximumSize"></span><code>maximumSize</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.maximumSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.maximumViewportSize"></span><code>maximumViewportSize</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-004.html#PythonQt.QtGui.QAbstractItemView.maximumViewportSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.maximumWidth"></span><code>maximumWidth</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.maximumWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.metaObject"></span><code>metaObject</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.metaObject">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.metric"></span><code>metric</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.metric">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.midLineWidth"></span><code>midLineWidth</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-004.html#PythonQt.QtGui.QAbstractItemView.midLineWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.minimized"></span><code>minimized</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.minimized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.minimumHeight"></span><code>minimumHeight</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.minimumHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.minimumSize"></span><code>minimumSize</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-004.html#PythonQt.QtGui.QAbstractButton.minimumSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.minimumSizeHint"></span><code>minimumSizeHint</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.minimumSizeHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.minimumWidth"></span><code>minimumWidth</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.minimumWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.modal"></span><code>modal</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.modal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.model"></span><code>model</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-001.html#PythonQt.QtGui.QColumnView.model">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mouseDoubleClickEvent"></span><code>mouseDoubleClickEvent</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.mouseDoubleClickEvent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mouseGrabber"></span><code>mouseGrabber</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.mouseGrabber">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mouseMoveEvent"></span><code>mouseMoveEvent</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.mouseMoveEvent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mousePressEvent"></span><code>mousePressEvent</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.mousePressEvent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mouseReleaseEvent"></span><code>mouseReleaseEvent</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.mouseReleaseEvent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.mouseTracking"></span><code>mouseTracking</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.mouseTracking">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.move"></span><code>move</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.move">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.moveCursor"></span><code>moveCursor</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.moveCursor">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.moveEvent"></span><code>moveEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.moveEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.moveToThread"></span><code>moveToThread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.moveToThread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.nativeEvent"></span><code>nativeEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.nativeEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.nativeParentWidget"></span><code>nativeParentWidget</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.nativeParentWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.nextInFocusChain"></span><code>nextInFocusChain</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.nextInFocusChain">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.normalGeometry"></span><code>normalGeometry</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.normalGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.objectName"></span><code>objectName</code></td>
+<td>attribute</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.objectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.objectNameChanged"></span><code>objectNameChanged</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.objectNameChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.openPersistentEditor"></span><code>openPersistentEditor</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.openPersistentEditor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.overrideWindowFlags"></span><code>overrideWindowFlags</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.overrideWindowFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.overrideWindowState"></span><code>overrideWindowState</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.overrideWindowState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.paintEngine"></span><code>paintEngine</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.paintEngine">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.paintEvent"></span><code>paintEvent</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.paintEvent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.paintingActive"></span><code>paintingActive</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.paintingActive">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.palette"></span><code>palette</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.palette">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.parent"></span><code>parent</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.parent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.parentWidget"></span><code>parentWidget</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.parentWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.physicalDpiX"></span><code>physicalDpiX</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.physicalDpiX">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.physicalDpiY"></span><code>physicalDpiY</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.physicalDpiY">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.pos"></span><code>pos</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.pos">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.pressed"></span><code>pressed</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.pressed">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.previousInFocusChain"></span><code>previousInFocusChain</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.previousInFocusChain">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.property"></span><code>property</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.property">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.raise_"></span><code>raise_</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.raise_">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.rect"></span><code>rect</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.rect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.redirected"></span><code>redirected</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.redirected">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.releaseKeyboard"></span><code>releaseKeyboard</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.releaseKeyboard">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.releaseMouse"></span><code>releaseMouse</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.releaseMouse">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.releaseShortcut"></span><code>releaseShortcut</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.releaseShortcut">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.removeAction"></span><code>removeAction</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.removeAction">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.removeEventFilter"></span><code>removeEventFilter</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.removeEventFilter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.render"></span><code>render</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.render">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.repaint"></span><code>repaint</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.repaint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.reset"></span><code>reset</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.reset">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.resetIndentation"></span><code>resetIndentation</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.resetIndentation">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.resize"></span><code>resize</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-005.html#PythonQt.QtGui.QAbstractButton.resize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.resizeColumnToContents"></span><code>resizeColumnToContents</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.resizeColumnToContents">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.resizeEvent"></span><code>resizeEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.resizeEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.restoreGeometry"></span><code>restoreGeometry</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.restoreGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.rootIndex"></span><code>rootIndex</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.rootIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.rootIsDecorated"></span><code>rootIsDecorated</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.rootIsDecorated">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.rowHeight"></span><code>rowHeight</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.rowHeight">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.saveGeometry"></span><code>saveGeometry</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.saveGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.scheduleDelayedItemsLayout"></span><code>scheduleDelayedItemsLayout</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.scheduleDelayedItemsLayout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.scroll"></span><code>scroll</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.scroll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.scrollBarWidgets"></span><code>scrollBarWidgets</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-004.html#PythonQt.QtGui.QAbstractItemView.scrollBarWidgets">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.scrollContentsBy"></span><code>scrollContentsBy</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.scrollContentsBy">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.scrollDirtyRegion"></span><code>scrollDirtyRegion</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.scrollDirtyRegion">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.scrollTo"></span><code>scrollTo</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.scrollTo">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.scrollToBottom"></span><code>scrollToBottom</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.scrollToBottom">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.scrollToTop"></span><code>scrollToTop</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.scrollToTop">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.selectAll"></span><code>selectAll</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.selectAll">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.selectedIndexes"></span><code>selectedIndexes</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.selectedIndexes">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.selectionBehavior"></span><code>selectionBehavior</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.selectionBehavior">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.selectionCommand"></span><code>selectionCommand</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.selectionCommand">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.selectionMode"></span><code>selectionMode</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.selectionMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.selectionModel"></span><code>selectionModel</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.selectionModel">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sender"></span><code>sender</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.sender">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.senderSignalIndex"></span><code>senderSignalIndex</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.senderSignalIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAcceptDrops"></span><code>setAcceptDrops</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAcceptDrops">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAccessibleDescription"></span><code>setAccessibleDescription</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAccessibleDescription">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAccessibleName"></span><code>setAccessibleName</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAccessibleName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAllColumnsShowFocus"></span><code>setAllColumnsShowFocus</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setAllColumnsShowFocus">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAlternatingRowColors"></span><code>setAlternatingRowColors</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setAlternatingRowColors">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAnimated"></span><code>setAnimated</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setAnimated">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAttribute"></span><code>setAttribute</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAttribute">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAutoExpandDelay"></span><code>setAutoExpandDelay</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setAutoExpandDelay">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAutoFillBackground"></span><code>setAutoFillBackground</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setAutoFillBackground">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAutoScroll"></span><code>setAutoScroll</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setAutoScroll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setAutoScrollMargin"></span><code>setAutoScrollMargin</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setAutoScrollMargin">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setBackgroundRole"></span><code>setBackgroundRole</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setBackgroundRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setBaseSize"></span><code>setBaseSize</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setBaseSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setColumnHidden"></span><code>setColumnHidden</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setColumnHidden">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setColumnWidth"></span><code>setColumnWidth</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setColumnWidth">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setContentsMargins"></span><code>setContentsMargins</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setContentsMargins">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setContextMenuPolicy"></span><code>setContextMenuPolicy</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setContextMenuPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setCornerWidget"></span><code>setCornerWidget</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setCornerWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setCurrentIndex"></span><code>setCurrentIndex</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setCurrentIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setCursor"></span><code>setCursor</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setCursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setDefaultDropAction"></span><code>setDefaultDropAction</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setDefaultDropAction">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setDirtyRegion"></span><code>setDirtyRegion</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setDirtyRegion">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setDisabled"></span><code>setDisabled</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setDisabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setDragDropMode"></span><code>setDragDropMode</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setDragDropMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setDragDropOverwriteMode"></span><code>setDragDropOverwriteMode</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setDragDropOverwriteMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setDragEnabled"></span><code>setDragEnabled</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setDragEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setDropIndicatorShown"></span><code>setDropIndicatorShown</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setDropIndicatorShown">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setEditTriggers"></span><code>setEditTriggers</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setEditTriggers">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setEnabled"></span><code>setEnabled</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setExpanded"></span><code>setExpanded</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setExpanded">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setExpandsOnDoubleClick"></span><code>setExpandsOnDoubleClick</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setExpandsOnDoubleClick">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFirstColumnSpanned"></span><code>setFirstColumnSpanned</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setFirstColumnSpanned">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFixedHeight"></span><code>setFixedHeight</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFixedHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFixedSize"></span><code>setFixedSize</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFixedSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFixedWidth"></span><code>setFixedWidth</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFixedWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFocus"></span><code>setFocus</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFocus">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFocusPolicy"></span><code>setFocusPolicy</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFocusPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFocusProxy"></span><code>setFocusProxy</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFocusProxy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFont"></span><code>setFont</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setFont">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setForegroundRole"></span><code>setForegroundRole</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setForegroundRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFrameRect"></span><code>setFrameRect</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setFrameRect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFrameShadow"></span><code>setFrameShadow</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setFrameShadow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFrameShape"></span><code>setFrameShape</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setFrameShape">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setFrameStyle"></span><code>setFrameStyle</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setFrameStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setGeometry"></span><code>setGeometry</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setGraphicsEffect"></span><code>setGraphicsEffect</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setGraphicsEffect">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setHeader"></span><code>setHeader</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setHeader">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setHeaderHidden"></span><code>setHeaderHidden</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setHeaderHidden">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setHidden"></span><code>setHidden</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setHidden">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setHorizontalScrollBar"></span><code>setHorizontalScrollBar</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setHorizontalScrollBar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setHorizontalScrollBarPolicy"></span><code>setHorizontalScrollBarPolicy</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setHorizontalScrollBarPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setHorizontalScrollMode"></span><code>setHorizontalScrollMode</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setHorizontalScrollMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setIconSize"></span><code>setIconSize</code></td>
+<td>function</td>
+<td><a href="QCheckBox/members-002.html#PythonQt.QtGui.QCheckBox.setIconSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setIndentation"></span><code>setIndentation</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setIndentation">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setIndexWidget"></span><code>setIndexWidget</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setIndexWidget">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setInputMethodHints"></span><code>setInputMethodHints</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setInputMethodHints">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setItemDelegate"></span><code>setItemDelegate</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setItemDelegate">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setItemDelegateForColumn"></span><code>setItemDelegateForColumn</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setItemDelegateForColumn">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setItemDelegateForRow"></span><code>setItemDelegateForRow</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-002.html#PythonQt.QtGui.QColumnView.setItemDelegateForRow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setItemsExpandable"></span><code>setItemsExpandable</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setItemsExpandable">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setLayout"></span><code>setLayout</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setLayout">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setLayoutDirection"></span><code>setLayoutDirection</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setLayoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setLineWidth"></span><code>setLineWidth</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setLineWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setLocale"></span><code>setLocale</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-006.html#PythonQt.QtGui.QAbstractButton.setLocale">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setMask"></span><code>setMask</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMask">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setMaximumHeight"></span><code>setMaximumHeight</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMaximumHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setMaximumSize"></span><code>setMaximumSize</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMaximumSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setMaximumWidth"></span><code>setMaximumWidth</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMaximumWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setMidLineWidth"></span><code>setMidLineWidth</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setMidLineWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setMinimumHeight"></span><code>setMinimumHeight</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMinimumHeight">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setMinimumSize"></span><code>setMinimumSize</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMinimumSize">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setMinimumWidth"></span><code>setMinimumWidth</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMinimumWidth">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setModel"></span><code>setModel</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setModel">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setMouseTracking"></span><code>setMouseTracking</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setMouseTracking">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setObjectName"></span><code>setObjectName</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setObjectName">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setPalette"></span><code>setPalette</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setPalette">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setParent"></span><code>setParent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setParent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setProperty"></span><code>setProperty</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.setProperty">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setRootIndex"></span><code>setRootIndex</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setRootIndex">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setRootIsDecorated"></span><code>setRootIsDecorated</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setRootIsDecorated">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setRowHidden"></span><code>setRowHidden</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-002.html#PythonQt.QtGui.QTreeView.setRowHidden">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setSelection"></span><code>setSelection</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.setSelection">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setSelectionBehavior"></span><code>setSelectionBehavior</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.setSelectionBehavior">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setSelectionMode"></span><code>setSelectionMode</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.setSelectionMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setSelectionModel"></span><code>setSelectionModel</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.setSelectionModel">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setShortcutAutoRepeat"></span><code>setShortcutAutoRepeat</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setShortcutAutoRepeat">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setShortcutEnabled"></span><code>setShortcutEnabled</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setShortcutEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setSizeAdjustPolicy"></span><code>setSizeAdjustPolicy</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-005.html#PythonQt.QtGui.QAbstractItemView.setSizeAdjustPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setSizeIncrement"></span><code>setSizeIncrement</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setSizeIncrement">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setSizePolicy"></span><code>setSizePolicy</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setSizePolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setSortingEnabled"></span><code>setSortingEnabled</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.setSortingEnabled">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setState"></span><code>setState</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.setState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setStatusTip"></span><code>setStatusTip</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setStatusTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setStyle"></span><code>setStyle</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setStyle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setStyleSheet"></span><code>setStyleSheet</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setStyleSheet">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setTabKeyNavigation"></span><code>setTabKeyNavigation</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.setTabKeyNavigation">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setTabOrder"></span><code>setTabOrder</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setTabOrder">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setTextElideMode"></span><code>setTextElideMode</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.setTextElideMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setToolTip"></span><code>setToolTip</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setToolTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setToolTipDuration"></span><code>setToolTipDuration</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setToolTipDuration">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setTreePosition"></span><code>setTreePosition</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.setTreePosition">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setUniformRowHeights"></span><code>setUniformRowHeights</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.setUniformRowHeights">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setUpdatesEnabled"></span><code>setUpdatesEnabled</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setUpdatesEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setVerticalScrollBar"></span><code>setVerticalScrollBar</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.setVerticalScrollBar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setVerticalScrollBarPolicy"></span><code>setVerticalScrollBarPolicy</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.setVerticalScrollBarPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setVerticalScrollMode"></span><code>setVerticalScrollMode</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.setVerticalScrollMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setViewport"></span><code>setViewport</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.setViewport">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setViewportMargins"></span><code>setViewportMargins</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.setViewportMargins">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setVisible"></span><code>setVisible</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setVisible">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWhatsThis"></span><code>setWhatsThis</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWhatsThis">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowFilePath"></span><code>setWindowFilePath</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowFilePath">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowFlags"></span><code>setWindowFlags</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowIcon"></span><code>setWindowIcon</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowIcon">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowIconText"></span><code>setWindowIconText</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowIconText">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowModality"></span><code>setWindowModality</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowModality">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowModified"></span><code>setWindowModified</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowModified">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowOpacity"></span><code>setWindowOpacity</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowOpacity">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowRole"></span><code>setWindowRole</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowState"></span><code>setWindowState</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWindowTitle"></span><code>setWindowTitle</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.setWindowTitle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setWordWrap"></span><code>setWordWrap</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.setWordWrap">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.setupViewport"></span><code>setupViewport</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.setupViewport">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sharedPainter"></span><code>sharedPainter</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.sharedPainter">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.show"></span><code>show</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.show">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.showColumn"></span><code>showColumn</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.showColumn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.showDropIndicator"></span><code>showDropIndicator</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.showDropIndicator">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.showEvent"></span><code>showEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.showEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.showFullScreen"></span><code>showFullScreen</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-007.html#PythonQt.QtGui.QAbstractButton.showFullScreen">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.showMaximized"></span><code>showMaximized</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.showMaximized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.showMinimized"></span><code>showMinimized</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.showMinimized">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.showNormal"></span><code>showNormal</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.showNormal">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.signalsBlocked"></span><code>signalsBlocked</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.signalsBlocked">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.size"></span><code>size</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.size">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sizeAdjustPolicy"></span><code>sizeAdjustPolicy</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.sizeAdjustPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sizeHint"></span><code>sizeHint</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.sizeHint">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sizeHintForColumn"></span><code>sizeHintForColumn</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.sizeHintForColumn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sizeHintForIndex"></span><code>sizeHintForIndex</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.sizeHintForIndex">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sizeHintForRow"></span><code>sizeHintForRow</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.sizeHintForRow">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sizeIncrement"></span><code>sizeIncrement</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.sizeIncrement">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sizePolicy"></span><code>sizePolicy</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.sizePolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sortByColumn"></span><code>sortByColumn</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.sortByColumn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.sortingEnabled"></span><code>sortingEnabled</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.sortingEnabled">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.stackUnder"></span><code>stackUnder</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.stackUnder">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.startAutoScroll"></span><code>startAutoScroll</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.startAutoScroll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.startDrag"></span><code>startDrag</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.startDrag">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.startTimer"></span><code>startTimer</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.startTimer">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.state"></span><code>state</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.state">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.statusTip"></span><code>statusTip</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.statusTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.stopAutoScroll"></span><code>stopAutoScroll</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.stopAutoScroll">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.style"></span><code>style</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.style">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.styleSheet"></span><code>styleSheet</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.styleSheet">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.tabKeyNavigation"></span><code>tabKeyNavigation</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.tabKeyNavigation">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.tabletEvent"></span><code>tabletEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.tabletEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.tabletTracking"></span><code>tabletTracking</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.tabletTracking">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.testAttribute"></span><code>testAttribute</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.testAttribute">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.textElideMode"></span><code>textElideMode</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.textElideMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.thread"></span><code>thread</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.thread">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.timerEvent"></span><code>timerEvent</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.timerEvent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.toolTip"></span><code>toolTip</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.toolTip">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.toolTipDuration"></span><code>toolTipDuration</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.toolTipDuration">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.tr"></span><code>tr</code></td>
+<td>function</td>
+<td><a href="../QtCore/QAbstractAnimation/members-002.html#PythonQt.QtCore.QAbstractAnimation.tr">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.treePosition"></span><code>treePosition</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.treePosition">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.underMouse"></span><code>underMouse</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.underMouse">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.ungrabGesture"></span><code>ungrabGesture</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.ungrabGesture">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.uniformRowHeights"></span><code>uniformRowHeights</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.uniformRowHeights">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.unsetCursor"></span><code>unsetCursor</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.unsetCursor">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.unsetLayoutDirection"></span><code>unsetLayoutDirection</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.unsetLayoutDirection">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.unsetLocale"></span><code>unsetLocale</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.unsetLocale">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.update"></span><code>update</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.update">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.updateGeometry"></span><code>updateGeometry</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.updateGeometry">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.updatesEnabled"></span><code>updatesEnabled</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.updatesEnabled">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.verticalOffset"></span><code>verticalOffset</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.verticalOffset">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.verticalScrollBar"></span><code>verticalScrollBar</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.verticalScrollBar">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.verticalScrollBarPolicy"></span><code>verticalScrollBarPolicy</code></td>
+<td>attribute</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.verticalScrollBarPolicy">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.verticalScrollMode"></span><code>verticalScrollMode</code></td>
+<td>attribute</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.verticalScrollMode">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.viewOptions"></span><code>viewOptions</code></td>
+<td>function</td>
+<td><a href="QColumnView/members-003.html#PythonQt.QtGui.QColumnView.viewOptions">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.viewport"></span><code>viewport</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.viewport">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.viewportEntered"></span><code>viewportEntered</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.viewportEntered">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.viewportEvent"></span><code>viewportEvent</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.viewportEvent">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.viewportMargins"></span><code>viewportMargins</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.viewportMargins">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.viewportSizeHint"></span><code>viewportSizeHint</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.viewportSizeHint">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.visible"></span><code>visible</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.visible">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.visibleRegion"></span><code>visibleRegion</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.visibleRegion">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.visualRect"></span><code>visualRect</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.visualRect">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.visualRegionForSelection"></span><code>visualRegionForSelection</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.visualRegionForSelection">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.whatsThis"></span><code>whatsThis</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.whatsThis">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.wheelEvent"></span><code>wheelEvent</code></td>
+<td>function</td>
+<td><a href="QAbstractItemView/members-006.html#PythonQt.QtGui.QAbstractItemView.wheelEvent">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.width"></span><code>width</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.width">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.widthMM"></span><code>widthMM</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.widthMM">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.winId"></span><code>winId</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.winId">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.window"></span><code>window</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.window">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowFilePath"></span><code>windowFilePath</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.windowFilePath">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowFlags"></span><code>windowFlags</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.windowFlags">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowHandle"></span><code>windowHandle</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.windowHandle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowIcon"></span><code>windowIcon</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-008.html#PythonQt.QtGui.QAbstractButton.windowIcon">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowIconChanged"></span><code>windowIconChanged</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.windowIconChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowIconText"></span><code>windowIconText</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowIconText">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowIconTextChanged"></span><code>windowIconTextChanged</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.windowIconTextChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowModality"></span><code>windowModality</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowModality">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowModified"></span><code>windowModified</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowModified">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowOpacity"></span><code>windowOpacity</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowOpacity">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowRole"></span><code>windowRole</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowRole">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowState"></span><code>windowState</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowState">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowTitle"></span><code>windowTitle</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowTitle">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowTitleChanged"></span><code>windowTitleChanged</code></td>
+<td>function</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.windowTitleChanged">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.windowType"></span><code>windowType</code></td>
+<td>function</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.windowType">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.wordWrap"></span><code>wordWrap</code></td>
+<td>attribute</td>
+<td><a href="QTreeView/members-003.html#PythonQt.QtGui.QTreeView.wordWrap">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.x"></span><code>x</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.x">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtGui.QTreeView.y"></span><code>y</code></td>
+<td>attribute</td>
+<td><a href="QAbstractButton/members-009.html#PythonQt.QtGui.QAbstractButton.y">Shared captured text</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

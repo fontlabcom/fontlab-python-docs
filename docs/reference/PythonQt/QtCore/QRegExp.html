@@ -1,0 +1,3021 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/reference/PythonQt/QtCore/QRegExp.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>PythonQt.QtCore.QRegExp - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../../../assets/reference.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pythonqtqtcoreqregexp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PythonQt.QtCore.QRegExp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fontlabapp_shim.html" class="md-tabs__link">
+          
+  
+  
+  Shims
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shims
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shims
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fontlabapp_shim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FontLab menus and panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GlyphsApp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GlyphsApp (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vanilla.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vanilla (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppKit.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AppKit (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cocoa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocoa (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foundation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    objc (glyport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aidus_code_tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QRegExp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QRegExp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--characters-and-abbreviations-for-sets-of-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Characters and Abbreviations for Sets of Characters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--sets-of-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sets of Characters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--quantifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantifiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--capturing-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capturing Text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--assertions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assertions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--wildcard-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wildcard Matching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--notes-for-perl-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes for Perl Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#PythonQt.QtCore.QRegExp--code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-member-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete member index
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="pythonqtqtcoreqregexp">PythonQt.QtCore.QRegExp</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="PythonQt.QtCore.QRegExp" class="doc doc-heading">
+            <span class="doc doc-object-name doc-class-name">QRegExp</span>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>PythonQtInstanceWrapper object</p>
+<p>Native bases: PythonQtInstanceWrapper</p>
+<p>Supplemental documentation:
+Qt 5 reference:</p>
+<h4 id="PythonQt.QtCore.QRegExp--detailed-description">Detailed Description</h4>
+<p>A regular expression, or "regexp", is a pattern for matching substrings in a text. This
+is useful in many contexts, e.g.,</p>
+<table>
+<thead>
+<tr>
+<th>Validation</th>
+<th>A regexp can test whether a substring meets some criteria, e.g. is an integer or contains no whitespace.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Searching</td>
+<td>A regexp provides more powerful pattern matching than simple substring matching, e.g., match one of the words <em>mail</em>, <em>letter</em> or <em>correspondence</em>, but none of the words <em>email</em>, <em>mailman</em>, <em>mailer</em>, <em>letterbox</em>, etc.</td>
+</tr>
+<tr>
+<td>Search and Replace</td>
+<td>A regexp can replace all occurrences of a substring with a different substring, e.g., replace all occurrences of <em>\&amp;</em> with <em>\&amp;</em> except where the <em>\&amp;</em> is already followed by an <em>amp;</em>.</td>
+</tr>
+<tr>
+<td>String Splitting</td>
+<td>A regexp can be used to identify where a string should be split apart, e.g. splitting tab-delimited strings.</td>
+</tr>
+</tbody>
+</table>
+<p>A brief introduction to regexps is presented, a description of Qt's regexp language,
+some examples, and the function documentation itself. QRegExp is modeled on Perl's
+regexp language. It fully supports Unicode. QRegExp can also be used in a simpler,
+<em>wildcard mode</em> that is similar to the functionality found in command shells. The syntax
+rules used by QRegExp can be changed with
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setPatternSyntax">setPatternSyntax</a>().
+In particular, the pattern syntax can be set to
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#PatternSyntax-enum">QRegExp::FixedString</a>,
+which means the pattern to be matched is interpreted as a plain string, i.e., special
+characters (e.g., backslash) are not escaped.</p>
+<p>A good text on regexps is <em>Mastering Regular Expressions</em> (Third Edition) by Jeffrey E.
+F. Friedl, ISBN 0-596-52812-4.</p>
+<p><strong>Note:</strong> In Qt 5, the new
+<a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html">QRegularExpression</a> class
+provides a Perl compatible implementation of regular expressions and is recommended in
+place of QRegExp.</p>
+<h5 id="PythonQt.QtCore.QRegExp--introduction">Introduction</h5>
+<p>Regexps are built up from expressions, quantifiers, and assertions. The simplest
+expression is a character, e.g. <strong>x</strong> or <strong>5</strong>. An expression can also be a set of
+characters enclosed in square brackets. <strong>[ABCD]</strong> will match an <strong>A</strong> or a <strong>B</strong> or a
+<strong>C</strong> or a <strong>D</strong>. We can write this same expression as <strong>[A-D]</strong>, and an expression to
+match any capital letter in the English alphabet is written as <strong>[A-Z]</strong>.</p>
+<p>A quantifier specifies the number of occurrences of an expression that must be matched.
+<strong>x{1,1}</strong> means match one and only one <strong>x</strong>. <strong>x{1,5}</strong> means match a sequence of
+<strong>x</strong> characters that contains at least one <strong>x</strong> but no more than five.</p>
+<p>Note that in general regexps cannot be used to check for balanced brackets or tags. For
+example, a regexp can be written to match an opening html <code>&lt;b&gt;</code> and its closing <code>&lt;/b&gt;</code>,
+if the <code>&lt;b&gt;</code> tags are not nested, but if the <code>&lt;b&gt;</code> tags are nested, that same regexp
+will match an opening <code>&lt;b&gt;</code> tag with the wrong closing <code>&lt;/b&gt;</code>. For the fragment <code>&lt;b&gt;bold
+&lt;b&gt;bolder&lt;/b&gt;&lt;/b&gt;</code>, the first <code>&lt;b&gt;</code> would be matched with the first <code>&lt;/b&gt;</code>, which is not
+correct. However, it is possible to write a regexp that will match nested brackets or
+tags correctly, but only if the number of nesting levels is fixed and known. If the
+number of nesting levels is not fixed and known, it is impossible to write a regexp that
+will not fail.</p>
+<p>Suppose we want a regexp to match integers in the range 0 to 99. At least one digit is
+required, so we start with the expression <strong>[0-9]{1,1}</strong>, which matches a single digit
+exactly once. This regexp matches integers in the range 0 to 9. To match integers up to
+99, increase the maximum number of occurrences to 2, so the regexp becomes
+<strong>[0-9]{1,2}</strong>. This regexp satisfies the original requirement to match integers from
+0 to 99, but it will also match integers that occur in the middle of strings. If we want
+the matched integer to be the whole string, we must use the anchor assertions, <strong>^</strong>
+(caret) and <strong>$</strong> (dollar). When <strong>^</strong> is the first character in a regexp, it means the
+regexp must match from the beginning of the string. When <strong>$</strong> is the last character of
+the regexp, it means the regexp must match to the end of the string. The regexp becomes
+<strong>^[0-9]{1,2}$</strong>. Note that assertions, e.g. <strong>^</strong> and <strong>$</strong>, do not match characters
+but locations in the string.</p>
+<p>If you have seen regexps described elsewhere, they may have looked different from the
+ones shown here. This is because some sets of characters and some quantifiers are so
+common that they have been given special symbols to represent them. <strong>[0-9]</strong> can be
+replaced with the symbol <strong>\d</strong>. The quantifier to match exactly one occurrence,
+<strong>{1,1}</strong>, can be replaced with the expression itself, i.e. <strong>x{1,1}</strong> is the same as
+<strong>x</strong>. So our 0 to 99 matcher could be written as <strong>^\d{1,2}$</strong>. It can also be written
+<strong>^\d\d{0,1}$</strong>, i.e. <em>From the start of the string, match a digit, followed
+immediately by 0 or 1 digits</em>. In practice, it would be written as <strong>^\d\d?$</strong>. The
+<strong>?</strong> is shorthand for the quantifier <strong>{0,1}</strong>, i.e. 0 or 1 occurrences. <strong>?</strong> makes an
+expression optional. The regexp <strong>^\d\d?$</strong> means <em>From the beginning of the string,
+match one digit, followed immediately by 0 or 1 more digit, followed immediately by end
+of string</em>.</p>
+<p>To write a regexp that matches one of the words 'mail' <em>or</em> 'letter' <em>or</em>
+'correspondence' but does not match words that contain these words, e.g., 'email',
+'mailman', 'mailer', and 'letterbox', start with a regexp that matches 'mail'. Expressed
+fully, the regexp is <strong>m{1,1}a{1,1}i{1,1}l{1,1}</strong>, but because a character expression is
+automatically quantified by <strong>{1,1}</strong>, we can simplify the regexp to <strong>mail</strong>, i.e., an
+'m' followed by an 'a' followed by an 'i' followed by an 'l'. Now we can use the
+vertical bar <strong>|</strong>, which means <strong>or</strong>, to include the other two words, so our regexp
+for matching any of the three words becomes <strong>mail|letter|correspondence</strong>. Match
+'mail' <strong>or</strong> 'letter' <strong>or</strong> 'correspondence'. While this regexp will match one of the
+three words we want to match, it will also match words we don't want to match, e.g.,
+'email'. To prevent the regexp from matching unwanted words, we must tell it to begin
+and end the match at word boundaries. First we enclose our regexp in parentheses,
+<strong>(mail|letter|correspondence)</strong>. Parentheses group expressions together, and they
+identify a part of the regexp that we wish to
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#capturing-text">capture</a>. Enclosing the
+expression in parentheses allows us to use it as a component in more complex regexps. It
+also allows us to examine which of the three words was actually matched. To force the
+match to begin and end on word boundaries, we enclose the regexp in <strong>\b</strong> <em>word
+boundary</em> assertions: <strong>\b(mail|letter|correspondence)\b</strong>. Now the regexp means:
+<em>Match a word boundary, followed by the regexp in parentheses, followed by a word
+boundary</em>. The <strong>\b</strong> assertion matches a <em>position</em> in the regexp, not a <em>character</em>.
+A word boundary is any non-word character, e.g., a space, newline, or the beginning or
+ending of a string.</p>
+<p>If we want to replace ampersand characters with the HTML entity <strong>\&amp;</strong>, the regexp
+to match is simply <strong>\&amp;</strong>. But this regexp will also match ampersands that have already
+been converted to HTML entities. We want to replace only ampersands that are not already
+followed by <strong>amp;</strong>. For this, we need the negative lookahead assertion,
+<strong>(?!</strong>__<strong>)</strong>. The regexp can then be written as <strong>\&amp;(?!amp;)</strong>, i.e. <em>Match an
+ampersand that is</em> <strong>not</strong> <em>followed by</em> <strong>amp;</strong>.</p>
+<p>If we want to count all the occurrences of 'Eric' and 'Eirik' in a string, two valid
+solutions are <strong>\b(Eric|Eirik)\b</strong> and <strong>\bEi?ri[ck]\b</strong>. The word boundary
+assertion '\b' is required to avoid matching words that contain either name, e.g.
+'Ericsson'. Note that the second regexp matches more spellings than we want: 'Eric',
+'Erik', 'Eiric' and 'Eirik'.</p>
+<p>Some of the examples discussed above are implemented in the <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#code-examples">code
+examples</a> section.</p>
+<h5 id="PythonQt.QtCore.QRegExp--characters-and-abbreviations-for-sets-of-characters">Characters and Abbreviations for Sets of Characters</h5>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>c</strong></td>
+<td>A character represents itself unless it has a special regexp meaning. e.g. <strong>c</strong> matches the character <em>c</em>.</td>
+</tr>
+<tr>
+<td><strong>\c</strong></td>
+<td>A character that follows a backslash matches the character itself, except as specified below. e.g., To match a literal caret at the beginning of a string, write <strong>\^</strong>.</td>
+</tr>
+<tr>
+<td><strong>\a</strong></td>
+<td>Matches the ASCII bell (BEL, 0x07).</td>
+</tr>
+<tr>
+<td><strong>\f</strong></td>
+<td>Matches the ASCII form feed (FF, 0x0C).</td>
+</tr>
+<tr>
+<td><strong>\n</strong></td>
+<td>Matches the ASCII line feed (LF, 0x0A, Unix newline).</td>
+</tr>
+<tr>
+<td><strong>\r</strong></td>
+<td>Matches the ASCII carriage return (CR, 0x0D).</td>
+</tr>
+<tr>
+<td><strong>\t</strong></td>
+<td>Matches the ASCII horizontal tab (HT, 0x09).</td>
+</tr>
+<tr>
+<td><strong>\v</strong></td>
+<td>Matches the ASCII vertical tab (VT, 0x0B).</td>
+</tr>
+<tr>
+<td><strong>\x<em>hhhh</em></strong></td>
+<td>Matches the Unicode character corresponding to the hexadecimal number <em>hhhh</em> (between 0x0000 and 0xFFFF).</td>
+</tr>
+<tr>
+<td><strong>\0<em>ooo</em></strong> (i.e., \zero <em>ooo</em>)</td>
+<td>matches the ASCII/Latin1 character for the octal number <em>ooo</em> (between 0 and 0377).</td>
+</tr>
+<tr>
+<td><strong>. (dot)</strong></td>
+<td>Matches any character (including newline).</td>
+</tr>
+<tr>
+<td><strong>\d</strong></td>
+<td>Matches a digit (<a href="https://doc.qt.io/archives/qt-5.15/qchar.html#isDigit">QChar::isDigit</a>()).</td>
+</tr>
+<tr>
+<td><strong>\D</strong></td>
+<td>Matches a non-digit.</td>
+</tr>
+<tr>
+<td><strong>\s</strong></td>
+<td>Matches a whitespace character (<a href="https://doc.qt.io/archives/qt-5.15/qchar.html#isSpace">QChar::isSpace</a>()).</td>
+</tr>
+<tr>
+<td><strong>\S</strong></td>
+<td>Matches a non-whitespace character.</td>
+</tr>
+<tr>
+<td><strong>\w</strong></td>
+<td>Matches a word character (<a href="https://doc.qt.io/archives/qt-5.15/qchar.html#isLetterOrNumber">QChar::isLetterOrNumber</a>(), <a href="https://doc.qt.io/archives/qt-5.15/qchar.html#isMark">QChar::isMark</a>(), or '_').</td>
+</tr>
+<tr>
+<td><strong>\W</strong></td>
+<td>Matches a non-word character.</td>
+</tr>
+<tr>
+<td><strong>\<em>n</em></strong></td>
+<td>The <em>n</em>-th backreference, e.g. \1, \2, etc.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> The C++ compiler transforms backslashes in strings. To include a <strong>\</strong> in a
+regexp, enter it twice, i.e. <code>\\</code>. To match the backslash character itself, enter it
+four times, i.e. <code>\\\\</code>.</p>
+<h5 id="PythonQt.QtCore.QRegExp--sets-of-characters">Sets of Characters</h5>
+<p>Square brackets mean match any character contained in the square brackets. The character
+set abbreviations described above can appear in a character set in square brackets.
+Except for the character set abbreviations and the following two exceptions, characters
+do not have special meanings in square brackets.</p>
+<table>
+<thead>
+<tr>
+<th><strong>^</strong></th>
+<th>The caret negates the character set if it occurs as the first character (i.e. immediately after the opening square bracket). <strong>[abc]</strong> matches 'a' or 'b' or 'c', but <strong>[^abc]</strong> matches anything <em>but</em> 'a' or 'b' or 'c'.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-</strong></td>
+<td>The dash indicates a range of characters. <strong>[W-Z]</strong> matches 'W' or 'X' or 'Y' or 'Z'.</td>
+</tr>
+</tbody>
+</table>
+<p>Using the predefined character set abbreviations is more portable than using character
+ranges across platforms and languages. For example, <strong>[0-9]</strong> matches a digit in
+Western alphabets but <strong>\d</strong> matches a digit in <em>any</em> alphabet.</p>
+<p>Note: In other regexp documentation, sets of characters are often called "character
+classes".</p>
+<h5 id="PythonQt.QtCore.QRegExp--quantifiers">Quantifiers</h5>
+<p>By default, an expression is automatically quantified by <strong>{1,1}</strong>, i.e. it should occur
+exactly once. In the following list, <strong><em>E</em></strong> stands for expression. An expression is a
+character, or an abbreviation for a set of characters, or a set of characters in square
+brackets, or an expression in parentheses.</p>
+<table>
+<thead>
+<tr>
+<th><strong><em>E</em>?</strong></th>
+<th>Matches zero or one occurrences of <em>E</em>. This quantifier means <em>The previous expression is optional</em>, because it will match whether or not the expression is found. <strong><em>E</em>?</strong> is the same as <strong><em 0_1="0,1">E</em></strong>. e.g., <strong>dents?</strong> matches 'dent' or 'dents'.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><em>E</em>+</strong></td>
+<td>Matches one or more occurrences of <em>E</em>. <strong><em>E</em>+</strong> is the same as <strong><em 1_="1,">E</em></strong>. e.g., <strong>0+</strong> matches '0', '00', '000', etc.</td>
+</tr>
+<tr>
+<td><strong><em>E</em>*</strong></td>
+<td>Matches zero or more occurrences of <em>E</em>. It is the same as <strong><em 0_="0,">E</em></strong>. The <strong>*</strong> quantifier is often used in error where <strong>+</strong> should be used. For example, if <strong>\s*$</strong> is used in an expression to match strings that end in whitespace, it will match every string because <strong>\s*$</strong> means <em>Match zero or more whitespaces followed by end of string</em>. The correct regexp to match strings that have at least one trailing whitespace character is <strong>\s+$</strong>.</td>
+</tr>
+<tr>
+<td><strong><em n="n">E</em></strong></td>
+<td>Matches exactly <em>n</em> occurrences of <em>E</em>. <strong><em n="n">E</em></strong> is the same as repeating <em>E</em> <em>n</em> times. For example, <strong>x{5}</strong> is the same as <strong>xxxxx</strong>. It is also the same as <strong><em n_n="n,n">E</em></strong>, e.g. <strong>x{5,5}</strong>.</td>
+</tr>
+<tr>
+<td><strong><em n_="n,">E</em></strong></td>
+<td>Matches at least <em>n</em> occurrences of <em>E</em>.</td>
+</tr>
+<tr>
+<td><strong><em _m=",m">E</em></strong></td>
+<td>Matches at most <em>m</em> occurrences of <em>E</em>. <strong><em _m=",m">E</em></strong> is the same as <strong><em 0_m="0,m">E</em></strong>.</td>
+</tr>
+<tr>
+<td><strong><em n_m="n,m">E</em></strong></td>
+<td>Matches at least <em>n</em> and at most <em>m</em> occurrences of <em>E</em>.</td>
+</tr>
+</tbody>
+</table>
+<p>To apply a quantifier to more than just the preceding character, use parentheses to
+group characters together in an expression. For example, <strong>tag+</strong> matches a 't'
+followed by an 'a' followed by at least one 'g', whereas <strong>(tag)+</strong> matches at least
+one occurrence of 'tag'.</p>
+<p>Note: Quantifiers are normally "greedy". They always match as much text as they can. For
+example, <strong>0+</strong> matches the first zero it finds and all the consecutive zeros after the
+first zero. Applied to '20005', it matches '20005'. Quantifiers can be made non-greedy,
+see <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setMinimal">setMinimal</a>().</p>
+<h5 id="PythonQt.QtCore.QRegExp--capturing-text">Capturing Text</h5>
+<p>Parentheses allow us to group elements together so that we can quantify and capture
+them. For example if we have the expression <strong>mail|letter|correspondence</strong> that
+matches a string we know that <em>one</em> of the words matched but not which one. Using
+parentheses allows us to "capture" whatever is matched within their bounds, so if we
+used <strong>(mail|letter|correspondence)</strong> and matched this regexp against the string "I
+sent you some email" we can use the
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#cap">cap</a>() or
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#capturedTexts">capturedTexts</a>()
+functions to extract the matched characters, in this case 'mail'.</p>
+<p>We can use captured text within the regexp itself. To refer to the captured text we use
+<em>backreferences</em> which are indexed from 1, the same as for
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#cap">cap</a>(). For example we could
+search for duplicate words in a string using <strong>\b(\w+)\W+\1\b</strong> which means match
+a word boundary followed by one or more word characters followed by one or more non-word
+characters followed by the same text as the first parenthesized expression followed by a
+word boundary.</p>
+<p>If we want to use parentheses purely for grouping and not for capturing we can use the
+non-capturing syntax, e.g. <strong>(?:green|blue)</strong>. Non-capturing parentheses begin '(?:'
+and end ')'. In this example we match either 'green' or 'blue' but we do not capture the
+match so we only know whether or not we matched but not which color we actually found.
+Using non-capturing parentheses is more efficient than using capturing parentheses since
+the regexp engine has to do less book-keeping.</p>
+<p>Both capturing and non-capturing parentheses may be nested.</p>
+<p>For historical reasons, quantifiers (e.g. <strong>*</strong>) that apply to capturing parentheses
+are more "greedy" than other quantifiers. For example, <strong>a*(a*)</strong> will match "aaa"
+with cap(1) \=\= "aaa". This behavior is different from what other regexp engines do
+(notably, Perl). To obtain a more intuitive capturing behavior, specify
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#PatternSyntax-enum">QRegExp::RegExp2</a>
+to the QRegExp constructor or call
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setPatternSyntax">setPatternSyntax</a>(<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#PatternSyntax-enum">QRegExp::RegExp2</a>).</p>
+<p>When the number of matches cannot be determined in advance, a common idiom is to use
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#cap">cap</a>() in a loop. For example:</p>
+<div class="highlight"><pre><span></span><code>QRegExp rx(&quot;(\\d+)&quot;);
+QString str = &quot;Offsets: 12 14 99 231 7&quot;;
+QStringList list;
+int pos = 0;
+
+while ((pos = rx.indexIn(str, pos)) != -1) {
+    list &lt;&lt; rx.cap(1);
+    pos += rx.matchedLength();
+}
+// list: [&quot;12&quot;, &quot;14&quot;, &quot;99&quot;, &quot;231&quot;, &quot;7&quot;]
+</code></pre></div>
+<h5 id="PythonQt.QtCore.QRegExp--assertions">Assertions</h5>
+<p>Assertions make some statement about the text at the point where they occur in the
+regexp but they do not match any characters. In the following list <strong><em>E</em></strong> stands for
+any expression.</p>
+<table>
+<thead>
+<tr>
+<th><strong>^</strong></th>
+<th>The caret signifies the beginning of the string. If you wish to match a literal <code>^</code> you must escape it by writing <code>\\^</code>. For example, <strong>^#include</strong> will only match strings which <em>begin</em> with the characters '#include'. (When the caret is the first character of a character set it has a special meaning, see <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#sets-of-characters">Sets of Characters</a>.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>$</strong></td>
+<td>The dollar signifies the end of the string. For example <strong>\d\s*$</strong> will match strings which end with a digit optionally followed by whitespace. If you wish to match a literal <code>$</code> you must escape it by writing <code>\\$</code>.</td>
+</tr>
+<tr>
+<td><strong>\b</strong></td>
+<td>A word boundary. For example the regexp <strong>\bOK\b</strong> means match immediately after a word boundary (e.g. start of string or whitespace) the letter 'O' then the letter 'K' immediately before another word boundary (e.g. end of string or whitespace). But note that the assertion does not actually match any whitespace so if we write <strong>(\bOK\b)</strong> and we have a match it will only contain 'OK' even if the string is "It's OK now".</td>
+</tr>
+<tr>
+<td><strong>\B</strong></td>
+<td>A non-word boundary. This assertion is true wherever <strong>\b</strong> is false. For example if we searched for <strong>\Bon\B</strong> in "Left on" the match would fail (space and end of string aren't non-word boundaries), but it would match in "tonne".</td>
+</tr>
+<tr>
+<td><strong>(?\=<em>E</em>)</strong></td>
+<td>Positive lookahead. This assertion is true if the expression matches at this point in the regexp. For example, <strong>const(?\=\s+char)</strong> matches 'const' whenever it is followed by 'char', as in 'static const char *'. (Compare with <strong>const\s+char</strong>, which matches 'static const char *'.)</td>
+</tr>
+<tr>
+<td><strong>(?!<em>E</em>)</strong></td>
+<td>Negative lookahead. This assertion is true if the expression does not match at this point in the regexp. For example, <strong>const(?!\s+char)</strong> matches 'const' <em>except</em> when it is followed by 'char'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="PythonQt.QtCore.QRegExp--wildcard-matching">Wildcard Matching</h5>
+<p>Most command shells such as <em>bash</em> or <em>cmd.exe</em> support "file globbing", the ability to
+identify a group of files by using wildcards. The
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setPatternSyntax">setPatternSyntax</a>()
+function is used to switch between regexp and wildcard mode. Wildcard matching is much
+simpler than full regexps and has only four features:</p>
+<table>
+<thead>
+<tr>
+<th><strong>c</strong></th>
+<th>Any character represents itself apart from those mentioned below. Thus <strong>c</strong> matches the character <em>c</em>.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>?</strong></td>
+<td>Matches any single character. It is the same as <strong>.</strong> in full regexps.</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>Matches zero or more of any characters. It is the same as <strong>.*</strong> in full regexps.</td>
+</tr>
+<tr>
+<td><strong>[...]</strong></td>
+<td>Sets of characters can be represented in square brackets, similar to full regexps. Within the character class, like outside, backslash has no special meaning.</td>
+</tr>
+</tbody>
+</table>
+<p>In the mode Wildcard, the wildcard characters cannot be escaped. In the mode
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#PatternSyntax-enum">WildcardUnix</a>, the
+character '\' escapes the wildcard.</p>
+<p>For example if we are in wildcard mode and have strings which contain filenames we could
+identify HTML files with <strong>*.html</strong>. This will match zero or more characters followed
+by a dot followed by 'h', 't', 'm' and 'l'.</p>
+<p>To test a string against a wildcard expression, use
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#exactMatch">exactMatch</a>(). For example:</p>
+<div class="highlight"><pre><span></span><code>QRegExp rx(&quot;*.txt&quot;);
+rx.setPatternSyntax(QRegExp::Wildcard);
+rx.exactMatch(&quot;README.txt&quot;);        // returns true
+rx.exactMatch(&quot;welcome.txt.bak&quot;);   // returns false
+</code></pre></div>
+<h5 id="PythonQt.QtCore.QRegExp--notes-for-perl-users">Notes for Perl Users</h5>
+<p>Most of the character class abbreviations supported by Perl are supported by QRegExp,
+see <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#characters-and-abbreviations-for-sets-of-characters">characters and abbreviations for sets of
+characters</a>.</p>
+<p>In QRegExp, apart from within character classes, <code>^</code> always signifies the start of the
+string, so carets must always be escaped unless used for that purpose. In Perl the
+meaning of caret varies automagically depending on where it occurs so escaping it is
+rarely necessary. The same applies to <code>$</code> which in QRegExp always signifies the end of
+the string.</p>
+<p>QRegExp's quantifiers are the same as Perl's greedy quantifiers (but see the <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#greedy-quantifiers">note
+above</a>). Non-greedy
+matching cannot be applied to individual quantifiers, but can be applied to all the
+quantifiers in the pattern. For example, to match the Perl regexp <strong>ro+?m</strong> requires:</p>
+<div class="highlight"><pre><span></span><code>QRegExp rx(&quot;ro+m&quot;);
+rx.setMinimal(true);
+</code></pre></div>
+<p>The equivalent of Perl's <code>/i</code> option is
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setCaseSensitivity">setCaseSensitivity</a>(<a href="https://doc.qt.io/archives/qt-5.15/qt.html#CaseSensitivity-enum">Qt::CaseInsensitive</a>).</p>
+<p>Perl's <code>/g</code> option can be emulated using a
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#cap-in-a-loop">loop</a>.</p>
+<p>In QRegExp <strong>.</strong> matches any character, therefore all QRegExp regexps have the
+equivalent of Perl's <code>/s</code> option. QRegExp does not have an equivalent to Perl's <code>/m</code>
+option, but this can be emulated in various ways for example by splitting the input into
+lines or by looping with a regexp that searches for newlines.</p>
+<p>Because QRegExp is string oriented, there are no \A, \Z, or \z assertions. The \G
+assertion is not supported but can be emulated in a loop.</p>
+<p>Perl's $\&amp; is cap(0) or
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#capturedTexts">capturedTexts</a>()[0].
+There are no QRegExp equivalents for $`, $' or $+. Perl's capturing variables, $1, $2,
+... correspond to cap(1) or
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#capturedTexts">capturedTexts</a>()[1],
+cap(2) or
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#capturedTexts">capturedTexts</a>()[2],
+etc.</p>
+<p>To substitute a pattern use
+<a href="https://doc.qt.io/archives/qt-5.15/qstring.html#replace">QString::replace</a>().</p>
+<p>Perl's extended <code>/x</code> syntax is not supported, nor are directives, e.g. (?i), or regexp
+comments, e.g. (?#comment). On the other hand, C++'s rules for literal strings can be
+used to achieve the same:</p>
+<div class="highlight"><pre><span></span><code>QRegExp mark(&quot;\\b&quot;      // word boundary
+              &quot;[Mm]ark&quot; // the word we want to match
+            );
+</code></pre></div>
+<p>Both zero-width positive and zero-width negative lookahead assertions (?\=pattern) and
+(?!pattern) are supported with the same syntax as Perl. Perl's lookbehind assertions,
+"independent" subexpressions and conditional expressions are not supported.</p>
+<p>Non-capturing parentheses are also supported, with the same (?:pattern) syntax.</p>
+<p>See <a href="https://doc.qt.io/archives/qt-5.15/qstring.html#split">QString::split</a>() and
+<a href="https://doc.qt.io/archives/qt-5.15/qstringlist.html#join">QStringList::join</a>() for
+equivalents to Perl's split and join functions.</p>
+<p>Note: because C++ transforms \'s they must be written <em>twice</em> in code, e.g. <strong>\b</strong>
+must be written <strong>\\b</strong>.</p>
+<h5 id="PythonQt.QtCore.QRegExp--code-examples">Code Examples</h5>
+<div class="highlight"><pre><span></span><code>QRegExp rx(&quot;^\\d\\d?$&quot;);    // match integers 0 to 99
+rx.indexIn(&quot;123&quot;);          // returns -1 (no match)
+rx.indexIn(&quot;-6&quot;);           // returns -1 (no match)
+rx.indexIn(&quot;6&quot;);            // returns 0 (matched at position 0)
+</code></pre></div>
+<p>The third string matches '6'. This is a simple validation regexp for integers in the
+range 0 to 99.</p>
+<div class="highlight"><pre><span></span><code>QRegExp rx(&quot;^\\S+$&quot;);       // match strings without whitespace
+rx.indexIn(&quot;Hello world&quot;);  // returns -1 (no match)
+rx.indexIn(&quot;This_is-OK&quot;);   // returns 0 (matched at position 0)
+</code></pre></div>
+<p>The second string matches 'This_is-OK'. We've used the character set abbreviation '\S'
+(non-whitespace) and the anchors to match strings which contain no whitespace.</p>
+<p>In the following example we match strings containing 'mail' or 'letter' or
+'correspondence' but only match whole words i.e. not 'email'</p>
+<div class="highlight"><pre><span></span><code>QRegExp rx(&quot;\\b(mail|letter|correspondence)\\b&quot;);
+rx.indexIn(&quot;I sent you an email&quot;);     // returns -1 (no match)
+rx.indexIn(&quot;Please write the letter&quot;); // returns 17
+</code></pre></div>
+<p>The second string matches "Please write the letter". The word 'letter' is also captured
+(because of the parentheses). We can see what text we've captured like this:</p>
+<div class="highlight"><pre><span></span><code>QString captured = rx.cap(1); // captured == &quot;letter&quot;
+</code></pre></div>
+<p>This will capture the text from the first set of capturing parentheses (counting
+capturing left parentheses from left to right). The parentheses are counted from 1 since
+cap(0) is the whole matched regexp (equivalent to '\&amp;' in most regexp engines).</p>
+<div class="highlight"><pre><span></span><code>QRegExp rx(&quot;&amp;(?!amp;)&quot;);      // match ampersands but not &amp;amp;
+QString line1 = &quot;This &amp; that&quot;;
+line1.replace(rx, &quot;&amp;amp;&quot;);
+// line1 == &quot;This &amp;amp; that&quot;
+QString line2 = &quot;His &amp;amp; hers &amp; theirs&quot;;
+line2.replace(rx, &quot;&amp;amp;&quot;);
+// line2 == &quot;His &amp;amp; hers &amp;amp; theirs&quot;
+</code></pre></div>
+<p>Here we've passed the QRegExp to
+<a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a>'s replace() function to
+replace the matched text with new text.</p>
+<div class="highlight"><pre><span></span><code>QString str = &quot;One Eric another Eirik, and an Ericsson. &quot;
+              &quot;How many Eiriks, Eric?&quot;;
+QRegExp rx(&quot;\\b(Eric|Eirik)\\b&quot;); // match Eric or Eirik
+int pos = 0;    // where we are in the string
+int count = 0;  // how many Eric and Eirik&#39;s we&#39;ve counted
+while (pos &gt;= 0) {
+    pos = rx.indexIn(str, pos);
+    if (pos &gt;= 0) {
+        ++pos;      // move along in str
+        ++count;    // count our Eric or Eirik
+    }
+}
+</code></pre></div>
+<p>We've used the <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#indexIn">indexIn</a>()
+function to repeatedly match the regexp in the string. Note that instead of moving
+forward by one character at a time <code>pos++</code> we could have written <code>pos +=
+rx.matchedLength()</code> to skip over the already matched string. The count will equal 3,
+matching 'One Eric another Eirik, and an Ericsson. How many Eiriks, Eric?'; it doesn't
+match 'Ericsson' or 'Eiriks' because they are not bounded by non-word boundaries.</p>
+<p>One common use of regexps is to split lines of delimited data into their component
+fields.</p>
+<div class="highlight"><pre><span></span><code>str = &quot;The Qt Company Ltd\tqt.io\tFinland&quot;;
+QString company, web, country;
+rx.setPattern(&quot;^([^\t]+)\t([^\t]+)\t([^\t]+)$&quot;);
+if (rx.indexIn(str) != -1) {
+    company = rx.cap(1);
+    web = rx.cap(2);
+    country = rx.cap(3);
+}
+</code></pre></div>
+<p>In this example our input lines have the format company name, web address and country.
+Unfortunately the regexp is rather long and not very versatile -- the code will break
+if we add any more fields. A simpler and better solution is to look for the separator,
+'\t' in this case, and take the surrounding text. The
+<a href="https://doc.qt.io/archives/qt-5.15/qstring.html#split">QString::split</a>() function can
+take a separator string or regexp as an argument and split a string accordingly.</p>
+<div class="highlight"><pre><span></span><code>QStringList field = str.split(&quot;\t&quot;);
+</code></pre></div>
+<p>Here field[0] is the company, field[1] the web address and so on.</p>
+<p>To imitate the matching of a shell we can use wildcard mode.</p>
+<div class="highlight"><pre><span></span><code>QRegExp rx(&quot;*.html&quot;);
+rx.setPatternSyntax(QRegExp::Wildcard);
+rx.exactMatch(&quot;index.html&quot;);                // returns true
+rx.exactMatch(&quot;default.htm&quot;);               // returns false
+rx.exactMatch(&quot;readme.txt&quot;);                // returns false
+</code></pre></div>
+<p>Wildcard matching can be convenient because of its simplicity, but any wildcard regexp
+can be defined using full regexps, e.g. <strong>.*\.html$</strong>. Notice that we can't match both
+<code>.html</code> and <code>.htm</code> files with a wildcard unless we use <strong>*.htm*</strong> which will also
+match 'test.html.bak'. A full regexp gives us the precision we need, <strong>.*\.html?$</strong>.</p>
+<p>QRegExp can match case insensitively using
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setCaseSensitivity">setCaseSensitivity</a>(),
+and can use non-greedy matching, see
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setMinimal">setMinimal</a>(). By default
+QRegExp uses full regexps but this can be changed with
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setPatternSyntax">setPatternSyntax</a>().
+Searching can be done forward with
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#indexIn">indexIn</a>() or backward with
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#lastIndexIn">lastIndexIn</a>(). Captured
+text can be accessed using
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#capturedTexts">capturedTexts</a>() which
+returns a string list of all captured strings, or using
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#cap">cap</a>() which returns the captured
+string for the given index. The
+<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#pos">pos</a>() function takes a match
+index and returns the position in the string where the match was made (or -1 if there
+was no match).</p>
+<p>Source: https://doc.qt.io/archives/qt-5.15/qregexp.html</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="complete-member-index">Complete member index</h2>
+<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Kind</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.CaretAtOffset"></span><code>CaretAtOffset</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.CaretAtOffset">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.CaretAtZero"></span><code>CaretAtZero</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.CaretAtZero">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.CaretMode"></span><code>CaretMode</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.CaretMode">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.CaretWontMatch"></span><code>CaretWontMatch</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.CaretWontMatch">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.FixedString"></span><code>FixedString</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.FixedString">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.PatternSyntax"></span><code>PatternSyntax</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.PatternSyntax">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.RegExp"></span><code>RegExp</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.RegExp">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.RegExp2"></span><code>RegExp2</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.RegExp2">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.W3CXmlSchema11"></span><code>W3CXmlSchema11</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.W3CXmlSchema11">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.Wildcard"></span><code>Wildcard</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.Wildcard">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.WildcardUnix"></span><code>WildcardUnix</code></td>
+<td>attribute</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.WildcardUnix">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.__init__"></span><code>__init__</code></td>
+<td>function</td>
+<td><a href="../BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.cap"></span><code>cap</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.cap">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.captureCount"></span><code>captureCount</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.captureCount">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.capturedTexts"></span><code>capturedTexts</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.capturedTexts">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.caseSensitivity"></span><code>caseSensitivity</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.caseSensitivity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.className"></span><code>className</code></td>
+<td>function</td>
+<td><a href="QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.className">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.delete"></span><code>delete</code></td>
+<td>function</td>
+<td><a href="QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.delete">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.errorString"></span><code>errorString</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.errorString">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.escape"></span><code>escape</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.escape">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.exactMatch"></span><code>exactMatch</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.exactMatch">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.help"></span><code>help</code></td>
+<td>function</td>
+<td><a href="QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.help">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.indexIn"></span><code>indexIn</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.indexIn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.inherits"></span><code>inherits</code></td>
+<td>function</td>
+<td><a href="QAbstractAnimation/members-001.html#PythonQt.QtCore.QAbstractAnimation.inherits">Shared captured text</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.isEmpty"></span><code>isEmpty</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.isEmpty">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.isMinimal"></span><code>isMinimal</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.isMinimal">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.isValid"></span><code>isValid</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.isValid">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.lastIndexIn"></span><code>lastIndexIn</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.lastIndexIn">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.matchedLength"></span><code>matchedLength</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.matchedLength">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.pattern"></span><code>pattern</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.pattern">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.patternSyntax"></span><code>patternSyntax</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.patternSyntax">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.pos"></span><code>pos</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.pos">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.readFrom"></span><code>readFrom</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.readFrom">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.setCaseSensitivity"></span><code>setCaseSensitivity</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.setCaseSensitivity">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.setMinimal"></span><code>setMinimal</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.setMinimal">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.setPattern"></span><code>setPattern</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.setPattern">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.setPatternSyntax"></span><code>setPatternSyntax</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.setPatternSyntax">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.swap"></span><code>swap</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.swap">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="PythonQt.QtCore.QRegExp.writeTo"></span><code>writeTo</code></td>
+<td>function</td>
+<td><a href="QRegExp/members-001.html#PythonQt.QtCore.QRegExp.writeTo">Signature and documentation</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../../../assets/javascripts/complete-search-ui.js"
+        data-worker="../../../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../../../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>
