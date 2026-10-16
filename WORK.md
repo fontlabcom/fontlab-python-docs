@@ -760,3 +760,14 @@ Not documented without an owner decision (as D10 was for Remopy/Aidus): reconcil
 explains exactly `fly.fp -> fontlab_fontport` (`REVIEWED_UNDOCUMENTED_ALIASES`, reported
 under `explained.undocumented_alias_target`); any other target or alias stays a gap.
 Test first (the explained case failed); 17 reconcile tests pass.
+
+Final-8 (with the fly.fp fix): build exit 1, "Initial complete-search payload exceeds 5242880
+bytes": initial_static_bytes 5,254,609 (last success 5,215,829). Cause: fly c8e7b44's `gp`
+alias adds 7,039 `fly.gp.*` aliases (552,376 vs 545,337) and +7,037 routing tokens. R041
+says to restructure rather than drop members, so the global vocabulary is now front-coded
+(`{"format":"front-coded-1","prefix":[...],"suffix":[...]}`, canonical maximal prefixes,
+decoded and strictly-sorted-checked before READY). Measured on the final-8 index:
+terms.json.gz 3,678,973 -> 1,501,986 bytes. `encodeTerms` lives beside `decodeRouting`
+(validation.js, exported by router.cjs) and `build.cjs` uses it; bundles recompiled with
+esbuild 0.25.12. Tests first (3 failed): round-trip, built asset format, 9 malformed
+encodings rejected. `node --test`: 22 passed; Python search tests 6 passed.

@@ -46,9 +46,39 @@ export function readVarint(bytes, pointer) {
   }
   throw Error("Overlong search varint");
 }
-export function decodeRouting(manifest, terms, postings) {
-  if (!Array.isArray(terms) || terms.length !== manifest.tokens ||
-      terms.some((term,i) => typeof term !== "string" || (i && terms[i-1] >= term))) throw Error("Invalid sorted search terms");
+// The sorted global vocabulary is front-coded: each term stores the length of the
+// prefix it shares with the previous term plus its own suffix. It is the largest
+// initial search asset; this keeps the R041 5 MiB initial budget (issue 106).
+export function encodeTerms(terms) {
+  const prefix = [], suffix = [];
+  let previous = "";
+  for (const term of terms) {
+    let shared = 0;
+    while (shared < term.length && shared < previous.length && term[shared] === previous[shared]) shared++;
+    prefix.push(shared); suffix.push(term.slice(shared)); previous = term;
+  }
+  return {format: "front-coded-1", prefix, suffix};
+}
+// Canonical form only: maximal shared prefixes, so one vocabulary has one encoding.
+function decodeTerms(encoded, count) {
+  if (!encoded || encoded.format !== "front-coded-1" || !Array.isArray(encoded.prefix) ||
+      !Array.isArray(encoded.suffix) || encoded.prefix.length !== count || encoded.suffix.length !== count)
+    throw Error("Invalid sorted search terms");
+  const terms = new Array(count);
+  let previous = "";
+  for (let i = 0; i < count; i++) {
+    const shared = encoded.prefix[i], tail = encoded.suffix[i];
+    if (!Number.isSafeInteger(shared) || shared < 0 || shared > previous.length || typeof tail !== "string" ||
+        (shared < previous.length && tail.length && tail[0] === previous[shared]))
+      throw Error("Invalid sorted search terms");
+    terms[i] = previous.slice(0, shared) + tail;
+    previous = terms[i];
+  }
+  return terms;
+}
+export function decodeRouting(manifest, encoded, postings) {
+  const terms = decodeTerms(encoded, manifest.tokens);
+  if (terms.some((term,i) => i && terms[i-1] >= term)) throw Error("Invalid sorted search terms");
   const offsets = new Uint32Array(terms.length), pointer = {at:0};
   for (let i = 0; i < terms.length; i++) {
     offsets[i] = pointer.at;

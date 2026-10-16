@@ -8,7 +8,8 @@ with the pinned MaterialX Search class. Python `scripts/search_shards.py` verifi
 exact row/config reconstruction and the full coverage separately from browser
 bootstrap. Page groups stay whole; each row shard is named by SHA256.
 
-`validation.js` checks metadata counts, sorted terms, canonical unsigned varints,
+`validation.js` checks metadata counts, the canonical front-coded vocabulary (each term
+keeps its shared-prefix length and suffix; decoded terms strictly sorted), canonical unsigned varints,
 row ranges, byte lengths and hashes before readiness. `router.js` uses the exact
 consumer transformation/parser, conservatively selecting all shards for complex
 syntax. `query.js` hydrates complete matching rows and original parent articles,

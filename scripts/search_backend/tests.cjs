@@ -2,7 +2,7 @@
 const test=require("node:test"), assert=require("node:assert/strict"), fs=require("node:fs"), os=require("node:os"), path=require("node:path");
 const vm=require("node:vm");
 const {execFileSync}=require("node:child_process"),{Search}=require("./engine.cjs");
-const {candidates,hydrate,validateManifest,decodeRouting,readVarint}=require("./router.cjs"),{QueryRunner}=require("./query.cjs");
+const {candidates,hydrate,validateManifest,decodeRouting,readVarint,encodeTerms}=require("./router.cjs"),{QueryRunner}=require("./query.cjs");
 const dir=fs.mkdtempSync(path.join(os.tmpdir(),"complete-search-test-"));
 const config={lang:["en"],separator:"[\\s\\-]+",pipeline:["trimmer"],fields:{title:{boost:1000},text:{boost:1},tags:{boost:1000000}}};
 const corpus={config,docs:[{location:"a.html",title:"Alpha",text:"Signal resize",boost:100},
@@ -12,8 +12,8 @@ const corpus={config,docs:[{location:"a.html",title:"Alpha",text:"Signal resize"
 const input=path.join(dir,"input.json");fs.writeFileSync(input,JSON.stringify(corpus));
 execFileSync(process.execPath,[path.join(__dirname,"build.cjs"),input,dir,"150"]);
 const manifest=validateManifest(JSON.parse(fs.readFileSync(path.join(dir,"manifest.json"))));
-const terms=JSON.parse(fs.readFileSync(path.join(dir,"terms.json"))), bytes=fs.readFileSync(path.join(dir,"postings.bin"));
-const routing=decodeRouting(manifest,terms,bytes), original=new Search({...JSON.parse(JSON.stringify(corpus)),options:{suggest:true}});
+const encodedTerms=JSON.parse(fs.readFileSync(path.join(dir,"terms.json"))), bytes=fs.readFileSync(path.join(dir,"postings.bin"));
+const routing=decodeRouting(manifest,encodedTerms,bytes), terms=routing.terms, original=new Search({...JSON.parse(JSON.stringify(corpus)),options:{suggest:true}});
 const locations = result => [...new Set(result.items.flatMap(g=>g.map(x=>x.location)))].sort();
 test("qualified/unqualified/multi-term selection retains cross-namespace rows",()=>{
  assert.deepEqual(candidates("Alpha.close",manifest,routing).selected,[0]);
@@ -34,12 +34,12 @@ for(const value of ["Signal","Alp","resize","+Signal -other","title:Alpha","tags
 test("malformed metadata and varints fail before READY",()=>{
  for(const broken of [Uint8Array.of(128),Uint8Array.of(128,0),Uint8Array.of(255,255,255,255,16),Uint8Array.of(128,128,128,128,128,0)])
   assert.throws(()=>readVarint(broken,{at:0}),/varint/);
- assert.throws(()=>decodeRouting(manifest,terms,bytes.subarray(0,-1)),/varint/);
- assert.throws(()=>decodeRouting(manifest,[...terms].reverse(),bytes),/terms/);
- assert.throws(()=>decodeRouting(manifest,terms,Buffer.concat([bytes,Buffer.of(0)])),/Trailing/);
+ assert.throws(()=>decodeRouting(manifest,encodedTerms,bytes.subarray(0,-1)),/varint/);
+ assert.throws(()=>decodeRouting(manifest,encodeTerms([...terms].reverse()),bytes),/terms/);
+ assert.throws(()=>decodeRouting(manifest,encodedTerms,Buffer.concat([bytes,Buffer.of(0)])),/Trailing/);
  assert.throws(()=>validateManifest({...manifest,rows:manifest.rows+1}),/count/);
  assert.throws(()=>validateManifest({...manifest,shards:[{...manifest.shards[0],start:5}]}),/range/);
- assert.throws(()=>decodeRouting({...manifest,rows:1},[terms[0]],Buffer.of(2,0,1)),/terms|count/);
+ assert.throws(()=>decodeRouting({...manifest,rows:1},encodeTerms([terms[0]]),Buffer.of(2,0,1)),/terms|count/);
 });
 test("every encoded posting list equals the unchanged engine field references",()=>{
  const expected=new Map();
@@ -171,4 +171,18 @@ test("every shipped lunr copy carries the TokenSet key patch exactly once",()=>{
   assert.equal(source.split("str + label + node.id;").length-1,0,file+": unpatched lunr TokenSet key");
   assert.equal(source.split('str + label + node.id + ";";').length-1,1,file+": patched lunr TokenSet key");
  }
+});
+test("routing vocabulary is front-coded and decodes to the exact sorted terms",()=>{
+ // R041 initial payload: the global vocabulary is the largest initial asset (issue 106).
+ assert.equal(encodedTerms.format,"front-coded-1");
+ assert.deepEqual(encodeTerms(terms),encodedTerms);
+ const words=["","a","ab","abc","abd","b","b.c","b.cd","\u00e9t\u00e9"];
+ assert.deepEqual(decodeRouting({...manifest,tokens:words.length,rows:1,shards:[]},encodeTerms(words),Buffer.from(words.map(()=>0))).terms,words);
+});
+test("malformed front-coded vocabularies fail before READY",()=>{
+ const one={...manifest,tokens:2,rows:1,shards:[]},empty=Buffer.of(0,0),good=encodeTerms(["ab","ac"]);
+ for(const bad of [["ab","ac"],{...good,format:"plain"},{...good,prefix:[0]},{...good,prefix:[0,3]},
+   {...good,prefix:[0,-1]},{...good,prefix:[0,1.5]},{...good,suffix:["ab",7]},{...good,prefix:[0,0],suffix:["ab","ac"]},
+   {...good,prefix:[1,1]}])
+  assert.throws(()=>decodeRouting(one,bad,empty),/terms/,JSON.stringify(bad));
 });

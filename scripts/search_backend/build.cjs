@@ -1,7 +1,7 @@
 // this_file: scripts/search_backend/build.cjs
 // Extract complete postings from the pinned original engine, preserving raw rows before mutation.
 const fs = require("node:fs"), path = require("node:path"), crypto = require("node:crypto"), zlib = require("node:zlib");
-const {Search} = require("./engine.cjs");
+const {Search} = require("./engine.cjs"), {encodeTerms} = require("./router.cjs");
 const [input, directory, target] = process.argv.slice(2);
 const corpus = JSON.parse(fs.readFileSync(input)), groups = new Map(), termDocs = new Map();
 if (!Array.isArray(corpus.config.lang) || corpus.config.lang.length !== 1 || corpus.config.lang[0] !== "en") throw Error("Complete search currently supports the pinned English engine only; language assets must be provisioned explicitly");
@@ -47,7 +47,7 @@ for (const [, ids] of entries) {
   for (const id of sorted) {put(id-last);last=id;}
 }
 manifest.tokens = entries.length;
-manifest.terms = write("terms.json",Buffer.from(JSON.stringify(entries.map(([term])=>term))));
+manifest.terms = write("terms.json",Buffer.from(JSON.stringify(encodeTerms(entries.map(([term])=>term)))));
 manifest.postings = write("postings.bin",Buffer.from(bytes));
 write("manifest.json",Buffer.from(JSON.stringify(manifest)));
 console.log(JSON.stringify({rows:manifest.rows,shards:shards.length,tokens:entries.length}));

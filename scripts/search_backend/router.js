@@ -1,7 +1,7 @@
 // this_file: scripts/search_backend/router.js
 import {lunr, transformSearchQuery} from "./engine.ts";
 import {readVarint} from "./validation.js";
-export {validateManifest, decodeRouting, readVarint, fetchChecked} from "./validation.js";
+export {validateManifest, decodeRouting, encodeTerms, readVarint, fetchChecked} from "./validation.js";
 // Routing is only a safe superset. The original engine evaluates every field/operator.
 export function candidates(value, manifest, routing) {
   lunr.tokenizer.separator = new RegExp(manifest.config.separator);
