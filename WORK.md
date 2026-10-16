@@ -792,3 +792,25 @@ Fontport pages); 5/5 interaction; determinism identical; 242,654/242,654 identit
 0 unexplained; `fly.fp` -> fontlab_fontport (215 symbols, 358 fly.fp.* aliases). Lock diff
 reviewed against the committed lock: fly (1 file, reviewed gp/fp aliases) and
 fontlab_fontport (26 new files, canonical main c9fee00).
+
+## 2026-10-16: owner tag v1.0.0; package content gate; package narrative docs
+
+Owner tag: `v1.0.0` (e3afa28) was created by the owner's own `gitnextver` run at 02:03. Its
+lock is the final-6 state: docs-tests 1 of 293 failing (the lunr 2.3.9 TokenSet collision,
+upstream olivernn/lunr.js#503). The fix (3ad6570) and everything after it ship under the next
+tag. The tag is never moved or deleted.
+
+API page production (owner request), measured on the final-10 site:
+- native `fontlab`, `fontgate`, `fontpr`, `PythonQt`: Echopy in-host captures (`.pyi`
+  sidecars), reconciled 242,654/242,654; `fontlabpr` documented as absent (D8);
+- runtime-built APIs (`GlyphsApp`, `vanilla`, `AppKit`, `Cocoa`, `Foundation`, `objc`,
+  `aidus_code_tools`, `fontlabapp_shim`): Echopy shims generated from the real providers;
+- ecosystem packages (echopy, fontlabapp, remopy, grablab, pythonqtside, fly, typerig,
+  glyport, aidus-code, fontport): static source analysis (Griffe), never imported, so code
+  that needs FontLab documents completely.
+New gate `verify_site.package_content_problems`: every documented top-level package (23)
+must render a page with member headings and docstrings; only `fontlabpr` (absent, D8) is
+exempt. Tests first (4 failed); 8 site-verification tests pass; final-10 site: 0 problems.
+Narrative docs: new Packages section (overview/install/quick start/examples/limits for all
+ten packages, verified against the packages' source APIs); the stale Glyphs guide is
+rewritten for `run_script`/`install_plugin`; the start page links the package pages.

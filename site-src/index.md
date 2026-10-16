@@ -47,12 +47,18 @@ upstream binding and may differ from PythonQt.
 | Edit fonts and outlines | [fontlab](reference/fontlab.md), [fontgate](reference/fontgate.md) |
 | Use native command helpers | [fontpr](reference/fontpr.md) |
 | Write native Qt interfaces | [PythonQt](reference/PythonQt.md) |
-| Control FontLab remotely | [Remopy](reference/fontlab_remopy.md) |
-| Access panels and draw | [Fontlabapp](reference/fontlabapp.md), [Grablab](reference/grablab.md) |
-| Inspect Glyphs scripts/plugins | [Glyport](reference/fontlab_glyport.md) |
+| Control FontLab remotely | [Remopy](packages/remopy.md) |
+| Access panels and draw | [Fontlabapp](packages/fontlabapp.md), [Grablab](packages/grablab.md) |
+| Run Glyphs scripts and plugins | [Glyport](packages/glyport.md) |
+| Use FontParts, fontTools pens and UFO | [Fontport](packages/fontport.md) |
+| Port PySide2 code | [Pythonqtside](packages/pythonqtside.md) |
+| Short imports | [Fly](packages/fly.md) |
+| Glyph and outline library | [TypeRig](packages/typerig.md) |
+| Chat with an AI agent in FontLab | [Aidus Code](packages/aidus-code.md) |
 
-Glyphs runtime/GUI adaptation and full PySide2 app compatibility are being
-implemented. Their guides distinguish current behavior from planned interfaces.
+Every package has an [overview, install and quick-start page](packages/index.md).
+Glyphs compatibility and full PySide2 app compatibility are partial; their guides
+state what works today.
 
 ## Historical documentation
 

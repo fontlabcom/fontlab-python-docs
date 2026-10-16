@@ -3,15 +3,16 @@ this_file: site-src/guide/glyphs.md
 ---
 # Glyphs compatibility
 
-`GlyphsApp` scripts and plugins are the target of this compatibility layer.
+[Glyport](../packages/glyport.md) runs Glyphs scripts and plugins inside FontLab
+9. Each run gets the `GlyphsApp` module a Glyphs script expects: `Glyphs`, the GS*
+model classes over the FontLab font, callback events and dialogs, plus Vanilla,
+AppKit and `objc` translated to FontLab's Qt. The
+[`GlyphsApp` reference](../reference/GlyphsApp.md) lists every name.
 
-The [`GlyphsApp` reference](../reference/GlyphsApp.md) lists the module that
-glyport gives each Glyphs script: `Glyphs`, callback events, dialogs and the GS*
-model classes.
+## Assess before running
 
-Glyport owns the Glyphs-to-FontLab model, script/plugin execution and dynamic
-Vanilla/AppKit/NIB/XIB-to-Qt translation. Current implementation provides
-read-only inspection of original scripts and plugin bundles.
+Inspection never executes or changes the source. It records file hashes, imports,
+plugin protocols, resources and anything that needs a missing capability:
 
 ```python
 from fontlab_glyport import inspect_source
@@ -20,17 +21,37 @@ assessment = inspect_source("OriginalScript.py")
 print(assessment.required_capabilities)
 ```
 
-Inspection records hashes, imports, protocol declarations, resources and
-limitations. It does not execute or modify source, and does not establish native
-compatibility. Profiles are `auto`, `glyphs2`, `glyphs3`, and `glyphs4`; auto
-detection currently remains unresolved.
+## Run a script
 
-The supplied corpus includes Python, native-only bundles, binary/bytecode
-dependencies, drawing and GUI resources. Native runtime, all seven plugin
-protocols, automatic source adaptation and dynamic GUI translation remain
-required implementation work. Unsupported required cases retain explicit
-unexecuted/failed/blocked outcomes.
+```python
+# Inside FontLab, on a copy of your font
+from fontlab_glyport import run_script
 
-The eventual `run_script()` and `install_plugin()` interfaces are specification
-contracts. They are not shipped runtime functions in the current inspection
-foundation. All compatibility code belongs to the independent Glyport repository.
+handle = run_script("OriginalScript.py")
+print(handle.state)
+handle.close()
+```
+
+Profiles `glyphs2`, `glyphs3` and `glyphs4` are chosen from the source or bundle
+metadata; pass `profile=` to choose one. Glyphs 2 (Python 2) source is adapted
+into a cache first; tracebacks point at the original lines.
+
+## Install a plugin
+
+```python
+from fontlab_glyport import install_plugin
+
+plugin = install_plugin("MyFilter.glyphsFilter")
+plugin.unload()
+```
+
+The seven SDK plugin classes register as real FontLab menu actions, tool windows,
+export items and Glyph-window painters; `unload()` removes them all.
+
+## What to expect
+
+- Compatibility is partial and actively extended. Every run writes a receipt;
+  a missing feature raises `UnsupportedCapability` at the script line.
+- FontLab host limits block `SelectTool` and drawing before FontLab's own glyph
+  layer. Bundles that contain only compiled macOS code cannot run.
+- Run scripts on a copy of your font until you trust them.
