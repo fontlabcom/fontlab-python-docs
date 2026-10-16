@@ -43,8 +43,9 @@ def render_page(path: str, plan: dict[str, Any]) -> str:
         else display + " · declarations " + path.rsplit("-", 1)[-1].removesuffix(".md")
     )
     lines = [f"---\nthis_file: {path}\n---", f"# {title}", ""]
-    if kind == "module" and identifier in PACKAGE_GUIDES:
-        name, slug = PACKAGE_GUIDES[identifier]
+    guides = plan.get("guides", PACKAGE_GUIDES)  # the build passes only existing guides
+    if kind == "module" and identifier in guides:
+        name, slug = guides[identifier]
         guide = posixpath.relpath(f"packages/{slug}.md", posixpath.dirname(path))
         lines += [f"Overview, install and quick start: [{name} guide]({guide}).", ""]
     if kind == "members":
