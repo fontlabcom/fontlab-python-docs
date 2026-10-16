@@ -1978,6 +1978,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fontlab_fontport.world.unregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unregister
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2005,15 +2016,34 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">register</span><span class="p">(</span><span class="n">environment</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="FontWorld (fontlab_fontport.world.FontWorld)" href="FontWorld.html#fontlab_fontport.world.FontWorld">FontWorld</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="collections.abc.Iterator">Iterator</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="FontWorld (fontlab_fontport.world.FontWorld)" href="FontWorld.html#fontlab_fontport.world.FontWorld">FontWorld</a></span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">register</span><span class="p">(</span><span class="n">environment</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="FontWorld (fontlab_fontport.world.FontWorld)" href="FontWorld.html#fontlab_fontport.world.FontWorld">FontWorld</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="Registration (fontlab_fontport.world.Registration)" href="Registration.html#fontlab_fontport.world.Registration">Registration</a></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Temporarily register the supported upstream dispatcher entries.</p>
-<p>Use as a context manager on the host thread. Nested contexts restore the
-previous environment. No namespace is replaced and no document is closed.
-Selection dispatch remains unsupported rather than returning fake state.</p>
+        <p>Install persistently now, or use as a restoring context manager.</p>
+<p>Importing Fontport alone changes no dispatchers. Existing documents stay
+borrowed; unregister restores callbacks and never closes user documents.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_fontport.world.unregister" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">unregister</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">unregister</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Undo the most recent registration, harmless when already unregistered.</p>
 
 
     </div>
