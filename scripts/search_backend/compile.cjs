@@ -14,7 +14,7 @@ const lunrLicense = fs.readFileSync(path.join(__dirname,"vendor/lunr.js"),"utf8"
 // next to an id collides ("1"+234 vs "1"+2,"3"+4) and minimisation merges distinct
 // nodes; large indexes then lose words and Index.query throws. The vendored source
 // stays byte-exact; this one line is rewritten while bundling (issue 106, final-6).
-const LUNR_PATCH = {from: "    str = str + label + node.id\n", to: "    str = str + label + node.id + \";\"\n"};
+const LUNR_PATCH = {upstream: "https://github.com/olivernn/lunr.js/issues/503 (open)", from: "    str = str + label + node.id\n", to: "    str = str + label + node.id + \";\"\n"};
 const lunrPatch = {name: "lunr-tokenset-key", setup(build) {
   build.onLoad({filter: /vendor[\\/]lunr\.js$/}, ({path: file}) => {
     const source = fs.readFileSync(file, "utf8");

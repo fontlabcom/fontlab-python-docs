@@ -45,6 +45,14 @@ route all rows rather than guessing normalization. Scores/order vary with candid
 statistics; complete result sets and named target discovery are separately gated.
 Fuzzy/internal/leading wildcard and prohibited-only queries can be slow.
 
+Third-party modification: lunr 2.3.9 keys `TokenSet` nodes as `label + id` without a
+terminator, so a digit label beside a node id can collide and minimisation merges distinct
+nodes; large indexes then lose words and `Index.query` throws (upstream
+https://github.com/olivernn/lunr.js/issues/503, open). `compile.cjs` rewrites that one line
+to `label + id + ";"` while bundling; the vendored `lunr.js` stays byte-exact and the patch is
+recorded in `bundles.json`. `scripts/lunr_patch.py` applies the same fix to the stock MaterialX
+worker after every build. Both fail unless the original line matches exactly once.
+
 Use the root README's compiler bootstrap commands. Ordinary builds use committed
 `engine.cjs`, `router.cjs`, `query.cjs` and worker, checked against `bundles.json`,
 without npm or the compiler. `compile.cjs` requires locked esbuild0.25.12 and

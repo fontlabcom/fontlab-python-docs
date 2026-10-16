@@ -256,22 +256,10 @@ def test_reconcile_when_raw_alias_was_discarded_by_resolution_then_reported():
     }
 
 
-@pytest.mark.parametrize(
-    ("alias", "target", "explained"),
-    [
-        ("fly.fp", "fontlab_fontport", True),  # private package, reviewed (issue 106)
-        ("fly.fp", "fontlab_fontport.pens", False),  # any other target stays a gap
-        ("fly.zz", "fontlab_fontport", False),  # any other alias stays a gap
-    ],
-)
-def test_reconcile_when_alias_targets_undocumented_private_package_then_explained_only_if_reviewed(
-    alias, target, explained
-):
-    """fly.fp points at Fontport, a private package the public reference does not document."""
+@pytest.mark.parametrize(("alias", "target"), [("fly.fp", "fontlab_fontport"), ("fly.zz", "fontlab_glyport")])
+def test_reconcile_when_alias_targets_an_undocumented_package_then_reported(alias, target):
+    """D14 documents Fontport; no alias may point at an undocumented package (issue 106)."""
     report = reconcile(
         MANIFEST, _symbols(), {}, provenance_capture_sha256="a" * 64, raw_aliases={alias: target}
     )
-    gaps = {(r["problem"], r["id"]) for r in report["unexplained"]}
-    assert (("alias-unresolved", alias) not in gaps) is explained
-    if explained:
-        assert report["explained"]["undocumented_alias_target"] == {alias: target}
+    assert ("alias-unresolved", alias) in {(r["problem"], r["id"]) for r in report["unexplained"]}

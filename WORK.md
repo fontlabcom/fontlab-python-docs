@@ -771,3 +771,16 @@ terms.json.gz 3,678,973 -> 1,501,986 bytes. `encodeTerms` lives beside `decodeRo
 (validation.js, exported by router.cjs) and `build.cjs` uses it; bundles recompiled with
 esbuild 0.25.12. Tests first (3 failed): round-trip, built asset format, 9 malformed
 encodings rejected. `node --test`: 22 passed; Python search tests 6 passed.
+
+## 2026-10-16: issue 106 lane C3 — D14 Fontport reference; lunr upstream reference
+
+D14 (owner): document fontlab-fontport (docstrings/signatures, Apache-2.0). `PACKAGES` gains
+`fontlab-fontport` (src/fontlab_fontport, canonical main c9fee00), nav "Ecosystem > Fontport",
+licences row "Pythonqtside, Fly, Fontport: Apache 2.0". The reviewed `fly.fp` exception is
+removed: no alias may target an undocumented package (test: fly.fp/fly.zz to missing targets
+are gaps; 16 reconcile tests pass). Being a documented package also exempts the Fontport repo
+name from the release audit's private-name check, as for the other documented packages.
+Upstream lunr report found: https://github.com/olivernn/lunr.js/issues/503 (open; same
+`TokenSet.toString` collision, also seen in Material for MkDocs). Cited in `bundles.json`
+(patch record) and `scripts/search_backend/README.md`; bundles recompile byte-identically.
+Final-9 (glyport 0baafb4 etc.): 13 gates green, stopped by the controller during build-2.
