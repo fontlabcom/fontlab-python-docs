@@ -53,14 +53,30 @@ font["A"].width = 600                     # updates the FontLab glyph
 font.close()                              # detaches; the document stays open
 ```
 
-## Limits
+Stage font information and apply it in one validated batch:
 
-- Fontport is work in progress (issue 105): groups, kerning, features, font lib,
-  layer operations and glyph undo are still being completed.
+```python
+font.info.apply({"familyName": "My Family", "ascender": 810.5},
+                undo_name="Edit font information")
+```
+
+## Limits (Fontport v1.0.0)
+
+- **Undo of geometry edits is not reliable yet.** Treat outline, component and
+  anchor edits through the live binding as permanent and work on a copy of your font.
+- **Font information writes go to the current key master only** for metrics
+  (`ascender`, `descender`, `capHeight`, `xHeight`, `italicAngle`), `styleName`
+  and `note`; family name, version fields, copyright and units per em are stored on
+  the font. Supported fields: `familyName`, `styleName`, `unitsPerEm`, `ascender`,
+  `descender`, `capHeight`, `xHeight`, `italicAngle`, `versionMajor`, `versionMinor`,
+  `note` and `copyright`; unknown fields are refused.
+- An information or groups batch is undone by the first Edit > Undo, but adds one
+  extra no-op Undo row.
+- Groups and kerning cover the current key master's classes and pairs.
 - UFO object identifiers, anchor colours, guidelines and images are refused
-  explicitly rather than dropped.
-- Develop with copies of fonts: a failure during the final write can leave
-  partial changes until native transactions land.
+  explicitly rather than dropped; glyph rename and fractional anchor positions are
+  refused too.
+- An unexpected FontLab error during the final write can leave partial changes.
 
 Reference: [fontlab_fontport](../reference/fontlab_fontport.md). Licence:
 Apache 2.0.
