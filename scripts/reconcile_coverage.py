@@ -38,7 +38,7 @@ def _captured(manifest: dict[str, Any], gap) -> tuple[set[str], dict[str, str], 
 # exact declaration lines; any further declaration makes the row unexplained.
 REVIEWED_REDEFINITIONS: dict[str, tuple[tuple[int, ...], str]] = {
     "fontlabapp.host.MENU_API": (
-        (29, 337),
+        (30, 338),
         "empty placeholder before class Menu; the final value is assigned after it",
     ),
     "typerig.core.objects.matrix.Table.__eq__": ((78, 181), "upstream defines __eq__ twice; the second wins"),
