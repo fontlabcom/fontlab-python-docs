@@ -2,6 +2,12 @@
 this_file: CHANGELOG.md
 ---
 
+## v1.0.2 — complete v1.0.1 publication (2026-10-16)
+
+- Publishes 4 TypeRig pages (`typerig.core.objects.instance`) that a template `.gitignore` rule
+  dropped from v1.0.1; their 20 identities and 20 Fly aliases resolve again. `docs/` can no
+  longer lose pages to ignore rules.
+
 ## v1.0.1 — published reference (2026-10-16)
 
 - Publishes the reviewed reference at https://code.fontlab.com/fontlab-python-docs/ (master:/docs):
