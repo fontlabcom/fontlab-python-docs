@@ -60,23 +60,35 @@ font.info.apply({"familyName": "My Family", "ascender": 810.5},
                 undo_name="Edit font information")
 ```
 
-## Limits (Fontport v1.0.0)
+## Behaviour and limits (Fontport v1.0.1)
 
-- **Undo of geometry edits is not reliable yet.** Treat outline, component and
-  anchor edits through the live binding as permanent and work on a copy of your font.
-- **Font information writes go to the current key master only** for metrics
-  (`ascender`, `descender`, `capHeight`, `xHeight`, `italicAngle`), `styleName`
-  and `note`; family name, version fields, copyright and units per em are stored on
-  the font. Supported fields: `familyName`, `styleName`, `unitsPerEm`, `ascender`,
+- **Undo:** an edit through the live binding is undone by the first Edit > Undo.
+  FontLab records one extra, empty Undo row with it (exact one-row Undo is the
+  unsupported capability `glyph.exactSingleUndo`; information batches likewise
+  report `info.exactSingleUndo`).
+- **Font information:** metrics (`ascender`, `descender`, `capHeight`, `xHeight`,
+  `italicAngle`), `styleName` and `note` are written to the current key master
+  only; family name, version fields, copyright and units per em are stored on the
+  font. Supported fields: `familyName`, `styleName`, `unitsPerEm`, `ascender`,
   `descender`, `capHeight`, `xHeight`, `italicAngle`, `versionMajor`, `versionMinor`,
-  `note` and `copyright`; unknown fields are refused.
-- An information or groups batch is undone by the first Edit > Undo, but adds one
-  extra no-op Undo row.
-- Groups and kerning cover the current key master's classes and pairs.
-- UFO object identifiers, anchor colours, guidelines and images are refused
-  explicitly rather than dropped; glyph rename and fractional anchor positions are
-  refused too.
-- An unexpected FontLab error during the final write can leave partial changes.
+  `note` and `copyright`. OpenType name records are refused, since FontLab does not
+  persist them through this route.
+- **Default and strict modes:** the v1.0.0 editing contract is the default. Stricter
+  guarantees are opt-in: `require_single_undo=True` on `font.info.apply` and
+  `require_persistence=True` on group and save operations refuse instead of
+  accepting the extra Undo row or a legacy group mode.
+- **Named refusals:** layer create, delete and rename; glyph rename; guidelines and
+  images; hinted outlines; fractional anchors and kerning; non-ASCII names for new
+  glyphs and groups; multi-layer UFO import; world selection. Each raises
+  `UnsupportedCapability` with its name before anything is written.
+- `font.capabilities()` lists every capability with its evidence. Edits made in
+  FontLab itself do not notify the binding: call `font.refresh()` and reacquire
+  glyph and layer handles afterwards.
+- FontParts coverage (FontParts 1.1.1 upstream tests, host-free backend run):
+  1,748 of 1,797 pass, 48 raise a named `UnsupportedCapability`, one is skipped
+  upstream, none fail unclassified. These are not FontLab-native passes.
+- An unexpected FontLab error during the final write can leave partial changes;
+  develop on a copy of your font.
 
 Reference: [fontlab_fontport](../reference/fontlab_fontport.md). Licence:
 Apache 2.0.
