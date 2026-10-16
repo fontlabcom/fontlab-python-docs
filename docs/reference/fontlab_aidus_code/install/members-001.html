@@ -2001,10 +2001,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab_aidus_code.install.MARKER_FORMAT" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MARKER_FORMAT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_aidus_code.install.MENU_FOLDER" class="md-nav__link">
     <span class="md-ellipsis">
       
         MENU_FOLDER
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_aidus_code.install.PACKAGE" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PACKAGE
       
     </span>
   </a>
@@ -2093,6 +2115,17 @@
     <span class="md-ellipsis">
       
         menu_state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_aidus_code.install.read_marker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        read_marker
       
     </span>
   </a>
@@ -2199,6 +2232,28 @@
 
 
 
+<h2 id="fontlab_aidus_code.install.MARKER_FORMAT" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">MARKER_FORMAT</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">MARKER_FORMAT</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
 <h2 id="fontlab_aidus_code.install.MENU_FOLDER" class="doc doc-heading">
             <span class="doc doc-object-name doc-attribute-name">MENU_FOLDER</span>
 
@@ -2209,6 +2264,28 @@
 
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="n">MENU_FOLDER</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="fontlab_aidus_code.install.PACKAGE" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">PACKAGE</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">PACKAGE</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2292,7 +2369,11 @@
 
     <div class="doc doc-contents first">
 
-        <p>Write the menu scripts; refresh an earlier copy of ours, never anything else.</p>
+        <p>Write the menu scripts with an ownership manifest.</p>
+<p>Unknown files are kept. A script this installer wrote is replaced only while
+unmodified; a modified, foreign or symlinked entry stops an install before
+anything changes, and every write or removal re-checks its destination first.
+A provisional manifest goes first, so an interrupted install can be rerun.</p>
 
 
     </div>
@@ -2368,7 +2449,31 @@
 
     <div class="doc doc-contents first">
 
-        <p>Classify the menu entry: missing, link, copy (ours) or foreign.</p>
+        <p>Classify the menu entry: missing, link, empty (unmarked, nothing inside),
+copy (ours, valid manifest) or foreign.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_aidus_code.install.read_marker" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">read_marker</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">read_marker</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="dict">dict</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>The validated ownership manifest, or None (absent, symlinked, malformed or foreign).</p>
+<p><code>files</code> maps each owned script to the sha256 written last; while an install is
+in progress (<code>state: installing</code>) <code>pending</code> maps the scripts about to be
+written to their new sha256, so an interrupted run can be resumed.</p>
 
 
     </div>
@@ -2383,12 +2488,13 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">uninstall</span><span class="p">(</span><span class="n">user_folder</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="bool">bool</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">uninstall</span><span class="p">(</span><span class="n">user_folder</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="dict">dict</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Remove our copy. Return False when nothing of ours is installed.</p>
+        <p>Remove the unmodified files this installer wrote, then the folder if it is empty.</p>
+<p>Returns None when nothing of ours is installed, else {"removed", "kept", "folder_removed"}.</p>
 
 
     </div>

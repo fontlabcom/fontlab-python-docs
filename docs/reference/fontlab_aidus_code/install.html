@@ -2035,10 +2035,13 @@
 installer symlinked the whole plugin into FontLab's Scripts folder, replaced
 whatever was there, and ran <code>uv sync</code> for the brain. Here the host package is
 installed with <code>uv pip</code> (README), and this module only manages
-<code>&lt;user folder&gt;/Scripts/Aidus Code</code>. It writes the same three thin menu scripts
-as the repository's <code>Aidus Code/</code> folder, together with a marker file. It never
-replaces or removes an entry that has no marker; the workspace orchestrator's
-symlink is one such entry.</p>
+<code>&lt;user folder&gt;/Scripts/Aidus Code</code>: the same three thin menu scripts as the
+repository's <code>Aidus Code/</code> folder plus a manifest (<code>.fontlab-aidus-code-install</code>,
+format 1) holding the sha256 of every file it wrote. Ownership is per file:
+unknown entries are kept, a modified, foreign or symlinked entry stops an install
+before anything changes, and uninstall removes only unmodified owned files and
+the folder only when it is then empty. A folder without a valid manifest,
+including the workspace orchestrator's symlink, is never touched.</p>
 <p>Run on the host, not inside FontLab: <code>fontlab-aidus-install {install,check,uninstall}</code>.</p>
 
 
@@ -2098,9 +2101,19 @@ symlink is one such entry.</p>
 <td><a href="install/members-001.html#fontlab_aidus_code.install.MARKER">Signature and documentation</a></td>
 </tr>
 <tr>
+<td><span id="fontlab_aidus_code.install.MARKER_FORMAT"></span><code>MARKER_FORMAT</code></td>
+<td>attribute</td>
+<td><a href="install/members-001.html#fontlab_aidus_code.install.MARKER_FORMAT">Signature and documentation</a></td>
+</tr>
+<tr>
 <td><span id="fontlab_aidus_code.install.MENU_FOLDER"></span><code>MENU_FOLDER</code></td>
 <td>attribute</td>
 <td><a href="install/members-001.html#fontlab_aidus_code.install.MENU_FOLDER">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab_aidus_code.install.PACKAGE"></span><code>PACKAGE</code></td>
+<td>attribute</td>
+<td><a href="install/members-001.html#fontlab_aidus_code.install.PACKAGE">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="fontlab_aidus_code.install.SCRIPT"></span><code>SCRIPT</code></td>
@@ -2141,6 +2154,11 @@ symlink is one such entry.</p>
 <td><span id="fontlab_aidus_code.install.menu_state"></span><code>menu_state</code></td>
 <td>function</td>
 <td><a href="install/members-001.html#fontlab_aidus_code.install.menu_state">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab_aidus_code.install.read_marker"></span><code>read_marker</code></td>
+<td>function</td>
+<td><a href="install/members-001.html#fontlab_aidus_code.install.read_marker">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="fontlab_aidus_code.install.uninstall"></span><code>uninstall</code></td>

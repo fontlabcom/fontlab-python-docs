@@ -7,6 +7,8 @@ Fontlabapp is the Python layer for FontLab's application surface: menus and
 actions, panels, preferences, versions and paths, Glyph and Preview windows,
 drawing overlays, and docks, dialogs and widgets you create yourself.
 
+This page describes Fontlabapp v0.2.4.
+
 ## Install
 
 Install `fontlab-fontlabapp` into FontLab's Python folder; see

@@ -854,3 +854,15 @@ removed after the hotfix. Feature branch: 6d75b38 (promotion refuses git-ignored
 `crypto.getRandomValues` when `crypto.randomUUID` is absent (plain-http pages). Local gates
 serve 127.0.0.1, a secure context, so they could not catch that; the new node vm test (UI
 script with a crypto lacking randomUUID) failed first, then 23 node tests pass.
+
+## 2026-10-16 08:17: v1.0.4 published (final-17, X4r7 APPROVE)
+
+Release (D17, `.worktrees/rel-docs`, removed afterwards): ff master to 448c1b8 (v1.0.3); merge
+266b3f3 clean -> 45c90e0; docs/ tree == 266b3f3; `git ls-files docs` == final-17 manifest
+(6,180, 0 missing, 0 extra); CHANGELOG v1.0.4 entry; `gitnextver -d .worktrees/rel-docs` ->
+master 7663ff4, tag v1.0.4 (both pushed; origin/master tracks 6,180 docs files). Pages built
+7663ff4. Live checks (evidence `verification/issue-106/evidence/C3/release-v1.0.4/`):
+https deployed_check exit 0, 859 targets, 0 failures; https interaction_check exit 0, PASS, all
+seven cases 4/4; packages/fontport.html: "key master" x2, "v1.0.2" x3; packages/fontlabapp.html:
+"key master" x2, unfinished-edits note x1, no "v0.2.4" label (the guide describes v0.2.4
+behaviour without naming the version); http -> 301 https; typerig instance pages 200.
