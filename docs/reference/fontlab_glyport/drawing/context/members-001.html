@@ -2045,10 +2045,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab_glyport.drawing.context.optional_current" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        optional_current
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_glyport.drawing.context.paint_scope" class="md-nav__link">
     <span class="md-ellipsis">
       
         paint_scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_glyport.drawing.context.reporter_view_scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reporter_view_scope
       
     </span>
   </a>
@@ -2293,6 +2315,31 @@
 <div class="doc doc-object doc-function">
 
 
+<h2 id="fontlab_glyport.drawing.context.optional_current" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">optional_current</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">optional_current</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="GraphicsContext
+
+
+  
+      dataclass
+   (fontlab_glyport.drawing.context.GraphicsContext)" href="GraphicsContext.html#fontlab_glyport.drawing.context.GraphicsContext">GraphicsContext</a></span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>A nil Cocoa context: geometry works, painting has no destination.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="fontlab_glyport.drawing.context.paint_scope" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">paint_scope</span>
 
@@ -2304,6 +2351,26 @@
     <div class="doc doc-contents first">
 
         <p>Factory for <code>PluginEnv.paint_scope</code>: glyph units -&gt; widget pixels.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_glyport.drawing.context.reporter_view_scope" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">reporter_view_scope</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">reporter_view_scope</span><span class="p">(</span><span class="n">scale</span><span class="p">:</span> <span class="n"><span title="float">float</span></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>View hooks use the widget bounds in Cocoa points, independent of glyph origin.</p>
 
 
     </div>

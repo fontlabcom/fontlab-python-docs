@@ -2135,6 +2135,7 @@ Python. Responses stream into the dock.</p>
 <p>The FontLab plugin runs in FontLab's Python 3.11. The AI "brain" runs in a
 separate Python 3.13+ process, so no AI libraries go into FontLab. The AI provider
 you configure receives your prompts and the tool results the agent uses.</p>
+<p>This page describes Aidus Code v0.2.1.</p>
 <h2 id="install">Install</h2>
 <ol>
 <li>
@@ -2154,6 +2155,9 @@ uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </s
 <div class="highlight"><pre><span></span><code><span class="nv">PYTHONPATH</span><span class="o">=</span>~/.local/share/fontlab-aidus/host<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>fontlab_aidus_code.install<span class="w"> </span>install
 <span class="nv">PYTHONPATH</span><span class="o">=</span>~/.local/share/fontlab-aidus/host<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>fontlab_aidus_code.install<span class="w"> </span>check
 </code></pre></div>
+<p>The installer records the files it owns. Reinstalling or uninstalling keeps
+your own files. An install stops before changing anything when a script it
+would replace was modified, is not its own or is a symlink.</p>
 </li>
 <li>
 <p>Configure the brain Python path and your AI provider keys as described in the

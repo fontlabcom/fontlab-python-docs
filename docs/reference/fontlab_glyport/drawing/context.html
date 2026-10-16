@@ -2039,8 +2039,9 @@ shape is painted (no arithmetic on PythonQt wrappers; unary minus on them
 crashes FontLab). The base transform maps the drawing space (glyph units, or
 a view's y-up coordinates) to widget pixels.</p>
 <p>A context exists only inside a scope (<code>paint_scope</code> for editor painters,
-<code>view_scope</code> for <code>NSView.drawRect_</code>); drawing outside one raises
-<code>RuntimeError</code>, so a retained painter cannot paint after its callback.</p>
+<code>view_scope</code> for <code>NSView.drawRect_</code>). State operations outside one raise
+<code>RuntimeError</code>; path painting with no destination is a no-op, as in Cocoa.
+A retained painter cannot paint after its callback.</p>
 
 
 
@@ -2120,9 +2121,19 @@ a view's y-up coordinates) to widget pixels.</p>
 <td><a href="context/members-001.html#fontlab_glyport.drawing.context.invert">Signature and documentation</a></td>
 </tr>
 <tr>
+<td><span id="fontlab_glyport.drawing.context.optional_current"></span><code>optional_current</code></td>
+<td>function</td>
+<td><a href="context/members-001.html#fontlab_glyport.drawing.context.optional_current">Signature and documentation</a></td>
+</tr>
+<tr>
 <td><span id="fontlab_glyport.drawing.context.paint_scope"></span><code>paint_scope</code></td>
 <td>function</td>
 <td><a href="context/members-001.html#fontlab_glyport.drawing.context.paint_scope">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="fontlab_glyport.drawing.context.reporter_view_scope"></span><code>reporter_view_scope</code></td>
+<td>function</td>
+<td><a href="context/members-001.html#fontlab_glyport.drawing.context.reporter_view_scope">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="fontlab_glyport.drawing.context.rotation"></span><code>rotation</code></td>
