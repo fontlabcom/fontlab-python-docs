@@ -74,8 +74,10 @@ Install the extra that matches the tools you need:
 | `fontlab-fontlabapp[fontsequence]` | `glyph_sequence` |
 | `fontlab-fontlabapp[fontedit]` | `font_info_editor`, `groups_editor`, `kerning_editor`, `features_editor`, `designspace_panel`, `transform_editor`, `batch_panel` |
 
-Each function returns a handle. Keep a reference to it, show its `.widget`,
-call `.refresh()` after edits made elsewhere and `.close()` when you are done:
+Each function returns a handle. Keep a reference to it, show its `.widget` and
+call `.close()` when you are done. The browsers, preview, sequence and the info,
+groups, kerning and features editors also have `.refresh()` for edits made
+elsewhere; `batch_panel`, `transform_editor` and `designspace_panel` do not:
 
 ```python
 # Inside FontLab, with the fontui extra and ufoLib2 installed

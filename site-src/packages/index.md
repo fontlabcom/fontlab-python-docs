@@ -31,6 +31,24 @@ uv pip install --python 3.11 \
   PATH_TO_WHEEL
 ```
 
+### Editable install from a checkout
+
+To work on a package, install its Git checkout in editable mode into FontLab's
+per-user Python environment. When that folder is the `site-packages` of a virtual
+environment (for example a link into `FontLab 9/.venv`), point `--python` at that
+environment's interpreter; `--link-mode=copy` copies files from uv's cache instead
+of linking them:
+
+```sh
+FL_PY="$HOME/Library/Application Support/FontLab/FontLab 9/.venv/bin/python"
+uv pip install --python "$FL_PY" --link-mode=copy -e path/to/fontlab-glyport
+uv pip install --python "$FL_PY" --link-mode=copy -e path/to/fontlab-fontport
+```
+
+Repeat for each checkout you develop
+(Echopy, Fly, Fontlabapp, Grablab, Remopy, Aidus Code, Glyport, Fontport). Source
+edits are live in FontLab once the package's modules are reloaded.
+
 Restart FontLab, or remove the package's modules from `sys.modules`, to load a
 new version: FontLab keeps imported modules between script runs. Packages with
 compiled extensions must match FontLab's architecture (arm64 on Apple silicon).
