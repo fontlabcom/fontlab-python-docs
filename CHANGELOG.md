@@ -2,6 +2,14 @@
 this_file: CHANGELOG.md
 ---
 
+## v1.0.5 — Glyport v1.0.1, Aidus Code v0.2.1, Echopy v0.2.2 (2026-10-16)
+
+- Rebuilt from Glyport v1.0.1 (a81c6f5), Aidus Code v0.2.1 (32523d4) and Echopy v0.2.2 (f6e2d75); the Glyport,
+  Aidus Code and Echopy guides state the documented versions.
+- Glyport guide: glyph creation keeps existing composites that FontLab re-resolves (fontlab/fl#8512).
+- Aidus Code guide: installer note.
+- Artifact: final-18 (docs deb4171), all 16 gates passed; review X4s APPROVE.
+
 ## v1.0.4 — Fontport v1.0.2 and Fontlabapp v0.2.4 (2026-10-16)
 
 - Rebuilt from Fontport v1.0.2 and Fontlabapp v0.2.4 (with glyport acca128, Echopy 791fa55).
