@@ -2,6 +2,22 @@
 this_file: CHANGELOG.md
 ---
 
+## Issue 106 — completed (lane C3, 2026-10-16)
+
+- [x] Release audit decodes layered escapes (JSON/JS `\uXXXX \xXX \/ \\`, percent, HTML
+  character references incl. numeric ones without `;`), re-parses JSON nested in strings and
+  fails closed (`decode-limit`) beyond its bounds (a211a02, 4e61a68, f712bec, 9633e1d).
+  X4b/X4c findings; X4f and X4n APPROVE.
+- [x] Finder `.DS_Store` written into the generation stage no longer breaks a build (d6a4280).
+- [x] lunr 2.3.9 TokenSet key collision (upstream olivernn/lunr.js#503) patched in every
+  shipped search engine: complete-search bundles at compile time, stock MaterialX worker after
+  each build (3ad6570). X4n APPROVE.
+- [x] Front-coded routing vocabulary keeps the R041 5 MiB initial search budget: initial
+  payload 3,078,385 bytes (2118409). X4n APPROVE (862,620 terms round-trip).
+- [x] Consolidated rebuilds at merged glyport: final-10 all 16 gates exit 0 (300 tests; release
+  audit 6,002 files, 0 findings; determinism identical; 242,654/242,654 identities); lock
+  6395a8f. Evidence: workspace `verification/issue-106/evidence/C3/final-1/` .. `final-10/`.
+
 ## Issue 104 — completed (lane L5, 2026-10-15)
 
 - [x] Coverage reconciled against Echopy's capture identity manifest in every
