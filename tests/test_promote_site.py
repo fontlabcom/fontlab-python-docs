@@ -43,3 +43,14 @@ def test_promote_when_site_differs_from_accepted_build_then_docs_is_untouched(tm
     with pytest.raises(ValueError, match="differs from accepted"):
         promote(tmp_path)
     assert (tmp_path / "docs/index.html").read_text() == "historical"
+
+
+def test_promote_when_site_holds_files_outside_the_manifest_then_they_are_not_published(tmp_path):
+    """X4r3 (issue 106): only manifest paths are copied; __pycache__ and the like never are."""
+    site = _accepted(tmp_path, {"index.html": "new", ".nojekyll": ""})
+    (site / "__pycache__").mkdir()
+    (site / "__pycache__/stray.cpython-312.pyc").write_bytes(b"\0")
+    promote(tmp_path)
+    docs = tmp_path / "docs"
+    assert sorted(p.relative_to(docs).as_posix() for p in docs.rglob("*") if p.is_file()) == [
+        ".nojekyll", "build-provenance.json", "index.html"]

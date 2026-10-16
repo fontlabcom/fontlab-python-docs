@@ -28,10 +28,19 @@ def promote(root: Path = ROOT) -> dict:
         raise ValueError(f"Site differs from accepted build; docs/ unchanged ({error})") from error
     site, docs = root / ".build/site", root / "docs"
     accepted = (root / ".build/accepted-build.json").read_bytes()
+    # Copy exactly the accepted manifest: anything else in the site (Finder
+    # metadata, __pycache__) is never published.
+    wanted = [*json.loads(accepted)["rendered"], "build-provenance.json"]
     if docs.exists():
         shutil.rmtree(docs)
-    shutil.copytree(site, docs, ignore=shutil.ignore_patterns(".DS_Store"))
+    for relative in wanted:
+        target = docs / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(site / relative, target)
     (docs / ".nojekyll").touch()
+    published = sorted(p.relative_to(docs).as_posix() for p in docs.rglob("*") if p.is_file())
+    if published != sorted({*wanted, ".nojekyll"}):
+        raise ValueError("Promoted docs/ holds files outside the accepted build")
     if file_manifest(docs, exclude=("build-provenance.json",)) != json.loads(accepted)["rendered"]:
         raise ValueError("Promoted docs/ differs from accepted build")
     if (docs / "build-provenance.json").read_bytes() != accepted:

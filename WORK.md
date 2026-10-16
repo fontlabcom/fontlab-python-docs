@@ -834,3 +834,15 @@ glyport 526f165, aidus-code ed318c3, others as final-11. All 16 gates exit 0; 30
 release audit 6,128 files 0 findings; 242,654/242,654 identities; 820 shim exports. Lock delta:
 echopy shims (+ vanilla.test, vanilla.vanillaBase), glyport src (F25–F47), fontlabapp `fontui`
 (21 new modules from issue 105, merged into canonical fontlabapp).
+
+## 2026-10-16: v1.0.1/v1.0.2 published; X4r3 follow-ups
+
+v1.0.1 (master 2bcb0c7): final-11 artifact rebuilt at 9161c0c, 6,015 rendered files equal to the
+accepted manifest; https deployed_check pass (855), interaction PASS; http deployed_check pass,
+http search fails (`crypto.randomUUID` needs a secure context). X4r3: `.gitignore` `instance/`
+dropped 4 TypeRig pages from git -> v1.0.2 (master 9cedbc1, tag v1.0.2): rule anchored
+(`/instance/`), `!docs/**` added; all 6,015 manifest paths tracked; the 4 pages served
+byte-identical over https and http. Feature branch: same ignore fix (bfabe26); promote_site
+copies exactly the manifest (stray __pycache__ test failed first; 3 tests pass); Fontlabapp
+guide gains a FontUI section (extras, minimal font_browser example with handle retention,
+show, close), verified against fontlabapp's fontui API and examples/font_browser.py.
