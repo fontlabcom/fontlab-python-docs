@@ -916,3 +916,55 @@ Z24 final-v3 frozen-input strict build and promotion into the isolated local doc
 Git autocrlf=input silently normalized three source-bound upstream notice payloads in HEAD. Add scoped `/src_docs/md/licenses/** -text`; restore only bytes proven by unchanged manifest hashes. Preserve all prior attributes and manifests. Regression uses a private temporary Git repository with command-scoped autocrlf=input and checks all notice index, checkout-index and archive bytes, including CRLF probes for LF-only notices. It works from Git-free SDK/source archives and explicitly skips only the Git distribution check if Git itself is absent. No production module or dependency changes.
 
 Tests-first red and green receipts, all84 notice byte audits, full source/docs suites, locked offline strict builds, served notice URLs and privacy receipts live in parent `verification/issue-120/notice-byte-preservation-z26/`. Exact commands and exits are in `N4-notice-bytes-report.md`. Publication/transitive inventory flags remain false; native acceptance remains pending. No commit/push/native/live install.
+
+## Issue120 Z26 — isolate notice-regression Git environment
+
+The earlier pushed notice-byte regression inherited repository-local Git variables
+from real pre-push hooks. The controller retained and restored its own affected
+Scriptmix worktree index; all437physical source files remained byte-identical
+to HEAD. The three earlier notice commits remain published; their completed
+real hook exits do not prove parent-index preservation.
+
+Tests first reproduce parent index/config/object mutations using two private
+repositories only, for both default and alternate parent index paths. Child Git
+commands now remove names returned by `git rev-parse --local-env-vars` from a
+copied environment before init/add/checkout/archive, and have10second deadlines.
+The injected-context regression preserves the caller environment and compares
+every parent file, including index, config, refs, objects and unstaged content.
+The original full-notice byte assertions and CRLF probes are unchanged.
+
+Exact commands, exits, ordinary baselines, red/green controls and source-only
+acceptance are retained in workspace
+`verification/issue-120/notice-env-isolation-z26/`; see
+`docs/maestro/issue120/layer-navigation-z26/N11-notice-env-fix-report.md`.
+All commands run through `rtk proxy`; an initial machine PATH selection of broken
+`/usr/bin/git` is retained separately, followed by actual Homebrew Git controls.
+No production module, notice payload/manifest, attribute, dependency, hook, Git
+configuration, coverage floor/baseline, source lock or live/native state changed.
+
+Wait, but: successful isolation tests do not accept the whole issue120 workflow.
+This corrective candidate requires fresh independent review before commit/push;
+all native, integration, release, transitive inventory and publication gates remain.
+
+Final frozen-code checks: API complete docs suite345passed/1existing built-worker skip; Git-free notice suites
+API5/Examples5/Scriptmix6pass. No-Git runs retain manifest checks and report
+API2pass/3skip, Examples2pass/3skip, Scriptmix3pass/3skip. Removing only child
+environment isolation fails both parent-preservation controls in all3private
+copies; removing attributes still fails actual index-byte normalization in all3.
+All84upstream notice payloads remain byte-exact across source, original, HEAD,
+index, fresh checkout, archive and built site.
+
+```sh
+rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/verify.py suites
+rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/verify.py suites examples scriptmix
+rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/negative_isolation.py
+rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/verify.py bytes
+```
+
+Full-suite prerequisites: retained API failure required its existing hardcoded
+TypeRig sibling layout; supplied an evidence-only alias to the frozen source.
+Examples first full-docs attempt used API's environment and failed on missing
+print-site plugin; rerun with each repository's existing locked docs environment
+passes. No dependency or configuration change. Exact nested argv/exits and
+failed attempts remain in the parent verification receipts. Independent review
+and later actual-hook before/after index/config/origin preservation are pending.

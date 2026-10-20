@@ -224,3 +224,13 @@ Add source-bound full texts and provenance for named frontend components, includ
 ## Issue120 Z26
 
 Preserve exact upstream notice bytes through Git filters, fresh checkout and archives; add a CRLF distribution regression. Source manifests and pending publication scope remain unchanged.
+
+## Unreleased — isolate temporary notice repositories
+
+- Clear Git's documented repository-local environment for temporary notice
+  distribution commands and bound each child call to10seconds.
+- Exercise inherited hook context with both default and alternate parent indexes;
+  require byte-exact preservation of parent config, refs, index, objects, files
+  and caller environment. Keep every notice/filter/checkout/archive assertion.
+- Preserve all upstream notice payloads and existing attributes/manifests.
+  Source-only correction awaits fresh independent review; no new commit/push.
