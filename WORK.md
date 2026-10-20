@@ -968,3 +968,48 @@ print-site plugin; rerun with each repository's existing locked docs environment
 passes. No dependency or configuration change. Exact nested argv/exits and
 failed attempts remain in the parent verification receipts. Independent review
 and later actual-hook before/after index/config/origin preservation are pending.
+
+## 2026-10-21 — N60 private final-producer documentation alignment
+
+Combined exact reviewed15e0c41 producer/browser-notice payload with preserved
+canonical owner sources, then reviewed705→734 source inputs before private lock
+refresh (29new,10modified,no removals). Exact previous modified bytes and diffs
+are retained in workspace verification/issue-120/docs-alignment-z30/. No native
+refresh, canonical write, live installation or publication.
+
+Commands: rtk proxy ./build.sh --offline --update-source-lock (exit0); strict
+render188.25s,5925pages,6876promoted files. API route/archive/budgets pass.
+rtk proxy env PATH=/opt/homebrew/bin:/Users/adam/.local/bin:/usr/bin:/bin
+PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 FONTLAB_REQUIRE_CONSUMER=1
+uv run --no-sync python -m pytest -q -p no:cacheprovider tests (exit0,343passed).
+Initial full run341passed/2Gitsetup failures from broken systemXcode retained;
+HomebrewGit correction also passes all5promotion tests. Unchanged interaction
+and accessibility checkers each pass28/28. Exact served notices and release
+audit pass; owner preimages and source-only canonical preparation retained.
+Only local private artifacts accepted; root review/application and remote
+publication remain separate gates.
+
+## 2026-10-21 — N65 explicit App.74/Fontport7a docs checkpoint
+
+Retain N60 as history. This checkpoint documents App5fe498e(.74), Glyport2c46c729,
+Fontport7a6e400(issue-120-fontport-ui-integration; main3d8fe370 unchanged),
+Examples108f0ac(30) and Scriptmix1f8abf9(103). Only the reviewed Fontport Vanilla
+compatibility-input hash changes within the734-input lock. Native APIs were not
+called. Strict build,343 required-consumer tests and targeted public Fontport/Fly
+alias worker/browser controls pass. The four public alias names resolve to the
+existing App VanillaSession/close bodies. All734 exact source inputs are retained
+in private evidence for reproducibility after producer branches move.
+
+This is an explicit historical source checkpoint once App.76 or .80 lands, not
+a claim of current final-producer parity. Perform one final reviewed refresh
+after the combined producer freeze. No publication is authorized. N65 retains
+exact canonical owner/index/docs preimages, five physical drift refusals and a
+third-write rollback/private source application. Root review precedes any new
+feature commit/push or canonical fast-forward. Evidence: workspace
+verification/issue-120/docs-canonical-integration-z31/.
+
+N65 clean-distribution review also retains the already reviewed N26 descendants
+58968fcb (exact original notice bytes/attributes) and1f28c82 (inherited Git-context
+isolation). The older15e workingtree happened to retain CRLF, while its Git blobs
+normalized three texts. The prepared feature therefore uses1f28c82 as its exact
+reviewed base; it never substitutes LF or changes declared notice hashes.

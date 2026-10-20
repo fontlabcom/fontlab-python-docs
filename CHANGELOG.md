@@ -234,3 +234,19 @@ Preserve exact upstream notice bytes through Git filters, fresh checkout and arc
   and caller environment. Keep every notice/filter/checkout/archive assertion.
 - Preserve all upstream notice payloads and existing attributes/manifests.
   Source-only correction awaits fresh independent review; no new commit/push.
+
+## 2026-10-21 — private final-producer docs candidate
+
+- Preserve reviewed public-source/browser-notice producer payload and all owner
+  preimages; explicitly pin734 reviewed current source inputs.
+- Locally build/verify final App220/Glyport115 API with5925pages; retain unchanged
+  archive/route/search limits,343tests and28/28interaction/accessibility gates.
+- Keep canonical application and publication pending root review.
+
+## 2026-10-21 — App.74/Fontport7a source checkpoint, not publication
+
+- Pin the reviewed Fontport App Vanilla compatibility import within734API inputs.
+- Build/verify current checkpoint aliases with343tests and targeted browser/worker
+  controls; preserve prior N60 evidence and all owner source/index/docs preimages.
+- Keep later App.76/.80 producer refresh, root-reviewed feature/canonical delivery
+  and publication separate; no native acceptance is advanced.
