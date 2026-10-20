@@ -37,3 +37,7 @@ Griffe and MaterialX remain pinned. No new dependency: a small static Griffe ext
 Build dependencies and theme assets remain unchanged. Source inputs advance to the reviewed App 0.2.62.dev0 and Glyport 1.0.8.dev28 feature candidates; all changed bytes match verified wheel/sdist payloads. The other 668 previous inputs remain exact. This does not change runtime dependencies, native captures or publication authorization.
 
 The source-visibility repair uses the existing source-order binding resolver and Griffe C3 implementation. No dependency or compiler bundle changes. Same-name import aliases and literal export lists identify public paths; base traversal retains only statically bound identities. Native fields retain their existing visibility policy.
+
+## Issue120 Z24 frontend notices
+
+No build/runtime dependency changes. Existing locked ProperDocs/MaterialX/plugin versions remain. Browser notice texts record pinned npm/publisher sources and the captured shared-theme/font responses; the full transitive review remains open.

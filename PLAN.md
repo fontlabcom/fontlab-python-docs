@@ -27,3 +27,7 @@ CHANGELOG.md. Publication is the controller's (runbook: workspace
 - [x] Refresh and verify the 705-input producer lock against the latest reviewed App/Glyport source and ordinary archives.
 - [x] Verify complete captured-native identity reconciliation, current API anchors, both search consumers, 64 accessibility views and 28 interaction checks.
 - Keep whole-branch integration, released dependency, native and publication gates open.
+
+## Issue120 Z24 frontend notices
+
+Complete the full transitive asset/component inventory, Wordcut dictionary/modules and source-availability proof, TinySegmenter/Clipboard leaf notices, CSS data SVGs, external response variants and whole-site publication gates. Retain all original native, runtime, corpus and release requirements.

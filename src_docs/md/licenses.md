@@ -25,3 +25,6 @@ Qt documentation and PySide2 signatures were transformed into Python
 docstrings by Echopy. Their source URLs and SHA-256 revisions are recorded in
 Echopy's `reports/qt-enrichment.json`. No Qt, PySide2 or proprietary binaries
 or source files are published on this site.
+
+The [browser asset notices](frontend-notices.md) retain full texts and source
+provenance for named frontend components. Their transitive review remains open.

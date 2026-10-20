@@ -15,3 +15,5 @@ this_file: TODO.md
 
 - [x] Z19: verify the complete current API source/build/browser candidate (final push-gate verdict is retained in the workspace evidence).
 - [ ] Z19: complete native, released dependency, whole-branch integration and publication qualification before promotion.
+
+- [ ] Z24: complete transitive frontend provenance/notices/source availability and full publication qualification; named-component notices alone do not close this gate.

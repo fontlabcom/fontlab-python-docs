@@ -216,3 +216,7 @@ Static reference generation retains authored Griffe extensions, including namesp
 - Retain complete native identity reconciliation and local build/search/browser gates. Native execution, whole-branch integration, released dependencies and publication remain pending.
 
 - Keep the full real search-worker fixture on loopback HTTP, preserving all complete-index bytes, ranking assertions and deadlines; verify UTF-8 transport explicitly.
+
+## Issue120 Z24 — browser notices
+
+Add source-bound full texts and provenance for named frontend components, including transitive JavaScript dependencies, icons, shared theme inputs and external font responses. Keep the full transitive/publication review explicitly open; runtime assets and retained archives are unchanged.

@@ -904,3 +904,9 @@ canonical statuses remain exact. No theme, authored guide, archive or build
 dependency changes. The unchanged pre-push hook enforces the complete milestone
 scope, not just the three newly changed modules; its final verdict and feature
 refs are retained in the parent workspace evidence. No native/publication claim.
+
+## Issue120 Z24 — frontend notice candidate
+
+Three baseline suites pass. Tests first reject absent notice artifacts; the authored full-text SHA/link/provenance checks then pass. Notice/provenance pages retain 23 named component groups (24 where print-site is shipped). No runtime assets, source producers, original examples or archive bytes change. Complete transitive closure, Wordcut embedded modules/dictionary, TinySegmenter, Clipboard leaf notices, CSS data SVGs and full publication qualification remain open. Exact commands and failed attempts are retained in the parent workspace at verification/issue-120/frontend-notices-z24. Strict-build, full-suite, browser/privacy and preservation acceptance follow this candidate. Wait, but: a named-component notice batch does not prove the complete transitive inventory or a published site.
+
+Z24 final-v3 frozen-input strict build and promotion into the isolated local docs folder pass (6831 files). The earlier final-v2 attempt correctly rejected an in-flight notice-JSON metadata edit; its failed log is retained. Preserve both Lunr source-header and npm-distribution copyright variants and explicitly record the existing stock-worker TokenSet separator modification. Full rendered-route/text/privacy/browser and real pre-push evidence lives in the parent workspace at verification/issue-120/frontend-notices-z24. No generated docs or publication is part of this source-only feature branch. Full transitive frontend inventory and all original whole-branch/native/release gates remain open.
