@@ -208,3 +208,11 @@ this_file: CHANGELOG.md
 ## Issue120 current documentation Z5
 
 Static reference generation retains authored Griffe extensions, including namespace visits; reviewed TypeRig array-index literals render as code. Duplicate Table.__eq__ definitions remain recorded with their exact source fingerprints. The reviewed producer lock now binds 678 current inputs.
+
+## Unreleased — Issue120 Z19
+
+- Refresh the reviewed API producer lock to App 0.2.62.dev0 and Glyport 1.0.8.dev28: 705 inputs, 27 additions and no removals.
+- Restore explicit same-name absolute re-exports, literal `__all__` exports and public inherited members from private bases. Keep canonical source bodies, source-order invalidation and C3 ordering; exclude unrelated private declarations and undefined export names.
+- Retain complete native identity reconciliation and local build/search/browser gates. Native execution, whole-branch integration, released dependencies and publication remain pending.
+
+- Keep the full real search-worker fixture on loopback HTTP, preserving all complete-index bytes, ranking assertions and deadlines; verify UTF-8 transport explicitly.

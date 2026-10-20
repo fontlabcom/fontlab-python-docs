@@ -12,3 +12,6 @@ this_file: TODO.md
 
 - [x] Verify current source documentation locally (Z5 evidence).
 - [ ] Review and qualify the complete documentation branch and pending native/publication gates.
+
+- [x] Z19: verify the complete current API source/build/browser candidate (final push-gate verdict is retained in the workspace evidence).
+- [ ] Z19: complete native, released dependency, whole-branch integration and publication qualification before promotion.

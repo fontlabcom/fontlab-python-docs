@@ -8,8 +8,8 @@ from importlib.util import resolve_name
 from typing import Any
 
 
-def exported_aliases(tree: ast.Module, module: str, *, package: bool) -> dict[str, str]:
-    """Resolve source-declared public imports and small lazy export registries."""
+def _export_contract(tree: ast.Module) -> tuple[set[str] | None, dict]:
+    """Read literal export lists and registries without evaluating source."""
     exports = None
     registries = {}
     for node in tree.body:
@@ -25,9 +25,27 @@ def exported_aliases(tree: ast.Module, module: str, *, package: bool) -> dict[st
                 exports = set(value)
             elif isinstance(value, dict):
                 registries[key] = value
+    return exports, registries
+
+
+def exported_aliases(tree: ast.Module, module: str, *, package: bool) -> dict[str, str]:
+    """Resolve source-declared public imports and small lazy export registries."""
+    exports, registries = _export_contract(tree)
     aliases = {}
     context = module if package else module.rpartition(".")[0]
     for node in tree.body:
+        if isinstance(node, ast.Import):
+            for name in node.names:
+                public = name.asname or name.name.partition(".")[0]
+                explicit = (
+                    public in exports
+                    if exports is not None
+                    else name.asname == name.name
+                )
+                if explicit and (not public.startswith("_") or exports is not None):
+                    origin = name.name if name.asname else public
+                    aliases[module + "." + public] = origin
+            continue
         if not isinstance(node, ast.ImportFrom):
             continue
         origin = "." * node.level + (node.module or "")
@@ -35,10 +53,12 @@ def exported_aliases(tree: ast.Module, module: str, *, package: bool) -> dict[st
             origin = resolve_name(origin, context)
         for name in node.names:
             public = name.asname or name.name
-            if public.startswith("_") or public == "*":
+            if (
+                public.startswith("_") and (exports is None or public not in exports)
+            ) or public == "*":
                 continue
             if (exports is not None and public in exports) or (
-                exports is None and node.level
+                exports is None and (node.level or name.asname == name.name)
             ):
                 aliases[module + "." + public] = origin + "." + name.name
     for name, origin in registries.get("_EXPORTS", {}).items():

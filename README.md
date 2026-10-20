@@ -162,13 +162,13 @@ Qt/PySide documentation attribution. Shared theme ownership is in THEME.md.
 
 ## Status
 
-Built and verified locally (unpublished; evidence in the workspace
-`verification/issue-101-ecosystem/evidence/`):
+Built and verified locally (unpublished; latest source candidate evidence in
+`verification/issue-120/docs-current-z19/`):
 
 - Source-only reference from Echopy and the ecosystem packages with ProperDocs,
   MaterialX, fltheme26, mkdocstrings (Python handler), autorefs and Griffe; no
-  native imports in normal builds. Latest strict render 177 s; native inspection remains disabled.
-- Coverage report: 249,796 member identities on 5,368 pages, native aliases,
+  native imports in normal builds. Native inspection remains disabled.
+- Coverage report: 251,190 member identities on 5,880 pages, native aliases,
   per-class inherited indexes, declaration-time base binding (N1).
 - Reconciliation (R014): every build checks coverage against Echopy's shipped
   capture identity manifest (`fontlab_echopy/_identities.json`, locked). All
@@ -178,18 +178,20 @@ Built and verified locally (unpublished; evidence in the workspace
   `coverage.json` `reconciliation.native_spellings`. Extensions, the absent
   `fontlabpr`, multiple declarations and enrichment gaps carry derived reasons.
   Any unexplained row fails the build.
-- Sharded search over all 69,394 rows with a 3,140,799-byte initial transfer;
+- Sharded search over all 72,488 rows with a 3,212,860-byte initial transfer;
   named native searches reach the right anchors.
 - Legacy routes: route map, versioned archive, fragment mapping; archived pages
   link to their current page.
 - Browser acceptance (R043): keyboard, focus, deep/type links, aliases, late shard
-  search, accessibility 28/28 against the published fltheme26 theme.
+  search, accessibility 64/64 against the published fltheme26 theme.
 - Pinned API sources (`api-sources.lock.json`) and `--check` regeneration.
 
 GitHub CI was removed by owner decision (workspace DECISIONS.md D3).
 
-Current producer candidates remain source documentation, not native acceptance.
-The build preserves authored Griffe extensions and forwards them when collecting
-namespace modules. Reviewed TypeRig array expressions render as literal code;
-real cross-reference warnings remain fatal. Duplicate-definition admission binds
-the reviewed declaration lines and AST fingerprints. No native capture is run.
+Current producer candidates remain source documentation, not native acceptance. The build preserves authored Griffe extensions, including namespace modules. Reviewed TypeRig array expressions render as literal code; real cross-reference warnings remain fatal. Duplicate-definition admission binds reviewed lines and AST fingerprints. No native capture is run.
+
+## Current API source candidate
+
+The reviewed 705-input lock includes App 0.2.62.dev0 (`703468852a4aeff8373330a2e90a6f908f31c3e9`) and Glyport 1.0.8.dev28 (`07577861732bb221fbe3a69b7eec1ec68102c14b`), alongside unchanged pinned producers. These are feature candidates, not released dependencies. Ordinary builds reject mismatches and never refresh native captures implicitly.
+
+The local candidate adds current calendar, table/tree, bracket-layer and shared UI helpers. Static extraction retains explicit same-name re-exports and source-proven public methods inherited from private bases; unrelated private declarations stay hidden. Package code never executes for discovery. Integration, native qualification and publication remain separate gates.

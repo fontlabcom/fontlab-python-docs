@@ -21,3 +21,9 @@ CHANGELOG.md. Publication is the controller's (runbook: workspace
 
 - [x] Build current source documentation and verify rendered source plus local browser behavior.
 - [ ] Complete whole-branch review, original native acceptance and every remaining publication/distribution gate before promotion.
+
+## Issue120 current API refresh Z19
+
+- [x] Refresh and verify the 705-input producer lock against the latest reviewed App/Glyport source and ordinary archives.
+- [x] Verify complete captured-native identity reconciliation, current API anchors, both search consumers, 64 accessibility views and 28 interaction checks.
+- Keep whole-branch integration, released dependency, native and publication gates open.
