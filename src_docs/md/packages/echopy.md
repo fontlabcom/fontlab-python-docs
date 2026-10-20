@@ -1,5 +1,5 @@
 ---
-this_file: site-src/packages/echopy.md
+this_file: src_docs/md/packages/echopy.md
 ---
 # Echopy
 

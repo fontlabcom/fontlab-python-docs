@@ -1,5 +1,5 @@
 ---
-this_file: site-src/packages/grablab.md
+this_file: src_docs/md/packages/grablab.md
 ---
 # Grablab
 

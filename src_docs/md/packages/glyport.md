@@ -1,5 +1,5 @@
 ---
-this_file: site-src/packages/glyport.md
+this_file: src_docs/md/packages/glyport.md
 ---
 # Glyport
 

@@ -1,5 +1,5 @@
 ---
-this_file: site-src/licenses.md
+this_file: src_docs/md/licenses.md
 ---
 # Licences
 

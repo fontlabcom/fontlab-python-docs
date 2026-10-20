@@ -1,5 +1,5 @@
 ---
-this_file: site-src/index.md
+this_file: src_docs/md/index.md
 ---
 
 <div class="api-hero" markdown="1">

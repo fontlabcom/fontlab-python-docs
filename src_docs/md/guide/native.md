@@ -1,5 +1,5 @@
 ---
-this_file: site-src/guide/native.md
+this_file: src_docs/md/guide/native.md
 ---
 # Native scripting
 

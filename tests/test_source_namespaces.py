@@ -62,3 +62,22 @@ def test_docstring_when_it_names_a_raw_text_element_then_it_is_escaped(tmp_path)
     assert 'Export with &lt;title>..."' in doc
     assert "`<title>`" in doc and "<b>bold</b>" in doc, "code spans and inline HTML stay"
     assert "<script>x()</script>" in doc, "fenced code stays verbatim"
+
+
+def test_namespace_root_when_multiple_search_paths_then_do_not_scan_unknown_roots(tmp_path):
+    """A namespace root has no single owned initializer to augment."""
+    package=griffe.Module("pkg",filepath=[tmp_path])
+    SourceNamespaceExtension().on_package(pkg=package,loader=None)
+    assert package.members=={}
+
+
+def test_source_namespace_when_class_shadows_folder_then_preserve_class(tmp_path):
+    root=tmp_path/"pkg";(root/"Shadow").mkdir(parents=True)
+    (root/"__init__.py").write_text('class Shadow: """The public class wins."""\n')
+    (root/"Shadow/Hidden.py").write_text('raise RuntimeError("do not execute")\ndef value(): return 1\n')
+    loader=griffe.GriffeLoader(search_paths=[tmp_path],allow_inspection=False)
+    package=griffe.Module("pkg",filepath=root/"__init__.py")
+    package.set_member("Shadow",griffe.Class("Shadow",parent=package,docstring=griffe.Docstring("The public class wins.")))
+    SourceNamespaceExtension().on_package(pkg=package,loader=loader)
+    assert package["Shadow"].is_class and package["Shadow"].docstring.value=="The public class wins."
+    assert "Hidden" not in package["Shadow"].members

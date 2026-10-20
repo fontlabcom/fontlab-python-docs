@@ -1,5 +1,5 @@
 ---
-this_file: site-src/packages/pythonqtside.md
+this_file: src_docs/md/packages/pythonqtside.md
 ---
 # Pythonqtside
 

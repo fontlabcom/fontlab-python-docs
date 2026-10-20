@@ -26,3 +26,8 @@ Locked esbuild 0.25.12 is needed only for explicit maintainer recompilation;
 `scripts/search_backend/package-lock.json` pins its packages/integrities. Bootstrap
 installs it under the ignored `.build/search-compiler` tree. Browser gzip decoding
 uses the standard native `DecompressionStream` API, without another library.
+
+
+## Issue120 current documentation Z5
+
+Griffe and MaterialX remain pinned. No new dependency: a small static Griffe extension uses the existing locked API. Shared theme bytes stay unchanged.

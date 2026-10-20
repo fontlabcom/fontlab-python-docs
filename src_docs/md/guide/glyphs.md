@@ -1,5 +1,5 @@
 ---
-this_file: site-src/guide/glyphs.md
+this_file: src_docs/md/guide/glyphs.md
 ---
 # Glyphs compatibility
 

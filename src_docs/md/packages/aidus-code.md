@@ -1,5 +1,5 @@
 ---
-this_file: site-src/packages/aidus-code.md
+this_file: src_docs/md/packages/aidus-code.md
 ---
 # Aidus Code
 

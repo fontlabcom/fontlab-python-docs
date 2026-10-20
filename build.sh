@@ -7,3 +7,9 @@ for argument in "$@"; do
 done
 uv sync --locked
 uv run --no-sync python -m scripts.build_site "$@"
+
+# Keep source/artifact checks read-only; only a successful build stages docs/.
+case " $* " in
+  *" --check "*|*" --serve "*) ;;
+  *) uv run --no-sync python -m scripts.promote_site ;;
+esac

@@ -1,5 +1,5 @@
 ---
-this_file: site-src/guide/ui.md
+this_file: src_docs/md/guide/ui.md
 ---
 # Panels and drawing
 

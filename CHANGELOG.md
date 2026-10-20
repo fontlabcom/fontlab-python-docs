@@ -203,3 +203,8 @@ this_file: CHANGELOG.md
   sharding, clean CI and broader publication acceptance remain unfinished.
 
 - Removed the GitHub Actions docs workflow (owner decision); acceptance gates run locally.
+
+
+## Issue120 current documentation Z5
+
+Static reference generation retains authored Griffe extensions, including namespace visits; reviewed TypeRig array-index literals render as code. Duplicate Table.__eq__ definitions remain recorded with their exact source fingerprints. The reviewed producer lock now binds 678 current inputs.

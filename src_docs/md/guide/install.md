@@ -1,5 +1,5 @@
 ---
-this_file: site-src/guide/install.md
+this_file: src_docs/md/guide/install.md
 ---
 # Install and connect
 

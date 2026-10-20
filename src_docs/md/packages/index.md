@@ -1,5 +1,5 @@
 ---
-this_file: site-src/packages/index.md
+this_file: src_docs/md/packages/index.md
 ---
 # Packages
 

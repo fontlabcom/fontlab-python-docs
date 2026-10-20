@@ -1,5 +1,5 @@
 ---
-this_file: site-src/guide/build.md
+this_file: src_docs/md/guide/build.md
 ---
 # Rebuild and contribute
 
@@ -31,3 +31,13 @@ Before contributing, agree to the repository's FontLab contributor license
 agreement. Change source or enrichment inputs, regenerate, verify rendered
 references and cross-links, and include tests for changed behavior. Preserve
 source attribution and the Qt/PySide documentation licenses.
+
+## Include build source
+
+The source-lock helper compares documented inputs with their recorded SHA256
+hashes. A normal build refuses changed input bytes. Review producer changes
+before requesting a lock refresh.
+
+<!--codeinclude-->
+[Source-lock helper](../../../scripts/source_lock.py)
+<!--/codeinclude-->

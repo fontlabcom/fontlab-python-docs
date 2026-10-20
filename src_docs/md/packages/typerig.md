@@ -1,5 +1,5 @@
 ---
-this_file: site-src/packages/typerig.md
+this_file: src_docs/md/packages/typerig.md
 ---
 # TypeRig
 

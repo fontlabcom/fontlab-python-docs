@@ -878,3 +878,12 @@ behaviour without naming the version); http -> 301 https; typerig instance pages
   --site docs` exit 0, 861 checked, 0 failures; `interaction_check --base ...` exit 0, PASS all 7
   cases 4/4; version lines Fontlabapp v0.2.4, Glyport v1.0.1, Aidus Code v0.2.1, Echopy v0.2.2
   and both new notes found once each; http 301 to https; instance pages 200.
+
+
+## Issue120 current documentation Z5
+
+Static reference generation retains authored Griffe extensions, including namespace visits; reviewed TypeRig array-index literals render as code. Duplicate Table.__eq__ definitions remain recorded with their exact source fingerprints. The reviewed producer lock now binds 678 current inputs.
+
+Strict offline build: 540 modules, 2,442 classes, 250,910 member identities, 254,065 declarations, 38,878 unique bodies and 5,728 generated pages. All 242,654 captured native identities are documented, unexplained=0. Read-only verification and release-content scan pass; 28 accessibility views and 28 browser interaction cases pass. The required real search worker passes all 20 queries over 71,608 search rows. Final full suite:318 passed, including the real search-worker consumer check and the later namespace controls. All five changed production modules exceed 80% statements and branches with zero exclusions.
+
+Wait, but: local source/build/browser checks are not native FontLab execution or whole issue120 acceptance. D25 native connectivity, complete branch/routes/archive/distribution/release and publication gates remain open. No canonical checkout, live install or remote site changed. Exact commands, retained failed attempts and receipts are in the parent workspace verification/issue-120/docs-z5/.

@@ -1,5 +1,5 @@
 ---
-this_file: site-src/guide/pyside.md
+this_file: src_docs/md/guide/pyside.md
 ---
 # PySide2 compatibility
 

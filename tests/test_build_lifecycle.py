@@ -66,15 +66,15 @@ def project(tmp_path, monkeypatch):
             }
         )
     )
-    (root / "site-src").mkdir()
-    (root / "site-src/index.md").write_text("# Current\n")
-    (root / "site-src/old.md").write_text("# Old guide\n")
+    (root / "src_docs/md").mkdir(parents=True)
+    (root / "src_docs/md/index.md").write_text("# Current\n")
+    (root / "src_docs/md/old.md").write_text("# Old guide\n")
     (root / "scripts").mkdir()
     (root / "scripts/reference_pages.py").write_text("# renderer v1\n")
     (root / "overrides").mkdir()
     (root / "overrides/main.html").write_text("template v1")
     original = Path(builder.__file__).resolve().parents[1]
-    shutil.copyfile(original / "mkdocs.yml", root / "mkdocs.yml")
+    shutil.copyfile(original / "src_docs/mkdocs.yml", root / "src_docs/mkdocs.yml")
     export = tmp_path / "examples-export"
     _write_export(export, {"index.md": "# Python examples for FontLab\n\nSee [recipes](recipes/index.md).\n",
                            "recipes/index.md": "# Recipes\n"})
@@ -139,7 +139,7 @@ def test_regeneration_removes_renamed_authored_and_api_pages(project):
     builder.generate(update_source_lock=True)
     render_fixture(root, source)
     assert (root / ".build/site/old.html").exists()
-    (root / "site-src/old.md").rename(root / "site-src/new.md")
+    (root / "src_docs/md/old.md").rename(root / "src_docs/md/new.md")
     (source / "fontlab_echopy/__init__.py").write_text("class New: pass\n")
     builder.generate(update_source_lock=True)
     render_fixture(root, source)
@@ -195,18 +195,18 @@ def test_check_detects_drift_without_rewriting_accepted_baseline(project, change
     builder.generate(check=True)
     verify_build(root)
     if changed == "guide":
-        (root / "site-src/index.md").write_text("# Changed guide")
+        (root / "src_docs/md/index.md").write_text("# Changed guide")
     elif changed == "renderer":
         (root / "scripts/reference_pages.py").write_text("# renderer v2")
     elif changed == "config":
-        path = root / "mkdocs.yml"
+        path = root / "src_docs/mkdocs.yml"
         config = yaml.safe_load(path.read_text())
         config["site_name"] = "Changed"
         path.write_text(yaml.safe_dump(config))
     elif changed == "template":
         (root / "overrides/main.html").write_text("template v2")
     elif changed == "removal":
-        (root / "site-src/old.md").unlink()
+        (root / "src_docs/md/old.md").unlink()
     elif changed == "html":
         (site / "index.html").write_text("<h1>stale</h1>")
     else:
@@ -246,7 +246,7 @@ def test_echopy_shim_when_generated_then_documented_under_its_own_name(project):
 
 def test_generate_when_shim_reexports_missing_target_then_build_fails(project):
     """R-L5-docs P2: aliases discarded by resolution must fail through the pipeline."""
-    root, source = project
+    _root, source = project
     shim = source / "fontlab_echopy/GlyphsApp"
     shim.mkdir()
     (shim / "__init__.py").write_text('"""Facade."""\n')
@@ -268,7 +268,7 @@ def test_examples_export_when_generated_then_pages_copied_and_locked(project):
 
 @pytest.mark.parametrize("damage", ["edited", "unlisted", "missing"])
 def test_examples_export_when_tampered_or_absent_then_generation_fails(project, monkeypatch, tmp_path, damage):
-    root, _ = project
+    _root, _ = project
     export = tmp_path / "examples-export"
     if damage == "edited":
         (export / "index.md").write_text("# Changed\n")

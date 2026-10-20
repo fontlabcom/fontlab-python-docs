@@ -15,3 +15,9 @@ CHANGELOG.md. Publication is the controller's (runbook: workspace
    after its merge and RC, echopy regenerates shims, then
    `verification/issue-101-ecosystem/evidence/docs-104/final-rebuild.sh` must pass every gate
    and the reviewed lock is committed.
+
+
+## Issue120 current documentation Z5
+
+- [x] Build current source documentation and verify rendered source plus local browser behavior.
+- [ ] Complete whole-branch review, original native acceptance and every remaining publication/distribution gate before promotion.

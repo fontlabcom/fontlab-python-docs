@@ -1,5 +1,5 @@
 ---
-this_file: site-src/packages/fontlabapp.md
+this_file: src_docs/md/packages/fontlabapp.md
 ---
 # Fontlabapp
 
