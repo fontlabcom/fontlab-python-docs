@@ -220,3 +220,7 @@ Static reference generation retains authored Griffe extensions, including namesp
 ## Issue120 Z24 — browser notices
 
 Add source-bound full texts and provenance for named frontend components, including transitive JavaScript dependencies, icons, shared theme inputs and external font responses. Keep the full transitive/publication review explicitly open; runtime assets and retained archives are unchanged.
+
+## Issue120 Z26
+
+Preserve exact upstream notice bytes through Git filters, fresh checkout and archives; add a CRLF distribution regression. Source manifests and pending publication scope remain unchanged.
