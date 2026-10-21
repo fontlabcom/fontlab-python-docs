@@ -4,9 +4,10 @@ this_file: CHANGELOG.md
 
 ## v1.0.6 — Reviewed scripting API and practical examples (2026-10-21)
 
-- Publish the reviewed App .98 source checkpoint: 5,996 API pages and all 37
-  Examples / 107 Scriptmix menu source/download pairs. Later private candidates
-  are outside this documented checkpoint; complete native workflows remain open.
+- Publish 5,996 API pages for the reviewed App .98 source checkpoint used by
+  the 37 Examples / 107 Scriptmix menus. Their source/download pairs belong to
+  separate menu sites; this release does not establish those sites' deployment.
+  Later candidates are outside this checkpoint; complete native workflows remain open.
 - Retain all 278 legacy routes and 128,733 archive fragments, full native API
   identity reconciliation, search, licences and desktop/mobile navigation.
 - Preserve the accepted 6,950-file publication payload byte-for-byte through
