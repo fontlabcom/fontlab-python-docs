@@ -59,6 +59,7 @@ PUBLIC_REPOSITORIES = {
     "fontlabcom/extend-fontlab",
     "fontlabcom/fontlab-python-docs",
     "fontlabcom/fontlab-python-examples",
+    "fontlabcom/fontlab-python-scriptmix",
     "fontlabcom/typerig-lib",
 }
 # Addresses that are part of upstream licence texts or public project contacts.
