@@ -1036,3 +1036,16 @@ pass on configured TypeRig/Lib. Extra menu-site accessibility discovered mobile
 notice-page navigation reach failures; retained as a separate N90 publication
 gate. No checker budget was waived. This source checkpoint is App.80/105menus;
 it does not include the private .84/106candidate, native acceptance or publication.
+
+
+## 2026-10-21 — N98 primary navigation auditor integration
+
+Retain N83's743-input App.80/105-site lock unchanged. Add only the reviewed
+primary-navigation selector and six browser regressions from N90. Actual menu
+UI remains unchanged; full56audit cases and28keyboard lifecycle cases pass on
+that frozen checkpoint. N98 runs the unchanged complete hook suite against
+actual current App.84 source bytes and the retained .80 required-consumer site.
+This checker correction does not refresh producer documentation, publish a site
+or qualify later .89 source changes. Exact source pins, full hook results,
+owner overlays and root-only FF/push guards: workspace
+verification/issue-120/auditor-integration-z34/.

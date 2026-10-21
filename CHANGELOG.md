@@ -273,3 +273,11 @@ pass on configured TypeRig/Lib. Extra menu-site accessibility discovered mobile
 notice-page navigation reach failures; retained as a separate N90 publication
 gate. No checker budget was waived. This source checkpoint is App.80/105menus;
 it does not include the private .84/106candidate, native acceptance or publication.
+
+
+## 2026-10-21 — Primary site navigation audit correction
+
+- Prefer actual primary tabs/sidebar navigation over article tag metadata; keep
+  the original40Tab/5Tab limits and every existing accessibility assertion.
+- Add six focused browser regressions; preserve N83's743-input .80/105 source
+  checkpoint and all existing menu/theme/notice bytes. Publication remains gated.
