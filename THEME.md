@@ -14,7 +14,7 @@ Documentation-first pages use **local MaterialX navigation and local search** wh
 
 | Configuration | Role | Destination |
 |---|---|---|
-| `mkdocs.yml` → `.build/mkdocs.yml` | current captured/enriched source reference | `.build/site` locally; deployment pending |
+| `src_docs/mkdocs.yml` → `.build/mkdocs.yml` | current captured/enriched source reference | `.build/site` stage → `docs/` locally; deployment separate |
 | `fontlab7/mkdocs.yml` | historical FontLab 7 generator | retained for recovery |
 | `pythonqt/mkdocs.yml` | historical PythonQt generator | retained for recovery |
 | `archive/fontlab7-site.tar.gz` | immutable previous site snapshot | versioned archive and legacy route redirects |
@@ -27,9 +27,8 @@ with the locked dependencies already cached. API source hashes are pinned in
 `--update-source-lock`. Normal builds fail when source bytes differ.
 
 The rebuilt root uses one MaterialX navigation/search owner and the four shared
-fltheme26 assets. It does not add a global FontLab menu/footer. Preserve the
-previous `docs/` deployment until the new output passes the complete deployment
-checks. Local generation and browser receipts do not establish publication.
+fltheme26 assets. It does not add a global FontLab menu/footer. The build copies its verified local artifact into `docs/`. Keep remote
+publication gated on the complete deployment checks. Local generation and browser receipts do not establish publication.
 
 ## Shared runtime contract
 

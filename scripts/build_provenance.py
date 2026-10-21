@@ -34,14 +34,14 @@ def file_manifest(root: Path, *, exclude=()) -> dict:
 
 def generation_manifest(root: Path, stage: Path) -> dict:
     inputs = {}
-    for directory in ("site-src", "scripts", "overrides", "archive"):
+    for directory in ("src_docs/md", "scripts", "overrides", "archive"):
         inputs.update(
             {
                 directory + "/" + path: value
                 for path, value in file_manifest(root / directory).items()
             }
         )
-    for name in ("mkdocs.yml", "api-sources.lock.json", "pyproject.toml", "uv.lock"):
+    for name in ("src_docs/mkdocs.yml", "api-sources.lock.json", "pyproject.toml", "uv.lock"):
         path = root / name
         if path.exists():
             inputs[name] = digest(path.read_bytes())

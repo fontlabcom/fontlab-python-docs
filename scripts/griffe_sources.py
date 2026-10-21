@@ -47,6 +47,7 @@ class SourceNamespaceExtension(Extension):
                         path.stem,
                         filepath=path,
                         code=path.read_text(encoding="utf-8-sig"),
+                        extensions=loader.extensions,
                         parent=parent,
                         modules_collection=loader.modules_collection,
                         lines_collection=loader.lines_collection,

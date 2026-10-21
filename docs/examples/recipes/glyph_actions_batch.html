@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -622,6 +660,34 @@
     
   
     PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
   
 
     
@@ -1941,6 +2007,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1970,18 +2090,33 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
 <h1 id="batch-tools-actions-on-named-glyphs">Batch Tools &gt; Actions on named glyphs</h1>
+<div class="admonition note">
+<p class="admonition-title">Retained catalogue</p>
+<p>This page comes from the retained catalogue. Its launch instructions and native
+results describe the earlier tree, now preserved under <code>rescued/part2</code>, rather than the current
+launcher. The documentation build does not rerun these examples.</p>
+</div>
 <p><strong>Purpose.</strong> Run steps from FontLab's Tools &gt; Actions catalogue (Remove Overlap, Add
 Extremes, Shift...) on a list of glyphs from a script, using the Pythonic tree of
 <code>fontlab-fontlabapp</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlabapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">host</span>
-<span class="nb">dir</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">glyph_actions</span><span class="p">)</span>                      <span class="c1"># 72 actions, e.g. remove_overlap</span>
-<span class="n">host</span><span class="o">.</span><span class="n">glyph_actions</span><span class="o">.</span><span class="n">remove_overlap</span><span class="p">([</span><span class="s2">&quot;X&quot;</span><span class="p">])</span>     <span class="c1"># FontLab&#39;s own run_actions</span>
-<span class="n">host</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;overlap&quot;</span><span class="p">)</span>               <span class="c1"># related menu commands (read-only)</span>
+
+<span class="nb">dir</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">glyph_actions</span><span class="p">)</span>  <span class="c1"># 72 actions, e.g. remove_overlap</span>
+<span class="n">host</span><span class="o">.</span><span class="n">glyph_actions</span><span class="o">.</span><span class="n">remove_overlap</span><span class="p">([</span><span class="s2">&quot;X&quot;</span><span class="p">])</span>  <span class="c1"># FontLab&#39;s own run_actions</span>
+<span class="n">host</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;overlap&quot;</span><span class="p">)</span>  <span class="c1"># related menu commands (read-only)</span>
 </code></pre></div>
 <p><code>run(glyph_names=["X"], steps=("remove_overlap",))</code> wraps that and returns FontLab's
 own result (contour counts before and after) plus the related menu commands. It
@@ -2060,7 +2195,7 @@ the overlap commands in the menus.</p>
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../assets/javascripts/complete-search-ui.js"
         data-worker="../../assets/javascripts/workers/complete-search.js"></script>

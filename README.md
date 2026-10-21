@@ -11,6 +11,7 @@ fontlab/fontgate/fontpr/PythonQt names without runtime inspection.
 ## Build
 
 Use Python3.12+ and uv. Clone the ecosystem repositories beside this checkout.
+Build the examples site first to prepare its verified retained-catalogue export.
 
 ```bash
 ./build.sh
@@ -35,7 +36,9 @@ Explicit ./build.sh --refresh-native captures through the running FontLab's
 scripting surface, then regenerates/enriches Echopy before building the site.
 It requires sibling Echopy/Remopy checkouts and FontLab. Ordinary builds do not.
 
-The new build writes .build/site. A successful strict build seals generated-input and rendered-file manifests.
+Authored pages are in `src_docs/md/`, with configuration in `src_docs/mkdocs.yml`.
+The build stages the complete API under `.build/site`, then copies the verified
+artifact into `docs/`. This is a local build; publication remains a separate gate. A successful strict build seals generated-input and rendered-file manifests.
 `--check` regenerates in a temporary tree and compares those manifests without
 rewriting the accepted baseline; missing baselines or stale HTML fail.
 
@@ -82,7 +85,7 @@ sets and named target discovery are retained. Final full-site acceptance is pend
 
 Full coverage, browser/search and deployment
 acceptance remain in progress; do not treat this source rewrite as a published
-site. The historical docs/ tree remains intact until that acceptance completes.
+site. The immutable FontLab 7 archive and route checks remain part of every full build.
 
 ## Coverage and archive
 
@@ -127,9 +130,9 @@ and `aidus_code_tools` (the FontLab tools the Aidus agent calls). A shim is a
 
 ## Examples
 
-`examples/` is the docs export of fontlab-python-examples (`tools/docs_export.py`
-there): an index, 28 category pages, insights and recipes. The build reads it
-from `FONTLAB_EXAMPLES_EXPORT` (default `../fontlab-python-examples/docs-export`),
+`examples/` consumes the verified retained-catalogue export from
+fontlab-python-examples (`src_docs/build.py`; run the examples build first): an index, 28 category pages, insights and recipes. The build reads it
+from `FONTLAB_EXAMPLES_EXPORT` (default `../fontlab-python-examples/.build/export`),
 verifies every page against the export's `manifest.json` sha256s, rejects
 unlisted pages, and pins the manifest and pages in `api-sources.lock.json`.
 A missing export fails the build.
@@ -144,28 +147,22 @@ raw and after each decoded layer (JSON/JS escapes, percent-encoding, HTML charac
 references, JSON nested in strings); content deeper than the decoder's bounds is a
 `decode-limit` finding, so the audit fails closed. Upstream Qt
 examples such as `/home/bob/` are allowed only in the reviewed list and scope.
-The site's [licences page](site-src/licenses.md) carries every applicable text.
+The site's [licences page](src_docs/md/licenses.md) carries every applicable text.
 The written receipt redacts every finding's text and filename (digests only);
 `--reveal` prints the unredacted findings to the terminal, never to a file.
 
 ## Contribute
 
-Agree to the FontLab Individual Contributor License Agreement before contributing:
-https://cla-assistant.io/fontlabcom/fontlab-python-docs.
-Update source/enrichment or authored guides, regenerate, and verify real rendered
-anchors, inventory, search and browser behavior. Do not edit generated output as
-its source. Documentation retains the repository Apache2 license and upstream
-Qt/PySide documentation attribution. Shared theme ownership is in THEME.md.
+Agree to the FontLab Individual Contributor License Agreement before contributing: https://cla-assistant.io/fontlabcom/fontlab-python-docs. Update source/enrichment or authored guides, regenerate, and verify real rendered anchors, inventory, search and browser behavior. Do not edit generated output as its source. Documentation retains the repository Apache2 license and upstream Qt/PySide documentation attribution. Shared theme ownership is in THEME.md.
 
 ## Status
 
-Built and verified locally (unpublished; evidence in the workspace
-`verification/issue-101-ecosystem/evidence/`):
+Built and verified locally (unpublished; latest source candidate evidence in `verification/issue-120/docs-current-z19/`):
 
 - Source-only reference from Echopy and the ecosystem packages with ProperDocs,
   MaterialX, fltheme26, mkdocstrings (Python handler), autorefs and Griffe; no
-  native imports in normal builds. Strict full build about 212 s / 4.5 GB.
-- Coverage report: 245,169 member identities on 4,333 pages, native aliases,
+  native imports in normal builds. Native inspection remains disabled.
+- Coverage report: 251,190 member identities on 5,880 pages, native aliases,
   per-class inherited indexes, declaration-time base binding (N1).
 - Reconciliation (R014): every build checks coverage against Echopy's shipped
   capture identity manifest (`fontlab_echopy/_identities.json`, locked). All
@@ -175,12 +172,27 @@ Built and verified locally (unpublished; evidence in the workspace
   `coverage.json` `reconciliation.native_spellings`. Extensions, the absent
   `fontlabpr`, multiple declarations and enrichment gaps carry derived reasons.
   Any unexplained row fails the build.
-- Sharded search over all 60,048 rows with a 4,940,411-byte initial transfer;
+- Sharded search over all 72,488 rows with a 3,212,860-byte initial transfer;
   named native searches reach the right anchors.
 - Legacy routes: route map, versioned archive, fragment mapping; archived pages
   link to their current page.
 - Browser acceptance (R043): keyboard, focus, deep/type links, aliases, late shard
-  search, accessibility 28/28 against the published fltheme26 theme.
+  search, accessibility 64/64 against the published fltheme26 theme.
 - Pinned API sources (`api-sources.lock.json`) and `--check` regeneration.
 
 GitHub CI was removed by owner decision (workspace DECISIONS.md D3).
+
+Current producer candidates remain source documentation, not native acceptance. The build preserves authored Griffe extensions, including namespace modules. Reviewed TypeRig array expressions render as literal code; real cross-reference warnings remain fatal. Duplicate-definition admission binds reviewed lines and AST fingerprints. No native capture is run.
+
+## Current API source candidate
+
+The reviewed 705-input lock includes App 0.2.62.dev0 (`703468852a4aeff8373330a2e90a6f908f31c3e9`) and Glyport 1.0.8.dev28 (`07577861732bb221fbe3a69b7eec1ec68102c14b`), alongside unchanged pinned producers. These are feature candidates, not released dependencies. Ordinary builds reject mismatches and never refresh native captures implicitly.
+
+The local candidate adds current calendar, table/tree, bracket-layer and shared UI helpers. Static extraction retains explicit same-name re-exports and source-proven public methods inherited from private bases; unrelated private declarations stay hidden. Package code never executes for discovery. Integration, native qualification and publication remain separate gates.
+
+
+## Pinned source checkpoint
+
+The reviewed App .98 checkpoint includes Examples 37 and Scriptmix 107 menus. See the source revisions and native acceptance limits in [src_docs/md/guide/source-checkpoint.md](src_docs/md/guide/source-checkpoint.md). The earlier App .80 lock is historical; later .100 development is excluded.
+
+Metrics in the earlier Status section describe older builds.

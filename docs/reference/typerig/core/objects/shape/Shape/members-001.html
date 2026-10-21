@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -622,6 +660,34 @@
     
   
     PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
   
 
     
@@ -1941,6 +2007,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2243,6 +2363,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.objects.shape.Shape.reorder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reorder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.objects.shape.Shape.reverse" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2309,6 +2440,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.objects.shape.Shape.sort_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sort_order
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.objects.shape.Shape.tight_bounds" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2340,6 +2482,14 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -3010,6 +3160,26 @@ Returns a NEW Shape — does not modify the original.</p>
 <div class="doc doc-object doc-function">
 
 
+<h2 id="typerig.core.objects.shape.Shape.reorder" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">reorder</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">reorder</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Rearrange contours by an index list (e.g. one from sort_order()).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="typerig.core.objects.shape.Shape.reverse" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">reverse</span>
 
@@ -3153,10 +3323,32 @@ None if not yet computed. Use compute_sdf() to populate.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">sort</span><span class="p">(</span><span class="n">direction</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;BL&#39;</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">sort</span><span class="p">(</span><span class="n">direction</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;BL&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+        <p>Sort contours in reading order, nested contours after their parent.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.objects.shape.Shape.sort_order" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">sort_order</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">sort_order</span><span class="p">(</span><span class="n">direction</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;BL&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Contour indices in reading order (see contour_reading_order).</p>
 
 
     </div>
@@ -3277,7 +3469,7 @@ Each entry is the list returned by Contour.to_directional().</p>
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../../../../../assets/javascripts/complete-search-ui.js"
         data-worker="../../../../../../assets/javascripts/workers/complete-search.js"></script>

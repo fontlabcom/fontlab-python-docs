@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -622,6 +660,34 @@
     
   
     PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
   
 
     
@@ -1941,6 +2007,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1972,6 +2092,17 @@
     <span class="md-ellipsis">
       
         contour_align
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.core.actions.contour_actions.ContourActions.contour_apply_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contour_apply_order
       
     </span>
   </a>
@@ -2176,6 +2307,14 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -2221,6 +2360,36 @@
         contours_B (list[Contour]|None): required for mode='AB'.</p>
 <p>Returns:
         bool: True if any contours were moved.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.actions.contour_actions.ContourActions.contour_apply_order" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">contour_apply_order</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">contour_apply_order</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Rearrange contours by an index list taken from another (compatible)
+shape, so every master gets the same order.</p>
+<p>Arguments:
+        shape (Shape): The shape whose contours will be reordered.
+        order (list[int]): Contour indices, e.g. from Shape.sort_order().</p>
+<p>Returns:
+        bool: True if the order was applied.</p>
 
 
     </div>
@@ -2467,7 +2636,7 @@
   </span>
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">contour_set_order</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">sort_direction</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sort_mode</span><span class="o">=</span><span class="s1">&#39;BL&#39;</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">contour_set_order</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">sort_direction</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sort_mode</span><span class="o">=</span><span class="s1">&#39;BL&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2475,7 +2644,8 @@
         <p>Sort the contours within a shape by their bounding box position.</p>
 <p>Arguments:
         shape (Shape): The shape whose contours will be reordered.
-        sort_direction (int): Sort direction (0 = ascending, 1 = descending).
+        sort_direction (int): Primary axis (0 = X, 1 = Y).
+        descending (bool): Primary axis high -&gt; low.
         sort_mode (str): Sort anchor corner. One of:
                 'BL' - Bottom-Left
                 'TL' - Top-Left
@@ -2815,7 +2985,7 @@ usage in <code>popup-contour-cut.py</code> for the auto-align tool.</p>
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../../../../../assets/javascripts/complete-search-ui.js"
         data-worker="../../../../../../assets/javascripts/workers/complete-search.js"></script>

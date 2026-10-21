@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -622,6 +660,34 @@
     
   
     PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
   
 
     
@@ -1941,6 +2007,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1972,6 +2092,17 @@
     <span class="md-ellipsis">
       
         npa_align
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.core.actions.node_panel_actions.npa_align_to_y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npa_align_to_y
       
     </span>
   </a>
@@ -2210,6 +2341,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.actions.node_panel_actions.npa_corner_loop_to_target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npa_corner_loop_to_target
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.actions.node_panel_actions.npa_corner_mitre" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2331,6 +2473,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.actions.node_panel_actions.npa_loop_target_clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npa_loop_target_clear
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.core.actions.node_panel_actions.npa_loop_target_set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npa_loop_target_set
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.actions.node_panel_actions.npa_make_collinear" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2363,50 +2527,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#typerig.core.actions.node_panel_actions.npa_remove" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        npa_remove
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#typerig.core.actions.node_panel_actions.npa_round_coordinates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        npa_round_coordinates
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#typerig.core.actions.node_panel_actions.npa_segment_convert" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        npa_segment_convert
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#typerig.core.actions.node_panel_actions.npa_set_smooth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        npa_set_smooth
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2417,6 +2537,14 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -2441,8 +2569,32 @@
 
         <p>Align selected nodes using the given mode string.</p>
 <p>Modifier kwargs are forwarded to NodeActions.nodes_align. When
-use_target=True, the stored align target (set via npa_target_set) is
-passed in as the override target.</p>
+use_target=True, each layer's stored align target (set via
+npa_target_set) is passed in as the override target; layers without
+a stored target fall back to the mode-computed one.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.actions.node_panel_actions.npa_align_to_y" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">npa_align_to_y</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_align_to_y</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">y_by_layer</span><span class="p">,</span> <span class="n">smart_shift</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">keep_relations</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lerp_shift</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">extrapolate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Align selected nodes vertically to a per-layer Y value.</p>
+<p>y_by_layer: dict[layer_name -&gt; y]. The host fills it from each layer's
+master metrics (ascender, cap height, x-height, baseline, descender).
+Layers missing from the dict are skipped. Modifier kwargs as npa_align.</p>
 
 
     </div>
@@ -2590,7 +2742,8 @@ live Contour objects at align time via _resolve_group.</p>
 
     <div class="doc doc-contents first">
 
-        <p>Move all selected nodes to the stored align target.</p>
+        <p>Move all selected nodes of each scope layer to that layer's stored
+align target.</p>
 
 
     </div>
@@ -2729,7 +2882,12 @@ live Contour objects at align time via _resolve_group.</p>
 <p>Args:
     direction (int): Axis selector — 0 = sort by X, 1 = sort by Y.
     mode (str): Reference corner: 'BL', 'TL', 'BR', 'TR'.
-    reverse (bool): Reverse the resulting order (descending instead of ascending).</p>
+    reverse (bool): Descending on the primary axis. Ties still read
+        left -&gt; right / top -&gt; bottom (a full list flip would break that).</p>
+<p>The order is computed ONCE on a reference layer (the active layer if in
+scope, else the first) and applied to every compatible layer, so masters
+cannot drift apart when contours are nearly level. Incompatible layers
+are sorted on their own and reported.</p>
 
 
     </div>
@@ -2905,6 +3063,27 @@ live Contour objects at align time via _resolve_group.</p>
     <div class="doc doc-contents first">
 
         <p>Apply loop to selected on-curve nodes.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.actions.node_panel_actions.npa_corner_loop_to_target" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">npa_corner_loop_to_target</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_corner_loop_to_target</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">safe_distance</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Loop the selected corners of each scope layer toward that layer's
+stored target (npa_loop_target_set), pulled back by safe_distance.</p>
 
 
     </div>
@@ -3153,6 +3332,47 @@ If a layer has no stored value, it is skipped.</p>
 <div class="doc doc-object doc-function">
 
 
+<h2 id="typerig.core.actions.node_panel_actions.npa_loop_target_clear" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">npa_loop_target_clear</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_loop_target_clear</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Clear the stored loop targets.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.actions.node_panel_actions.npa_loop_target_set" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">npa_loop_target_set</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_loop_target_set</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Store the first selected on-curve node of each scope layer as that
+layer's loop target. Returns the number of layers with a target.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="typerig.core.actions.node_panel_actions.npa_make_collinear" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">npa_make_collinear</span>
 
@@ -3213,88 +3433,6 @@ within snap_tolerance * measured.</p>
     <div class="doc doc-contents first">
 
         <p>Move selected nodes across scope layers.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.actions.node_panel_actions.npa_remove" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">npa_remove</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_remove</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Remove selected nodes.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.actions.node_panel_actions.npa_round_coordinates" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">npa_round_coordinates</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_round_coordinates</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Round coordinates of selected nodes.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.actions.node_panel_actions.npa_segment_convert" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">npa_segment_convert</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_segment_convert</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">CurveActions</span><span class="p">,</span> <span class="n">to_curve</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Convert selected segments between line and curve.</p>
-<p>Args:
-    to_curve (bool): True converts line→curve; False converts curve→line.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.actions.node_panel_actions.npa_set_smooth" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">npa_set_smooth</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_set_smooth</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Set selected nodes smooth or sharp.</p>
 
 
     </div>
@@ -3367,7 +3505,7 @@ within snap_tolerance * measured.</p>
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../../../../assets/javascripts/complete-search-ui.js"
         data-worker="../../../../../assets/javascripts/workers/complete-search.js"></script>

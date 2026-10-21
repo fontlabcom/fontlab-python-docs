@@ -866,3 +866,217 @@ https deployed_check exit 0, 859 targets, 0 failures; https interaction_check ex
 seven cases 4/4; packages/fontport.html: "key master" x2, "v1.0.2" x3; packages/fontlabapp.html:
 "key master" x2, unfinished-edits note x1, no "v0.2.4" label (the guide describes v0.2.4
 behaviour without naming the version); http -> 301 https; typerig instance pages 200.
+
+## 2026-10-16 — v1.0.5 published (final-18: glyport v1.0.1, aidus 32523d4, echopy v0.2.2)
+
+- Feature range 6d387d2..deb4171 (X4s APPROVE, no findings); master merge 9901de8, tag v1.0.5
+  e5d604f; Pages `built e5d604f`. `git diff --quiet deb4171 9901de8 -- docs` exit 0.
+- final-18: 16 gates exit 0, runbook exit 0 (evidence verification/issue-106/evidence/C3/final-18;
+  the stopped first attempt is final-18-echopy-release). Promote 6211 files, `--verify-tracked` 0,
+  release_audit on docs/ 0 (promote-final-18).
+- Live (release-v1.0.5): `deployed_check --base https://code.fontlab.com/fontlab-python-docs/
+  --site docs` exit 0, 861 checked, 0 failures; `interaction_check --base ...` exit 0, PASS all 7
+  cases 4/4; version lines Fontlabapp v0.2.4, Glyport v1.0.1, Aidus Code v0.2.1, Echopy v0.2.2
+  and both new notes found once each; http 301 to https; instance pages 200.
+
+
+## Issue120 current documentation Z5
+
+Static reference generation retains authored Griffe extensions, including namespace visits; reviewed TypeRig array-index literals render as code. Duplicate Table.__eq__ definitions remain recorded with their exact source fingerprints. The reviewed producer lock now binds 678 current inputs.
+
+Strict offline build: 540 modules, 2,442 classes, 250,910 member identities, 254,065 declarations, 38,878 unique bodies and 5,728 generated pages. All 242,654 captured native identities are documented, unexplained=0. Read-only verification and release-content scan pass; 28 accessibility views and 28 browser interaction cases pass. The required real search worker passes all 20 queries over 71,608 search rows. Final full suite:318 passed, including the real search-worker consumer check and the later namespace controls. All five changed production modules exceed 80% statements and branches with zero exclusions.
+
+Wait, but: local source/build/browser checks are not native FontLab execution or whole issue120 acceptance. D25 native connectivity, complete branch/routes/archive/distribution/release and publication gates remain open. No canonical checkout, live install or remote site changed. Exact commands, retained failed attempts and receipts are in the parent workspace verification/issue-120/docs-z5/.
+
+## Issue120 Z19 — current API source refresh in progress
+
+Fresh isolated baseline: 317 passed, one explicit missing-full-built-index skip. Reviewed 37 changed inputs against exact Z18 ordinary archive payloads: 27 additions, no removals; 668 earlier inputs remain exact. Ordinary generation rejects the stale lock without changing it. Explicit strict offline refresh passes with 705 inputs, 554 modules, 2,450 classes, 250,971 member identities, 254,148 declarations, 38,937 distinct bodies and 5,770 pages. All 242,654 captured native identities remain documented; unexplained omissions are zero. Independent current-API checks require 135 public declarations across 105 rendered pages. Full read-only/search/browser/preservation gates are in progress. No native refresh or site publication. Exact receipts are retained privately in verification/issue-120/docs-current-z19 and root WORK.md.
+
+The first strict candidate passed existing gates but independent public-path inspection found `calendar_controls.value` and inherited `Controls.close` absent. Retained its entire site and receipts under first-candidate. Tests-first source visibility repair now covers same-name absolute imports, literal exports and public inheritance through private files/names; unrelated private scopes remain hidden. Existing source-binding guards caught invalidated class entries; a nested-private test caught scope leakage; full native reconciliation caught 33 undefined self-export aliases. All are repaired without changing fixtures or weakening gates. Final focused controls pass 126 tests; whole source_visibility is 100/100, api_inventory 98.10/95.61 and export_aliases 97.94/91.38 statements/branches, zero exclusions. The corrected strict build verifies 571 modules, 2,491 classes, 251,190 member identities and 5,880 pages; all captured native identities remain documented, unexplained zero. Corrected final whole-suite and browser gates are running.
+
+Final full suite: 341 passed with FONTLAB_REQUIRE_CONSUMER=1. The original request-interception fixture reproducibly closed its browser target on the full index; loopback HTTP now serves the identical full payload and shipped worker with every ranking assertion and deadline preserved. A UTF-8 byte-preservation control passes. Exact transport root cause is unproved. Whole-module statement/branch coverage: api_inventory 98.57/97.37%, export_aliases 97.94/91.38%, source_visibility 100/100%; zero excluded lines. Corrected read-only generation and release-content audit pass (6,808 files, no findings). The final source inventory contains 254,428 declarations and 39,146 distinct bodies. All 138 independent current public declaration checks pass across 108 pages. Mandatory accessibility, interactions and real pre-push checks continue; native/integration/publication gates remain open.
+
+Final browser gates pass: 64 accessibility views, 28 original interaction cases,
+37 actual search-UI queries and four current-API desktop/mobile light/dark views.
+The full-index worker retains all 20 required queries. All 705 inputs, 670 menus,
+494 originals, eleven zones, 7,247 disposition rows, 1,111 owner hashes and three
+canonical statuses remain exact. No theme, authored guide, archive or build
+dependency changes. The unchanged pre-push hook enforces the complete milestone
+scope, not just the three newly changed modules; its final verdict and feature
+refs are retained in the parent workspace evidence. No native/publication claim.
+
+## Issue120 Z24 — frontend notice candidate
+
+Three baseline suites pass. Tests first reject absent notice artifacts; the authored full-text SHA/link/provenance checks then pass. Notice/provenance pages retain 23 named component groups (24 where print-site is shipped). No runtime assets, source producers, original examples or archive bytes change. Complete transitive closure, Wordcut embedded modules/dictionary, TinySegmenter, Clipboard leaf notices, CSS data SVGs and full publication qualification remain open. Exact commands and failed attempts are retained in the parent workspace at verification/issue-120/frontend-notices-z24. Strict-build, full-suite, browser/privacy and preservation acceptance follow this candidate. Wait, but: a named-component notice batch does not prove the complete transitive inventory or a published site.
+
+Z24 final-v3 frozen-input strict build and promotion into the isolated local docs folder pass (6831 files). The earlier final-v2 attempt correctly rejected an in-flight notice-JSON metadata edit; its failed log is retained. Preserve both Lunr source-header and npm-distribution copyright variants and explicitly record the existing stock-worker TokenSet separator modification. Full rendered-route/text/privacy/browser and real pre-push evidence lives in the parent workspace at verification/issue-120/frontend-notices-z24. No generated docs or publication is part of this source-only feature branch. Full transitive frontend inventory and all original whole-branch/native/release gates remain open.
+
+## Issue120 Z26 notice byte preservation
+
+Git autocrlf=input silently normalized three source-bound upstream notice payloads in HEAD. Add scoped `/src_docs/md/licenses/** -text`; restore only bytes proven by unchanged manifest hashes. Preserve all prior attributes and manifests. Regression uses a private temporary Git repository with command-scoped autocrlf=input and checks all notice index, checkout-index and archive bytes, including CRLF probes for LF-only notices. It works from Git-free SDK/source archives and explicitly skips only the Git distribution check if Git itself is absent. No production module or dependency changes.
+
+Tests-first red and green receipts, all84 notice byte audits, full source/docs suites, locked offline strict builds, served notice URLs and privacy receipts live in parent `verification/issue-120/notice-byte-preservation-z26/`. Exact commands and exits are in `N4-notice-bytes-report.md`. Publication/transitive inventory flags remain false; native acceptance remains pending. No commit/push/native/live install.
+
+## Issue120 Z26 — isolate notice-regression Git environment
+
+The earlier pushed notice-byte regression inherited repository-local Git variables
+from real pre-push hooks. The controller retained and restored its own affected
+Scriptmix worktree index; all437physical source files remained byte-identical
+to HEAD. The three earlier notice commits remain published; their completed
+real hook exits do not prove parent-index preservation.
+
+Tests first reproduce parent index/config/object mutations using two private
+repositories only, for both default and alternate parent index paths. Child Git
+commands now remove names returned by `git rev-parse --local-env-vars` from a
+copied environment before init/add/checkout/archive, and have10second deadlines.
+The injected-context regression preserves the caller environment and compares
+every parent file, including index, config, refs, objects and unstaged content.
+The original full-notice byte assertions and CRLF probes are unchanged.
+
+Exact commands, exits, ordinary baselines, red/green controls and source-only
+acceptance are retained in workspace
+`verification/issue-120/notice-env-isolation-z26/`; see
+`docs/maestro/issue120/layer-navigation-z26/N11-notice-env-fix-report.md`.
+All commands run through `rtk proxy`; an initial machine PATH selection of broken
+`/usr/bin/git` is retained separately, followed by actual Homebrew Git controls.
+No production module, notice payload/manifest, attribute, dependency, hook, Git
+configuration, coverage floor/baseline, source lock or live/native state changed.
+
+Wait, but: successful isolation tests do not accept the whole issue120 workflow.
+This corrective candidate requires fresh independent review before commit/push;
+all native, integration, release, transitive inventory and publication gates remain.
+
+Final frozen-code checks: API complete docs suite345passed/1existing built-worker skip; Git-free notice suites
+API5/Examples5/Scriptmix6pass. No-Git runs retain manifest checks and report
+API2pass/3skip, Examples2pass/3skip, Scriptmix3pass/3skip. Removing only child
+environment isolation fails both parent-preservation controls in all3private
+copies; removing attributes still fails actual index-byte normalization in all3.
+All84upstream notice payloads remain byte-exact across source, original, HEAD,
+index, fresh checkout, archive and built site.
+
+```sh
+rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/verify.py suites
+rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/verify.py suites examples scriptmix
+rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/negative_isolation.py
+rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/verify.py bytes
+```
+
+Full-suite prerequisites: retained API failure required its existing hardcoded
+TypeRig sibling layout; supplied an evidence-only alias to the frozen source.
+Examples first full-docs attempt used API's environment and failed on missing
+print-site plugin; rerun with each repository's existing locked docs environment
+passes. No dependency or configuration change. Exact nested argv/exits and
+failed attempts remain in the parent verification receipts. Independent review
+and later actual-hook before/after index/config/origin preservation are pending.
+
+## 2026-10-21 — N60 private final-producer documentation alignment
+
+Combined exact reviewed15e0c41 producer/browser-notice payload with preserved
+canonical owner sources, then reviewed705→734 source inputs before private lock
+refresh (29new,10modified,no removals). Exact previous modified bytes and diffs
+are retained in workspace verification/issue-120/docs-alignment-z30/. No native
+refresh, canonical write, live installation or publication.
+
+Commands: rtk proxy ./build.sh --offline --update-source-lock (exit0); strict
+render188.25s,5925pages,6876promoted files. API route/archive/budgets pass.
+rtk proxy env PATH=/opt/homebrew/bin:/Users/adam/.local/bin:/usr/bin:/bin
+PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 FONTLAB_REQUIRE_CONSUMER=1
+uv run --no-sync python -m pytest -q -p no:cacheprovider tests (exit0,343passed).
+Initial full run341passed/2Gitsetup failures from broken systemXcode retained;
+HomebrewGit correction also passes all5promotion tests. Unchanged interaction
+and accessibility checkers each pass28/28. Exact served notices and release
+audit pass; owner preimages and source-only canonical preparation retained.
+Only local private artifacts accepted; root review/application and remote
+publication remain separate gates.
+
+## 2026-10-21 — N65 explicit App.74/Fontport7a docs checkpoint
+
+Retain N60 as history. This checkpoint documents App5fe498e(.74), Glyport2c46c729,
+Fontport7a6e400(issue-120-fontport-ui-integration; main3d8fe370 unchanged),
+Examples108f0ac(30) and Scriptmix1f8abf9(103). Only the reviewed Fontport Vanilla
+compatibility-input hash changes within the734-input lock. Native APIs were not
+called. Strict build,343 required-consumer tests and targeted public Fontport/Fly
+alias worker/browser controls pass. The four public alias names resolve to the
+existing App VanillaSession/close bodies. All734 exact source inputs are retained
+in private evidence for reproducibility after producer branches move.
+
+This is an explicit historical source checkpoint once App.76 or .80 lands, not
+a claim of current final-producer parity. Perform one final reviewed refresh
+after the combined producer freeze. No publication is authorized. N65 retains
+exact canonical owner/index/docs preimages, five physical drift refusals and a
+third-write rollback/private source application. Root review precedes any new
+feature commit/push or canonical fast-forward. Evidence: workspace
+verification/issue-120/docs-canonical-integration-z31/.
+
+N65 clean-distribution review also retains the already reviewed N26 descendants
+58968fcb (exact original notice bytes/attributes) and1f28c82 (inherited Git-context
+isolation). The older15e workingtree happened to retain CRLF, while its Git blobs
+normalized three texts. The prepared feature therefore uses1f28c82 as its exact
+reviewed base; it never substitutes LF or changes declared notice hashes.
+
+## 2026-10-21 — N83 final source graph and actual TypeRig discovery
+
+Private checkpoint aligns App86721bf(.80), Glyport2c46, Fontport7a,
+Examples657bb1e(31) and Scriptmixd54ee17f(105). Reviewed734→743APIinputs:
+nine new Pattern Lab/report-pair modules and one owned dialog-close fix.
+Preserve N65 .74 evidence as historical. Actual TypeRig sources live in
+TypeRig/Lib; producer and real Void inheritance regression now share source_roots,
+including explicit installed-artifact roots, without a fabricated legacy alias.
+Before-fix regression fails; corrected targeted25tests pass. Final strict
+three-site, routes, browser/worker/accessibility and exact notice checks follow
+in verification/issue-120/docs-final-checkpoint-z33; no native/publication claim.
+
+N83 verification: all three strict sites pass; API348 required-consumer tests
+pass without skips, existing interaction28/28 and accessibility28/28 pass.
+Every136menu source block matches its current source; actual worker13queries
+and18body views pass. Exact served notices25API/26per menu site and release
+audits pass with each site's existing licence policy. All185actual TypeRig
+inputs match the reviewed lock/snapshot, and unchanged Void/Point assertions
+pass on configured TypeRig/Lib. Extra menu-site accessibility discovered mobile
+notice-page navigation reach failures; retained as a separate N90 publication
+gate. No checker budget was waived. This source checkpoint is App.80/105menus;
+it does not include the private .84/106candidate, native acceptance or publication.
+
+
+## 2026-10-21 — N98 primary navigation auditor integration
+
+Retain N83's743-input App.80/105-site lock unchanged. Add only the reviewed
+primary-navigation selector and six browser regressions from N90. Actual menu
+UI remains unchanged; full56audit cases and28keyboard lifecycle cases pass on
+that frozen checkpoint. N98 runs the unchanged complete hook suite against
+actual current App.84 source bytes and the retained .80 required-consumer site.
+This checker correction does not refresh producer documentation, publish a site
+or qualify later .89 source changes. Exact source pins, full hook results,
+owner overlays and root-only FF/push guards: workspace
+verification/issue-120/auditor-integration-z34/.
+
+
+## 2026-10-21 — N118 reviewed .98 documentation checkpoint
+
+N118 private documentation alignment: review743→765source inputs (22new App modules, no modified/removedinputs), pin exact independently sealed .98 and current other reviewed producers. All six inherited owner document edits preserved; canonical generated output/deletions untouched. Strict source/build/browser gates run in owned output only, reused SDK read only. No native refresh or publication.
+
+
+## 2026-10-21 — N132 generated-output Git byte preservation
+
+Append only `/docs/** -text`; keep `/src_docs/md/licenses/** -text` exact.
+Real isolated Git fixtures cover all three accepted CRLF notices, HTML, gzip,
+binary, staging, archive and checkout with `core.autocrlf=input/true/false` and
+a global automatic-text policy. The non-doc control retains normal Git text
+conversion. Negative controls reproduce 655→644-byte staging; repair controls
+prove that adding attributes alone leaves an old staged blob unchanged and
+that narrowly restaging the three known notice paths repairs their exact bytes.
+
+Command: `rtk proxy /opt/homebrew/bin/python3.11` runs the existing read-only
+SDK's `python -B -m pytest -q -p no:cacheprovider` for
+`tests/test_generated_git_bytes.py`, `tests/test_build_lifecycle.py`,
+`tests/test_release_audit.py`, and `tests/test_reviewed_source_notices.py`,
+with plugin autoload disabled and the verified read-only Echopy source on
+`PYTHONPATH`. Final result: 82 passed, exit 0 (9 new real-Git cases).
+All 134 accepted generation inputs remain exact; the entire generation
+manifest is unchanged by this four-file source change. No rebuild or release
+worktree write. Retained earlier fixture/environment failures and commands:
+workspace `verification/issue-120/docs-byte-preservation-z41/`.
+
+Controller-only release repair after applying this source rule:
+`git add --renormalize -- docs/licenses/0bsd-tslib.txt docs/licenses/pictogrammers-free.txt docs/licenses/tslib-copyright.txt`.
+Reverify every accepted generated index/workingtree byte before delivery.

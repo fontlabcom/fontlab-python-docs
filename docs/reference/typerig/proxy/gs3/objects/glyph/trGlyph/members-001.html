@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -622,6 +660,34 @@
     
   
     PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
   
 
     
@@ -1941,6 +2007,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2023,6 +2143,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.objects.glyph.trGlyph.background_names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        background_names
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.objects.glyph.trGlyph.duplicate_layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        duplicate_layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.proxy.gs3.objects.glyph.trGlyph.eject" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2045,10 +2187,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.objects.glyph.trGlyph.is_background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.objects.glyph.trGlyph.layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.proxy.gs3.objects.glyph.trGlyph.mark" class="md-nav__link">
     <span class="md-ellipsis">
       
         mark
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.objects.glyph.trGlyph.remove_layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove_layer
       
     </span>
   </a>
@@ -2087,6 +2262,14 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -2191,16 +2374,68 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">add_layer</span><span class="p">(</span><span class="n">layer_name</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">add_layer</span><span class="p">(</span><span class="n">layer_name</span><span class="p">,</span> <span class="n">master_id</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
         <p>Create a new empty GSLayer and add it to the host glyph.</p>
 <p>Args:
-        layer_name (str): Name for the new layer.</p>
+        layer_name (str): Name for the new layer.
+        master_id (str or None): Master the layer belongs to; default the
+                master of the active layer.</p>
 <p>Returns:
         trLayer: Proxy wrapping the newly created GSLayer.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.objects.glyph.trGlyph.background_names" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">background_names</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">background_names</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>'mask.<layer>' for every layer whose background holds shapes or anchors.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.objects.glyph.trGlyph.duplicate_layer" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">duplicate_layer</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">duplicate_layer</span><span class="p">(</span><span class="n">src_name</span><span class="p">,</span> <span class="n">dst_name</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Copy layer src_name as a new non-master layer dst_name on the same
+master (FL pGlyph.duplicateLayer, references=False): shapes, anchors
+and advance width are copied, so the new layer has the same node
+structure and on-curve types as the source.</p>
+<p>A fresh GSLayer is used rather than GSLayer.copy(): the copy keeps the
+source layerId, which Glyphs shows as a nested (brace-style) entry.</p>
+<p>Args:
+        src_name (str): Name of the layer to copy.
+        dst_name (str): Name for the new layer.</p>
+<p>Returns:
+        trLayer or None: the new layer, None if src_name does not exist.</p>
 
 
     </div>
@@ -2252,7 +2487,47 @@
 <p>Args:
         layer_name (str): Layer name to search for.</p>
 <p>Returns:
-        trLayer or None</p>
+        trLayer or None — a background for 'mask.<layer>' (BACKGROUND_PREFIX)</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.objects.glyph.trGlyph.is_background" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">is_background</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">is_background</span><span class="p">(</span><span class="n">layer_name</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>True if layer_name resolves to a background, not a real layer.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.objects.glyph.trGlyph.layer" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">layer</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">layer</span><span class="p">(</span><span class="n">layer_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Core Glyph.layer, plus backgrounds addressed as 'mask.<layer>'.</p>
 
 
     </div>
@@ -2279,6 +2554,29 @@
     <div class="doc doc-contents first">
 
         <p>Glyph flag colour as a hex string (e.g. '#FF3B30') or None.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.objects.glyph.trGlyph.remove_layer" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">remove_layer</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">remove_layer</span><span class="p">(</span><span class="n">layer_name</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Remove a non-master layer by name. Master layers are kept (Glyphs
+removes them only with their master).</p>
+<p>Returns:
+        bool: True if a layer was removed.</p>
+
 
     </div>
 
@@ -2395,7 +2693,7 @@
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../../../../../../assets/javascripts/complete-search-ui.js"
         data-worker="../../../../../../../assets/javascripts/workers/complete-search.js"></script>

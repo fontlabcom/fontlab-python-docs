@@ -41,7 +41,7 @@ REVIEWED_REDEFINITIONS: dict[str, tuple[tuple[int, ...], str]] = {
         (30, 338),
         "empty placeholder before class Menu; the final value is assigned after it",
     ),
-    "typerig.core.objects.matrix.Table.__eq__": ((78, 181), "upstream defines __eq__ twice; the second wins"),
+    "typerig.core.objects.matrix.Table.__eq__": ((77, 180), "upstream defines __eq__ twice; the second wins"),
     "typerig.core.objects.test_objects.d1": ((405, 407), "upstream test script reassigns a module variable"),
     "typerig.core.objects.test_objects.d2": ((405, 407), "upstream test script reassigns a module variable"),
     "typerig.core.objects.test_objects.la": ((89, 575), "upstream test script reassigns a module variable"),
@@ -53,6 +53,12 @@ REVIEWED_REDEFINITIONS: dict[str, tuple[tuple[int, ...], str]] = {
         (78, 82),
         "upstream bug: `def y(self, other)` lacks @y.setter and replaces the property",
     ),
+}
+
+
+# Exact reviewed AST bodies; unchanged lines cannot bless a changed definition.
+REVIEWED_REDEFINITION_HASHES = {
+    "typerig.core.objects.matrix.Table.__eq__": ('3156add7aeedd303cb7a93e269699b339bb79ebc9129b3e7e27e32c3f0ecedfa', '18d85701aa0c6c0551ab850cc55966e9a28512bb0d111cd2a234c794edad3369'),
 }
 
 
@@ -88,6 +94,9 @@ def _declaration_reason(
         return "module-and-parent-attribute"
     reviewed = REVIEWED_REDEFINITIONS.get(identifier)
     if reviewed and tuple(sorted(d.get("line") for d in declarations)) == reviewed[0]:
+        pinned = REVIEWED_REDEFINITION_HASHES.get(identifier)
+        if pinned is not None and tuple(d.get("declaration_sha256") for d in declarations) != pinned:
+            return None
         return "reviewed-redefinition: " + reviewed[1]
     return None
 

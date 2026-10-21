@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -622,6 +660,34 @@
     
   
     PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
   
 
     
@@ -1941,6 +2007,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1983,6 +2103,17 @@
     <span class="md-ellipsis">
       
         layer_clean_shapes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.core.actions.layer_actions.LayerActions.layer_copy_anchors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        layer_copy_anchors
       
     </span>
   </a>
@@ -2077,6 +2208,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#typerig.core.actions.layer_actions.LayerActions.layer_transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        layer_transform
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2087,6 +2229,14 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -2148,6 +2298,37 @@
         layer (Layer): The layer to clean.</p>
 <p>Returns:
         bool: True if any shapes were removed.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.actions.layer_actions.LayerActions.layer_copy_anchors" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">layer_copy_anchors</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">layer_copy_anchors</span><span class="p">(</span><span class="n">source_layer</span><span class="p">,</span> <span class="n">target_layer</span><span class="p">,</span> <span class="n">clean_target</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Copy anchors from one layer to another. Anchors are unique by name:
+a source anchor replaces a target anchor of the same name.</p>
+<p>Arguments:
+        source_layer (Layer): The layer to copy anchors from.
+        target_layer (Layer): The layer to copy anchors to.
+        clean_target (bool): If True, drop all target anchors first.</p>
+<p>Returns:
+        bool: True if anchors were copied.</p>
 
 
     </div>
@@ -2404,6 +2585,41 @@ Both layers must have compatible contour structures.</p>
 
 </div>
 
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.actions.layer_actions.LayerActions.layer_transform" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">layer_transform</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">layer_transform</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">scale_x</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">scale_y</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">translate_x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">translate_y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">skew_x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">skew_y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Apply an affine transform to all nodes and anchors of a layer
+around an origin on the layer bounding box.</p>
+<p>Arguments:
+        layer (Layer): The layer to transform.
+        scale_x, scale_y (float): Percent scale (100 = identity).
+        translate_x, translate_y (float): Translation in font units.
+        rotate (float): Rotation in degrees (positive = counter-clockwise).
+        skew_x, skew_y (float): Skew angles in degrees.
+        origin (str): Bounds.align_matrix code ('BL', 'BM', 'BR', 'TL',
+                'TM', 'TR', 'LM', 'C', 'RM') or 'O' for absolute origin (0, 0).</p>
+<p>Returns:
+        bool: True if anything was transformed.</p>
+
+
+    </div>
+
+</div>
+
 
 
 
@@ -2470,7 +2686,7 @@ Both layers must have compatible contour structures.</p>
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../../../../../assets/javascripts/complete-search-ui.js"
         data-worker="../../../../../../assets/javascripts/workers/complete-search.js"></script>

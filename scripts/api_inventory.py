@@ -10,7 +10,10 @@ from pathlib import Path
 from typing import Any
 
 from .export_aliases import exported_aliases, resolved_aliases
-
+from .source_visibility import exposed_targets, private_module, visible_declaration
+from .source_visibility import (
+    visible as _visible,  # noqa: F401 - preserve the helper import path
+)
 
 NATIVE_FAMILIES = {"fontlab", "fontgate", "fontpr", "fontlabpr", "PythonQt"}
 
@@ -33,7 +36,11 @@ def _unpacked(body: list[ast.stmt]) -> list[ast.stmt]:
     """Split `A, B = 0, 1` into one declaration per name, keeping each value."""
     result = []
     for node in body:
-        target = node.targets[0] if isinstance(node, ast.Assign) and len(node.targets) == 1 else None
+        target = (
+            node.targets[0]
+            if isinstance(node, ast.Assign) and len(node.targets) == 1
+            else None
+        )
         if isinstance(target, (ast.Tuple, ast.List)) and all(
             isinstance(element, ast.Name) for element in target.elts
         ):
@@ -44,7 +51,9 @@ def _unpacked(body: list[ast.stmt]) -> list[ast.stmt]:
                 else [node.value] * len(target.elts)
             )
             for element, value in zip(target.elts, values):
-                single = ast.Assign(targets=[ast.Name(id=element.id, ctx=ast.Store())], value=value)
+                single = ast.Assign(
+                    targets=[ast.Name(id=element.id, ctx=ast.Store())], value=value
+                )
                 result.append(ast.copy_location(single, node))
         else:
             result.append(node)
@@ -58,8 +67,13 @@ def _declarations(
     decorator_imports: dict[str, str] | None = None,
     *,
     keep_private: bool = False,
+    collect_private: bool = False,
 ) -> list[dict[str, Any]]:
-    """Index public declarations; captured native sidecars keep `_x` names too."""
+    """Collect source declarations; visibility later limits private candidates.
+
+    Captured native sidecars retain their private names. Other sources collect
+    them only for explicit export and public-base analysis, never execution.
+    """
     rows = []
     properties = set()
     decorator_imports = decorator_imports or {}
@@ -68,7 +82,12 @@ def _declarations(
         name = _name(node)
         if (
             name is None
-            or (name.startswith("_") and not name.startswith("__") and not keep_private)
+            or (
+                name.startswith("_")
+                and not name.startswith("__")
+                and not keep_private
+                and not collect_private
+            )
             or name == "__all__"
         ):
             continue
@@ -161,6 +180,7 @@ def _declarations(
                     source,
                     decorator_imports,
                     keep_private=keep_private,
+                    collect_private=collect_private,
                 )
             )
     return rows
@@ -262,6 +282,7 @@ def inventory_sources(sources: list[tuple[Path, str]]) -> dict[str, Any]:
                 source,
                 _decorator_imports(tree),
                 keep_private=module.partition(".")[0] in NATIVE_FAMILIES,
+                collect_private=True,
             )
             available[module] = {"kind": "module"}
             available.update({row["id"]: row for row in declarations})
@@ -270,13 +291,10 @@ def inventory_sources(sources: list[tuple[Path, str]]) -> dict[str, Any]:
             records.append(
                 (relative, module, canonical_module, source, data, tree, declarations)
             )
-    resolved = resolved_aliases(aliases, available)
-    targets = set(resolved.values())
+    targets = exposed_targets(records, available, aliases, NATIVE_FAMILIES)
     ordered_targets = sorted(targets)
     for relative, module, canonical_module, source, data, tree, declarations in records:
-        private = any(
-            part.startswith("_") and part != "__init__" for part in relative.parts[1:]
-        )
+        private = private_module(relative)
         index = bisect_left(ordered_targets, module + ".")
         has_descendant = index < len(ordered_targets) and ordered_targets[
             index
@@ -300,7 +318,9 @@ def inventory_sources(sources: list[tuple[Path, str]]) -> dict[str, Any]:
             "occurrences": 1,
         }
         for row in declarations:
-            if private and not _visible(row, targets, ordered_targets):
+            if not visible_declaration(
+                row, module, relative, targets, ordered_targets, NATIVE_FAMILIES
+            ):
                 continue
             row["canonical_id"] = canonical_module + row["id"][len(module) :]
             if row["id"] in symbols:
@@ -334,18 +354,6 @@ def inventory_sources(sources: list[tuple[Path, str]]) -> dict[str, Any]:
         "inputs": [inputs[name] for name in sorted(inputs)],
         "aliases": {**aliases, **resolved_aliases(aliases, symbols)},
     }
-
-
-def _visible(row: dict[str, Any], targets: set[str], ordered: list[str]) -> bool:
-    parts = row["id"].split(".")
-    if any(".".join(parts[:i]) in targets for i in range(len(parts), 0, -1)):
-        return True
-    index = bisect_left(ordered, row["id"] + ".")
-    return (
-        row["kind"] == "class"
-        and index < len(ordered)
-        and ordered[index].startswith(row["id"] + ".")
-    )
 
 
 def _stem(identifier: str) -> str:

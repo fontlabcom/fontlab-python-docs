@@ -132,7 +132,12 @@
     [...document.querySelectorAll('a[href^="#"]')].find(e => /skip/i.test(e.textContent));
   const searchCandidates = [...document.querySelectorAll('input[type="search"],.md-search__input,[data-md-component="search-query"],[role="searchbox"],button[aria-label*="Search"],a[aria-label*="Search"],label[for="__search"][tabindex]')];
   const search = searchCandidates.find(keyboardFocusable) || searchCandidates.find(rendered) || searchCandidates[0];
-  const navLinks = [...document.querySelectorAll('nav a[href], [role="navigation"] a[href]')];
+  // MaterialX's article tag list is metadata navigation, not the site drawer.
+  // Prefer its primary landmark; retain generic landmarks for plain sites.
+  const primaryNav = [...document.querySelectorAll('nav.md-tabs, nav.md-nav--primary, nav[aria-label="Primary navigation"], [role="navigation"][aria-label="Primary navigation"]')];
+  const navRoots = primaryNav.length ? primaryNav :
+    [...document.querySelectorAll('nav, [role="navigation"]')].filter(e => !e.matches('.md-tags') && !e.closest('article'));
+  const navLinks = navRoots.flatMap(e => [...e.querySelectorAll('a[href]')]);
   let nav = navLinks.find(rendered), navPanel = null;
   if (!nav) {
     // Closed mobile navigation is reached through a keyboard opener that controls it.

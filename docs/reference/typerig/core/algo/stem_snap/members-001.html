@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -622,6 +660,34 @@
     
   
     PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
   
 
     
@@ -1941,6 +2007,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1968,10 +2088,32 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#typerig.core.algo.stem_snap.contour_families" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contour_families
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.algo.stem_snap.measure_stems" class="md-nav__link">
     <span class="md-ellipsis">
       
         measure_stems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.core.algo.stem_snap.snap_stems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        snap_stems
       
     </span>
   </a>
@@ -2000,6 +2142,14 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -2007,6 +2157,28 @@
 <h1 id="typerigcorealgostem_snap-declarations-001">typerig.core.algo.stem_snap · declarations 001</h1>
 <p><a href="../stem_snap.html#typerig.core.algo.stem_snap">Back to <code>typerig.core.algo.stem_snap</code></a></p>
 
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.algo.stem_snap.contour_families" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">contour_families</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">contour_families</span><span class="p">(</span><span class="n">contours</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Containment families: {contour_idx: set(contour indices)} where a
+family is the transitive closure of "strictly contains" (outer and its
+counters, counters' islands, ...). Siblings stay in separate families.</p>
+
+
+    </div>
+
+</div>
 
 <div class="doc doc-object doc-function">
 
@@ -2038,6 +2210,50 @@ widths don't bucket, so a median is the stable representative there). Either
 value is None when no candidate of that axis is found.</p>
 <p>mode defaults to COINCIDENT (geometry-only; needs no inserted extrema), which
 suits arbitrary pasted parts.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.algo.stem_snap.snap_stems" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">snap_stems</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">snap_stems</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">allowlist</span><span class="p">,</span> <span class="n">detector</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="n"><a class="autorefs autorefs-internal" title="FAMILY
+
+
+  
+      class-attribute
+      instance-attribute
+   (typerig.core.algo.stem_snap.Cascade.FAMILY)" href="Cascade/members-001.html#typerig.core.algo.stem_snap.Cascade.FAMILY">FAMILY</a></span><span class="p">,</span> <span class="n">italic_angle</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">selected</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">round_ints</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pin_extremes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">apply</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Detect, audit and snap axis-aligned stems in one call.</p>
+<p>contours     -- list[Contour]; changed IN PLACE when apply is True.
+allowlist    -- WidthAllowlist keyed Axis.V / Axis.H.
+detector     -- StemDetector (default: extrema mode, strict topology).
+axis         -- Axis.V / Axis.H / None (both).
+anchor       -- 'lower' / 'upper' / 'center' (see StemFixer.plan_cascade).
+scope        -- Cascade.STEM / FAMILY / LAYER.
+italic_angle -- degrees; the outline is deslanted for detection and
+                the correction, then slanted back. Vertical stems of
+                an italic are measured perpendicular to the slant axis
+                in the upright frame (i.e. horizontally, as designers
+                and hinting stems measure them).
+selected     -- optional set of (contour_idx, node_idx): only stems
+                with a face node in it are processed.
+round_ints   -- round the moved nodes to integers.
+pin_extremes -- keep glyph extremes that are not stem faces in place
+                (see StemFixer.plan_cascade).
+apply        -- False = dry run; contours keep their coordinates.</p>
+<p>Returns a StemSnapReport.</p>
 
 
     </div>
@@ -2137,7 +2353,7 @@ so callers can see what the detector actually found before aggregation.</p>
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../../../../assets/javascripts/complete-search-ui.js"
         data-worker="../../../../../assets/javascripts/workers/complete-search.js"></script>

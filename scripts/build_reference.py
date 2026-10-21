@@ -32,7 +32,7 @@ PACKAGES = {
     "fontlab-grablab": ("src", "grablab"),
     "pythonqtside": ("src", "pythonqtside"),
     "fontlab-fly": ("src", "fly"),
-    "typerig-lib": ("Lib", "typerig"),
+    "TypeRig": ("Lib", "typerig"),
     "fontlab-glyport": ("src", "fontlab_glyport"),
     "fontlab-aidus-code": ("", "fontlab_aidus_code"),
     "fontlab-fontport": ("src", "fontlab_fontport"),  # D14: docstrings/signatures only
@@ -62,7 +62,7 @@ def examples_export() -> dict[str, bytes]:
     """
     folder = Path(
         os.environ.get("FONTLAB_EXAMPLES_EXPORT")
-        or ROOT.parent / "fontlab-python-examples" / "docs-export"
+        or ROOT.parent / "fontlab-python-examples" / ".build/export"
     )
     manifest_bytes = (folder / "manifest.json").read_bytes()
     manifest = json.loads(manifest_bytes)
@@ -238,10 +238,10 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
     content = stage / "content"
     content.mkdir(parents=True, exist_ok=True)
     expected_files = set()
-    for source in (ROOT / "site-src").rglob("*"):
+    for source in (ROOT / "src_docs/md").rglob("*"):
         if source.is_file() and source.name != ".DS_Store":
-            expected_files.add(source.relative_to(ROOT / "site-src").as_posix())
-            target = content / source.relative_to(ROOT / "site-src")
+            expected_files.add(source.relative_to(ROOT / "src_docs/md").as_posix())
+            target = content / source.relative_to(ROOT / "src_docs/md")
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, target)
     for path, data in examples.items():
@@ -252,11 +252,11 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
     page_hashes = {}
-    # Link a package's guide only when site-src actually ships it (strict links).
+    # Link a package's guide only when authored sources actually ship it (strict links).
     plan["guides"] = {
         package: guide
         for package, guide in PACKAGE_GUIDES.items()
-        if (ROOT / "site-src/packages" / f"{guide[1]}.md").exists()
+        if (ROOT / "src_docs/md/packages" / f"{guide[1]}.md").exists()
     }
     for relative in plan["pages"]:
         expected_files.add(relative)
@@ -334,15 +334,15 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
     (content / "build-info.json").write_text(
         json.dumps(public, indent=2, sort_keys=True) + "\n"
     )
-    config = yaml.safe_load((ROOT / "mkdocs.yml").read_text())
+    config = yaml.safe_load((ROOT / "src_docs/mkdocs.yml").read_text())
     config["plugins"][-1]["mkdocstrings"]["handlers"]["python"]["paths"] = [
         str(ROOT / ".build/native-names")
     ] + list(dict.fromkeys(str(root) for root, _ in roots))
-    config["plugins"][-1]["mkdocstrings"]["handlers"]["python"]["options"][
-        "extensions"
-    ] = [
+    options = config["plugins"][-1]["mkdocstrings"]["handlers"]["python"]["options"]
+    options["extensions"] = [
         str(native_root / "fontlab_echopy/tooling/griffe_native.py"),
         str(ROOT / "scripts/griffe_sources.py"),
+        *options.get("extensions", []),
     ]
     config["docs_dir"] = str(ROOT / ".build/content")
     config["site_dir"] = str(ROOT / ".build/site")

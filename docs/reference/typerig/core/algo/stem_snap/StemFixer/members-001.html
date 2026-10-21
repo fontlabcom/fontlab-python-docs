@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -622,6 +660,34 @@
     
   
     PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
   
 
     
@@ -1941,6 +2007,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1990,6 +2110,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.algo.stem_snap.StemFixer.plan_cascade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plan_cascade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.algo.stem_snap.StemFixer.plan_iup" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2010,6 +2141,14 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -2058,6 +2197,53 @@
 <div class="doc doc-object doc-function">
 
 
+<h2 id="typerig.core.algo.stem_snap.StemFixer.plan_cascade" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">plan_cascade</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">plan_cascade</span><span class="p">(</span><span class="n">violations</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="n"><a class="autorefs autorefs-internal" title="FAMILY
+
+
+  
+      class-attribute
+      instance-attribute
+   (typerig.core.algo.stem_snap.Cascade.FAMILY)" href="../Cascade/members-001.html#typerig.core.algo.stem_snap.Cascade.FAMILY">FAMILY</a></span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="p">(),</span> <span class="n">pin_extremes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>IUP plan along each axis: stem faces are knots, everything else is
+interpolated between them (TrueType IUP on one axis).</p>
+<p>Each captured stem gives two knots: its lower face moves by d_lo and
+its upper face by d_hi, with (d_lo, d_hi) = (0, d) for anchor
+'lower', (-d, 0) for 'upper' and (-d/2, +d/2) for 'center',
+d = target - measured. Nodes between knots are interpolated (the
+counters absorb the change); nodes beyond the outermost knots move
+with the nearest one. Face nodes and their handles take their face
+value exactly, so every stem lands on target even when knots of
+different stems interleave.</p>
+<p>keep: StemCandidates that must not change width (e.g. stems already
+on target). Both their faces get the map's value at their centre,
+so interpolation between moved stems cannot bend them.</p>
+<p>pin_extremes: the lowest / highest coordinate of each group stays
+put unless it is a stem face (baseline, cap height, the side of a
+glyph beyond its last stem): the counters absorb the change.
+False: parts beyond the outermost stems move with them.</p>
+<p>scope picks the contours a stem acts on (see Cascade): the two
+face contours, their containment family (outer + counters, default)
+or the whole layer. Each group gets its own map, built from the
+stems with a face in it.</p>
+<p>Duplicate candidates (same axis, faces and contour set) count once.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="typerig.core.algo.stem_snap.StemFixer.plan_iup" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">plan_iup</span>
 
@@ -2067,6 +2253,9 @@
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+        <p>Legacy plan: shift the nodes of the target-edge contour that lie
+beyond the cut. See plan_cascade() for the interpolating version.</p>
 
 
     </div>
@@ -2139,7 +2328,7 @@
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../../../../../assets/javascripts/complete-search-ui.js"
         data-worker="../../../../../../assets/javascripts/workers/complete-search.js"></script>

@@ -3,11 +3,15 @@
 
 import json
 import os
+import tempfile
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 
 import pytest
 from playwright.sync_api import sync_playwright
 
+from scripts.a11y_check import serve_site
 from scripts.browser_smoke import QUERIES
 from scripts.search_identities import qualify_titles
 
@@ -141,6 +145,32 @@ def test_search_when_native_member_fragment_then_alias_tags_preserve_member_sema
     assert row["text"] == "Member."
 
 
+@contextmanager
+def _consumer_site(worker_source: str, payload: str) -> Iterator[str]:
+    """Serve complete bytes directly; keep large payloads off the control channel."""
+    with tempfile.TemporaryDirectory(prefix="fontlab-search-consumer-") as folder:
+        root = Path(folder)
+        (root / "worker.js").write_text(worker_source, encoding="utf-8")
+        (root / "search_index.json").write_text(payload, encoding="utf-8")
+        (root / "index.html").write_text(
+            "<!doctype html><title>Search consumer</title>", encoding="utf-8"
+        )
+        with serve_site(root) as base:
+            yield base
+
+
+def test_consumer_site_when_unicode_payload_then_serves_every_original_byte():
+    from urllib.request import urlopen
+
+    worker, payload = "// worker 😀", '{"title":"É漢😀"}'
+    with _consumer_site(worker, payload) as base:
+        for name, content in [("worker.js", worker), ("search_index.json", payload)]:
+            with urlopen(base + name, timeout=2) as response:
+                assert response.read() == content.encode("utf-8"), (
+                    "No truncation or re-encoding"
+                )
+
+
 def test_search_when_full_index_uses_materialx_worker_then_module_alias_is_discoverable():
     """Exercise the shipped worker's real ranking/grouping, not field presence."""
     root = Path(__file__).resolve().parents[1]
@@ -170,28 +200,14 @@ def test_search_when_full_index_uses_materialx_worker_then_module_alias_is_disco
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     worker = next((root / ".build/site/assets/javascripts/workers").glob("search.*.js"))
     worker_source = worker.read_text()
-    with sync_playwright() as playwright:
+    with (
+        _consumer_site(worker_source, payload) as base,
+        sync_playwright() as playwright,
+    ):
         browser = playwright.chromium.launch(headless=True)
         context = browser.new_context()
-        context.route(
-            "**/worker.js",
-            lambda route: route.fulfill(
-                body=worker_source, content_type="application/javascript"
-            ),
-        )
-        context.route(
-            "**/search_index.json",
-            lambda route: route.fulfill(body=payload, content_type="application/json"),
-        )
-        context.route(
-            "http://source-search.test/",
-            lambda route: route.fulfill(
-                body="<!doctype html><title>Private search fixture</title>",
-                content_type="text/html",
-            ),
-        )
         page = context.new_page()
-        page.goto("http://source-search.test/")
+        page.goto(base)
         page.evaluate("""async () => {
             const data = await (await fetch('/search_index.json')).json();
             data.options = {suggest: false};

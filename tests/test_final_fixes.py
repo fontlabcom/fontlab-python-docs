@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from scripts.api_inventory import inventory_sources, plan_pages
+from scripts.build_reference import source_roots
 from scripts.reference_pages import render_page
 from scripts.search_identities import qualify_titles
 
@@ -58,7 +59,7 @@ def test_guarded_inheritance_and_nested_navigation(tmp_path):
 
 
 def test_actual_void_has_source_proven_point_members():
-    root = Path(__file__).resolve().parents[2] / "typerig-lib/Lib"
+    root = next(root for root, package in source_roots() if package == "typerig")
     plan = plan_pages(inventory_sources([(root, "typerig")]))
     row = plan["symbols"]["typerig.core.objects.point.Void"]
     assert row["bases"] == [

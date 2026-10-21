@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -622,6 +660,34 @@
     
   
     PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
   
 
     
@@ -1941,6 +2007,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2012,6 +2132,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.actions.cut_panel_actions.npa_stem_center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npa_stem_center
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.actions.cut_panel_actions.npa_stroke_separate" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2032,6 +2163,14 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -2140,6 +2279,35 @@ layer; the original outline is left untouched.</p>
 <div class="doc doc-object doc-function">
 
 
+<h2 id="typerig.core.actions.cut_panel_actions.npa_stem_center" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">npa_stem_center</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_stem_center</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">ContourActions</span><span class="p">,</span> <span class="n">force_axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">active_layer</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Stem-Center Snap: snap the selected nodes of each scope layer to the
+centerline of the perpendicular stem they sit inside. Mirrors FL
+TRStemCenterActionCollector.snap_stem_center.</p>
+<p>force_axis: 'H' (horizontal stem, nodes move on Y), 'V' (vertical stem,
+nodes move on X) or None (decided from the active layer's selection
+bbox). active_layer: layer whose selection drives the axis; default
+the first scope layer. Only coordinates change, so the live layer is
+written directly (no mount).</p>
+<p>Returns dict[layer_name -&gt; StemCenterStatus] (OK, AXIS_AMBIGUOUS,
+NO_CANDIDATE or NO_SELECTION).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="typerig.core.actions.cut_panel_actions.npa_stroke_separate" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">npa_stroke_separate</span>
 
@@ -2228,7 +2396,7 @@ contours are analysed; if no selection, all contours are processed.</p>
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../../../../assets/javascripts/complete-search-ui.js"
         data-worker="../../../../../assets/javascripts/workers/complete-search.js"></script>
