@@ -1054,3 +1054,29 @@ verification/issue-120/auditor-integration-z34/.
 ## 2026-10-21 — N118 reviewed .98 documentation checkpoint
 
 N118 private documentation alignment: review743→765source inputs (22new App modules, no modified/removedinputs), pin exact independently sealed .98 and current other reviewed producers. All six inherited owner document edits preserved; canonical generated output/deletions untouched. Strict source/build/browser gates run in owned output only, reused SDK read only. No native refresh or publication.
+
+
+## 2026-10-21 — N132 generated-output Git byte preservation
+
+Append only `/docs/** -text`; keep `/src_docs/md/licenses/** -text` exact.
+Real isolated Git fixtures cover all three accepted CRLF notices, HTML, gzip,
+binary, staging, archive and checkout with `core.autocrlf=input/true/false` and
+a global automatic-text policy. The non-doc control retains normal Git text
+conversion. Negative controls reproduce 655→644-byte staging; repair controls
+prove that adding attributes alone leaves an old staged blob unchanged and
+that narrowly restaging the three known notice paths repairs their exact bytes.
+
+Command: `rtk proxy /opt/homebrew/bin/python3.11` runs the existing read-only
+SDK's `python -B -m pytest -q -p no:cacheprovider` for
+`tests/test_generated_git_bytes.py`, `tests/test_build_lifecycle.py`,
+`tests/test_release_audit.py`, and `tests/test_reviewed_source_notices.py`,
+with plugin autoload disabled and the verified read-only Echopy source on
+`PYTHONPATH`. Final result: 82 passed, exit 0 (9 new real-Git cases).
+All 134 accepted generation inputs remain exact; the entire generation
+manifest is unchanged by this four-file source change. No rebuild or release
+worktree write. Retained earlier fixture/environment failures and commands:
+workspace `verification/issue-120/docs-byte-preservation-z41/`.
+
+Controller-only release repair after applying this source rule:
+`git add --renormalize -- docs/licenses/0bsd-tslib.txt docs/licenses/pictogrammers-free.txt docs/licenses/tslib-copyright.txt`.
+Reverify every accepted generated index/workingtree byte before delivery.
