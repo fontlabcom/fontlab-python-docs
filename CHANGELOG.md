@@ -281,3 +281,8 @@ it does not include the private .84/106candidate, native acceptance or publicati
   the original40Tab/5Tab limits and every existing accessibility assertion.
 - Add six focused browser regressions; preserve N83's743-input .80/105 source
   checkpoint and all existing menu/theme/notice bytes. Publication remains gated.
+
+
+## 2026-10-21 — N118 reviewed .98 documentation checkpoint
+
+Pin the reviewed App .98/Examples37/Scriptmix107 source checkpoint and unchanged other producers; retain .80 history and exclude moving .100. Add source checkpoint and current App/SimonCozens licence notices. Preserve inherited owner prose and publication/native gates.

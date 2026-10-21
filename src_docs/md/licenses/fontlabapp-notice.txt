@@ -1,0 +1,1079 @@
+Font Info panel provenance
+==========================
+
+src/fontlabapp/_font_info_dialog.py adapts the shared dialog shell from the six
+Font Info scripts in fontlab-samples (fontlab-python-examples archive,
+_old/part4/fontlab-samples/samples/fontinfo_*.py), licensed under the Apache
+License, Version 2.0. The adaptation extracts their shared layout, native style,
+callback containment, preview identity checks and table rendering. Tool-specific
+controls, calculations and edit actions remain in fontlab-python-scriptmix.
+
+See LICENSE-APACHE-2.0. This notice does not change the BSD-3-Clause and MIT
+licenses applicable to other portions of fontlab-fontlabapp (see LICENSE).
+
+Feature panel provenance
+========================
+
+src/fontlabapp/_features_dialog.py adapts the selectable table and Copy helpers
+from fontlab-samples' Apache-2.0 features_*.py scripts in the same archive, and
+extends the existing shared Font Info shell. Per-tool computations, controls
+and actions remain in fontlab-python-scriptmix. See LICENSE-APACHE-2.0.
+
+Shared feature source calculations
+=================================
+
+src/fontlabapp/feature_code.py adapts the conservative glyph-name validation,
+suffix pairing and FEA generation from the Apache-2.0 features_*.py samples.
+The host-free helper is shared by current Scriptmix consumers through fly.ap.
+
+Names panel provenance
+======================
+
+src/fontlabapp/_names_dialog.py adapts the shared dialog shells, selectable
+tables and guarded lifecycle from five Apache-2.0 fontlab-samples scripts in
+the retained fontlab-python-examples archive (_old/part4/fontlab-samples/samples/):
+names_case_pairs.py, names_character_info.py, names_charset_compare.py,
+names_glyph_finder.py and names_select_by_mark.py. Per-tool controls,
+calculations, proof painting and actions remain in fontlab-python-scriptmix.
+See LICENSE-APACHE-2.0.
+
+Kerning inspection panel provenance
+===================================
+
+src/fontlabapp/_kerning_dialog.py and scripting.py's kerning helpers adapt the
+shared native access, layout and dialog responsibilities from Apache-2.0
+fontlab-samples in the retained fontlab-python-examples archive
+(_old/part4/fontlab-samples/samples/): kerning_classes_browser.py,
+kerning_compare_masters.py, kerning_list_browser.py, kerning_missing_pairs.py
+and kerning_text_preview.py. The panel reuses the Names shell above; original
+controls and tool-specific calculations remain in fontlab-python-scriptmix.
+See LICENSE-APACHE-2.0. No original archived input is removed.
+
+Kerning editor provenance
+=========================
+
+src/fontlabapp/kerning_edit.py, kerning_batch.py, _kerning_edit_dialog.py and
+_kerning_value_dialog.py adapt shared calculations, explicit pair access,
+before/after container history and common UI from these Apache-2.0 samples in
+the same retained archive: kerning_copy_between_masters.py,
+kerning_pair_editor.py, kerning_scale_values.py, kerning_round_values.py and
+kerning_remove_small.py. Scriptmix records each original/destination SHA-256.
+The all-master writer reuses the native zero-seed/scale protocol already used by
+Fontport's MIT-licensed native_kerning.py. It retains native @class notation and
+does not widen Fontport's key-master public API. See LICENSE-APACHE-2.0 and LICENSE.
+
+Selected Kerning editors adapt Apache-2.0 kerning_exceptions_finder.py and
+kerning_pairs_from_text.py from the same retained fontlab-samples archive.
+App's kerning_selection.py shares exception precedence, word parsing, explicit/
+effective previews and ticked plans; the existing complete batch writer and
+owned dialog shell provide snapshot guards, Refresh and history. Scriptmix
+migration.json appends both source/destination hashes; originals are unchanged.
+
+Proof tools adapt the Apache-2.0 fontlab-samples proof_glyph_grid.py,
+proof_text_by_master.py, proof_waterfall.py and proof_word_finder.py from the
+same retained archive. App proof.py shares exact embedded words, Unicode/slash
+parsing, ordered sizes, advance-only runs and transformed outline assembly;
+_proof_views.py preserves the three actual native painters, and _proof_dialog.py
+reuses owned dialog lifecycle with stale-font/failed-read/paint guards. Scriptmix
+retains original controls/classes/keys/globals and appends exact original/menu
+SHA-256 mappings. No source archive input was modified or removed.
+
+Masters report provenance
+=========================
+
+The four Masters tools adapt Apache-2.0 masters_overview.py,
+masters_width_chart.py, masters_glyph_weight_chart.py and
+masters_compatibility_check.py from retained fontlab-samples sources.
+App masters.py shares actual reads, twelve-step transformed contour areas,
+counter nesting and own-contour structural signatures; _masters_views.py
+retains original labelled lines/grouped bars. _masters_dialog.py extends the
+existing Proof/Names shell and paint boundary, with complete initial UI,
+source-bound actions and owned cleanup. Scriptmix retains every original
+control, class, key and native scenario interface; migration.json appends four
+exact source/destination SHA-256 pairs. Originals remain unchanged.
+
+Metrics and outline inspector provenance
+=======================================
+
+The four read-only tools adapt Apache-2.0 metrics_spacing_string_preview.py,
+metrics_width_table.py, outlines_contour_order_view.py and
+outlines_node_statistics.py from the retained fontlab-samples archive.
+App inspectors.py preserves original parsing, missing/zero/auto rules, rounded
+width progressions, raw node-polygon winding and contour/node statistics; actual
+transformed paths and repeated reads reuse accepted Proof/Masters helpers.
+_inspectors_views.py retains the complete original spacing and contour diagrams
+on the existing safe painter boundary. _inspectors_dialog.py reuses the owned
+Masters/Proof/Names lifecycle and selection guards. Scriptmix migration.json
+retains exact original/menu SHA-256 pairs; all originals remain unchanged.
+
+Read-only Components provenance
+==============================
+
+Five complete inspectors adapt Apache-2.0 components_compatibility.py,
+components_count_badges.py, components_missing_bases.py, components_report.py and
+components_where_used.py from fontlab-python-examples/_old/part4/fontlab-samples-L1/samples/.
+App components.py shares ordered component/count/offset/missing/reverse-index
+reads, plain source snapshots and existing native-verified placed outline paths.
+_components_dialog.py extends existing Proof/Names binding, signal and Close
+lifecycle; _components_views.py retains the complete original badge-card painter.
+Scriptmix retains original controls/class/key/helper/scenario interfaces and
+appends exact source/destination hashes to migration.json. Originals remain
+unchanged. Reviewed Appv0.2.13/Scriptmixv1.0.9 native/artifact acceptance is
+recorded in WORK.md.
+
+Read-only Anchors provenance
+===========================
+
+Anchor Cloud, Anchor Compatibility and Mark Attachment Preview adapt the
+Apache-2.0 anchors_cloud_view.py, anchors_compatibility_report.py and
+anchors_mark_attachment_preview.py from retained fontlab-samples-L1 sources.
+App anchors.py preserves original frequency/order, auto-layer exclusions, raw
+anchor snapshots and rounded attachment arithmetic. Existing Components/Proof
+helpers supply placed outlines, source guards, owned lifecycle and the exact
+None-error painter adapter. _anchors_views.py retains both complete original
+diagrams. Scriptmix keeps every original control/class/key/helper/scenario
+interface and appends exact original/menu SHA-256 pairs. All originals remain;
+reviewed Appv0.2.14/Scriptmixv1.0.10 artifact/native and independent downloaded-tag
+acceptance are recorded in WORK.md.
+
+Read-only glyph review provenance
+=================================
+
+Select Unreferenced Glyphs adapts Apache-2.0 cleanup_unused_glyphs_report.py
+from retained fontlab-samples-C4; four original copies are byte-identical.
+Interpolation Preview adapts Apache-2.0 masters_interpolation_preview.py from
+retained fontlab-samples-L1, retaining the defensive QColor/palette fixes.
+Nine copies match L1; L2 only removes those protections. Complete calculations,
+controls, diagram and public helper interfaces remain. Shared lifecycle/painter
+boundaries come from existing App helpers. migration.json retains original and
+menu SHA-256 pairs. All inputs remain; reviewed Appv0.2.15/Scriptmixv1.0.11
+artifact/native and independent downloaded-tag acceptance are recorded in WORK.md.
+
+Live Node Coordinates provenance
+================================
+
+Node Coordinates Panel adapts Apache-2.0 outlines_node_coordinates_panel.py
+from retained fontlab-samples-L1. Nine original copies match; L2 only removes
+palette protections. App node_coordinates.py retains complete own-node order,
+consecutive measurements and formatting. CurrentGlyph resolves actual active
+context with explicit None checks. Shared Names heading/lifecycle and Masters
+tables supply the UI; timer/Copy guards clear incomplete or stale values.
+Original sources remain. Reviewed Appv0.2.16/Scriptmixv1.0.12 pass artifact/native
+and independent downloaded-tag acceptance; receipts are recorded in WORK.md.
+
+Compact Master Switcher provenance
+=================================
+
+Master Switcher adapts Apache-2.0 masters_switcher_palette.py from retained
+fontlab-samples sources. Nine copies match central; L2 removes palette safeguards.
+Original location formatting and existing master_order calculation are retained.
+MastersDialog supplies owned theme/binding/refresh/Close; added guards verify the
+actual master choices and visible labels before an explicit target switch.
+Three columns retain the three-master row while wrapping larger master sets.
+All originals remain. Reviewed Appv0.2.17/Scriptmixv1.0.13 pass source/artifact/native/prior60 and
+independent downloaded-tag acceptance, recorded in WORK.md.
+
+Guide tools provenance
+======================
+
+Font Guides Panel, Grid Generator and Metric Reference Lines adapt Apache-2.0
+fontlab-samples sources. Eight copies of each match central; L2 only removes
+text contrast styling. The complete guide controls and grid painter are retained
+on shared owned UI/painter boundaries. Native-history safeguards refuse entire
+unsafe batches before notification. All originals remain. Reviewed Appv0.2.18/
+Scriptmixv1.0.14 pass source/artifact/native/prior61 and independent downloaded-tag
+acceptance, recorded in WORK.md.
+
+Guide rewrite editors provenance
+===============================
+
+Clear Glyph Guides, Copy Guides Between Masters and Guide List Editor adapt
+retained Apache-2.0 fontlab-samples sources. Complete filters, target controls,
+width scaling and editable rows are retained on the owned guide lifecycle.
+Native guide copies preserve retained geometry, colour and tags; hints remain.
+Shared preflight refuses unsafe automatic dependants before any batch mutation.
+All originals remain. Reviewed Appv0.2.19/Scriptmixv1.0.15 pass source/artifact/
+native/prior64 and independent downloaded-tag acceptance, recorded in WORK.md.
+
+Copy Anchors From Glyph provenance
+=================================
+
+Adapted from the retained Apache-2.0 fontlab-samples-L1 anchor-copy source.
+Preserves complete source completion, merge/replace, width scaling and master
+controls. Shared App support adds late native binding, raw source guards,
+preconstructed writes and measured native-history safeguards. Existing pins
+retain native style; new pins use FontLab name-derived appearance defaults.
+The original source and independent L1 scenario remain retained. Candidate
+acceptance and the pending release/fresh-tag gates are recorded in WORK.md.
+
+Copy Anchors acceptance update: reviewed Appv0.2.21/Scriptmixv1.0.17 pass all
+source/artifact/native/prior67 and downloaded-tag R053 gates, including settled
+refusal-layout geometry. Earlier candidate tags are retained with their failed
+visual receipt. No original source is removed. See WORK.md for exact evidence.
+
+RSB foreground adaptation provenance
+===================================
+
+canvas_rsb.py and _canvas_rsb_dialog.py implement the RSBline behavior by
+akufadhl (https://github.com/akufadhl/RSBline), licensed Apache-2.0.
+This original FontLab implementation uses explicit LTR/RTL controls and a
+foreground overlay across tools; it does not implement Glyphs automatic
+text-tool gating or background callback ordering. No corpus file is copied.
+Reference plugin SHA256: 5c3c7acb0b10f06857e69b47d58d4aaf9fbefc56c91e595e5c8d97d17c564ee5.
+Reference LICENSE SHA256: c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.
+FontLab's PostScript italic-angle sign is converted at capture to preserve the
+original Glyphs slant; the pure geometry helper keeps the original convention.
+See LICENSE-APACHE-2.0. Scoped native controls and the complete prior-tool
+regression pass, including the corrected guide-date boundary. Release and
+downloaded-tag verification are recorded in WORK.md.
+
+Duplicate Anchor Rings foreground adaptation provenance
+=======================================================
+
+canvas_anchor_rings.py and _canvas_anchor_rings_dialog.py are original FontLab
+implementations of ShowAnchorsWithDuplicateCoordinates behavior by mekkablue
+(https://github.com/mekkablue/ShowAnchorsWithDuplicateCoordinates), Apache-2.0.
+Every anchor pair at distance below1.0 is retained, including coincident triples.
+Original handle sizes and red/yellow stroke geometry are preserved. Explicit
+handle controls replace Glyphs preferences; foreground drawing across all tools
+does not implement the original text/hand-tool suppression or background order.
+No corpus file is copied. Reference plugin SHA256:
+912ac0c1918b4bc16caab357e3111b2dd3c9ac1ae39d4bdec47fcc1c0fdefa71.
+Reference LICENSE SHA256:
+c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.
+See LICENSE-APACHE-2.0. Native geometry/pixels/lifecycle/context/partial-clipping
+and both actual menus pass. Complete prior-tool regression and forced guide-date
+boundary checks pass; see WORK.md for release and downloaded-tag verification.
+
+Italic Angle provenance
+=======================
+
+master_angles.py, _master_angles_dialog.py and _master_angles_views.py adapt
+the retained Apache-2.0 fontlab-samples masters_italic_angle.py source and its
+original independent native scenario. All per-master controls and slant signs
+are retained. Shared source guards, owned signal/painter cleanup and the native
+masters-container history boundary replace the original unguarded writer.
+The complete source and licence remain retained. See WORK.md for pending gates.
+
+
+Tabular width checker adaptation
+===============================
+
+Pedro Arilla, glyphs-scripts/Testing/Tabular width checker.py, Apache-2.0.
+Source SHA-256: 6556dd53ce9f45cfb770b1744077ba26ab230805cd65eaf4dca518c2a3313f44
+License SHA-256: ae039abae8aafe6656ae754a0d45f10f5209351d6cc18546e868db906eedff37
+https://github.com/pedroarilla/glyphs-scripts
+The App tabular_width and _tabular_width_dialog modules and Scriptmix
+Scripts/Metrics/Check Tabular Widths.py preserve exact comparison, row statuses,
+same/different totals and time heading. Native font-order selection defines the
+reference. The modeless report preserves owner Output content. Native acceptance
+is pending; no release or 130-sample acceptance increment is claimed.
+
+Tabular report carrier/deadline correction (issue120 B7): bind the Font-window
+FontGate font id to the active flPackage.fgId before reading widths. One shared
+absolute two-second deadline covers both complete selection and width scans.
+Fail clearly rather than publish partial rows. Existing unbound selection API
+callers preserve zero-argument behavior. No original source/license hash changed.
+
+Generic Vanilla session ownership
+---------------------------------
+fontlabapp/vanilla.py relocates FontLab's Apache-2.0 fontlab-fontport
+src/fontlab_fontport/vanilla.py ownership implementation for issue120.
+The existing Apache-2.0 license text is distributed in LICENSE-APACHE-2.0.
+
+
+Generic image resource and rendering helpers
+============================================
+
+fontlabapp/image_resources.py relocates generic algorithms from
+fontlab-glyport src/fontlab_glyport/ui/images.py, revision756df2ac8,
+under the following original license. Cocoa lookup/NSImage/NSCursor policy
+remains in Glyport; App has no required reverse dependency.
+
+MIT License
+
+Copyright (c) 2026 FontLab contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Generic UI graph records and serialization
+=========================================
+fontlabapp/ui_graph.py relocates generic Connection/Node records and ordered
+UIGraph algorithms from fontlab-glyport src/fontlab_glyport/ui/graph.py,
+revision0a71514, under the FontLab contributors MIT notice above. Vanilla Frame,
+auto/posSize validation and resolution remain in Glyport's compatibility adapter.
+
+
+Component recipe report provenance
+=================================
+
+Behavior adapted from Simon Cozens, GlyphsScripts/Recipe Dumper.py.
+https://github.com/simoncozens/GlyphsScripts
+Source SHA-256: 500126d3fcc965c0a93991be4253fce7ed33f56eb3513b202ba8a1049e2e7edd
+MIT license SHA-256: 6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5
+
+The adaptation preserves ordered layer/component records, repeated component
+names, mixed layers and original base+base=target output. Native Font-window
+active-master selection is a bounded candidate; original editor-tab/repeated/
+multi-master layer selection and native acceptance remain pending. Original
+source resources and reference bodies are not redistributed or executed.
+New host adapter/UI code also uses the workspace Apache-2.0 terms.
+
+Complete upstream MIT notice:
+
+MIT License
+
+Copyright (c) 2017 Simon Cozens
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Angularizzle numerical adaptation
+================================
+
+src/fontlabapp/angularizzle.py adapts the numerical methods of Angularizzle
+by Luke Prowse (2019), NaN-xyz/GlyphsApp-Scripts, Angularizzle/Angularizzle.py.
+The repository README declares Apache-2.0; its root LICENSE supplies the MIT
+terms reproduced below. Both notices are preserved. See LICENSE-APACHE-2.0.
+Source SHA256: 082f0317e4e92ebc962d5b581fe6f99d789eeb35d521f6d3c1e4e8081806125a
+
+MIT License
+
+Copyright (c) 2019 LukeProwse
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The workflow adaptation also covers _angularizzle_sampling.py,
+angularizzle_session.py, angularizzle_settings.py and _angularizzle_dialog.py.
+Native FontLab selection and writing adapters are new implementation code.
+Cancel repairs the source cross-layer restoration defect by restoring the
+actual overwritten target, while retaining the original colour-mark behavior.
+Native acceptance and unsupported-source scenarios remain open.
+
+
+Generic owned Qt dialog operations
+==================================
+fontlabapp/qt_dialogs.py relocates generic QMessageBox/QFileDialog construction,
+execution and retained-message-box teardown from fontlab-glyport
+src/fontlab_glyport/ui/dialogs.py, revisionda82ee0, under the original FontLab
+contributors MIT permission/copyright notice above. Foreign policy stays in Glyport.
+
+
+Recipe Dumper selected-layer update: the current candidate reads ordered
+Font/Glyph-window occurrences, including repeats and per-slot layer choices.
+Font-window selection uses the current master. Native9787focus/selection and
+complete preservation remain pending. Earlier Font-window-only descriptions
+record the preceding bounded adapter. Original MIT attribution remains above.
+
+Owned dialog execution also consolidates generic input/file execution from
+fontlab-glyport glyphsapp/fontlab_dialogs.py, revisiona37f44f, under the original
+FontLab-contributors MIT attribution retained above. Foreign policy stays there.
+
+
+Tabular Width Checker now reads ordered Font/Glyph-window selected layers,
+including repeated editor slots and their layer choices. Font-window rows use
+the current master. Exact widths, first-occurrence reference and original
+counts/time heading remain. Native9787order/focus/preservation is pending.
+Earlier Font-window-only descriptions record the preceding adapter.
+
+
+Resistenza instance naming computations
+======================================
+instance_style_names.py adapts detached computational rules from ShortNames.py
+and StyleLinker.py, https://github.com/rsztype/Scripts .
+Copyright 2026 Giuseppe Salerno / Resistenza Type, https://rsztype.com .
+Licensed under Apache-2.0; complete terms remain in LICENSE-APACHE-2.0.
+ShortNames SHA256:f2833df0828996b7c7ccba3aec73af53c00a36b8bcb2a42a40309a7227408f76
+StyleLinker SHA256:a3ad09c4706dcc7aead5ae4289f27a0692ab9d0a7a596f876a76069b27edb047
+License SHA256:bb28c48e3e078166e91cfc2b6db7ffebb8a0973b9e23b3df060561292d8d69ec
+Changes: immutable typed records, caller-resolved family input and detached
+proposal/warning/link calculations. Source case/tokenization quirks retained.
+Original panels, eligible-instance/native field adapters and writes/exports are
+not implemented by this module; no original workflow/native acceptance follows.
+
+
+Slobzheninov Point Counter
+========================
+point_counts.py, point_counts_native.py and the Point Counter menu/report adapt
+Bug fixing/Point Counter.py, https://github.com/slobzheninov/Glyphs-Scripts .
+Copyright 2020 Alex Slobzheninov (upstream README). Apache-2.0; complete terms
+are retained in LICENSE-APACHE-2.0.
+Source SHA256:fd0dd22423a8e2772513436bec48692bcb41989bab06b98b779e37c64f3ea819
+License SHA256:bb28c48e3e078166e91cfc2b6db7ffebb8a0973b9e23b3df060561292d8d69ec
+Changes: typed immutable reports, native selected occurrences and foreground
+layers, two-read/context/deadline guards, and an owned Refresh/Close text panel
+instead of clearing owner Output. Count quadratic on-curves as curves (source
+omits them). Preserve repeated groups, empty rows, source text and the previous
+two-row mismatch marker. Components stay undecomposed. Foreground-role mapping,
+getter preservation and native lifecycle acceptance remain pending.
+
+
+linear_layout.py extracts the binding-free elimination solver from fontlab-glyport ui/vanilla_layout.py, revision938183d26bb82abac6b116b5afde752021483a78, under the complete Copyright (c)2026 FontLab contributors MIT notice retained above. Changes: typed public solve API, explicit caller tolerance and generic InconsistentEquations error. Vanilla syntax and error capability mapping remain in Glyport.
+
+
+Pedro Arilla Vertical metrics reporter
+=====================================
+vertical_metrics.py, vertical_metrics_native.py and the Vertical Metrics Reporter
+menu adapt Testing/Vertical metrics reporter.py from
+https://github.com/pedroarilla/glyphs-scripts . Source credits Pedro Arilla.
+Apache-2.0; complete terms retained in LICENSE-APACHE-2.0.
+Source SHA256:56c26ee9f72196129214ee6d030140ffe48d7fadee9d985f1c2e144763af8b22
+License SHA256:ae039abae8aafe6656ae754a0d45f10f5209351d6cc18546e868db906eedff37
+Changes: typed immutable eight-value rows, stored native all-master metadata
+reader, source/deadline fences and an owned Refresh/Close report instead of
+clearing Output. Reject the source's misleading empty-domain success report.
+Native schema, metric mapping/order and complete preservation qualification
+remain pending. No exported/automatically derived metric claim.
+
+
+Pedro Arilla random proof scripts
+================================
+random_proof.py, random_proof_words.json and the seven Random Proof menus adapt
+Random/Random 123.py and Random/{lowercase,Title,UPPERCASE} {non-text,words}.py
+from https://github.com/pedroarilla/glyphs-scripts . Source credits Pedro Arilla.
+Apache-2.0; full terms retained in LICENSE-APACHE-2.0.
+License SHA256:ae039abae8aafe6656ae754a0d45f10f5209351d6cc18546e868db906eedff37
+Random/Random 123.py SHA256:9d014b11d4ba70487c26980b55270b61a33e41fc808cea3f1f5f050a57f989a4
+Random/Random lowercase non-text.py SHA256:650f3a8698238d5c233c5ddbc4480ad12ebfffad9530e9ff553c2a6b7f95774d
+Random/Random Title non-text.py SHA256:4aa509831baa1955d59b684082499ac068ee3afbc4d90dc328318303677223a2
+Random/Random UPPERCASE non-text.py SHA256:8fcdb9f5cee991ea7929ab2c11e7b2755f157a68348e0608fa29258bdd575ef2
+Random/Random lowercase words.py SHA256:1fb400ece636df93f3f8737d4f2da96951316351b3c8db133c4723addfdada40
+Random/Random Title words.py SHA256:961a4df1780d6f30676c7064e6c313ddf5da3005065bcc1f7f929901dd500203
+Random/Random UPPERCASE words.py SHA256:c54795c526aa5a3452d3aa805afac5cae6266c5603bd9e499fd2b773a7212f3c
+Changes: shared typed generation, exact literal word data in one JSON resource,
+explicit current-font lookup instead of undefined Font, and native literal-text Glyph tab
+through Fly/App. Preserve every draw, case transform and whitespace. Output
+clearing/status removed to preserve the user's Output. Native workflow and
+complete data/history preservation qualification remain pending.
+
+text_tab.py adapts activation preservation and the owned native-slot sender pattern from fontlab-glyport model/navigation.py revision56726eda76ef17967da34abcd546860dbb4cf016, under the complete Copyright(c)2026 FontLab contributors MIT notice retained above. Changes: literal-text payload, captured-font fence, bounded complete target-font preflight and cleanup; no Glyphs parsing or dependency. Native acceptance remains pending.
+
+native_tabs.py extracts native text-slot sender ownership, old-rendered-block lookup and the existing activation contexts from fontlab-glyport model/navigation.py revision56726eda76ef17967da34abcd546860dbb4cf016 (Copyright(c)2026 FontLab contributors, MIT; complete notice retained above). Changes: injected Qt/receiver, bootstrap/error policy and optional pre-disconnect restoration for the existing App caller. Glyphs exception/capability, font selection and empty-text policy remain in Glyport. No native acceptance is inferred.
+
+
+Pedro Arilla selected-glyph context proofs
+=========================================
+context_proofs.py and eight Proof menus adapt the Glyphs between scripts from
+https://github.com/pedroarilla/glyphs-scripts . Source credits Pedro Arilla.
+Apache-2.0; complete terms retained in LICENSE-APACHE-2.0.
+License SHA256:ae039abae8aafe6656ae754a0d45f10f5209351d6cc18546e868db906eedff37
+Glyphs between/Glyphs between lowercase.py SHA256:bc188daa1f6942893bea903bff5771500ae60afb091f0ce6ea3dedb5bd6f3ac0
+Glyphs between/Glyphs between UPPERCASE.py SHA256:84ab0fa1b3f23fe383353fe716e55ca1a86873cbfe2af44c38db5f9d50a81e41
+Glyphs between/Glyphs between figures_lining.py SHA256:f1710f49eea4f8c7dd1679fadba44b7bd72f6c8d15cedfa39c6ead95f708fe77
+Glyphs between/Glyphs between figures_old.py SHA256:f650332c064710b6e82d64b7fa0c8b9eda9e47b302411f6f9f0c22903ddf2594
+Glyphs between/Glyphs surrounded by H.py SHA256:1e30198199ca8e9998e413de0abebf80e27c176636d423f360721a054c6a431b
+Glyphs between/Glyphs surrounded by I.py SHA256:c73df32e26b5c370e0bef8bf18ddfb4d45e91028b482d8f4477c263614eadb0e
+Glyphs between/Glyphs surrounded by HHOHH.py SHA256:ad4e98cf1629b3c4be432d1ce6541fa354dbc3ce28536dee858f0837ad12f9d9
+Glyphs between/Glyphs surrounded by nnonn.py SHA256:bc192f96c06f4b598e739b729405c3d933e2dcc0dd73e89b3409d625ef5708b4
+Changes: shared typed named-glyph rows, bounded actual selected-layer capture,
+source fences, and named native symbols sent only to a verified new target tab.
+Keep original order, repeats, contexts, current-master behavior, empty-selection
+results and blank lines. Output clearing/status removed to preserve user Output.
+Native content, missing names and complete preservation qualification pending.
+
+named_tab.py adapts named-symbol list construction from fontlab-glyport model/fontlab_backend.py revisionf936db43805a43b19a9e9035256ed2d4312ef641, under the complete Copyright(c)2026 FontLab contributors MIT notice retained above. Changes: bounded construction, explicit-row validation and verified fresh-tab population; source-font/activation/preflight policies stay in App text_tab. Native acceptance pending.
+
+Alignment-zone staging provenance
+================================
+
+zone_data.py and alignment_zones.py adapt the Apache-2.0
+metrics_zones_editor.py in the retained fontlab-samples sources (11 identical
+source copies). Original o/O overshoot, rounding, top/bottom/name and add/remove
+semantics are retained; invalid rows reject whole proposals instead of being
+dropped, and row sorting alone does not create dirty state. All sources remain
+unchanged. This is a source-only staging layer, not native editor acceptance.
+
+Alignment Zones panel provenance
+===============================
+
+_zone_controls.py and _alignment_zones_dialog.py adapt the complete Apache-2.0
+metrics_zones_editor.py controls and workflow from retained fontlab-samples.
+zone_editor.py shares an explicit I/O callback boundary. Existing owned App
+Names/Script dialog lifecycle and Fly namespace are reused. Original sources
+remain unchanged; source/offscreen widget proof is not native acceptance.
+
+Text Filter / Text Simplifier
+=============================
+
+Adapted from Slobzheninov/Glyphs-Scripts, Testing/Text Filter.py, licensed under
+the Apache License, Version2.0 (see LICENSE-APACHE-2.0). Upstream project:
+https://github.com/slobzheninov/Glyphs-Scripts . Modified for Python3.11/FontLab:
+shared App filtering and owned Qt controls, dedicated tool settings, complete
+Reset and original-font proof-tab routing through Fly. The source body and
+resources are not distributed. Original SHA256:
+44e0ac6f376518937449bd92470683ffc45ed059e8ddeafb3d4c0518188c4d46
+
+Layer extrema proofs
+===================
+
+The layer extrema model/native capture and exact-layer proof menus adapt:
+- Simon Cozens/GlyphsScripts: Tallest And Shortest.py (MIT).
+- Slobzheninov/Glyphs-Scripts: Testing/Highest & Lowest Glyphs.py (Apache-2.0;
+  see LICENSE-APACHE-2.0).
+
+Modified for Python3.11/FontLab: explicit current-font lookup, complete selected-
+master/all-foreground scopes, zero/sentinel repairs, stable ordered ties, exact
+glyph/layer symbols, bounded source fences and owned numerical reporting instead
+of Output writes. Original bodies/resources are not distributed. Exact source
+and licence hashes are retained in the menu provenance manifest.
+
+The Simon Cozens source licence follows:
+
+MIT License
+
+Copyright (c) 2017 Simon Cozens
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Shared stack arithmetic
+=======================
+
+src/fontlabapp/stack_layout.py extracts the MIT-licensed first-party Glyport
+NSStackView axis distribution algorithm. Foreign Cocoa/Vanilla policy remains
+in Glyport. This adds no third-party source or licence.
+
+Why You Not Compatible? provenance
+==================================
+
+Behavior adapted from Simon Cozens/GlyphsScripts, Why You Not Compatible.py.
+Source SHA256: 1234a335d2284ad38773e7b9bb4cb3310f90f50e618ac2b8ef4fa96656757a5c
+MIT licence SHA256: 6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5
+Copyright (c) 2017 Simon Cozens. The complete MIT licence retained above for
+Recipe Dumper and Tallest And Shortest applies to this adaptation too.
+Original bytes are neither executed nor distributed. Own-glyph labels, complete
+adjacent-pair checking and deterministic name-set text repair source defects.
+The owned modeless report replaces direct Output writes; native acceptance is pending.
+
+
+Shared key event routing
+========================
+
+src/fontlabapp/key_events.py extracts generic accept-or-native-base routing
+from the first-party Glyport Cocoa/Vanilla widget adapters, while retaining
+App browser/sequence policy and old Glyport factory/class paths. No third-party script
+source is copied. Glyport source licence follows in full:
+
+MIT License
+
+Copyright (c) 2026 FontLab contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Bracket-layer report and proof
+=============================
+
+Copyright2025 Fernando Díaz & Reset Type Studio.
+Adapted from Reset-Type-Studio/Glyphs-Scripts, licensed Apache-2.0 by README.md
+lines104-111 (SHA256:b2277e28b737406bc33675768a216f2b2260c5f177e635d4874a10b46652863d).
+Complete terms retained in LICENSE-APACHE-2.0.
+https://github.com/Reset-Type-Studio/Glyphs-Scripts
+Bracket Layers/Report Glyphs containing BL.py:
+bc5712fa1ff4e185613eb1533e1f2ab36be41b6bed2eca0f8841e57e4beecf90
+Bracket Layers/New Tab with Glyphs containing BL.py:
+7f1788a0302d1df3640775b9b1ad1b5ac600a1412b47afae94556b732e5578c8
+Changes: shared Python3.11 full-font graph, immutable observations and bounded
+source/context fences; owned read-only Refresh/Close report and explicit named
+fresh-tab symbols. Preserve both complete groups; explain overlapping membership
+and count distinct total, sort proof groups deterministically and remove empty-
+section orphan slashes. Original bodies/resources are neither run nor distributed.
+Native behavior and full preservation qualification remain pending.
+
+
+Archived part2 sort/filter model lessons
+=======================================
+
+Fresh first-party Python3.11/FontLab adaptation of the complete basic/custom
+mail_views workflow from the preserved first-party PythonQt examples. Archived
+Python source supplied under Apache-2.0 (owner clarification D22). Complete terms
+are in LICENSE-APACHE-2.0. The original bodies, demo runtime and resources are
+neither executed nor distributed. Generic table, matching, views and owned model
+lifetimes live in App; practical facades use Fly and real current-font metadata.
+Original source identities and SHA256 values:
+part2/ports/itemviews/pyqt-official/basicsortfiltermodel-9dab02b61cebbdb7.py:
+4c46c9af9db4321d45690cc5cb82e3c0d60454d0ed3123d0f9a8c5f002980d39
+part2/ports/itemviews/pyqt-official/customsortfiltermodel-029ea0dabe87ae57.py:
+03d3339a55b0edc631e8cce1b3ddf09924fbe4b25ec7e6ca42be092f3788f199
+part2/ports/layouts/pyqt-official/basiclayouts-2f94fe07de765888.py:
+6fa0e1268b7c81dbf6c373ae9ebb98ef86ffa0d7c8207ab78a003e65fc49a00d
+Changes: replace synthetic mail with glyph metadata; unrestricted initial dates
+with explicit inclusive limits; disable the ignored Custom column selector; own
+read-only source/proxy views, complete refresh/refusal and signal/model cleanup.
+The different part3 official workflows are not silently treated as equivalent.
+Native PythonQt, full-font/cache/history/persistence qualification is pending.
+
+
+Archived part3 typed-date sort/filter workflows
+=============================================
+
+Fresh first-party behavior adaptation of the two preserved part3 official
+source/proxy workflows, supplied as Apache-2.0 under owner clarification D22.
+Complete terms remain in LICENSE-APACHE-2.0. Original identities and SHA256:
+part3/pyqt-official-ports/ports/itemviews/pyqt-official/basicsortfiltermodel-9dab02b61cebbdb7.py:
+cecf5221bfc7da755664069fb316696c5144e4437d97d325b32431bbf89c1621
+part3/pyqt-official-ports/ports/itemviews/pyqt-official/customsortfiltermodel-029ea0dabe87ae57.py:
+a844adb5f7888373586f0e37f81025d991c19b96d5e205fdd376258a712c6e2d
+Changes: complete current-font glyph metadata in place of synthetic mail;
+typed Qt dates, default-locale date matching, original native-regexp/date-range/
+case-sensitive comparator policies; explicit dates/default repairs, read-only
+views and owned lifetime. Native timestamps use a local copy with exact epoch
+fences; an optional scalar epoch channel prevents typed-cell precision loss.
+No original body/resource is executed or bundled. The existing part2 semantics
+remain separate. Native FontLab/PythonQt preservation qualification is pending.
+
+Z13 adapts the complete read-only Simple Tree Model part2/part3 behavior from rescued/part2/ports/itemviews/pyqt-official/simpletreemodel-321f8e535facafde.py and rescued/part3/pyqt-official-ports/ports/itemviews/pyqt-official/simpletreemodel-321f8e535facafde.py (Apache-2.0, owner D22). Generic immutable text trees and Qt model/lifetime mechanisms are shared in App. Synthetic text parsing/assets become complete structured glyph metadata. Original source/resource bytes remain preserved and are not executed or bundled by these facades. Separate editable tree entrypoints are unchanged. Native acceptance is pending.
+
+src/fontlabapp/image_view.py extracts generic image-view presentation from first-party fontlab-glyport ui/cocoa_controls.py (NSImageView._render, c0f184b), under the complete FontLab contributors MIT notice retained above. Cocoa image/enums and Vanilla policy remain in Glyport. No third-party script/resource is copied. Native qualification is pending.
+
+src/fontlabapp/callback_guard.py extracts and repairs the repeated first-party Glyport Cocoa/Vanilla callback suppression scopes (3a4d556). Complete FontLab contributors MIT terms are retained above. Nested updates now restore the prior flag; no third-party source is copied.
+
+Z16 adapts the complete part2 Calendar Controls behavior from rescued/part2/ports/widgets/pyqt-official/calendarwidget-b91effc45f81fbb0.py (SHA256 5672f6757f558382ba7c7dce22a8e1effad9a707adcea7d2fa916a776a8e4bbb), Apache-2.0 under owner D22. Full Apache terms are in LICENSE-APACHE-2.0. Generic injected-Qt calendar controls/formats and owned modeless reports replace the original Session loader. Current-font scalar metadata supplies the practical local-day report. Explicit initial/range synchronization and a readable owned date surface repair inconsistent defaults/dark colours. The separate part3 workflow remains pending. Original source/dependencies are preserved and neither executed nor packaged by the new facade. Native qualification is pending.
+
+Z17 adapts the complete distinct part3 Calendar Widget behavior from rescued/part3/pyqt-official-ports/ports/widgets/pyqt-official/calendarwidget-b91effc45f81fbb0.py (SHA256 feb734fd0e15a9b4217552e8823ee07beb8ce6d73bd27c21dfa36a537ecd1407), Apache-2.0 under owner D22; full terms remain in LICENSE-APACHE-2.0. Every ordered Qt locale, seven week starts, source ranges/date formatting, four weekday/weekend colours, font-style headers and independent blue first-Friday/red May1 rules remain. The latent programmatic Green header path remains without a new UI option. Generic mechanics move to a shared base; the part2 public paths/policy remain. Stale owned marks clear on page/year/switch changes. Originals/dependencies are read only and never executed or bundled by these facades. Native qualification remains pending.
+
+Z20 adapts both Apache-2.0 custom-completer sources under owner D22: rescued/part2/ports/tools/pyqt-official/customcompleter-10ef4dacb4db4080.py (63ef7a0c41c7c25fc66ebb8373ea523319ee9655b7995a9ed27956e30fd9b931) and rescued/part3/pyqt-official-ports/ports/tools/pyqt-official/customcompleter-10ef4dacb4db4080.py (05e5a74c23f345163374d8b557dc116b93245f46e6557f1e78efb0a7a9150094). Full Apache terms remain in LICENSE-APACHE-2.0. Shared injected Qt mechanisms retain distinct source key/focus/suffix/menu policies; current-font names replace sample vocabulary/resource reads. About text becomes modeless status. Qt sorting, plain tooltip data and retryable teardown faults are explicit repairs. Originals/resources are neither executed nor bundled. Native qualification remains pending.
+Both completion popups use content width: part2 originally passed the caret-wide rectangle and rendered unreadable one-pixel candidates. This explicit usability repair does not change trigger/focus/suffix policy.
+
+Upstream custom-completer attribution
+====================================
+
+The archived metadata also retains this original Riverbank/Digia/Nokia BSD
+notice. Keep it here for the completion policy adaptation alongside the
+first-party Apache-2.0 notices above. Neither the original code nor its
+collection wordlist is redistributed by these new font-vocabulary helpers.
+This notice does not relicense either original resource or original source.
+
+#!/usr/bin/env python
+
+
+#############################################################################
+##
+## Copyright (C) 2013 Riverbank Computing Limited.
+## Copyright (C) 2012 Digia Plc
+## All rights reserved.
+##
+## This file is part of the examples of PyQt.
+##
+## $QT_BEGIN_LICENSE:BSD$
+## You may use this file under the terms of the BSD license as follows:
+##
+## "Redistribution and use in source and binary forms, with or without
+## modification, are permitted provided that the following conditions are
+## met:
+##   * Redistributions of source code must retain the above copyright
+##     notice, this list of conditions and the following disclaimer.
+##   * Redistributions in binary form must reproduce the above copyright
+##     notice, this list of conditions and the following disclaimer in
+##     the documentation and/or other materials provided with the
+##     distribution.
+##   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+##     the names of its contributors may be used to endorse or promote
+##     products derived from this software without specific prior written
+##     permission.
+##
+## THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+## "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+## LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+## A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+## OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+## SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+## LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+## DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+## THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+## (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+## OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+## $QT_END_LICENSE$
+##
+#############################################################################
+
+Z22 adds independently implemented generic editable-tree model/view mechanics following both frozen editabletreemodel contracts (part2 delegates to simpletreemodel; part3 retains QVariant values). Original files/resources remain read only, unexecuted and unbundled. Qt5 official model/view documentation informs the structural-notification protocol; no Qt implementation source is bundled. The original editable-tree entrypoints remain unchanged pending complete practical controllers and native qualification.
+
+Z23 now adapts both complete editabletreemodel workflows through editable_glyph_tree and shared owned model/view/controller/signal mechanisms. Current-font glyph metadata replaces sample input; all editing remains local. The frozen part2 and part3 source identities are e2eeecb1ac3c93e603e98f49d9c56c0a967430d3021ae3255a2e3fad841e4c61 and 5a5cbea2baea2987297c1d25d577b361e21cb164fe0860220ca9a94637b18031. Original bodies/resources remain unexecuted and unbundled; owner D22 governs their Apache-2.0 provenance. Native qualification is pending.
+
+The preserved editable-tree catalogue also retains the original Riverbank/Nokia BSD header and an unresolved collection-level GPL notice. Owner D22 applies to archived Python examples. Preserve this exact original attribution; no original default.txt or mainwindow.ui is bundled, and their pinned bytes remain retained in the workspace.
+
+#!/usr/bin/env python
+
+
+#############################################################################
+##
+## Copyright (C) 2017 Riverbank Computing Limited.
+## Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+## All rights reserved.
+##
+## This file is part of the examples of PyQt.
+##
+## $QT_BEGIN_LICENSE:BSD$
+## You may use this file under the terms of the BSD license as follows:
+##
+## "Redistribution and use in source and binary forms, with or without
+## modification, are permitted provided that the following conditions are
+## met:
+##   * Redistributions of source code must retain the above copyright
+##     notice, this list of conditions and the following disclaimer.
+##   * Redistributions in binary form must reproduce the above copyright
+##     notice, this list of conditions and the following disclaimer in
+##     the documentation and/or other materials provided with the
+##     distribution.
+##   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+##     the names of its contributors may be used to endorse or promote
+##     products derived from this software without specific prior written
+##     permission.
+##
+## THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+## "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+## LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+## A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+## OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+## SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+## LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+## DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+## THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+## (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+## OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+## $QT_END_LICENSE$
+##
+#############################################################################
+
+
+
+
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'mainwindow.ui'
+#
+# Created: Fri Jul 26 06:51:23 2013
+#      by: PyQt5 UI code generator 5.0.1-snapshot-2a99e59669ee
+#
+# WARNING! All changes made in this file will be lost!
+
+Shared resize-event routing
+==========================
+
+src/fontlabapp/resize_events.py extracts the common Qt resize dispatch from
+fontlab-glyport ui/vanilla.py, ui/cocoa_views.py and ui/vanilla_containers.py
+(FontLab contributors, MIT). Foreign adapter policy remains in Glyport.
+
+Pedro Arilla contour selection adaptations
+=========================================
+
+Copyright 2018–2022 Pedro Arilla. Apache-2.0; complete terms in LICENSE-APACHE-2.0.
+https://github.com/pedroarilla/glyphs-scripts
+Independent FontLab adaptation; original source bodies are not distributed.
+LICENSE.txt: ae039abae8aafe6656ae754a0d45f10f5209351d6cc18546e868db906eedff37
+Paths/Select partial path.py: 082e445b23e6085ace77ebc30ecb4025dc0210185d1646b854129630158dc444
+Paths/Select paths.py: d6814436e871cc1e80668d31bb3b15428107d5fd6cbdd3976d74643b3a3a2840
+Paths/Select small paths.py: fe88203e787c5a5e9ada86c16b25e4f9da0a1afe29391a197b26b67fa8a15c20
+README.md: 238d8ebe63284fff91c98f89d2ad1ab9b1b795c2225837bb9aff6a499b006918
+Changes: first-selected-layer immutable plans; stored-order node expansion and
+cross-contour toggles; finite numeric modeless input; analytic unsigned FontTools
+area (can differ from Glyphs flattening); explicit stale-source checks and
+best-effort flag rollback. Mixed non-node clearing requires a single displayed
+glyph and supported native visual kinds. No Output clearing or geometry Undo.
+Native workflows, complete selection transport and preservation remain pending.
+
+Glyph Spacing Worksheet — complete numeric delegate pair
+======================================================
+
+Independent behavior implementation of both archived spinboxdelegate workflows.
+Owner D22 supplies archived Python under Apache-2.0; complete terms remain in
+LICENSE-APACHE-2.0. Preserve Riverbank2017/Nokia2010 original BSD attribution
+and the collection-level GPL-3.0 metadata discrepancy; no original body, mixed
+helper, or resource is executed or bundled. There are no companion assets.
+Original preserved source identities and full SHA256:
+rescued/part2/ports/itemviews/pyqt-official/spinboxdelegate-ddb20b1b68b18a91.py:
+539bd9a3542e02bafe8b89fc847c9b88277859b4e1edb9ac6624eeb7c18a7025
+rescued/part3/pyqt-official-ports/ports/itemviews/pyqt-official/spinboxdelegate-ddb20b1b68b18a91.py:
+3de6b2d062d29b0721bd8491772ca89bedc4dbe22680ca2af4f333ea6cfd2084
+Upstream corroboration: pyqt/examples commit83eed0514582c8deb60d9e9e6bff31ceffe4eaeb, src/pyqt-official/itemviews/spinboxdelegate.py, SHA25622cd4800fcdb690117ef895d4002a556e6cab65909b6971d667b1af622c94e2d.
+Native acceptance and full preservation remain pending.
+
+#!/usr/bin/env python
+
+
+#############################################################################
+##
+## Copyright (C) 2017 Riverbank Computing Limited.
+## Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+## All rights reserved.
+##
+## This file is part of the examples of PyQt.
+##
+## $QT_BEGIN_LICENSE:BSD$
+## You may use this file under the terms of the BSD license as follows:
+##
+## "Redistribution and use in source and binary forms, with or without
+## modification, are permitted provided that the following conditions are
+## met:
+##   * Redistributions of source code must retain the above copyright
+##     notice, this list of conditions and the following disclaimer.
+##   * Redistributions in binary form must reproduce the above copyright
+##     notice, this list of conditions and the following disclaimer in
+##     the documentation and/or other materials provided with the
+##     distribution.
+##   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+##     the names of its contributors may be used to endorse or promote
+##     products derived from this software without specific prior written
+##     permission.
+##
+## THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+## "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+## LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+## A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+## OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+## SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+## LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+## DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+## THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+## (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+## OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+## $QT_END_LICENSE$
+##
+#############################################################################
+
+
+Independent behavior implementation; original executable source is not bundled.
+
+Categories to XML Lib Key (issue120 candidate): behavior adapted from Simon
+Cozens/GlyphsScripts/Categories to XML lib key.py. Copyright (c) 2017 Simon
+Cozens. MIT licence: the complete Simon Cozens MIT terms retained above apply.
+Modified for a FontLab all-glyph snapshot, XML escaping and owned Refresh/Close
+panel. Category policy remains Glyport's GSGlyph.category implementation.
+Native qualification pending.
+
+
+Glyph Name Pattern Lab — issue120 N56
+-----------------------------------
+Independent adaptation of the complete clean-room Pattern Matching Inspector:
+rescued/part2/ports/tools/pyqt-official/regexp-626fd0acec74fd91.py
+SHA-256: c45e9688f256a61cbe36eb3fd91e73750dec4f08175acda54a667db37bc8823e
+The preserved Apache-2.0 replacement follows clean-room specification
+626fd0acec74fd91, SHA-256 f5e9501abe8d7ed6086e8979f881c79c3370c350dfa97ea3d70e9028504407fc.
+Original source identity retained by the source catalogue: pyqt/examples
+83eed0514582c8deb60d9e9e6bff31ceffe4eaeb, src/pyqt-official/tools/regexp.py,
+SHA-256 b9494fc5955de0d49b14e964b2517490de20f0886bdd85fe70e75931db5e9d94.
+Owner D22 grants Apache-2.0 for the archived Python examples. The replacement
+source has no additional copyright or licence header; no authorship is inferred.
+The full Apache-2.0 terms are included in LICENSE-APACHE-2.0 (App) or
+LICENSE-APACHE-2.0 (Examples). No original body, source helper or asset is bundled
+or executed by this adaptation. There are no companion assets. Existing notices
+and all original metadata remain unchanged. Native acceptance is pending.
+
+Issue120 reporting pair adaptations
+- Fernando Díaz & Reset Type Studio, Copyright 2025, Paths/Compatibility Check.py,
+  Apache-2.0 as declared in upstream README.md License section. Full Apache terms
+  are retained in LICENSE-APACHE-2.0 (App) / LICENSE (Scriptmix).
+- Simon Cozens, Dump to SVG.py, MIT; existing Simon Cozens MIT terms above apply.
+  Preserve own-path command scope and unconditional Z; native qualification pending.
+
+
+Reza Bohloul — Same Kerning Groups (independent implementation)
+-----------------------------------------------------------
+Source: https://github.com/RezaBohloul/RezaBohloul
+Original path: Kerning/Same Kerning Groups.py
+Original SHA-256: fc2e6b144d53388b7105498f9debf55edf2c65986c3f559683b106623fbb9544
+No licence declaration was found in the inspected source tree. No original
+body is copied, executed or redistributed. This independently written
+implementation is Apache-2.0; complete terms are in LICENSE-APACHE-2.0.
+
+Elastic node dependency graphs (both distinct preserved variants)
+Independent Apache-2.0 implementations in App elastic_physics/elastic_items/
+elastic_view/elastic_panel/component_graph and _component_graph_native; lazy
+public Fly facades in Scripts/Tools. No archived body/helper is imported.
+Part2 source SHA256 d65729560a7b649d21bcffcd176aaba7541920cc427548c6e17c1269c70d6bef
+Part3 source SHA256 fa1dc74f37f29a33afd673b5e4a399838797d8cc355079d512769ec6d10e6a99
+Both sources are elasticnodes-fff97a435b73d548.py in their preserved part2/part3
+collections. Owner D22 grants Apache-2.0 for all archived Python examples.
+No external assets. Existing upstream collection notices remain unchanged above.
+Full Apache terms: LICENSE-APACHE-2.0. Native workflow acceptance remains pending.
+
+Spinboxes part2: rescued/part2/ports/widgets/pyqt-official/spinboxes-468179092748a72e.py
+SHA-256: cbaed2d33a67865efa54c15f71701d7b62c6d2bda69a111e6351fac866f972db
+Independent FontLab worksheet adaptation, Apache-2.0 under owner D22.
+Original retained unmodified; no archived body/helper is executed or packaged.
+
+Spinboxes part3: rescued/part3/pyqt-official-ports/ports/widgets/pyqt-official/spinboxes-468179092748a72e.py
+SHA-256: e25b26cd135fd40ef1ed9316a402483d676ba7606da94007f00078993b5fa54b
+Independent FontLab worksheet adaptation, Apache-2.0 under owner D22.
+Original retained unmodified; no archived body/helper is executed or packaged.
+
+
+Close But No Cigar provenance
+============================
+Behavior adapted from Simon Cozens, GlyphsScripts/Close But No Cigar.py
+and glyphmonkey.py. https://github.com/simoncozens/GlyphsScripts
+Original SHA-256: bcf9ec870ac1a36ed5fb65f0f863c826ea80e6049f072d4891f0d2daa52084ed
+Helper SHA-256: 26f0f745b72f7a275ced449f4a82e14ab1be60df7f20abacb973f6c5f240a105
+Licence SHA-256: 6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5
+All selected parent occurrences; literal first layer, associated named-master
+PostScript stems/four metrics; all strict angle/stem/six node tests. Preserves
+original open-path wrap and sub-one 50-step cubic length. Repairs numeric cubic
+angle and empty contours. TrueType controls, malformed topology, generated or
+projective shapes and unknown association refuse the whole report. No source
+bodies or assets copied/executed. Native acceptance remains pending. Host/UI
+adaptation also uses Apache-2.0. Complete original MIT terms follow.
+
+MIT License
+
+Copyright (c) 2017 Simon Cozens
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Paired slider spacing-offset previews
+====================================
+
+Independent complete behavior implementation of both rescued sliders profiles.
+Apache-2.0 under owner D22. No original/helper body or resource is executed or
+bundled. Original source identities and SHA256:
+rescued/part2/ports/widgets/pyqt-official/sliders-36805750b888fba6.py:
+aa662a1158ce7f691d467ef90974895e39ef05ce33098ac7072b7cca5efbad56
+rescued/part3/pyqt-official-ports/ports/widgets/pyqt-official/sliders-36805750b888fba6.py:
+24312666a881173fd0a203fd1217ea8d13be8edc0e70b08628e3c4addc49cc5d
+Part2 initial slider/scrollbar orientation explicitly matches its Horizontal
+label; this repairs an original default-vertical mismatch. Part3 cyclic native
+clamping, independent range editors, activated-only orientation and two groups
+remain distinct. FontLab selected-layer geometric spacing is a local preview.
+Native PythonQt and complete preservation remain pending.
+Upstream pyqt/examples83eed0514582c8deb60d9e9e6bff31ceffe4eaeb
+src/pyqt-official/widgets/sliders.py retains the following BSD notice despite
+collection-level GPL3 metadata (preserved, not silently relicensed):
+
+#!/usr/bin/env python
+
+
+#############################################################################
+##
+## Copyright (C) 2013 Riverbank Computing Limited.
+## Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+## All rights reserved.
+##
+## This file is part of the examples of PyQt.
+##
+## $QT_BEGIN_LICENSE:BSD$
+## You may use this file under the terms of the BSD license as follows:
+##
+## "Redistribution and use in source and binary forms, with or without
+## modification, are permitted provided that the following conditions are
+## met:
+##   * Redistributions of source code must retain the above copyright
+##     notice, this list of conditions and the following disclaimer.
+##   * Redistributions in binary form must reproduce the above copyright
+##     notice, this list of conditions and the following disclaimer in
+##     the documentation and/or other materials provided with the
+##     distribution.
+##   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+##     the names of its contributors may be used to endorse or promote
+##     products derived from this software without specific prior written
+##     permission.
+##
+## THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+## "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+## LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+## A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+## OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+## SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+## LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+## DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+## THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+## (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+## OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+## $QT_END_LICENSE$
+##
+#############################################################################

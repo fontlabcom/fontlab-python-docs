@@ -15,7 +15,7 @@ docstrings and signatures from the packages below; each keeps its own terms.
 | Search engine: lunr.js © Oliver Nightingale | [MIT](licenses/mit-lunr.txt) |
 | Theme and search integration: MaterialX © Martin Donath | [MIT](licenses/mit-materialx.txt) |
 | TypeRig | [Mozilla Public License 2.0](licenses/mpl-2.0-typerig.txt) |
-| Fontlabapp | [BSD 3-Clause and MIT](licenses/bsd-3-clause-fontlabapp.txt) |
+| Fontlabapp | [Apache 2.0](licenses/apache-2.0.txt), retained [BSD 3-Clause and MIT](licenses/bsd-3-clause-fontlabapp.txt), and [current source notices](licenses/fontlabapp-notice.txt) |
 | Grablab | [BSD 3-Clause](licenses/bsd-3-clause-grablab.txt) |
 | Glyport | [MIT](licenses/mit-glyport.txt) |
 | Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
@@ -28,3 +28,7 @@ or source files are published on this site.
 
 The [browser asset notices](frontend-notices.md) retain full texts and source
 provenance for named frontend components. Their transitive review remains open.
+
+The .98 Close But No Cigar adaptation retains Simon Cozens’s original
+[MIT licence text](licenses/simon-cozens-mit.txt). The current App notices
+retain source attribution and the licence disposition of other adapted tools.

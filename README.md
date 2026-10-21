@@ -153,17 +153,11 @@ The written receipt redacts every finding's text and filename (digests only);
 
 ## Contribute
 
-Agree to the FontLab Individual Contributor License Agreement before contributing:
-https://cla-assistant.io/fontlabcom/fontlab-python-docs.
-Update source/enrichment or authored guides, regenerate, and verify real rendered
-anchors, inventory, search and browser behavior. Do not edit generated output as
-its source. Documentation retains the repository Apache2 license and upstream
-Qt/PySide documentation attribution. Shared theme ownership is in THEME.md.
+Agree to the FontLab Individual Contributor License Agreement before contributing: https://cla-assistant.io/fontlabcom/fontlab-python-docs. Update source/enrichment or authored guides, regenerate, and verify real rendered anchors, inventory, search and browser behavior. Do not edit generated output as its source. Documentation retains the repository Apache2 license and upstream Qt/PySide documentation attribution. Shared theme ownership is in THEME.md.
 
 ## Status
 
-Built and verified locally (unpublished; latest source candidate evidence in
-`verification/issue-120/docs-current-z19/`):
+Built and verified locally (unpublished; latest source candidate evidence in `verification/issue-120/docs-current-z19/`):
 
 - Source-only reference from Echopy and the ecosystem packages with ProperDocs,
   MaterialX, fltheme26, mkdocstrings (Python handler), autorefs and Griffe; no
@@ -195,3 +189,10 @@ Current producer candidates remain source documentation, not native acceptance. 
 The reviewed 705-input lock includes App 0.2.62.dev0 (`703468852a4aeff8373330a2e90a6f908f31c3e9`) and Glyport 1.0.8.dev28 (`07577861732bb221fbe3a69b7eec1ec68102c14b`), alongside unchanged pinned producers. These are feature candidates, not released dependencies. Ordinary builds reject mismatches and never refresh native captures implicitly.
 
 The local candidate adds current calendar, table/tree, bracket-layer and shared UI helpers. Static extraction retains explicit same-name re-exports and source-proven public methods inherited from private bases; unrelated private declarations stay hidden. Package code never executes for discovery. Integration, native qualification and publication remain separate gates.
+
+
+## Pinned source checkpoint
+
+The reviewed App .98 checkpoint includes Examples 37 and Scriptmix 107 menus. See the source revisions and native acceptance limits in [src_docs/md/guide/source-checkpoint.md](src_docs/md/guide/source-checkpoint.md). The earlier App .80 lock is historical; later .100 development is excluded.
+
+Metrics in the earlier Status section describe older builds.

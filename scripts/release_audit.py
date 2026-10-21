@@ -101,6 +101,8 @@ REVIEWED = {
 }
 # Reviewed full licence texts published under licenses/ (sha256 of each file).
 LICENCES = {
+    "fontlabapp-notice.txt": "e5c71a4e9132541184840f344da2bd53ab67946dae1e2530cd747a0aaa8f6e89",
+    "simon-cozens-mit.txt": "6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5",
     "apache-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
     "bsd-3-clause-fontlabapp.txt": "bc64fab3ef02924c5e0862040b0a1bbdb67ac59e212bff9b434760430586c571",
     "bsd-3-clause-grablab.txt": "5ebc71a38083ce935885617c652696f5c37fcea106fffa2bfc95b3cb96568caa",
