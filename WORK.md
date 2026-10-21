@@ -1013,3 +1013,26 @@ N65 clean-distribution review also retains the already reviewed N26 descendants
 isolation). The older15e workingtree happened to retain CRLF, while its Git blobs
 normalized three texts. The prepared feature therefore uses1f28c82 as its exact
 reviewed base; it never substitutes LF or changes declared notice hashes.
+
+## 2026-10-21 — N83 final source graph and actual TypeRig discovery
+
+Private checkpoint aligns App86721bf(.80), Glyport2c46, Fontport7a,
+Examples657bb1e(31) and Scriptmixd54ee17f(105). Reviewed734→743APIinputs:
+nine new Pattern Lab/report-pair modules and one owned dialog-close fix.
+Preserve N65 .74 evidence as historical. Actual TypeRig sources live in
+TypeRig/Lib; producer and real Void inheritance regression now share source_roots,
+including explicit installed-artifact roots, without a fabricated legacy alias.
+Before-fix regression fails; corrected targeted25tests pass. Final strict
+three-site, routes, browser/worker/accessibility and exact notice checks follow
+in verification/issue-120/docs-final-checkpoint-z33; no native/publication claim.
+
+N83 verification: all three strict sites pass; API348 required-consumer tests
+pass without skips, existing interaction28/28 and accessibility28/28 pass.
+Every136menu source block matches its current source; actual worker13queries
+and18body views pass. Exact served notices25API/26per menu site and release
+audits pass with each site's existing licence policy. All185actual TypeRig
+inputs match the reviewed lock/snapshot, and unchanged Void/Point assertions
+pass on configured TypeRig/Lib. Extra menu-site accessibility discovered mobile
+notice-page navigation reach failures; retained as a separate N90 publication
+gate. No checker budget was waived. This source checkpoint is App.80/105menus;
+it does not include the private .84/106candidate, native acceptance or publication.

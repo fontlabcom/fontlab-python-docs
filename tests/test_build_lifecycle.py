@@ -317,3 +317,18 @@ def test_stage_cleanup_when_finder_writes_metadata_then_build_does_not_fail(tmp_
         (stage / "content").mkdir()
         (stage / "content" / ".DS_Store").write_bytes(b"\0")
     assert not list(tmp_path.glob("generation-*"))
+
+
+def test_checkout_roots_when_typerig_repository_then_use_actual_lib_layout(tmp_path, monkeypatch):
+    """Checkout discovery names the actual sibling repository, without a legacy alias."""
+    monkeypatch.setattr(builder, "ROOT", tmp_path / "docs")
+    monkeypatch.delenv("FONTLAB_API_SOURCE_ROOT", raising=False)
+    root = next(root for root, package in builder.source_roots() if package == "typerig")
+    assert root == tmp_path / "TypeRig" / "Lib"
+
+
+def test_artifact_roots_when_explicit_then_typerig_uses_package_directory(tmp_path, monkeypatch):
+    """Installed artifacts retain their shared package-root contract."""
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", str(tmp_path / "installed"))
+    root = next(root for root, package in builder.source_roots() if package == "typerig")
+    assert root == (tmp_path / "installed").resolve()

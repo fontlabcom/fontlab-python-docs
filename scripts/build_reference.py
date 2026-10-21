@@ -32,7 +32,7 @@ PACKAGES = {
     "fontlab-grablab": ("src", "grablab"),
     "pythonqtside": ("src", "pythonqtside"),
     "fontlab-fly": ("src", "fly"),
-    "typerig-lib": ("Lib", "typerig"),
+    "TypeRig": ("Lib", "typerig"),
     "fontlab-glyport": ("src", "fontlab_glyport"),
     "fontlab-aidus-code": ("", "fontlab_aidus_code"),
     "fontlab-fontport": ("src", "fontlab_fontport"),  # D14: docstrings/signatures only
