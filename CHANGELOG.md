@@ -4,6 +4,7 @@ this_file: CHANGELOG.md
 
 ## Unreleased — issue 122 package pages
 
+- The App page shows font-level master edits as one Undo step (`master_metrics.write_master_metrics`, `zone_native.backend()`), their refusals and rollback, the fl#8574 guideline caveat, and `outline_extent` for stale boxes (fl#8575). Authored page only; no build.
 - The App page lists only the `[fontui]` extra and its five tools (browsers, preview, features editor, designspace panel); the `[fontedit]` and `[fontsequence]` extras no longer exist.
 - The FontParts-bound editors (`font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`, `batch_panel`, `glyph_sequence`) are documented on the Fontport page under "UI editors", with an example. Authored pages only; the generated site and source lock are not rebuilt (publication stays gated).
 

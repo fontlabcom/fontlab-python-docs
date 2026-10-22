@@ -61,6 +61,29 @@ with app.control as fl:
     panel.close()
 ```
 
+Edit vertical metrics or alignment zones on several masters as one Undo step:
+
+```python
+from fontlabapp import master_metrics, zone_native
+from fontlabapp.scripting import current_package
+
+package = current_package()                   # the current font, Font window active
+master_metrics.write_master_metrics(
+    package, {"Regular": {"xHeight": 500}, "Bold": {"capsHeight": 705}},
+    title="Master Metrics",
+)
+zones = zone_native.backend()                 # the zone_editor.Backend for this font
+```
+
+These writers refuse before any history call when FontLab is not on the GUI thread,
+when a Glyph window is the active editor, or when the font has an unknown field or
+master. A failure during the write restores every written value and adds nothing to
+Undo (`font_history.RolledBackError`). After Undo or Redo of such a step, FontLab
+shows only some metric guidelines until the font is reopened (fl#8574); the saved
+file is correct. `outline_extent.vertical_extent(layer)` measures glyph extents from
+outline nodes, because `flLayer.boundingBox` can stay stale after scripted edits
+(fl#8575).
+
 The `fontlabapp_shim` reference lists FontLab's menus, actions and panels as
 Python names (788 of 788 resolve in FontLab 9).
 
