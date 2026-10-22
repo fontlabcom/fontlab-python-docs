@@ -2,6 +2,11 @@
 this_file: CHANGELOG.md
 ---
 
+## Unreleased — issue 122 package pages
+
+- The App page lists only the `[fontui]` extra and its five tools (browsers, preview, features editor, designspace panel); the `[fontedit]` and `[fontsequence]` extras no longer exist.
+- The FontParts-bound editors (`font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`, `batch_panel`, `glyph_sequence`) are documented on the Fontport page under "UI editors", with an example. Authored pages only; the generated site and source lock are not rebuilt (publication stays gated).
+
 ## Unreleased — preserve generated distribution bytes (N132)
 
 - Mark `/docs/**` as `-text` so Git staging, archives and checkout preserve

@@ -72,14 +72,16 @@ Install the extra that matches the tools you need:
 
 | Extra | Adds |
 | --- | --- |
-| `fontlab-fontlabapp[fontui]` | `font_browser`, `glyph_browser`, `glyph_preview` |
-| `fontlab-fontlabapp[fontsequence]` | `glyph_sequence` |
-| `fontlab-fontlabapp[fontedit]` | `font_info_editor`, `groups_editor`, `kerning_editor`, `features_editor`, `designspace_panel`, `transform_editor`, `batch_panel` |
+| `fontlab-fontlabapp[fontui]` | `font_browser`, `glyph_browser`, `glyph_preview`, `features_editor`, `designspace_panel` |
+
+The FontParts-bound editors moved to [Fontport](fontport.md#ui-editors):
+`font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`,
+`batch_panel` and `glyph_sequence`. Import them from `fontlab_fontport.ui`. The
+old `fontlabapp.fontui` names raise an `ImportError` that names the new home.
 
 Each function returns a handle. Keep a reference to it, show its `.widget` and
-call `.close()` when you are done. The browsers, preview, sequence and the info,
-groups, kerning and features editors also have `.refresh()` for edits made
-elsewhere; `batch_panel`, `transform_editor` and `designspace_panel` do not:
+call `.close()` when you are done. The browsers, preview and features editor
+also have `.refresh()` for edits made elsewhere; `designspace_panel` does not:
 
 ```python
 # Inside FontLab, with the fontui extra and ufoLib2 installed
@@ -100,17 +102,13 @@ browser.widget.show()
 browser.close()
 ```
 
-Editors stage changes and apply them in one validated batch; a model without a
-batch apply opens read-only. The font information editor also offers the
-structured fields OS/2 weight and width class, Panose (ten integers) and
-horizontal and vertical stem snaps; it labels them "key master" because Fontport
-writes them to the current key master only. Name records are not offered.
+The features editor stages changes and applies them in one validated batch; a
+model without a batch apply opens read-only.
 
 While a script has unfinished point edits on a font, the controls that follow
 FontLab changes skip that font's reload rather than discard the edits, and show
 "A font has unfinished script edits; its view updates when the script finishes."
-The view updates on the next change after the script completes. `batch_panel` runs work in a separate Python 3.11+
-process so FontLab stays responsive.
+The view updates on the next change after the script completes.
 
 ## Limits
 
