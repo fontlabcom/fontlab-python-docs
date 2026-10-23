@@ -371,6 +371,44 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1941,6 +1979,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1970,17 +2062,31 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
 <h1 id="back-up-master-layers">Back up master layers</h1>
+<div class="admonition note">
+<p class="admonition-title">Retained catalogue</p>
+<p>This page comes from the retained catalogue. Its launch instructions and native
+results describe the earlier tree under <code>_old/part2</code>, not an installed current
+launcher. The documentation build does not rerun these examples.</p>
+</div>
 <p><strong>Purpose.</strong> Before an experiment (remove overlap, rounding, automatic spacing), keep
 a copy of each glyph's current master outline in a non-master layer, <code>Regular backup</code>
 (then <code>Regular backup 2</code>...). The master stays the active layer. Run it before the
 other recipes: Edit &gt; Undo does not restore script edits in FontLab 9.0.9783 (see the
 <a href="https://github.com/fontlabcom/fontlab-python-examples/blob/main/examples/recipes/README.md">recipes README</a>).</p>
-<div class="highlight"><pre><span></span><code><span class="n">run</span><span class="p">()</span>                                  <span class="c1"># every glyph of the current font, current master</span>
+<div class="highlight"><pre><span></span><code><span class="n">run</span><span class="p">()</span>  <span class="c1"># every glyph of the current font, current master</span>
 <span class="n">run</span><span class="p">(</span><span class="n">glyph_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">master</span><span class="o">=</span><span class="s2">&quot;Bold&quot;</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot; before kerning&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>FontLab API.</strong> <code>flGlyph.findLayer</code>, <code>flLayer.clone</code>, <code>flGlyph.addLayer</code>,
@@ -2059,7 +2165,7 @@ a master node afterwards leaves the backup unchanged.</p>
 
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
 <script src="../../assets/javascripts/complete-search-ui.js"
         data-worker="../../assets/javascripts/workers/complete-search.js"></script>

@@ -218,36 +218,20 @@ this_file: CHANGELOG.md
 
 - Removed the GitHub Actions docs workflow (owner decision); acceptance gates run locally.
 
+## 2026-10-18 — documentation source layout
 
-## Issue120 current documentation Z5
+Set up `src_docs/mkdocs.yml` and `src_docs/md/` with ProperDocs 1.6.7,
+MaterialX 10.1.5 and the shared fltheme26 assets. Local builds write `docs/`.
+Source-backed code blocks use codeinclude; shared prose uses include-markdown.
+Tags, directory metadata, categories, navigation and local editing use the tested
+plugins. The two smaller sites have a combined print page. The API site retains
+its complete search, archive and source-only reference pipeline.
 
-Static reference generation retains authored Griffe extensions, including namespace visits; reviewed TypeRig array-index literals render as code. Duplicate Table.__eq__ definitions remain recorded with their exact source fingerprints. The reviewed producer lock now binds 678 current inputs.
-
-## Unreleased — Issue120 Z19
-
-- Refresh the reviewed API producer lock to App 0.2.62.dev0 and Glyport 1.0.8.dev28: 705 inputs, 27 additions and no removals.
-- Restore explicit same-name absolute re-exports, literal `__all__` exports and public inherited members from private bases. Keep canonical source bodies, source-order invalidation and C3 ordering; exclude unrelated private declarations and undefined export names.
-- Retain complete native identity reconciliation and local build/search/browser gates. Native execution, whole-branch integration, released dependencies and publication remain pending.
-
-- Keep the full real search-worker fixture on loopback HTTP, preserving all complete-index bytes, ranking assertions and deadlines; verify UTF-8 transport explicitly.
-
-## Issue120 Z24 — browser notices
-
-Add source-bound full texts and provenance for named frontend components, including transitive JavaScript dependencies, icons, shared theme inputs and external font responses. Keep the full transitive/publication review explicitly open; runtime assets and retained archives are unchanged.
-
-## Issue120 Z26
-
-Preserve exact upstream notice bytes through Git filters, fresh checkout and archives; add a CRLF distribution regression. Source manifests and pending publication scope remain unchanged.
-
-## Unreleased — isolate temporary notice repositories
-
-- Clear Git's documented repository-local environment for temporary notice
-  distribution commands and bound each child call to10seconds.
-- Exercise inherited hook context with both default and alternate parent indexes;
-  require byte-exact preservation of parent config, refs, index, objects, files
-  and caller environment. Keep every notice/filter/checkout/archive assertion.
-- Preserve all upstream notice payloads and existing attributes/manifests.
-  Source-only correction awaits fresh independent review; no new commit/push.
+The obsolete ToC-sidebar plugin fails on removed `mkdocs.utils.string_types`.
+The breadcrumbs plugin mutates Markdown inputs and pulls in the overlapping
+Material distribution. Use MaterialX's native ToC and `navigation.path` instead.
+These decisions follow isolated installation/build trials; neither plugin is
+installed in the final environments. No remote publication is included here.
 
 ## 2026-10-21 — private final-producer docs candidate
 
