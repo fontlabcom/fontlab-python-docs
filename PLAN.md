@@ -24,6 +24,8 @@ whole-branch/release/publication tasks above are outside that setup milestone.
 ## Authored Echopy guide acceptance
 
 Offline examples are verified separately from generated-reference acceptance.
+The authored signature-reading and owned descriptor pipeline examples pass in
+Echopy0.2.4.dev6 wheel/sdist installs; rendering remains unverified.
 The two native identity snippets still require installed-host execution. Rebuild
 and browser/publication checks remain behind D29 and the full source-lock review.
 

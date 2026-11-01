@@ -9,7 +9,7 @@ this_file: TODO.md
 
 - [x] Migrate local documentation inputs to src_docs and verify strict docs/ output, source includes, complete search and preserved archive.
 
-- [ ] Verify authored Echopy native identity examples in FontLab and rendered guide after the D29 gates permit rebuilding.
+- [ ] Verify authored Echopy native identity examples in FontLab and the rendered guide (including signature-reading and owned descriptor examples) after the D29 gates permit rebuilding.
 
 - [ ] Verify the two authored UI examples in native PythonQt and their rendered page after D29 permits a full build. Standalone Qt cases pass; actual QFileDialog isolation requires a disposable OS account or VM.
 

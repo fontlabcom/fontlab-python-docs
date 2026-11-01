@@ -105,6 +105,53 @@ The same approach applies to `fontgate.pyi` and `fontpr.pyi`. PythonQt declarati
 use their package subdirectories. Read these files as text; do not execute them
 to create native objects outside the host.
 
+## Read a recorded call signature
+
+Read the declaration and its docstring together. A Python signature can express
+argument order and defaults, but it cannot prove native overload selection or
+implicit conversions.
+
+| Declaration text | How to read it |
+| --- | --- |
+| `value, /` | The recorded parameter is positional-only. |
+| `*, label` | The recorded parameter is keyword-only. |
+| `count=3` | The declaration records a literal default. |
+| `value=...` | The actual default may be omitted; consult the captured documentation rather than passing `...` as a substitute. |
+| `*args, **kwargs` | The declaration is variadic. It may be a fallback for missing or ambiguous metadata; it does not mean every argument is accepted. |
+| `Any` | The declaration does not constrain that type; it is not proof of native compatibility. |
+| `@staticmethod` or `@classmethod` | The declaration records that binding kind. Its absence does not prove that an unknown native descriptor is an instance method. |
+
+Print the recorded constructor signature and documentation from the installed
+sidecar. This reads text only, so an unsupported constructor is never called:
+
+```python
+# Outside FontLab
+import ast
+from pathlib import Path
+import fontlab_echopy
+
+path = Path(fontlab_echopy.__file__).parent / "fontlab.pyi"
+tree = ast.parse(path.read_text(encoding="utf-8"))
+cls = next(node for node in tree.body
+           if isinstance(node, ast.ClassDef) and node.name == "flNode")
+constructor = next(node for node in cls.body
+                   if isinstance(node, ast.FunctionDef) and node.name == "__init__")
+for decorator in constructor.decorator_list:
+    print("@" + ast.unparse(decorator))
+print(f"def {constructor.name}({ast.unparse(constructor.args)})")
+print(ast.get_docstring(constructor) or "No recorded constructor documentation")
+```
+
+A single captured constructor can supply a specific signature. When several
+constructor records are present, the generator keeps a variadic declaration and
+retains their signatures and documentation together. Missing constructor records
+keep the generic fallback. These rules apply when generating new output;
+installing a newer generator does not refresh an older capture or sidecar.
+
+Python's [AST reference](https://docs.python.org/3.11/library/ast.html#ast.arguments)
+describes the argument fields used here. Parsing and printing the declaration
+does not evaluate its annotations or default expressions.
+
 ## Handle unavailable native operations
 
 Offline imports support documentation and analysis. An attempted native operation
@@ -188,6 +235,64 @@ panels, use the shared application helpers and retain their handles until close.
 Do not probe every property on arbitrary native instances: some getters require
 initialized native state and can crash the host. Class declarations and recorded
 metadata are safer starting points for discovery.
+
+## Check the metadata pipeline with an owned fixture
+
+Maintainers can test capture, generation and merge without FontLab. This example
+was checked with Echopy `0.2.4.dev6+ga4f2fbf48`; earlier generators may not retain
+method binding metadata. The fixture is an ordinary Python class, not a model
+of FontLab or PythonQt.
+
+```python
+# Outside FontLab; owned fixture, no native calls
+import ast
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from types import SimpleNamespace
+from fontlab_echopy.tooling.capture import namespace
+from fontlab_echopy.tooling.generate import generate
+from fontlab_echopy.tooling.merge import merge
+
+class Fixture:
+    @staticmethod
+    def measure(value=3, /, *, label="a,b"):
+        raise AssertionError("Metadata inspection must not call this method")
+
+    @classmethod
+    def create(owner, value=3):
+        raise AssertionError("Metadata inspection must not call this method")
+
+captured = namespace(SimpleNamespace(Fixture=Fixture), "owned_fixture")
+records = {item["name"]: item for item in captured["classes"][0]["methods"]}
+assert records["measure"]["binding"] == "staticmethod"
+assert records["create"]["binding"] == "classmethod"
+assert records["create"]["signature"].startswith("(owner,")
+
+with TemporaryDirectory(prefix="echopy-fixture-") as folder:
+    raw, merged = Path(folder) / "raw", Path(folder) / "merged"
+    generate({"modules": {"owned_fixture": {"namespace": captured}}}, raw)
+    merge(raw, merged, [])
+    tree = ast.parse((merged / "owned_fixture.pyi").read_text(encoding="utf-8"))
+    cls = next(node for node in tree.body if isinstance(node, ast.ClassDef))
+    methods = {node.name: node for node in cls.body if isinstance(node, ast.FunctionDef)}
+    for name, kind in (("measure", "staticmethod"), ("create", "classmethod")):
+        assert [ast.unparse(node) for node in methods[name].decorator_list] == [kind]
+        print(name, ast.unparse(methods[name].args))
+    assert [arg.arg for arg in methods["measure"].args.posonlyargs] == ["value"]
+    assert ast.literal_eval(methods["measure"].args.kw_defaults[0]) == "a,b"
+```
+
+The temporary files are deleted when the block finishes. The example does not
+execute generated declarations, call either fixture method or construct an
+instance. Known Python static/class descriptors preserve their binding and
+unbound receiver; unclassified native descriptors keep the existing fallback.
+A passing fixture demonstrates the metadata pipeline only. It does not establish
+that every native wrapper exposes enough information to classify its methods.
+
+For a real mismatch report, include the installed Echopy version, actual FontLab
+build, relevant capture/provenance hashes, the exact declaration and the observed
+call or error from an owned native fixture. Do not replace an uncertain declaration
+with a guessed signature merely to silence a type checker.
 
 ## Verification boundaries
 

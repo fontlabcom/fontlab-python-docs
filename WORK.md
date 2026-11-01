@@ -2,6 +2,29 @@
 this_file: WORK.md
 ---
 
+## 2026-11-01 — Read recorded signatures and test owned metadata
+
+Expanded the authored Echopy page with a signature-reading table, a constructor
+AST example and an owned static/class descriptor fixture through capture,
+generation and merge. Explains positional/keyword-only parameters, defaults,
+variadic fallback, unknown types, overload evidence and declaration age.
+Known Python descriptors are not evidence for unknown PythonQt wrappers.
+
+All10Python fences compile. Eight offline fences execute unchanged in separate
+ordinary wheel and sdist installations of Echopy0.2.4.dev6+ga4f2fbf48; package
+origins are under each environment and no native modules are imported. The two
+native identity snippets remain unexecuted. No generated declaration is executed.
+The first verifier run expected11blocks instead of10; only its count assertions
+were corrected. Both failed commands and final outputs are retained externally.
+
+Exact commands/exit codes: ../commands-initial.json (exit1 twice), ../commands.json
+(exit0 twice), using the external verify_examples.py with -I -B. Evidence root:
+/Volumes/Falstaff4T/fontlab-scripting-data/issue123/docs-signatures-20261101/.
+AST reference: https://docs.python.org/3.11/library/ast.html#ast.arguments .
+
+No generated reference, source-lock refresh, full site build, browser check,
+canonical promotion or publication. D29 and native D30 remain open.
+
 ## 2026-11-01 — owned dialog/settings examples and chooser boundary
 
 Expanded authored guide/ui.md with an owned-dialog example using App completion,
