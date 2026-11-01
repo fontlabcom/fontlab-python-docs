@@ -168,6 +168,381 @@ storage. A script that repeats a parent glyph may also need to recompute each
 layer's bounds between visits; repeatedly applying one fixed matrix is not a
 substitute for that workflow.
 
+## Distinguish layer names from layer identity
+
+A layer's name is not its identifier. Ordinary auxiliaries have their own
+`layerId` and an `associatedMasterId`; a missing name must not make an auxiliary
+look like its master. Use the ID to address a layer, and keep the raw name when
+checking a source script's condition. Converting it with `str()` turns `None`
+into the text `"None"`; `if not layer.name` also matches an empty string.
+
+| Layer | Raw `name` | `isMasterLayer` | Matches `name is None and not isMasterLayer` |
+| --- | --- | --- | --- |
+| Master | Master name | `True` | No |
+| Unnamed auxiliary | `None` | `False` | Yes |
+| Empty-string auxiliary | `""` | `False` | No |
+| Named auxiliary | `"Backup"` | `False` | No |
+
+The following diagnostic fixture runs outside FontLab. `FakeBackend` is a test
+double, not a font importer. It supplies the three auxiliary name values to the
+same proxy model used by Glyport. The example reads every glyph, keeps names
+unmodified and collects matching identities without deleting anything.
+
+<!-- example: glyport-auxiliary-names -->
+```python
+from fontlab_glyport.model import Model
+from fontlab_glyport.model.backend import LayerInfo
+from fontlab_glyport.model.fake_backend import FakeBackend
+
+backend = FakeBackend()
+for identity, name in [("unnamed", None), ("empty", ""), ("backup", "Backup")]:
+    backend.layers["glyph", identity] = LayerInfo(
+        id=f"layer-{identity}", masterId="master", width=500,
+        layerId=identity, name=name,
+    )
+
+font = Model(backend).font
+layers = list(font.glyphs[0].layers)
+assert [layer.name for layer in layers] == ["Regular", None, "", "Backup"]
+assert [layer.isMasterLayer for layer in layers] == [True, False, False, False]
+assert layers[1].associatedMasterId == layers[0].layerId
+assert font.glyphs[0].layers["unnamed"] is layers[1]
+assert layers[1].copy().name is None
+
+matches = [
+    (glyph.name, layer.layerId)
+    for glyph in font.glyphs
+    for layer in glyph.layers
+    if layer.name is None and not layer.isMasterLayer
+]
+assert matches == [(font.glyphs[0].name, "unnamed")]
+```
+
+All fixture layers have empty geometry, but only the absent-name auxiliary
+matches. The condition describes a missing name, not an empty outline. It also
+has whole-font scope; substituting selected glyphs changes the workflow.
+
+This example was verified with the private, uncommitted development artifact
+`1.0.8.dev58+g753b55548.d20261101`. The earlier clean artifact
+`1.0.8.dev58+g753b55548` fails the raw-name assertion: its proxy substitutes the
+master name for both `None` and `""`. Master and background naming retain their
+existing behavior in the repaired candidate. This is not a published release.
+
+The fixture does not show whether FontLab's importer preserves a Glyphs `None`
+name or converts it to an empty string. Do not use this filter as a qualified
+native deletion script. Removing layers additionally requires preservation of
+locks, active layers, automatic dependants, history and saved/reopened payloads.
+Those native workflows remain unverified. The broader Layer Cleanup menu has
+its own explicit selection and layer-kind behavior; it is not an equivalent
+implementation of this predicate.
+
+## Query glyph metadata without copying the current encoding
+
+A glyph's stored Unicode is editable font data. A name-based Glyph Info lookup
+asks for database metadata. These differ when a glyph has been re-encoded: a
+script that resets Unicode cannot use the current encoding as its reference.
+
+The candidate `Glyphs.glyphInfoForName(name)` queries glyphsLib's global fallback
+without reading the active font. Passing `font=None` does the same. An explicit
+non-None font currently raises `Glyphs.glyphInfoForName.localData`, because Glyport
+does not yet implement document-local GlyphData. It must not silently substitute
+that font's glyph metadata or outlines.
+
+This diagnostic fixture runs outside FontLab. It instantiates the application
+facade with owned model/bridge doubles; it does not activate GlyphsApp, load a
+native host or edit an open font. The deliberately incorrect encoding on `A`
+remains untouched after the query.
+
+<!-- example: glyport-global-glyph-info -->
+```python
+from types import SimpleNamespace
+
+from fontlab_glyport.errors import UnsupportedCapability
+from fontlab_glyport.glyphsapp.application import GSApplication
+
+current_glyph = SimpleNamespace(
+    name="A", unicode="0042", category="Symbol", subCategory=None, script="custom-script", case=2, layers=[],
+)
+current_font = SimpleNamespace(glyphs={"A": current_glyph})
+model = SimpleNamespace(font=current_font)
+# This fixture never calls bridge methods or reads/writes persistent defaults.
+app = GSApplication(model, object(), {}, None, lambda *args: None)
+
+info = app.glyphInfoForName("A")
+assert info.unicode == "0041", "Name-derived data must not copy current encoding"
+assert info.category == "Letter"
+assert info.script == "latin"
+assert current_glyph.script == "custom-script", "A lookup must not edit script metadata"
+
+# Filter by database script metadata; an unassigned script remains None.
+names = ["A", "Alpha", "alpha", "acutecomb"]
+greek = [name for name in names if app.glyphInfoForName(name).script == "greek"]
+assert greek == ["Alpha", "alpha"]
+assert app.glyphInfoForName("acutecomb").script is None
+# Case is a database enum: upper=1, lower=2, not a Unicode category.
+case_names = ["A", "a", "exclam", "less", "acutecomb"]
+upper = [name for name in case_names if app.glyphInfoForName(name).case == 1]
+lower = [name for name in case_names if app.glyphInfoForName(name).case == 2]
+assert upper == ["A", "exclam"]
+assert lower == ["a", "less", "acutecomb"]
+assert app.glyphInfoForName("acutecomb").category == "Mark"
+assert current_glyph.case == 2, "A lookup must not edit case metadata"
+assert app.glyphInfoForName("A", font=None).unicode == "0041"
+assert current_glyph.unicode == "0042", "A lookup must not edit the glyph"
+
+try:
+    app.glyphInfoForName("A", font=current_font)
+except UnsupportedCapability as error:
+    assert error.capability == "Glyphs.glyphInfoForName.localData"
+else:
+    raise AssertionError("Font-local GlyphData is not implemented")
+```
+
+The read-only `script` field snapshots metadata supplied by the database. This
+example uses it to select Greek names without changing the font. An unassigned
+script stays `None`; do not treat that as a missing glyph or invent a script from
+its Unicode.
+
+The read-only `case` field also snapshots database metadata. Its values are
+no-case (0), upper (1), lower (2), small-caps (3), minor (4) and other (5).
+They are not Unicode general categories: `exclam` has upper case metadata,
+while `less` and the combining mark `acutecomb` have lower case metadata.
+Missing case metadata maps to no-case; an unknown label raises an unsupported
+capability error. Other Glyph Info fields remain incomplete.
+
+This fixture needs the private global-lookup, script-field and case-field repairs.
+Several uncommitted builds share `1.0.8.dev58+g753b55548.d20261101`; version text
+alone does not identify them. The earlier lookup-only build raises an unsupported
+attribute error at `info.script`; the later script-only build fails at the first
+`.case` read. These archives are not published releases.
+
+Tested private archive SHA256 values:
+
+| Archive | SHA256 |
+| --- | --- |
+| Wheel | `f174ab43d51c83dd1115e1509bd5920db5bee77cf771bffe1ca98fca8f8d3679` |
+| sdist | `64793db733288cef3131f14e47ff9b1074425d6f5e82487ceb62bcf353242eb6` |
+
+The fallback does not load Glyphs' custom global GlyphData overlays. Synthesized
+names, unknown-name results and full `GSGlyphInfo` records also remain incomplete.
+This example qualifies the default lookup's independence from font data, not
+complete Glyphs database equivalence or a native Unicode-reset workflow. The
+[upstream lookup contract](https://docu.glyphsapp.com/#GSApplication.glyphInfoForName)
+describes the optional font-local database behavior still to implement.
+
+## Preserve a glyph's case override
+
+`GSGlyph.case` is mutable glyph metadata; `GSGlyphInfo.case` above is a read-only
+database snapshot. A glyph can have a temporary case value while `storeCase` is
+false. Setting that flag to true preserves the current value through supported
+name changes and metadata refreshes. Setting an attached glyph's flag from true
+to false restores its database default. Assigning false when it is already false
+leaves a temporary value intact.
+
+The following owned fixture runs outside FontLab. It demonstrates the same
+minor-figure predicate used by kerning scripts, then changes case without editing
+an open font. `FakeBackend` supplies the attachment target; it is not a font file.
+
+<!-- example: glyport-case-lifecycle -->
+```python
+from fontlab_glyport.errors import UnsupportedCapability
+from fontlab_glyport.model import GSGlyph, Model
+from fontlab_glyport.model.fake_backend import FakeBackend
+
+names = ["A", "ordfeminine", "one"]
+assert [name for name in names if GSGlyph(name).case == 4] == ["ordfeminine"]
+
+glyph = GSGlyph("f_f_i")
+assert glyph.case == 2
+glyph.case = 3
+assert glyph.storeCase is False
+glyph.storeCase = False
+assert glyph.case == 3  # An unchanged flag does not refresh metadata.
+
+font = Model(FakeBackend()).font
+font.glyphs.append(glyph)
+assert glyph.case == 3  # Unique attachment retains the temporary value.
+glyph.storeCase = True
+glyph.name = "less"
+assert glyph.case == 3  # The stored value survives this name change.
+glyph.storeCase = False
+assert glyph.case == 2  # Attached reset restores the database classification.
+
+copied = glyph.copy()
+copied.storeCase = True
+copied.case = 5
+assert glyph.case == 2
+try:
+    copied.storeCase = False
+except UnsupportedCapability as error:
+    assert error.capability == "GSGlyph.storeCase.detachedReset"
+else:
+    raise AssertionError("Detached reset is not yet qualified")
+assert (copied.case, copied.storeCase) == (5, True)
+```
+
+Detached true-to-false reset currently refuses before mutation; its upstream
+manager behavior still needs qualification. Custom global/font-local databases,
+synthesized names and complete `updateGlyphInfo` behavior remain incomplete.
+That historical candidate refused unknown-name updates. This fixture does not prove
+native history, saved/reopened metadata or complete kerning-script workflows.
+
+The lifecycle candidate uses the same private development version as the earlier
+case-field build above. These new archive hashes identify the added behavior:
+
+| Archive | SHA256 |
+| --- | --- |
+| Wheel | `4054cafb86a86559711361314f9ea0f29812e1b05ee8c985cdc56134a6bc2633` |
+| sdist | `8ea0e2ba569df0a662fbc0da17f0a36a48591c333449867891bb931ecce1288e` |
+
+## Preserve a glyph's script override
+
+`GSGlyph.script` reads named-glyph metadata, including for unencoded glyphs.
+Assignment changes the current value without enabling `storeScript`. An enabled
+flag preserves the value through supported name changes and refreshes. Disabling
+it on an attached glyph restores the database default. An already-false flag
+leaves a temporary assignment intact. `None` and an empty string are distinct
+explicit values.
+
+This owned fixture runs outside FontLab. It exercises the draft-before-append
+pattern used by script builders, followed by a stored override and reset.
+
+<!-- example: glyport-script-lifecycle -->
+```python
+from fontlab_glyport.model import GSGlyph, Model
+from fontlab_glyport.model.fake_backend import FakeBackend
+
+font = Model(FakeBackend()).font
+glyph = GSGlyph("f_f")
+assert glyph.script == "latin"
+glyph.script = "Rovas"
+glyph.storeScript = False
+assert glyph.script == "Rovas"
+font.glyphs.append(glyph)
+assert glyph.script == "Rovas"
+
+glyph.storeScript = True
+glyph.name = "Alpha"
+assert glyph.script == "Rovas"
+glyph.storeScript = False
+assert glyph.script == "greek"
+
+glyph.script = None
+assert glyph.script is None  # Explicit None does not fall back to Greek.
+copied = glyph.copy()
+assert copied.script is None
+copied.script = ""
+assert copied.script == "" and glyph.script is None
+copied.name = "A-cy"
+assert copied.script == "cyrillic"  # A known name refreshes unstored metadata.
+```
+
+Detached true-to-false reset refuses before mutation, as with case metadata.
+Custom metadata managers, synthesized names, complete original-script workflows,
+native Undo/Redo and saved/reopened metadata remain unqualified. The fixture uses
+an owned backend double and does not edit any font file.
+
+The script-lifecycle candidate retains version `1.0.8.dev58+g753b55548.d20261101`.
+These hashes distinguish it from the earlier case-only artifacts:
+
+| Archive | SHA256 |
+| --- | --- |
+| Wheel | `383ab1378bcea5e60034ba3548348d19d46734efb2e1a64f5a9bef641ccaafdc` |
+| sdist | `9218f4a61318f3cccb895e53b479711c60ce056858eecfba5097e75fe3715580` |
+
+### Classification and shared resolver
+
+The source candidate now supports independent `category`, `subCategory`,
+`storeCategory` and `storeSubCategory` values. Classification accepts strings,
+including the empty string, or `None`. Assigning Unicode alone does not refresh
+classification. Turning an enabled storage flag off refreshes only that field;
+a flag already off is a no-op. Detached resets remain explicitly unsupported.
+
+Case, script and classification resets share Unicode-first resolution. For an
+`A` encoded as `0061`, case resets to lowercase; for `0A15`, script resets to
+Gurmukhi. The first resolvable encoding wins, including synthesized metadata:
+an unassigned `0378` prevents a later `0A15` from supplying Gurmukhi metadata,
+while `10FFFF`, which yields no record, allows the next encoding to be tried.
+The `Icon` and `SF-Symbol` categories use the audited keep-name path.
+
+This owned example exercises the shared resolver without opening FontLab:
+
+<!-- example: glyport-classification-resolver -->
+```python
+from fontlab_glyport.model import Model
+from fontlab_glyport.model.fake_backend import FakeBackend
+
+font = Model(FakeBackend()).font
+glyph = font.glyphs["A"]
+glyph.unicodes = ["0061"]
+glyph.category = "Symbol"
+glyph.storeCategory = True
+glyph.case = 3
+glyph.storeCase = True
+glyph.storeCase = False
+assert glyph.case == 2  # Unicode metadata wins over the name A.
+assert glyph.category == "Symbol" and glyph.storeCategory
+glyph.storeCategory = False
+assert glyph.category == "Letter"
+assert glyph.name == "A" and glyph.unicodes == ["0061"]
+```
+
+These are owned offline checks against retained upstream analysis, not native
+measurements. Custom data, ROS, Arabic presentation-form settings, complex small-cap mapping
+and language suffixes remain unqualified. Additional encodings now follow the
+audited helper gates; native workflow acceptance remains open. Earlier artifact hashes and examples above identify their
+historical, narrower candidates; they do not identify this source revision.
+
+
+### Additional encodings during refresh
+
+Refreshing an attached uppercase glyph can add its lowercase encoding when no
+other glyph owns that code. `I` can also gain dotless i; each ownership check is
+independent. Refresh applies the resolved metadata’s encoding list plus these
+additions; it does not preserve every arbitrary previous glyph encoding.
+Additions preserve the resolved list’s order and do not duplicate its entries.
+This uses the glyph's current case/script, including temporary overrides, before
+stored metadata overlays. Resetting a storage flag does not write encodings.
+
+The owned example below runs without FontLab:
+
+<!-- example: glyport-additional-unicode -->
+```python
+from fontlab_glyport.model import GSGlyph, Model
+from fontlab_glyport.model.fake_backend import FakeBackend
+
+font = Model(FakeBackend()).font
+glyph = GSGlyph("I")
+font.glyphs.append(glyph)
+glyph.updateGlyphInfo(changeName=False)
+assert glyph.unicodes == ["0049", "0069", "0131"]
+glyph.updateGlyphInfo(changeName=False)
+assert glyph.unicodes == ["0049", "0069", "0131"]  # No duplicates.
+
+other_font = Model(FakeBackend()).font
+other_font.glyphs.append(GSGlyph("i"))
+capital = GSGlyph("I")
+other_font.glyphs.append(capital)
+capital.updateGlyphInfo(changeName=False)
+assert capital.unicodes == ["0049", "0131"]  # Another glyph owns ordinary i.
+```
+
+Greek-script expansion requires both Phi and Sigma encodings in the font.
+U+0130 and the audited out-of-range sentinel bypass expansion. Ordinary rename
+and explicit refresh remain distinct: rename clears non-PUA encodings before
+resolution, while a subsequent refresh can add encodings. Parentless glyphs and
+keep-name categories have separate audited branches. The retained parentless
+Arabic branch can yield no metadata; it is not equivalent to attached refresh.
+Legacy-only Arabic .isol data does not become primary Unicode automatically.
+
+The bundled Unicode17 scalar mapping matches actual NSString.lowercaseString
+for all1,112,064 valid scalars on macOS27.2. Python3.11 casing differs on55scalars.
+This pins that measured casing contract, not all Foundation versions. The
+public data and licence ship with the package; no Objective-C bridge is loaded
+for this operation. Native history/reopen, custom managers, ROS and Arabic
+presentation-form settings remain unqualified.
+
+
 ## What is supported
 
 - The `GlyphsApp` module for each run: `Glyphs`, the GS* model classes, callback

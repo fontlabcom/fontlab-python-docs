@@ -2,6 +2,294 @@
 this_file: CHANGELOG.md
 ---
 
+## Additional-Unicode guide verified — 2026-11-01
+
+Added an owned I/dotless-I/encoding-owner example and explained rename versus
+refresh, legacy-only Arabic data, the Unicode17/macOS27.2 casing boundary and
+remaining native/custom-manager limits. Both fresh installs pass12examples;
+20Python blocks compile. Exact commands exit0 in glyph-additional-unicode-artifacts-20261101/
+scalar-guide-commands.json; receipt verification/issue-123/docs-additional-unicode-20261101.json.
+No generated build, source-lock refresh, browser run or publication.
+
+## Shared metadata resolver guide verified — 2026-11-01
+
+Updated classification limits and added one owned Unicode-precedence/reset example.
+Both fresh Glyport installs pass eleven examples; nineteen Python blocks compile.
+Historical artifact hashes remain historical. Exact isolated commands exit0 in
+`docs-glyph-metadata-20261101/commands.json`; root receipt is
+verification/issue-123/docs-glyph-metadata-20261101.json. Generated output, source
+locks, browser verification and publication remain held under D29.
+
+## Glyph classification and shared resolver gaps reproduced — 2026-11-01
+
+Original callers require both category/subcategory setters and independent storage
+flags on drafts and attached glyphs. Installed owned probes reproduce missing
+members and read-time Unicode recategorization. AST inventory records61actual
+assignments across2,329files, with100parse/encoding failures retained explicitly;
+UI/mocks are not counted as native behavior. Root baseline153checks pass, proving
+that the old suite did not cover these missing contracts.
+
+Following reset setters into glyphInfoForGlyph found a broader problem in the
+existing case/script implementation: Unicode resolution precedes name lookup.
+Root independently reproduced4conflicting-name/Unicode resets; the agent retained
+matching-name/unencoded controls and independent stored-overlay controls. Static
+expectations are not native observations. The keep-name early return uses Icon
+and SF-Symbol; synthesis, font-local suffix/base and stored overlays matter too.
+The addendum corrects the earlier unknown-name/0031 example: the full resolver
+would find Unicode metadata, so this is not a genuine missing-record case.
+
+Evidence, source/caller/binary hashes, commands and installed origins:
+verification/issue-123/glyph-classification-contract-20261101.json. Root baseline
+and installed repro commands exited0. No originals or retained native binary were
+executed. All recorded input hashes verify; no candidate runtime bytes changed.
+
+Authored guide and candidate compatibility notes now disclose the counterexamples
+without changing historical artifact hashes. Both existing installs still pass
+10offline examples;18Python blocks compile. Receipt:
+verification/issue-123/docs-classification-limits-20261101.json. These examples
+do not cover the new counterexamples. No generated rebuild or publication.
+
+Next repair shared resolution and all four metadata lifecycles together; adding
+two name-only setters would reproduce the defect. Native history/reopen, custom
+managers and D16/D27/D29/D30/D31 remain open. The broad goal is not complete.
+
+## Glyph script lifecycle source, artifacts and guide verified — 2026-11-01
+
+Named metadata supplies script defaults, including unencoded names. Explicit
+None/empty/string values, temporary assignments, storage transitions, rename,
+refresh, copy and unique attachment share existing case/lib state and recovery.
+The round17 fixture now uses the Gurmukhi glyph name; upstream setUnicodes does
+not replace script metadata. Previous failed expectations remain in the logs.
+
+Source suite:4,053passes/3archive skips; regression-first suite35fails/10passes.
+Root independently passed141focused checks before the final parameter expansion.
+Fresh wheel/sdist each pass304checks with0skips, including all70script cases and
+all3distribution checks. All116runtime files match source/archives/both installs;
+28distribution versions match. Prior wheel fails56new cases and passes14controls.
+Both installs run10authored offline examples;18Python blocks compile. The prior
+wheel fails the new example. Earlier artifact hashes in the guide stay intact.
+
+Exact commands, environment, exits, preimages, source/archive hashes and JUnit:
+verification/issue-123/glyph-script-lifecycle-20261101.json,
+verification/issue-123/glyph-script-artifacts-20261101.json and
+verification/issue-123/docs-glyph-script-lifecycle-20261101.json.
+Commands: rtk proxy /opt/homebrew/bin/python3.11 followed by the external
+artifacts-run.py, artifact-installs.py and audit.py each exited0. Installed
+example check.py exited0 twice; old-artifact pytest and example controls exited1.
+Read-only candidate/docs git diff --check exited0. Scoped lint passes;2inherited
+E731 remain. The red run's outer tail masked its status; retained JUnit proves
+35failures. No dependency changes, native calls, canonical edits or promotion.
+
+New consumer qualification is next. D16/D27/D29/D30/D31 and native history,
+save/reopen, backend atomicity, detached reset/custom managers remain open.
+
+## Echopy decorator artifacts and guide verified — 2026-11-01
+
+Fresh wheel/sdist installs each pass245selected tooling checks, zero skips.
+Same-process tooling origins are installed; all95runtime files match source,
+archives and both installs.142sdist files pass inclusion/privacy/licence and
+copied-test checks.117protected generated/provenance files remain unchanged.
+The prior same-version wheel fails18new checks and passes5controls.
+
+The authored pipeline example now accepts qualified decorators and checks real
+raw/merged descriptor identity with captured staticmethod/classmethod members.
+Both installs pass10offline examples; all12blocks compile. The earlier wheel
+raises NativeUnavailable in the new fixture. Earlier bare-syntax guide failure
+is retained; it prompted the behavior-based example update. Only that fixture's
+archive hashes changed; other examples retain their own historical hashes.
+
+Exact commands, exit codes, origins, bytes and negative controls are retained in
+verification/issue-123/echopy-decorator-artifacts-20261101.json and
+verification/issue-123/docs-decorator-resolution-20261101.json. Diff check passes.
+The coverage fixture is historical, not a fresh capture. Native/generated,
+consumer-cohort, browser and publication acceptance remain open; no canonical
+promotion or live installation. D16/D27/D29/D30/D31 remain unchanged.
+
+## Glyph-case artifacts and authored examples verified — 2026-11-01
+
+Fresh wheel and sdist installs each pass 219 selected tests with zero skips,
+including the three distribution gates. Same-process module origins remain in
+the selected install; all 116 runtime files match source/archives/both installs.
+Both environments have the same 28 distribution versions and pass dependency
+checks. The earlier case-info-only artifact fails 52 lifecycle tests (3 controls
+pass). Bounded independent source review found no implementation findings.
+
+The authored Glyport guide adds an owned lifecycle example, preserves earlier
+archive hashes and identifies the new ones separately. Each fresh install runs
+all nine offline examples; all 17 Python blocks compile. The preceding artifact
+fails the new example. Native snippets remain compile-only. Exact commands,
+exit codes, archive/source hashes, failed controls and reports are retained in
+verification/issue-123/glyph-case-artifacts-20261101.json and
+verification/issue-123/docs-glyph-case-lifecycle-20261101.json. Diff check passes.
+
+No native run, canonical promotion, generated rebuild or publication. Native
+case/history/reopen, detached reset, custom metadata and the new consumer cohort
+remain open; D16/D27/D29/D30/D31 are unchanged.
+
+## Echopy helper-name guidance verified — 2026-11-01
+
+Expanded the authored preflight example to reject _bind and _echopy_unavailable
+while preserving previous output bytes. Documented all8explicit names, normalized
+spellings, class-member allowance and remaining low-level/built-in limits. New
+artifact hashes identify this example. Both fresh installs pass10offline examples;
+all12blocks compile. Older deletion artifact fails the helper-rejection assertion.
+
+Receipt: verification/issue-123/docs-helper-names-20261101.json. Diff check passes;
+2native examples remain compile-only. Generated/build/browser/publication holds
+are unchanged.
+
+## Aidus read-preservation guidance verified — 2026-11-01
+
+Authored guide distinguishes v0.2.1installation guidance from private dev4
+repair evidence. It explains inner Unicode ownership checks and the remaining
+CurrentGlyph preflight failure, and clarifies single-glyph metrics versus batch
+script execution. Added offline package identity and tool-inventory examples.
+Both fresh installs pass2offline blocks;1native snippet compiles only. Exact
+artifact hashes identify the candidate; no native read-safety claim.
+
+Page hash, commands and results:
+verification/issue-123/docs-aidus-read-20261101.json. Diff check passes. Generated
+references, rendered/browser acceptance and publication remain held.
+
+## Echopy deletion example verified — 2026-11-01
+
+Authored example now checks external deletion of an ordinary native-double
+attribute, disappearance from lookup/dir and rebinding. Latest wheel/sdist each
+pass10offline examples; all12blocks compile. Earlier alias-only wheel fails at
+block12line41, the ordinary-deletion assertion. Module cleanup and installed
+origins are checked. New archive hashes identify this example; prior constructor
+and collision examples retain their historical evidence. Diff check passes.
+
+Commands/page hash: verification/issue-123/docs-native-deletion-20261101.json.
+Two native snippets remain compile-only. Generated reference, source-lock,
+rendered/browser qualification and publication remain open under D29/D30.
+
+## Echopy alias documentation example verified — 2026-11-01
+
+Added an owned generation/merge example: absent offline annotation, live alias
+reads after native-double reassignment, writes/deletes to original spelling and
+finally cleanup. Exact archive hashes identify the private repaired artifacts.
+Both fresh installs pass10offline examples;12blocks compile, including2native
+snippets held at compile-only. The older artifact fails the missing-name
+assertion. Explicit cleanup checks confirm no owned module registrations remain.
+
+Commands, logs, page hash and limits:
+verification/issue-123/docs-top-level-aliases-20261101.json. Diff check passes.
+Authored docs remain uncommitted. Real FontLab, source-lock/generated rebuild,
+rendered/browser checks and publication remain open under D29/D30.
+
+## Glyph Info case documentation verified — 2026-11-01
+
+Extended the owned Glyph Info example with database case filtering: exclam is
+upper, while less and acutecomb are lower; these values are not Unicode general
+categories. The fixture preserves active font metadata. Both installed private
+case artifacts pass all eight authored examples; ten Glyport and six native-guide
+Python blocks compile. Native blocks remain compile-only. The older script-only
+artifact fails at GSGlyphInfo.case, as expected.
+
+Commands use each existing artifact environment's python -I -B with external
+TMPDIR. Exact commands, exit codes, installed origins, archive and page hashes
+are retained under issue123/docs-glyph-info-case-20261101 in the external evidence
+tree. Tested archive hashes are also recorded in the authored page.
+No generated reference refresh, source-lock update, site build, browser check,
+native execution or publication. D29/D30 and complete metadata/custom database
+acceptance remain open.
+
+## Glyph Info script documentation verified — 2026-11-01
+
+Extended the owned global-lookup fixture with script metadata, Greek-name
+filtering and None preservation. The fixture asserts active font metadata stays
+unchanged. Fresh wheel and sdist installs each pass all eight authored Glyport
+examples; all sixteen Python blocks across the package/native guide compile.
+The older lookup-only artifact fails at GSGlyphInfo.script, as expected.
+Archive hashes identify the tested private snapshots despite repeated versions.
+
+Commands, exit codes, installed origins and page hash are retained in
+verification/issue-123/docs-glyph-info-script-20261101.json. Diff check passes.
+No generated reference refresh, source-lock change, site build, browser check,
+native run or publication. D29/D30 remain open; full metadata and custom databases
+remain incomplete. This verifies the authored example, not whole native scripts.
+
+## Echopy collision example verified — 2026-11-01
+
+Added a runnable owned example proving collision refusal preserves an existing
+output file byte-for-byte and creates no replacement report. It explains scope,
+retaining conflicting capture data, and limits on filesystem transactions,
+reserved identifiers and identical-name duplicate records. Archive hashes identify
+the new private snapshot despite a repeated version string.
+
+Both installed artifacts pass all9offline Echopy snippets;11blocks compile,
+including2native identity blocks that remain compile-only. Older constructor
+artifact fails precisely the collision-refusal assertion. Glyport page bytes are
+unchanged; diff check passes. Exact commands, logs and page hash are retained in
+verification/issue-123/docs-name-collisions-20261101.json. Authored docs remain
+uncommitted; no generated refresh, source-lock, site build, browser, native capture
+or publication. D29/D30 and whole-workflow gates remain open.
+
+## Echopy constructor-binding example verified — 2026-11-01
+
+Extended the existing owned pipeline example with static/class constructors.
+Captured bindings/unbound receiver and merged AST decorators, positional-only
+arguments, defaults and None return annotations are checked without executing
+generated declarations or fixture constructors. Both new installed artifacts pass
+all8offline snippets;10blocks compile, with2native snippets compile-only.
+The older same-version receiver artifact fails precisely AssertionError: StaticInit.
+
+Page now records tested wheel/sdist SHA256 values. Glyport page bytes are unchanged.
+Exact commands, expected exit1/positive exit0, logs and page hashes are retained in
+verification/issue-123/docs-constructor-bindings-20261101.json. Diff check passes.
+Authored docs remain uncommitted: no generated refresh, source-lock update, full
+site build, browser check, native capture or publication. D29/D30 remain open.
+
+## Glyph Info documentation example verified — 2026-11-01
+
+Added an owned offline fixture contrasting name-derived0041 with current glyph
+encoding0042. The lookup preserves current data; explicit local-font queries
+raise the documented capability refusal. Both new installed artifacts pass all
+8offline Glyport examples; all16Python blocks across Glyport/native guide compile.
+The older same-version artifact fails precisely the new Unicode assertion.
+Tested wheel/sdist SHA256 values are included because version strings repeat.
+
+Exact commands, expected negative exit1, positive exit0, logs and page hash:
+verification/issue-123/docs-glyph-info-20261101.json. Diff whitespace check passes.
+This authored-doc candidate remains uncommitted. No source-lock update, generated
+refresh, full site build, browser check, publication or native run; D29/D30 remain.
+Custom-global/local databases and full lookup/native workflows stay open.
+
+## Echopy receiver example verified — 2026-11-01
+
+Extended the authored Echopy pipeline fixture with ordinary/constructor receivers
+named receiver. AST assertions preserve positional-only arguments and defaults,
+and reject invented self parameters without executing generated declarations or
+calling fixture methods. The earlier clean artifact fails the exact new metadata
+assertion; both installed dirty candidates pass all8offline snippets. All10blocks
+compile; two native identity snippets remain compile-only. Existing Glyport page
+hash2f0fd4bd remains unchanged in the shared isolated docs worktree.
+
+Receipt: verification/issue-123/docs-receivers-20261101.json. Exact commands and
+negative/positive logs retained under docs-receivers-20261101. Docs remain
+uncommitted in docs-layer-names-20261101/fontlab-python-docs. No generated refresh,
+source-lock update, site build, browser check, native calls or publication.
+D29/D30 and whole-workflow acceptance remain open.
+
+## Glyport layer-name examples verified — 2026-11-01
+
+Expanded authored packages/glyport.md with identity/name distinctions, a raw
+None-only whole-font filter and a clearly labelled FakeBackend fixture. The
+example collects identities without deleting layers. Version and native-import
+limits are explicit; existing master/background behavior is preserved.
+
+All7offline examples execute unchanged with both installed candidate artifacts;
+15Python blocks across Glyport/native guide compile. The older clean Glyport
+artifact fails exactly at the new raw-name assertion, retained as a negative
+control. Installed origins and fixture-byte preservation pass. Receipt:
+verification/issue-123/docs-layer-names-20261101.json; external check.py,
+run-checks.py, commands.json and logs retain exact commands/results.
+
+Isolated docs-layer-names-20261101/fontlab-python-docs remains uncommitted. No
+source lock, generated reference, full build, browser check or publication;
+D29/D30 native/rendered acceptance stays open.
+
 ## 2026-11-01 — Read recorded signatures and test owned metadata
 
 Expanded the authored Echopy page with a signature-reading table, a constructor
@@ -491,3 +779,13 @@ fontlab-fontlabapp/fontlab-fly and reran both.
 
 No native calls, full site build, generated reference refresh, source-lock change,
 browser verification, promotion or publication (D29/D30 remain open).
+
+## 2026-11-01 — Consolidate the final candidate
+
+Merged the retained candidate into the consolidated branch, preserving the newer
+branch changes. Verification from the workspace root:
+`rtk proxy sh .metaswarm/quality.sh coverage "$CHECKOUT" fontlab-python-docs`
+(`CHECKOUT` is this isolated checkout): 369 passed, one full-corpus test skipped; exit 0.
+Authored guides are merged; the restored published build is retained.
+This test run does not qualify a new rendered site or native guide examples.
+No native FontLab operation was run.
