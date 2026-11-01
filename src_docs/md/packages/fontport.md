@@ -60,6 +60,36 @@ font.info.apply({"familyName": "My Family", "ascender": 810.5},
                 undo_name="Edit font information")
 ```
 
+## UI editors
+
+`fontlab_fontport.ui` provides the Qt editors that work on FontParts and UFO
+models: `font_info_editor`, `groups_editor`, `kerning_editor`,
+`transform_editor`, `batch_panel` and `glyph_sequence`. They moved here from
+`fontlabapp.fontui`, which keeps the browsers, the preview, the features editor and
+the designspace panel. Each factory returns a handle: keep a reference, show its
+`.widget` and call `.close()` when you are done.
+
+```python
+# Inside FontLab, with Fontport and ufoLib2 installed
+from ufoLib2 import Font
+from fontlab_fontport.ui import kerning_editor
+
+font = Font()                       # a detached demonstration model
+editor = kerning_editor(font)       # keep this handle alive
+editor.widget.show()
+# ... later:
+editor.close()
+```
+
+Editors stage changes and apply them in one validated batch; a model without a
+batch apply opens read-only. The sequence and the info, groups and kerning
+editors have `.refresh()` for edits made elsewhere; `transform_editor` and
+`batch_panel` do not. The font information editor also offers the structured
+fields OS/2 weight and width class, Panose (ten integers) and horizontal and
+vertical stem snaps; it labels them "key master" because Fontport writes them to
+the current key master only. Name records are not offered. `batch_panel` runs work
+in a separate Python 3.11+ process so FontLab stays responsive.
+
 ## Behaviour and limits (Fontport v1.0.2)
 
 - **Undo:** an edit through the live binding is undone by the first Edit > Undo.

@@ -16,18 +16,21 @@ CHANGELOG.md. Publication is the controller's (runbook: workspace
    `verification/issue-101-ecosystem/evidence/docs-104/final-rebuild.sh` must pass every gate
    and the reviewed lock is committed.
 
+The 2026-10-18 local src_docs layout, docs/ output and requested plugin setup
+are complete, with full local source/archive/search/browser gates. Remaining
+whole-branch/release/publication tasks above are outside that setup milestone.
 
-## Issue120 current documentation Z5
 
-- [x] Build current source documentation and verify rendered source plus local browser behavior.
-- [ ] Complete whole-branch review, original native acceptance and every remaining publication/distribution gate before promotion.
+## Authored Echopy guide acceptance
 
-## Issue120 current API refresh Z19
+Offline examples are verified separately from generated-reference acceptance.
+The authored signature-reading and owned descriptor pipeline examples pass in
+Echopy0.2.4.dev6 wheel/sdist installs; rendering remains unverified.
+The two native identity snippets still require installed-host execution. Rebuild
+and browser/publication checks remain behind D29 and the full source-lock review.
 
-- [x] Refresh and verify the 705-input producer lock against the latest reviewed App/Glyport source and ordinary archives.
-- [x] Verify complete captured-native identity reconciliation, current API anchors, both search consumers, 64 accessibility views and 28 interaction checks.
-- Keep whole-branch integration, released dependency, native and publication gates open.
+- [ ] Verify the two authored UI examples in native PythonQt and their rendered page after D29 permits a full build. Standalone Qt cases pass; actual QFileDialog isolation requires a disposable OS account or VM.
 
-## Issue120 Z24 frontend notices
+- [ ] Qualify the native writer guide with real installed FontLab operations and final rendered pages after D29 permits rebuilding; fourteen offline snippet checks do not close those gates.
 
-Complete the full transitive asset/component inventory, Wordcut dictionary/modules and source-availability proof, TinySegmenter/Clipboard leaf notices, CSS data SVGs, external response variants and whole-site publication gates. Retain all original native, runtime, corpus and release requirements.
+- [ ] Qualify the authored background preview/apply example in native FontLab and its rendered page once D29 permits a full build. Offline snippets pass with installed App .158 and owned native doubles.

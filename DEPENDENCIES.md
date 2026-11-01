@@ -27,17 +27,12 @@ Locked esbuild 0.25.12 is needed only for explicit maintainer recompilation;
 installs it under the ignored `.build/search-compiler` tree. Browser gzip decoding
 uses the standard native `DecompressionStream` API, without another library.
 
+## Documentation plugins
 
-## Issue120 current documentation Z5
-
-Griffe and MaterialX remain pinned. No new dependency: a small static Griffe extension uses the existing locked API. Shared theme bytes stay unchanged.
-
-## Issue120 current API refresh Z19
-
-Build dependencies and theme assets remain unchanged. Source inputs advance to the reviewed App 0.2.62.dev0 and Glyport 1.0.8.dev28 feature candidates; all changed bytes match verified wheel/sdist payloads. The other 668 previous inputs remain exact. This does not change runtime dependencies, native captures or publication authorization.
-
-The source-visibility repair uses the existing source-order binding resolver and Griffe C3 implementation. No dependency or compiler bundle changes. Same-name import aliases and literal export lists identify public paths; base traversal retains only statically bound identities. Native fields retain their existing visibility policy.
-
-## Issue120 Z24 frontend notices
-
-No build/runtime dependency changes. Existing locked ProperDocs/MaterialX/plugin versions remain. Browser notice texts record pinned npm/publisher sources and the captured shared-theme/font responses; the full transitive review remains open.
+Added codeinclude 0.3.1, awesome-nav 3.3.0, live-edit 0.4.1, categories 0.6.0
+and include-markdown 7.3.0. Scriptmix also uses print-site 2.9. Existing
+mkdocstrings/Python/autorefs/Griffe and PyMdown provide reference and Markdown
+support. MaterialX supplies meta, tags, search, native breadcrumbs and ToC.
+The complete tested resolution is in uv.lock. The old breadcrumbs and
+ToC-sidebar packages are excluded after compatibility trials; see
+`src_docs/md/plugins.md` in the smaller sites.

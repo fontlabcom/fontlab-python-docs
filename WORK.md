@@ -2,6 +2,62 @@
 this_file: WORK.md
 ---
 
+## 2026-11-01 — Read recorded signatures and test owned metadata
+
+Expanded the authored Echopy page with a signature-reading table, a constructor
+AST example and an owned static/class descriptor fixture through capture,
+generation and merge. Explains positional/keyword-only parameters, defaults,
+variadic fallback, unknown types, overload evidence and declaration age.
+Known Python descriptors are not evidence for unknown PythonQt wrappers.
+
+All10Python fences compile. Eight offline fences execute unchanged in separate
+ordinary wheel and sdist installations of Echopy0.2.4.dev6+ga4f2fbf48; package
+origins are under each environment and no native modules are imported. The two
+native identity snippets remain unexecuted. No generated declaration is executed.
+The first verifier run expected11blocks instead of10; only its count assertions
+were corrected. Both failed commands and final outputs are retained externally.
+
+Exact commands/exit codes: ../commands-initial.json (exit1 twice), ../commands.json
+(exit0 twice), using the external verify_examples.py with -I -B. Evidence root:
+/Volumes/Falstaff4T/fontlab-scripting-data/issue123/docs-signatures-20261101/.
+AST reference: https://docs.python.org/3.11/library/ast.html#ast.arguments .
+
+No generated reference, source-lock refresh, full site build, browser check,
+canonical promotion or publication. D29 and native D30 remain open.
+
+## 2026-11-01 — owned dialog/settings examples and chooser boundary
+
+Expanded authored guide/ui.md with an owned-dialog example using App completion,
+explicit temporary-INI settings, geometry lifecycle guidance, and pinned Qt5.15.2
+QFileDialog findings. Its scoped QtProject constructor hardcodes NativeFormat;
+setDefaultFormat/setPath do not isolate the macOS store. Cocoa helper refuses a
+priority-hint native chooser. No actual QFileDialog or owner preferences touched.
+These source findings do not qualify FontLab's compiled Qt or the three routes.
+
+Two new examples pass six cases each under standalone Qt5.15.19 and Qt6.12.0:
+INI roundtrip, forwarded clicked(True), actual Close button, Close, Escape and
+replacement. Real App completion/cleanup/launcher, owned substitute main window.
+Qt5 uses source App; Qt6 uses ordinary installed App. Initial cold from-package
+import failed; direct submodule imports fixed it. Explicit bool forwarding then
+reproduced the Close bug; a lambda discards arguments. An actual Qt6 click alone
+had passed, so it was not used as proof of PythonQt signal semantics.
+
+Independent review clears the final page. Raw-source physical anchors and hashes
+verified; earlier web-extracted line-number suggestions were discarded. Page hash
+04c7c03985f1816ab4bba49dde99a7c92dad0055d023d219383e289745f84c7d.
+No generated page, source lock, theme, canonical checkout or publication change.
+D29 still blocks the complete site build/render/publication acceptance.
+
+Commands through rtk proxy, final exit0 (initial failures retained):
+- env QT_QPA_PLATFORM=offscreen PYTHONDONTWRITEBYTECODE=1 /Volumes/Falstaff4T/fontlab-scripting-data/issue123/standard-message-priority-20261101/ordinary-artifacts/wheel-env/bin/python -B /Volumes/Falstaff4T/fontlab-scripting-data/issue123/chooser-settings-audit-20261101/verify_guide.py /Volumes/Falstaff4T/fontlab-scripting-data/issue123/docs-guide-20261101/src_docs/md/guide/ui.md
+- env QT_QPA_PLATFORM=offscreen PYTHONDONTWRITEBYTECODE=1 FONTLABAPP_TEST_QT5=1 PYTHONPATH=/Volumes/Falstaff4T/fontlab-scripting-data/issue123/standard-message-priority-20261101/fontlab-fontlabapp/src:/Users/adam/Developer/vcs3/github.fontlabcom/fontlab-scripting/fontlab-fly/src /Volumes/Falstaff4T/fontlab-scripting-data/verification/issue-120/typed-date-z11/qt5-env/bin/python -B /Volumes/Falstaff4T/fontlab-scripting-data/issue123/chooser-settings-audit-20261101/verify_guide.py /Volumes/Falstaff4T/fontlab-scripting-data/issue123/docs-guide-20261101/src_docs/md/guide/ui.md
+- Docs candidate: git diff --check:exit0.
+
+Wait, but: only the two new examples were exercised, not the older controller
+example or every API. Native PythonQt, actual chooser and rendered-site acceptance
+remain open. Evidence: external chooser-settings-audit-20261101; root report
+verification/issue-123/chooser-settings-boundary-20261101.md.
+
 # Shared theme migration
 
 ## 2026-10-14 — R043 checker correction from controller receipt
@@ -879,95 +935,60 @@ behaviour without naming the version); http -> 301 https; typerig instance pages
   cases 4/4; version lines Fontlabapp v0.2.4, Glyport v1.0.1, Aidus Code v0.2.1, Echopy v0.2.2
   and both new notes found once each; http 301 to https; instance pages 200.
 
+## 2026-10-18 — documentation source layout
 
-## Issue120 current documentation Z5
+Set up `src_docs/mkdocs.yml` and `src_docs/md/` with ProperDocs 1.6.7,
+MaterialX 10.1.5 and the shared fltheme26 assets. Local builds write `docs/`.
+Source-backed code blocks use codeinclude; shared prose uses include-markdown.
+Tags, directory metadata, categories, navigation and local editing use the tested
+plugins. The two smaller sites have a combined print page. The API site retains
+its complete search, archive and source-only reference pipeline.
 
-Static reference generation retains authored Griffe extensions, including namespace visits; reviewed TypeRig array-index literals render as code. Duplicate Table.__eq__ definitions remain recorded with their exact source fingerprints. The reviewed producer lock now binds 678 current inputs.
+The obsolete ToC-sidebar plugin fails on removed `mkdocs.utils.string_types`.
+The breadcrumbs plugin mutates Markdown inputs and pulls in the overlapping
+Material distribution. Use MaterialX's native ToC and `navigation.path` instead.
+These decisions follow isolated installation/build trials; neither plugin is
+installed in the final environments. No remote publication is included here.
 
-Strict offline build: 540 modules, 2,442 classes, 250,910 member identities, 254,065 declarations, 38,878 unique bodies and 5,728 generated pages. All 242,654 captured native identities are documented, unexplained=0. Read-only verification and release-content scan pass; 28 accessibility views and 28 browser interaction cases pass. The required real search worker passes all 20 queries over 71,608 search rows. Final full suite:318 passed, including the real search-worker consumer check and the later namespace controls. All five changed production modules exceed 80% statements and branches with zero exclusions.
+## 2026-10-18 — local docs layout acceptance
 
-Wait, but: local source/build/browser checks are not native FontLab execution or whole issue120 acceptance. D25 native connectivity, complete branch/routes/archive/distribution/release and publication gates remain open. No canonical checkout, live install or remote site changed. Exact commands, retained failed attempts and receipts are in the parent workspace verification/issue-120/docs-z5/.
+Canonical authored inputs moved to src_docs/md/ and src_docs/mkdocs.yml.
+Generation/provenance readers and lifecycle fixtures now use those paths.
+Normal build.sh runs stage the accepted manifest into docs/; --check/--serve
+retain their existing behavior. The native capture runner is byte-identical.
+New code includes display the actual source-lock helper. Metadata/tags/categories
+are scoped to authored guides/package overviews, avoiding blanket tags on every
+API declaration. Awesome-nav owns the preserved authored navigation order.
 
-## Issue120 Z19 — current API source refresh in progress
+Current clean App/Glyport source drift was reviewed before explicit lock refresh.
+All old changed hashes are recoverable from Git.54currentproducer inputs are
+added,18existingproducer inputs and43examplesexport inputs refreshed; none
+removed. The pre-existing lock is privately retained. The examples export is a
+new verified retained-catalogue output, without editing its archived inputs.
 
-Fresh isolated baseline: 317 passed, one explicit missing-full-built-index skip. Reviewed 37 changed inputs against exact Z18 ordinary archive payloads: 27 additions, no removals; 668 earlier inputs remain exact. Ordinary generation rejects the stale lock without changing it. Explicit strict offline refresh passes with 705 inputs, 554 modules, 2,450 classes, 250,971 member identities, 254,148 declarations, 38,937 distinct bodies and 5,770 pages. All 242,654 captured native identities remain documented; unexplained omissions are zero. Independent current-API checks require 135 public declarations across 105 rendered pages. Full read-only/search/browser/preservation gates are in progress. No native refresh or site publication. Exact receipts are retained privately in verification/issue-120/docs-current-z19 and root WORK.md.
+`rtk proxy ./build.sh --offline`, exit0:177.19sstrict render;5368generatedpages,
+249796memberidentities,242654capturednative identities/0unexplained,69394rows,
+3140799initialsearchbytes,325974largestAPIpagebytes; allroute/archive/budget
+gates pass.6293docs/files equal the accepted manifest.
+`rtk proxy ./build.sh --offline --check`,exit0 after the final metadata scope.
+`rtk proxy env FONTLAB_REQUIRE_CONSUMER=1 uv run --no-sync python -m pytest -q -s tests/test_search_identities.py -k full_index`,exit0,all20queries/69394rows.
 
-The first strict candidate passed existing gates but independent public-path inspection found `calendar_controls.value` and inherited `Controls.close` absent. Retained its entire site and receipts under first-candidate. Tests-first source visibility repair now covers same-name absolute imports, literal exports and public inheritance through private files/names; unrelated private scopes remain hidden. Existing source-binding guards caught invalidated class entries; a nested-private test caught scope leakage; full native reconciliation caught 33 undefined self-export aliases. All are repaired without changing fixtures or weakening gates. Final focused controls pass 126 tests; whole source_visibility is 100/100, api_inventory 98.10/95.61 and export_aliases 97.94/91.38 statements/branches, zero exclusions. The corrected strict build verifies 571 modules, 2,491 classes, 251,190 member identities and 5,880 pages; all captured native identities remain documented, unexplained zero. Corrected final whole-suite and browser gates are running.
+Full current suite with required consumer and coverage:309passed; both changed
+helpers91%/93%,above80%. Exact commands are retained in the workspace WORK.md
+and .local/docs-setup/commands.json. All10 lifecycle test function identities
+remain; only source-layout fixture paths and unused bindings change.
+Final interaction28/28 and release-content audit6293files/0findings pass.
+The broader accessibility receipt is collected in the same workspace evidence
+folder. Initial failed keyboard/tag metadata evidence remains intact. No
+checker/tab budget is relaxed.
 
-Final full suite: 341 passed with FONTLAB_REQUIRE_CONSUMER=1. The original request-interception fixture reproducibly closed its browser target on the full index; loopback HTTP now serves the identical full payload and shipped worker with every ranking assertion and deadline preserved. A UTF-8 byte-preservation control passes. Exact transport root cause is unproved. Whole-module statement/branch coverage: api_inventory 98.57/97.37%, export_aliases 97.94/91.38%, source_visibility 100/100%; zero excluded lines. Corrected read-only generation and release-content audit pass (6,808 files, no findings). The final source inventory contains 254,428 declarations and 39,146 distinct bodies. All 138 independent current public declaration checks pass across 108 pages. Mandatory accessibility, interactions and real pre-push checks continue; native/integration/publication gates remain open.
+Workspace verification/docs-setup-20261018/REPORT.md records plugin choices,
+source evidence, complete acceptance results and failures. This is local output;
+remote publication and prior broader project gates remain separate.
 
-Final browser gates pass: 64 accessibility views, 28 original interaction cases,
-37 actual search-UI queries and four current-API desktop/mobile light/dark views.
-The full-index worker retains all 20 required queries. All 705 inputs, 670 menus,
-494 originals, eleven zones, 7,247 disposition rows, 1,111 owner hashes and three
-canonical statuses remain exact. No theme, authored guide, archive or build
-dependency changes. The unchanged pre-push hook enforces the complete milestone
-scope, not just the three newly changed modules; its final verdict and feature
-refs are retained in the parent workspace evidence. No native/publication claim.
-
-## Issue120 Z24 — frontend notice candidate
-
-Three baseline suites pass. Tests first reject absent notice artifacts; the authored full-text SHA/link/provenance checks then pass. Notice/provenance pages retain 23 named component groups (24 where print-site is shipped). No runtime assets, source producers, original examples or archive bytes change. Complete transitive closure, Wordcut embedded modules/dictionary, TinySegmenter, Clipboard leaf notices, CSS data SVGs and full publication qualification remain open. Exact commands and failed attempts are retained in the parent workspace at verification/issue-120/frontend-notices-z24. Strict-build, full-suite, browser/privacy and preservation acceptance follow this candidate. Wait, but: a named-component notice batch does not prove the complete transitive inventory or a published site.
-
-Z24 final-v3 frozen-input strict build and promotion into the isolated local docs folder pass (6831 files). The earlier final-v2 attempt correctly rejected an in-flight notice-JSON metadata edit; its failed log is retained. Preserve both Lunr source-header and npm-distribution copyright variants and explicitly record the existing stock-worker TokenSet separator modification. Full rendered-route/text/privacy/browser and real pre-push evidence lives in the parent workspace at verification/issue-120/frontend-notices-z24. No generated docs or publication is part of this source-only feature branch. Full transitive frontend inventory and all original whole-branch/native/release gates remain open.
-
-## Issue120 Z26 notice byte preservation
-
-Git autocrlf=input silently normalized three source-bound upstream notice payloads in HEAD. Add scoped `/src_docs/md/licenses/** -text`; restore only bytes proven by unchanged manifest hashes. Preserve all prior attributes and manifests. Regression uses a private temporary Git repository with command-scoped autocrlf=input and checks all notice index, checkout-index and archive bytes, including CRLF probes for LF-only notices. It works from Git-free SDK/source archives and explicitly skips only the Git distribution check if Git itself is absent. No production module or dependency changes.
-
-Tests-first red and green receipts, all84 notice byte audits, full source/docs suites, locked offline strict builds, served notice URLs and privacy receipts live in parent `verification/issue-120/notice-byte-preservation-z26/`. Exact commands and exits are in `N4-notice-bytes-report.md`. Publication/transitive inventory flags remain false; native acceptance remains pending. No commit/push/native/live install.
-
-## Issue120 Z26 — isolate notice-regression Git environment
-
-The earlier pushed notice-byte regression inherited repository-local Git variables
-from real pre-push hooks. The controller retained and restored its own affected
-Scriptmix worktree index; all437physical source files remained byte-identical
-to HEAD. The three earlier notice commits remain published; their completed
-real hook exits do not prove parent-index preservation.
-
-Tests first reproduce parent index/config/object mutations using two private
-repositories only, for both default and alternate parent index paths. Child Git
-commands now remove names returned by `git rev-parse --local-env-vars` from a
-copied environment before init/add/checkout/archive, and have10second deadlines.
-The injected-context regression preserves the caller environment and compares
-every parent file, including index, config, refs, objects and unstaged content.
-The original full-notice byte assertions and CRLF probes are unchanged.
-
-Exact commands, exits, ordinary baselines, red/green controls and source-only
-acceptance are retained in workspace
-`verification/issue-120/notice-env-isolation-z26/`; see
-`docs/maestro/issue120/layer-navigation-z26/N11-notice-env-fix-report.md`.
-All commands run through `rtk proxy`; an initial machine PATH selection of broken
-`/usr/bin/git` is retained separately, followed by actual Homebrew Git controls.
-No production module, notice payload/manifest, attribute, dependency, hook, Git
-configuration, coverage floor/baseline, source lock or live/native state changed.
-
-Wait, but: successful isolation tests do not accept the whole issue120 workflow.
-This corrective candidate requires fresh independent review before commit/push;
-all native, integration, release, transitive inventory and publication gates remain.
-
-Final frozen-code checks: API complete docs suite345passed/1existing built-worker skip; Git-free notice suites
-API5/Examples5/Scriptmix6pass. No-Git runs retain manifest checks and report
-API2pass/3skip, Examples2pass/3skip, Scriptmix3pass/3skip. Removing only child
-environment isolation fails both parent-preservation controls in all3private
-copies; removing attributes still fails actual index-byte normalization in all3.
-All84upstream notice payloads remain byte-exact across source, original, HEAD,
-index, fresh checkout, archive and built site.
-
-```sh
-rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/verify.py suites
-rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/verify.py suites examples scriptmix
-rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/negative_isolation.py
-rtk proxy /opt/homebrew/bin/python3.11 verification/issue-120/notice-env-isolation-z26/verify.py bytes
-```
-
-Full-suite prerequisites: retained API failure required its existing hardcoded
-TypeRig sibling layout; supplied an evidence-only alias to the frozen source.
-Examples first full-docs attempt used API's environment and failed on missing
-print-site plugin; rerun with each repository's existing locked docs environment
-passes. No dependency or configuration change. Exact nested argv/exits and
-failed attempts remain in the parent verification receipts. Independent review
-and later actual-hook before/after index/config/origin preservation are pending.
+Final broader accessibility receipt:28/28views pass. All local setup gates are
+complete; the unchanged interaction checker passes28/28cases. No remote
+publication is claimed.
 
 ## 2026-10-21 — N60 private final-producer documentation alignment
 
@@ -1080,3 +1101,103 @@ workspace `verification/issue-120/docs-byte-preservation-z41/`.
 Controller-only release repair after applying this source rule:
 `git add --renormalize -- docs/licenses/0bsd-tslib.txt docs/licenses/pictogrammers-free.txt docs/licenses/tslib-copyright.txt`.
 Reverify every accepted generated index/workingtree byte before delivery.
+
+
+## 2026-11-01 — Authored Echopy guide
+
+Expanded packages/echopy.md with installed version/origin, alias identity,
+sidecar discovery/AST reading, NativeUnavailable handling, provenance reading,
+native identity-only checks and PythonQt/session limits. Removed obsolete fixed
+v0.2.3 claim and misleading placeholder signature inspection example.
+Six offhost Python blocks executed with the verified Echopy environment's Python
+using -I -c, exit0 each; two native blocks compile only, not host-tested.
+Evidence: external issue123/docs-guide-evidence-20261101/snippet-results.json
+and per-block logs. No generated reference, source-lock, site build, theme,
+canonical checkout or publication change. D29 remains in force.
+
+Independent review: corrected alias wording to matching submodules (top-level packages differ); all six page/reference targets and install anchor exist. No remaining scoped findings. git diff --check exit0.
+
+## Native writer result/error examples — 2026-11-01
+
+Expanded authored guide/native.md with queue-warning/result fields, a host-free
+formatter and a Raise Ascender wrapper that retains disclosure and reraises the
+original error. Explains no-op queue-not-sampled semantics, exact all-layer scope,
+Perpendicular Guides output, partial-write uncertainty and no automatic retry.
+Contract is explicitly the ordinary App0.2.26.dev155+g5513c0783 candidate, not a
+published release or native acceptance claim. Independent source review passes.
+
+Exact marked snippets pass14checks with real installed formatting helpers and
+a substitute native backend; both scopes, success/no-op, early/partial/constructor
+failure, warning de-duplication and original exception identity are checked. All
+3Python blocks compile; the original native identity/construction block is not
+executed. No generated reference, producer lock, theme or build output changed.
+
+Command from /Volumes/Falstaff4T/fontlab-scripting-data/issue123/native-guide-20261101
+(exit0; result.log):
+`rtk proxy env UV_CACHE_DIR=/Volumes/Falstaff4T/fontlab-scripting-data/uv-cache TMPDIR=/Volumes/Falstaff4T/fontlab-scripting-data/tmp PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run --isolated --no-project --python /opt/homebrew/bin/python3.11 --with /Volumes/Falstaff4T/fontlab-scripting-data/issue123/perpendicular-queue-20261101/dist/fontlab_fontlabapp-0.2.26.dev155+g5513c0783-py3-none-any.whl --with pytest python -I -B -m pytest -q -p no:cacheprovider test_guide.py`.
+`rtk proxy git diff --check`:exit0. External report.json pins the final page.
+Wait, but substituted native calls do not qualify FontLab editing or preservation.
+Native execution and site build/browser/publication remain behind existing gates.
+
+## 2026-11-01 — background removal preview and failure example
+
+Extend the authored native guide with explicit preview/apply functions for complete
+background-object removal. Document both whole-font scopes, shared-mask refusal,
+counts, no-op disclosure, stale previews, partial errors and interruption notes.
+Use actual Scriptmix menu titles. Update example checkpoint to ordinary App
+0.2.26.dev158+g55fc09868 and correct duplicated Perpendicular Guides wording.
+
+Exact snippets:27checks pass against each ordinary wheel/sdist. Four Python blocks
+compile. Background12cases use the actual installed backend/planner and owned
+native doubles; Raise Ascender10wrapper cases substitute its backend, while
+four formatter cases use the shared helper. Compilation adds one check.
+No native, rendered-page, generated-reference/source-lock or publication claim.
+D29 still holds those stages; source-only authored documentation is permitted.
+
+Evidence: external issue123/background-guide-20261101/checks.log and sdist-checks.log.
+Command cwd is that evidence directory:
+`rtk proxy env UV_CACHE_DIR=/Volumes/Falstaff4T/fontlab-scripting-data/uv-cache TMPDIR=/Volumes/Falstaff4T/fontlab-scripting-data/tmp PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run --isolated --no-project --python /opt/homebrew/bin/python3.11 --with /Volumes/Falstaff4T/fontlab-scripting-data/issue123/background-interruption-20261101/dist/fontlab_fontlabapp-0.2.26.dev158+g55fc09868-py3-none-any.whl --with pytest python -I -B -m pytest -q -p no:cacheprovider test_guide.py test_background_guide.py` — exit0.
+Repeat with the same version's .tar.gz in place of the wheel — exit0.
+
+## 2026-11-01 — bound selection examples
+
+Add two authored native-guide examples: bound Font-window selection read with
+package.id/fgId distinction and deadline; additive report selection with total
+name count and partial-failure semantics. Document empty scope, stale identity,
+active-window guard, duplicate chart cells, no UpdateAll and the unresolved
+filtered-cell snapshot. Existing writer examples/version checkpoints unchanged.
+
+Execute exact Markdown snippets against ordinary installed App0.2.26.dev159+
+gb1e905b61, replacing only native module access with owned doubles. Fourteen
+behavior cases pass; all366installed App runtime hashes also match (15checks
+total). SixPythonblocks compile. No generated references/source-lock/site output
+changed; no full build, browser or native run under D29.
+
+Command from external docs-selection-20261101/tests:
+rtk proxy env -u PYTHONPATH PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+/Volumes/Falstaff4T/fontlab-scripting-data/issue123/colour-selection-20261101/env/bin/python
+-I -B -m pytest -q -p no:cacheprovider test_selection_examples.py test_artifact_integrity.py
+(exit0). Tests, hashes and exact snippets retained externally; root report records
+review and commit. git diff --check exits0.
+
+Wait, but: doubles do not prove native font, history, view-state or timing
+preservation. Rendered-page and whole-branch publication gates remain open.
+
+## 2026-11-01 — Glyport detached-transform examples
+
+Added four executable examples for matrix mapping, non-finite refusal, overflow
+preflight and repeated object identities, with explicit native/setter limits.
+Added existing fly.gp/fly.fp aliases to the native guide. No dependencies changed.
+
+Verification: six marked examples extracted directly from Markdown pass in both
+the final Glyport dev58 wheel and sdist environments with App dev159. Owned source
+fixtures retain their exact bytes; inspect/adapt never execute them. Both new
+aliases resolve to canonical modules. All 14 Python blocks in the two pages compile.
+Commands and exit codes: external docs-transform-20261101/commands.json; both
+`rtk proxy <final-wheel-env or final-sdist-env>/bin/python -I <check.py>` exit 0.
+The initial harness completed example/alias assertions but failed reporting with
+PackageNotFoundError: fontlabapp; corrected distribution names to
+fontlab-fontlabapp/fontlab-fly and reran both.
+
+No native calls, full site build, generated reference refresh, source-lock change,
+browser verification, promotion or publication (D29/D30 remain open).

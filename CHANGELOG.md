@@ -2,7 +2,69 @@
 this_file: CHANGELOG.md
 ---
 
-## v1.0.6 — Reviewed scripting API and practical examples (2026-10-21)
+## 2026-11-01 — Read recorded signatures and test owned metadata
+
+Expanded the authored Echopy page with a signature-reading table, a constructor
+AST example and an owned static/class descriptor fixture through capture,
+generation and merge. Explains positional/keyword-only parameters, defaults,
+variadic fallback, unknown types, overload evidence and declaration age.
+Known Python descriptors are not evidence for unknown PythonQt wrappers.
+
+All10Python fences compile. Eight offline fences execute unchanged in separate
+ordinary wheel and sdist installations of Echopy0.2.4.dev6+ga4f2fbf48; package
+origins are under each environment and no native modules are imported. The two
+native identity snippets remain unexecuted. No generated declaration is executed.
+The first verifier run expected11blocks instead of10; only its count assertions
+were corrected. Both failed commands and final outputs are retained externally.
+
+Exact commands/exit codes: ../commands-initial.json (exit1 twice), ../commands.json
+(exit0 twice), using the external verify_examples.py with -I -B. Evidence root:
+/Volumes/Falstaff4T/fontlab-scripting-data/issue123/docs-signatures-20261101/.
+AST reference: https://docs.python.org/3.11/library/ast.html#ast.arguments .
+
+No generated reference, source-lock refresh, full site build, browser check,
+canonical promotion or publication. D29 and native D30 remain open.
+
+## 2026-11-01 — owned dialog/settings examples and chooser boundary
+
+Expanded authored guide/ui.md with an owned-dialog example using App completion,
+explicit temporary-INI settings, geometry lifecycle guidance, and pinned Qt5.15.2
+QFileDialog findings. Its scoped QtProject constructor hardcodes NativeFormat;
+setDefaultFormat/setPath do not isolate the macOS store. Cocoa helper refuses a
+priority-hint native chooser. No actual QFileDialog or owner preferences touched.
+These source findings do not qualify FontLab's compiled Qt or the three routes.
+
+Two new examples pass six cases each under standalone Qt5.15.19 and Qt6.12.0:
+INI roundtrip, forwarded clicked(True), actual Close button, Close, Escape and
+replacement. Real App completion/cleanup/launcher, owned substitute main window.
+Qt5 uses source App; Qt6 uses ordinary installed App. Initial cold from-package
+import failed; direct submodule imports fixed it. Explicit bool forwarding then
+reproduced the Close bug; a lambda discards arguments. An actual Qt6 click alone
+had passed, so it was not used as proof of PythonQt signal semantics.
+
+Independent review clears the final page. Raw-source physical anchors and hashes
+verified; earlier web-extracted line-number suggestions were discarded. Page hash
+04c7c03985f1816ab4bba49dde99a7c92dad0055d023d219383e289745f84c7d.
+No generated page, source lock, theme, canonical checkout or publication change.
+D29 still blocks the complete site build/render/publication acceptance.
+
+Commands through rtk proxy, final exit0 (initial failures retained):
+- env QT_QPA_PLATFORM=offscreen PYTHONDONTWRITEBYTECODE=1 /Volumes/Falstaff4T/fontlab-scripting-data/issue123/standard-message-priority-20261101/ordinary-artifacts/wheel-env/bin/python -B /Volumes/Falstaff4T/fontlab-scripting-data/issue123/chooser-settings-audit-20261101/verify_guide.py /Volumes/Falstaff4T/fontlab-scripting-data/issue123/docs-guide-20261101/src_docs/md/guide/ui.md
+- env QT_QPA_PLATFORM=offscreen PYTHONDONTWRITEBYTECODE=1 FONTLABAPP_TEST_QT5=1 PYTHONPATH=/Volumes/Falstaff4T/fontlab-scripting-data/issue123/standard-message-priority-20261101/fontlab-fontlabapp/src:/Users/adam/Developer/vcs3/github.fontlabcom/fontlab-scripting/fontlab-fly/src /Volumes/Falstaff4T/fontlab-scripting-data/verification/issue-120/typed-date-z11/qt5-env/bin/python -B /Volumes/Falstaff4T/fontlab-scripting-data/issue123/chooser-settings-audit-20261101/verify_guide.py /Volumes/Falstaff4T/fontlab-scripting-data/issue123/docs-guide-20261101/src_docs/md/guide/ui.md
+- Docs candidate: git diff --check:exit0.
+
+Wait, but: only the two new examples were exercised, not the older controller
+example or every API. Native PythonQt, actual chooser and rendered-site acceptance
+remain open. Evidence: external chooser-settings-audit-20261101; root report
+verification/issue-123/chooser-settings-boundary-20261101.md.
+
+## Unreleased — issue 122 package pages
+
+- The App page shows font-level master edits as one Undo step (`master_metrics.write_master_metrics`, `zone_native.backend()`), their refusals and rollback, the fl#8574 guideline caveat, and `outline_extent` for stale boxes (fl#8575). Authored page only; no build.
+- The App page lists only the `[fontui]` extra and its five tools (browsers, preview, features editor, designspace panel); the `[fontedit]` and `[fontsequence]` extras no longer exist.
+- The FontParts-bound editors (`font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`, `batch_panel`, `glyph_sequence`) are documented on the Fontport page under "UI editors", with an example. Authored pages only; the generated site and source lock are not rebuilt (publication stays gated).
+
+## Unreleased — preserve generated distribution bytes (N132)
 
 - Publish 5,996 API pages for the reviewed App .98 source checkpoint used by
   the 37 Examples / 107 Scriptmix menus. Their source/download pairs belong to
@@ -265,36 +327,20 @@ this_file: CHANGELOG.md
 
 - Removed the GitHub Actions docs workflow (owner decision); acceptance gates run locally.
 
+## 2026-10-18 — documentation source layout
 
-## Issue120 current documentation Z5
+Set up `src_docs/mkdocs.yml` and `src_docs/md/` with ProperDocs 1.6.7,
+MaterialX 10.1.5 and the shared fltheme26 assets. Local builds write `docs/`.
+Source-backed code blocks use codeinclude; shared prose uses include-markdown.
+Tags, directory metadata, categories, navigation and local editing use the tested
+plugins. The two smaller sites have a combined print page. The API site retains
+its complete search, archive and source-only reference pipeline.
 
-Static reference generation retains authored Griffe extensions, including namespace visits; reviewed TypeRig array-index literals render as code. Duplicate Table.__eq__ definitions remain recorded with their exact source fingerprints. The reviewed producer lock now binds 678 current inputs.
-
-## Unreleased — Issue120 Z19
-
-- Refresh the reviewed API producer lock to App 0.2.62.dev0 and Glyport 1.0.8.dev28: 705 inputs, 27 additions and no removals.
-- Restore explicit same-name absolute re-exports, literal `__all__` exports and public inherited members from private bases. Keep canonical source bodies, source-order invalidation and C3 ordering; exclude unrelated private declarations and undefined export names.
-- Retain complete native identity reconciliation and local build/search/browser gates. Native execution, whole-branch integration, released dependencies and publication remain pending.
-
-- Keep the full real search-worker fixture on loopback HTTP, preserving all complete-index bytes, ranking assertions and deadlines; verify UTF-8 transport explicitly.
-
-## Issue120 Z24 — browser notices
-
-Add source-bound full texts and provenance for named frontend components, including transitive JavaScript dependencies, icons, shared theme inputs and external font responses. Keep the full transitive/publication review explicitly open; runtime assets and retained archives are unchanged.
-
-## Issue120 Z26
-
-Preserve exact upstream notice bytes through Git filters, fresh checkout and archives; add a CRLF distribution regression. Source manifests and pending publication scope remain unchanged.
-
-## Unreleased — isolate temporary notice repositories
-
-- Clear Git's documented repository-local environment for temporary notice
-  distribution commands and bound each child call to10seconds.
-- Exercise inherited hook context with both default and alternate parent indexes;
-  require byte-exact preservation of parent config, refs, index, objects, files
-  and caller environment. Keep every notice/filter/checkout/archive assertion.
-- Preserve all upstream notice payloads and existing attributes/manifests.
-  Source-only correction awaits fresh independent review; no new commit/push.
+The obsolete ToC-sidebar plugin fails on removed `mkdocs.utils.string_types`.
+The breadcrumbs plugin mutates Markdown inputs and pulls in the overlapping
+Material distribution. Use MaterialX's native ToC and `navigation.path` instead.
+These decisions follow isolated installation/build trials; neither plugin is
+installed in the final environments. No remote publication is included here.
 
 ## 2026-10-21 — private final-producer docs candidate
 
@@ -347,3 +393,101 @@ it does not include the private .84/106candidate, native acceptance or publicati
 ## 2026-10-21 — N118 reviewed .98 documentation checkpoint
 
 Pin the reviewed App .98/Examples37/Scriptmix107 source checkpoint and unchanged other producers; retain .80 history and exclude moving .100. Add source checkpoint and current App/SimonCozens licence notices. Preserve inherited owner prose and publication/native gates.
+
+
+## 2026-11-01 — Authored Echopy guide
+
+Expanded packages/echopy.md with installed version/origin, alias identity,
+sidecar discovery/AST reading, NativeUnavailable handling, provenance reading,
+native identity-only checks and PythonQt/session limits. Removed obsolete fixed
+v0.2.3 claim and misleading placeholder signature inspection example.
+Six offhost Python blocks executed with the verified Echopy environment's Python
+using -I -c, exit0 each; two native blocks compile only, not host-tested.
+Evidence: external issue123/docs-guide-evidence-20261101/snippet-results.json
+and per-block logs. No generated reference, source-lock, site build, theme,
+canonical checkout or publication change. D29 remains in force.
+
+## Native writer result/error examples — 2026-11-01
+
+Expanded authored guide/native.md with queue-warning/result fields, a host-free
+formatter and a Raise Ascender wrapper that retains disclosure and reraises the
+original error. Explains no-op queue-not-sampled semantics, exact all-layer scope,
+Perpendicular Guides output, partial-write uncertainty and no automatic retry.
+Contract is explicitly the ordinary App0.2.26.dev155+g5513c0783 candidate, not a
+published release or native acceptance claim. Independent source review passes.
+
+Exact marked snippets pass14checks with real installed formatting helpers and
+a substitute native backend; both scopes, success/no-op, early/partial/constructor
+failure, warning de-duplication and original exception identity are checked. All
+3Python blocks compile; the original native identity/construction block is not
+executed. No generated reference, producer lock, theme or build output changed.
+
+Command from /Volumes/Falstaff4T/fontlab-scripting-data/issue123/native-guide-20261101
+(exit0; result.log):
+`rtk proxy env UV_CACHE_DIR=/Volumes/Falstaff4T/fontlab-scripting-data/uv-cache TMPDIR=/Volumes/Falstaff4T/fontlab-scripting-data/tmp PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run --isolated --no-project --python /opt/homebrew/bin/python3.11 --with /Volumes/Falstaff4T/fontlab-scripting-data/issue123/perpendicular-queue-20261101/dist/fontlab_fontlabapp-0.2.26.dev155+g5513c0783-py3-none-any.whl --with pytest python -I -B -m pytest -q -p no:cacheprovider test_guide.py`.
+`rtk proxy git diff --check`:exit0. External report.json pins the final page.
+Wait, but substituted native calls do not qualify FontLab editing or preservation.
+Native execution and site build/browser/publication remain behind existing gates.
+
+## 2026-11-01 — background removal preview and failure example
+
+Extend the authored native guide with explicit preview/apply functions for complete
+background-object removal. Document both whole-font scopes, shared-mask refusal,
+counts, no-op disclosure, stale previews, partial errors and interruption notes.
+Use actual Scriptmix menu titles. Update example checkpoint to ordinary App
+0.2.26.dev158+g55fc09868 and correct duplicated Perpendicular Guides wording.
+
+Exact snippets:27checks pass against each ordinary wheel/sdist. Four Python blocks
+compile. Background12cases use the actual installed backend/planner and owned
+native doubles; Raise Ascender10wrapper cases substitute its backend, while
+four formatter cases use the shared helper. Compilation adds one check.
+No native, rendered-page, generated-reference/source-lock or publication claim.
+D29 still holds those stages; source-only authored documentation is permitted.
+
+Evidence: external issue123/background-guide-20261101/checks.log and sdist-checks.log.
+Command cwd is that evidence directory:
+`rtk proxy env UV_CACHE_DIR=/Volumes/Falstaff4T/fontlab-scripting-data/uv-cache TMPDIR=/Volumes/Falstaff4T/fontlab-scripting-data/tmp PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run --isolated --no-project --python /opt/homebrew/bin/python3.11 --with /Volumes/Falstaff4T/fontlab-scripting-data/issue123/background-interruption-20261101/dist/fontlab_fontlabapp-0.2.26.dev158+g55fc09868-py3-none-any.whl --with pytest python -I -B -m pytest -q -p no:cacheprovider test_guide.py test_background_guide.py` — exit0.
+Repeat with the same version's .tar.gz in place of the wheel — exit0.
+
+## 2026-11-01 — bound selection examples
+
+Add two authored native-guide examples: bound Font-window selection read with
+package.id/fgId distinction and deadline; additive report selection with total
+name count and partial-failure semantics. Document empty scope, stale identity,
+active-window guard, duplicate chart cells, no UpdateAll and the unresolved
+filtered-cell snapshot. Existing writer examples/version checkpoints unchanged.
+
+Execute exact Markdown snippets against ordinary installed App0.2.26.dev159+
+gb1e905b61, replacing only native module access with owned doubles. Fourteen
+behavior cases pass; all366installed App runtime hashes also match (15checks
+total). SixPythonblocks compile. No generated references/source-lock/site output
+changed; no full build, browser or native run under D29.
+
+Command from external docs-selection-20261101/tests:
+rtk proxy env -u PYTHONPATH PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+/Volumes/Falstaff4T/fontlab-scripting-data/issue123/colour-selection-20261101/env/bin/python
+-I -B -m pytest -q -p no:cacheprovider test_selection_examples.py test_artifact_integrity.py
+(exit0). Tests, hashes and exact snippets retained externally; root report records
+review and commit. git diff --check exits0.
+
+Wait, but: doubles do not prove native font, history, view-state or timing
+preservation. Rendered-page and whole-branch publication gates remain open.
+
+## 2026-11-01 — Glyport detached-transform examples
+
+Added four executable examples for matrix mapping, non-finite refusal, overflow
+preflight and repeated object identities, with explicit native/setter limits.
+Added existing fly.gp/fly.fp aliases to the native guide. No dependencies changed.
+
+Verification: six marked examples extracted directly from Markdown pass in both
+the final Glyport dev58 wheel and sdist environments with App dev159. Owned source
+fixtures retain their exact bytes; inspect/adapt never execute them. Both new
+aliases resolve to canonical modules. All 14 Python blocks in the two pages compile.
+Commands and exit codes: external docs-transform-20261101/commands.json; both
+`rtk proxy <final-wheel-env or final-sdist-env>/bin/python -I <check.py>` exit 0.
+The initial harness completed example/alias assertions but failed reporting with
+PackageNotFoundError: fontlabapp; corrected distribution names to
+fontlab-fontlabapp/fontlab-fly and reran both.
+
+No native calls, full site build, generated reference refresh, source-lock change,
+browser verification, promotion or publication (D29/D30 remain open).

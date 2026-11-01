@@ -680,34 +680,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../guide/source-checkpoint.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Source checkpoint
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../../guide/build.html" class="md-nav__link">
         
   
@@ -2132,17 +2104,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#typerig.core.actions.cut_panel_actions.npa_stem_center" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        npa_stem_center
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#typerig.core.actions.cut_panel_actions.npa_stroke_separate" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2270,35 +2231,6 @@ geometric derivative of the outline; propagating across masters is
 meaningless. The skeleton is appended as a new shape on the active
 layer; the original outline is left untouched.</p>
 <p>The first entry in <code>scope_layers</code> is treated as the active layer.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.actions.cut_panel_actions.npa_stem_center" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">npa_stem_center</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_stem_center</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">ContourActions</span><span class="p">,</span> <span class="n">force_axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">active_layer</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Stem-Center Snap: snap the selected nodes of each scope layer to the
-centerline of the perpendicular stem they sit inside. Mirrors FL
-TRStemCenterActionCollector.snap_stem_center.</p>
-<p>force_axis: 'H' (horizontal stem, nodes move on Y), 'V' (vertical stem,
-nodes move on X) or None (decided from the active layer's selection
-bbox). active_layer: layer whose selection drives the axis; default
-the first scope layer. Only coordinates change, so the live layer is
-written directly (no mount).</p>
-<p>Returns dict[layer_name -&gt; StemCenterStatus] (OK, AXIS_AMBIGUOUS,
-NO_CANDIDATE or NO_SELECTION).</p>
 
 
     </div>

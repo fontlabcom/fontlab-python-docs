@@ -7,13 +7,14 @@ this_file: TODO.md
 - [ ] X4 review of df35182..HEAD: Fontport reference (D14), removal of the fly.fp exception, lunr #503 citation, final-10 lock.
 - [ ] Short rebuild after the glyport release candidate and echopy's final shim refresh: all 16 gates exit 0; commit the reviewed lock.
 
+- [x] Migrate local documentation inputs to src_docs and verify strict docs/ output, source includes, complete search and preserved archive.
 
-## Issue120 current documentation Z5
+- [ ] Verify authored Echopy native identity examples in FontLab and the rendered guide (including signature-reading and owned descriptor examples) after the D29 gates permit rebuilding.
 
-- [x] Verify current source documentation locally (Z5 evidence).
-- [ ] Review and qualify the complete documentation branch and pending native/publication gates.
+- [ ] Verify the two authored UI examples in native PythonQt and their rendered page after D29 permits a full build. Standalone Qt cases pass; actual QFileDialog isolation requires a disposable OS account or VM.
 
-- [x] Z19: verify the complete current API source/build/browser candidate (final push-gate verdict is retained in the workspace evidence).
-- [ ] Z19: complete native, released dependency, whole-branch integration and publication qualification before promotion.
+- [ ] Qualify the native writer guide with real installed FontLab operations and final rendered pages after D29 permits rebuilding; fourteen offline snippet checks do not close those gates.
 
-- [ ] Z24: complete transitive frontend provenance/notices/source availability and full publication qualification; named-component notices alone do not close this gate.
+- [ ] Qualify the authored background preview/apply example in native FontLab and its rendered page once D29 permits a full build. Offline snippets pass with installed App .158 and owned native doubles.
+
+- [ ] Qualify the bound selection examples in native FontLab and verify their rendered page after D29 permits rebuilding; installed-helper/double checks do not prove chart-cell or filtered-view preservation.
