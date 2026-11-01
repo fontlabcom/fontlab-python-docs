@@ -1135,3 +1135,27 @@ Evidence: external issue123/background-guide-20261101/checks.log and sdist-check
 Command cwd is that evidence directory:
 `rtk proxy env UV_CACHE_DIR=/Volumes/Falstaff4T/fontlab-scripting-data/uv-cache TMPDIR=/Volumes/Falstaff4T/fontlab-scripting-data/tmp PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run --isolated --no-project --python /opt/homebrew/bin/python3.11 --with /Volumes/Falstaff4T/fontlab-scripting-data/issue123/background-interruption-20261101/dist/fontlab_fontlabapp-0.2.26.dev158+g55fc09868-py3-none-any.whl --with pytest python -I -B -m pytest -q -p no:cacheprovider test_guide.py test_background_guide.py` — exit0.
 Repeat with the same version's .tar.gz in place of the wheel — exit0.
+
+## 2026-11-01 — bound selection examples
+
+Add two authored native-guide examples: bound Font-window selection read with
+package.id/fgId distinction and deadline; additive report selection with total
+name count and partial-failure semantics. Document empty scope, stale identity,
+active-window guard, duplicate chart cells, no UpdateAll and the unresolved
+filtered-cell snapshot. Existing writer examples/version checkpoints unchanged.
+
+Execute exact Markdown snippets against ordinary installed App0.2.26.dev159+
+gb1e905b61, replacing only native module access with owned doubles. Fourteen
+behavior cases pass; all366installed App runtime hashes also match (15checks
+total). SixPythonblocks compile. No generated references/source-lock/site output
+changed; no full build, browser or native run under D29.
+
+Command from external docs-selection-20261101/tests:
+rtk proxy env -u PYTHONPATH PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+/Volumes/Falstaff4T/fontlab-scripting-data/issue123/colour-selection-20261101/env/bin/python
+-I -B -m pytest -q -p no:cacheprovider test_selection_examples.py test_artifact_integrity.py
+(exit0). Tests, hashes and exact snippets retained externally; root report records
+review and commit. git diff --check exits0.
+
+Wait, but: doubles do not prove native font, history, view-state or timing
+preservation. Rendered-page and whole-branch publication gates remain open.

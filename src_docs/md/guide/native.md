@@ -43,6 +43,99 @@ Outside FontLab, native construction and operations fail with `NativeUnavailable
 Documentation builds read source and stubs without invoking these operations.
 
 
+## Read and extend the Font-window selection
+
+These examples use the ordinary development App package
+`0.2.26.dev159+gb1e905b61`. Older versions can clear and rebuild the selection even
+with `add=True`. The examples below were checked against the installed artifact
+with owned native doubles; their FontLab behavior remains unqualified.
+
+### Read names bound to one font
+
+Keep the two native identifiers separate. `package.id` binds App operations to a
+package; `package.fgId` identifies the FontGate carrier used by the legacy
+selection reader. The reader returns selected glyph names in font order. It is
+not a list of every displayed glyph, nor a record of selected chart cells: one
+glyph can occur in several cells.
+
+Defining this function does not access FontLab. Calling it reads selection and
+returns the package identifier with the names. A two-second deadline bounds the
+Python scan, but cannot interrupt a blocking native call. The final identity
+check rejects a font switch; it does not prove an atomic snapshot if native
+state changes and changes back during the scan.
+
+<!-- example: selection-read -->
+```python
+from time import monotonic
+from fontlabapp.scripting import current_package, names_font_window_selection
+
+
+def read_font_selection():
+    package = current_package()
+    if package is None:
+        raise ValueError("Open a font before reading its selection.")
+    package_id = int(package.id)
+    names = names_font_window_selection(
+        expected_fg_id=int(package.fgId), deadline=monotonic() + 2.0
+    )
+    if current_package(package_id) is None:
+        raise ValueError("The font changed during the selection read; run again.")
+    return package_id, names
+```
+
+An empty selection is a valid empty list. This function does not fall back to the
+current Glyph-window glyph. Keep the returned package identifier with any report
+based on these names, so a later action cannot silently target another font.
+
+### Add report results without clearing selection
+
+Pass the bound package identifier and the glyph names your report found to this
+function. Calling it changes the Font-window selection; it does not edit glyph
+outlines. Activate the regular Font window first. Readable selection data from a
+Glyph window does not make the legacy selection writers safe there.
+
+<!-- example: selection-add -->
+```python
+from fontlabapp.scripting import select_glyphs
+
+
+def add_report_names(package_id, names):
+    selected = select_glyphs(names, package_id=package_id, add=True)
+    print(f"Selected {len(selected)} glyph names in total.")
+    return selected
+```
+
+The helper validates every requested name before writing and rejects a stale
+package or unsupported active window. It adds only names that are not already
+selected, preserving the existing selection. Duplicate names do not cause
+repeated writes. Empty requests and already-selected names require no selection
+writes, but still undergo the package/window checks. The returned count is the
+total number of selected glyph names, not the number just added or the number of
+selected chart cells. An already-selected glyph's partial cell selection is left
+untouched.
+
+If a native addition fails, the exception propagates. Earlier additions can
+remain; this is not atomic rollback. Do not automatically retry, clear selection
+or apply a global Undo in an error handler. `add=False` is a different operation:
+it clears selection before selecting the requested names and does not have the
+same preservation behavior. Neither route calls `UpdateAll()`.
+
+### A displayed filter is a separate scope
+
+Neither helper supplies the Font window's arranged, filtered cell list. A scan
+of all package glyphs or MCP `list_glyphs` with request filters is not equivalent
+to the current UI filter. The inspected C++ chart model has cell data, but its
+ordinary accessors are absent from the retained PythonQt capture. That bounded
+finding does not prove that every route is unavailable on every build.
+
+Before adapting a tool that operates on displayed cells, verify an exposed
+ordered snapshot with package-qualified glyph identities, duplicates and empty
+encoding cells. Define whether “visible” means included by the chart filter or
+inside the viewport. Test reads and writes on owned fonts, including font switches,
+filtered views and multiple cells for one glyph; source examples alone do not
+establish complete font, history or view-state preservation.
+
+
 ## Handle writer results and failures
 
 A successful Python call does not prove that FontLab preserved every unrelated

@@ -16,3 +16,5 @@ this_file: TODO.md
 - [ ] Qualify the native writer guide with real installed FontLab operations and final rendered pages after D29 permits rebuilding; fourteen offline snippet checks do not close those gates.
 
 - [ ] Qualify the authored background preview/apply example in native FontLab and its rendered page once D29 permits a full build. Offline snippets pass with installed App .158 and owned native doubles.
+
+- [ ] Qualify the bound selection examples in native FontLab and verify their rendered page after D29 permits rebuilding; installed-helper/double checks do not prove chart-cell or filtered-view preservation.
