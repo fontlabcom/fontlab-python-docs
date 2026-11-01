@@ -2,6 +2,90 @@
 this_file: CHANGELOG.md
 ---
 
+## Corrected Unicode-index cohort authored status — 2026-11-01
+
+- Replaced stale corrected-artifact/provenance/consumer pending claims across
+  the five authored Glyport/Glyphs/Unicode/metadata/parameter pages with inspected
+  exact six-wheel results and current archive hashes; earlier hashes stay historical.
+- Fresh ordinary installed execution passes 24 owned examples; all 701 runtime/data
+  files match byte for byte before and after, with 40 pins and installed origins checked. Preserve all 24 example
+  bytes,41 blocks,50 nav targets,57 heading anchors and25links; audit 244 inherited
+  source files and retain complete 9 file preimages plus the bounded diff.
+- Retain 369 passed/1D29skip as historical full-suite evidence; fresh acceptance
+  is the scoped authored/static/installed check. Source lock unchanged. No new
+  native9801capture, generated build, promotion or publication; D16/D29/D30/D31
+  and all full original native-workflow gates remain open.
+
+## Private authored shared Unicode-index correction — 2026-11-01
+
+- Corrected primary-only lookup claims across current authored guides/package
+  pages. Document primary-then-legacy insertion in record order, last-write
+  precedence, FE8D/FE80 records, duplicate0000 winnerNULL and separate fields.
+  Pinned public data adds730legacy keys to71401primary keys:72131combined keys.
+- Corrected one global-index example with its complete preimage retained;
+  preserved23/24examples,40/41blocks, all50navigation targets and the former
+  heading anchor. A rejected model-snapshot change is preserved as failed evidence;
+  its parentless Arabic nil-return example was restored byte-for-byte.
+- Verified24source examples with seven explicit Glyport source origins and seven
+  public dependency hashes,41compiled blocks,25local links and unchanged source
+  lock. The unchanged old six-wheel tuple/701payload files rejects only the newly
+  corrected snippet. Fresh corrected artifacts/cohort/provenance remain pending.
+- Docs suite369passed/1existing D29skip, exit0. RetainedENOSPC receipt-write failures,
+  recovered the recorder entry explicitly and did not repeat the unchanged suite.
+  No generated/native/build/browser/promotion/publication gate is closed.
+
+## Private authored global Unicode guidance — 2026-11-01
+
+- Added a dedicated linked global Unicode guide and eight owned examples for
+  exact wrapper dispatch, primary lookup, raw synthesis, UTF16/error boundaries
+  and historical parsing/classification. Corrected stale absent-API and font prose.
+- Retained all16earlier examples and all49existing nav routes. Verified24examples
+  in the NEW six-wheel tuple,701payload bytes and seven installed module origins;
+  compiled41blocks and checked24local links plus authored privacy.
+- Full source suite:369passed/1existing D29 generated-inventory skip, exit0.
+  Source-lock bytes unchanged. No generated/native/publication gate is cleared;
+  D16/D29/D30/D31 and proprietary data/full-workflow limits remain unchanged.
+
+## Private authored legacy Unicode and ROS guidance — 2026-11-01
+
+- Added a dedicated legacy/ROS guide with8owned examples: separate primary and
+  legacy metadata, canonical aliases, global font isolation, exact independent
+  snapshots, model/suffix/nil behavior and ROS refusal/no-op/value boundaries.
+- Corrected stale facade/ROS prose and cross-linked guide/package/navigation.
+  Retained all8prior parameter examples unchanged and48existing routes.
+- Verified16examples in the new six-wheel tuple with701payload-byte checks;
+  compiled33Python blocks and checked15local links plus authored privacy.
+  Full authored-source suite:369passed/1D29 generated-index skip (exit0).
+  Source-lock bytes remain unchanged. Source/generated/native/publication
+  acceptance levels and open D16/D29/D30/D31 holds remain distinct.
+
+## Ordered parameters and Arabic authored guide verified — 2026-11-01
+
+Added a dedicated central guide with8self-contained owned examples for duplicate
+selection, live object/positional edits, master/userData isolation, legacy storage,
+Arabic refresh, stored script, metadata-only reset and typed macOS values. The
+new guide explains the exact spaced key, direct/nil/empty legacy precedence,
+float32/sentinel behaviour and all current nonmacOS/ROS/native/facade limits.
+Navigation and the existing Glyport guide/package page link to it; historical
+artifact hashes and examples remain unchanged.
+
+Fresh installed cohort execution passes8examples with installed-origin/hash
+checks;25Python blocks compile and8local links plus navigation resolve. The
+existing docs baseline is368passed/1skipped plus1missing-TypeRig-sibling failure.
+The exact failed real-provider test passes with FONTLAB_API_SOURCE_ROOT pointed
+at the fresh installed cohort; no declarations or locks were substituted. The
+remaining skip requires a full built source inventory and MaterialX search index.
+No generated build, source-lock refresh, native call, rendered-page acceptance,
+canonical edit, commit, push or publication occurred.
+
+Exact argv/cwd/nonsecret environment and outputs are retained in the controller
+evidence under cohort-presentation-20261101/docs-evidence/commands.json,
+authored-check.json and docs-receipt.json. Commands use rtk proxy, including:
+`rtk proxy env -u PYTHONPATH -u SCRIPTMIX_APP_SOURCE -u SCRIPTMIX_FONTPORT_SOURCE
+-u EXAMPLES_APP_SOURCE PYTHONDONTWRITEBYTECODE=1 "$COHORT_PYTHON" -I -B
+"$DOCS_EVIDENCE/check_authored.py"` (exit0). Existing docs tests use the already
+provisioned docs interpreter, not a new build environment.
+
 ## Additional-Unicode guide verified — 2026-11-01
 
 Added an owned I/dotless-I/encoding-owner example and explained rename versus

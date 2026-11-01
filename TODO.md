@@ -4,6 +4,13 @@ this_file: TODO.md
 
 # Tasks
 
+- [x] Verify corrected primary/legacy shared-index authored guidance in the exact ordinary artifact/cohort/provenance/consumer tuple and execute all 24 unchanged owned examples with installed origins checked and all 701 runtime/data files matching byte for byte.
+- [ ] Qualify corrected shared-index native/full-original workflows and generated/reference/source-lock/site/archive/browser/publication stages after D29/D30 permit them; retain D16/D31 and custom-manager/production/resource/version limits.
+
+- [ ] Carry global Unicode guidance through reviewed source-lock, generated reference/site, archive/routes, browser/accessibility and publication gates after D29 permits them; keep D30, native workflows, remaining fields, bridge conversion and proprietary-data qualification separate.
+
+- [ ] Carry legacy Unicode/ROS guidance through reviewed source-lock, generated build, archive/routes, browser/accessibility and publication gates after D29 permits them; retain D30 and separate full native workflow qualification.
+
 - [ ] X4 review of df35182..HEAD: Fontport reference (D14), removal of the fly.fp exception, lunr #503 citation, final-10 lock.
 - [ ] Short rebuild after the glyport release candidate and echopy's final shim refresh: all 16 gates exit 0; commit the reviewed lock.
 
@@ -36,3 +43,5 @@ this_file: TODO.md
 - [ ] Carry the installed-tested top-level alias example through the reviewed generated/site build, browser and publication gates; owned doubles do not qualify native effects.
 
 - [ ] Qualify the authored script-lifecycle example in native FontLab and rendered documentation after D29 permits rebuilding; ten offline examples pass against the new installed artifacts.
+
+- [ ] Carry ordered-parameter/Arabic guidance through reviewed source-lock, generated build, browser and native-workflow gates after D29/D30 permit them.

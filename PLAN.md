@@ -4,9 +4,58 @@ this_file: PLAN.md
 
 # Plan
 
-Authority: parent `issues/104.md` and `issues/106.md`. Completed work is in
-CHANGELOG.md. Publication is the controller's (runbook: workspace
-`verification/issue-104/reports/L5-echopy-docs.md`, Task 7; D11).
+## Unicode-index authored correction
+
+The corrected combined-index source now has current Echopy producer provenance,
+ordinary wheel/sdist qualification, exact six-wheel consumer checks and a fresh
+24 example ordinary-installed authored check. All 244 inherited source files are
+audited;24 examples,41 blocks,50 nav targets,57 anchors and source-lock bytes remain
+unchanged. Commands, preimages and bounded diff: ../docs-evidence/.
+
+- [x] Verify corrected primary/legacy shared-index guidance against the exact ordinary cohort, inspected artifact/provenance/consumer receipts and all 24 installed examples.
+- [ ] Qualify native/full-original workflows and generated/reference/source-lock/site/archive/browser/publication stages after D29/D30 permit them; keep D16/D31 and custom/local-manager/production/resource/version boundaries open.
+
+## Global Unicode authored guidance
+
+The private successor adds a linked global Unicode guide with eight new owned
+examples. It documents executable String binding, exact percent formatting,
+integer name dispatch before font handling, explicit refusal precedence,
+active-font independence, exact combined-index lookup versus raw synthesis, UTF16 and
+encoding-length gates, additive32bit parsing, historical Han/PUA classification
+and malformed actual UTF16 refusal. Preserve unaffected earlier examples and
+retain preimages for corrected snippets. Preserve existing routes, historical
+hashes and exact source-lock bytes. Source/artifact
+verification is recorded in WORK.md and controller docs-evidence/.
+The current corrected source passes all 24 existing examples in the exact ordinary
+six-wheel cohort: all 701 runtime/data files match byte for byte and complete
+project module origins remain within the installed prefix.
+Current artifact/provenance/consumer results and identities are recorded in
+WORK.md and ../docs-evidence/. The inherited full docs suite remains historical
+369 passed/1D29skip evidence; only scoped status/static/example checks are fresh.
+
+- [ ] Carry global Unicode guidance through reviewed source-lock, generated reference/site, archive/routes, browser/accessibility and publication gates after D29 permits them; keep D30 and full native workflow, bridge-conversion, remaining-field and proprietary-data qualification open.
+
+## Legacy Unicode and ROS authored guidance
+
+The predecessor metadata guide and linked entry points passed16owned examples
+in its six-wheel tuple, including8parameter/presentation examples. The model-snapshot example retains its parentless Arabic nil-return boundary;
+the corrected global-index source now passes all 24 examples in the exact ordinary
+cohort. Keep the source lock unchanged; final scoped byte/link/route checks are
+recorded separately from the inherited full-source-suite result.
+Full lawful mapping, custom managers, native collisions/history/persistence and
+generated-site qualification remain separate. Evidence: WORK.md and the
+controller's cohort-legacy-20261101/docs-evidence/.
+
+- [ ] Carry legacy Unicode/ROS guidance through reviewed source-lock, generated build, archive/routes, browser/accessibility and publication gates after D29 permits them; retain the D30 native hold and all full-workflow qualification limits.
+
+## Ordered parameters and Arabic presentation authored guidance
+
+The new guide and linked entry points are authored-source verified:8owned
+examples pass against the fresh installed cohort,25code blocks compile and8local
+links/navigation resolve. Preserve historical hashes and the source/artifact vs
+native distinction. Next carry this guide through reviewed source-lock, generated
+site, browser and native-workflow qualification after D29/D30 permit those stages.
+Exact commands and limits are in WORK.md and controller docs-evidence/.
 
 1. **Review of D14.** Owner decision D14 adds the fontlab-fontport reference (Apache-2.0,
    docstrings/signatures only) and removes the reviewed fly.fp exception (d2ed4c1); final-10

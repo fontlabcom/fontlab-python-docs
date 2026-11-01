@@ -55,3 +55,34 @@ export items and Glyph-window painters; `unload()` removes them all.
 - FontLab host limits block `SelectTool` and drawing before FontLab's own glyph
   layer. Bundles that contain only compiled macOS code cannot run.
 - Run scripts on a copy of your font until you trust them.
+
+## Ordered parameters and Arabic encodings
+
+The private candidate's [parameter and Arabic guide](glyport-parameters.md) explains
+first-active duplicate selection, live object edits, master/userData isolation and
+explicit encoding refresh. Its self-contained examples use owned offline models.
+Typed macOS string conversion, stored-script ordering and remaining ROS/native
+limits are documented separately from running an original script in FontLab.
+
+The [legacy Unicode and ROS guide](glyport-metadata.md) distinguishes primary
+from legacy encodings, canonical aliases, active-font isolation and independent
+read-only snapshots. It also explains the exact ROS text boundary and explicit
+refusal before writes when a proprietary mapping is required. Full ROS mapping,
+custom managers and native workflow qualification remain open.
+
+## Global Unicode metadata
+
+The private candidate’s [global Unicode guide](glyport-unicode.md) supplies eight
+owned examples for `Glyphs.glyphInfoForUnicode(String, font=None)`, integer/bool
+formatting and early integer name dispatch. It explains exact combined primary/legacy-index
+lookup, raw-spelling synthesis on a true miss, UTF16 gates, historical classification
+and explicit local-manager/bridge refusals. Global queries never read the active
+font. Index insertion follows record order, primary then legacy, with later keys
+winning; returned primary and legacy fields remain separate. The corrected guide
+and all 24 owned examples pass in the exact ordinary six-wheel cohort with
+installed origins and current Echopy producer provenance checked; all 701
+runtime/data files match byte for byte.
+That tuple passes 4,481 Scriptmix tests with 1 existing selection-read skip and
+2,436 Examples tests without skips.
+Maintained data and these offline checks do not qualify proprietary database
+completeness or native workflows.
