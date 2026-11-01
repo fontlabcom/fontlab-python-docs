@@ -24,7 +24,7 @@ captured host. Its absence is recorded rather than represented by invented APIs.
 
 ## Short imports
 
-Fly provides seven lazy module aliases:
+Fly provides nine lazy module aliases:
 
 | Alias | Target |
 | --- | --- |
@@ -35,6 +35,8 @@ Fly provides seven lazy module aliases:
 | `fly.qt` | native `PythonQt` |
 | `fly.ap` | `fontlabapp` |
 | `fly.qs` | `pythonqtside` |
+| `fly.gp` | `fontlab_glyport` |
+| `fly.fp` | `fontlab_fontport` |
 
 They share the canonical module objects. Documentation names use the live API's
 natural namespaces, while source and enrichment hashes retain provenance.

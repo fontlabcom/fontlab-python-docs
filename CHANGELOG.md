@@ -396,3 +396,22 @@ review and commit. git diff --check exits0.
 
 Wait, but: doubles do not prove native font, history, view-state or timing
 preservation. Rendered-page and whole-branch publication gates remain open.
+
+## 2026-11-01 — Glyport detached-transform examples
+
+Added four executable examples for matrix mapping, non-finite refusal, overflow
+preflight and repeated object identities, with explicit native/setter limits.
+Added existing fly.gp/fly.fp aliases to the native guide. No dependencies changed.
+
+Verification: six marked examples extracted directly from Markdown pass in both
+the final Glyport dev58 wheel and sdist environments with App dev159. Owned source
+fixtures retain their exact bytes; inspect/adapt never execute them. Both new
+aliases resolve to canonical modules. All 14 Python blocks in the two pages compile.
+Commands and exit codes: external docs-transform-20261101/commands.json; both
+`rtk proxy <final-wheel-env or final-sdist-env>/bin/python -I <check.py>` exit 0.
+The initial harness completed example/alias assertions but failed reporting with
+PackageNotFoundError: fontlabapp; corrected distribution names to
+fontlab-fontlabapp/fontlab-fly and reran both.
+
+No native calls, full site build, generated reference refresh, source-lock change,
+browser verification, promotion or publication (D29/D30 remain open).
