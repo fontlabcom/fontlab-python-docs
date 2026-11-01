@@ -284,3 +284,16 @@ it does not include the private .84/106candidate, native acceptance or publicati
 ## 2026-10-21 — N118 reviewed .98 documentation checkpoint
 
 Pin the reviewed App .98/Examples37/Scriptmix107 source checkpoint and unchanged other producers; retain .80 history and exclude moving .100. Add source checkpoint and current App/SimonCozens licence notices. Preserve inherited owner prose and publication/native gates.
+
+
+## 2026-11-01 — Authored Echopy guide
+
+Expanded packages/echopy.md with installed version/origin, alias identity,
+sidecar discovery/AST reading, NativeUnavailable handling, provenance reading,
+native identity-only checks and PythonQt/session limits. Removed obsolete fixed
+v0.2.3 claim and misleading placeholder signature inspection example.
+Six offhost Python blocks executed with the verified Echopy environment's Python
+using -I -c, exit0 each; two native blocks compile only, not host-tested.
+Evidence: external issue123/docs-guide-evidence-20261101/snippet-results.json
+and per-block logs. No generated reference, source-lock, site build, theme,
+canonical checkout or publication change. D29 remains in force.

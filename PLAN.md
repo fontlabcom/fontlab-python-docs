@@ -19,3 +19,10 @@ CHANGELOG.md. Publication is the controller's (runbook: workspace
 The 2026-10-18 local src_docs layout, docs/ output and requested plugin setup
 are complete, with full local source/archive/search/browser gates. Remaining
 whole-branch/release/publication tasks above are outside that setup milestone.
+
+
+## Authored Echopy guide acceptance
+
+Offline examples are verified separately from generated-reference acceptance.
+The two native identity snippets still require installed-host execution. Rebuild
+and browser/publication checks remain behind D29 and the full source-lock review.

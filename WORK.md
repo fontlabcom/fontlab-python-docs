@@ -1045,3 +1045,18 @@ workspace `verification/issue-120/docs-byte-preservation-z41/`.
 Controller-only release repair after applying this source rule:
 `git add --renormalize -- docs/licenses/0bsd-tslib.txt docs/licenses/pictogrammers-free.txt docs/licenses/tslib-copyright.txt`.
 Reverify every accepted generated index/workingtree byte before delivery.
+
+
+## 2026-11-01 — Authored Echopy guide
+
+Expanded packages/echopy.md with installed version/origin, alias identity,
+sidecar discovery/AST reading, NativeUnavailable handling, provenance reading,
+native identity-only checks and PythonQt/session limits. Removed obsolete fixed
+v0.2.3 claim and misleading placeholder signature inspection example.
+Six offhost Python blocks executed with the verified Echopy environment's Python
+using -I -c, exit0 each; two native blocks compile only, not host-tested.
+Evidence: external issue123/docs-guide-evidence-20261101/snippet-results.json
+and per-block logs. No generated reference, source-lock, site build, theme,
+canonical checkout or publication change. D29 remains in force.
+
+Independent review: corrected alias wording to matching submodules (top-level packages differ); all six page/reference targets and install anchor exist. No remaining scoped findings. git diff --check exit0.
