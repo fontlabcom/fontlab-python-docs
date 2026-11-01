@@ -26,3 +26,5 @@ whole-branch/release/publication tasks above are outside that setup milestone.
 Offline examples are verified separately from generated-reference acceptance.
 The two native identity snippets still require installed-host execution. Rebuild
 and browser/publication checks remain behind D29 and the full source-lock review.
+
+- [ ] Verify the two authored UI examples in native PythonQt and their rendered page after D29 permits a full build. Standalone Qt cases pass; actual QFileDialog isolation requires a disposable OS account or VM.

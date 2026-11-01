@@ -2,6 +2,39 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-01 — owned dialog/settings examples and chooser boundary
+
+Expanded authored guide/ui.md with an owned-dialog example using App completion,
+explicit temporary-INI settings, geometry lifecycle guidance, and pinned Qt5.15.2
+QFileDialog findings. Its scoped QtProject constructor hardcodes NativeFormat;
+setDefaultFormat/setPath do not isolate the macOS store. Cocoa helper refuses a
+priority-hint native chooser. No actual QFileDialog or owner preferences touched.
+These source findings do not qualify FontLab's compiled Qt or the three routes.
+
+Two new examples pass six cases each under standalone Qt5.15.19 and Qt6.12.0:
+INI roundtrip, forwarded clicked(True), actual Close button, Close, Escape and
+replacement. Real App completion/cleanup/launcher, owned substitute main window.
+Qt5 uses source App; Qt6 uses ordinary installed App. Initial cold from-package
+import failed; direct submodule imports fixed it. Explicit bool forwarding then
+reproduced the Close bug; a lambda discards arguments. An actual Qt6 click alone
+had passed, so it was not used as proof of PythonQt signal semantics.
+
+Independent review clears the final page. Raw-source physical anchors and hashes
+verified; earlier web-extracted line-number suggestions were discarded. Page hash
+04c7c03985f1816ab4bba49dde99a7c92dad0055d023d219383e289745f84c7d.
+No generated page, source lock, theme, canonical checkout or publication change.
+D29 still blocks the complete site build/render/publication acceptance.
+
+Commands through rtk proxy, final exit0 (initial failures retained):
+- env QT_QPA_PLATFORM=offscreen PYTHONDONTWRITEBYTECODE=1 /Volumes/Falstaff4T/fontlab-scripting-data/issue123/standard-message-priority-20261101/ordinary-artifacts/wheel-env/bin/python -B /Volumes/Falstaff4T/fontlab-scripting-data/issue123/chooser-settings-audit-20261101/verify_guide.py /Volumes/Falstaff4T/fontlab-scripting-data/issue123/docs-guide-20261101/src_docs/md/guide/ui.md
+- env QT_QPA_PLATFORM=offscreen PYTHONDONTWRITEBYTECODE=1 FONTLABAPP_TEST_QT5=1 PYTHONPATH=/Volumes/Falstaff4T/fontlab-scripting-data/issue123/standard-message-priority-20261101/fontlab-fontlabapp/src:/Users/adam/Developer/vcs3/github.fontlabcom/fontlab-scripting/fontlab-fly/src /Volumes/Falstaff4T/fontlab-scripting-data/verification/issue-120/typed-date-z11/qt5-env/bin/python -B /Volumes/Falstaff4T/fontlab-scripting-data/issue123/chooser-settings-audit-20261101/verify_guide.py /Volumes/Falstaff4T/fontlab-scripting-data/issue123/docs-guide-20261101/src_docs/md/guide/ui.md
+- Docs candidate: git diff --check:exit0.
+
+Wait, but: only the two new examples were exercised, not the older controller
+example or every API. Native PythonQt, actual chooser and rendered-site acceptance
+remain open. Evidence: external chooser-settings-audit-20261101; root report
+verification/issue-123/chooser-settings-boundary-20261101.md.
+
 ## Unreleased — issue 122 package pages
 
 - The App page shows font-level master edits as one Undo step (`master_metrics.write_master_metrics`, `zone_native.backend()`), their refusals and rollback, the fl#8574 guideline caveat, and `outline_extent` for stale boxes (fl#8575). Authored page only; no build.
