@@ -12,3 +12,5 @@ this_file: TODO.md
 - [ ] Verify authored Echopy native identity examples in FontLab and rendered guide after the D29 gates permit rebuilding.
 
 - [ ] Verify the two authored UI examples in native PythonQt and their rendered page after D29 permits a full build. Standalone Qt cases pass; actual QFileDialog isolation requires a disposable OS account or VM.
+
+- [ ] Qualify the native writer guide with real installed FontLab operations and final rendered pages after D29 permits rebuilding; fourteen offline snippet checks do not close those gates.

@@ -1093,3 +1093,25 @@ and per-block logs. No generated reference, source-lock, site build, theme,
 canonical checkout or publication change. D29 remains in force.
 
 Independent review: corrected alias wording to matching submodules (top-level packages differ); all six page/reference targets and install anchor exist. No remaining scoped findings. git diff --check exit0.
+
+## Native writer result/error examples — 2026-11-01
+
+Expanded authored guide/native.md with queue-warning/result fields, a host-free
+formatter and a Raise Ascender wrapper that retains disclosure and reraises the
+original error. Explains no-op queue-not-sampled semantics, exact all-layer scope,
+Perpendicular Guides output, partial-write uncertainty and no automatic retry.
+Contract is explicitly the ordinary App0.2.26.dev155+g5513c0783 candidate, not a
+published release or native acceptance claim. Independent source review passes.
+
+Exact marked snippets pass14checks with real installed formatting helpers and
+a substitute native backend; both scopes, success/no-op, early/partial/constructor
+failure, warning de-duplication and original exception identity are checked. All
+3Python blocks compile; the original native identity/construction block is not
+executed. No generated reference, producer lock, theme or build output changed.
+
+Command from /Volumes/Falstaff4T/fontlab-scripting-data/issue123/native-guide-20261101
+(exit0; result.log):
+`rtk proxy env UV_CACHE_DIR=/Volumes/Falstaff4T/fontlab-scripting-data/uv-cache TMPDIR=/Volumes/Falstaff4T/fontlab-scripting-data/tmp PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run --isolated --no-project --python /opt/homebrew/bin/python3.11 --with /Volumes/Falstaff4T/fontlab-scripting-data/issue123/perpendicular-queue-20261101/dist/fontlab_fontlabapp-0.2.26.dev155+g5513c0783-py3-none-any.whl --with pytest python -I -B -m pytest -q -p no:cacheprovider test_guide.py`.
+`rtk proxy git diff --check`:exit0. External report.json pins the final page.
+Wait, but substituted native calls do not qualify FontLab editing or preservation.
+Native execution and site build/browser/publication remain behind existing gates.

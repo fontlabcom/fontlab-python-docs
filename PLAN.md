@@ -28,3 +28,5 @@ The two native identity snippets still require installed-host execution. Rebuild
 and browser/publication checks remain behind D29 and the full source-lock review.
 
 - [ ] Verify the two authored UI examples in native PythonQt and their rendered page after D29 permits a full build. Standalone Qt cases pass; actual QFileDialog isolation requires a disposable OS account or VM.
+
+- [ ] Qualify the native writer guide with real installed FontLab operations and final rendered pages after D29 permits rebuilding; fourteen offline snippet checks do not close those gates.
