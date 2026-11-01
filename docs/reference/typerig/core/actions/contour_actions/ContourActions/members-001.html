@@ -680,6 +680,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../guide/build.html" class="md-nav__link">
         
   
@@ -2071,6 +2099,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.actions.contour_actions.ContourActions.contour_apply_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contour_apply_order
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.actions.contour_actions.ContourActions.contour_close" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2330,6 +2369,36 @@
 <div class="doc doc-object doc-function">
 
 
+<h2 id="typerig.core.actions.contour_actions.ContourActions.contour_apply_order" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">contour_apply_order</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">contour_apply_order</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Rearrange contours by an index list taken from another (compatible)
+shape, so every master gets the same order.</p>
+<p>Arguments:
+        shape (Shape): The shape whose contours will be reordered.
+        order (list[int]): Contour indices, e.g. from Shape.sort_order().</p>
+<p>Returns:
+        bool: True if the order was applied.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="typerig.core.actions.contour_actions.ContourActions.contour_close" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">contour_close</span>
 
@@ -2567,7 +2636,7 @@
   </span>
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">contour_set_order</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">sort_direction</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sort_mode</span><span class="o">=</span><span class="s1">&#39;BL&#39;</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">contour_set_order</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">sort_direction</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sort_mode</span><span class="o">=</span><span class="s1">&#39;BL&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2575,7 +2644,8 @@
         <p>Sort the contours within a shape by their bounding box position.</p>
 <p>Arguments:
         shape (Shape): The shape whose contours will be reordered.
-        sort_direction (int): Sort direction (0 = ascending, 1 = descending).
+        sort_direction (int): Primary axis (0 = X, 1 = Y).
+        descending (bool): Primary axis high -&gt; low.
         sort_mode (str): Sort anchor corner. One of:
                 'BL' - Bottom-Left
                 'TL' - Top-Left

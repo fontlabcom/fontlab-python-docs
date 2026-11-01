@@ -680,6 +680,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../guide/build.html" class="md-nav__link">
         
   
@@ -2192,6 +2220,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.objects.node.Node.corner_loop_to_target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        corner_loop_to_target
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.objects.node.Node.corner_mitre" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2488,17 +2527,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#typerig.core.objects.node.Node.reloc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        reloc
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2773,6 +2801,38 @@ Arguments:
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.objects.node.Node.corner_loop_to_target" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">corner_loop_to_target</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">corner_loop_to_target</span><span class="p">(</span><span class="n">target_x</span><span class="p">,</span> <span class="n">target_y</span><span class="p">,</span> <span class="n">safe_distance</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Loop the corner by extending both segments toward a target position.</p>
+<p>Port of FL eNode.cornerLoopToTargets. Each segment is extended past
+the corner (curves by extrapolating the cubic, lines along their
+direction) until it reaches the target on the axis its tangent at
+the corner runs along. A new on-curve node is inserted after this
+one; the edge between them becomes a line, so the corner turns into
+a loop reaching for the target.</p>
+<p>Arguments:
+        target_x, target_y (float): target position
+        safe_distance (float): pull back from the target by this much
+                on each axis</p>
+<p>Returns:
+        tuple(Node, Node) or None if a segment cannot be extended.</p>
+
 
     </div>
 
@@ -3378,26 +3438,6 @@ Args:
 
         <p>Randomizes the node coordinates within given constrains cx and cy.
 Bleed control trough bleed_mode parameter: 0 - any; 1 - positive bleed; 2 - negative bleed;</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.objects.node.Node.reloc" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">reloc</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">reloc</span><span class="p">(</span><span class="n">new_x</span><span class="p">,</span> <span class="n">new_y</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Relocate the node to new coordinates</p>
 
 
     </div>

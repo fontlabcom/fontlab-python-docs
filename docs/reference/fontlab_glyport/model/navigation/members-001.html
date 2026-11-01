@@ -680,6 +680,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../guide/source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../guide/build.html" class="md-nav__link">
         
   
@@ -2127,16 +2155,14 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">empty_tab_emitter</span><span class="p">(</span><span class="n">qtgui</span><span class="p">,</span> <span class="n">main</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">empty_tab_emitter</span><span class="p">(</span><span class="n">qtgui</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">main</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="collections.abc.Iterator">Iterator</span></span><span class="p">[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Owned, hidden sender for MainWindow's native doCreateTextBlock(QString).</p>
-<p>PythonQt exposes QObject.connect(signal, receiver, slot), including private
-Qt slots absent as Python attributes. Native owned-font calibration proves
-this route creates zero symbols/glyphs without copying the old editor/cells.
-No Python callback is connected. Always disconnect before deleting the sender.</p>
+        <p>Keep Glyphs empty-text bootstrap and native capability/error policy.</p>
+<p>App owns the hidden sender, exact native connection and disconnect/delete
+lifecycle. The caller still selects the source font and emits empty text.</p>
 
 
     </div>
@@ -2151,12 +2177,12 @@ No Python callback is connected. Always disconnect before deleting the sender.</
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">preserve_rendered_activation</span><span class="p">(</span><span class="n">workspace</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">preserve_rendered_activation</span><span class="p">(</span><span class="n">workspace</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="contextlib.AbstractContextManager">AbstractContextManager</span></span><span class="p">[</span><span class="kc">None</span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Empty tab creation can activate a shape in the previously rendered block.</p>
+        <p>Preserve the old renderer through App's existing block/shape protocol.</p>
 
 
     </div>
@@ -2171,10 +2197,12 @@ No Python callback is connected. Always disconnect before deleting the sender.</
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">preserve_shape_activation</span><span class="p">(</span><span class="n">package</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">preserve_shape_activation</span><span class="p">(</span><span class="n">package</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n"><span title="collections.abc.Iterable">Iterable</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n"><span title="contextlib.AbstractContextManager">AbstractContextManager</span></span><span class="p">[</span><span class="kc">None</span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+        <p>Use the original shared active-flag context without changing caller policy.</p>
 
 
     </div>
