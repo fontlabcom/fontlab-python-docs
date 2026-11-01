@@ -52,7 +52,7 @@ Do not convert an exception into a success message or automatically repeat a
 failed edit: a partial write can already have changed the font.
 
 The examples below use the development App contract verified in ordinary package
-`0.2.26.dev155+g5513c0783`. This is a source/artifact checkpoint, not a published
+`0.2.26.dev158+g55fc09868`. This is a source/artifact checkpoint, not a published
 release or native acceptance claim. Older installed App versions may still refuse
 queued updates and may not accept the `disclosure` keyword.
 
@@ -137,7 +137,7 @@ previous action’s warning after a no-op or an early failure.
 `fontlabapp.perpendicular_guides.run()` plans guides for the first selected layer.
 When the sampled queue is nonempty, it prints the warning before a possible append.
 On success it returns `guides`,
-`layers`, `messages`, `pending_updates` and `pending_note` on success. The warning
+`layers`, `messages`, `pending_updates` and `pending_note`. The warning
 is already printed; callers need not print it a second time. A no-op reports zero
 counts and empty disclosure without querying the queue. Source changes,
 automatic layers or affected automatic dependants still cause refusal.
@@ -148,11 +148,90 @@ Edit > Undo. Notification/finalization errors can also propagate; do not infer
 rollback from an exception. No queue clearing, automatic retry or global Undo
 belongs in a caller’s error handler.
 
+### Preview complete background removal
+
+The background tools remove entire background layer objects, including their
+stored payload. They do not merely erase contours. Use **Clear All Layer Backgrounds** or **Clear Master Backgrounds** for a panel with a preview and
+an explicit Apply action. The programmatic equivalent below also separates
+inspection from the write.
+
+`masters=False` includes mapped backgrounds of all foreground layers in the
+current font, including auxiliary layers. `masters=True` restricts the plan to
+master foreground layers. Neither scope means selected glyphs only. A background
+shared by a master and an excluded auxiliary layer is refused in master-only
+mode; silently deleting it would change the excluded layer too.
+
+Defining these functions makes no edit. Call `preview_backgrounds()` in FontLab,
+inspect the printed glyph/background names, then explicitly pass its returned
+value to `clear_previewed_backgrounds()`. Pass `masters=True` to preview the
+master-only scope. A preview is bound to its original font and scope: the writer
+rechecks it before history and refuses stale facts rather than silently rescanning
+and applying a different plan.
+
+<!-- example: background-caller -->
+```python
+from fontlabapp.background_clear import plan as background_plan
+from fontlabapp.background_clear_native import Backend as BackgroundBackend
+from fontlabapp.edit_guards import append_note
+
+
+def preview_backgrounds(*, masters=False):
+    backend = BackgroundBackend()
+    source = backend.capture()
+    if source is None:
+        raise ValueError("Open a font before previewing backgrounds.")
+    for removal in background_plan(source, masters):
+        print(f"{removal.glyph}: {removal.mask_name}")
+    return backend, source, masters
+
+
+def clear_previewed_backgrounds(preview):
+    backend, source, masters = preview
+    disclosure = {"pending_updates": (), "pending_note": ""}
+    try:
+        result = backend.apply(source, masters, disclosure=disclosure)
+    except BaseException as error:
+        # Report the action's warning, then propagate interruptions unchanged.
+        print(append_note(f"Background clearing failed: {error}", disclosure))
+        raise
+    print(append_note(
+        f"Removed {result['backgrounds']} backgrounds from "
+        f"{result['layers']} foreground layers in {result['glyphs']} glyphs.",
+        result,
+    ))
+    return result
+```
+
+`backgrounds` counts confirmed object removals; `layers` counts the affected
+foreground layers, which can differ when backgrounds are shared. `glyphs` counts
+owner glyphs. A no-op returns zero counts and empty disclosure without sampling
+the native queue. A nonempty warning is reported once by this wrapper; the supplied
+dictionary prevents the backend from printing it separately.
+
+Active or locked backgrounds, invalid ownership/mapping, affected automatic
+layers or automatic dependants, and unsupported history scope can still cause
+refusal. Queue disclosure does not waive these guards. A refused domain remains
+an incomplete compatibility boundary, not proof of equivalent original behavior.
+
+A failure after an attempted removal may leave changes in the font. Ordinary
+partial-write errors report attempted and confirmed removal counts and direct
+the user to Undo. Interruptions stop further removals, attempt remaining date
+updates and notification, then propagate the original interruption with recovery
+notes. The wrapper preserves those notes by re-raising the same exception.
+Neither cleanup nor an exception proves rollback, successful Undo, or that native
+cleanup finished within a deadline. Do not automatically retry the operation.
+
 ### Verification boundary
 
-The two marked examples are checked against the ordinary App artifact. Formatting
+The Raise Ascender formatter and caller are checked against the ordinary App artifact. Formatting
 uses the actual shared helper; wrapper success/no-op/failure tests substitute the
 native backend. Those tests prove message composition, disclosure forwarding and
 exception propagation. They do not prove FontLab editing, native window behavior,
 whole-font preservation or successful Undo/Redo. The writer’s artifact tests and
 its dedicated native qualification are separate requirements.
+
+The background example is also executed verbatim against the installed App
+backend and planner. Owned native doubles cover master/auxiliary scope, stale
+previews, no-op, partial removal and interruption. The backend itself is not
+replaced. These checks still do not exercise FontLab's compiled object model,
+native history, saved files, rendered documentation or publication.

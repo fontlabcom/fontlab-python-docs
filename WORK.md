@@ -1115,3 +1115,23 @@ Command from /Volumes/Falstaff4T/fontlab-scripting-data/issue123/native-guide-20
 `rtk proxy git diff --check`:exit0. External report.json pins the final page.
 Wait, but substituted native calls do not qualify FontLab editing or preservation.
 Native execution and site build/browser/publication remain behind existing gates.
+
+## 2026-11-01 — background removal preview and failure example
+
+Extend the authored native guide with explicit preview/apply functions for complete
+background-object removal. Document both whole-font scopes, shared-mask refusal,
+counts, no-op disclosure, stale previews, partial errors and interruption notes.
+Use actual Scriptmix menu titles. Update example checkpoint to ordinary App
+0.2.26.dev158+g55fc09868 and correct duplicated Perpendicular Guides wording.
+
+Exact snippets:27checks pass against each ordinary wheel/sdist. Four Python blocks
+compile. Background12cases use the actual installed backend/planner and owned
+native doubles; Raise Ascender10wrapper cases substitute its backend, while
+four formatter cases use the shared helper. Compilation adds one check.
+No native, rendered-page, generated-reference/source-lock or publication claim.
+D29 still holds those stages; source-only authored documentation is permitted.
+
+Evidence: external issue123/background-guide-20261101/checks.log and sdist-checks.log.
+Command cwd is that evidence directory:
+`rtk proxy env UV_CACHE_DIR=/Volumes/Falstaff4T/fontlab-scripting-data/uv-cache TMPDIR=/Volumes/Falstaff4T/fontlab-scripting-data/tmp PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run --isolated --no-project --python /opt/homebrew/bin/python3.11 --with /Volumes/Falstaff4T/fontlab-scripting-data/issue123/background-interruption-20261101/dist/fontlab_fontlabapp-0.2.26.dev158+g55fc09868-py3-none-any.whl --with pytest python -I -B -m pytest -q -p no:cacheprovider test_guide.py test_background_guide.py` — exit0.
+Repeat with the same version's .tar.gz in place of the wheel — exit0.
