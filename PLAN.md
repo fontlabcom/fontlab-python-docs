@@ -34,3 +34,26 @@ and browser/publication checks remain behind D29 and the full source-lock review
 - [ ] Qualify the native writer guide with real installed FontLab operations and final rendered pages after D29 permits rebuilding; fourteen offline snippet checks do not close those gates.
 
 - [ ] Qualify the authored background preview/apply example in native FontLab and its rendered page once D29 permits a full build. Offline snippets pass with installed App .158 and owned native doubles.
+
+- [ ] Verify authored Glyport layer-name guide rendering after D29 permits rebuilding, and qualify native import None/empty preservation before presenting the predicate as native workflow guidance. Offline candidate examples and older-artifact negative control pass; see WORK.md.
+
+- [x] Verify the authored receiver-name pipeline example against installed wheel/sdist candidates and the older-artifact negative control; native identity and rendered-site acceptance remain open. See WORK.md.
+
+Glyph Info authored example is checked against both installed private artifacts
+and an earlier negative control. Keep source-lock/build/browser/publication and
+custom-data/native lookup acceptance open; evidence is in workspace issue123
+docs-glyph-info-20261101.json.
+
+- [ ] Carry the installed-tested constructor-binding example through source-lock, generated/site build, browser and publication gates once D29 permits; native capture remains separate.
+
+- [ ] Carry the installed-tested collision-preservation example through source-lock, site build/browser and publication gates once D29 permits.
+
+- [x] Verify the authored script-metadata fixture in both fresh installed artifacts and the older-artifact negative control; see WORK.md.
+
+- [x] Verify authored database-case filtering in both installed private artifacts and an older script-only negative control; all eight examples pass, native and rendered-site gates remain open. See WORK.md.
+
+- [ ] Carry the installed-tested top-level alias example through the reviewed generated/site build, browser and publication gates; owned doubles do not qualify native effects.
+
+Classification/resolver counterexamples now qualify the existing lifecycle examples.
+Reverify and update these limits after the shared resolver is repaired; ten passing
+offline examples do not prove conflicting-name/Unicode reset fidelity.
