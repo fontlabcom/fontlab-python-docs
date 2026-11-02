@@ -18,6 +18,10 @@ process, and build interfaces with the application's Qt runtime.
 
 ## Start outside the application
 
+For Glyphs metadata reads and local-manager source qualification, see
+[Select the metadata manager](guide/glyport-managers.md). The guide separates
+public global queries from complete local initialization with explicit resources.
+
 ```python
 from fontlab_remopy import FontLab
 

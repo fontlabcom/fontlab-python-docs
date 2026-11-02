@@ -708,8 +708,11 @@ regenerated and all 399 source tests pass with actual siblings.
 The H source checkpoint implements the parent-aware `GSGlyph.glyphInfo` /
 `GSGlyphsInfo` routes. The [manager guide](../guide/glyport-managers.md) covers
 the selected manager, six stored overlays, groupIdx/direction, canonical/shallow/
-frozen distinctions and qualified custom parsing/finalization/discovery.
+frozen distinctions and qualified custom parsing/finalization/discovery. Its
+connected local-manager section adds constructor/reload, base-versus-custom
+parsing, sidebar resources, queue identity and precise exception boundaries
+through invented lawful dependencies, with seven additional executable examples.
 Matching companion archives and the complete ordinary installed tuple remain
-separate. Complete local initialization/reload/private resources, the original
+separate. Complete default/private resources, native local initialization/reload, the original
 HTML tool and native FontLab behavior remain open. Earlier artifact receipts
 above retain their historical scope.

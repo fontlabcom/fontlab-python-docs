@@ -4,6 +4,21 @@ this_file: PLAN.md
 
 # Plan
 
+
+## Connected local-manager source companion — 2026-11-02
+
+Extend the existing manager guide with accurate connected constructors/reload,
+base-versus-custom parser commits, sidebar resources, explicit owned queue and
+provider policies, exact exception range and current-row summaries. Keep all 75
+prior active examples and 7 held bodies unchanged. Use one visible shared fixture
+executed exactly before each of at least 6 new independent source examples.
+
+- [x] Add seven actual constructor/loader/reload/error/summary examples and authored index/package links; all 82 active examples pass exact GP29efa source.
+- [x] Preserve 82 prior tagged bodies, 7,476 preimages, navigation/index/source-lock/generated/archive bytes; compile 142 Python blocks and verify 43 local links.
+- [x] Run the full authored docs source suite: 369 passed, one inherited D29 skip, exit 0; retain the first harness failure.
+- [ ] Qualify matching ordinary artifact/consumer tuples and native/full original workflows independently; D16/D29/D30/D31 and all publication/resource holds remain.
+
+
 ## Parent-aware metadata companion — 2026-11-02
 
 Add a substantial authored guide with owned runnable examples for the selected

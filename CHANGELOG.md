@@ -2,6 +2,19 @@
 this_file: CHANGELOG.md
 ---
 
+## Connected local-manager source companion — 2026-11-02
+
+Expanded the manager/profile guide with connected constructor/reload/base-parser/
+sidebar/resource/queue/error/summary semantics and seven executable invented-provider
+examples. Linked authored index and package/Glyphs entrypoints. All 75 prior active
+and 7 held native/UI bodies retain exact bytes; 82 active examples pass source.
+Static audit: 142 compiled Python blocks, 43 local links, 7,467 protected payloads/modes,
+unchanged navigation/index/generated/archive/source-lock state. WORK.md records
+full-suite results, retained failed harness attempts and exact evidence.
+Fresh full authored docs source suite: 369 passed, one inherited D29 skip, exit 0.
+Source-only acceptance does not close ordinary/native/resource/original workflow
+or D29/D30 generated/publication gates. No dependencies/runtime modules changed.
+
 ## Parent-aware manager/profile authored companion — 2026-11-02
 
 Added a linked practical guide for selected managers, six stored overlays,

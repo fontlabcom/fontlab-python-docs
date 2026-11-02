@@ -78,7 +78,9 @@ read-only snapshots. It also explains the exact ROS text boundary and explicit
 refusal before writes when a proprietary mapping is required. Full ROS mapping
 and native workflow qualification remain open. Selected-manager and qualified
 custom-file capabilities are covered in the [manager/profile guide](glyport-managers.md);
-complete local initialization, reload and private resources remain separate.
+its connected local-manager examples exercise actual constructors, reload,
+parser/sidebar dispatch and typed failures with explicit lawful invented providers.
+Complete default/private resources and native initialization/reload remain separate.
 
 ## Global Unicode metadata
 

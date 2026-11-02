@@ -568,8 +568,10 @@ exported entries, facade/sidecar bytes and protected native/legacy data stay exa
 The H producer implements the selected parent/document/shared manager and exact
 Glyphs2/3/4 application contracts. The [manager guide](../guide/glyport-managers.md)
 adds actual-export controls for those routes and the bounded custom file/index/
-finalizer/discovery capability. Complete local initialization/reload/private
-resources, matching companion ordinary consumers, the full original HTML workflow
+finalizer/discovery capability. The connected local-manager successor documents
+actual constructor/reload/parser/sidebar dispatch with explicit invented providers;
+source controls preserve queue, error and summary boundaries. Complete lawful
+default/private resources, native initialization/reload, matching companion ordinary consumers, the full original HTML workflow
 and native FontLab/Glyphs behavior retain separate qualification. The 399-test
 description result above identifies its earlier source checkpoint.
 

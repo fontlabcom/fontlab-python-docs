@@ -9,8 +9,8 @@ you explicitly choose a font. Omitting the font selects the shared manager; it
 does not mean the current font. These routes return the selected manager's result.
 
 This guide describes private Glyport source checkpoint
-`97304f34ffa7ec19ee4132c4e67e2205cb30e269` with matching Echopy source
-`500542d333ed964788b3d06ae9caeff353c4b156`.
+`29efa7f948c9f24a47f2142f85c0811a368ed3de`. Matching Echopy producer
+provenance is qualified separately from these authored source examples.
 Owned Python examples qualify the source contracts below. Fresh ordinary
 wheel/sdist tuples and their complete consumers need separate qualification.
 None of these examples establishes native FontLab history, document preservation,
@@ -552,26 +552,389 @@ with TemporaryDirectory(dir=Path.cwd()) as temporary:
 
 ## Complete local construction and reload remain separate
 
-These file/index/finalizer/discovery capabilities do not implement
-`initWithLocalFile_`, `initWithLocalFile_forFont_` or complete `loadGlyphInfo`.
-Plain construction/`init()` returns the shared manager; `alloc()` alone is an
-uninitialized object, not an empty usable local manager. The owned seams above
-do not authorize presenting a successful public local initializer.
+The connected source now implements the constructor/reload control paths over
+explicit lawful dependencies. Public global record queries and complete local
+resource initialization have different requirements, detailed below. Plain
+construction/`init()` returns the shared manager; `alloc()` alone is uninitialized.
+An owned index created with `_from_index` has no complete lifecycle resources.
 
-The retained constructor contract includes sidebar setup, an operation queue,
-glyph loading and a final queue wait. Reload ordering depends on the stored URL:
-nil/global loading includes a Chinese intermediate barrier before later Hangul
-work; nonnil local loading has no final barrier. Constructors add a final wait.
-Thus neither universal synchronous reload nor universal absence of waits is
-accurate. A local nonnil URL can still transitively initialize shared resources.
+## Construct and reload a local manager with explicit dependencies
 
-Reload replaces the row list while retaining name/Unicode maps; it does not
-universally delete records absent from the next file set. Sidebar groups,
-summary callbacks, iMatra and other private resources have independent lifecycle
-requirements. A minimal custom file cannot stand in for those missing resources.
-The full original script, native cache/lifetime/history and save/reopen workflows
-stay open, alongside generated-reference, source-lock, site/archive/routes,
-browser accessibility and publication gates.
+The source checkpoint connects `initWithLocalFile_`,
+`initWithLocalFile_forFont_`, `loadGlyphInfo` and their base-parser/sidebar helpers.
+Public global queries can use the maintained public record index without these
+dependencies. Complete local initialization needs an explicit lawful provider;
+there is no default provider for private GlyphData, sidebar property lists,
+iMatra resources, localization, images, predicates or operation queues. The
+internal `using_info_provider` context supplies dependencies for source
+qualification. It is not a supported native provider installer.
+
+An allocated local receiver retains the exact URL object, creates its own queue,
+sets that queue's concurrency limit, dispatches the sidebar before glyph loading,
+then waits after successful loading. `None` is a global-load branch on that local
+receiver; it does not turn the receiver into the shared manager. An existing
+shared receiver retains its shared flag if explicitly reinitialized. The font
+argument selects sidebar dispatch, including the empty icon-set branch; the
+initializer does not establish document observation or a lasting font binding.
+
+### Shared setup for the local examples
+
+Run the following setup after **Prepare an owned graph**, then run each
+`glyport-local-*` example separately. The verification runner executes both
+exact setup blocks in a fresh namespace and directory for each tag. The
+context temporarily isolates the process-wide shared pointer and resource caches,
+and restores them in `finally`. Those assignments, `_lifecycle` inspection and
+`InfoErrorSlot` are internal owned controls, not public application recipes.
+
+Every resource below is invented. The scheduler runs queued callbacks in FIFO
+order when explicitly waited; its Chinese provider implements the intermediate
+barrier and its Hangul provider records a queued callback. These functions create
+no Chinese or Hangul records. Localization, nil collection handling, filesystem
+enumeration and empty image directories have explicit fixture policies. This
+qualifies that schedule and those inputs only.
+
+<!-- setup: glyport-local-lifecycle -->
+```python
+from contextlib import contextmanager
+from types import SimpleNamespace
+from fontlab_glyport.glyphsapp import GSGlyphsInfo
+from fontlab_glyport.glyphsapp.info_runtime import (
+    InfoErrorSlot, InfoNativeException, using_info_provider,
+)
+from fontlab_glyport.glyphsapp import info_sidebar_resources
+
+class OwnedQueue:
+    def __init__(self, events):
+        self.events, self.pending = events, []
+    def setMaxConcurrentOperationCount_(self, count):
+        self.maxConcurrentOperationCount = count
+    def addOperationWithBlock_(self, callback):
+        self.pending.append(callback)
+    def waitUntilAllOperationsAreFinished(self):
+        self.events.append(("wait", self))
+        while self.pending:
+            self.pending.pop(0)()
+
+class OwnedLifecycleProvider:
+    def __init__(self, base, folder):
+        self.base, self.folder, self.events, self.queues = base, folder, [], []
+        self.arrays = {
+            "defaultCategories": [{"name": "Owned category", "id": "Owned"}],
+            "defaultLanguages": [], "StandardFilter": [],
+        }
+        self.dictionary = {"invented": "matra"}
+    def new_queue(self):
+        queue = OwnedQueue(self.events)
+        self.queues.append(queue)
+        return queue
+    def active_processor_count(self):
+        return 2
+    def resource_url(self, name, extension):
+        self.events.append(("resource", name, extension))
+        return {"GlyphData": SimpleNamespace(path=lambda: str(self.base)),
+                **{key: key for key in self.arrays},
+                "iMatraPresCombination": "owned-matra"}[name]
+    def load_array(self, url):
+        return self.arrays[url]
+    def load_dictionary(self, url):
+        assert url == "owned-matra"
+        return self.dictionary
+    def localize(self, text):
+        return text  # Explicit identity localization for these invented inputs.
+    def compare(self, left, right):
+        return (left > right) - (left < right)
+    def distinct_values(self, rows, field):
+        return list(dict.fromkeys(getattr(row, field) for row in rows
+                                  if getattr(row, field) is not None))
+    def application_support_paths(self):
+        return []  # This fixture has no global support folders.
+    def user_support_path(self):
+        return str(self.folder / "owned-support")
+    def directory_entries(self, path):
+        return []  # Owned icon/group/filter directories are explicitly empty.
+    def resolve_path(self, path):
+        return path
+    def load_property_list(self, path):
+        assert path == self.user_support_path() + "/CustomFilter.plist"
+        return [], None  # An empty primary filter suppresses StandardFilter.
+    def draw_emoji_icon(self, width, height, flipped):
+        assert (width, height, flipped) == (17, 17, True)
+        return SimpleNamespace(setName_=lambda name: self.events.append(("image", name)))
+    def add_chinese(self, manager):
+        self.events.append(("chinese", manager))
+        manager._lifecycle.queue.waitUntilAllOperationsAreFinished()
+    def enqueue_hangul(self, manager):
+        manager._lifecycle.queue.addOperationWithBlock_(
+            lambda: self.events.append(("hangul", manager)))
+    def notify(self, manager, phase, key):
+        self.events.append((phase, key))
+    def add_observer(self, *arguments):
+        self.events.append(("observer", arguments))
+    def register_defaults(self, values):
+        self.events.append(("defaults", values))
+    def present_error(self, error):
+        self.events.append(("error", error))
+    def log(self, value):
+        self.events.append(("log", value))
+
+@contextmanager
+def owned_lifecycle():
+    from tempfile import TemporaryDirectory
+    saved_shared = GSGlyphsInfo._shared
+    saved_arrays = info_sidebar_resources._once_arrays
+    GSGlyphsInfo._shared = None
+    info_sidebar_resources._once_arrays = {}
+    try:
+        with TemporaryDirectory(dir=Path.cwd()) as temporary:
+            folder = Path(temporary)
+            base = folder / "base.xml"
+            base.write_text('<glyph name="owned.base" unicode="0041" '
+                            'script="owned" subCategory="Base"/>', encoding="utf-8")
+            local = folder / "font"
+            local.mkdir()
+            data = local / "GlyphData.xml"
+            data.write_text('<glyph name="owned.local" unicode="0042" '
+                            'script="fleet" subCategory="Local"/>', encoding="utf-8")
+            provider = OwnedLifecycleProvider(base, folder)
+            url = SimpleNamespace(path=lambda: str(local))
+            with using_info_provider(provider):
+                yield provider, url, data
+    finally:
+        GSGlyphsInfo._shared = saved_shared
+        info_sidebar_resources._once_arrays = saved_arrays
+```
+
+### Construct through the actual parser and sidebar paths
+
+The nonnil local branch can initialize the shared manager transitively. This
+example uses the real public constructor, base/custom loaders and sidebar builder;
+it overrides none of them. The two queues and their completed jobs belong to
+the invented sequential scheduler above. A successful constructor says nothing
+about native resource availability.
+
+<!-- example: glyport-local-connected-constructor -->
+```python
+with owned_lifecycle() as (provider, url, data):
+    receiver = GSGlyphsInfo.alloc()
+    manager = receiver.initWithLocalFile_(url)
+    shared = GSGlyphsInfo.sharedManager()
+    assert manager is receiver and manager is not shared
+    assert manager._lifecycle.localURL is url and not manager._lifecycle.shared
+    assert shared._lifecycle.shared and len(provider.queues) == 2
+    assert all(queue.maxConcurrentOperationCount == 2 for queue in provider.queues)
+    assert not any(queue.pending for queue in provider.queues)
+    assert manager.infoFromDataForName_("owned.local").unicode == "0042"
+    assert manager.infoFromDataForName_("owned.base") is shared.infoFromDataForName_("owned.base")
+    state = manager._lifecycle
+    assert state.allItem.identifier == "All"
+    assert state.name2Group["Owned"].name == "Owned category"
+    assert state.categoriesGroup.identifier == "CATEGORIES"
+    assert state.filterGroups[0].identifier == "FILTERS"
+    assert state.iMatraCombinations is provider.dictionary
+    assert ("image", "GSEmojiIcon") in provider.events
+```
+
+### Reload retains maps while replacing the listed rows
+
+`loadGlyphInfo()` resets the row/category arrays, keeps the name/Unicode maps and
+queues a summary that reads the current rows when it executes. A custom override
+can update an existing indexed record without relisting it. Only listed rows
+receive fresh unsigned 32-bit indices and component finalization. Earlier views
+can remain canonical and addressable even when absent from the new row list.
+
+<!-- example: glyport-local-reload-identity -->
+```python
+with owned_lifecycle() as (provider, url, data):
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(url)
+    index = manager._index
+    names, codes, old_rows = index.names, index.unicodes, index.records
+    retained = manager.infoFromDataForName_("owned.local")
+    data.write_text('<glyph name="owned.local" script="changed"/>', encoding="utf-8")
+    manager.loadGlyphInfo()
+    assert index.names is names and index.unicodes is codes
+    assert index.records is not old_rows and index.records == []
+    assert manager.infoFromDataForName_("owned.local") is retained
+    assert retained.script == "changed" and retained.unicode == "0042"
+    assert manager._lifecycle.queue.pending
+    data.write_text('<glyph name="owned.new" script="fresh"/>', encoding="utf-8")
+    manager.loadGlyphInfo()
+    assert [row.name for row in index.records] == ["owned.new"]
+    assert index.records[0].index == 0
+    manager._lifecycle.queue.waitUntilAllOperationsAreFinished()
+    assert "fresh" in manager._lifecycle.scriptIDs
+    assert "changed" not in manager._lifecycle.scriptIDs
+```
+
+The local reload has no final barrier. Both queued summaries above see the latest
+row list. Script IDs persist across reloads and shared IDs can be appended again;
+do not interpret these arrays as a fresh deduplicated inventory of every map key.
+Nil/global loading has a Chinese intermediate barrier before later Hangul work;
+the constructor adds its final wait. Neither universal synchronous reload nor
+universal absence of waits describes both branches.
+
+### Keep base data distinct from custom overrides
+
+The base scanner parses into independent containers before committing. It commits
+names, encodings, rows and groups in order, with separate locks rather than an
+atomic transaction. Empty destination containers can adopt parsed containers;
+nonempty containers merge. Base rows establish description/group fields that
+custom overrides do not merge. A malformed private parse leaves those manager
+containers untouched; custom parsing can retain completed earlier rows on failure.
+Neither scanner is a general XML normalizer or a proprietary GlyphData replacement.
+
+<!-- example: glyport-local-base-custom-fields -->
+```python
+with owned_lifecycle() as (provider, url, data):
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(url)
+    base = data.parent / "base-owned.xml"
+    base.write_text('<glyph name="owned.fields" unicode="0043" '
+                    'description="Base description" group="Base group" '
+                    'groupIdx="-3" script="owned"/>', encoding="utf-8")
+    base_url = SimpleNamespace(path=lambda: str(base))
+    sentinel = object()
+    slot = InfoErrorSlot(sentinel)
+    assert manager.loadGlyphDataFromURL_error_(base_url, slot)
+    assert slot.value is sentinel
+    view = manager.infoFromDataForName_("owned.fields")
+    assert (view.desc, view.group, view.groupIdx) == ("Base description", "Base group", -3)
+    override = data.parent / "override.xml"
+    override.write_text('<glyph name="owned.fields" description="Ignored" '
+                        'group="Ignored" script="changed"/>', encoding="utf-8")
+    assert manager.loadCustomGlyphDataFromURL_error_(
+        SimpleNamespace(path=lambda: str(override)), None)
+    assert manager.infoFromDataForName_("owned.fields") is view
+    assert (view.desc, view.group, view.groupIdx, view.script) == (
+        "Base description", "Base group", -3, "changed")
+```
+
+### Preserve caller error state and partial custom commits
+
+`None` and the synthetic `objc.NULL` remain the supported public null arguments.
+`InfoErrorSlot` is an internal explicit source analogue of an output slot, not an
+arbitrary native pointer bridge. A successful load leaves its previous value
+alone. A qualified failed parse writes its error (which can be nil). A false
+loader result with a nonnil error is presented by `loadGlyphInfo`, which then
+continues; an exception has a different control path.
+
+<!-- example: glyport-local-error-slot-boundaries -->
+```python
+with owned_lifecycle() as (provider, url, data):
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(url)
+    old_names, old_codes, old_rows = manager._index.names, manager._index.unicodes, manager._index.records
+    broken = data.parent / "broken-base.xml"
+    broken.write_text('<glyph name="uncommitted"/><glyph name="broken" unicode="unfinished/>', encoding="utf-8")
+    slot = InfoErrorSlot(object())
+    assert not manager.loadGlyphDataFromURL_error_(SimpleNamespace(path=lambda: str(broken)), slot)
+    assert slot.value is not None
+    assert manager._index.names is old_names and manager._index.unicodes is old_codes
+    assert manager._index.records is old_rows
+    assert manager.infoFromDataForName_("uncommitted") is None
+    broken.write_text('<glyph name="completed"/><glyph name="broken" unicode="unfinished/>', encoding="utf-8")
+    later = data.parent / "later.xml"
+    later.write_text('<glyph name="never"/>', encoding="utf-8")
+    assert not manager.loadLocalGlyphInfoFiles_error_(
+        [SimpleNamespace(path=lambda: str(broken)), SimpleNamespace(path=lambda: str(later))], slot)
+    assert slot.value.code() == 0x2AE2
+    assert manager.infoFromDataForName_("completed").name == "completed"
+    assert manager.infoFromDataForName_("never") is None
+```
+
+### Recover only the marked component exception
+
+The protected interval covers component finalization and Hangul enqueue.
+`InfoNativeException` is the owned source analogue for that qualified native
+exception boundary. Ordinary Python errors, dependency refusals, earlier loader
+failures and deferred callback failures propagate. A constructor does not drain
+pending work on an exceptional return. These subclasses inject failures at the
+actual public dispatch boundary; they do not claim a complete alternate loader.
+
+<!-- example: glyport-local-typed-component-recovery -->
+```python
+class MarkedFailure(GSGlyphsInfo):
+    def updateComponentsInfos(self):
+        raise InfoNativeException("owned component failure")
+
+with owned_lifecycle() as (provider, url, data):
+    manager = MarkedFailure.alloc().initWithLocalFile_(url)
+    failures = [event[1] for event in provider.events if event[0] == "log"]
+    assert any(isinstance(error, InfoNativeException) for error in failures)
+    assert manager._lifecycle.iMatraCombinations is provider.dictionary
+    assert not manager._lifecycle.queue.pending
+    assert manager._index.records[0].index == 0
+```
+
+<!-- example: glyport-local-exception-keeps-pending -->
+```python
+class OrdinaryFailure(GSGlyphsInfo):
+    def updateComponentsInfos(self):
+        raise RuntimeError("owned ordinary failure")
+
+with owned_lifecycle() as (provider, url, data):
+    receiver = OrdinaryFailure.alloc()
+    try:
+        receiver.initWithLocalFile_(url)
+    except RuntimeError as error:
+        assert str(error) == "owned ordinary failure"
+    else:
+        raise AssertionError("Ordinary exceptions must propagate")
+    queue = receiver._lifecycle.queue
+    assert queue.pending and ("wait", queue) not in provider.events
+    assert receiver._lifecycle.iMatraCombinations is None
+    assert not any(event[0] == "log" and isinstance(event[1], RuntimeError)
+                   for event in provider.events)
+```
+
+### Summaries use the receiver's current arrays and rows
+
+The summary takes distinct script/subcategory values from current listed rows,
+sorts new values with the supplied comparison policy, preserves existing repeats,
+adds `Conjunct` after `Halfform` when present, and removes empty strings. Each
+field reads the current rows separately. A nil field requires an explicit
+collection policy; Python truthiness is not a substitute for Foundation KVC.
+
+<!-- example: glyport-local-summary-current-rows -->
+```python
+from fontlab_glyport.glyphsapp.info_lifecycle import summarize
+
+with owned_lifecycle() as (provider, url, data):
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(url)
+    state = manager._lifecycle
+    state.scriptIDs = ["", "repeat", "repeat"]
+    state.categories = ["", "Letter"]
+    state.subCategories = ["Halfform", ""]
+    state.index.records = [SimpleNamespace(script="zeta", subCategory="Wrong"),
+                           SimpleNamespace(script="alpha", subCategory="Wrong2")]
+    compare = provider.compare
+    def replace_rows(left, right):
+        state.index.records = [SimpleNamespace(script=None, subCategory="New")]
+        return compare(left, right)
+    provider.compare = replace_rows
+    summarize(manager)
+    assert state.scriptIDs == ["repeat", "repeat", "alpha", "zeta"]
+    assert state.subCategories == ["Halfform", "Conjunct", "New"]
+    assert state.categories == ["Letter"]
+```
+
+### Treat resource lifetimes and unsupported effects separately
+
+Sidebar category/language arrays are cached process-wide on first access,
+including a decoded nil result. Changing providers later does not refresh that
+cache. Custom group files retain provider order; a bad property list stops its
+folder after earlier mutations and schedules error presentation. An empty primary
+filter array suppresses fallback; an unavailable primary can select the standard
+resource. Extra filter headers retain filename titles, source paths and ordering.
+Image type checks, decoding, registration and template marking remain explicit
+dependencies. The fixture's empty image directories prove none of those native
+effects, and its recorded emoji object proves only the provider call boundary.
+
+Complete lawful default resources, real Chinese/Hangul generation, predicates,
+images/counts, observation lifetime, concurrency and document reload binding
+remain unqualified. Python group-lock identity differs from the native current
+dictionary monitor; this sequential example does not establish concurrency parity.
+Original font workflows, native history/lifetime/preservation/save/reopen,
+ordinary installed tuples and complete consumers require independent evidence.
+Generated reference, source-lock refresh, site/archive/routes, browser
+accessibility and publication remain gated. The full issue remains active.
 
 ## Read the source contract
 
@@ -580,6 +943,10 @@ The checkpoint's `glyphsapp/info_manager.py`, `glyphsapp/application.py`,
 `model/stored_glyph_fields.py`, `model/info_records.py`, `model/custom_info.py`,
 `model/custom_info_parser.py`, `model/info_finalize.py` and
 `model/custom_info_discovery.py` define these bounded source operations.
+The connected lifecycle also uses `glyphsapp/info_lifecycle.py`,
+`info_runtime.py`, `info_shared.py`, `info_sidebar.py`,
+`info_sidebar_resources.py`, `info_filters.py`, `info_images.py` and
+`model/base_info_parser.py`.
 The [description guide](glyport-descriptions.md),
 [production guide](glyport-production.md) and [compound guide](glyport-compounds.md)
 retain their field/selection contracts with current manager/identity corrections

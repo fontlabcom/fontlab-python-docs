@@ -2,6 +2,44 @@
 this_file: WORK.md
 ---
 
+## Connected local-manager authored companion — 2026-11-02
+
+Extended the manager/profile guide against exact Glyport
+29efa7f948c9f24a47f2142f85c0811a368ed3de with seven actual-export examples:
+connected local/shared construction and sidebar resources, reload map/list/view
+identity, base versus custom fields, caller error-slot and non-atomic failure
+boundaries, marked component recovery, ordinary exceptional return with pending
+work, and summaries reading current rows. One visible invented-provider setup
+supports all seven; the runner executes both exact setup blocks independently
+for each tag. Internal cache/pointer isolation and source-only controls are
+labeled. Index/Glyphs/package links lead to the fuller guide.
+
+All 75 prior active plus seven new examples pass the exact source; every prior
+active and all seven held native/UI bodies remain unchanged (82 prior tags).
+All 7,476 inherited payloads have external preimages. Static audit compiles 142
+blocks, checks 43 local links and 7,467 protected payloads/modes, unchanged navigation,
+Git index, generated/archive trees and source lock. This isolated checkout is
+fully materialized and has no sparse-checkout configuration; its actual context
+is preserved rather than claiming the predecessor's 7,228 absent paths.
+
+Exact rtk proxy commands/exits/logs and module origins are in ../docs-evidence/.
+Baseline-command.json, examples-first-command.json and examples-final-command.json
+exit0; static-command.json exits0. First static adapter rejected an inherited
+missing generated reference; it now records inherited D29links as held. The first
+full-docs attempt stopped at 13 passes because its basetemp parent was missing;
+retained unchanged. The corrected run passes 369 tests with one inherited D29 full-built-inventory
+skip, 123.70 s pytest / 124.16 s wall, exit 0. It uses the borrowed J arm64
+Python 3.12.12 interpreter and H historical installed API/TypeRig AST context;
+that context does not qualify a current ordinary tuple. No unchanged full suite
+was repeated after passing.
+
+Wait, but: these source examples do not establish complete lawful default/private
+resources, real Chinese/Hangul generation, predicates/images/counts, observation,
+concurrency, document binding, ordinary tuples/complete consumers or native/full
+original workflows. D16/D29/D30/D31 remain; generated/source-lock/site/archive/
+browser/accessibility/publication and canonical promotion are separate. No native
+or framework calls, installs, commits/pushes or live/canonical changes occurred.
+
 ## Parent-aware manager/profile companion — 2026-11-02
 
 Added the substantial linked manager guide with 12 owned actual-export examples:
@@ -2012,3 +2050,5 @@ ordinary providers/consumers, private metadata completeness, parent-aware glyph
 manager, complete original/native histories, rendered references, routes/archive,
 accessibility or publication. D16/D29/D30/D31/D35remain; no live install, canonical/
 main promotion, source lock, native request or generated publication action.
+
+Root reviewed the complete authored diff, removed a stray patch marker and separated its heading (Python/tag bodies unchanged), and independently ran unchanged normal quality gate:369passed/1existingD29skip, tests-only. Static audit confirms82oldtags,7new,142compiledblocks,43links,7467protectedpayloads; all82active examples pass both actual ordinary prefixes without sourceoverrides. Full consumer qualification remains separately recorded externally.
