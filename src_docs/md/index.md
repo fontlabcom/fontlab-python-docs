@@ -62,6 +62,8 @@ upstream binding and may differ from PythonQt.
 | Chat with an AI agent in FontLab | [Aidus Code](packages/aidus-code.md) |
 
 Every package has an [overview, install and quick-start page](packages/index.md).
+Echopy maintainers can check [module values, aliases and value documentation](guide/echopy-values.md)
+with independent owned examples and explicit native/installed evidence limits.
 Glyphs compatibility and full PySide2 app compatibility are partial; their guides
 state what works today.
 

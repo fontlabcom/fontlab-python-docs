@@ -4,6 +4,19 @@ this_file: PLAN.md
 
 # Plan
 
+## Echopy module values authored companion — 2026-11-02
+
+Add a dedicated linked guide for current native module values, source-safe
+aliases, exact runtime bookkeeping fields, absent offline values and module
+attribute documentation through capture/raw generation/maintained overlays/
+merged sidecars/actual static Griffe. Nine independent tagged experiments use
+invented owned modules and exact shared setup; no actual host state is assigned.
+Preserve every inherited example/block, navigation and generated/source-lock byte.
+
+- [x] Execute nine new source-contract examples and all 90 inherited active examples; retain all 97 old tags and seven held native/UI bodies.
+- [x] Compile all 160 Python blocks, verify all 150 inherited blocks unchanged, authored links/privacy and 7,470 protected payloads/modes.
+- [ ] Root runs the normal docs gate and both matching fresh ordinary installed tuples/consumer checks; native/current capture/generated-reference/site/publication and D16/D29/D30/D31 remain separate.
+
 ## Complete-generation authored companion — 2026-11-02
 
 Update the inherited lifecycle setup for sealed Glyport `5a54b4b` with four explicit

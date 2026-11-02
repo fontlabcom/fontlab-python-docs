@@ -2,6 +2,23 @@
 this_file: CHANGELOG.md
 ---
 
+## Echopy module values and documentation — 2026-11-02
+
+Added the authored module-values guide and index/package links. Nine executable
+owned examples cover live object identity, sanitized aliases, accepted prefix
+names, write/delete/dir behavior, absent offline annotations, captured descriptor
+docs without getter execution, all three value collections, source-identifier
+keyed overlays/precedence, actual Griffe consumption and lazy native facades.
+The guide preserves retained capture/Any/variadic/Qt enrichment limits and keeps
+source, ordinary-installed, native and publication evidence separate.
+
+All nine new and 90 inherited active examples pass source with asserted origins;
+all 97 inherited tags (including seven held native/UI bodies) and all 150 prior
+Python blocks retain exact bytes. Static audit compiles 160 blocks, checks
+23 local links and preserves 7,470 protected payloads/modes, navigation, source
+lock and held generated/archive trees. WORK.md and external docs-evidence record
+commands, byte pins, runners and the remaining root gates. No dependencies changed.
+
 ## Connected local-manager source companion — 2026-11-02
 
 Expanded the manager/profile guide with connected constructor/reload/base-parser/

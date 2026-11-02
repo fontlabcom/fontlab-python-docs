@@ -2098,3 +2098,45 @@ banks/default resources, native document/history/dialog/preservation workflows,
 concurrency or publication. D16/D29/D30/D31 remain independent holds.
 
 Root direct compliance/quality review clean. Independent all-page readback preserves89old tagged bodies and compiles150blocks. Mandatory unchanged normal docs gate369passed/1existingD29skip,127.41s, exit0; no production modules/coverage claim. Exact command: adjacent root-gates/fontlab-python-docs/command.json. All90ownedactive guides additionally pass both fresh installed wheel/sdist prefixes, with no source arguments/path overrides and no native frameworks. Full package/consumer qualification remains independently pending.
+
+
+## Echopy module values authored companion — 2026-11-02
+
+Added `guide/echopy-values.md` with exact visible shared setup and nine independent
+owned source-contract experiments. Authored index/package links expose the guide;
+no navigation, generated references, capture, source lock, site/theme or archive
+input changed. Examples call real Echopy runtime/generate/merge/capture and Griffe,
+using only invented `ModuleType` namespaces and disposable owned directories.
+Captured docs/types/signatures and retained full identity coverage stay explicitly
+separate from native semantic completeness. No dependencies changed.
+
+Before editing, adjacent `docs-evidence/before.json` pins all 7,476 materialized
+payloads/modes, 97 inherited tags and 150 Python blocks; full changed-file preimages
+are retained. Static audit verifies every old tag/block, 7,470 protected payloads,
+source lock/index/held trees/navigation and all newly authored local links. It
+compiles 160 blocks and leaves inherited generated-reference links explicitly
+D29-held. The new guide contains nine tagged examples, not actual FontLab API
+availability claims. No original corpus code, native/app/framework/MCP operation,
+install, commit, push, canonical/live mutation or generated build ran.
+
+Source commands from the external `echopy-attribute-contracts-20261102` stage
+(all prefixed by `rtk proxy`; exact absolute interpreter argv, cwd, bounded
+environment, elapsed time and exits retained in adjacent command JSON/logs):
+
+- `docs-evidence/run_echopy_value_examples.py --mode source --echopy fontlab-echopy --prefix <borrowed Python 3.11 arm64 prefix> --output docs-evidence/new-examples-first.json --scratch docs-evidence/tmp/new-first`: nine pass, exit 0; `new-examples-first-command.json`.
+- `docs-evidence/run_guide_examples.py --mode source --producer fontlab-glyport --echopy fontlab-echopy --prefix <same prefix> --output docs-evidence/retained-guarded.json --scratch docs-evidence/tmp/retained-guarded`: all 90 retained active examples pass, exit 0; `retained-guarded-command.json`. Repeated once because the runner gained an explicit native/framework import blocker and complete Aidus origin checks after its first successful run.
+- `docs-evidence/audit_docs.py --output docs-evidence/static-first.json`: static checks pass, exit 0; `static-first-command.json`.
+
+Both runners require isolated `-I -B` Python, an exact active prefix and fresh
+owned output/scratch paths. New source examples accept only Echopy source;
+retained source examples also require the sealed Glyport producer. Installed mode
+accepts no source arguments and checks every loaded project module against the
+ordinary prefix. Root owns normal docs tests and fresh ordinary wheel/sdist tuple/
+consumer qualification. Source examples do not satisfy those gates.
+
+Wait, but: owned module identity and source/Griffe results do not qualify native
+getters/setters, argument conversion, current captures, private resources or the
+full original workflows. D16/D29/D30/D31, generated/reference/source-lock/site,
+archive/routes, browser/accessibility and publication remain independent holds.
+
+Root direct spec/quality/whole-authored review clean. Clarified native setter-error propagation and side-effect acceptance in prose only; all97old tags/150old blocks unchanged,160totalcompile. Mandatory normal docs gate369passed/1inheritedD29skip,130.17s, exit0. Exact command/exit: adjacent root-gates/fontlab-python-docs/command.json. All90retained and9new examples pass each fresh ordinary wheel/sdist prefix without source arguments; full package/consumer qualification remains separately running. New guide is423lines after prose clarification; no native/generated/source-lock/site action.

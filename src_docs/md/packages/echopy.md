@@ -34,6 +34,11 @@ the running FontLab build or prove that every declaration matches that build.
 Keep the package version, native build and capture provenance together when
 reporting a mismatch.
 
+For maintenance work, see [module values and their documentation](../guide/echopy-values.md):
+current-value identity, source-safe aliases, exact bookkeeping fields, absent
+offline values, captured attribute docs, maintained overlays and static Griffe
+checks. Its executable experiments use invented owned modules.
+
 ## Use the two import names
 
 This check runs outside FontLab and does not construct native objects:
