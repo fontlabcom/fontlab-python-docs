@@ -81,3 +81,8 @@ state what works today.
 ## Historical documentation
 
 The <a href="archive/fontlab7/index.html">FontLab 7 and PythonQt archive</a> preserves the previous reference and its original deep links.
+
+Echopy maintainers can also follow [complete namespace discovery](guide/echopy-discovery.md):
+five owned experiments verify hidden dictionary names, loaded child scopes,
+resolution precedence, dependency errors, cancellation and actual declarations.
+These source experiments do not refresh native captures or generated reference.

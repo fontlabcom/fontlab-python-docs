@@ -197,3 +197,7 @@ See the source revisions and native acceptance limits in
 The earlier App .80 lock is historical; later .100 development is excluded.
 
 Metrics in the earlier Status section describe older builds.
+
+The authored [namespace discovery guide](src_docs/md/guide/echopy-discovery.md)
+adds five executable owned experiments over maintained Echopy discovery and its
+capture/generate/merge pipeline. They preserve native/generated/publication holds.

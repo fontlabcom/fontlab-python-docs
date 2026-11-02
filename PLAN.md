@@ -2,6 +2,22 @@
 this_file: PLAN.md
 ---
 
+## Namespace discovery authored companion — 2026-11-02
+
+Added linked echopy-discovery.md with five independent actual-tooling experiments:
+dictionary names omitted by custom dir, loaded PythonQt children and root-object
+precedence, failed import dependency, deadline propagation, and complete owned
+capture/generate/merge declarations. Examples use only owned modules/objects,
+scoped registry/import hooks and disposable temporary declaration trees.
+No native API calls or real capture/generated/site/source-lock refresh. All5new
+examples pass exact source and both ordinary installed prefixes. Each ordinary
+Echopy suite passes600tests, no skips; Docs normal369pass/1existing D29built-
+inventory skip, zero changed production/no coverage claim. All7472protected
+tracked payloads and210inherited Python fences/154setup-example tags stay exact.
+The new guide has175lines. Prior full consumer/142guide qualification remains
+separately pinned to V; it is not rerun or relabeled as a new full consumer tuple.
+
+
 ## Manager state authored companion — 2026-11-02
 
 Add a linked source-derived guide for raw accessors/setters, lazy ranks,

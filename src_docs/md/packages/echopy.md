@@ -593,3 +593,8 @@ availability in the actual target host before designing a dependency on it.
 Reference: [fontlab_echopy](../reference/fontlab_echopy.md), [fontlab](../reference/fontlab.md),
 [fontgate](../reference/fontgate.md), [fontpr](../reference/fontpr.md),
 [PythonQt](../reference/PythonQt.md), and [Glyport](glyport.md).
+
+For capture maintenance, see [complete namespace discovery](../guide/echopy-discovery.md).
+Its five executable owned experiments distinguish discovered scope from
+capture-relative declaration coverage, without querying FontLab or refreshing
+retained native/generated inputs.
