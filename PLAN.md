@@ -4,6 +4,29 @@ this_file: PLAN.md
 
 # Plan
 
+## Parent-aware metadata companion — 2026-11-02
+
+Add a substantial authored guide with owned runnable examples for the selected
+document/shared manager, canonical views, shallow record copies and frozen raw
+constructors; the six stored overlays and groupIdx; exact Glyphs2/3/4 wrappers
+through both provider paths; custom URL parsing, ordered indexes, explicit
+finalization and qualified discovery. Cite the reviewed H source contract.
+Preserve all 70 original tagged bodies in external preimages. Keep 53 current
+bodies unchanged, including seven native/UI held controls; migrate 17 current
+examples with actual parsed owned managers, complete profiles and source-backed
+identity/recipe/delegation oracles. Record each migration and original G control.
+
+Pin materialized files, preimages, tags, sparse rules/index and source lock.
+Run focused actual-export source examples with origin assertions and a sealed G
+negative matrix, then one final docs source suite. Verify Python blocks, links,
+navigation and authored privacy. Supply an ordinary-prefix runner without source
+overrides. Ordinary tuples/consumers, native original workflows, complete local
+initialization/reload/private resources and generated/publication gates remain.
+
+- [x] Finish all 75 current H examples, all 63 archived original G controls, 12 new G negative controls and the full static audit.
+- [x] Run the final docs source suite: 369 passed, one inherited D29 skip; exact commands/outcomes in WORK.md and external docs-evidence.
+- [ ] Qualify matching ordinary artifacts/consumers, native and D29/D30 gates separately.
+
 ## Stored production metadata authored guide
 
 Document the represented-record production contract separately from glyph export

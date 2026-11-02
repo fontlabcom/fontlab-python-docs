@@ -2,6 +2,65 @@
 this_file: WORK.md
 ---
 
+## Parent-aware manager/profile companion — 2026-11-02
+
+Added the substantial linked manager guide with 12 owned actual-export examples:
+document/shared selection, raw canonical identity, shallow copies versus frozen
+constructors, six stored overlays and groupIdx/direction, complete Glyphs2/3/4
+keyword/type/format/font/override semantics through both providers, ordered
+custom URL parsing/partial failure, explicit finalization and qualified macOS
+discovery. Keep complete local initialization/reload/private resources and native
+original workflows separate. Source pins are in ../docs-evidence/source-inputs.json.
+
+Preserved all 247 inherited materialized preimages and all 70 original tagged
+bodies externally before edits. Initial H execution exposed 17 obsolete example
+assumptions. Following the root's revised useful-current-docs ruling, migrated
+those 17 current bodies with visible actual parsed owned metadata fixtures,
+explicit valid Glyphs3 profiles and source-backed delegation/identity/recipe
+oracles. The migration inventory includes exact before/after hashes and reasons;
+all original intent/assertions compatible with the source contract are retained.
+The other 53 bodies, including seven native/UI held controls, remain unchanged.
+No manufactured localData refusal or missing-public-field default was added.
+
+All 75 current selected examples pass H source (63 retained/current plus 12 new),
+with complete project origins, Echopy re-export/application declaration identities
+and absence of real native/framework modules checked. All 63 exact original
+preimage examples pass sealed G; all 12 new examples fail at its missing manager
+contract. The latter is an expected negative matrix, not a claim that every
+modified old example fails G. The reusable runner has installed mode accepting
+no source overrides; root owns its fresh ordinary prefix qualification.
+
+Static audit compiles all 134 authored Python blocks and resolves 76 local links,
+retains every old tag identity and unmodified untagged block, verifies all 233
+unrelated payloads, all 7,228 absent sparse paths, sparse rules/index, source-lock
+and held generated/archive trees. Navigation adds one target and keeps all old
+target order; authored privacy passes. Source-lock SHA remains
+ce358709c79567ac0fb53d5215437a789bfdb6ea86b86e312031d2a4f4dfdd1b.
+
+Fresh full docs source suite: 369 passed, one inherited D29 full-built-inventory
+skip, 127.27 s pytest / 127.78 s wall, exit 0. It uses root's independent arm64 Python3.12.12 clone,
+no cacheprovider/autoload/bytecode and dedicated failed-only scratch. The restored
+historical installed API/TypeRig root is explicit AST test context; this does not
+qualify an H ordinary tuple or refresh generated declarations/site inputs.
+An initial adapter assertion stopped before pytest because the old cohort path
+had been removed; the corrected adapter uses the available restored context.
+No full suite was repeated after it passed. Harness-only failures and the initial
+17 real source mismatches remain retained alongside the passing current result.
+
+Exact rtk proxy argv/cwd/nonsecret environment/exits/logs: ../docs-evidence/
+current-provider-final-command.json, archived-g-final-command.json,
+static-first-command.json and full-docs-source-restored-command.json; later final
+runner/static readbacks and the complete inventory are indexed by REPORT.md.
+All SETUPTOOLS_SCM_PRETEND_VERSION variables are cleared. Dependencies, thresholds,
+skips and existing product tests remain unchanged; no runtime modules changed.
+
+Wait, but: a green authored/source suite does not establish fresh ordinary
+artifacts/consumers, complete local/resource/version behavior, original scripts,
+native history/lifetime/preservation/save/reopen, canonical promotion or generated
+reference/source-lock/site/archive/browser/accessibility/publication acceptance.
+D16/D29/D30/D31 remain. No commit/push, native/framework call, owner font/script,
+canonical/live install or generated/site/publication mutation occurred here.
+
 ## Reviewed production checkpoint source gate — 2026-11-02
 
 The unchanged quality gate passes369tests with1existing full-build inventory

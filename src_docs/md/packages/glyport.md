@@ -1,7 +1,17 @@
 ---
 this_file: src_docs/md/packages/glyport.md
 ---
+
 # Glyport
+
+
+The numerical ordinary-artifact results below identify their retained predecessor
+checkpoint. The [current manager/profile guide](../guide/glyport-managers.md) documents
+the H source changes. Earlier source assumptions are corrected below; original
+preimages remain in verification evidence. Old receipts do not qualify the new
+ordinary tuple or native behavior. Run the [owned graph setup](../guide/glyport-managers.md#prepare-an-owned-graph)
+first for examples using `owned_parsed_manager`; those examples explicitly select
+actual parsed owned data before a metadata refresh or rename.
 
 Glyport runs Glyphs scripts and plugins inside FontLab. It inspects and adapts
 the original source (including Glyphs 2 / Python 2 code), gives each run a live
@@ -242,15 +252,13 @@ A glyph's stored Unicode is editable font data. A name-based Glyph Info lookup
 asks for database metadata. These differ when a glyph has been re-encoded: a
 script that resets Unicode cannot use the current encoding as its reference.
 
-For name strings, the candidate `Glyphs.glyphInfoForName(name)` queries
-glyphsLib’s global fallback without reading the active font. Passing `font=None`
-does the same. An explicit non-None font raises
-`Glyphs.glyphInfoForName.localData`, because document-local GlyphData is not
-implemented. Integer inputs, including bool and int subclasses, dispatch first
-to `self.glyphInfoForUnicode(name)` and discard the font argument.
-The [global Unicode guide](../guide/glyport-unicode.md) covers the executable
-`String` keyword, percent formatting, override preservation and direct Unicode
-local-data refusal precedence.
+Omitting `font` or passing `font=None` queries the shared manager without reading
+the active font. An explicit font selects `font.glyphsInfo()`; the earlier
+unconditional `.localData` refusal is superseded. Integer Name dispatch differs
+by complete Glyphs2/3/4 profile. The [manager/profile guide](../guide/glyport-managers.md)
+provides current document selection, exact keywords, formatting, forwarding and
+provider examples. Its default Glyphs4 Unicode keyword is `string_or_int`;
+Glyphs2/3 retain `String` with their separate integer contracts.
 
 This diagnostic fixture runs outside FontLab. It instantiates the application
 facade with owned model/bridge doubles; it does not activate GlyphsApp, load a
@@ -267,7 +275,8 @@ from fontlab_glyport.glyphsapp.application import GSApplication
 current_glyph = SimpleNamespace(
     name="A", unicode="0042", category="Symbol", subCategory=None, script="custom-script", case=2, layers=[],
 )
-current_font = SimpleNamespace(glyphs={"A": current_glyph})
+local = owned_parsed_manager()
+current_font = SimpleNamespace(glyphs={"A": current_glyph}, glyphsInfo=lambda: local)
 model = SimpleNamespace(font=current_font)
 # This fixture never calls bridge methods or reads/writes persistent defaults.
 app = GSApplication(model, object(), {}, None, lambda *args: None)
@@ -294,12 +303,8 @@ assert current_glyph.case == 2, "A lookup must not edit case metadata"
 assert app.glyphInfoForName("A", font=None).unicode == "0041"
 assert current_glyph.unicode == "0042", "A lookup must not edit the glyph"
 
-try:
-    app.glyphInfoForName("A", font=current_font)
-except UnsupportedCapability as error:
-    assert error.capability == "Glyphs.glyphInfoForName.localData"
-else:
-    raise AssertionError("Font-local GlyphData is not implemented")
+assert app.glyphInfoForName("A", font=current_font) is local.glyphInfoForName_("A")
+assert current_glyph.unicode == "0042", "Explicit lookup must not edit current encoding"
 ```
 
 The read-only `script` field snapshots metadata supplied by the database. This
@@ -407,6 +412,8 @@ glyph.storeCase = False
 assert glyph.case == 3  # An unchanged flag does not refresh metadata.
 
 font = Model(FakeBackend()).font
+
+font.parent._local_glyph_info = owned_parsed_manager()
 font.glyphs.append(glyph)
 assert glyph.case == 3  # Unique attachment retains the temporary value.
 glyph.storeCase = True
@@ -460,6 +467,8 @@ from fontlab_glyport.model import GSGlyph, Model
 from fontlab_glyport.model.fake_backend import FakeBackend
 
 font = Model(FakeBackend()).font
+
+font.parent._local_glyph_info = owned_parsed_manager()
 glyph = GSGlyph("f_f")
 assert glyph.script == "latin"
 glyph.script = "Rovas"
@@ -480,7 +489,8 @@ copied = glyph.copy()
 assert copied.script is None
 copied.script = ""
 assert copied.script == "" and glyph.script is None
-copied.name = "A-cy"
+with font.glyphsInfo()._scope():
+    copied.name = "A-cy"
 assert copied.script == "cyrillic"  # A known name refreshes unstored metadata.
 ```
 
@@ -560,6 +570,8 @@ from fontlab_glyport.model import GSGlyph, Model
 from fontlab_glyport.model.fake_backend import FakeBackend
 
 font = Model(FakeBackend()).font
+
+font.parent._local_glyph_info = owned_parsed_manager()
 glyph = GSGlyph("I")
 font.glyphs.append(glyph)
 glyph.updateGlyphInfo(changeName=False)
@@ -568,6 +580,8 @@ glyph.updateGlyphInfo(changeName=False)
 assert glyph.unicodes == ["0049", "0069", "0131"]  # No duplicates.
 
 other_font = Model(FakeBackend()).font
+
+other_font.parent._local_glyph_info = owned_parsed_manager()
 other_font.glyphs.append(GSGlyph("i"))
 capital = GSGlyph("I")
 other_font.glyphs.append(capital)
@@ -587,7 +601,7 @@ The bundled Unicode17 scalar mapping matches actual NSString.lowercaseString
 for all1,112,064 valid scalars on macOS27.2. Python3.11 casing differs on55scalars.
 This pins that measured casing contract, not all Foundation versions. The
 public data and licence ship with the package; no Objective-C bridge is loaded
-for this operation. Native history/reopen, custom managers and full ROS mapping remain unqualified. The newer
+for this operation. Native history/reopen, complete local initialization and full ROS mapping remain unqualified. The newer
 source/artifact-tested Arabic presentation stage is described in the
 [ordered parameter guide](../guide/glyport-parameters.md); it does not establish
 native font-workflow acceptance.
@@ -609,7 +623,7 @@ adds public `GSGlyphInfo.unicodeLegacy` snapshots, distinct primary/legacy value
 and the exact ROS shared-manager refusal/no-op boundary. The five proprietary
 map requests refuse before presentation and metadata writes; no maps or
 approximations ship. Non-macOS strings, arbitrary object conversion, full ROS
-mapping, custom managers and native collisions remain open.
+mapping, complete local initialization/private resources and native collisions remain open.
 Earlier archive hashes on this page stay historical; they do not
 identify this newer source candidate. No published release or native
 workflow acceptance is implied.
@@ -691,7 +705,11 @@ tests and 146,378 public-input comparisons; it adds `GSGlyphInfo.desc` without
 Unicode-name synthesis or private data. Matching Echopy source provenance is
 regenerated and all 399 source tests pass with actual siblings.
 
-The new matching archives and complete ordinary installed tuple remain pending.
-The parent-aware `GSGlyph.glyphInfo` / `GSGlyphsInfo` entry is still required;
-description-reader checks do not qualify the complete original HTML tool or
-native FontLab behavior. Existing artifact receipts above retain their own scope.
+The H source checkpoint implements the parent-aware `GSGlyph.glyphInfo` /
+`GSGlyphsInfo` routes. The [manager guide](../guide/glyport-managers.md) covers
+the selected manager, six stored overlays, groupIdx/direction, canonical/shallow/
+frozen distinctions and qualified custom parsing/finalization/discovery.
+Matching companion archives and the complete ordinary installed tuple remain
+separate. Complete local initialization/reload/private resources, the original
+HTML tool and native FontLab behavior remain open. Earlier artifact receipts
+above retain their historical scope.

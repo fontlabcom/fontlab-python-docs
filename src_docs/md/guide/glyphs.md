@@ -1,7 +1,15 @@
 ---
 this_file: src_docs/md/guide/glyphs.md
 ---
+
 # Glyphs compatibility
+
+
+The numerical ordinary-artifact results below identify their retained predecessor
+checkpoint. The [current manager/profile guide](glyport-managers.md) documents
+the H source changes. Earlier source assumptions are corrected below; original
+preimages remain in verification evidence. Old receipts do not qualify the new
+ordinary tuple or native behavior.
 
 [Glyport](../packages/glyport.md) runs Glyphs scripts and plugins inside FontLab
 9. Each run gets the `GlyphsApp` module a Glyphs script expects: `Glyphs`, the GS*
@@ -67,8 +75,10 @@ limits are documented separately from running an original script in FontLab.
 The [legacy Unicode and ROS guide](glyport-metadata.md) distinguishes primary
 from legacy encodings, canonical aliases, active-font isolation and independent
 read-only snapshots. It also explains the exact ROS text boundary and explicit
-refusal before writes when a proprietary mapping is required. Full ROS mapping,
-custom managers and native workflow qualification remain open.
+refusal before writes when a proprietary mapping is required. Full ROS mapping
+and native workflow qualification remain open. Selected-manager and qualified
+custom-file capabilities are covered in the [manager/profile guide](glyport-managers.md);
+complete local initialization, reload and private resources remain separate.
 
 ## Global Unicode metadata
 

@@ -1,7 +1,15 @@
 ---
 this_file: src_docs/md/guide/glyport-production.md
 ---
+
 # Stored production names in Glyph Info
+
+
+The numerical ordinary-artifact results below identify their retained predecessor
+checkpoint. The [current manager/profile guide](glyport-managers.md) documents
+the H source changes. Earlier source assumptions are corrected below; original
+preimages remain in verification evidence. Old receipts do not qualify the new
+ordinary tuple or native behavior.
 
 Read `GSGlyphInfo.productionName` when you need the stored production metadata of
 an identified record. Keep `None`, empty text and explicit text distinct. An

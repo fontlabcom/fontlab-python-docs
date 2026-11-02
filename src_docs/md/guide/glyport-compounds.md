@@ -1,7 +1,15 @@
 ---
 this_file: src_docs/md/guide/glyport-compounds.md
 ---
+
 # Compound Glyph Info without losing record state
+
+
+The numerical ordinary-artifact results below identify their retained predecessor
+checkpoint. The [current manager/profile guide](glyport-managers.md) documents
+the H source changes. Earlier source assumptions are corrected below; original
+preimages remain in verification evidence. Old receipts do not qualify the new
+ordinary tuple or native behavior.
 
 Use `Glyphs.glyphInfoForName` to inspect a multi-code spelling such as
 `uni00660069`. Read the resulting name, stored production and components together;
@@ -114,7 +122,9 @@ with owned_glyphs(two_letters()) as exports:
 ## Let an exact whole-name record win
 
 Do not infer a compound from spelling alone. An exact represented name wins
-before decoding and does not fill the unused A/B records.
+before decoding and does not fill the unused A/B records. The public row does
+not establish a physical recipe, so reading `components` refuses explicitly
+instead of inventing an empty list.
 
 <!-- example: glyport-compound-exact-precedence -->
 ```python
@@ -124,7 +134,14 @@ rows = two_letters() + [{
 with owned_glyphs(rows) as exports:
     app = exports.Glyphs
     info = app.glyphInfoForName("uni00410042")
-    assert (info.productionName, info.category, info.components) == ("OwnedWinner", "Mark", [])
+    assert (info.productionName, info.category) == ("OwnedWinner", "Mark")
+    from fontlab_glyport.errors import UnsupportedCapability
+    try:
+        _ = info.components
+    except UnsupportedCapability as error:
+        assert error.capability == "GSGlyphInfo.components.source"
+    else:
+        raise AssertionError("This public row does not establish a physical recipe")
     assert app.glyphInfoForUnicode("0041").productionName is None
     assert app.glyphInfoForUnicode("0042").productionName is None
 ```

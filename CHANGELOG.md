@@ -2,6 +2,27 @@
 this_file: CHANGELOG.md
 ---
 
+## Parent-aware manager/profile authored companion — 2026-11-02
+
+Added a linked practical guide for selected managers, six stored overlays,
+groupIdx/direction, raw/copy/frozen distinctions, exact complete Glyphs2/3/4
+wrappers through both providers, and bounded custom parsing/finalization/discovery.
+Corrected stale missing-manager/localData/NFD and independent-view prose.
+
+All 75 current selected examples pass actual H source exports. Seventeen earlier
+examples receive visible source-qualified fixtures or corrected source oracles;
+exact originals remain externally pinned, and all 63 original G controls pass.
+The 12 new examples all fail meaningfully against G. All other 53 original tag
+bodies, including seven held native/UI controls, remain unchanged.
+
+Static audit compiles 134 Python blocks, resolves 76 local links and verifies
+233 unrelated payloads, 7,228 sparse paths and unchanged lock/generated/archive
+state. Fresh full docs source suite: 369 passed, one inherited D29 skip, exit 0.
+WORK.md records the restored historical AST context, failed attempts and evidence.
+No dependencies/runtime modules or existing tests/skips/thresholds changed.
+Ordinary tuple/consumers, complete local/resources/original/native workflows,
+generated/reference/site/browser and publication remain separate gates.
+
 ## Stored-description guide and source verification — 2026-11-02
 
 Added seven owned actual-export examples for exact nullable descriptions,

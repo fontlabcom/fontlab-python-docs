@@ -3,17 +3,25 @@ this_file: src_docs/md/guide/glyport-unicode.md
 ---
 # Global Unicode Glyph Info
 
-Use `Glyphs.glyphInfoForUnicode(String, font=None)` to read global metadata for
-an encoding. The current private candidate returns the public, read-only
-`GSGlyphInfo` snapshot or `None`; it never reads the active font. Its maintained
+Use `Glyphs.glyphInfoForUnicode(string_or_int, font=None)` in the default Glyphs4
+profile. Glyphs2/3 use `String` instead. The current private candidate returns
+the selected manager's read-only `GSGlyphInfo` view or `None`; omitting font
+selects shared metadata without reading the active font. Its maintained
 GlyphData index includes primary and legacy encodings. The returned record keeps
 those fields separate; lookup does not assign either encoding to a glyph or run
 font-local postprocessing.
 
-These eight self-contained examples use owned offline application fixtures.
+The [manager/profile guide](glyport-managers.md) supplies current runnable
+replacements. The examples below now select their intended profiles explicitly, use real
+font-manager delegation and distinguish unknown public recipes from finalized
+owned recipes. Run its [owned graph setup](glyport-managers.md#prepare-an-owned-graph)
+first for the `owned_application` and `owned_parsed_manager` fixtures. Original
+predecessor bodies remain preserved in external verification evidence.
+
+These eight examples use owned offline application fixtures and the linked setup.
 They import actual package exports without activating a synthetic `GlyphsApp`
-module, opening FontLab or executing an original script. All 24 retained examples
-and 11 new [production examples](glyport-production.md) pass in both fresh ordinary
+module, opening FontLab or executing an original script. At the earlier named checkpoint, all 24 retained examples
+and 11 then-new [production examples](glyport-production.md) passed in both ordinary
 six-wheel prefixes, with installed module origins checked and all 702 runtime/data
 files matching byte for byte. Echopy producer
 provenance matches the corrected Glyport source; exact artifact identities and
@@ -22,21 +30,32 @@ These offline checks do not qualify a published release or native workflow.
 
 ## Call the executable keyword
 
-The Python argument is `String`, with a capital S. The upstream human-readable
-label `Unicode` is not a keyword alias. Missing/unknown/duplicate arguments fail
-at Python binding before any lookup. Direct indexed records retain their database
-metadata, including supported canonical NFD components. Components are independent
-`GSGlyphInfo` snapshots; editing the returned list does not edit the snapshot.
+Glyphs2/3 bind `String`, with a capital S; Glyphs4 binds `string_or_int`.
+The human-readable label `Unicode` is not a keyword alias. Missing/unknown/
+duplicate arguments fail at Python binding before lookup. Current indexed records
+retain canonical record views. Public NFD does not establish a physical metadata
+recipe; an unknown `components` source now refuses instead of publishing NFD as
+that recipe. The example checks that public refusal, then verifies a known owned recipe.
 
 <!-- example: glyport-unicode-keyword-snapshot -->
 ```python
+from fontlab_glyport.errors import UnsupportedCapability
 from types import SimpleNamespace
 from fontlab_glyport.glyphsapp import GSApplication, GSGlyphInfo
 
-app = GSApplication(SimpleNamespace(font=None), object(), {}, None, lambda *args: None)
+app = owned_application("glyphs3", SimpleNamespace(font=None))
 assert app.glyphInfoForUnicode(String="004a", font=None).name == "J"
 info = app.glyphInfoForUnicode("00C1")
 assert isinstance(info, GSGlyphInfo) and info.name == "Aacute"
+try:
+    _ = info.components
+except UnsupportedCapability as error:
+    assert error.capability == "GSGlyphInfo.components.source"
+else:
+    raise AssertionError("Public NFD does not establish a physical recipe")
+manager = owned_parsed_manager()
+manager.updateComponentsInfos()
+info = manager.infoFromDataForUnicode_("00C1")
 assert [part.name for part in info.components] == ["A", "acutecomb"]
 assert all(isinstance(part, GSGlyphInfo) for part in info.components)
 info.components.clear()
@@ -49,18 +68,17 @@ else:
     raise AssertionError("Unicode is not the executable keyword")
 ```
 
-Components describe the supported maintained canonical decomposition. They are
-not native shapes or a complete database of custom Glyphs construction recipes.
-This is the same exported snapshot class used by the global name factory.
+Current known component records are shallow references in independent returned
+lists. [Explicit custom finalization](glyport-managers.md#finalize-the-selected-graph-explicitly)
+shows an established recipe without inferring one from an encoding or outline.
 
 ## Preserve integer formatting
 
-The wrapper first tests `isinstance(String, int)` and applies exactly
-`"%04X" % String`. This includes bool and int subclasses. Four is a minimum
-width: it neither truncates large values nor validates scalar range. Negative
-values keep a minus sign. Floats and objects with only `__index__` are not integers
-for this dispatch. Replacing percent formatting with `int()`, an f-string or
-`format()` changes observable subclass behaviour.
+Glyphs3 tests `isinstance(String, int)` and applies exactly `"%04X" % String`;
+Glyphs2 uses an exact-int test. Glyphs4 uses `isinstance` and f-string `04X`
+formatting, including subclass `__format__`. Four is a minimum width and does
+not validate scalar range. The example selects the real Glyphs3 profile to retain its percent-formatting
+assertions. The new guide also exercises Glyphs2 and Glyphs4.
 
 <!-- example: glyport-unicode-integer-format -->
 ```python
@@ -73,7 +91,7 @@ class OwnedInt(int):
     def __format__(self, specification):
         raise AssertionError("Preserve percent formatting")
 
-app = GSApplication(SimpleNamespace(font=None), object(), {}, None, lambda *args: None)
+app = owned_application("glyphs3", SimpleNamespace(font=None))
 for value, spelling in [(65, "0041"), (OwnedInt(65), "0041"),
                         (True, "0001"), (False, "0000"), (-1, "-001")]:
     actual = app.glyphInfoForUnicode(value)
@@ -84,14 +102,16 @@ assert app.glyphInfoForUnicode(-1).name == "uni-001"
 assert app.glyphInfoForUnicode(0x10FFFF) is None
 ```
 
-## Integer name lookup discards the font first
+<a id="integer-name-lookup-discards-the-font-first"></a>
 
-`glyphInfoForName(name, font=None)` has an early integer branch:
-`return self.glyphInfoForUnicode(name)`. It passes the original integer to the
-instance method, with no font argument. That preserves instance/subclass method
-overrides and discards even an invalid explicit font before the name method’s
-local-manager guard. A name string follows the existing name lookup and refuses
-an explicit non-None font with `Glyphs.glyphInfoForName.localData`.
+## Glyphs2/3 integer name lookup discards the font first
+
+Glyphs2/3 integer Name dispatch calls the instance Unicode method without a font
+keyword. Glyphs4 passes `font=font`, including None, through the instance method.
+An explicit-font string Name query selects that font's manager in all three
+profiles. The former unconditional `.localData` refusal is superseded; a selected
+manager's actual result/error now propagates. The explicit Glyphs3 example below retains its integer/override contract while
+checking real string-name font delegation and its access-error propagation.
 
 <!-- example: glyport-unicode-name-dispatch -->
 ```python
@@ -104,18 +124,21 @@ class UnreadableFont:
         raise AssertionError("Global lookup must not read the active font")
 
 active = UnreadableFont()
-app = GSApplication(SimpleNamespace(font=active), object(), {}, None, lambda *args: None)
+app = owned_application("glyphs3", SimpleNamespace(font=active))
 assert app.glyphInfoForName(65, font=active).name == "A"
 assert app.glyphInfoForUnicode("0041", font=None).name == "A"
+local = owned_parsed_manager()
+explicit = SimpleNamespace(glyphsInfo=lambda: local)
+assert app.glyphInfoForName("A", font=explicit) is local.glyphInfoForName_("A")
 try:
     app.glyphInfoForName("A", font=active)
-except UnsupportedCapability as error:
-    assert error.capability == "Glyphs.glyphInfoForName.localData"
+except AssertionError as error:
+    assert str(error) == "Global lookup must not read the active font"
 else:
-    raise AssertionError("Explicit local name data must refuse")
+    raise AssertionError("Explicit font access errors must propagate")
 
 calls = []
-class OwnedApplication(GSApplication):
+class OwnedApplication(type(app)):
     def glyphInfoForUnicode(self, *args, **kwargs):
         calls.append((args, kwargs))
         return "owned override"
@@ -131,14 +154,13 @@ A result of `None` does not trigger a search of `font.glyphs`.
 
 ## Respect refusal precedence
 
-On the Unicode method, integer formatting occurs first. Every explicit non-None
-font then refuses with `Glyphs.glyphInfoForUnicode.localData`, before payload
-type, nil, length or malformed-UTF16 checks. Even `font=False` requests this
-unsupported boundary; truthiness is not the test. With no explicit font, built-in
-strings and None are supported after integer dispatch. Other bridge values,
-including string subclasses, refuse with `.inputType` without string/index
-coercion. These are deliberate package boundaries, not promises about PyObjC’s
-exception type for the same objects.
+Integer formatting occurs before selecting an explicit font manager. Only None
+selects shared; a false-valued font still receives `glyphsInfo()`. There is no
+unconditional `.localData` refusal. A malformed object used as a font can fail
+at its own method access. With the default manager, built-in strings and None
+remain supported after profile-specific integer dispatch; unqualified bridge
+payload types retain `.inputType` refusal. The example exercises conversion and selected-manager identity before default
+manager payload checks; it does not manufacture a blanket local-data refusal.
 
 <!-- example: glyport-unicode-error-order -->
 ```python
@@ -156,13 +178,26 @@ class OwnedString(str):
     pass
 
 app = GSApplication(SimpleNamespace(font=None), object(), {}, None, lambda *args: None)
+class Recorder:
+    def glyphInfoForUnicode_(self, value):
+        return value
+class ExplicitFont:
+    def glyphsInfo(self):
+        return Recorder()
+    def __bool__(self):
+        return False
 for value in (None, [], 65, True, "", "\ud80000"):
-    try:
-        app.glyphInfoForUnicode(value, font=False)
-    except UnsupportedCapability as error:
-        assert error.capability == "Glyphs.glyphInfoForUnicode.localData"
+    actual = app.glyphInfoForUnicode(value, font=ExplicitFont())
+    if isinstance(value, int):
+        assert actual == f"{value:04X}"
     else:
-        raise AssertionError("Local-data refusal must precede payload checks")
+        assert actual is value
+try:
+    app.glyphInfoForUnicode("0041", font=False)
+except AttributeError as error:
+    assert "glyphsInfo" in str(error)
+else:
+    raise AssertionError("False is an explicit font object, not omitted font")
 for value in (65.0, b"0041", [], NoCoercion(), OwnedString("0041")):
     try:
         app.glyphInfoForUnicode(value)
@@ -214,7 +249,7 @@ for text, name, primary, legacy in [
     assert (info.name, info.unicode, info.unicodeLegacy) == (name, primary, legacy)
     named = app.glyphInfoForName(name)
     assert (named.name, named.unicode, named.unicodeLegacy) == (name, primary, legacy)
-    assert info is not named  # Independent snapshots of the same stored record.
+    assert info is named  # Canonical views of the same selected raw record.
 assert app.glyphInfoForUnicode("fe8d").name == "alef-ar.isol"
 assert app.glyphInfoForUnicode("U+0041") is None
 assert app.glyphInfoForUnicode("0x41") is None

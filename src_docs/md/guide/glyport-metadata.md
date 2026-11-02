@@ -1,7 +1,17 @@
 ---
 this_file: src_docs/md/guide/glyport-metadata.md
 ---
+
 # Legacy Unicode snapshots and ROS metadata
+
+
+The numerical ordinary-artifact results below identify their retained predecessor
+checkpoint. The [current manager/profile guide](glyport-managers.md) documents
+the H source changes. Earlier source assumptions are corrected below; original
+preimages remain in verification evidence. Old receipts do not qualify the new
+ordinary tuple or native behavior. Run the [owned graph setup](glyport-managers.md#prepare-an-owned-graph)
+first for examples using `owned_parsed_manager`; those examples explicitly select
+actual parsed owned data before a metadata refresh or rename.
 
 Glyport's current private candidate exposes `GSGlyphInfo.unicodeLegacy` as a
 separate metadata field. Reading a legacy encoding does not make it the primary
@@ -74,15 +84,13 @@ miss and remaining input boundaries.
 
 ## Global lookup ignores active-font data
 
-Omitting `font`, passing positional `None` or using `font=None` always selects
-global data. Active-font glyphs, custom parameters and stored overrides are not
-read. For name strings, an explicit non-`None` font raises
-`Glyphs.glyphInfoForName.localData`; font-local GlyphData remains unsupported.
-Integer name inputs instead dispatch to `glyphInfoForUnicode` before that guard,
-discarding the font argument and preserving instance-method overrides. Direct
-Unicode calls refuse an explicit non-None font with
-`Glyphs.glyphInfoForUnicode.localData` before payload checks; see the linked
-[dispatch and refusal examples](glyport-unicode.md).
+Omitting `font`, passing positional `None` or using `font=None` selects shared
+data without reading the active font. An explicit font now selects that font's
+manager; the earlier unconditional `.localData` refusal is superseded. Integer
+Name dispatch discards font only in Glyphs2/3; Glyphs4 forwards it through the
+instance Unicode method. See the current [manager/profile examples](glyport-managers.md).
+The fixture below preserves active-font isolation while explicitly checking
+selected-manager delegation and propagation of an invalid font's access error.
 
 <!-- example: glyport-legacy-active-isolation -->
 ```python
@@ -99,12 +107,15 @@ app = GSApplication(SimpleNamespace(font=active), object(), {}, None, lambda *ar
 assert app.glyphInfoForName("alef-ar.isol").unicodeLegacy == "FE8D"
 assert app.glyphInfoForName("alef-ar.isol", None).unicodeLegacy == "FE8D"
 assert app.glyphInfoForName("alef-ar.isol", font=None).unicodeLegacy == "FE8D"
+local = owned_parsed_manager()
+explicit = SimpleNamespace(glyphsInfo=lambda: local)
+assert app.glyphInfoForName("alef-ar.isol", font=explicit) is local.glyphInfoForName_("alef-ar.isol")
 try:
     app.glyphInfoForName("alef-ar.isol", font=active)
-except UnsupportedCapability as error:
-    assert error.capability == "Glyphs.glyphInfoForName.localData"
+except AssertionError as error:
+    assert str(error) == "Global lookup must not read an active font"
 else:
-    raise AssertionError("Explicit font-local lookup must refuse")
+    raise AssertionError("An explicitly selected invalid font must expose its access failure")
 ```
 
 ## Snapshot raw values without normalizing them
@@ -168,7 +179,8 @@ snapshot = GSGlyphInfo(glyph)
 assert (snapshot.name, snapshot.unicode, snapshot.unicodeLegacy) == (
     "alef-ar.isol", None, "FE8D")
 assert glyph.unicodes == []
-glyph.name = "alef-ar.isol.owned"
+with owned_parsed_manager()._scope():
+    glyph.name = "alef-ar.isol.owned"
 assert GSGlyphInfo(glyph).unicodeLegacy is None
 assert snapshot.unicodeLegacy == "FE8D"
 
@@ -249,6 +261,7 @@ for value in (None, "", "Adobe-Japan1", "Adobe-Japan1-7-extra", "Adobe,Japan1,7"
               "Adobe,  Japan1, 7", " Adobe-Japan1-7", "adobe-Japan1-7",
               "Adobe-Unknown-7", "Adobe, Japan1, 7-extra-more"):
     font = Model(FakeBackend()).font
+    font.parent._local_glyph_info = owned_parsed_manager()
     glyph = font.glyphs["A"]
     font.customParameters["ROS"] = value
     glyph.updateGlyphInfo(changeName=False)
@@ -268,6 +281,8 @@ from fontlab_glyport.model import GSCustomParameter, Model
 from fontlab_glyport.model.fake_backend import FakeBackend
 
 font = Model(FakeBackend()).font
+
+font.parent._local_glyph_info = owned_parsed_manager()
 glyph = font.glyphs["A"]
 first = GSCustomParameter("ROS", "Adobe-Unknown-7")
 font.customParameters.extend([first, GSCustomParameter("ROS", "Adobe-Japan1-7")])
@@ -282,6 +297,8 @@ else:
     raise AssertionError("The now-selected map request must refuse")
 
 other = Model(FakeBackend()).font
+
+other.parent._local_glyph_info = owned_parsed_manager()
 other.customParameters["ROS"] = False
 try:
     other.glyphs["A"].updateGlyphInfo(changeName=False)
@@ -293,7 +310,7 @@ else:
 
 ## Acceptance boundaries
 
-These owned paths do not qualify full lawful ROS mapping, custom managers,
+These owned paths do not qualify full lawful ROS mapping, complete local initialization,
 native name collisions, complete suffix synthesis, Undo/Redo, saved/reopened
 fonts or original callers. Metadata early returns can bypass these stages;
 the guard is not a global validator for every font with a ROS parameter.

@@ -8,9 +8,11 @@ description. A name, encoding or compound spelling does not authorize inventing
 that text from Python's Unicode database.
 
 The current source candidate preserves the selected public record's description
-through lookup and copy stages. Its new matching artifacts and ordinary consumers
-remain pending. The public dataset is a versioned subset, with separate native,
-proprietary-data and original-workflow limits.
+through lookup and copy stages. The [manager guide](glyport-managers.md) adds
+parent/document/shared selection, canonical views and exact wrapper profiles.
+Matching companion artifacts and ordinary consumers remain a separate gate.
+The public dataset is a versioned subset, with separate native, proprietary-data
+and original-workflow limits.
 
 ## Prepare owned records
 
@@ -116,9 +118,10 @@ with owned_glyphs(described_letters()) as exports:
 
 ## Exercise the existing model snapshot constructor
 
-This uses the exported `GSGlyphInfo(glyph)` constructor. The original
-`glyph.glyphInfo` property delegates through its parent's manager; that missing
-parent-aware entry path remains a separate requirement.
+This uses the exported `GSGlyphInfo(glyph)` frozen constructor. The current
+`glyph.glyphInfo` property instead delegates through its parent's manager;
+the [attached-glyph example](glyport-managers.md#follow-document-ownership-and-retain-old-views)
+exercises that implemented entry path. A detached glyph's property refuses.
 
 <!-- example: glyport-description-model-snapshot -->
 ```python

@@ -540,8 +540,10 @@ new nonidentifier declarations require reviewed generation from the capture.
 
 ## Source-derived compound metadata
 
-The GlyphsApp sidecar re-exports Glyport's actual `GSApplication` and
-`GSGlyphInfo` classes. The [compound guide](../guide/glyport-compounds.md) shows
+The earlier GlyphsApp sidecar re-exported Glyport's `GSApplication` and
+`GSGlyphInfo` classes. The current profile-aware producer declares the selected
+application type and re-exports `GSGlyphInfo` and `GSGlyphsInfo`; use the generated
+declarations from the existing producer CLI. The [compound guide](../guide/glyport-compounds.md) shows
 nine owned checks for their raw/shared/copy/nested/positional behavior. These
 are provider semantics, separate from Echopy's native FontLab declarations.
 
@@ -559,13 +561,17 @@ proprietary data completeness or every Glyphs version.
 The [description guide](../guide/glyport-descriptions.md) exercises the actual
 re-exported class and `desc` property through owned sessions. The description
 successor adds 14 export checks: they fail against the earlier compound producer
-while its 15 compound controls still pass. All 399 current Echopy source tests pass.
+while its 15 compound controls still pass. At that checkpoint, all 399 Echopy source tests passed.
 Regeneration changes only the GlyphsApp producer fingerprint/capture digest;
 exported entries, facade/sidecar bytes and protected native/legacy data stay exact.
 
-Fresh matching committed archives and ordinary consumers remain pending. This
-does not implement the original parent-aware glyph-info manager, complete original
-HTML workflow or native FontLab/Glyphs behavior. Those remain separate requirements.
+The H producer implements the selected parent/document/shared manager and exact
+Glyphs2/3/4 application contracts. The [manager guide](../guide/glyport-managers.md)
+adds actual-export controls for those routes and the bounded custom file/index/
+finalizer/discovery capability. Complete local initialization/reload/private
+resources, matching companion ordinary consumers, the full original HTML workflow
+and native FontLab/Glyphs behavior retain separate qualification. The 399-test
+description result above identifies its earlier source checkpoint.
 
 ## Verification boundaries
 

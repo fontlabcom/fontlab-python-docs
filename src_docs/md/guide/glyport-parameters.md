@@ -1,7 +1,17 @@
 ---
 this_file: src_docs/md/guide/glyport-parameters.md
 ---
+
 # Ordered parameters and Arabic presentation forms
+
+
+The numerical ordinary-artifact results below identify their retained predecessor
+checkpoint. The [current manager/profile guide](glyport-managers.md) documents
+the H source changes. Earlier source assumptions are corrected below; original
+preimages remain in verification evidence. Old receipts do not qualify the new
+ordinary tuple or native behavior. Run the [owned graph setup](glyport-managers.md#prepare-an-owned-graph)
+first for examples using `owned_parsed_manager`; those examples explicitly select
+actual parsed owned data before a metadata refresh or rename.
 
 Glyport's private candidate now preserves parameter order, duplicate names,
 active flags and live parameter objects. Its Arabic presentation stage can append
@@ -180,6 +190,7 @@ from fontlab_glyport.model.fake_backend import FakeBackend
 
 KEY = "Use Arabic Presentation Form Unicodes"
 font = Model(FakeBackend()).font
+font.parent._local_glyph_info = owned_parsed_manager()
 glyph = font.glyphs.append(GSGlyph("alef-ar"))
 font.masters[0].customParameters[KEY] = True
 glyph.updateGlyphInfo(changeName=False)
@@ -219,7 +230,8 @@ before presentation and metadata writes because their mapping data is unavailabl
 Malformed/unknown text leaves this stage unchanged under the audited shared-bundle
 contract. See the [legacy and ROS guide](glyport-metadata.md) for exact delimiters,
 supplement handling, nontext refusal and owned no-write examples. Full ROS mapping,
-custom managers and complete suffix synthesis remain outside this qualified path.
+complete local initialization/private resources and unqualified suffix routes
+remain outside this bounded example matrix.
 
 A stored Latin script does not suppress presentation on an Arabic resolved
 record; the overlay runs later. Conversely, storing Arabic script on a Latin
@@ -232,6 +244,7 @@ from fontlab_glyport.model.fake_backend import FakeBackend
 
 KEY = "Use Arabic Presentation Form Unicodes"
 font = Model(FakeBackend()).font
+font.parent._local_glyph_info = owned_parsed_manager()
 alias = font.glyphs.append(GSGlyph("OwnedArabicAlias"))
 alias.unicode = "0627"
 alias.storeScript = True
@@ -254,6 +267,7 @@ from fontlab_glyport.model.fake_backend import FakeBackend
 
 KEY = "Use Arabic Presentation Form Unicodes"
 font = Model(FakeBackend()).font
+font.parent._local_glyph_info = owned_parsed_manager()
 glyph = font.glyphs.append(GSGlyph("alef-ar"))
 glyph.storeScript = True
 glyph.script = "latin"
