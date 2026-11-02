@@ -2,6 +2,29 @@
 this_file: CHANGELOG.md
 ---
 
+## Stored-description guide and source verification — 2026-11-02
+
+Added seven owned actual-export examples for exact nullable descriptions,
+name/alias/Unicode routes, selected compound seeds, copies, model snapshots and
+unknown-source refusal. Navigation, package pages and the compound guide link
+this guidance with explicit source/artifact/parent-aware/native boundaries.
+
+All 63 selected Glyport examples pass: 56 prior + seven new. Against the unchanged
+prior compound source, all 56 earlier controls pass and all seven new examples
+fail meaningfully. All 63 pre-existing tagged examples remain byte-identical,
+including seven held native/UI controls. Audit: 89 Python blocks compile, 26 local
+links resolve, 238 unrelated payloads and 7,228 absent sparse paths are preserved,
+as are the source lock and held archive/reference trees. Nine inherited generated
+reference links remain explicitly held under D29. Navigation/privacy checks pass.
+
+Fresh full docs source: 369 passed / one existing D29 inventory skip, 123.57 s.
+An earlier attempt retains 368 passes / one fixture ENOSPC failure / that skip;
+the complete unchanged suite passes after verified recovery of closed own scratch.
+No test or budget assertion was weakened. No dependencies/runtime code changed.
+Matching provider artifacts, ordinary consumers, native/original workflows,
+generated references/site, accessibility and publication remain separate gates.
+
+
 ## Compound Glyph Info guide and source verification — 2026-11-02
 
 Added a practical compound guide with nine owned examples through the actual

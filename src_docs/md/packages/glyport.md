@@ -681,3 +681,17 @@ provenance is regenerated and all 385 source tests pass with actual siblings.
 The refreshed ordinary provider/consumer/example tuple is still pending. Existing
 proprietary recipes/optional fields and full custom/local/resource/version/native
 workflows remain open; declaration currency does not close those gates.
+
+## Stored descriptions
+
+The [description guide](../guide/glyport-descriptions.md) adds seven owned examples
+for exact nullable text, alias/Unicode lookup, selected compound seeds, copies,
+model snapshots and unknown-source refusal. The source successor passes 6,060
+tests and 146,378 public-input comparisons; it adds `GSGlyphInfo.desc` without
+Unicode-name synthesis or private data. Matching Echopy source provenance is
+regenerated and all 399 source tests pass with actual siblings.
+
+The new matching archives and complete ordinary installed tuple remain pending.
+The parent-aware `GSGlyph.glyphInfo` / `GSGlyphsInfo` entry is still required;
+description-reader checks do not qualify the complete original HTML tool or
+native FontLab behavior. Existing artifact receipts above retain their own scope.

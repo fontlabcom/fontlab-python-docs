@@ -197,4 +197,4 @@ provider/consumer cohort and native FontLab histories, saved/reopened results,
 UI/cache/lifetime preservation and original workflows. Generated references,
 source-lock refresh, rendered pages, browser accessibility and publication remain
 held under D29/D30. See [stored production](glyport-production.md),
-[global Unicode](glyport-unicode.md) and the [Glyport package](../packages/glyport.md).
+[descriptions](glyport-descriptions.md), [global Unicode](glyport-unicode.md) and the [Glyport package](../packages/glyport.md).

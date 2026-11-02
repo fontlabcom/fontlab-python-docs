@@ -51,3 +51,5 @@ this_file: TODO.md
 
 
 - [ ] Qualify new genuine Echo/docs/provider artifacts and complete normal installed consumers/examples before native/publication acceptance.
+
+- [ ] Qualify genuine matching provider artifacts and the full normal installed provider/consumer/example tuple; source acceptance is separate.

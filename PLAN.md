@@ -141,3 +141,22 @@ installed provider/consumer tuple using genuine matching committed archives.
 The seven held native/UI examples, generated references/source lock/site build,
 archive/routes, browser/accessibility, native workflows and publication retain
 their existing gates. D16/D29/D30/D31/D35 and the full original goal remain open.
+
+## Description companion source successor — 2026-11-02
+
+New isolated issue-123-description-shims-20261102inherits the reviewed clean
+compound source delivery, with all172Echo/246docs materialized payloads/modes and
+7228docs sparse paths verified. Refresh only through the existing Echopy CLI
+against actual Glyport597f4ec/App/Aidus siblings. Add actual session description
+checks and central owned examples; preserve all existing63tagged example bytes,
+source lock/held archive/reference trees and every unrelated source payload.
+Read-only qualified interpreters only, no install/sync. Source, genuine archives,
+full ordinary consumers and native acceptance remain distinct. D16/D29/D30/D31/
+D35apply; no canonical/live/native/source-lock/generated-site/main/publication.
+
+Description authored source is verified in CHANGELOG.md:63selected examples pass,
+all63prior tags remain exact, and full docs369/1existing D29skip pass. Next carry
+the current producers, full63example matrix and exact consumers through genuine
+committed archives and normal installed prefixes. The7native/UIexamples remain
+held; current source cannot substitute for ordinary/native/generated/site/browser/
+publication acceptance. Parent-aware manager and all original requirements remain.

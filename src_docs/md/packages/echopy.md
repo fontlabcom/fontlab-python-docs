@@ -554,6 +554,19 @@ Fresh matching Echopy artifacts and the complete ordinary installed tuple remain
 pending. A current source fingerprint does not prove native FontLab behavior,
 proprietary data completeness or every Glyphs version.
 
+## Selected-record descriptions
+
+The [description guide](../guide/glyport-descriptions.md) exercises the actual
+re-exported class and `desc` property through owned sessions. The description
+successor adds 14 export checks: they fail against the earlier compound producer
+while its 15 compound controls still pass. All 399 current Echopy source tests pass.
+Regeneration changes only the GlyphsApp producer fingerprint/capture digest;
+exported entries, facade/sidecar bytes and protected native/legacy data stay exact.
+
+Fresh matching committed archives and ordinary consumers remain pending. This
+does not implement the original parent-aware glyph-info manager, complete original
+HTML workflow or native FontLab/Glyphs behavior. Those remain separate requirements.
+
 ## Verification boundaries
 
 The offline examples can run in an ordinary Echopy installation. The two native

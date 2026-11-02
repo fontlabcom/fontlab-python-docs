@@ -1893,3 +1893,63 @@ Wait, but: these source/authored checks do not qualify new ordinary artifacts,
 private recipes/fields, all custom/local/resource/version paths, native histories,
 rendered references, routes/archive, accessibility or publication. All remain
 open. No generated site, source lock, live install, canonical or main changed.
+
+## Description companion source successor — 2026-11-02
+
+New isolated issue-123-description-shims-20261102inherits the reviewed clean
+compound source delivery, with all172Echo/246docs materialized payloads/modes and
+7228docs sparse paths verified. Refresh only through the existing Echopy CLI
+against actual Glyport597f4ec/App/Aidus siblings. Add actual session description
+checks and central owned examples; preserve all existing63tagged example bytes,
+source lock/held archive/reference trees and every unrelated source payload.
+Read-only qualified interpreters only, no install/sync. Source, genuine archives,
+full ordinary consumers and native acceptance remain distinct. D16/D29/D30/D31/
+D35apply; no canonical/live/native/source-lock/generated-site/main/publication.
+
+## Description authored source verified — 2026-11-02
+
+All63selected actual-export examples pass(56prior+7new), with explicit current GP/
+Echo source origins. Unchanged prior compound GPsource passes56earlier controls
+and fails7new examples. Both counterfactual/positive checks use source origins;
+neither is labelled a new installed artifact. No original corpus code is executed.
+All63old tagged bytes remain exact, including7held native/UIexamples. Static audit
+compiles89Python blocks, checks26local links, preserves238unrelated payloads,
+7228Sentries/absence, exact source lock and held archive/reference trees. Nine
+inherited generated-reference targets remain unverified under D29; all new links
+resolve. Navigation YAML and privacy checks pass. All70current tags are retained.
+
+First full docs:368pass/1fixture ENOSPCfailure/1D29inventoryskip,122.69s. The unchanged
+negative fixture needs5MiB; do not reduce it. Complete retry only after measured
+headroom recovery:369pass/1same D29skip,123.57s, exit0. Qualified existing Python3.12
+borrowed read-only; no installs/sync or environment writes. Failed logs/command/
+fixture remain. Full tests build only owned synthetic fixture sites.
+
+Exact expanded argv/cwd/exits: ../echo-docs/docs-full{-retry,}-command.json and
+../echo-docs/example-commands.json. Commands from this worktree with rtk proxy:
+- /opt/homebrew/bin/python3 -B ../echo-docs/audit_docs.py (exit0)
+- ../../production-checkpoint-20261102/docs-test-env/bin/python -I -B ../echo-docs/run_docs.py -q -rs --maxfail=1 tests -o tmp_path_retention_policy=failed --basetemp ../tmp/docs-description-retry/tests (exit0)
+- ../../committed-cohort-20261102/wheel-env/bin/python -I -B ../echo-docs/run_guide_examples.py --mode source --prefix ../../committed-cohort-20261102/wheel-env --output ../echo-docs/source-examples.json --scratch ../tmp/guide-source (exit0)
+- /opt/homebrew/bin/git --no-optional-locks diff --check (exit0)
+The prior-source command uses --mode prior-source with separately pinned output/
+scratch. Result JSON pins every block hash and actual loaded project origin.
+
+Preparation copied172Echo/246docs source files with independent inodes and preserved
+7228sparse flags. New docs worktree cone mode was corrected from initialtrue to
+sourcefalse before edits; exact index flags/rules remained unchanged. Parents and
+canonical source trees were not changed.
+
+Closed completed prior push EPS trees preserve832entries/828files in private Git
+recovery refs before reclaim, gaining3665920bytes. Four additional older closed own
+TMPtrees preserve3276entries/408files with precise full metadata and content before
+reclaim, gaining2461696bytes. Drivers name exact TMPDIR and42terminal artifact
+commands exit0; fresh lsof confirms closure, ACL/xattrs absent, flags0. Actual
+runtime caches, source/env/archive/receipts/sealed evidence excluded. No alternate
+volume/native call. Recovery refs and receipts: ../echo-docs/{push-eps-recovery,
+second-temp-attribution,second-temp-recovery}.json and root WORK.md. Never rerun
+an applied recovery. Failed attempts remain distinct from the successful retry.
+
+Wait, but: these source/authored checks do not qualify matching new archives,
+ordinary providers/consumers, private metadata completeness, parent-aware glyph
+manager, complete original/native histories, rendered references, routes/archive,
+accessibility or publication. D16/D29/D30/D31/D35remain; no live install, canonical/
+main promotion, source lock, native request or generated publication action.
