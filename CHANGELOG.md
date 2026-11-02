@@ -2,6 +2,26 @@
 this_file: CHANGELOG.md
 ---
 
+## Original node-action guide verified — 2026-11-02
+
+New161line original-node-actions.md explains three distinct Scriptmix actions,
+genuine App.dev333 and the guarded entry point. Four independent experiments
+execute actual App planning with fresh visible setup. Exact source and both
+ordinary installations pass all4 without native/Qt/font/document access.
+Both ordinary tuples also pass7485App/4496Scriptmix(+1oldskip)/600Echo checks.
+
+Normal Docs gate369pass/1existing D29built-inventory skip; zero changed production
+modules, no coverage claim. Command: rtk proxy /bin/sh .metaswarm/quality.sh
+coverage <this-checkout> fontlab-python-docs, exit0. Exact argv/environment/logs
+are in external original-workflows-20261102/docs-normal-quality.
+
+The direct protection review verifies7474protected file bodies and7480inherited
+modes against X, all215old Python fences/159setup-example tags exact. Five new
+blocks compile and new local links resolve. README is198lines after whitespace-
+only reflow. Source/installed origins, snippet hashes and review input pins are
+retained. Native selection/copy/four-font/history/window/lifetime, D29generated/
+source-lock/site/browser/publication and complete original scope remain open.
+
 ## Namespace discovery authored companion — 2026-11-02
 
 Added linked echopy-discovery.md with five independent actual-tooling experiments:

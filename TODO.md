@@ -2,6 +2,9 @@
 this_file: TODO.md
 ---
 
+- [ ] Qualify the original-node guide in native four-font/history/window workflows, then complete its D29source-lock/generated/rendered/browser/publication gates.
+
+
 - [ ] Retain actual native capture/full completeness, source-lock/generated site, browser/archive/accessibility and publication holds.
 
 

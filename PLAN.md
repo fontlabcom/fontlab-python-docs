@@ -2,6 +2,15 @@
 this_file: PLAN.md
 ---
 
+## Remaining original-node documentation acceptance
+
+Carry the verified authored guide through real native four-font selection/copy/
+cache/lifetime/history/Undo/Redo/save-reopen and window-priority qualification.
+When D29permits, refresh reviewed source locks/generated references and complete
+strict rendered/site/browser/accessibility/archive/licence/publication gates.
+Source/ordinary guide delivery is recorded in CHANGELOG.md; no native or site
+acceptance is inferred.
+
 ## Namespace discovery authored companion — 2026-11-02
 
 Added linked echopy-discovery.md with five independent actual-tooling experiments:
