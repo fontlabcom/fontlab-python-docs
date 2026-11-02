@@ -2,6 +2,47 @@
 this_file: WORK.md
 ---
 
+## Manager state authored source companion — 2026-11-02
+
+New linked guide glyport-manager-state.md explains raw identity/nil setters,
+exact script/sidebar-category rank sources and retained caches, initDebug queue/
+group creation and actual parser adoption/failures, shared load/drain/observer
+order and retained URL/flag state, explicit dealloc/superclass dispatch, class
+placeholder-font cache/duplicates/partial failure/invalidation/current provider,
+exact observed key and error/recovery conditions/repeated reads/nil failures.
+
+25independent experiments execute the actual source algorithms against frozen
+Glyport5e04d1168b4e33823bed4940fce308637f8abadd. Three visible setups run afresh per
+body. Relevant global singleton/font-cache/once/provider identities are visibly
+scoped/restored and independently checked by the runner. Shared initialization
+uses the earlier complete invented-resource lifecycle, actual parser/sidebar/
+38281-row generation/indexes/queues, without replacing algorithm entry points.
+The primitive font tokens record operations and do not load real native fonts.
+
+Before editing, independently pinned 7,478 payloads/modes, 124 tags and 180 Python
+blocks. All 117 inherited active examples and 25 new examples pass exact U source
+(142 total); all old tags/blocks remain exact. The static audit compiles all 206
+blocks, verifies 55 local links and 7,469 protected payloads/modes, preserves the
+source lock/navigation/generated/archive state, and retains ten inherited D29
+reference links as held. Nine negative CLI cases reject source overrides before
+installed-mode imports/writes. New examples independently restore shared/font-
+cache/once/provider identities; all 219 producer/primary/report input pins match.
+
+Exact rtk proxy argv, exits, origins, setup/body hashes and receipts are in
+external manager-state-companions-20261102/docs-evidence: baseline-command.json,
+all-source-command.json and summary, static-second-command.json and cli-command.json.
+The initial static attempt lacked full baseline preimages; all 7,478 were filled
+from exact frozen T bytes after matching their before hashes. Its failed receipt
+is retained. Scoped runner Ruff/format checks pass with AST-identical formatting.
+Root owns complete normal Docs checks, ordinary prefixes/full consumers and
+commits/pushes. No unchanged full Docs suite is rerun by this lane.
+
+Wait, but: these are authored/source experiments. Actual private/default
+resources, native Foundation/CF/CG/CT/NSNumber/NSObject/once/destruction/races,
+FontLab original font workflows, D16/D29/D30/D31 and canonical/generated/source-
+lock/site/archive/browser/publication qualification remain independent. No native
+module/framework/MCP/app operation, install, capture, build, commit or push.
+
 ## Root normal and ordinary guide gates accepted — 2026-11-02
 
 Direct root review confirms908line guide/18new examples, all106old tags and160

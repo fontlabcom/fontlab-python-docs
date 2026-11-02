@@ -8,6 +8,12 @@ this_file: src_docs/md/index.md
 
 # Python, inside FontLab.
 
+The [manager state, ranks and placeholder-font experiments](guide/glyport-manager-state.md)
+show raw container identity, retained rank caches, debug/shared construction,
+observer cleanup and source-derived font/error control flow over visible owned
+primitives. Actual native fonts/defaults/resources remain separately qualified.
+
+
 Work with native font objects, control a running FontLab from another Python
 process, and build interfaces with the application's Qt runtime.
 

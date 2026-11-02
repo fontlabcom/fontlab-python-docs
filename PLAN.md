@@ -2,6 +2,18 @@
 this_file: PLAN.md
 ---
 
+## Manager state authored companion — 2026-11-02
+
+Add a linked source-derived guide for raw accessors/setters, lazy ranks,
+debug/shared construction, observation/explicit superclass cleanup, complete
+placeholder-font cache and exact recovery control flow. Every experiment uses
+fresh visible owned-graph/lifecycle/primitive setups; each relevant private
+cache/shared/once/provider identity is restored. Shared examples execute actual
+loaders/parsers/generation/queues over the prior visible invented resources.
+
+- [x] Add25independent source experiments; preserve all124inherited tags and180Python blocks. All 142 active examples pass against U; 206 blocks compile, 55 local links and 7,469 protected payloads/modes verify. Exact source/CLI/static receipts are recorded in WORK.md.
+- [ ] Root runs the normal Docs gate and both ordinary prefixes/complete consumers/all142active examples, then independently native/original and generated/publication gates. D16/D29/D30/D31 and complete resources/ABI/native behavior remain separate.
+
 # Plan
 
 ## Dynamic sidebar and document authored companion — 2026-11-02

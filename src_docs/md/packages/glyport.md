@@ -4,6 +4,12 @@ this_file: src_docs/md/packages/glyport.md
 
 # Glyport
 
+The [manager state, ranks and placeholder-font experiments](../guide/glyport-manager-state.md)
+show raw container identity, retained rank caches, debug/shared construction,
+observer cleanup and source-derived font/error control flow over visible owned
+primitives. Actual native fonts/defaults/resources remain separately qualified.
+
+
 The [sidebar and document guide](../guide/glyport-sidebar.md) explains dynamic
 tree filtering, defaults, row ownership, list expansion, count publication and
 document-selected local loading with independent executable owned experiments.

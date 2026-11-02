@@ -2,6 +2,9 @@
 this_file: TODO.md
 ---
 
+- [x] Add linked manager state/rank/debug/observer/font-cache/recovery guide with25actual-source experiments and three fresh visible setups; preserve all124old tags and180old Python blocks.
+- [ ] Root verifies normal Docs gate, both ordinary prefixes and full consumer/all142active guide examples; native/default/CF/CG/CT/NSObject/once/original workflows and D16/D29/D30/D31 remain separate.
+
 # Tasks
 
 - [x] Add linked dynamic sidebar/document guide with 18 passing independent exact-setup source experiments and all 99 inherited active examples unchanged and passing.

@@ -4,6 +4,12 @@ this_file: src_docs/md/guide/glyphs.md
 
 # Glyphs compatibility
 
+The [manager state, ranks and placeholder-font experiments](glyport-manager-state.md)
+show raw container identity, retained rank caches, debug/shared construction,
+observer cleanup and source-derived font/error control flow over visible owned
+primitives. Actual native fonts/defaults/resources remain separately qualified.
+
+
 Use [sidebar trees and document metadata](glyport-sidebar.md) to experiment with
 current visibility, row identity, resource order, delayed counts and local URL
 loading. The guide states each owned primitive and the remaining native gaps.

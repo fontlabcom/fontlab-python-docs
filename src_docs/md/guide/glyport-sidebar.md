@@ -4,6 +4,12 @@ this_file: src_docs/md/guide/glyport-sidebar.md
 
 # Understand sidebar trees and document metadata
 
+The [manager state, ranks and placeholder-font experiments](glyport-manager-state.md)
+show raw container identity, retained rank caches, debug/shared construction,
+observer cleanup and source-derived font/error control flow over visible owned
+primitives. Actual native fonts/defaults/resources remain separately qualified.
+
+
 A sidebar tree is a view of current font data, saved visibility preferences and
 filter resources. Its rows also hold mutable parent, count and scheduling state.
 These experiments show which objects survive each operation, when work actually
