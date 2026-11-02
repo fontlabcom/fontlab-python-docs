@@ -79,10 +79,21 @@ lookup, raw-spelling synthesis on a true miss, UTF16 gates, historical classific
 and explicit local-manager/bridge refusals. Global queries never read the active
 font. Index insertion follows record order, primary then legacy, with later keys
 winning; returned primary and legacy fields remain separate. The corrected guide
-and all 24 owned examples pass in the exact ordinary six-wheel cohort with
-installed origins and current Echopy producer provenance checked; all 701
+and all 35 owned examples pass in both current ordinary six-wheel prefixes with
+installed origins and current Echopy producer provenance checked; all 702
 runtime/data files match byte for byte.
 That tuple passes 4,481 Scriptmix tests with 1 existing selection-read skip and
 2,436 Examples tests without skips.
 Maintained data and these offline checks do not qualify proprietary database
 completeness or native workflows.
+
+## Stored production metadata
+
+The [production metadata guide](glyport-production.md) separates the stored
+`GSGlyphInfo.productionName` getter from helper output, shared name fills and
+independent copies. Its owned examples use the actual GlyphsApp exports in an
+offline execution context. Represented public records now pass source and both ordinary installed-artifact
+checks: all 35 authored examples, 5,697 Glyport and 370 Echopy tests per prefix,
+with 702 runtime/data files matching the six-wheel tuple. The exact consumer
+tuple passes 4,481 Scriptmix tests/one existing skip and 2,436 Examples tests. Glyph production writes, application conversion, all 1,580
+unqualified factory routes and native/original workflows remain separate.

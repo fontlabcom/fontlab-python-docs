@@ -4,6 +4,30 @@ this_file: PLAN.md
 
 # Plan
 
+## Stored production metadata authored guide
+
+Document the represented-record production contract separately from glyph export
+names and application conversion. Add owned self-contained examples for nullable,
+empty/equal/explicit stored getters; helper normalization; raw Unicode versus
+exact-name shared fill; independent copies/uni-u names; parser-order aliases;
+canonical/generic suffixes; model copy boundaries; and unknown-source refusal.
+Use actual exported GlyphsApp classes with ExecutionContext/FontLabSession and
+owned offline host data. Retain every existing example byte and all old routes.
+
+Pin the 244 inherited materialized files, exact sparse index/archive Git state,
+source lock and complete changed-file preimages before edits. Verify all Python
+blocks, old examples, anchors, links, navigation and authored privacy. Exercise
+source and older ordinary-install negative controls through borrowed read-only
+interpreters, without modifying environments. Provide an origin-asserting runner
+for root's future wheel/sdist prefixes. The new substantial guide warrants one
+fresh docs source suite with borrowed docs-test-env, cache disabled and dedicated
+failed-only pytest scratch. Preserve all failures. No generated pages, lock
+refresh, native calls, builds, browser, canonical changes or publication.
+
+- [x] Finish new guide source/examples/static and older-install negative controls; 11 new plus 24 retained examples pass source, while all 11 new examples fail in the older installed prefix. Fresh docs source suite: 369 passed, 1 existing D29 skip, exit 0.
+- [x] Qualify all35central examples against both fresh normal prefixes and the exact702runtime-file/six-provider/40pin tuple; consumers4,481Scriptmix/1skip and2,436Examples pass. Exact evidence: WORK.md and root artifact/consumer command records.
+- [ ] Complete original native/resource/version/custom-manager/1,580 unqualified factory routes, glyph/application production contracts and D29/D30 generated/publication gates.
+
 ## Unicode-index authored correction
 
 The corrected combined-index source now has current Echopy producer provenance,

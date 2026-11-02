@@ -12,10 +12,10 @@ font-local postprocessing.
 
 These eight self-contained examples use owned offline application fixtures.
 They import actual package exports without activating a synthetic `GlyphsApp`
-module, opening FontLab or executing an original script. All 24 owned examples
-across the three linked guides pass in the corrected ordinary six-wheel cohort,
-with installed module origins checked and all 701 runtime/data files matching
-byte for byte. Echopy producer
+module, opening FontLab or executing an original script. All 24 retained examples
+and 11 new [production examples](glyport-production.md) pass in both fresh ordinary
+six-wheel prefixes, with installed module origins checked and all 702 runtime/data
+files matching byte for byte. Echopy producer
 provenance matches the corrected Glyport source; exact artifact identities and
 consumer results are on the existing Glyport package page linked below.
 These offline checks do not qualify a published release or native workflow.
@@ -359,9 +359,12 @@ A synthesized record’s minimal fields do not qualify every Glyph Info property
 Maintained glyphsLib data is not proof of Glyphs’ proprietary database
 completeness, the same record contents or Unicode version. Source-supported
 index ordering alone does not qualify custom resource loading or replacement.
-Production metadata remains a separate, unqualified contract. Private global
-overlays, font-local managers, remaining fields and arbitrary bridge conversion
-remain unimplemented or unqualified.
+The [stored production guide](glyport-production.md) now describes the bounded
+represented-record source contract; it remains separate from glyph production
+write/export and application conversion. The retained production successor passes
+both ordinary prefixes and the exact consumer checks; the checkpoint suffix-route
+correction is being requalified independently. Private global overlays, font-local managers,
+remaining fields and arbitrary bridge conversion remain unimplemented or unqualified.
 
 See [legacy Unicode and ROS](glyport-metadata.md) for legacy snapshots and the
 proprietary ROS mapping refusal, [parameters and Arabic encodings](glyport-parameters.md)

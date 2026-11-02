@@ -2,6 +2,65 @@
 this_file: CHANGELOG.md
 ---
 
+## Reviewed production checkpoint source gate — 2026-11-02
+
+Corrected the stale ordinary-qualification sentence while retaining native,
+factory/custom/local/version and publication boundaries. All47tagged examples
+remain unchanged. The unchanged quality gate passes369tests/1existing D29skip;
+no changed executable module and no module-coverage claim. WORK.md records exact
+commands and independent3.12environment provenance. Corrected ordinary/committed
+artifact qualification, generated/site/browser and native workflows remain open.
+
+## Production ordinary artifact/cohort acceptance — 2026-11-01
+
+Both fresh normal arm64Python3.11.14 prefixes install the six exact provider
+wheels plus40unchanged pins without source overrides. Per prefix:5,697full
+Glyport tests/0skips,370full Echopy/0skips,479focused checks,46isolation checks,
+15package and35central metadata examples. All12other tagged Glyphs/package
+examples also pass in each prefix:47tagged examples across six pages, using owned
+input files for inspect/compile only. Exact extra commands: ../additional-example-commands.json.
+All702runtime files match the exact
+source/wheel/installed tuple before and after consumers. Exact consumer result:
+Scriptmix4,481pass/1existing selection-read skip; Examples1,933+503=2,436/0skip.
+All69rescued originals and7historical generated-doc fixture hashes are retained.
+Glyport wheel SHA d92d425e58933ad100fbf439ec13398da54ef3409ed316ab4892a16cea7c5331;
+Echopy wheel SHA a9abee1955b9639b5740319595995ed0605727b53d80501d50440ff5757a2172.
+Standard source and complete-sdist builds reproduce identical wheels; all123+95
+Glyport/Echopy runtime files match current source and all412+145source members
+verify. Echopy's13catalogues are current and124protected files unchanged. Parent
+artifact hashes remain historical. Source lock and7228sparse paths remain intact.
+
+Exact root commands/exits0: ../artifact-check-commands.json (both final prefixes),
+../wheel-authored-command.json,../sdist-authored-command.json and ../consumer-commands.json
+(final applicable suites); artifacts/inputs in ../inputs.json and
+../wheel-reproduction.json. A missing basetemp parent and an empty wrong-alias
+consumer glob caused task-runner failures before correction; their complete
+first-attempt logs/XML/commands remain, with no product test or dependency edits.
+Fresh full docs source369pass/1D29skip is unchanged; subsequent status-only edits
+receive the complete static/example-byte/link/sparse/privacy audit, not another
+unchanged full run. Native/publication and1,580factory/glyph/application/full
+original workflow scope remain open. No new source commit/push or main/canonical
+promotion, live install, native call, source-lock/site rebuild, tag or publication.
+
+## Authored represented production metadata guide — 2026-11-01
+
+- Added a linked central guide with 11 owned examples plus an offline session
+  fixture using actual ExecutionContext/FontLabSession GlyphsApp exports and
+  Echopy declaration identity checks. Separate stored getter/shared fill/copy,
+  helper normalization, Unicode/alias/suffix/model routes and explicit refusal.
+- Corrected the present-tense claim that all production metadata is unqualified;
+  represented-record source behavior is now distinct from glyph/application
+  production and all 1,580 unqualified factory routes. Preserve historical results.
+- Source examples pass 11 new plus all 24 old; older ordinary-install negative
+  matrix retains all 11 failures and 24 passing old examples. Static verifies
+  53 compiled blocks, 34 links, 51 nav targets, old anchors, privacy, all inherited
+  244-file hashes, sparse 7,228 skipped paths and unchanged source lock.
+- Fresh full docs source suite: 369 passed, 1 existing D29 inventory/search skip
+  in 123.93 s; pytest and recorder exit 0. Borrowed context remains explicit.
+- Fresh successor ordinary wheel/sdist, producer provenance and exact consumer
+  checks remain root-owned and pending. Native/generated/publication and all
+  D16/D29/D30/D31 holds remain open; no source/example semantic rewrites.
+
 ## Corrected Unicode-index cohort authored status — 2026-11-01
 
 - Replaced stale corrected-artifact/provenance/consumer pending claims across

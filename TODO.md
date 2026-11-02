@@ -4,6 +4,9 @@ this_file: TODO.md
 
 # Tasks
 
+- [x] Add and source/static-verify the represented production guide and 11 new examples, preserving all 24 prior examples and sparse/source-lock/archive Git state; retain the older ordinary-install negative matrix.
+- [ ] Qualify the full production factory, custom/local/resource/version/native and glyph/application production workflows; retain D16/D29/D30/D31 and generated/site/publication gates.
+
 - [x] Verify corrected primary/legacy shared-index authored guidance in the exact ordinary artifact/cohort/provenance/consumer tuple and execute all 24 unchanged owned examples with installed origins checked and all 701 runtime/data files matching byte for byte.
 - [ ] Qualify corrected shared-index native/full-original workflows and generated/reference/source-lock/site/archive/browser/publication stages after D29/D30 permit them; retain D16/D31 and custom-manager/production/resource/version limits.
 

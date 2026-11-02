@@ -652,3 +652,20 @@ workflow acceptance is implied.
 
 See the [Glyphs compatibility guide](../guide/glyphs.md). Reference:
 [fontlab_glyport](../reference/fontlab_glyport.md).
+
+## Stored Glyph Info production
+
+The [production metadata guide](../guide/glyport-production.md) adds owned
+examples for the represented-record `GSGlyphInfo.productionName` contract:
+raw nullable reads, exact-name/alias nil fill, helper output, Unicode and
+suffix copies, model overlays and explicit unavailable-source errors. An equal
+stored name stays text, and empty text stays empty. These private candidate capabilities now pass source and two independent normal
+wheel/sdist prefixes: 5,697 Glyport tests, 370 Echopy tests, 479 focused controls,
+46 isolation checks, 15 package examples and all 35 central examples per prefix.
+All 702 runtime/data files, six provider versions and 40 pins match the exact
+ordinary tuple. Consumers pass 4,481 Scriptmix tests/one existing skip and 2,436
+Examples tests. Echopy's 13 producer catalogues are current; its 124 protected
+files and all runtime declarations remain unchanged. Prior archive
+hashes above identify their historical stages. This does not qualify all 1,580
+remaining factory routes, glyph production writes, application conversion or
+native FontLab/original-script behavior.

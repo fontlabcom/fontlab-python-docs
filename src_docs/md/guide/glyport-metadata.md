@@ -9,9 +9,9 @@ Unicode, assign it to a glyph or refresh that glyph. ROS processing has a distin
 data boundary: the five proprietary shared-manager maps are unavailable, so a
 request for one refuses before metadata writes.
 
-Every example here uses owned Python data outside FontLab. All 24 owned examples
-across the metadata, parameter and Unicode guides pass in the corrected ordinary
-six-wheel cohort, with installed origins checked and all 701 runtime/data files
+Every example here uses owned Python data outside FontLab. All 24 retained examples
+and 11 new [production examples](glyport-production.md) pass in both fresh ordinary
+six-wheel prefixes, with installed origins checked and all 702 runtime/data files
 matching byte for byte.
 Echopy producer provenance matches the corrected source. These offline checks
 do not qualify native history, save/reopen or complete original scripts. The
@@ -304,3 +304,11 @@ hashes on the [Glyport package page](../packages/glyport.md) stay historical.
 The central generated source-lock review, full build, archive/routes, browser
 accessibility and publication gates remain separate. Authored-source checks do
 not establish a generated, live or released page.
+
+## Stored production is a separate field
+
+The [production metadata guide](glyport-production.md) covers known nil, empty,
+equal and explicit stored values, raw Unicode versus exact-name fill, aliases
+and detached copies. A legacy encoding does not authorize a production-name
+rewrite. The new represented-record source contract does not establish glyph
+production storage, application conversion or complete native workflows.
