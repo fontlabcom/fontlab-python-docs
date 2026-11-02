@@ -48,3 +48,6 @@ this_file: TODO.md
 - [ ] Qualify the authored script-lifecycle example in native FontLab and rendered documentation after D29 permits rebuilding; ten offline examples pass against the new installed artifacts.
 
 - [ ] Carry ordered-parameter/Arabic guidance through reviewed source-lock, generated build, browser and native-workflow gates after D29/D30 permit them.
+
+
+- [ ] Qualify new genuine Echo/docs/provider artifacts and complete normal installed consumers/examples before native/publication acceptance.

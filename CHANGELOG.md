@@ -2,6 +2,28 @@
 this_file: CHANGELOG.md
 ---
 
+## Compound Glyph Info guide and source verification — 2026-11-02
+
+Added a practical compound guide with nine owned examples through the actual
+session exports. It covers core fields, shared fills, shallow duplicate lists,
+raw/helper production, suffix nesting, exact-name precedence, Arabic alternate
+records, read-only metadata and the long-production rebuild. Navigation and
+Glyport/Echopy/production/Unicode pages describe its measured scope and limits.
+
+All 56 selected Glyport examples pass against current source. The older ordinary
+producer passes the 47 existing examples and one exact-lookup control, while the
+other eight new examples fail meaningfully. All 54 existing tagged examples are
+byte-identical, including seven held native/UI examples. The audit compiles 81
+Python blocks, checks 31 local links and preserves 236 unrelated payloads, 7,228
+sparse paths, the source lock and held trees. Nine existing generated-reference
+links remain held under D29; no new unresolved link was introduced.
+
+Fresh docs source tests: 369 passed / one existing full-built-inventory skip,
+123.10 s. No runtime code, dependency, generated reference/site or native result
+changed. Fresh matching committed artifacts and ordinary consumers, rendering,
+accessibility and publication remain separate acceptance gates.
+
+
 ## Reviewed production checkpoint source gate — 2026-11-02
 
 Corrected the stale ordinary-qualification sentence while retaining native,

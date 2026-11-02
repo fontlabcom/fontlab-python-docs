@@ -393,10 +393,11 @@ The source work covers represented records from a versioned public subset,
 owned ordering/copy cases and the retained version-qualified getter/helper
 contract. The maintained public input has 74,247 records; it is not proprietary
 GlyphData completeness or proof that resource contents agree across versions.
-The diagnostic still leaves 1,580 unqualified name-factory routes. Complex
-uni/suffix/ligature and special synthesis, custom/global/font-local managers,
-remaining resource/version branches and every complete original workflow stay
-in scope for further work.
+Those earlier diagnostic gaps now have a [compound metadata candidate](glyport-compounds.md)
+with independent core-field/state qualification across all 1,580 public inputs.
+Existing proprietary recipes/optional fields, full custom/global/font-local
+managers, remaining resource/version branches and complete original/native
+workflows remain in scope. The new compound ordinary consumer cohort is pending.
 
 Glyph production setters, storage flags and application production conversion
 remain separate contracts. Source examples and normal installed artifacts do

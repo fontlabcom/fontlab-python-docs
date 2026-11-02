@@ -1846,3 +1846,50 @@ original-script/native histories or saved/reopened workflows. D16/D29/D30/D31
 remain open. No generated build/reference, source-lock refresh, native app,
 canonical/live mutation, commit, push or publication occurred. Keep the generated,
 archive/routes, browser/accessibility and full native qualification tasks open.
+
+
+## Compound guide successor started — 2026-11-02
+
+Isolated branch issue-123-compound-shims-20261102inherits9ff04a43with reviewed
+main5ec628a3ancestry. All245materialized payloads/modes and7228sparse flags match
+the clean parent; exact rules/index/held trees/source lock and all54tagged example
+preimages are pinned before content edits. Add nine practical compound examples
+and preserve the old54, with native/UI controls remaining held. Current GPcdb5db9
+source/archive and385Echo source checks are verified separately; new ordinary
+consumer/native/generated acceptance remains open. Adjacent echo-docs-compound
+evidence and rootWORK.md record exact commands/results/failed attempts.
+
+## Compound authored verification — 2026-11-02
+
+All 56 selected examples pass with explicit current Glyport/Echopy source
+origins; 47 old + 9 new. The immutable older installed producer passes the old
+47 and one exact-name control; eight new compound examples fail meaningfully.
+The source runner asserts isolated interpreter and actual class identities,
+uses owned scratch inputs and checks loaded origins. No corpus script ran.
+Source/negative receipts: ../echo-docs-compound/{source,negative}-guide-examples.json.
+
+Static audit: 54 old tagged examples byte-identical, 9 new, 81 Python blocks
+compile, 31 local links checked, 236 protected payloads and 7,228 sparse paths
+preserved. Source lock ce358709c79567ac0fb53d5215437a789bfdb6ea86b86e312031d2a4f4dfdd1b
+and held archive/reference trees are unchanged. The initial checker rejected an
+existing generated-reference link; correction explicitly proves each of the nine
+held targets already existed in HEAD and is under reference/. Newly introduced
+links still must resolve. No generated-link acceptance is claimed. Navigation
+parses through the existing PyYAML installation. Public prose privacy check passes.
+
+Fresh source suite: 369 passed / 1 existing D29 built-inventory skip, exit 0,
+123.10 s. Existing independent Python 3.12 environment was borrowed read-only;
+no installs, sync or bytecode/cache writes. Tests build only their owned synthetic
+fixtures. Exact command/cwd/exit/elapsed: ../echo-docs-compound/docs-source-command.json.
+
+Commands (exit 0):
+- rtk proxy /opt/homebrew/bin/python3 -B ../echo-docs-compound/audit_docs.py
+- rtk proxy ../../production-checkpoint-20261102/docs-test-env/bin/python -I -B ../echo-docs-compound/run_docs.py -q -rs tests -o tmp_path_retention_policy=failed --basetemp ../tmp/docs-source-compound/tests
+- rtk proxy /opt/homebrew/bin/git --no-optional-locks diff --check
+Expanded example commands: ../echo-docs-compound/source-guide-examples.json and
+root WORK.md command record; runner ../echo-docs-compound/run_guide_examples.py.
+
+Wait, but: these source/authored checks do not qualify new ordinary artifacts,
+private recipes/fields, all custom/local/resource/version paths, native histories,
+rendered references, routes/archive, accessibility or publication. All remain
+open. No generated site, source lock, live install, canonical or main changed.

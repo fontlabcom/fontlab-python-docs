@@ -130,3 +130,14 @@ docs-glyph-info-20261101.json.
 Classification/resolver counterexamples now qualify the existing lifecycle examples.
 Reverify and update these limits after the shared resolver is repaired; ten passing
 offline examples do not prove conflicting-name/Unicode reset fidelity.
+
+
+## Compound documentation follow-up — 2026-11-02
+
+The authored guide, nine new actual-export examples, all 54 preserved examples,
+static/source preservation audit and fresh docs source suite are verified in
+CHANGELOG.md. Next carry all 56 selected Glyport examples through a fresh normal
+installed provider/consumer tuple using genuine matching committed archives.
+The seven held native/UI examples, generated references/source lock/site build,
+archive/routes, browser/accessibility, native workflows and publication retain
+their existing gates. D16/D29/D30/D31/D35 and the full original goal remain open.

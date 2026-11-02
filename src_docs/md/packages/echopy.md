@@ -538,6 +538,22 @@ These checks do not qualify actual native bindings, a regenerated reference site
 or a published release. Existing class aliases in merged facades remain supported;
 new nonidentifier declarations require reviewed generation from the capture.
 
+## Source-derived compound metadata
+
+The GlyphsApp sidecar re-exports Glyport's actual `GSApplication` and
+`GSGlyphInfo` classes. The [compound guide](../guide/glyport-compounds.md) shows
+nine owned checks for their raw/shared/copy/nested/positional behavior. These
+are provider semantics, separate from Echopy's native FontLab declarations.
+
+After the compound producer changes, the existing CLI regenerates all 13 source
+targets. Only the GlyphsApp catalogue's producer fingerprint/capture digest
+changes; its exported entries and all facade/sidecar bytes stay unchanged.
+The refreshed source passes 385 tests, including 15 actual-export controls; the
+older ordinary producer fails 13 of those while two single-record controls pass.
+Fresh matching Echopy artifacts and the complete ordinary installed tuple remain
+pending. A current source fingerprint does not prove native FontLab behavior,
+proprietary data completeness or every Glyphs version.
+
 ## Verification boundaries
 
 The offline examples can run in an ordinary Echopy installation. The two native

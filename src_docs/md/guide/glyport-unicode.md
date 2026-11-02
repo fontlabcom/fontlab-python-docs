@@ -363,8 +363,11 @@ The [stored production guide](glyport-production.md) now describes the bounded
 represented-record source contract; it remains separate from glyph production
 write/export and application conversion. The retained production successor passes
 both ordinary prefixes and the exact consumer checks; the checkpoint suffix-route
-correction is being requalified independently. Private global overlays, font-local managers,
-remaining fields and arbitrary bridge conversion remain unimplemented or unqualified.
+correction has separate source/archive evidence. The [compound guide](glyport-compounds.md)
+now covers raw/shared/copy state and multi-record composition; its new ordinary
+provider/consumer cohort remains pending. Private global overlays, font-local
+managers, remaining fields and arbitrary bridge conversion remain unimplemented
+or unqualified.
 
 See [legacy Unicode and ROS](glyport-metadata.md) for legacy snapshots and the
 proprietary ROS mapping refusal, [parameters and Arabic encodings](glyport-parameters.md)

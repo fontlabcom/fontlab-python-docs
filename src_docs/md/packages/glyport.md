@@ -666,6 +666,18 @@ All 702 runtime/data files, six provider versions and 40 pins match the exact
 ordinary tuple. Consumers pass 4,481 Scriptmix tests/one existing skip and 2,436
 Examples tests. Echopy's 13 producer catalogues are current; its 124 protected
 files and all runtime declarations remain unchanged. Prior archive
-hashes above identify their historical stages. This does not qualify all 1,580
-remaining factory routes, glyph production writes, application conversion or
-native FontLab/original-script behavior.
+hashes above identify their historical stages. Those receipts predate the compound
+candidate below; glyph production writes, application conversion and full native/
+original workflows retain their separate acceptance gates.
+
+## Compound Glyph Info
+
+The [compound metadata guide](../guide/glyport-compounds.md) adds nine owned
+examples through actual session exports: raw/shared fill, shallow duplicate
+positions, helper/raw production, suffix nesting, exact-name precedence,
+Arabic alternates, read-only metadata and long-production rebuilding. The current
+Glyport source and genuine archives have separate qualification; Echopy source
+provenance is regenerated and all 385 source tests pass with actual siblings.
+The refreshed ordinary provider/consumer/example tuple is still pending. Existing
+proprietary recipes/optional fields and full custom/local/resource/version/native
+workflows remain open; declaration currency does not close those gates.
