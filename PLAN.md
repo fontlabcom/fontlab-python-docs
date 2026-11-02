@@ -4,6 +4,21 @@ this_file: PLAN.md
 
 # Plan
 
+## Complete-generation authored companion — 2026-11-02
+
+Update the inherited lifecycle setup for sealed Glyport `5a54b4b` with four explicit
+invented banks and actual complete Chinese/Hangul algorithms. Preserve all 89
+prior tags (82 active plus seven held) and every prior Python block except the
+obsolete shared lifecycle setup. Add eight independent examples covering
+fixed ranges/profile lookup/fields/index, name-versus-Unicode collisions,
+completion order, actual target/Jamo tuples, storage preservation, current
+queued lookup and explicit missing-input/partial-failure state.
+
+- [x] Execute all 82 retained active examples and eight new generation examples against exact source with asserted origins and no native frameworks.
+- [x] Compile all blocks; verify inherited tagged bodies, protected payloads, source lock, navigation and local links with retained preimages.
+- [ ] Root runs the normal docs gate and matching ordinary wheel/sdist consumer qualification independently; native, full default resources, D16/D29/D30/D31 and publication remain held.
+
+
 
 ## Connected local-manager source companion — 2026-11-02
 

@@ -716,3 +716,14 @@ Matching companion archives and the complete ordinary installed tuple remain
 separate. Complete default/private resources, native local initialization/reload, the original
 HTML tool and native FontLab behavior remain open. Earlier artifact receipts
 above retain their historical scope.
+
+
+### Complete generation with owned inputs
+
+The [complete-generation examples](../guide/glyport-managers.md#run-complete-generation-over-explicit-owned-inputs)
+run all ten Chinese jobs and the full queued Hangul traversal through the actual
+manager implementation. They inspect fixed ranges, profiles, row fields, collision
+identity, callback completion order, Jamo links and partial failure state.
+Their four Chinese banks are explicitly invented lawful inputs. Missing private
+banks refuse; these examples do not qualify proprietary defaults, native font
+workflows, history, dialogs or publication.

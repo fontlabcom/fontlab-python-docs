@@ -1011,3 +1011,22 @@ branch changes. Verification from the workspace root:
 Authored guides are merged; the restored published build is retained.
 This test run does not qualify a new rendered site or native guide examples.
 No native FontLab operation was run.
+
+
+## 2026-11-02 — Complete-generation authored companion
+
+Document actual ten-job Chinese and full queued Hangul algorithms using four
+explicit invented banks and owned Jamo/targets. Replace the obsolete recording-only
+shared setup; preserve all 89prior tagged bodies (82 active/seven held). Add eight
+runnable examples for complete fixed ranges/profile/field/index checks, collision
+identity, callback completion order, actual Jamo tuples, component storage,
+current queued lookup and explicit missing-input/partial-failure state.
+
+All90active examples pass exact GP5a54b4b source;150 Python blocks compile,
+44 local links resolve,141 of 142 prior blocks retain exact bytes (only the setup
+changes), and all 7,469protected payloads/modes plus index/nav/lock remain exact.
+Retain the seven expected baseline setup failures and correction ruling in
+external info-generation-companions-20261102/docs-evidence/. Root owns the normal
+docs gate and matching ordinary tuples/consumers. No dependency/generated/native/
+canonical/publication change; D16/D29/D30/D31 and native/default-resource gates
+remain. This authored source result does not complete Issue123.

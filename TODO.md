@@ -4,6 +4,9 @@ this_file: TODO.md
 
 # Tasks
 
+- [x] Complete authored full-generation source examples: 82 retained active plus eight new; preserve seven held bodies and protected files.
+- [ ] Root normal docs gate and matching ordinary wheel/sdist/consumers; native/default/private-resource and D16/D29/D30/D31 gates remain independent.
+
 
 - [x] Add seven connected local-manager owned source examples; all 82 active pass and 82 prior tag bodies remain unchanged.
 - [x] Verify 142 Python blocks, 43 links, 7,467 protected payloads/modes, complete preimages and unchanged generated/source-lock/navigation/index state.

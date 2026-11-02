@@ -9,7 +9,7 @@ you explicitly choose a font. Omitting the font selects the shared manager; it
 does not mean the current font. These routes return the selected manager's result.
 
 This guide describes private Glyport source checkpoint
-`29efa7f948c9f24a47f2142f85c0811a368ed3de`. Matching Echopy producer
+`5a54b4b681f3a5cf1d80830c57204c4b36e92711`. Matching Echopy producer
 provenance is qualified separately from these authored source examples.
 Owned Python examples qualify the source contracts below. Fresh ordinary
 wheel/sdist tuples and their complete consumers need separate qualification.
@@ -587,11 +587,14 @@ and restores them in `finally`. Those assignments, `_lifecycle` inspection and
 `InfoErrorSlot` are internal owned controls, not public application recipes.
 
 Every resource below is invented. The scheduler runs queued callbacks in FIFO
-order when explicitly waited; its Chinese provider implements the intermediate
-barrier and its Hangul provider records a queued callback. These functions create
-no Chinese or Hangul records. Localization, nil collection handling, filesystem
-enumeration and empty image directories have explicit fixture policies. This
-qualifies that schedule and those inputs only.
+order when explicitly waited. The actual Chinese generator runs all ten jobs
+over its complete fixed ranges and four explicitly supplied invented banks;
+the actual queued Hangul generator visits all 11,172 syllables. The base file
+supplies owned Jamo and three syllable targets. Missing Unicode lookups can also
+synthesize records through the manager's existing resolution rules.
+Localization, nil collection handling, filesystem enumeration and empty image
+directories have explicit fixture policies. This qualifies those algorithms,
+that schedule and those inputs only; it supplies no proprietary embedded lists.
 
 <!-- setup: glyport-local-lifecycle -->
 ```python
@@ -623,6 +626,8 @@ class OwnedLifecycleProvider:
             "defaultLanguages": [], "StandardFilter": [],
         }
         self.dictionary = {"invented": "matra"}
+        self.banks = (("2FF0",), ("20000",), ("20001",), ("20002",))
+        self.bank_calls = []
     def new_queue(self):
         queue = OwnedQueue(self.events)
         self.queues.append(queue)
@@ -660,12 +665,9 @@ class OwnedLifecycleProvider:
     def draw_emoji_icon(self, width, height, flipped):
         assert (width, height, flipped) == (17, 17, True)
         return SimpleNamespace(setName_=lambda name: self.events.append(("image", name)))
-    def add_chinese(self, manager):
-        self.events.append(("chinese", manager))
-        manager._lifecycle.queue.waitUntilAllOperationsAreFinished()
-    def enqueue_hangul(self, manager):
-        manager._lifecycle.queue.addOperationWithBlock_(
-            lambda: self.events.append(("hangul", manager)))
+    def chinese_codes(self, slot):
+        self.bank_calls.append(slot)
+        return self.banks[slot]
     def notify(self, manager, phase, key):
         self.events.append((phase, key))
     def add_observer(self, *arguments):
@@ -688,8 +690,14 @@ def owned_lifecycle():
         with TemporaryDirectory(dir=Path.cwd()) as temporary:
             folder = Path(temporary)
             base = folder / "base.xml"
-            base.write_text('<glyph name="owned.base" unicode="0041" '
-                            'script="owned" subCategory="Base"/>', encoding="utf-8")
+            codes = [*range(0x1100, 0x1113), *range(0x1161, 0x1176),
+                     *range(0x11A8, 0x11C3), 0xAC00, 0xAC01, 0xD7A3]
+            base.write_text(
+                '<glyph name="owned.base" unicode="0041" '
+                'script="owned" subCategory="Base"/>' + "".join(
+                    f'<glyph name="owned.{code:04X}" unicode="{code:04X}" '
+                    'script="owned" category="Letter" subCategory="Other"/>'
+                    for code in codes), encoding="utf-8")
             local = folder / "font"
             local.mkdir()
             data = local / "GlyphData.xml"
@@ -927,14 +935,277 @@ Image type checks, decoding, registration and template marking remain explicit
 dependencies. The fixture's empty image directories prove none of those native
 effects, and its recorded emoji object proves only the provider call boundary.
 
-Complete lawful default resources, real Chinese/Hangul generation, predicates,
-images/counts, observation lifetime, concurrency and document reload binding
-remain unqualified. Python group-lock identity differs from the native current
-dictionary monitor; this sequential example does not establish concurrency parity.
+Complete lawful default/private resources, predicates, images/counts,
+observation lifetime, concurrency and document reload binding remain unqualified.
+The following generation examples qualify actual algorithms over invented inputs;
+they do not qualify the missing proprietary banks or native resource loading.
+Python group-lock identity differs from the native current dictionary monitor; this sequential example does not establish concurrency parity.
 Original font workflows, native history/lifetime/preservation/save/reopen,
 ordinary installed tuples and complete consumers require independent evidence.
 Generated reference, source-lock refresh, site/archive/routes, browser
 accessibility and publication remain gated. The full issue remains active.
+
+## Run complete generation over explicit owned inputs
+
+Run each `glyport-generation-*` example after both setup blocks above, in a
+fresh directory. The four banks are invented strings supplied by this guide.
+They are not the missing proprietary lists. The underscored entry points and
+record storage checks below are source-contract controls, not a native installer.
+
+### Inspect every fixed Chinese range and profile lookup
+
+The constructor runs the complete fixed ranges, which contain 38,206 positions,
+and the four supplied bank entries. Prefix selection belongs to each range or
+list primitive. `sortName` has its own prefix. Generated rows are locked Han
+letters; each listed row receives its position as its index after generation.
+The summary runs at the intermediate barrier before those rows are appended,
+so its script list need not contain `han`.
+
+<!-- example: glyport-generation-fixed-ranges-profiles -->
+```python
+with owned_lifecycle() as (provider, url, data):
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(None)
+    assert manager is not GSGlyphsInfo.sharedManager()
+    assert len(manager._index.records) == 71 + 38206 + 4
+    ranges = [(0x2E80, 0x2E99), (0x2E9B, 0x2EF3), (0x2F00, 0x2FD5),
+              (0x3400, 0x57EE), (0x57EF, 0x7BDC), (0x7BDD, 0x9FFF),
+              (0xF900, 0xFAD9), (0x30000, 0x3134A),
+              (0x31350, 0x323AF), (0x2EBF0, 0x2EE5F)]
+    for first, last in ranges:
+        for scalar in range(first, last + 1):
+            code = f"{scalar:04X}"
+            row = manager._index.unicodes[code]
+            assert row.name == ("uni" if first <= 0xFFFE else "u") + code
+            assert row.sortName == ("uni0" if first <= 0xFFFE else "unj") + code
+            assert row.script == "han" and row.category == "Letter" and row._locked
+            assert manager._index.names[row.name] is row
+    assert [row.index for row in manager._index.records] == list(range(38281))
+    for gap in ("2E9A", "3134B", "3134F", "323B0", "2EE60"):
+        assert manager.infoFromDataForUnicode_(gap) is None
+    assert manager.infoFromDataForUnicode_("2E80").subCategory == "Radical"
+    assert manager.infoFromDataForUnicode_("F900").subCategory == "Compatibility"
+    for code, sort_name, subcategory in [("2FF0", "uni02FF0", "Compatibility"),
+                                        ("20000", "unj20000", "Compatibility"),
+                                        ("20001", "unj20001", None),
+                                        ("20002", "unj20002", None)]:
+        row = manager._index.unicodes[code]
+        assert (row.sortName, row.subCategory) == (sort_name, subcategory)
+    raw = manager.infoFromDataForUnicode_("30000")
+    for profile in ("glyphs2", "glyphs3", "glyphs4"):
+        app, font = owned_exports(manager, profile)
+        assert app.Glyphs.glyphInfoForUnicode(0x30000, font=font) is raw
+        assert app.Glyphs.glyphInfoForName("u30000", font=font) is raw
+    assert provider.bank_calls[:4] == [0, 1, 2, 3]
+    assert "han" not in manager._lifecycle.scriptIDs
+```
+
+### Distinguish name collisions from Unicode identity
+
+The generation jobs consult the captured Unicode map before committing their
+new rows. A pre-existing encoding suppresses a generated row. A pre-existing
+name with another encoding does not. The final name map can therefore select
+a new row while the old encoding still selects the original row. Repeated bank
+entries remain distinct listed records; the last commit wins in both maps.
+
+<!-- example: glyport-generation-collisions -->
+```python
+with owned_lifecycle() as (provider, url, data):
+    provider.base.write_text(provider.base.read_text() +
+        '<glyph name="uni2FF0" unicode="E000" script="owned" subCategory="Other"/>')
+    provider.banks = (("2FF0", "2FF0", "0041"), ("20000",), ("20000",), ("20002",))
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(None)
+    old = manager.infoFromDataForUnicode_("E000")
+    current = manager.infoFromDataForName_("uni2FF0")
+    assert old.name == current.name and old is not current
+    assert old.unicode == "E000" and current.unicode == "2FF0"
+    duplicates = [row for row in manager._index.records if row.unicode == "2FF0"]
+    assert len(duplicates) == 2 and duplicates[0] is not duplicates[1]
+    assert current._resolved_record is duplicates[-1]
+    assert manager.infoFromDataForUnicode_("2FF0") is current
+    assert manager.infoFromDataForUnicode_("0041").name == "owned.base"
+    assert not any(row.name == "uni0041" for row in manager._index.records)
+    repeated = [row for row in manager._index.records if row.unicode == "20000"]
+    assert len(repeated) == 2 and repeated[0] is not repeated[1]
+    assert manager._index.unicodes["20000"] is repeated[-1]
+    assert manager._index.names["u20000"] is repeated[-1]
+```
+
+### Keep chunk completion order visible
+
+Each Chinese callback collects a whole chunk before publishing it. The final
+listed order follows callback completion order, and the commit uses the captured
+name and Unicode maps. This invented reverse scheduler runs every callback and
+all fixed ranges, but finishes the last submitted job first. It demonstrates a
+second permitted order; it does not model concurrent native queue timing.
+
+<!-- example: glyport-generation-chunk-completion -->
+```python
+class ReverseQueue(OwnedQueue):
+    def waitUntilAllOperationsAreFinished(self):
+        self.events.append(("wait", self))
+        while self.pending:
+            self.pending.pop()()
+
+with owned_lifecycle() as (provider, url, data):
+    def reverse_queue():
+        queue = ReverseQueue(provider.events)
+        provider.queues.append(queue)
+        return queue
+    provider.new_queue = reverse_queue
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(None)
+    rows = manager._index.records
+    assert len(rows) == 38281
+    assert rows[71].name == "u2EBF0" and rows[-1].name == "uni2FD5"
+    assert manager._index.unicodes["2EBF0"] is rows[71]
+    assert manager._index.names["uni2FD5"] is rows[-1]
+    assert all(row.index == position for position, row in enumerate(rows))
+    assert manager._index.unicodes["AC00"]._component_records == (
+        manager._index.unicodes["1100"], manager._index.unicodes["1161"])
+    assert not manager._lifecycle.queue.pending
+```
+
+### Match actual Hangul target and Jamo identities
+
+The queued operation visits every syllable from `AC00` through `D7A3`. For each
+one it looks up the target, leading Jamo, vowel Jamo and optional trailing Jamo,
+in that order. This example checks the three supplied syllable targets against
+Unicode NFD and checks their exact component-record identities. It exercises the
+complete operation even though the fixture stores only three syllable targets.
+Unicode NFD supplies an independent scalar oracle, not a proprietary recipe bank.
+
+<!-- example: glyport-generation-hangul-tuples -->
+```python
+import unicodedata
+
+with owned_lifecycle() as (provider, url, data):
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(None)
+    for code in (0xAC00, 0xAC01, 0xD7A3):
+        target = manager._index.unicodes[f"{code:04X}"]
+        expected = tuple(manager._index.unicodes[f"{ord(part):04X}"]
+                         for part in unicodedata.normalize("NFD", chr(code)))
+        assert len(expected) == (2 if code == 0xAC00 else 3)
+        assert target._component_records == expected
+        assert all(actual is wanted for actual, wanted in zip(target._component_records, expected))
+        assert target._locked and target.baseString == chr(code)
+        view = manager.infoFromDataForUnicode_(f"{code:04X}")
+        assert all(part._resolved_record is raw for part, raw in zip(view.components, expected))
+    assert not manager._lifecycle.queue.pending
+```
+
+### Preserve locks and caches when replacing component storage
+
+The generated-component adapter replaces the raw component tuple, clears its
+old name list and removes only the `components` unavailable-field marker. It
+does not rerun general component finalization or rebuild unrelated caches.
+The following snapshot checks every existing raw field by identity.
+
+<!-- example: glyport-generation-storage-preservation -->
+```python
+with owned_lifecycle() as (provider, url, data):
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(None)
+    raw = manager._index.unicodes["AC00"]
+    raw.baseString, raw.unicharString = "keep base", "keep cached text"
+    raw._component_names = ["old names"]
+    raw._unavailable_fields = frozenset({"components", "owned unknown"})
+    before = vars(raw).copy()
+    manager._addHangulGlyphInfos()
+    assert raw._component_names is before["_component_names"]
+    manager._lifecycle.queue.waitUntilAllOperationsAreFinished()
+    assert raw._component_records == (manager._index.unicodes["1100"], manager._index.unicodes["1161"])
+    assert raw._component_names is None
+    assert raw._unavailable_fields == frozenset({"owned unknown"})
+    for field in before.keys() - {"_component_records", "_component_names", "_unavailable_fields"}:
+        assert vars(raw)[field] is before[field], field
+```
+
+### Resolve the current Unicode map after enqueue
+
+Enqueuing captures the manager, not a frozen index snapshot. Replacing a target
+or Jamo in its Unicode map before execution changes the later component links.
+These direct map assignments are owned source controls; production callers
+should use their qualified loading path.
+
+<!-- example: glyport-generation-hangul-current-index -->
+```python
+with owned_lifecycle() as (provider, url, data):
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(None)
+    old = manager._index.unicodes["AC00"]
+    retained = old._component_records
+    manager._addHangulGlyphInfos()
+    target, vowel = new_record("owned.new.target"), new_record("owned.new.vowel")
+    add_unicode(target, "AC00")
+    add_unicode(vowel, "1161")
+    manager._index.unicodes["AC00"] = target
+    manager._index.unicodes["1161"] = vowel
+    assert target._component_records is None
+    manager._lifecycle.queue.waitUntilAllOperationsAreFinished()
+    assert target._component_records == (manager._index.unicodes["1100"], vowel)
+    assert target._component_records[1] is vowel
+    assert old._component_records is retained
+    assert manager.infoFromDataForName_("owned.AC00")._resolved_record is old
+    assert manager.infoFromDataForUnicode_("AC00")._resolved_record is target
+```
+
+### Retain partial writes and pending work on deferred failure
+
+The following subclass explicitly injects a missing Jamo lookup. A real lookup
+may synthesize a result, so deleting a raw map key alone does not establish a nil
+lookup. The full queued operation completes `AC00`, then fails while constructing
+the `AC01` component tuple. Its error escapes the wait; the earlier assignment
+and the unrelated later queue entry remain. The constructor's protected enqueue
+interval does not catch an error raised by a later callback.
+
+<!-- example: glyport-generation-hangul-missing-queued -->
+```python
+class MissingTrailing(GSGlyphsInfo):
+    def glyphInfoForUnicode_(self, code):
+        return None if code == "11A8" else super().glyphInfoForUnicode_(code)
+
+with owned_lifecycle() as (provider, url, data):
+    manager = GSGlyphsInfo.alloc().initWithLocalFile_(None)
+    receiver = MissingTrailing._from_index(manager._index)
+    receiver._lifecycle = manager._lifecycle
+    target = manager._index.unicodes["AC00"]
+    target._component_records = None
+    receiver._addHangulGlyphInfos()
+    marker = []
+    receiver._lifecycle.queue.addOperationWithBlock_(lambda: marker.append("later"))
+    try:
+        receiver._lifecycle.queue.waitUntilAllOperationsAreFinished()
+    except InfoNativeException as error:
+        assert "AC01" in str(error) and "nil" in str(error)
+    else:
+        raise AssertionError("Missing Jamo must refuse the deferred tuple")
+    assert target._component_records == (manager._index.unicodes["1100"], manager._index.unicodes["1161"])
+    assert len(receiver._lifecycle.queue.pending) == 1 and marker == []
+```
+
+### Refuse an unavailable Chinese bank explicitly
+
+The full generator requires each of four lawful lists or tuples of strings.
+An absent bank is a dependency refusal; it does not become an empty successful
+callback. The constructor below fails during the Chinese intermediate barrier.
+It does not append any partially collected Chinese rows or drain the remaining
+jobs on unwind. The supplied base rows remain and later work stays queued.
+
+<!-- example: glyport-generation-missing-bank -->
+```python
+from fontlab_glyport.errors import UnsupportedCapability
+
+with owned_lifecycle() as (provider, url, data):
+    provider.chinese_codes = lambda slot: None if slot == 2 else provider.banks[slot]
+    receiver = GSGlyphsInfo.alloc()
+    try:
+        receiver.initWithLocalFile_(None)
+    except UnsupportedCapability as error:
+        assert error.capability == "GSGlyphsInfo.provider.chinese_codes"
+    else:
+        raise AssertionError("Missing lawful bank must refuse initialization")
+    assert len(receiver._index.records) == 71
+    assert "2E80" not in receiver._index.unicodes
+    assert receiver._lifecycle.queue.pending
+    assert receiver._lifecycle.iMatraCombinations is None
+```
 
 ## Read the source contract
 
@@ -946,7 +1217,8 @@ The checkpoint's `glyphsapp/info_manager.py`, `glyphsapp/application.py`,
 The connected lifecycle also uses `glyphsapp/info_lifecycle.py`,
 `info_runtime.py`, `info_shared.py`, `info_sidebar.py`,
 `info_sidebar_resources.py`, `info_filters.py`, `info_images.py` and
-`model/base_info_parser.py`.
+`model/base_info_parser.py`, plus the complete-generation implementations
+`info_chinese.py`, `info_hangul.py`, `info_generated.py` and `model/info_hex.py`.
 The [description guide](glyport-descriptions.md),
 [production guide](glyport-production.md) and [compound guide](glyport-compounds.md)
 retain their field/selection contracts with current manager/identity corrections

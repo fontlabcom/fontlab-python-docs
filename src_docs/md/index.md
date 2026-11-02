@@ -20,7 +20,8 @@ process, and build interfaces with the application's Qt runtime.
 
 For Glyphs metadata reads and local-manager source qualification, see
 [Select the metadata manager](guide/glyport-managers.md). The guide separates
-public global queries from complete local initialization with explicit resources.
+public global queries from local initialization with explicit resources, and
+executes complete Chinese/Hangul algorithms over invented lawful inputs.
 
 ```python
 from fontlab_remopy import FontLab

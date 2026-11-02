@@ -2052,3 +2052,49 @@ accessibility or publication. D16/D29/D30/D31/D35remain; no live install, canoni
 main promotion, source lock, native request or generated publication action.
 
 Root reviewed the complete authored diff, removed a stray patch marker and separated its heading (Python/tag bodies unchanged), and independently ran unchanged normal quality gate:369passed/1existingD29skip, tests-only. Static audit confirms82oldtags,7new,142compiledblocks,43links,7467protectedpayloads; all82active examples pass both actual ordinary prefixes without sourceoverrides. Full consumer qualification remains separately recorded externally.
+
+
+## Complete-generation authored companion — 2026-11-02
+
+Updated the authored manager guide for sealed GP5a54b4b: actual full Chinese
+and Hangul algorithms over four explicit invented banks and owned Jamo/targets.
+Corrected only the obsolete shared callback setup; all 89old tag bodies remain
+exact (82 active/seven held). Eight new examples inspect all 38,206fixed Chinese
+positions, profile lookup, fields/index, name/Unicode collision identities,
+reversed completion order, NFD/Jamo tuples, storage preservation, current queued
+lookup, deferred missing-Jamo partial state and unavailable-bank refusal.
+Authored index/package links explain the scope. No dependencies changed.
+
+Source examples:82 retained +8 new pass; all loaded project origins asserted and
+no real native/framework module imported. Static audit compiles150 Python blocks,
+checks44 local links, preserves141 of 142 old blocks exactly (one documented setup
+correction), all 89old tags, all 7,469protected payloads/modes, source-lock/index/
+held-tree/navigation bytes. Fifteen inherited missing generated links stay
+explicitly D29-held. Preimages and exact source hashes are retained externally
+in info-generation-companions-20261102/docs-evidence/.
+
+Baseline fails the seven local examples with missing chinese_codes (75 others
+pass), retained as baseline-command.{json,log}/baseline.json. After replacing
+the obsolete setup, examples-first exits 0 (82+7); examples-final exits 0
+(82+8) with matching sibling source context. No assertions or old tag bodies
+were weakened. Setup rationale/hashes:setup-correction-ruling.json.
+
+Exact verification commands (cwd is the external companion stage; command
+records additionally retain bounded environment and full adjacent logs):
+
+`rtk proxy /Volumes/Falstaff4T/fontlab-scripting-data/issue123/parent-aware-info-20261102/runtime-restoration/env/bin/python -I -B docs-evidence/run_guide_examples.py --mode source --producer fontlab-glyport --echopy fontlab-echopy --prefix /Volumes/Falstaff4T/fontlab-scripting-data/issue123/parent-aware-info-20261102/runtime-restoration/env --output docs-evidence/baseline.json --scratch docs-evidence/tmp/baseline` — exit 1; baseline-command.log.
+
+`rtk proxy /Volumes/Falstaff4T/fontlab-scripting-data/issue123/parent-aware-info-20261102/runtime-restoration/env/bin/python -I -B docs-evidence/run_guide_examples.py --mode source --producer fontlab-glyport --echopy fontlab-echopy --prefix /Volumes/Falstaff4T/fontlab-scripting-data/issue123/parent-aware-info-20261102/runtime-restoration/env --output docs-evidence/examples-first.json --scratch docs-evidence/tmp/examples-first` — exit 0; examples-first-command.log.
+
+`rtk proxy /Volumes/Falstaff4T/fontlab-scripting-data/issue123/parent-aware-info-20261102/runtime-restoration/env/bin/python -I -B docs-evidence/run_guide_examples.py --mode source --producer fontlab-glyport --echopy fontlab-echopy --prefix /Volumes/Falstaff4T/fontlab-scripting-data/issue123/parent-aware-info-20261102/runtime-restoration/env --output docs-evidence/examples-final.json --scratch docs-evidence/tmp/examples-final` — exit 0; examples-final-command.log.
+
+`rtk proxy /Volumes/Falstaff4T/fontlab-scripting-data/issue123/parent-aware-info-20261102/runtime-restoration/env/bin/python -I -B docs-evidence/audit_docs.py --output docs-evidence/static-first.json` — exit 0; static-first-command.log.
+
+Root owns the normal full docs gate and later ordinary wheel/sdist/consumer
+qualification. No full generated build, reference/source-lock/site/theme/archive
+refresh, native/app/framework/MCP call, canonical/live write, commit or push ran.
+Wait, but: invented providers and scalar/source checks do not qualify proprietary
+banks/default resources, native document/history/dialog/preservation workflows,
+concurrency or publication. D16/D29/D30/D31 remain independent holds.
+
+Root direct compliance/quality review clean. Independent all-page readback preserves89old tagged bodies and compiles150blocks. Mandatory unchanged normal docs gate369passed/1existingD29skip,127.41s, exit0; no production modules/coverage claim. Exact command: adjacent root-gates/fontlab-python-docs/command.json. All90ownedactive guides additionally pass both fresh installed wheel/sdist prefixes, with no source arguments/path overrides and no native frameworks. Full package/consumer qualification remains independently pending.
