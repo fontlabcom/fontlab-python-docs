@@ -194,5 +194,6 @@ adds five executable owned experiments over maintained Echopy discovery and its
 capture/generate/merge pipeline. They preserve native/generated/publication holds.
 
 The [original node-action guide](src_docs/md/guide/original-node-actions.md) explains
-three distinct menu scopes and four executable experiments over the actual App
-planning engine, with separate native preservation/history acceptance.
+three distinct menu scopes and four executable experiments over the actual App planning engine, with separate native preservation/history acceptance.
+
+The [layer-identity guide](src_docs/md/guide/glyport-layer-identities.md) adds eight owned experiments over actual native-boundary projection and history, with separate native acceptance.

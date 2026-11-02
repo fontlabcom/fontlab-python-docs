@@ -2,6 +2,8 @@
 this_file: TODO.md
 ---
 
+- [ ] Native-qualify the ordinary-tested layer-identity guide with all four fonts and full history/preservation, then complete D29generated/rendered/publication gates.
+
 - [ ] Qualify the original-node guide in native four-font/history/window workflows, then complete its D29source-lock/generated/rendered/browser/publication gates.
 
 

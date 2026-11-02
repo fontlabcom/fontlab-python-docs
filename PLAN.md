@@ -2,6 +2,14 @@
 this_file: PLAN.md
 ---
 
+## Remaining layer-identity acceptance
+
+Carry the source/artifact/ordinary-tested owned layer examples through actual
+native four-font imported-role/order/cache/lifetime/history/Undo/Redo/save-reopen
+qualification. Retain all pending-slot/full Transform/resource/version and D29
+source-lock/generated/rendered/browser/accessibility/archive/licence/publication
+requirements. Verified source/ordinary work is recorded in CHANGELOG.md.
+
 ## Remaining original-node documentation acceptance
 
 Carry the verified authored guide through real native four-font selection/copy/

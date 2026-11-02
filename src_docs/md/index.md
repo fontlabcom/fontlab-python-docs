@@ -90,3 +90,5 @@ These source experiments do not refresh native captures or generated reference.
 For contour construction, see [original node-duplication actions](guide/original-node-actions.md):
 first-reference all-layer broadcast, current-layer copies, two handles, repeated
 parents, metadata and explicit missing-target reports.
+
+[Keep distinct foreground identities](guide/glyport-layer-identities.md): eight owned backend/proxy experiments.

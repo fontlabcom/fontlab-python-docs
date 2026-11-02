@@ -2,6 +2,42 @@
 this_file: CHANGELOG.md
 ---
 
+## Foreground-layer identity guide verified — 2026-11-03
+
+New glyport-layer-identities.md has eight independent exact-setup experiments
+executing actual FontLabBackend/Model/proxy code over owned primitive objects.
+Same-name identity/order, ID-only lookup, read-only repeats, interpolation roles,
+masks/services, pending master no-creation, first-exposure history replacement
+and auxiliary-to-master retirement all pass in exact source and both fresh
+ordinary prefixes with genuine GP1.0.8.dev196+g40ac49ab4 and unchanged App.dev333.
+No projection/cache/history algorithm is replaced by a fixture.
+
+Complete ordinary suites pass7206GP/600Echo/4496Scriptmix(+1oldskip) in each prefix;
+46installed dependencies are compatible,990provider/RECORD hashes unchanged per
+suite and all loaded provider files remain inside their own prefix. The unchanged
+source-only GPpath assertion passes in exact source, separately from installed
+behavior. App/Examples/TypeRig/all-earlier-guide scopes retain their own Y/Vproof;
+these were not relabeled as whole Zconsumer qualification.
+
+Docs normal gate369pass/1existing D29built-inventory skip, exit0; zero changed
+production modules/no coverage claim. Exact rtk proxy quality.sh argv/environment/
+log/receipt is external foreground-layer-identity-20261102/docs-normal-quality.
+The direct protection audit checks7481inherited modes,7475protected bodies,
+all220old Python fences/164setup-example tags unchanged, nine new blocks compile,
+new links resolve, README199lines. Actual13-target shim comparison has39identical
+files; accepted XEcho and every native/manual/generated/source-lock/site/archive
+payload remain unchanged. Normal/ordinary/source receipts retain exact versions,
+origins and snippet hashes. Fullsource7203/3archive skips plus one further exact
+GPguide case pass; normal7128/79old skips/all58modules>80%; all9archive tests pass
+and wholewheel reproduces after materializing every508sdist member.
+
+Native four-font imported roles/order/full preservation/cache/date/lifetime/
+history/Undo/Redo/save-reopen, TypeRig window priority, actual binding/resource/
+version, full Transform and all migration/retirement goals remain open. D29native
+capture/generated/source-lock/strict rendering/browser/accessibility/archive/
+licence/publication and D30live safety holds remain separate. Pending declared
+slots do not make glyph.layers a literal stored-only Transform iterator.
+
 ## Original node-action guide verified — 2026-11-02
 
 New161line original-node-actions.md explains three distinct Scriptmix actions,
