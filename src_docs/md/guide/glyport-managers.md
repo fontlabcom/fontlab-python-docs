@@ -560,6 +560,11 @@ An owned index created with `_from_index` has no complete lifecycle resources.
 
 ## Construct and reload a local manager with explicit dependencies
 
+Continue with [sidebar trees and document metadata](glyport-sidebar.md) for
+defaults-backed visibility, dynamic category/filter trees, insertion and copy
+identity, delayed counts, list expansion and actual document URL loading. Its
+experiments reuse the exact setups below and keep FontLab adapters explicit.
+
 The source checkpoint connects `initWithLocalFile_`,
 `initWithLocalFile_forFont_`, `loadGlyphInfo` and their base-parser/sidebar helpers.
 Public global queries can use the maintained public record index without these

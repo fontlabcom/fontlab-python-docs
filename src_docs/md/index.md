@@ -23,6 +23,11 @@ For Glyphs metadata reads and local-manager source qualification, see
 public global queries from local initialization with explicit resources, and
 executes complete Chinese/Hangul algorithms over invented lawful inputs.
 
+For changing sidebar trees, visibility, count publication and document URLs,
+see [Understand sidebar trees and document metadata](guide/glyport-sidebar.md).
+Its independent owned experiments execute the actual source algorithms and
+identify the adapters still needed for FontLab.
+
 ```python
 from fontlab_remopy import FontLab
 

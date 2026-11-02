@@ -4,6 +4,10 @@ this_file: src_docs/md/packages/glyport.md
 
 # Glyport
 
+The [sidebar and document guide](../guide/glyport-sidebar.md) explains dynamic
+tree filtering, defaults, row ownership, list expansion, count publication and
+document-selected local loading with independent executable owned experiments.
+
 
 The numerical ordinary-artifact results below identify their retained predecessor
 checkpoint. The [current manager/profile guide](../guide/glyport-managers.md) documents

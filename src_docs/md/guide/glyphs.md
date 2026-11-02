@@ -4,6 +4,10 @@ this_file: src_docs/md/guide/glyphs.md
 
 # Glyphs compatibility
 
+Use [sidebar trees and document metadata](glyport-sidebar.md) to experiment with
+current visibility, row identity, resource order, delayed counts and local URL
+loading. The guide states each owned primitive and the remaining native gaps.
+
 
 The numerical ordinary-artifact results below identify their retained predecessor
 checkpoint. The [current manager/profile guide](glyport-managers.md) documents

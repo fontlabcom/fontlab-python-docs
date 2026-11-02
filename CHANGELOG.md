@@ -2,6 +2,24 @@
 this_file: CHANGELOG.md
 ---
 
+## Dynamic sidebar and document source guide — 2026-11-02
+
+Added a linked practical guide with 18 independent executable experiments for
+actual dynamic trees, defaults/visibility/predicate paths, row identity and
+copy/reparenting, ordering/icons/once caches, current resource reads/reload
+failure, delayed weak-font counts, list expansion/collisions, count publication/
+Smallcaps and document parent-URL loading. Explicit invented primitives keep
+algorithms in the package and preserve missing FontLab/native dependencies.
+
+All 18 new plus 99 inherited active examples pass source with actual origins
+checked. All 106 prior tagged bodies (including seven held native/UI cases) and
+160 prior Python blocks are unchanged. Static compilation covers 180 blocks;
+7,469 protected payloads/modes and navigation/source-lock/generated/archive
+state remain exact. Reusable installed runner rejects source overrides and runs
+all 117 active examples independently. WORK.md and external evidence retain
+commands, failed first attempts, pins and the separate ordinary/native/root gates.
+No dependency, generated-reference, native capture or publication change.
+
 ## Echopy module values and documentation — 2026-11-02
 
 Added the authored module-values guide and index/package links. Nine executable

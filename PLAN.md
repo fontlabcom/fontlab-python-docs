@@ -4,6 +4,19 @@ this_file: PLAN.md
 
 # Plan
 
+## Dynamic sidebar and document authored companion — 2026-11-02
+
+Explain actual dynamic tree/category/filter/reload behavior, SidebarItem
+defaults/setters/reparent/copy/list/count/publication and document URL loading.
+Use explicit invented primitive adapters; execute actual package algorithms,
+including the existing complete local lifecycle setup for document loading.
+Keep actual FontLab fontType/file/observer/default/predicate/queue gaps explicit.
+Preserve every inherited tagged body and Python block without migrations.
+
+- [x] Add linked substantial guide with 18 independent exact-setup source examples; all 99 inherited active examples also pass, with seven native/UI bodies held unchanged.
+- [x] Preserve all 106 prior tags, 160 prior Python blocks and 7,469 protected payloads/modes; compile all 180 blocks and verify local links/privacy/navigation/source-lock/generated/archive state.
+- [ ] Root runs the normal docs gate and independently qualifies both matching ordinary wheel/sdist prefixes, complete consumers and all 117 active guide examples; native/original workflows, D16/D29/D30/D31, generated/site/publication remain separate.
+
 ## Echopy module values authored companion — 2026-11-02
 
 Add a dedicated linked guide for current native module values, source-safe

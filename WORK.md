@@ -2,6 +2,69 @@
 this_file: WORK.md
 ---
 
+## Root normal and ordinary guide gates accepted — 2026-11-02
+
+Direct root review confirms908line guide/18new examples, all106old tags and160
+old blocks exact,180totalcompile/7469protected payloads+modes/47local links.
+Four visible setup blocks run freshly before every example; prose clarified
+without changing any executed body. Normal docs gate369pass/1existing D29full
+inventory skip, exit0,129.96s; zero production modules means no coverage claim.
+Both new ordinary prefixes independently pass90retained GP+9Echo+18sidebar
+guides=117 without source overrides, alongside full package/consumer tuples.
+Exact commands/exits/origins: external Tstage root-gates/fontlab-python-docs and
+wheel-/sdist-all-guide-examples results. No native/generated/source-lock/site/
+archive/publication or canonical/live change; D16/D29/D30/D31 remain.
+
+
+## Dynamic sidebar and document source companion — 2026-11-02
+
+Added a practical linked guide for the actual Glyport
+788959172108d684bf84816d53aeca2d392eba6f algorithms. Eighteen independent
+experiments cover current defaults keys, exact UTF16/general predicate paths,
+projection identity/reparenting/setter scheduling, category/subcategory order,
+mapping and image caches, repeated tree/tag reads, real filter reload failures,
+copy/insertion/removal, weak current-font callbacks, real list expansion/alias
+copy/collision state, count precedence/main publication/Smallcaps/narrow errors,
+explicit queue initialization and actual document parent-URL local loading.
+Each runs fresh exact published setup with explicit owned primitives. No
+whole-algorithm provider replaces the actual production bodies.
+
+All 18 new source examples pass; the unchanged reused runners independently
+pass all 90 retained Glyport and nine retained Echopy examples. The first new
+attempt passes 14/16 before exposing two fixture errors: a nonexistent localURL
+getter and GSDocument absent from the execution module's factory surface. The
+correct current paths are explicit lifecycle state and the actual package class/
+font parent. The first runner also resolved its relative receipt path after
+changing directory; corrected to resolve before execution. Original failed log
+is retained. Later 16/16 and final 18/18 receipts are separate, never overwritten.
+
+Before editing, pinned all 7,477 parent files/modes, all 106 tagged bodies and
+all 160 Python blocks. Every prior body remains byte-identical, including seven
+held native/UI examples. Static checks compile all 180 blocks, resolve authored
+local links, retain generated-reference holds, preserve 7,469 protected payloads,
+navigation/index/source-lock/generated/archive state and check authored privacy.
+Rehashed 223 primary resource inputs and eight document inputs; evidence pins
+254 source/contract inputs and exact reused R runner/migration bytes.
+
+Exact rtk proxy commands, exits, logs, actual loaded origins and setup/body hashes
+are external in ../docs-evidence: retained-glyport-command.json (90 pass),
+retained-echopy-command.json (nine pass), sidebar-final-command.json (18 pass),
+static-first-command.json, input-verification-command.json and cli-command.json.
+Seven negative CLI cases confirm all four runners reject installed source
+overrides before imports/writes. The aggregate runner executes 117 active
+examples in three independent processes and accepts no installed source flags.
+TMPDIR, caches and COVERAGE_FILE are external; the borrowed arm64 Python3.11
+interpreter is read-only. No installs or dependency changes.
+
+Wait, but: this qualifies source experiments only. Actual FontLab fontType,
+file URL/type/superclass and observer adapters, defaults/resources/predicates/
+queues/images/record fields, Foundation collection/weak-reference/KVO behavior
+and original font workflows remain independent. Root owns normal docs gates,
+matching ordinary archives/prefixes/full consumers and commits/pushes. D16/D29/
+D30/D31, native capture/generated reference/source-lock/site/browser/archive/
+publication and canonical promotion remain. No FontLab/MCP/real framework/live
+state was accessed or changed.
+
 ## Connected local-manager authored companion — 2026-11-02
 
 Extended the manager/profile guide against exact Glyport
