@@ -64,6 +64,54 @@ font.info.apply({"familyName": "My Family", "ascender": 810.5},
                 undo_name="Edit font information")
 ```
 
+## UFO and DesignSpace
+
+Fontport exports a whole FontLab font to UFO and DesignSpace, and opens UFO and
+DesignSpace files as new FontLab documents.
+
+Export a multi-master font as a `.designspace` plus one UFO per master:
+
+```python
+from fontlab_fontport.designspace_io import export_designspace
+
+path, losses = export_designspace(backend, "/absolute/path/Family.designspace")
+print(path)
+print(*losses, sep="\n")          # what the export did not carry
+```
+
+`export_designspace(backend, destination, document=None)` reads the backend and
+never changes it. Axes, master locations and instances come from the native
+package unless you pass your own `DesignSpaceDocument`. Each master is written as
+`<stem>-<master>.ufo` beside the `.designspace`, with its own outlines, anchors
+and kerning. `write_designspace(font, document, destination, master_kerning)`
+does the file writing for a font you already exported. Nothing is overwritten.
+
+Open UFO and DesignSpace files through FontLab's native `open_font`:
+
+```python
+from fontlab_fontport.native_import import import_designspace, import_ufo_native
+
+backend = import_designspace("/absolute/path/Family.designspace")
+# or: import_ufo_native("/absolute/path/Master.ufo")  # one master
+backend.close()                    # the result is an owned document
+```
+
+Both need absolute paths, a matching suffix and an existing file; FontLab
+resolves the source UFOs of a designspace. Import converts nothing in Fontport.
+
+**What an export loses.** The `losses` list names it: designspace rules, axis and
+location labels, instances' generated UFOs (instances are listed only), and
+per-master groups, info, lib and features, which come from the key master and are
+shared by every master UFO. Brace layers are not exported. Kerning is the
+exception: each master's own kerning is exported.
+
+**Why Fontport does not use `fgFont.save("x.ufo")`.** The native UFO save is
+lossy. In a measured case it wrote the current master only (a three-master font gave
+one layer), no `kerning.plist`, and no anchors. The MCP `save_font` tool writes
+only VFJ, VFC and VFJP. Fontport's own exporter reads every master, so it keeps
+all masters, kerning and anchors. Use VFJ when you need a lossless native archive.
+See `docs/UFO-INTERCHANGE.md` in the Fontport repository for the full table.
+
 ## The editors moved to Fontlabapp
 
 The six FontParts-bound Qt editors (`font_info_editor`, `groups_editor`,

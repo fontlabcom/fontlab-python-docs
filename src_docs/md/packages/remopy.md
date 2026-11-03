@@ -57,6 +57,20 @@ fontlab-remopy call list_fonts
 
 Use `AsyncFontLab` with `async with` and `await` in asynchronous programs.
 
+Call any other FontLab tool by name with `fl.tool(name, **arguments)`. Remopy
+checks the argument names against the tool's input schema and raises `ValueError`
+for an unknown name before anything is sent. This matters because FontLab's MCP
+server silently drops unknown arguments: `set_kerning_pair(master="Bold")` would
+write to the current master. The kerning tools take `master_name`:
+
+```python
+with FontLab() as fl:
+    fl.tool("list_kerning_pairs", master_name="Bold")
+```
+
+Only names are checked, not types, and tools missing from the catalogue or with
+open schemas are not checked.
+
 ## Limits
 
 - Values travel as JSON; native objects cannot be returned directly.
