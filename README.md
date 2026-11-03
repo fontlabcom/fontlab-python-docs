@@ -196,4 +196,4 @@ capture/generate/merge pipeline. They preserve native/generated/publication hold
 The [original node-action guide](src_docs/md/guide/original-node-actions.md) explains
 three distinct menu scopes and four executable experiments over the actual App planning engine, with separate native preservation/history acceptance.
 
-The [layer-identity guide](src_docs/md/guide/glyport-layer-identities.md) adds eight owned experiments over actual native-boundary projection and history, with separate native acceptance.
+The [layer-identity guide](src_docs/md/guide/glyport-layer-identities.md) adds eight owned experiments over actual native-boundary projection/history. [Window recovery](src_docs/md/guide/owned-window-recovery.md) explains priority, Close refusal and six standalone experiments; native acceptance stays separate.

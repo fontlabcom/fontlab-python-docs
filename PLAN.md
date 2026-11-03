@@ -2,6 +2,16 @@
 this_file: PLAN.md
 ---
 
+## Owned-window recovery guide — 2026-11-03
+
+Link the new practical native-use guide and six independent standalone experiments
+over actual App widgets, refusal, dock transitions, cleanup failure and parent
+death. Preserve every inherited body/mode/fence/tag and generated/native/source-
+lock/site/archive payload. Normal369pass/1existing skip, all6experiments in source
+and both genuine prefixes, plus inherited body/mode/fence/tag checks pass.
+Actual native stacking/PythonQt lifetime and full
+four-font/history/Undo/Redo/reopen/publication remain separate requirements.
+
 ## Remaining layer-identity acceptance
 
 Carry the source/artifact/ordinary-tested owned layer examples through actual

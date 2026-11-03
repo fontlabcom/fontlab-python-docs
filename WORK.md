@@ -2,6 +2,31 @@
 this_file: WORK.md
 ---
 
+## Owned-window recovery authored companion — 2026-11-03
+
+New guide explains real FontLab factory usage, Common Glyphs/plugin priority,
+refused Close, grouped setup/cleanup errors and exact recovery ownership. Six
+fresh standalone experiments execute actual App factories/OwnedWidget over real
+offscreen Qt6; all6pass initially in source. No real native imports, fonts or
+FontLab requests occur. Root owns final post-review source/ordinary runs, normal
+docs gate, inherited-content protection and installation-origin checks. No source
+lock, captured/generated API, rendered site, archive or publication is refreshed.
+
+Command exited0; expanded local argv stays in private workspace evidence. Portable
+recipe (`OWNED_PYTHON` is the prepared standalone interpreter, `EVIDENCE` the stage):
+`rtk proxy env QT_QPA_PLATFORM=offscreen "$OWNED_PYTHON" -I -B "$EVIDENCE/run_window_guides.py" --mode source --output "$EVIDENCE/window-guides-source-first.json"`
+Standalone results do not establish actual macOS FontLab stacking, PythonQt
+destruction safety or full native preservation/history; all such holds remain.
+
+Final source and both genuine App.dev334 ordinary prefixes pass all6experiments;
+all8new Python blocks compile. The direct protection audit verifies7482inherited
+modes,7476protected bodies,229old Python fences/173old tags unchanged; new links
+resolve and README remains199lines. Actual13-target Echopy comparison produces
+39identical files, so no native/generated API reference is refreshed.
+The unchanged normal Docs gate passes369tests/1existing built-inventory skip,
+with zero changed production modules/no coverage claim. Initial clone tracking
+was missing: fetched actual main and set tracking, then reran the unchanged gate.
+
 ## Foreground-layer identity guide verified — 2026-11-03
 
 New glyport-layer-identities.md has eight independent exact-setup experiments

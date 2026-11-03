@@ -2,6 +2,15 @@
 this_file: CHANGELOG.md
 ---
 
+## Owned-window recovery authored guide — 2026-11-03
+
+Add practical FontLab usage and six executable standalone experiments covering
+floating priority, refusal, staged cleanup, factory failure ownership and parent
+destruction. Retain all inherited examples and generated/native/publication holds.
+All6pass in final source and both genuine App.dev334 prefixes; normal369/1existing
+skip. Preserve7482inherited modes,7476protected bodies,229old Python fences/173old
+tags;8newblocks compile and new links resolve. No generated/reference publication.
+
 ## Foreground-layer identity guide verified — 2026-11-03
 
 New glyport-layer-identities.md has eight independent exact-setup experiments
