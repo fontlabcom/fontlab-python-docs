@@ -7,15 +7,10 @@ Fontlabapp is the Python layer for FontLab's application surface: menus and
 actions, panels, preferences, versions and paths, Glyph and Preview windows,
 drawing overlays, and docks, dialogs and widgets you create yourself.
 
-This page describes Fontlabapp v0.2.4.
-
 !!! note "Fontport's Qt editors live here"
-    Fontport's Qt editors moved into Fontlabapp as `fontlabapp.fontui` (issue 201).
+    Fontport's Qt editors moved into Fontlabapp as `fontlabapp.fontui`.
     Fontlabapp is where FontLab user interface code belongs; Fontport keeps
     font-data interoperability only.
-
-TODO (issue 201): document the `fontlabapp.ui`, objects and menus facades once their
-revision lands; they are not covered here yet.
 
 ## Install
 
@@ -104,7 +99,7 @@ Install the extra that matches the tools you need:
 | Extra | Adds |
 | --- | --- |
 | `fontlab-fontlabapp[fontui]` | `font_browser`, `glyph_browser`, `glyph_preview`, `features_editor`, `designspace_panel` |
-| `fontlab-fontlabapp[fontport]` | The FontParts-bound editors, which call [Fontport](fontport.md) lazily: `font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`, `batch_panel` and `glyph_sequence` |
+| `fontlab-fontlabapp[fontport]` (once Fontport is published; until then install both from checkouts) | The FontParts-bound editors, which call [Fontport](fontport.md) lazily: `font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`, `batch_panel` and `glyph_sequence` |
 
 The FontParts-bound editors moved here from Fontport. Importing them from
 `fontlab_fontport.ui` raises an `ImportError` that names this module.
@@ -147,5 +142,7 @@ The view updates on the next change after the script completes.
 - Native wrappers may be recreated on each access: compare fonts by native id,
   not with `is`.
 - Created panels, dialogs and widgets own only themselves; close them when done.
+- FontLab can keep its main window hidden. `create_panel` re-floats a dock that
+  would otherwise be docked into that hidden window, so the panel stays visible.
 
 Reference: [fontlabapp](../reference/fontlabapp.md).

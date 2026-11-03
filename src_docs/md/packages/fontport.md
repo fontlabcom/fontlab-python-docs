@@ -9,13 +9,15 @@ native FontGate glyphs, detached FontParts and UFO snapshots, and live FontParts
 objects bound to an open FontLab document.
 
 !!! note "No user interface"
-    Fontport has no UI (issue 201). Its Qt editors now live in
+    Fontport has no UI. Its Qt editors now live in
     [`fontlabapp.fontui`](fontlabapp.md#fontui-font-and-glyph-browsers-and-editors).
 
 ## Install
 
-Install `fontlab-fontport` with fontTools, fontPens, FontParts and ufoLib2 into
-FontLab's Python folder; see [Install into FontLab](index.md#install-into-fontlab).
+Fontport requires `fontlab-fontlabapp` (version 0.2.26.dev150 or later), plus
+defcon, fontTools, fontPens, FontParts and ufoLib2. Fontlabapp is not on a package
+index, so install it from a checkout or wheel first, then Fontport, into FontLab's
+Python folder; see [Install into FontLab](index.md#install-into-fontlab).
 Importing the package outside FontLab is safe; native access loads on demand.
 
 ## Quick start
@@ -146,12 +148,9 @@ See `docs/UFO-INTERCHANGE.md` in the Fontport repository for the full table.
 
 The six FontParts-bound Qt editors (`font_info_editor`, `groups_editor`,
 `kerning_editor`, `transform_editor`, `batch_panel` and `glyph_sequence`) live in
-`fontlabapp.fontui`. They call Fontport lazily; install both with the
-`fontport` extra:
-
-```sh
-pip install "fontlab-fontlabapp[fontport]"
-```
+`fontlabapp.fontui`. They call Fontport lazily, so install both packages in the
+same environment (Fontlabapp first). Once both are published, the Fontlabapp
+`fontport` extra installs Fontport for you.
 
 ```python
 # old (removed): from fontlab_fontport.ui import font_info_editor
@@ -167,7 +166,7 @@ Fontport also reads and writes feature blocks (`fontlab_fontport.feature_blocks`
 `read_feature_blocks` and `write_feature_blocks`), which need the original font
 to be active and compare the source snapshot before writing.
 
-## Behaviour and limits (Fontport v1.0.2)
+## Behaviour and limits
 
 - **Undo:** an edit through the live binding is undone by the first Edit > Undo.
   FontLab records one extra, empty Undo row with it (exact one-row Undo is the

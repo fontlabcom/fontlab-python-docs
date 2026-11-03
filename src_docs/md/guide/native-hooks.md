@@ -5,7 +5,7 @@ this_file: src_docs/md/guide/native-hooks.md
 
 FontLab 9 lets Python draw on the Glyph canvas and register its own tools. Both
 hooks live on the host objects, so you need no helper package to use them.
-Fontlabapp and Plugmix wrap them with friendlier APIs.
+Plugmix and Glyport wrap them with friendlier APIs.
 
 !!! warning "Host build"
     These methods exist only in FontLab 9 builds that include the Python
@@ -132,6 +132,7 @@ callback may safely unregister its own tool.
 | An overlay or interaction that belongs to one tool | Tool `paint` and mouse methods |
 | A menu or toolbar entry that takes over the canvas | Tool |
 
-For a ready-made reporter framework see [Plugmix](../packages/plugmix.md). For
-Fontlabapp's wrapper with context-managed overlays see
-[Fontlabapp](../packages/fontlabapp.md).
+For ready-made reporters, filters and tools see [Plugmix](../packages/plugmix.md);
+Glyport uses the same hooks for Glyphs reporters and tools. Fontlabapp's
+`glyph_window.draw` overlay is a separate mechanism, not a wrapper for these hooks;
+see [Fontlabapp](../packages/fontlabapp.md).

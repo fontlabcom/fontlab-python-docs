@@ -22,7 +22,7 @@ the current limits; the API reference links lead to every documented member.
 | [Aidus Code](aidus-code.md) | `fontlab_aidus_code` | Chat with an AI agent that inspects and edits fonts in FontLab |
 | [Scriptmix](scriptmix.md) | scripts | Copy practical menu tools into FontLab's Scripts folder |
 | [Examples](examples.md) | scripts | Learn PythonQt workflows from one hundred menu scripts |
-| [Plugmix](plugmix.md) | `fontlab_plugmix` | Add toggleable reporter overlays to the Glyph window |
+| [Plugmix](plugmix.md) | `fontlab_plugmix` | Add reporters, filters, palettes, tools and General plugins |
 
 ## Install into FontLab
 
@@ -68,7 +68,7 @@ Every API page is generated without running FontLab:
 
 - `fontlab`, `fontgate`, `fontpr` and `PythonQt` come from Echopy's captures of the
   live host (242,654 captured identities, each one documented).
-- Echopy shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr` and `PythonQt`.
+- Echopy shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr`, `FL` and `PythonQt`.
   The Glyphs.app emulation modules (`GlyphsApp`, `vanilla`, `AppKit`, `Cocoa`,
   `Foundation`, `objc`) live in Glyport, FontLab's menu and panel names live in
   Fontlabapp, and the Aidus tools belong to Aidus Code. Each is documented from

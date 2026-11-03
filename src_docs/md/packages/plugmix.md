@@ -3,10 +3,11 @@ this_file: src_docs/md/packages/plugmix.md
 ---
 # Plugmix
 
-Plugmix is a package of native FontLab 9 plugins. It has three plugin kinds that
-work today: **reporters** (toggleable, read-only overlays on the Glyph window),
-**filters** (undoable edits to selected glyphs) and **palettes** (dockable
-panels). Tool and General plugins are designed but not built. Plugmix uses
+Plugmix is a package of native FontLab 9 plugins. It has five plugin kinds:
+**reporters** (toggleable, read-only overlays on the Glyph window), **filters**
+(undoable edits to selected glyphs), **palettes** (dockable panels), **tools**
+(native FontLab tools) and **General** plugins (menu commands and font events).
+Plugmix uses
 FontLab's PythonQt and, on older builds, Fontlabapp's editor painters. It does not
 use PySide2, and it does not emulate Glyphs.app.
 
@@ -63,13 +64,16 @@ the Script menu.
 | Kind | Where it appears |
 | --- | --- |
 | Reporter | One checkable **Plugmix: Show ...** action per reporter in the View menu. |
-| Filter | **Plugmix: Delete Small Paths...** in the Glyph menu, opening a non-modal parameter dialog. |
+| Filter | **Plugmix: Delete Small Paths…** in the Glyph menu, opening a non-modal parameter dialog. |
 | Palette | **Plugmix: Step and Repeat Panel** in the Window menu, checkable, hidden until shown. |
+| Tool | **Plugmix: Tool Smart Select**, which registers a native tool when enabled. |
+| General | **Plugmix: Zoom to Selection** in the View menu. |
 
 Choices live in one JSON file in FontLab's `Data` folder, with these keys:
-`enabled` (reporters), `enabled_filters`, `enabled_palettes` and `params`
-(last-used filter values). Older files with only `enabled` still load, filters are
-enabled by default, and `enabled_palettes` is written only after you choose a
+`enabled` (reporters), `enabled_filters`, `enabled_palettes`, `enabled_tools`,
+`enabled_general` and `params` (last-used filter values). Older files with only
+`enabled` still load, filters, tools and General plugins are enabled by default,
+and `enabled_palettes` is written only after you choose a
 visibility. A selection saved under the former name `nodes_outside_paths`
 restores as `offcurve_outside_bounds`. `uninstall()` removes the actions, overlays
 and panels and keeps the saved choices.
@@ -179,17 +183,47 @@ visible palettes and stops when none are visible.
 active glyph. `count` is the number of *additional* copies, and each copy is shifted
 by another (`dx`, `dy`), so offsets accumulate. Apply is one Undo step.
 
+## Tools
+
+A tool becomes a native FontLab tool through `flWorkspace.registerPythonTool`.
+`Tool.activate(ctx)` and `deactivate()` bracket its use; `press`, `move`, `release`,
+`double_click`, `key_down` and `key_up` each take a `ToolEvent` and return `True`
+when they handled it; `marks(glyph)` returns overlay marks drawn only while the
+tool is active. `ToolContext` offers `snapshot()`, `select(indices, toggle=False)`,
+`edit(plan_fn, title)` and `redraw()`. Viewport events are mapped through
+FontLab's pan and zoom and the glyph's text-block transforms.
+
+**Smart Select** drags a rectangle and selects whole contours touched by any node;
+Shift toggles those contours. It is selection-only and never changes outline
+geometry. It omits the source plugin's double-click containment and native move
+handling.
+
+## General plugins
+
+A General plugin is a menu command with optional font events. `General.start(ctx)`
+and `stop()` bracket its life, `run()` handles the command, and
+`on_font_opened(font_id)` and `on_font_closed(font_id)` report fonts by the stable
+`flPackage.fgId`, the id that MCP, Remopy and Fontport use. `GeneralContext`
+offers `notify`, `snapshot`, `edit`, `timer` and `zoom_selected`. Plugmix owns the
+extra actions and timers a General plugin creates and removes them on
+`uninstall()`. General font watchers share the palettes' 250 ms timer.
+
+**Zoom to Selection** fits the active glyph's selected nodes in the canvas with a
+margin. It omits the source plugin's delayed viewport adjustment. Shortcut
+conflicts are reported, not overridden. Shortcut handling and keyboard cursor
+mapping still need an in-app recheck.
+
 ## The Scripts folder
 
-The repository's `Scripts/` folder holds ordinary FontLab menu scripts: one to
-install the Plugmix menu, and one per reporter under `Scripts/Plugmix/Reports/`.
-Copy them into FontLab's Scripts folder to run a reporter from the Script menu
-instead of from the View menu.
+The repository's `Scripts/` folder holds two ordinary FontLab menu scripts:
+`Scripts/Plugmix/Install Plugmix Menu.py` installs the Plugmix menus, and
+`Scripts/Reports/Duplicate Anchor Rings.py` runs one reporter from the Script menu.
+Copy them into FontLab's Scripts folder to use them.
 
 ## Limits
 
-- Reporters are read-only. Filters and palettes edit only through Plugmix's shared
-  outline writer.
+- Reporters are read-only. Filters, palettes and tools edit only through Plugmix's
+  shared outline writer.
 - Painting runs inside FontLab's paint event on the GUI thread. Keep `compute()`
   quick.
 - The palette refresh key reads the glyph modification timestamp and node

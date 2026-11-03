@@ -667,8 +667,7 @@ workflow acceptance is implied.
   `SelectTool` plugins register as native FontLab tools
   (`flWorkspace.registerPythonTool`); see [Native hooks](../guide/native-hooks.md).
 - Vanilla controls and dialogs, Qt-backed AppKit classes, NSBezierPath drawing and
-  NIB/XIB interface loading ([Glyport reference](../reference/fontlab_glyport.md),
-  [AppKit](../reference/fontlab_glyport.md)).
+  NIB/XIB interface loading ([Glyport reference](../reference/fontlab_glyport.md)).
 
 ## Limits
 
@@ -694,7 +693,7 @@ See the [Glyphs compatibility guide](../guide/glyphs.md). Reference:
 ## Compatibility status
 
 Native triage on FontLab 9.0.9802 ran 98 corpus Glyphs plugins and scripts through
-Glyport on an owned font (issue 201, final code). Pass means the target loaded,
+Glyport on an owned font (final code). Pass means the target loaded,
 registered its menu, tool or window, ran the hooks the harness could trigger
 without errors, and closed cleanly. Partial means it loaded and ran but a hook
 raised. Fail means it did not load or did not close.
@@ -715,8 +714,9 @@ gaps:
 
 - Compiled Objective-C bundles (for example ShowAngledHandles) have no Python
   entry point and cannot run.
-- `glyphsLib` is not installed in FontLab's Python, which blocks plugins that
-  import it. That is an environment dependency, not a Glyport defect.
+- The triage environment lacked `glyphsLib`, which Glyport declares as a
+  dependency. Plugins that import it failed there; a complete install avoids that
+  failure class, so the counts understate what a complete install passes.
 - Some AppKit and Cocoa members are missing (for example `NSGradient`, `NSBeep` and
   a few layout and window constants), and a few Glyphs model members are absent.
 

@@ -38,7 +38,7 @@ The same collection supports two different questions:
 | `parameters["Name"] = value` | Change the first matching object, retaining its active flag; append if absent |
 | `parameters["Name"] = None` | Remove the first matching object |
 | `del parameters["Name"]` | Remove the first match; missing or empty names are a no-op |
-| `parameters.remove(parameter)` | Remove the first matching **name**, even if the argument is a later duplicate |
+| `parameters.remove(parameter)` | Remove that parameter object (by identity); `ValueError` if it is not in the collection |
 | Indexed replacement/deletion | Replace/remove that position and detach the old object |
 
 Do not treat name lookup as an ordinary dictionary when duplicates or inactive
@@ -88,15 +88,15 @@ first = GSCustomParameter("Owned duplicate", 1)
 later = GSCustomParameter("Owned duplicate", 2)
 font.customParameters.extend([first, later])
 font.customParameters.remove(later)
-assert list(font.customParameters) == [later]  # Removal uses the first name.
-assert first.parent is None
+assert list(font.customParameters) == [first]  # Removal is by object identity.
+assert later.parent is None
 
 before = GSCustomParameter("Before last", 3)
 font.customParameters.insert(-1, before)
-assert list(font.customParameters) == [before, later]
+assert list(font.customParameters) == [before, first]
 replacement = GSCustomParameter("Replacement", 4)
 font.customParameters[-1] = replacement
-assert later.parent is None and replacement.parent is font
+assert first.parent is None and replacement.parent is font
 try:
     font.customParameters.insert(99, GSCustomParameter("Outside", 0))
 except IndexError:
@@ -145,8 +145,8 @@ The persistence representation uses ordered records and compatible flat-key
 mirrors. Old flat values import in their former sorted order because the old
 format recorded no original insertion order or active flags. New external flat
 names are retained. An external edit or deletion of an existing mirrored value
-is ambiguous and refuses subsequent writes until explicitly reconciled; it is
-not silently overwritten by an unrelated parameter edit.
+wins: the collection follows the flat keys, reads never raise, and one
+`CUSTOM_PARAMETERS_REBUILT` warning is queued.
 
 This storage diagnostic reconstructs a Python model over the same owned backend.
 It is not a native font save/reopen test:

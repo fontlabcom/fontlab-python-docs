@@ -69,7 +69,9 @@ with FontLab() as fl:
 ```
 
 Only names are checked, not types, and tools missing from the catalogue or with
-open schemas are not checked.
+open schemas are not checked. The one-shot `call_tool` function and the CLI `call`
+command apply the same check (one catalogue request per call); pass
+`check_arguments=False` to opt out. `run_python` skips the check.
 
 ## Limits
 

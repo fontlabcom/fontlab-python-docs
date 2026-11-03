@@ -204,9 +204,9 @@ measured call on the actual host when an overload or property is uncertain.
 
 ## Understand runtime shims
 
-Echopy now shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr` and
-`PythonQt`. The `GlyphsApp`, `vanilla` and related compatibility modules are
-supplied by Glyport (issue 201 removed them from Echopy). They do not install Glyphs.app or turn an
+Echopy shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr` (absent in measured
+builds), `FL` and `PythonQt`. The `GlyphsApp`, `vanilla` and related compatibility modules are
+supplied by Glyport (Echopy no longer ships them). They do not install Glyphs.app or turn an
 offline process into a running Glyphs-compatible session. Glyport owns the
 runtime providers used by adapted scripts.
 
@@ -548,8 +548,8 @@ new nonidentifier declarations require reviewed generation from the capture.
 
 Glyphs.app compatibility is not an Echopy feature. Glyport owns the
 `GlyphsApp`, `vanilla`, `AppKit`, `Cocoa`, `Foundation` and `objc` modules and
-the glyph-info, description and manager providers behind them; Echopy removed its
-copies in issue 201. Read the [Glyport guide](glyport.md), the
+the glyph-info, description and manager providers behind them; Echopy no longer
+ships its own copies. Read the [Glyport guide](glyport.md), the
 [compound](../guide/glyport-compounds.md), [description](../guide/glyport-descriptions.md)
 and [manager](../guide/glyport-managers.md) guides, and the
 [Glyport reference](../reference/fontlab_glyport.md). Echopy's own declarations
