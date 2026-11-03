@@ -69,7 +69,8 @@ font.info.apply({"familyName": "My Family", "ascender": 810.5},
 Fontport exports a whole FontLab font to UFO and DesignSpace, and opens UFO and
 DesignSpace files as new FontLab documents.
 
-Export a multi-master font as a `.designspace` plus one UFO per master:
+Export a multi-master font as a `.designspace` plus one UFO per master. This
+example needs FontLab, because it reads a live font:
 
 ```python
 from fontlab_fontport.designspace_io import export_designspace
@@ -86,7 +87,8 @@ package unless you pass your own `DesignSpaceDocument`. Each master is written a
 and kerning. `write_designspace(font, document, destination, master_kerning)`
 does the file writing for a font you already exported. Nothing is overwritten.
 
-Open UFO and DesignSpace files through FontLab's native `open_font`:
+Open UFO and DesignSpace files through FontLab's native `open_font` (this also
+needs FontLab):
 
 ```python
 from fontlab_fontport.native_import import import_designspace, import_ufo_native
@@ -98,6 +100,34 @@ backend.close()                    # the result is an owned document
 
 Both need absolute paths, a matching suffix and an existing file; FontLab
 resolves the source UFOs of a designspace. Import converts nothing in Fontport.
+
+The file writing itself runs without FontLab. This example splits a ufoLib2 font
+whose layers are the masters into `Family.designspace` and one UFO per master,
+with each master's own kerning:
+
+```python
+from fontTools.designspaceLib import (
+    AxisDescriptor, DesignSpaceDocument, SourceDescriptor)
+from ufoLib2 import Font
+from fontlab_fontport.designspace_io import write_designspace
+
+font = Font()
+font.layers.renameLayer(font.layers.defaultLayer.name, "Light")
+font.layers.newLayer("Bold")
+for layer in font.layers:
+    layer.newGlyph("A").width = 500
+
+doc = DesignSpaceDocument()
+axis = AxisDescriptor(name="Weight", tag="wght", minimum=300, default=300, maximum=700)
+doc.addAxis(axis)
+for name, weight in (("Light", 300), ("Bold", 700)):
+    doc.addSource(SourceDescriptor(name=name, location={"Weight": weight}))
+
+kerning = {"Light": {("A", "A"): -50}, "Bold": {("A", "A"): -80}}
+path = write_designspace(font, doc, "/absolute/path/Family.designspace", kerning)
+```
+
+Every source name must be a layer of the font, and nothing is overwritten.
 
 **What an export loses.** The `losses` list names it: designspace rules, axis and
 location labels, instances' generated UFOs (instances are listed only), and
