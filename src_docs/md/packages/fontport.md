@@ -8,6 +8,11 @@ FontParts, fontTools and fontPens pens, and ufoLib2. It provides point pens over
 native FontGate glyphs, detached FontParts and UFO snapshots, and live FontParts
 objects bound to an open FontLab document.
 
+!!! note "Qt editors are moving"
+    Fontport's Qt editors are moving to `fontlabapp.fontui` (issue 201). Until the
+    move is complete they still ship with Fontport. Fontport itself stays the
+    interoperability layer, with no user interface.
+
 ## Install
 
 Install `fontlab-fontport` with fontTools, fontPens, FontParts and ufoLib2 into

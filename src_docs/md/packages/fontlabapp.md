@@ -9,6 +9,11 @@ drawing overlays, and docks, dialogs and widgets you create yourself.
 
 This page describes Fontlabapp v0.2.4.
 
+!!! note "Fontport's Qt editors are moving here"
+    Fontport's Qt editors are moving into Fontlabapp as `fontlabapp.fontui`
+    (issue 201). Fontlabapp is where FontLab user interface code belongs; Fontport
+    keeps font-data interoperability only.
+
 ## Install
 
 Install `fontlab-fontlabapp` into FontLab's Python folder; see

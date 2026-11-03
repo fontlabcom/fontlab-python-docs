@@ -4,7 +4,8 @@ this_file: src_docs/md/packages/index.md
 # Packages
 
 FontLab 9 runs Python 3.11 with its own PythonQt (Qt 5). These packages extend
-it. Each page below gives an overview, installation, a quick start, examples and
+it. [Ecosystem and package boundaries](ecosystem.md) explains which package owns
+what. Each page below gives an overview, installation, a quick start, examples and
 the current limits; the API reference links lead to every documented member.
 
 | Package | Import | Use it to |
@@ -19,6 +20,7 @@ the current limits; the API reference links lead to every documented member.
 | [Fontport](fontport.md) | `fontlab_fontport` | Use FontParts, fontTools pens and ufoLib2 with FontLab fonts |
 | [TypeRig](typerig.md) | `typerig` | Use the TypeRig glyph and outline library |
 | [Aidus Code](aidus-code.md) | `fontlab_aidus_code` | Chat with an AI agent that inspects and edits fonts in FontLab |
+| [Plugmix](plugmix.md) | `fontlab_plugmix` | Add toggleable reporter overlays to the Glyph window |
 
 ## Install into FontLab
 
