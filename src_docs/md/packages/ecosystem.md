@@ -17,8 +17,8 @@ matches your answer instead of reaching across a boundary.
 | [Fly](fly.md) | Nine short, lazy import aliases for the packages above. It adds no behaviour. |
 | [Aidus Code](aidus-code.md) | An in-FontLab coding agent with a graphical dock. |
 | [Pythonqtside](pythonqtside.md) | Runs PySide2-style code on FontLab's PythonQt. |
-| Scriptmix | A collection of practical menu scripts for FontLab 9. |
-| Examples | PythonQt-rich example scripts that show how to build panels and tools. |
+| [Scriptmix](scriptmix.md) | A collection of practical menu scripts for FontLab 9. |
+| [Examples](examples.md) | PythonQt-rich example scripts that show how to build panels and tools. |
 | [Plugmix](plugmix.md) | New: native FontLab plugins, starting with toggleable reporter overlays. |
 
 ## How the packages depend on each other
@@ -59,6 +59,16 @@ flowchart TD
     fly -.-> qside
     remopy -.->|FontLab MCP server| host
 ```
+
+The same dependencies as a plain list:
+
+- Echopy, Fontlabapp, Pythonqtside and Fontport build on the FontLab host.
+- Glyport builds on Fontlabapp and Echopy.
+- Plugmix, Aidus Code, Scriptmix and Examples build on Fontlabapp.
+- Fontport's Qt editors are moving to Fontlabapp (issue 201).
+- Aidus Code can reach FontLab from outside through Remopy.
+- Remopy talks to FontLab's native MCP server, not to the host modules.
+- Fly optionally aliases Echopy, Fontlabapp, Glyport, Fontport and Pythonqtside.
 
 Two edges are worth stating in words. Remopy never imports the host: it talks to
 FontLab's native MCP server, so it runs anywhere Python runs. Fly imports nothing

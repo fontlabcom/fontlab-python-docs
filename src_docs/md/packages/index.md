@@ -20,6 +20,8 @@ the current limits; the API reference links lead to every documented member.
 | [Fontport](fontport.md) | `fontlab_fontport` | Use FontParts, fontTools pens and ufoLib2 with FontLab fonts |
 | [TypeRig](typerig.md) | `typerig` | Use the TypeRig glyph and outline library |
 | [Aidus Code](aidus-code.md) | `fontlab_aidus_code` | Chat with an AI agent that inspects and edits fonts in FontLab |
+| [Scriptmix](scriptmix.md) | scripts | Copy practical menu tools into FontLab's Scripts folder |
+| [Examples](examples.md) | scripts | Learn PythonQt workflows from one hundred menu scripts |
 | [Plugmix](plugmix.md) | `fontlab_plugmix` | Add toggleable reporter overlays to the Glyph window |
 
 ## Install into FontLab
