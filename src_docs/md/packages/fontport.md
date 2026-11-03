@@ -62,17 +62,17 @@ font.info.apply({"familyName": "My Family", "ascender": 810.5},
 
 ## UI editors
 
-`fontlab_fontport.ui` provides the Qt editors that work on FontParts and UFO
+`fontlabapp.fontui` provides the Qt editors that work on FontParts and UFO
 models: `font_info_editor`, `groups_editor`, `kerning_editor`,
-`transform_editor`, `batch_panel` and `glyph_sequence`. They moved here from
-`fontlabapp.fontui`, which keeps the browsers, the preview, the features editor and
-the designspace panel. Each factory returns a handle: keep a reference, show its
+`transform_editor`, `batch_panel` and `glyph_sequence`. Install App's `fontport`
+extra. App also owns the browsers, preview, features editor and designspace
+panel. Each factory returns a handle: keep a reference, show its
 `.widget` and call `.close()` when you are done.
 
 ```python
 # Inside FontLab, with Fontport and ufoLib2 installed
 from ufoLib2 import Font
-from fontlab_fontport.ui import kerning_editor
+from fontlabapp.fontui import kerning_editor
 
 font = Font()                       # a detached demonstration model
 editor = kerning_editor(font)       # keep this handle alive

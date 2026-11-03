@@ -32,11 +32,11 @@ and PythonQt declarations and their capture identity manifest are unchanged.
 
 | Workflow | Public source interface |
 | --- | --- |
-| Two component dependency graph profiles | [`component_graph.show` and `show_official`](../reference/fontlabapp/component_graph.md) |
-| Two metrics and revision worksheets | [`glyph_numeric.show` and `show_detailed`](../reference/fontlabapp/glyph_numeric.md) |
-| Same-kerning-groups proof | [`kerning_group_proof.run`](../reference/fontlabapp/kerning_group_proof.md) |
-| Close But No Cigar report | [`near_miss.show`](../reference/fontlabapp/near_miss.md) |
-| Two local spacing-offset slider profiles | [`slider_spacing.show` and `show_stacked`](../reference/fontlabapp/slider_spacing.md) |
+| Two component dependency graph profiles | [`components.graph.model.show` and `show_official`](../reference/fontlabapp/components/graph/model.md) |
+| Two metrics and revision worksheets | [`proof.numeric.launcher.show` and `show_detailed`](../reference/fontlabapp/proof/numeric/launcher.md) |
+| Same-kerning-groups proof | [`kerning.group_proof.model.run`](../reference/fontlabapp/kerning/group_proof/model.md) |
+| Close But No Cigar report | [`contours.near_miss.model.show`](../reference/fontlabapp/contours/near_miss/model.md) |
+| Two local spacing-offset slider profiles | [`metrics.offset.model.show` and `show_stacked`](../reference/fontlabapp/metrics/offset/model.md) |
 
 These entries preserve the distinct original profiles and complete controls.
 Local graph movement, numeric estimates and spacing-offset previews do not edit

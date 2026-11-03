@@ -69,7 +69,7 @@ state changes and changes back during the scan.
 <!-- example: selection-read -->
 ```python
 from time import monotonic
-from fontlabapp.scripting import current_package, names_font_window_selection
+from fontlabapp.core.scripting import current_package, names_font_window_selection
 
 
 def read_font_selection():
@@ -98,7 +98,7 @@ Glyph window does not make the legacy selection writers safe there.
 
 <!-- example: selection-add -->
 ```python
-from fontlabapp.scripting import select_glyphs
+from fontlabapp.core.scripting import select_glyphs
 
 
 def add_report_names(package_id, names):
@@ -172,7 +172,7 @@ observe different state and lose the warning that applied to this action.
 
 <!-- example: writer-status -->
 ```python
-from fontlabapp.edit_guards import append_note
+from fontlabapp.core.edit_guards import append_note
 
 
 def raise_status(result):
@@ -199,8 +199,8 @@ calling it requires FontLab and can change the current font.
 
 <!-- example: raise-caller -->
 ```python
-from fontlabapp.edit_guards import append_note
-from fontlabapp.raise_ascender_native import Backend
+from fontlabapp.core.edit_guards import append_note
+from fontlabapp.contours.raise_ascender.native import Backend
 
 
 def raise_selected(amount="10", *, all_layers=False):
@@ -229,7 +229,7 @@ previous action’s warning after a no-op or an early failure.
 
 ### Perpendicular Guides uses the same warning
 
-`fontlabapp.perpendicular_guides.run()` plans guides for the first selected layer.
+`fontlabapp.guides.perpendicular.model.run()` plans guides for the first selected layer.
 When the sampled queue is nonempty, it prints the warning before a possible append.
 On success it returns `guides`,
 `layers`, `messages`, `pending_updates` and `pending_note`. The warning
@@ -265,9 +265,9 @@ and applying a different plan.
 
 <!-- example: background-caller -->
 ```python
-from fontlabapp.background_clear import plan as background_plan
-from fontlabapp.background_clear_native import Backend as BackgroundBackend
-from fontlabapp.edit_guards import append_note
+from fontlabapp.masters.background.clear.model import plan as background_plan
+from fontlabapp.masters.background.clear.native import Backend as BackgroundBackend
+from fontlabapp.core.edit_guards import append_note
 
 
 def preview_backgrounds(*, masters=False):

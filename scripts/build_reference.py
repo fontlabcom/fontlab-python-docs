@@ -99,8 +99,8 @@ def _aliases(plan: dict) -> dict[str, str]:
     aliases = dict(plan["aliases"])
     aliases.update(
         {
-            "fontlabapp.FontLab": "fontlabapp.controls.FontLab",
-            "fontlabapp.Application": "fontlabapp.application.application.Application",
+            "fontlabapp.FontLab": "fontlabapp.core.controls.FontLab",
+            "fontlabapp.Application": "fontlabapp.core.application.context.Application",
             "fly.qt": "PythonQt",
         }
     )

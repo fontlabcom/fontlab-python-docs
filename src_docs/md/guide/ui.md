@@ -16,7 +16,7 @@ with FontLab() as app:
     windows = app.glyph_windows()
 ```
 
-Inspect [the native FontLab controller][fontlabapp.controls.FontLab] for the
+Inspect [the native FontLab controller][fontlabapp.core.controls.FontLab] for the
 current API. A context closes only UI resources it owns. User-open documents
 and unrelated widgets remain owned by the application.
 
@@ -46,8 +46,8 @@ terminal callbacks. Do not add a second `reject()` override that calls `close()`
 <!-- example: owned-dialog -->
 ```python
 from PythonQt import QtGui
-import fontlabapp.script_completion as script_completion
-import fontlabapp.scripting as scripting
+import fontlabapp.core.completion as script_completion
+import fontlabapp.core.scripting as scripting
 
 class ExampleDialog(QtGui.QDialog):
     KEY = "example_owned_dialog"

@@ -27,9 +27,9 @@ PLAN = {
         "anchor": "fontlab.flNode.isExtreme",
     },
     "type_link": {
-        "page": "reference/fontlab_remopy/control/FontLab/members-001.html",
-        "member": "fontlab_remopy.control.FontLab.run",
-        "target": "reference/fontlab_remopy/execution/ExecutionResult.html#fontlab_remopy.execution.ExecutionResult",
+        "page": "reference/fontlab_remopy/client/FontLab/members-001.html",
+        "member": "fontlab_remopy.client.FontLab.run",
+        "target": "reference/fontlab_remopy/results/ExecutionResult.html#fontlab_remopy.results.ExecutionResult",
     },
     "param_type_link": {
         "case": "param_type_link",
@@ -46,7 +46,7 @@ PLAN = {
     "search": {
         "page": "reference/fontlab/flNode.html",
         "query": "decode_execution",
-        "target": "reference/fontlab_remopy/execution/members-001.html#fontlab_remopy.execution.decode_execution",
+        "target": "reference/fontlab_remopy/results/members-001.html#fontlab_remopy.results.decode_execution",
         "delay_ms": 1500,
     },
     "keyboard": {"page": "reference/fontlab/flNode.html"},
@@ -55,7 +55,7 @@ PLAN = {
     "search_slow_shard": {
         "page": "reference/fontlab/flNode.html",
         "query": "decode_execution",
-        "target": "reference/fontlab_remopy/execution/members-001.html#fontlab_remopy.execution.decode_execution",
+        "target": "reference/fontlab_remopy/results/members-001.html#fontlab_remopy.results.decode_execution",
         "delay_ms": 2500,
     },
 }

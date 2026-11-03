@@ -64,8 +64,9 @@ with app.control as fl:
 Edit vertical metrics or alignment zones on several masters as one Undo step:
 
 ```python
-from fontlabapp import master_metrics, zone_native
-from fontlabapp.scripting import current_package
+import fontlabapp.metrics.master_writer as master_metrics
+import fontlabapp.metrics.zones.native as zone_native
+from fontlabapp.core.scripting import current_package
 
 package = current_package()                   # the current font, Font window active
 master_metrics.write_master_metrics(
@@ -97,10 +98,12 @@ Install the extra that matches the tools you need:
 | --- | --- |
 | `fontlab-fontlabapp[fontui]` | `font_browser`, `glyph_browser`, `glyph_preview`, `features_editor`, `designspace_panel` |
 
-The FontParts-bound editors moved to [Fontport](fontport.md#ui-editors):
+The FontParts-bound editors also live in `fontlabapp.fontui`:
 `font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`,
-`batch_panel` and `glyph_sequence`. Import them from `fontlab_fontport.ui`. The
-old `fontlabapp.fontui` names raise an `ImportError` that names the new home.
+`batch_panel` and `glyph_sequence`. Install `fontlab-fontlabapp[fontport]` and
+import these factories from `fontlabapp.fontui`. They use
+[Fontport](fontport.md#ui-editors) models; the retired Fontport UI package raises
+an `ImportError` naming the matching App home.
 
 Each function returns a handle. Keep a reference to it, show its `.widget` and
 call `.close()` when you are done. The browsers, preview and features editor

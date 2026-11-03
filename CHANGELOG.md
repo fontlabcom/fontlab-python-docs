@@ -3,6 +3,14 @@ this_file: CHANGELOG.md
 ---
 
 <!-- workspace-handoff:2026-11-03 -->
+## 2026-11-03 — Issue 205 canonical module paths
+
+- Migrate authored App examples and source-reference helpers to canonical
+  domain paths; update Remopy identities and interaction-check URL routes.
+- Correct the App/Fontport editor ownership guidance and add path migration
+  regression tests using the reviewed tool. Generated site and source locks
+  remain unchanged.
+
 ## 2026-11-03 — installer options, licence and cleanup
 
 - Licences page: Fontlabapp, Glyport and Grablab are Apache-2.0; Fontlabapp's notice is

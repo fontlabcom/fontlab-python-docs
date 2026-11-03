@@ -37,7 +37,7 @@ def _captured(manifest: dict[str, Any], gap) -> tuple[set[str], dict[str, str], 
 # Upstream source that declares one identity more than once, reviewed with the
 # exact declaration lines; any further declaration makes the row unexplained.
 REVIEWED_REDEFINITIONS: dict[str, tuple[tuple[int, ...], str]] = {
-    "fontlabapp.host.MENU_API": (
+    "fontlabapp.core.host.MENU_API": (
         (30, 338),
         "empty placeholder before class Menu; the final value is assigned after it",
     ),
