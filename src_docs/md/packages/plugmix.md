@@ -181,7 +181,9 @@ visible palettes and stops when none are visible.
 
 **Step and Repeat** (`step_and_repeat`) duplicates the selected contours of the
 active glyph. `count` is the number of *additional* copies, and each copy is shifted
-by another (`dx`, `dy`), so offsets accumulate. Apply is one Undo step.
+by another (`dx`, `dy`), so offsets accumulate. Apply is one Undo step. It works
+on the current master layer only: when the Glyph window shows another layer, Apply
+refuses with a status message instead of writing to the master.
 
 ## Tools
 
