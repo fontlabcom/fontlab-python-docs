@@ -3,15 +3,14 @@ this_file: src_docs/md/packages/fontport.md
 ---
 # Fontport
 
-Fontport connects FontLab 9 to the Python font libraries most tools are built on:
-FontParts, fontTools and fontPens pens, and ufoLib2. It provides point pens over
+Fontport connects FontLab 9 to FontParts, UFO and DesignSpace data, and to the
+fontTools, fontPens and ufoLib2 libraries around them. It provides point pens over
 native FontGate glyphs, detached FontParts and UFO snapshots, and live FontParts
 objects bound to an open FontLab document.
 
-!!! note "Qt editors are moving"
-    Fontport's Qt editors are moving to `fontlabapp.fontui` (issue 201). Until the
-    move is complete they still ship with Fontport. Fontport itself stays the
-    interoperability layer, with no user interface.
+!!! note "No user interface"
+    Fontport has no UI (issue 201). Its Qt editors now live in
+    [`fontlabapp.fontui`](fontlabapp.md#fontui-font-and-glyph-browsers-and-editors).
 
 ## Install
 
@@ -65,35 +64,30 @@ font.info.apply({"familyName": "My Family", "ascender": 810.5},
                 undo_name="Edit font information")
 ```
 
-## UI editors
+## The editors moved to Fontlabapp
 
-`fontlab_fontport.ui` provides the Qt editors that work on FontParts and UFO
-models: `font_info_editor`, `groups_editor`, `kerning_editor`,
-`transform_editor`, `batch_panel` and `glyph_sequence`. They moved here from
-`fontlabapp.fontui`, which keeps the browsers, the preview, the features editor and
-the designspace panel. Each factory returns a handle: keep a reference, show its
-`.widget` and call `.close()` when you are done.
+The six FontParts-bound Qt editors (`font_info_editor`, `groups_editor`,
+`kerning_editor`, `transform_editor`, `batch_panel` and `glyph_sequence`) live in
+`fontlabapp.fontui`. They call Fontport lazily; install both with the
+`fontport` extra:
 
-```python
-# Inside FontLab, with Fontport and ufoLib2 installed
-from ufoLib2 import Font
-from fontlab_fontport.ui import kerning_editor
-
-font = Font()                       # a detached demonstration model
-editor = kerning_editor(font)       # keep this handle alive
-editor.widget.show()
-# ... later:
-editor.close()
+```sh
+pip install "fontlab-fontlabapp[fontport]"
 ```
 
-Editors stage changes and apply them in one validated batch; a model without a
-batch apply opens read-only. The sequence and the info, groups and kerning
-editors have `.refresh()` for edits made elsewhere; `transform_editor` and
-`batch_panel` do not. The font information editor also offers the structured
-fields OS/2 weight and width class, Panose (ten integers) and horizontal and
-vertical stem snaps; it labels them "key master" because Fontport writes them to
-the current key master only. Name records are not offered. `batch_panel` runs work
-in a separate Python 3.11+ process so FontLab stays responsive.
+```python
+# old (removed): from fontlab_fontport.ui import font_info_editor
+from fontlabapp.fontui import font_info_editor
+```
+
+`fontlab_fontport.ui` remains for one release as a tombstone: reading any name
+from it raises `ImportError("fontlab_fontport.ui moved to fontlabapp.fontui")`.
+The batch panel still starts a separate Python 3.11+ process that needs
+`fontlab-fontport`. Vanilla support moved to `fontlab_glyport.ui.session`.
+
+Fontport also reads and writes feature blocks (`fontlab_fontport.feature_blocks`:
+`read_feature_blocks` and `write_feature_blocks`), which need the original font
+to be active and compare the source snapshot before writing.
 
 ## Behaviour and limits (Fontport v1.0.2)
 

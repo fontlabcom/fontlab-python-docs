@@ -47,7 +47,7 @@ flowchart TD
     glyport --> app
     glyport --> echopy
     fontport --> host
-    fontport -.->|Qt editors moving| app
+    app -.->|fontport extra| fontport
     plugmix --> app
     aidus --> app
     aidus -.->|MCP| remopy
@@ -65,7 +65,7 @@ The same dependencies as a plain list:
 - Echopy, Fontlabapp, Pythonqtside and Fontport build on the FontLab host.
 - Glyport builds on Fontlabapp and Echopy.
 - Plugmix, Aidus Code, Scriptmix and Examples build on Fontlabapp.
-- Fontport's Qt editors are moving to Fontlabapp (issue 201).
+- Fontlabapp's Qt editors call Fontport lazily through its `fontport` extra.
 - Aidus Code can reach FontLab from outside through Remopy.
 - Remopy talks to FontLab's native MCP server, not to the host modules.
 - Fly optionally aliases Echopy, Fontlabapp, Glyport, Fontport and Pythonqtside.
@@ -94,8 +94,7 @@ until you ask for an alias, so importing it never loads a target package.
 - **Outside versus inside.** Remopy is the only package meant for code outside
   FontLab. Everything else imports FontLab's own modules and needs the host.
 - **Interop versus UI.** Fontport converts font data and has no user interface.
-  Its Qt editors are moving to `fontlabapp.fontui` (issue 201); until that move
-  is complete, they still ship with Fontport.
+  Its Qt editors live in `fontlabapp.fontui` (issue 201) and call Fontport lazily.
 - **Shims versus behaviour.** Echopy documents and mirrors the native API. It does
   not add features. Behaviour that goes beyond the native API belongs in
   Fontlabapp.

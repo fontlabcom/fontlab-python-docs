@@ -35,6 +35,14 @@ Port an existing PySide2 tool by changing only its import:
 from pythonqtside import QtCore, QtWidgets
 ```
 
+File dialogs follow PySide2's return shape: `QFileDialog.getOpenFileName`,
+`getSaveFileName` and `getOpenFileNames` return `(path, "")` tuples, where PythonQt
+returns a bare path or list. The chosen filter cannot be read back, and calls that
+pass `selectedFilter` or `options` stay native. The repository's
+`examples/pyside2_dialog.py` is an unmodified PySide2 dialog that uses this; run it
+with `pythonqtside.run_app("examples/pyside2_dialog.py")` and keep the returned
+handle.
+
 Available namespaces: `QtCore`, `QtGui`, `QtWidgets`, `QtNetwork`, `QtOpenGL`,
 `QtSvg`, `QtUiTools`, `QtXmlPatterns` and the combined `Qt`.
 

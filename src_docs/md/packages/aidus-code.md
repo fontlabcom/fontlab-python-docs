@@ -7,6 +7,14 @@ Aidus Code adds an AI chat dock to FontLab 9. Ask about the current glyph,
 inspect fonts and metrics, change spacing, or have the agent write and run FontLab
 Python. Responses stream into the dock.
 
+This is the ported package, `fontlab-aidus-code`, with the dock GUI in
+`aidus_code_plugin/ui.py`: `AidusCodeDock`, a PythonQt `QDockWidget` that docks
+left or right in FontLab 9. It has a connection status label, **Reconnect** and
+**Clear** buttons, a read-only transcript with a colour per role (user,
+assistant, tool call, tool result, error), a "Thinking..." indicator and a
+one-line input field. It runs in the host and uses no PySide2. Chat history is
+saved locally and reappears when the dock starts.
+
 The FontLab plugin runs in FontLab's Python 3.11. The AI "brain" runs in a
 separate Python 3.13+ process, so no AI libraries go into FontLab. The AI provider
 you configure receives your prompts and the tool results the agent uses.
@@ -91,6 +99,12 @@ AI provider, creates a font or proves native read/write safety.
 The agent's FontLab tools are registered by the plugin's executor and are
 not a public Python import. Reach them through the agent, or through
 [Remopy](remopy.md) from outside FontLab.
+
+The plugin's executor reads the current glyph from the workspace record
+(`flWorkspace.currentGlyph`, checked against the workspace's current font) instead
+of calling `CurrentGlyph()`, whose export can lose the FontGate note mirror
+(fl#8525). It refuses a stale or ambiguous record. Builds without a workspace glyph
+keep the older `CurrentGlyph()` route.
 
 ## Glyph-info preservation boundary
 

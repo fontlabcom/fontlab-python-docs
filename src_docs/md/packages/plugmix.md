@@ -16,10 +16,23 @@ not emulate Glyphs.app.
 
 ## How it works
 
-FontLab 9 exposes two Python hooks on the host itself: a canvas painter
+FontLab 9 builds with native canvas painters expose two Python hooks on the host itself: a canvas painter
 (`flCanvas.appendPythonPainter`) and a workspace tool
 (`flWorkspace.registerPythonTool`). See [Native Python hooks in
 FontLab 9](../guide/native-hooks.md). Plugmix builds on the painter hook.
+
+- **Native-painter backend.** When `flCanvas.appendPythonPainter` exists, Plugmix
+  attaches one painter per Glyph window as it becomes active and registers each
+  reporter on it. Reporters with `layer = "background"` (Center Lines, Vertical
+  Metrics) paint under the glyph; the others paint over it. On older builds the
+  backend falls back to Fontlabapp's `EditorPainters`, paints everything over the
+  canvas and logs the background substitution once.
+- **Coordinates.** A glyph point is mapped through the glyph's position in its text
+  block, then the text block's placement, then `canvas.mapToViewportF` into
+  viewport pixels.
+- **Cost.** Each reporter reads the glyph again on every repaint. That is fine for
+  the built-in set but adds up with many reporters enabled.
+
 
 - **Registry.** Finds reporters, remembers which ones you enabled, and attaches
   or detaches their painters. Built-in reporters and reporters published through
@@ -56,17 +69,18 @@ the Script menu.
 `install()` adds one checkable **Plugmix: Show ...** action per reporter to the
 View menu and restores the reporters you left enabled. Your choice is saved in a
 single JSON file in FontLab's `Data` folder. `uninstall()` removes the actions and
-overlays and keeps the saved selection.
+overlays and keeps the saved selection. A selection saved under the former
+name `nodes_outside_paths` restores as `offcurve_outside_bounds`.
 
 ## Built-in reporters
 
 | Reporter | Overlay |
 | --- | --- |
 | Duplicate Anchor Rings | Rings around anchors less than one font unit apart. |
-| Node Indexes | Contour index beside each on-curve node. |
+| Node Indexes | Contour index beside every on- and off-curve node. |
 | Selected Node Coordinates | Coordinates beside selected nodes. |
 | Two Point Distance | Segment, length and angle for exactly two selected nodes. |
-| Nodes Outside Paths | Off-curve handles beyond the on-curve bounding rectangle. |
+| Off-curve Handles Outside Bounds (`offcurve_outside_bounds`) | Off-curve handles beyond the on-curve bounding rectangle. It tests bounds, not path containment. |
 | Center Lines | Advance/2, x-height/2 and cap-height/2 lines. |
 | Vertical Metrics | Labelled ascender, descender, x-height, cap-height and baseline. |
 

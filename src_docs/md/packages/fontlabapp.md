@@ -9,10 +9,13 @@ drawing overlays, and docks, dialogs and widgets you create yourself.
 
 This page describes Fontlabapp v0.2.4.
 
-!!! note "Fontport's Qt editors are moving here"
-    Fontport's Qt editors are moving into Fontlabapp as `fontlabapp.fontui`
-    (issue 201). Fontlabapp is where FontLab user interface code belongs; Fontport
-    keeps font-data interoperability only.
+!!! note "Fontport's Qt editors live here"
+    Fontport's Qt editors moved into Fontlabapp as `fontlabapp.fontui` (issue 201).
+    Fontlabapp is where FontLab user interface code belongs; Fontport keeps
+    font-data interoperability only.
+
+TODO (issue 201): document the `fontlabapp.ui`, objects and menus facades once their
+revision lands; they are not covered here yet.
 
 ## Install
 
@@ -101,11 +104,10 @@ Install the extra that matches the tools you need:
 | Extra | Adds |
 | --- | --- |
 | `fontlab-fontlabapp[fontui]` | `font_browser`, `glyph_browser`, `glyph_preview`, `features_editor`, `designspace_panel` |
+| `fontlab-fontlabapp[fontport]` | The FontParts-bound editors, which call [Fontport](fontport.md) lazily: `font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`, `batch_panel` and `glyph_sequence` |
 
-The FontParts-bound editors moved to [Fontport](fontport.md#ui-editors):
-`font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`,
-`batch_panel` and `glyph_sequence`. Import them from `fontlab_fontport.ui`. The
-old `fontlabapp.fontui` names raise an `ImportError` that names the new home.
+The FontParts-bound editors moved here from Fontport. Importing them from
+`fontlab_fontport.ui` raises an `ImportError` that names this module.
 
 Each function returns a handle. Keep a reference to it, show its `.widget` and
 call `.close()` when you are done. The browsers, preview and features editor

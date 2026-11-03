@@ -17,6 +17,10 @@ fontlab-remopy launch
 fontlab-remopy --timeout 15 setup
 ```
 
+`setup` submits a macro that sets FontLab's `mcp.enabled` preference and verifies
+it. From inside FontLab, call `fontlab_remopy.enable_mcp()` to do the same
+preference update directly.
+
 ## Quick start
 
 ```python
