@@ -88,15 +88,9 @@ AI provider, creates a font or proves native read/write safety.
 
 ## Programmatic tools
 
-The agent's FontLab tools are also callable from Python inside FontLab, through
-the [Aidus tools reference](../reference/aidus_code_tools.md):
-
-```python
-# Inside FontLab; native execution required; owned fixture only
-from fontlab_echopy import aidus_code_tools
-
-print(aidus_code_tools.get_current_glyph_info())
-```
+The agent's FontLab tools are registered by the plugin's executor and are
+not a public Python import. Reach them through the agent, or through
+[Remopy](remopy.md) from outside FontLab.
 
 ## Glyph-info preservation boundary
 

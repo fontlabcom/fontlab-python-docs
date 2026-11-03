@@ -89,8 +89,8 @@ file is correct. `outline_extent.vertical_extent(layer)` measures glyph extents 
 outline nodes, because `flLayer.boundingBox` can stay stale after scripted edits
 (fl#8575).
 
-The `fontlabapp_shim` reference lists FontLab's menus, actions and panels as
-Python names (788 of 788 resolve in FontLab 9).
+Fontlabapp owns the Python names for FontLab's menus, actions and panels
+(formerly the Echopy `fontlabapp_shim`).
 
 ## FontUI: font and glyph browsers and editors
 
@@ -146,5 +146,4 @@ The view updates on the next change after the script completes.
   not with `is`.
 - Created panels, dialogs and widgets own only themselves; close them when done.
 
-Reference: [fontlabapp](../reference/fontlabapp.md),
-[FontLab menus and panels](../reference/fontlabapp_shim.md).
+Reference: [fontlabapp](../reference/fontlabapp.md).

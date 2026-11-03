@@ -66,10 +66,11 @@ Every API page is generated without running FontLab:
 
 - `fontlab`, `fontgate`, `fontpr` and `PythonQt` come from Echopy's captures of the
   live host (242,654 captured identities, each one documented).
-- Modules that exist only while a Glyphs script runs (`GlyphsApp`, `vanilla`,
-  `AppKit`, `Cocoa`, `Foundation`, `objc`), FontLab's menus and panels
-  (`fontlabapp_shim`) and the Aidus tools (`aidus_code_tools`) come from Echopy
-  shims generated from the providers FontLab scripts actually receive.
+- Echopy shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr` and `PythonQt`.
+  The Glyphs.app emulation modules (`GlyphsApp`, `vanilla`, `AppKit`, `Cocoa`,
+  `Foundation`, `objc`) live in Glyport, FontLab's menu and panel names live in
+  Fontlabapp, and the Aidus tools belong to Aidus Code. Each is documented from
+  its own package source.
 - The packages above are read from their source, never imported, so code that
   needs FontLab still documents completely. The build fails when any package
   renders no members or no documentation.

@@ -184,6 +184,7 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
     export_docnames(namespace_root, source=native_root / "fontlab_echopy")
     plan = plan_pages(inventory_sources(roots))
     identity_files = {}
+    # Echopy now ships only native-module shims; any `*/_shim.json` is optional.
     shims = sorted(
         path.relative_to(native_root / "fontlab_echopy").as_posix()
         for path in (native_root / "fontlab_echopy").glob("*/_shim.json")

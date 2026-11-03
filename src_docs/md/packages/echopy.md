@@ -204,8 +204,10 @@ measured call on the actual host when an overload or property is uncertain.
 
 ## Understand runtime shims
 
-The `GlyphsApp`, `vanilla` and related shim declarations describe compatibility
-modules supplied by other packages. They do not install Glyphs.app or turn an
+Echopy now shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr` and
+`PythonQt`. The `GlyphsApp`, `vanilla` and related compatibility modules are
+supplied by Glyport (issue 201 removed them from Echopy), and sections below
+that describe them as Echopy modules are historical. They do not install Glyphs.app or turn an
 offline process into a running Glyphs-compatible session. Glyport owns the
 runtime providers used by adapted scripts.
 
@@ -218,8 +220,8 @@ Producer-derived shim freshness and native API fidelity are separate checks:
 | Run offline tests | The tested Python behavior works outside FontLab |
 | Run installed artifacts in FontLab | The exercised behavior works on that host build |
 
-`fontlabapp_shim` has a separate App capture/generation route. Regenerating the
-Glyport and Aidus shims does not refresh that capture or FontLab's native modules.
+FontLab's menu and panel names (formerly `fontlabapp_shim`) belong to Fontlabapp.
+Regenerating them does not refresh Echopy's capture of FontLab's native modules.
 
 ## Use PythonQt inside FontLab
 
