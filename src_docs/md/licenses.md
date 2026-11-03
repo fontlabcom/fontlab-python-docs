@@ -15,10 +15,8 @@ docstrings and signatures from the packages below; each keeps its own terms.
 | Search engine: lunr.js © Oliver Nightingale | [MIT](licenses/mit-lunr.txt) |
 | Theme and search integration: MaterialX © Martin Donath | [MIT](licenses/mit-materialx.txt) |
 | TypeRig | [Mozilla Public License 2.0](licenses/mpl-2.0-typerig.txt) |
-| Fontlabapp | [Apache 2.0](licenses/apache-2.0.txt), retained [BSD 3-Clause and MIT](licenses/bsd-3-clause-fontlabapp.txt), and [current source notices](licenses/fontlabapp-notice.txt) |
-| Grablab | [BSD 3-Clause](licenses/bsd-3-clause-grablab.txt) |
-| Glyport | [MIT](licenses/mit-glyport.txt) |
-| Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
+| Fontlabapp | [Apache 2.0](licenses/apache-2.0.txt); bundled third-party code keeps the MIT and BSD 3-Clause terms in its [source notices](licenses/fontlabapp-notice.txt) |
+| Glyport, Grablab, Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
 | Remopy and Aidus, © Fontlab Ltd | Proprietary. Only API docstrings and signatures are rendered; no package files are published here. |
 
 Qt documentation and PySide2 signatures were transformed into Python

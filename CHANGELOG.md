@@ -3,6 +3,13 @@ this_file: CHANGELOG.md
 ---
 
 <!-- workspace-handoff:2026-11-03 -->
+## 2026-11-03 — installer options, licence and cleanup
+
+- Licences page: Fontlabapp, Glyport and Grablab are Apache-2.0; Fontlabapp's notice is
+  refreshed (third-party MIT/BSD terms retained); retired the BSD/MIT texts for them.
+  The generated `docs/` site needs a rebuild to show this.
+- Removed `plans/` and three tracked `.DS_Store` files.
+
 ## 2026-11-03 — documentation handoff for November 2–3
 
 Accepted feature d9c15dc adds the owned-window recovery guide after extensive generation/resource/manager/discovery/node/layer guides.

@@ -102,15 +102,12 @@ REVIEWED = {
 }
 # Reviewed full licence texts published under licenses/ (sha256 of each file).
 LICENCES = {
-    "fontlabapp-notice.txt": "e5c71a4e9132541184840f344da2bd53ab67946dae1e2530cd747a0aaa8f6e89",
+    "fontlabapp-notice.txt": "6695d925f4eaa38a2160938dfe5cd3dd70a0133ca625c84de68945e3ad6d2d53",
     "simon-cozens-mit.txt": "6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5",
     "apache-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
-    "bsd-3-clause-fontlabapp.txt": "bc64fab3ef02924c5e0862040b0a1bbdb67ac59e212bff9b434760430586c571",
-    "bsd-3-clause-grablab.txt": "5ebc71a38083ce935885617c652696f5c37fcea106fffa2bfc95b3cb96568caa",
     "gfdl-1.3.txt": "ed8742a95cb9db653a09b050e27ccff5e67ba69c14aa2c3137f2a4e1892f6c0d",
     "gpl-3.0.txt": "245248009fd0af1725d183248380e476c1283383909358a13686606352bf2a17",
     "lgpl-3.0.txt": "9ae1959e86bd49b9680f78e0b49d4e52ae88a3f234d497e175e42a7e8ed59216",
-    "mit-glyport.txt": "17597656a8b983a8c62d1d7cfbeaefb30e4874b92d99e45b63cd5278ff1e3801",
     "mit-lunr.txt": "8e8d3a860e35aa6bae65287a63f1a3642a79847e0ec0b2627c6ec258fe56988c",
     "mit-materialx.txt": "e1150f26b4c0f872627b39fda49ae3bd850304f2f7f3171ae0531c1f8f4dd078",
     "mpl-2.0-typerig.txt": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",

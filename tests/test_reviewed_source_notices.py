@@ -9,7 +9,7 @@ from scripts import release_audit as audit
 
 SOURCE = Path(__file__).resolve().parents[1] / "src_docs/md/licenses"
 REVIEWED = {
-    "fontlabapp-notice.txt": "e5c71a4e9132541184840f344da2bd53ab67946dae1e2530cd747a0aaa8f6e89",
+    "fontlabapp-notice.txt": "6695d925f4eaa38a2160938dfe5cd3dd70a0133ca625c84de68945e3ad6d2d53",
     "simon-cozens-mit.txt": "6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5",
 }
 
