@@ -2,6 +2,17 @@
 this_file: TODO.md
 ---
 
+<!-- workspace-handoff:2026-11-03 -->
+## Current workspace handoff —2026-11-03
+
+Issue 123 is paused. Accepted feature d9c15dc adds the owned-window recovery guide after extensive generation/resource/manager/discovery/node/layer guides.
+
+Authored source/ordinary examples were checked; generated references, source-lock, rendered site and publication remain gated.
+
+- [ ] Document only reviewed current behavior and execute new examples against matching source and ordinary artifacts.
+- [ ] Complete applicableD29 native/generated/strict-build/routes/archive/browser/accessibility/licence/publication gates.
+<!-- /workspace-handoff -->
+
 # Tasks
 
 - [ ] X4 review of df35182..HEAD: Fontport reference (D14), removal of the fly.fp exception, lunr #503 citation, final-10 lock.

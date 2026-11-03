@@ -2,6 +2,23 @@
 this_file: CHANGELOG.md
 ---
 
+<!-- workspace-handoff:2026-11-03 -->
+## 2026-11-03 — documentation handoff for November 2–3
+
+Accepted feature d9c15dc adds the owned-window recovery guide after extensive generation/resource/manager/discovery/node/layer guides.
+
+Authored source/ordinary examples were checked; generated references, source-lock, rendered site and publication remain gated.
+
+Observed canonical checkout: `main` at `5ec628a388fa`. No source integration is performed by this update.
+
+Updated the requested AGENTS/TODO/PLAN/CHANGELOG/README documentation and
+recorded the paused state. Existing project text, examples and history remain;
+no runtime source, installation, native session, branch/ref, release or site was
+changed by this documentation maintenance. Source/archive/ordinary/native and
+promotion acceptance remain separate claims. Detailed workspace evidence is
+recorded in the root CHANGELOG and retained verification reports.
+<!-- /workspace-handoff -->
+
 ## Additional-Unicode guide verified — 2026-11-01
 
 Added an owned I/dotless-I/encoding-owner example and explained rename versus

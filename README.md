@@ -3,7 +3,7 @@ this_file: README.md
 ---
 # FontLab Python documentation
 
-Current source-derived documentation for FontLab's native Python APIs and
+Current source-derived documentation for FontLab's native Python APIs and **Workspace handoff (2026-11-03):** Issue 123 development is paused. Accepted feature d9c15dc adds the owned-window recovery guide after extensive generation/resource/manager/discovery/node/layer guides. Authored source/ordinary examples were checked; generated references, source-lock, rendered site and publication remain gated.
 scripting ecosystem. Echopy captures inside FontLab, then produces enriched,
 typed Python source. Mkdocstrings renders that source under the actual native
 fontlab/fontgate/fontpr/PythonQt names without runtime inspection.

@@ -2,6 +2,21 @@
 this_file: PLAN.md
 ---
 
+<!-- workspace-handoff:2026-11-03 -->
+## Current workspace handoff —2026-11-03
+
+**Implementation paused.** Authored guides and source-derived native API documentation.
+
+Observed canonical checkout: `main` at `5ec628a388fa`. No source integration is performed by this update.
+
+Accepted feature d9c15dc adds the owned-window recovery guide after extensive generation/resource/manager/discovery/node/layer guides.
+
+Authored source/ordinary examples were checked; generated references, source-lock, rendered site and publication remain gated.
+
+1. Document only reviewed current behavior and execute new examples against matching source and ordinary artifacts.
+2. Complete applicableD29 native/generated/strict-build/routes/archive/browser/accessibility/licence/publication gates.
+<!-- /workspace-handoff -->
+
 # Plan
 
 Authority: parent `issues/104.md` and `issues/106.md`. Completed work is in
