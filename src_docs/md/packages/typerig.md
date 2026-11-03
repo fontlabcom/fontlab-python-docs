@@ -14,6 +14,8 @@ panels and toolbars stay in [kateliev/TypeRig](https://github.com/kateliev/TypeR
 python -m pip install typerig
 ```
 
+TypeRig needs Python 3.10 or newer and installs `fonttools` for font file I/O.
+
 The core needs no FontLab. Install it into FontLab's Python folder as well to use
 the FontLab proxies; see [Install into FontLab](index.md#install-into-fontlab).
 

@@ -35,9 +35,10 @@ not have the same input checks or overflow preflight.
 
 ## Install
 
-Install `fontlab-glyport` into FontLab's Python folder; see
-[Install into FontLab](index.md#install-into-fontlab). Its inspection API also
-works outside FontLab.
+Install `fontlab-glyport` into FontLab's Python folder together with a matching
+`fontlab-fontlabapp`; see [Install into FontLab](index.md#install-into-fontlab).
+Its dependencies include `fissix` and `glyphslib`. Its inspection API also works
+outside FontLab. Glyport never installs packages for you.
 
 ## Quick start
 
@@ -49,6 +50,15 @@ from fontlab_glyport import inspect_source
 
 assessment = inspect_source("OriginalScript.py")
 print(assessment.required_capabilities)
+```
+
+For ordinary Glyphs imports, activate Glyport on FontLab's GUI thread first. The
+default profile is `glyphs4`; pass `profile="glyphs3"` or `"glyphs2"` to match
+the script, and call `deactivate()` when you are done:
+
+```python
+import fontlab_glyport; fontlab_glyport.activate()
+from GlyphsApp import *
 ```
 
 Run a Glyphs script inside FontLab:
@@ -647,23 +657,27 @@ workflow acceptance is implied.
   inputs, remaining
   fields and native workflows retain explicit limits.
 - The `GlyphsApp` module for each run: `Glyphs`, the GS* model classes, callback
-  events and dialogs ([GlyphsApp reference](../reference/GlyphsApp.md)).
+  events and dialogs ([Glyport reference](../reference/fontlab_glyport.md)).
 - The seven Glyphs SDK plugin classes (`GeneralPlugin`, `FilterWithoutDialog`,
   `FilterWithDialog`, `ReporterPlugin`, `PalettePlugin`, `SelectTool`,
   `FileFormatPlugin`), registered as real FontLab menu actions, windows,
-  export items and Glyph-window painters where supported. `SelectTool` is
-  explicitly blocked, as noted below.
+  export items and native Glyph-window painters. Reporters draw through
+  FontLab's native canvas painters (`flCanvas.appendPythonPainter`): background
+  methods paint under the glyph outlines, foreground methods over them.
+  `SelectTool` plugins register as native FontLab tools
+  (`flWorkspace.registerPythonTool`); see [Native hooks](../guide/native-hooks.md).
 - Vanilla controls and dialogs, Qt-backed AppKit classes, NSBezierPath drawing and
-  NIB/XIB interface loading ([vanilla](../reference/vanilla.md),
-  [AppKit](../reference/AppKit.md)).
+  NIB/XIB interface loading ([Glyport reference](../reference/fontlab_glyport.md),
+  [AppKit](../reference/fontlab_glyport.md)).
 
 ## Limits
 
 - Compatibility is partial and still being extended; each run records a receipt
   with the outcome, and unsupported features raise `UnsupportedCapability` at the
   script line instead of failing silently.
-- FontLab host limits block `SelectTool` and drawing before FontLab's own glyph
-  layer; plugins that need them are reported as blocked.
+- Native tools have no toolbar icon, never claim keys (so FontLab shortcuts keep
+  working, with no shortcut override), and paint only while active. FontLab
+  always reports the active tool as select.
 - Bundles that ship only compiled macOS code cannot run.
 - Creating glyphs makes FontLab rebuild auto-layer composites. Glyport restores
   existing composites afterwards and refuses with a named reason when it cannot.
@@ -676,6 +690,35 @@ workflow acceptance is implied.
 
 See the [Glyphs compatibility guide](../guide/glyphs.md). Reference:
 [fontlab_glyport](../reference/fontlab_glyport.md).
+
+## Compatibility status
+
+Native triage on FontLab 9.0.9802 ran 98 corpus Glyphs plugins and scripts through
+Glyport on an owned font (issue 201, final code). Pass means the target loaded,
+registered its menu, tool or window, ran the hooks the harness could trigger
+without errors, and closed cleanly. Partial means it loaded and ran but a hook
+raised. Fail means it did not load or did not close.
+
+| Kind | Targets | Pass | Partial | Fail |
+| --- | --- | --- | --- | --- |
+| Reporters | 30 | 14 | 9 | 7 |
+| Tools | 7 | 2 | 2 | 3 |
+| Filters | 12 | 11 | 0 | 1 |
+| Palettes | 7 | 5 | 0 | 2 |
+| General plugins | 12 | 4 | 0 | 8 |
+| Scripts | 30 | 19 | 1 | 10 |
+| **Total** | **98** | **55** | **12** | **31** |
+
+A pass does not prove a plugin's whole behaviour: buttons, dialogs, filter output
+and outline edits were not exercised, and filters were only installed. Main known
+gaps:
+
+- Compiled Objective-C bundles (for example ShowAngledHandles) have no Python
+  entry point and cannot run.
+- `glyphsLib` is not installed in FontLab's Python, which blocks plugins that
+  import it. That is an environment dependency, not a Glyport defect.
+- Some AppKit and Cocoa members are missing (for example `NSGradient`, `NSBeep` and
+  a few layout and window constants), and a few Glyphs model members are absent.
 
 ## Stored Glyph Info production
 

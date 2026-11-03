@@ -25,7 +25,7 @@ ordinary tuple or native behavior.
 9. Each run gets the `GlyphsApp` module a Glyphs script expects: `Glyphs`, the GS*
 model classes over the FontLab font, callback events and dialogs, plus Vanilla,
 AppKit and `objc` translated to FontLab's Qt. The
-[`GlyphsApp` reference](../reference/GlyphsApp.md) lists every name.
+[`GlyphsApp` reference](../reference/fontlab_glyport.md) lists every name.
 
 ## Assess before running
 
