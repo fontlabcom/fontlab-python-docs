@@ -25,6 +25,11 @@ a separate package, `fontlab-python-lessons`, inside the repository.
 
 Never start a second `QApplication` or install another Qt binding in FontLab.
 
+## Categories
+
+The `Scripts/` folder holds Contours, Designer, Dialogs, Drag And Drop, Drawing,
+Forms, GetGo Fonts, Graphics, Models, Text, Tools, Widgets and Windows.
+
 ## Examples
 
 - **Tools > Kerning Copy Rules** turns `A|V A|W = T|o @ -5` into pairs, shows a

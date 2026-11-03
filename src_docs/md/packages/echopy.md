@@ -206,8 +206,7 @@ measured call on the actual host when an overload or property is uncertain.
 
 Echopy now shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr` and
 `PythonQt`. The `GlyphsApp`, `vanilla` and related compatibility modules are
-supplied by Glyport (issue 201 removed them from Echopy), and sections below
-that describe them as Echopy modules are historical. They do not install Glyphs.app or turn an
+supplied by Glyport (issue 201 removed them from Echopy). They do not install Glyphs.app or turn an
 offline process into a running Glyphs-compatible session. Glyport owns the
 runtime providers used by adapted scripts.
 
@@ -545,42 +544,16 @@ These checks do not qualify actual native bindings, a regenerated reference site
 or a published release. Existing class aliases in merged facades remain supported;
 new nonidentifier declarations require reviewed generation from the capture.
 
-## Source-derived compound metadata
+## Glyphs compatibility lives in Glyport
 
-The earlier GlyphsApp sidecar re-exported Glyport's `GSApplication` and
-`GSGlyphInfo` classes. The current profile-aware producer declares the selected
-application type and re-exports `GSGlyphInfo` and `GSGlyphsInfo`; use the generated
-declarations from the existing producer CLI. The [compound guide](../guide/glyport-compounds.md) shows
-nine owned checks for their raw/shared/copy/nested/positional behavior. These
-are provider semantics, separate from Echopy's native FontLab declarations.
-
-After the compound producer changes, the existing CLI regenerates all 13 source
-targets. Only the GlyphsApp catalogue's producer fingerprint/capture digest
-changes; its exported entries and all facade/sidecar bytes stay unchanged.
-The refreshed source passes 385 tests, including 15 actual-export controls; the
-older ordinary producer fails 13 of those while two single-record controls pass.
-Fresh matching Echopy artifacts and the complete ordinary installed tuple remain
-pending. A current source fingerprint does not prove native FontLab behavior,
-proprietary data completeness or every Glyphs version.
-
-## Selected-record descriptions
-
-The [description guide](../guide/glyport-descriptions.md) exercises the actual
-re-exported class and `desc` property through owned sessions. The description
-successor adds 14 export checks: they fail against the earlier compound producer
-while its 15 compound controls still pass. At that checkpoint, all 399 Echopy source tests passed.
-Regeneration changes only the GlyphsApp producer fingerprint/capture digest;
-exported entries, facade/sidecar bytes and protected native/legacy data stay exact.
-
-The H producer implements the selected parent/document/shared manager and exact
-Glyphs2/3/4 application contracts. The [manager guide](../guide/glyport-managers.md)
-adds actual-export controls for those routes and the bounded custom file/index/
-finalizer/discovery capability. The connected local-manager successor documents
-actual constructor/reload/parser/sidebar dispatch with explicit invented providers;
-source controls preserve queue, error and summary boundaries. Complete lawful
-default/private resources, native initialization/reload, matching companion ordinary consumers, the full original HTML workflow
-and native FontLab/Glyphs behavior retain separate qualification. The 399-test
-description result above identifies its earlier source checkpoint.
+Glyphs.app compatibility is not an Echopy feature. Glyport owns the
+`GlyphsApp`, `vanilla`, `AppKit`, `Cocoa`, `Foundation` and `objc` modules and
+the glyph-info, description and manager providers behind them; Echopy removed its
+copies in issue 201. Read the [Glyport guide](glyport.md), the
+[compound](../guide/glyport-compounds.md), [description](../guide/glyport-descriptions.md)
+and [manager](../guide/glyport-managers.md) guides, and the
+[Glyport reference](../reference/fontlab_glyport.md). Echopy's own declarations
+cover only FontLab's native modules.
 
 ## Verification boundaries
 

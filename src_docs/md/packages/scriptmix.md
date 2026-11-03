@@ -23,6 +23,12 @@ into FontLab; its `pyproject.toml` only configures documentation tools.
 4. Open a copy of a font, select the glyphs and master, and choose the tool from
    the Script menu. Each tool's docstring states its controls, scopes and refusals.
 
+## Categories
+
+Metrics, Names, Anchors, Components, Masters, Contours, Features, Font Info,
+Guides, Kerning, Cleanup, Proof, Reports and Utilities. Each is a folder under
+`Scripts/`.
+
 ## Examples
 
 - **Metrics > Scale Advances** scales selected advances by a percentage, with a
