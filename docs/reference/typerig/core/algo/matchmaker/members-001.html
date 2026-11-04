@@ -2176,6 +2176,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.algo.matchmaker.directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        directions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.algo.matchmaker.dp_match" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2224,6 +2235,17 @@
     <span class="md-ellipsis">
       
         pair_contours
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.core.algo.matchmaker.turns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turns
       
     </span>
   </a>
@@ -2331,7 +2353,7 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">apply_match</span><span class="p">(</span><span class="n">contour_a</span><span class="p">,</span> <span class="n">contour_b</span><span class="p">,</span> <span class="n">k_s</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">k_b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">c_ins_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">align_start</span><span class="o">=</span><span class="s1">&#39;respect&#39;</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">apply_match</span><span class="p">(</span><span class="n">contour_a</span><span class="p">,</span> <span class="n">contour_b</span><span class="p">,</span> <span class="n">k_s</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">k_b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">c_ins_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">align_start</span><span class="o">=</span><span class="s1">&#39;respect&#39;</span><span class="p">,</span> <span class="n">k_d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c_node</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2350,7 +2372,10 @@ compatible under the Sederberg-Greenwood energy.</p>
                 'respect'   — trust designer: shift_b = 0, fixed DP (default).
                 'canonical' — run canonicalize_start(BOTTOM_LEFT) on clones of
                               both A and B before DP, then shift_b = 0.
-                'auto'      — cyclic DP picks the cheapest shift (legacy).</p>
+                'auto'      — cyclic DP picks the cheapest shift (legacy).
+        k_d: direction weight (see dp_match); None = k_b. 0 = intrinsic only.
+        c_node: flat cost per inserted node (see dp_match); None = k_b *
+                (pi/8)^2, a 22.5 deg mismatch. Bends use true tangents (turns()).</p>
 <p>Returns:
         (new_a, new_b, cost, meta) where meta contains 'shift_b',
         'reversed_b', 'align_start', 'n_pairs', 'n_insert_a',
@@ -2372,7 +2397,7 @@ compatible under the Sederberg-Greenwood energy.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">apply_match_glyph</span><span class="p">(</span><span class="n">contours_a</span><span class="p">,</span> <span class="n">contours_b</span><span class="p">,</span> <span class="n">k_s</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">k_b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">c_ins_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">align_start</span><span class="o">=</span><span class="s1">&#39;respect&#39;</span><span class="p">,</span> <span class="n">pair_mode</span><span class="o">=</span><span class="s1">&#39;respect&#39;</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">apply_match_glyph</span><span class="p">(</span><span class="n">contours_a</span><span class="p">,</span> <span class="n">contours_b</span><span class="p">,</span> <span class="n">k_s</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">k_b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">c_ins_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">align_start</span><span class="o">=</span><span class="s1">&#39;respect&#39;</span><span class="p">,</span> <span class="n">pair_mode</span><span class="o">=</span><span class="s1">&#39;respect&#39;</span><span class="p">,</span> <span class="n">k_d</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2496,12 +2521,46 @@ gives a deterministic choice across masters built differently.</p>
 <div class="doc doc-object doc-function">
 
 
+<h2 id="typerig.core.algo.matchmaker.directions" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">directions</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">directions</span><span class="p">(</span><span class="n">contour</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Absolute tangent directions of a contour at its on-curves and
+segment middles.</p>
+<p>The intrinsic encoding is rotation invariant and sees only the
+on-curve polygon, so on a round outline it cannot tell WHERE an
+insertion belongs (an O with 4 nodes vs one with 8 bunched both extra
+nodes on one arc), and a corner drawn as one curve looks like a 45 deg
+bend at its ends. True tangents fix both: a smooth node at the end of
+a straight stroke points along the stroke on every master. Masters are
+never rotated against each other, so absolute direction is safe.</p>
+<p>Returns:
+        (V, E): two lists of length m, in radians. V[i] is the tangent at
+        on-curve i (bisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E[i] is the tangent at the
+        middle of the segment from on-curve i to i+1 (an insertion lands
+        there); on an open contour the missing wrap segment copies E[m-2].</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="typerig.core.algo.matchmaker.dp_match" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">dp_match</span>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">dp_match</span><span class="p">(</span><span class="n">L_a</span><span class="p">,</span> <span class="n">theta_a</span><span class="p">,</span> <span class="n">L_b</span><span class="p">,</span> <span class="n">theta_b</span><span class="p">,</span> <span class="n">k_s</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">k_b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">c_ins_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">dp_match</span><span class="p">(</span><span class="n">L_a</span><span class="p">,</span> <span class="n">theta_a</span><span class="p">,</span> <span class="n">L_b</span><span class="p">,</span> <span class="n">theta_b</span><span class="p">,</span> <span class="n">k_s</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">k_b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">c_ins_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dir_a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dir_b</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k_d</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">pin_start</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pin_end</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">c_node</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2521,7 +2580,20 @@ no edge-length mismatch; its cost is the bend it must absorb.</p>
         k_s          : stretch weight (units of 1 / length^2).
         k_b          : bend weight (units of 1 / radian^2).
         c_ins_scale  : multiplier on insertion cost. &gt; 1 discourages
-                       insertions; &lt; 1 encourages them.</p>
+                       insertions; &lt; 1 encourages them.
+        dir_a, dir_b : optional (V, E) from directions(); with k_d &gt; 0 a
+                       pair also costs k_d * (V_a - V_b)^2 and an insertion
+                       k_d * (E - V)^2 (direction of the edge it lands on
+                       vs the vertex it absorbs).
+        k_d          : direction weight (units of 1 / radian^2).
+        pin_start    : the path must open with PAIR(A[0], B[0]) (no
+                       insertion before the starts).
+        pin_end      : the path must close with PAIR(A[m-1], B[n-1]) (open
+                       contours: nothing may land on the missing wrap edge).
+        c_node       : flat cost per inserted node. Every solution pays it
+                       |m - n| times; it only weighs against inserting on
+                       both sides where a pair would do (smooth nodes turn
+                       0, so their insertion is otherwise free).</p>
 <p>Returns:
         (C, B, total_cost): C is (m+1)x(n+1) cost table, B is same-shape
         back-trace table whose entries are BT_PAIR / BT_INSERT_A /
@@ -2540,14 +2612,18 @@ no edge-length mismatch; its cost is the bend it must absorb.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">dp_match_cyclic</span><span class="p">(</span><span class="n">L_a</span><span class="p">,</span> <span class="n">theta_a</span><span class="p">,</span> <span class="n">L_b</span><span class="p">,</span> <span class="n">theta_b</span><span class="p">,</span> <span class="n">k_s</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">k_b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">c_ins_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">dp_match_cyclic</span><span class="p">(</span><span class="n">L_a</span><span class="p">,</span> <span class="n">theta_a</span><span class="p">,</span> <span class="n">L_b</span><span class="p">,</span> <span class="n">theta_b</span><span class="p">,</span> <span class="n">k_s</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">k_b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">c_ins_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">prefer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tie_tol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">,</span> <span class="n">dir_a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dir_b</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k_d</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">c_node</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
         <p>Closed-contour matcher: brute-force the best cyclic shift of B.</p>
 <p>For each shift s in [0, n), rotate B's intrinsic sequences left by s
-and run the fixed-start DP. Return the shift with minimum total cost.</p>
+and run the fixed-start DP. Return the shift with minimum total cost.
+prefer (callable shift -&gt; key): breaks ties among shifts whose cost
+is within tie_tol * (1 + min cost) of the minimum (lowest key wins).
+dir_a, dir_b, k_d: direction term, see dp_match (B's rotates with s).
+c_node: flat cost per inserted node, see dp_match.</p>
 <p>Complexity: O(n * m * n). For typical glyphs (n, m &lt; 100) this runs
 well under a millisecond in pure Python. Replace with extremum-
 restricted search (paper's §4 suggestion) if n climbs past ~300.</p>
@@ -2667,6 +2743,30 @@ target contours (no clones) in the new order.</p>
 <p>Raises:
         ValueError on length mismatch — glyph-level compatibility is only
         defined when both masters have the same contour count.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.algo.matchmaker.turns" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">turns</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">turns</span><span class="p">(</span><span class="n">contour</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Signed turn at each on-curve between its true in and out tangents:
+0 at a smooth node, the corner angle at a corner. On straight-line
+contours this equals intrinsic()'s theta; on curves the polygon theta
+misreads a corner drawn as one curve (45 deg at its smooth ends), so
+apply_match bends with this instead.</p>
 
 
     </div>

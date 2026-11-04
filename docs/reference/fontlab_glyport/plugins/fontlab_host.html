@@ -2159,6 +2159,7 @@
     <div class="doc doc-contents first">
 
         <p>The plugin host contract on FontLab 9 (R025-R027).</p>
+<p>What this module keeps (Glyphs-specific):</p>
 <ul>
 <li>Menus: Glyphs menu names map to FontLab's main-window menus by title
   (FILE "File", EDIT "Edit", VIEW "View", GLYPH "Glyph", PATH "Contour",
@@ -2177,15 +2178,21 @@
 <li>Layers, fonts, snapshots and undo come from an injected <code>model</code> adapter
   (the GlyphsApp model of lane L1); without one those calls raise.</li>
 </ul>
-<p>Every token removes its widgets and connections exactly once; <code>close()</code>
-removes everything (newest first), attempting each and re-raising the first
-failure. Nothing is disconnected or deleted while a signal of the host's own
-widgets is dispatching (the PythonQtSignalReceiver crash pattern in
-AGENTS.md): dialog teardown, and any <code>remove</code>/<code>close</code> called from inside
-a host slot (a menu action, Apply/Cancel, a title-bar close, an <code>on_close</code>
-callback), run later from a process-wide single-shot "reaper" timer. That
-timer and its one connection live for the process, so it is never itself
-torn down inside its own dispatch.</p>
+<p>What App provides (generic): <code>FontLabPluginHost</code> is a
+:class:<code>fontlabapp.qt.menus.OwnedMenus</code>. That class adds the QActions,
+shows the tool windows, hands out the tokens and tears everything down. Its
+rules hold here unchanged: every token removes its widgets and connections
+exactly once; <code>close()</code> removes everything newest first, tries each item and
+re-raises the first failure. Nothing is disconnected or deleted while a signal
+of the host's own widgets dispatches (the PythonQtSignalReceiver crash pattern
+in AGENTS.md). Teardown, and any <code>remove</code>/<code>close</code> called from a host slot
+(menu action, Apply/Cancel, title-bar close, <code>on_close</code> callback), wait for
+App's shared zero-delay timer.</p>
+<p>Why a subclass: <code>OwnedMenus</code> already has the seams this host needs
+(<code>_token</code>, <code>_menu</code>, <code>_defer(first=True)</code>, <code>_guarded</code>), so the subclass
+adds only Glyphs mapping, NSMenuItem sync and the Apply/Cancel dialog. It never
+edits App's private queue. A missing main window is App's
+<code>qtsafe.MainWindowNotFound</code>; the host reports it as <code>HostUnavailable</code>.</p>
 
 
 

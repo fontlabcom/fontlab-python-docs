@@ -2243,13 +2243,15 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">batch_panel</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_finish</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">python</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">batch_panel</span><span class="p">(</span><span class="n">recipe</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[[],</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">],</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_finish</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[[</span><span class="n"><span title="list">list</span></span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">python</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Run recipe() over source UFOs in a child Python (python= or
-$FONTLABAPP_BATCH_PYTHON, 3.11+ with fontlab-fontport); on_finish(results).</p>
+        <p>Run <code>recipe()</code> over source UFOs in a child Python; <code>on_finish(results)</code>.</p>
+<p>The child is <code>python=</code> or, if that is <code>None</code>, <code>$FONTLABAPP_BATCH_PYTHON</code>.
+It must be Python 3.11+ with <code>fontlab-fontport</code> installed. With neither
+set, Start refuses to run and says so in the panel status.</p>
 
 
     </div>
@@ -2264,12 +2266,13 @@ $FONTLABAPP_BATCH_PYTHON, 3.11+ with fontlab-fontport); on_finish(results).</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">designspace_panel</span><span class="p">(</span><span class="n">designspace</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_location</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">designspace_panel</span><span class="p">(</span><span class="n">designspace</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_location</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n"><span title="object">object</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Axis sliders/fields and source list over a Fontport Designspace.</p>
+        <p>Return axis sliders, fields and a source list over a designspace object.</p>
+<p><code>on_location</code> runs when the user changes the location.</p>
 
 
     </div>
@@ -2284,12 +2287,14 @@ $FONTLABAPP_BATCH_PYTHON, 3.11+ with fontlab-fontport); on_finish(results).</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">features_editor</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_apply</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">features_editor</span><span class="p">(</span><span class="n">font</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_apply</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n"><span title="str">str</span></span><span class="p">],</span> <span class="n"><span title="object">object</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Stage feature text; on_apply(font, text) follows one accepted Apply.</p>
+        <p>Return an owned feature-code editor that stages text until Apply.</p>
+<p><code>on_apply(font, text)</code> runs once after each accepted Apply. The text is
+never compiled here.</p>
 
 
     </div>
@@ -2304,12 +2309,13 @@ $FONTLABAPP_BATCH_PYTHON, 3.11+ with fontlab-fontport); on_finish(results).</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">font_browser</span><span class="p">(</span><span class="n">fonts</span><span class="o">=</span><span class="p">(),</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_activate</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">font_browser</span><span class="p">(</span><span class="n">fonts</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="p">(),</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_activate</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n"><span title="object">object</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Browse a borrowed font list; refresh(fonts) updates external membership.</p>
+        <p>Return a browser over a borrowed font list.</p>
+<p><code>refresh(fonts)</code> updates the list when fonts open or close elsewhere.</p>
 
 
     </div>
@@ -2324,14 +2330,14 @@ $FONTLABAPP_BATCH_PYTHON, 3.11+ with fontlab-fontport); on_finish(results).</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">font_info_editor</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_apply</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">font_info_editor</span><span class="p">(</span><span class="n">font</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_apply</span><span class="p">:</span> <span class="n"><span title="fontlabapp.fontui._ApplyCallback">_ApplyCallback</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Stage font information; on_apply(font, changes) follows a successful batch.</p>
-<p>Requires [fontedit]. The borrowed model needs callable font.info.apply for
-editing; other models are read-only. Retain the handle and close explicitly.</p>
+        <p>Stage font information; <code>on_apply(font, changes)</code> follows a good batch.</p>
+<p>The borrowed model needs a callable <code>font.info.apply</code> for editing. Other
+models are read-only. Keep the handle and call <code>close()</code> when done.</p>
 
 
     </div>
@@ -2346,12 +2352,15 @@ editing; other models are read-only. Retain the handle and close explicitly.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">glyph_browser</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_activate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">glyph_browser</span><span class="p">(</span><span class="n">font</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_activate</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n"><span title="object">object</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">multiple</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Return owned browser handle. Keep alive; call refresh(), then close().</p>
+        <p>Return an owned glyph browser handle over <code>font</code>.</p>
+<p>Keep the handle alive, show <code>handle.widget</code>, call <code>refresh()</code> after
+external edits and <code>close()</code> when done. <code>on_activate</code> runs for an
+activated glyph; <code>multiple</code> allows a multi-selection.</p>
 
 
     </div>
@@ -2366,12 +2375,12 @@ editing; other models are read-only. Retain the handle and close explicitly.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">glyph_preview</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">glyph_preview</span><span class="p">(</span><span class="n">font</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Return owned detail handle; set_glyph(name), refresh(), close().</p>
+        <p>Return an owned glyph detail preview; use <code>set_glyph(name)</code>, <code>refresh()</code>, <code>close()</code>.</p>
 
 
     </div>
@@ -2386,12 +2395,14 @@ editing; other models are read-only. Retain the handle and close explicitly.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">glyph_sequence</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_select</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">glyph_sequence</span><span class="p">(</span><span class="n">font</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_select</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Return owned sequence preview; on_select receives (glyph-or-None, index).</p>
+        <p>Show a text or glyph-name sequence; <code>on_select(glyph_or_None, index)</code>.</p>
+<p>Fontport places the glyphs (Unicode and kerning). The canvas comes from
+<code>fontlabapp.fontui.sequence_canvas</code>.</p>
 
 
     </div>
@@ -2406,12 +2417,12 @@ editing; other models are read-only. Retain the handle and close explicitly.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">groups_editor</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_apply</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">groups_editor</span><span class="p">(</span><span class="n">font</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_apply</span><span class="p">:</span> <span class="n"><span title="fontlabapp.fontui._ApplyCallback">_ApplyCallback</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Edit explicit groups; on_apply(font, groups) follows one successful batch.</p>
+        <p>Edit explicit groups; <code>on_apply(font, groups)</code> follows one good batch.</p>
 
 
     </div>
@@ -2426,12 +2437,14 @@ editing; other models are read-only. Retain the handle and close explicitly.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">kerning_editor</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_apply</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">kerning_editor</span><span class="p">(</span><span class="n">font</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_apply</span><span class="p">:</span> <span class="n"><span title="fontlabapp.fontui._ApplyCallback">_ApplyCallback</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Inspect explicit/effective pairs; on_apply(font, pairs) follows a batch.</p>
+        <p>Inspect explicit and effective kerning pairs; edit them in one batch.</p>
+<p><code>on_apply(font, pairs)</code> follows a good batch. Keep the handle and call
+<code>close()</code> when done.</p>
 
 
     </div>
@@ -2446,12 +2459,14 @@ editing; other models are read-only. Retain the handle and close explicitly.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">transform_editor</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">on_change</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">transform_editor</span><span class="p">(</span><span class="n">font</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_change</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Affine preview of a detached UFO glyph; on_change(recipe, result).</p>
+        <p>Preview an affine transform of one detached UFO glyph.</p>
+<p><code>on_change(recipe, result)</code> follows each good preview. The source font is
+never changed. Keep the handle and call <code>close()</code> when done.</p>
 
 
     </div>

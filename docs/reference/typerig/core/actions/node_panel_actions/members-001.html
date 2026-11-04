@@ -2088,6 +2088,17 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#typerig.core.actions.node_panel_actions.BOOL_OPERATIONS" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BOOL_OPERATIONS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.actions.node_panel_actions.npa_align" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2191,6 +2202,17 @@
     <span class="md-ellipsis">
       
         npa_contour_align
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.core.actions.node_panel_actions.npa_contour_bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npa_contour_bool
       
     </span>
   </a>
@@ -2505,28 +2527,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#typerig.core.actions.node_panel_actions.npa_make_monoline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        npa_make_monoline
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#typerig.core.actions.node_panel_actions.npa_move" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        npa_move
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2553,6 +2553,28 @@
 <h1 id="typerigcoreactionsnode_panel_actions-declarations-001">typerig.core.actions.node_panel_actions · declarations 001</h1>
 <p><a href="../node_panel_actions.html#typerig.core.actions.node_panel_actions">Back to <code>typerig.core.actions.node_panel_actions</code></a></p>
 
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="typerig.core.actions.node_panel_actions.BOOL_OPERATIONS" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">BOOL_OPERATIONS</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">BOOL_OPERATIONS</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
 
 <div class="doc doc-object doc-function">
 
@@ -2777,6 +2799,43 @@ align target.</p>
     contours_A_by_layer (dict|None): per-layer group A snapshots.
     contours_B_by_layer (dict|None): per-layer group B snapshots.</p>
 <p>When contours_A/B are None, uses module-level _contour_group_A/B.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.actions.node_panel_actions.npa_contour_bool" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">npa_contour_bool</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_contour_bool</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Boolean operation on selected contours (all if none) - FL contour_bool.</p>
+<p>The operands are read ONCE on a reference layer (the active layer if in
+scope, else the first) and applied by contour index to every layer in
+scope: Glyphs keeps a separate selection per layer, so other masters
+have none to read. Left fold in index order (reverse: from the last,
+FL Alt); the result takes the place of the base operand. Open contours
+are not operands and stay. Layers whose contour count differs from the
+reference are skipped and reported; results that differ in node
+structure across layers are reported (no fix).</p>
+<p>The geometry is the host's: each layer must offer
+path_boolean(indices, operation, reverse) -&gt; (status, new_paths, message)
+(Glyphs: trLayer.path_boolean, engine proxy/gs3/objects/pathops).</p>
+<p>Args:
+    operation (str): 'add', 'subtract', 'intersect' or 'exclude'.
+    reverse (bool): fold from the last operand.</p>
+<p>Returns:
+    dict: layer name -&gt; status ('OK', 'EMPTY', 'TOO_FEW', 'BAD_INDEX',
+    'ENGINE_ERROR', 'INCOMPATIBLE', 'NO_HOST'). Empty if nothing ran.</p>
 
 
     </div>
@@ -3178,7 +3237,7 @@ stored target (npa_loop_target_set), pulled back by safe_distance.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_curve_optimize</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">CurveActions</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;tunni&#39;</span><span class="p">,</span> <span class="n">curvature</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">proportion</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_curve_optimize</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">CurveActions</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;tunni&#39;</span><span class="p">,</span> <span class="n">curvature</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">proportion</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">select_one_node</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -3188,9 +3247,8 @@ stored target (npa_loop_target_set), pulled back by safe_distance.</p>
     method (str): 'tunni', 'hobby', or 'proportional'.
     curvature (tuple): (alpha, beta) for Hobby method.
     proportion (tuple): (p0_ratio, p1_ratio) for proportional method.</p>
-<p>Note:
-    Both endpoints of a segment must be selected for that segment to be
-    processed (CurveActions.curve_optimize enforces this internally).</p>
+<p>Same selection rule as npa_insert: both ends of a segment selected,
+or with select_one_node (Alt) the outgoing segment of every selected node.</p>
 
 
     </div>
@@ -3251,12 +3309,13 @@ stored target (npa_loop_target_set), pulled back by safe_distance.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_hobby_copy</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">CurveActions</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_hobby_copy</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">CurveActions</span><span class="p">,</span> <span class="n">select_one_node</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Copy Hobby curvature from the first selected curve segment on each scope layer.</p>
+        <p>Copy Hobby curvature from the first selected curve segment on each scope layer
+(same selection rule as npa_insert).</p>
 <p>Stores the result in the module-level _hobby_bank dict keyed by layer name.
 Returns the bank so the caller can inspect it (e.g. to toggle a button state).</p>
 
@@ -3273,12 +3332,13 @@ Returns the bank so the caller can inspect it (e.g. to toggle a button state).</
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_hobby_paste</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">CurveActions</span><span class="p">,</span> <span class="n">swap</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_hobby_paste</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">CurveActions</span><span class="p">,</span> <span class="n">swap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">select_one_node</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Apply stored Hobby curvature to all selected curve segments across scope layers.</p>
+        <p>Apply stored Hobby curvature to all selected curve segments across scope layers
+(same selection rule as npa_insert).</p>
 <p>Uses the curvature stored per layer by the most recent npa_hobby_copy call.
 If a layer has no stored value, it is skipped.</p>
 <p>Args:
@@ -3297,12 +3357,14 @@ If a layer has no stored value, it is skipped.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_insert</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_insert</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">select_one_node</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Insert node at parametric position t on selected segments.</p>
+        <p>Insert node at parametric position t on selected segments.
+A segment needs both on-curve ends selected; select_one_node=True
+(Alt) splits the outgoing segment of every selected on-curve node.</p>
 
 
     </div>
@@ -3317,12 +3379,13 @@ If a layer has no stored value, it is skipped.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_insert_at_extremes</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_insert_at_extremes</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">select_one_node</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Insert nodes at curve extremes.</p>
+        <p>Insert nodes at curve extremes of selected segments (same selection
+rule as npa_insert).</p>
 
 
     </div>
@@ -3388,51 +3451,6 @@ handle alignment, with optional stem-width equalization).</p>
 <p>snap_lookup: optional dict {master_name: preset_width}. When set and
 equalize=True, the equalized width is snapped to the master's preset
 within snap_tolerance * measured.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.actions.node_panel_actions.npa_make_monoline" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">npa_make_monoline</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_make_monoline</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">target_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">preserve_taper</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">snap_lookup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">snap_tolerance</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Regularize two selected curve segments as +/- offsets of their shared
-control-polygon median (monoline-pen model). Both sides end up with
-matching tangents AND matching handle lengths -&gt; truly parallel.</p>
-<p>snap_lookup: optional dict {master_name: preset_width}. When set and
-target_width is None, the resulting width snaps to the master's preset
-within snap_tolerance * measured.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.actions.node_panel_actions.npa_move" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">npa_move</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">npa_move</span><span class="p">(</span><span class="n">glyph</span><span class="p">,</span> <span class="n">scope_layers</span><span class="p">,</span> <span class="n">NodeActions</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Move selected nodes across scope layers.</p>
 
 
     </div>

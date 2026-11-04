@@ -616,6 +616,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="ui.html" class="md-nav__link md-nav__link--active">
         
   
@@ -632,6 +650,64 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#keep-an-owned-dialog-alive-until-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep an owned dialog alive until cleanup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-tool-settings-separate-from-chooser-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep tool settings separate from chooser settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keep tool settings separate from chooser settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qfiledialog-has-its-own-persistent-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QFileDialog has its own persistent state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2102,6 +2178,53 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#keep-an-owned-dialog-alive-until-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep an owned dialog alive until cleanup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-tool-settings-separate-from-chooser-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep tool settings separate from chooser settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keep tool settings separate from chooser settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qfiledialog-has-its-own-persistent-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QFileDialog has its own persistent state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2174,7 +2297,7 @@ widgets to bitmaps and SVG.</p>
     <span class="n">preview</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">preview</span>
     <span class="n">windows</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyph_windows</span><span class="p">()</span>
 </code></pre></div>
-<p>Inspect <a class="autorefs autorefs-internal" title="FontLab" href="../reference/fontlabapp/controls/FontLab.html#fontlabapp.controls.FontLab">the native FontLab controller</a> for the
+<p>Inspect <a class="autorefs autorefs-internal" title="FontLab" href="../reference/fontlabapp/core/controls/FontLab.html#fontlabapp.core.controls.FontLab">the native FontLab controller</a> for the
 current API. A context closes only UI resources it owns. User-open documents
 and unrelated widgets remain owned by the application.</p>
 <p>PythonQt exposes several Qt properties as values, while PySide2 exposes methods:
@@ -2185,6 +2308,106 @@ upstream PySide2 calls. Qt5/PySide2 documentation is labeled in this reference.<
 reporter painting also requires actual native paint ordering, per-glyph item
 transforms, clipping and callback-scoped painter lifetime. That expanded Glyport
 integration is pending; a child overlay alone does not prove background painting.</p>
+<h2 id="keep-an-owned-dialog-alive-until-cleanup">Keep an owned dialog alive until cleanup</h2>
+<p>A modeless dialog returns control immediately. Retain it, connect only callbacks
+you own, and disconnect those callbacks before deleting the widget. Closing a
+window, pressing Escape, and replacing a previously opened tool must all reach
+the same cleanup path. A parent alone does not prove signal cleanup.</p>
+<p>The App's script-dialog helpers provide this ownership pattern. The completion
+owner routes <code>finished</code> through Close, including Escape/reject. Retain it under
+<code>_completion_lifetime</code>: <code>close_script_dialog</code> uses that attribute when it stops
+terminal callbacks. Do not add a second <code>reject()</code> override that calls <code>close()</code>.</p>
+<!-- example: owned-dialog -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtGui</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">fontlabapp.core.completion</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">script_completion</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">fontlabapp.core.scripting</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">scripting</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ExampleDialog</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QDialog</span><span class="p">):</span>
+    <span class="n">KEY</span> <span class="o">=</span> <span class="s2">&quot;example_owned_dialog&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">QtGui</span><span class="o">.</span><span class="n">QDialog</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_connections</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Owned example&quot;</span><span class="p">)</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Close this panel or press Escape&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+        <span class="n">button</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Close&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+        <span class="n">scripting</span><span class="o">.</span><span class="n">connect_guarded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="o">.</span><span class="n">clicked</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_completion_lifetime</span> <span class="o">=</span> <span class="n">script_completion</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">KEY</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="n">scripting</span><span class="o">.</span><span class="n">close_script_dialog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">KEY</span><span class="p">)</span>
+
+<span class="n">panel</span> <span class="o">=</span> <span class="n">scripting</span><span class="o">.</span><span class="n">show_script_dialog</span><span class="p">(</span><span class="n">ExampleDialog</span><span class="p">,</span> <span class="n">ExampleDialog</span><span class="o">.</span><span class="n">KEY</span><span class="p">)</span>
+</code></pre></div>
+<p>The lambda discards the Boolean signal argument before calling argumentless
+<code>close()</code>; PythonQt does not reliably trim native slot arguments.</p>
+<p>Run this inside FontLab with a matching App installation. It creates only an
+owned dialog; it does not edit a font. Do not construct <code>QApplication</code>, start an
+application-wide event loop, or load PySide/PyQt binaries inside FontLab. The
+standalone Qt checks for this example use a substitute main-window owner; they
+do not prove native PythonQt behavior.</p>
+<p><code>show_script_dialog</code> retains one panel per key and adds the priority hint while
+preserving its other flags. That is a modeless-panel policy, not proof that every
+file chooser or macOS native sheet needs the same flags.</p>
+<h2 id="keep-tool-settings-separate-from-chooser-settings">Keep tool settings separate from chooser settings</h2>
+<p>Use an explicit file when testing a tool's own settings. This example writes a
+single value in a temporary INI file, synchronizes it, and reopens the same file.
+It never changes the process-wide default format or settings paths.</p>
+<!-- example: owned-settings -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tempfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">TemporaryDirectory</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtCore</span>
+
+<span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;fontlab-settings-example-&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">directory</span><span class="p">:</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;tool.ini&quot;</span><span class="p">)</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSettings</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSettings</span><span class="o">.</span><span class="n">IniFormat</span><span class="p">)</span>
+    <span class="n">settings</span><span class="o">.</span><span class="n">setFallbacksEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">settings</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s2">&quot;family&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">settings</span><span class="o">.</span><span class="n">sync</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">settings</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">==</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSettings</span><span class="o">.</span><span class="n">NoError</span>
+    <span class="n">reopened</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSettings</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSettings</span><span class="o">.</span><span class="n">IniFormat</span><span class="p">)</span>
+    <span class="n">reopened</span><span class="o">.</span><span class="n">setFallbacksEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">int</span><span class="p">(</span><span class="n">reopened</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s2">&quot;family&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">del</span> <span class="n">reopened</span><span class="p">,</span> <span class="n">settings</span>
+</code></pre></div>
+<p>For a tool that remembers window placement, use <code>saveGeometry()</code> and
+<code>restoreGeometry()</code> rather than parsing coordinates yourself. Restore after all
+controls exist and before the first show. Missing geometry keeps the layout's
+defaults; a false restore result or malformed value needs a usable fallback.
+Save before Close cleanup, and run cleanup in <code>finally</code> even if persistence
+fails. Do not call widget methods from its <code>destroyed</code> callback. Qt documents
+screen correction and the restore result in
+<a href="https://doc.qt.io/qt-5/qwidget.html#restoreGeometry">QWidget::restoreGeometry</a>.</p>
+<p>A settings error recorded on a panel that is about to be deleted is not the same
+as a message the user can see. Choose a reporting surface deliberately if the
+saved state is important; do not prevent cleanup merely to retain that message.</p>
+<h3 id="qfiledialog-has-its-own-persistent-state">QFileDialog has its own persistent state</h3>
+<p>The INI example isolates only the settings objects it constructs. It does not
+redirect <code>QFileDialog</code>'s internal settings.</p>
+<p>In upstream Qt <strong>5.15.2</strong>, file-dialog save/restore uses
+<code>QSettings(UserScope, "QtProject")</code>. That scoped constructor selects
+<code>NativeFormat</code> explicitly, so <code>setDefaultFormat(IniFormat)</code> does not change it.
+On macOS, <code>setPath(NativeFormat, ...)</code> also does not redirect the native store.
+Cancellation and destruction can still persist chooser state. A fresh process
+isolates the in-memory last-visited directory but not the persistent store.
+These are source findings, not verification of FontLab's compiled Qt build.
+See <a href="https://github.com/qt/qtbase/blob/v5.15.2/src/widgets/dialogs/qfiledialog.cpp#L2921">QFileDialog settings</a>
+and <a href="https://github.com/qt/qtbase/blob/v5.15.2/src/corelib/io/qsettings.cpp#L2575">the scoped QSettings constructor</a>.</p>
+<p><code>DontUseNativeDialog</code> selects a widget chooser; it does not disable those
+settings reads/writes. In that source version the Cocoa helper also refuses
+native display when <code>WindowStaysOnTopHint</code> is present. Adding the flag can
+therefore change which chooser implementation runs. See
+<a href="https://github.com/qt/qtbase/blob/v5.15.2/src/plugins/platforms/cocoa/qcocoafiledialoghelper.mm#L689">QCocoaFileDialogHelper::show</a>.</p>
+<p>For chooser tests, use a disposable OS account or VM whose preferences are owned
+by the test. Keep the exact <code>open()</code> behavior: on macOS, conversion to a sheet
+can replace flags set earlier, and rejection restores prior modality. Compare
+complete flags, parent, modality, selected-file callbacks and cleanup across
+repeated opens. A plain <code>QDialog</code> experiment, offscreen platform, alternate
+working directory, or changed default settings format does not establish
+<code>QFileDialog</code> isolation or native acceptance.</p>
 
 
 

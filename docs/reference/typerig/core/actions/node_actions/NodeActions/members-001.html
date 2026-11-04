@@ -3025,7 +3025,9 @@ indices stable.</p>
                 If False, only the on-curve coordinate moves ("dumb shift").
         keep_relations (bool): If True, treat selection as a rigid group: compute
                 one delta from group anchor to target and shift every node uniformly,
-                preserving relative offsets between selected nodes.
+                preserving relative offsets between selected nodes. With a target the
+                anchor is the bounding-box side the mode names (L / R / T / B, centre
+                for C / E and the rest); without one it is the selection's mean.
         lerp_shift (bool): If True, use Interpolated Nudge (Node.lerp_shift) instead
                 of direct relocation. Mutually exclusive with intercept and extrapolate.
         intercept (bool): If True, for vertical modes (T/B/E) project each node's

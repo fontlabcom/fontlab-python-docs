@@ -1151,6 +1151,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ui-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI editors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#behaviour-and-limits-fontport-v102" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2223,6 +2234,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ui-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI editors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#behaviour-and-limits-fontport-v102" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2337,6 +2359,31 @@ Importing the package outside FontLab is safe; native access loads on demand.</p
 <div class="highlight"><pre><span></span><code><span class="n">font</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">apply</span><span class="p">({</span><span class="s2">&quot;familyName&quot;</span><span class="p">:</span> <span class="s2">&quot;My Family&quot;</span><span class="p">,</span> <span class="s2">&quot;ascender&quot;</span><span class="p">:</span> <span class="mf">810.5</span><span class="p">},</span>
                 <span class="n">undo_name</span><span class="o">=</span><span class="s2">&quot;Edit font information&quot;</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="ui-editors">UI editors</h2>
+<p><code>fontlabapp.fontui</code> provides the Qt editors that work on FontParts and UFO
+models: <code>font_info_editor</code>, <code>groups_editor</code>, <code>kerning_editor</code>,
+<code>transform_editor</code>, <code>batch_panel</code> and <code>glyph_sequence</code>. Install App's <code>fontport</code>
+extra. App also owns the browsers, preview, features editor and designspace
+panel. Each factory returns a handle: keep a reference, show its
+<code>.widget</code> and call <code>.close()</code> when you are done.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inside FontLab, with Fontport and ufoLib2 installed</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ufoLib2</span><span class="w"> </span><span class="kn">import</span> <span class="n">Font</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlabapp.fontui</span><span class="w"> </span><span class="kn">import</span> <span class="n">kerning_editor</span>
+
+<span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="p">()</span>                       <span class="c1"># a detached demonstration model</span>
+<span class="n">editor</span> <span class="o">=</span> <span class="n">kerning_editor</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>       <span class="c1"># keep this handle alive</span>
+<span class="n">editor</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># ... later:</span>
+<span class="n">editor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>Editors stage changes and apply them in one validated batch; a model without a
+batch apply opens read-only. The sequence and the info, groups and kerning
+editors have <code>.refresh()</code> for edits made elsewhere; <code>transform_editor</code> and
+<code>batch_panel</code> do not. The font information editor also offers the structured
+fields OS/2 weight and width class, Panose (ten integers) and horizontal and
+vertical stem snaps; it labels them "key master" because Fontport writes them to
+the current key master only. Name records are not offered. <code>batch_panel</code> runs work
+in a separate Python 3.11+ process so FontLab stays responsive.</p>
 <h2 id="behaviour-and-limits-fontport-v102">Behaviour and limits (Fontport v1.0.2)</h2>
 <ul>
 <li><strong>Undo:</strong> an edit through the live binding is undone by the first Edit &gt; Undo.

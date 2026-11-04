@@ -2201,8 +2201,7 @@
 <p>Arguments:
         contour (Contour): The contour to operate on.
         node_indices (list[int]): Indices of on-curve nodes whose
-                outgoing segments will be optimized. Both endpoints of
-                a segment must be in the selection for it to be processed.
+                outgoing segments will be optimized.
         method (str): Optimization method. One of:
                 'tunni' - Eduardo Tunni's proportional handle method.
                 'hobby' - John Hobby's mock-curvature smoothness.
@@ -2335,13 +2334,13 @@ starting at the given on-curve node.</p>
 
     <div class="doc doc-contents first">
 
-        <p>Convert line segments to curve segments at the given on-curve
-node indices. Inserts two off-curve handles between consecutive
-on-curve nodes at 1/3 and 2/3 of the line.</p>
+        <p>Convert line segments to curve segments. Inserts two off-curve
+handles at 1/3 and 2/3 of the line between each given on-curve node
+and the next one.</p>
 <p>Arguments:
         contour (Contour): The contour to operate on.
         node_indices (list[int]): Indices of on-curve nodes whose
-                incoming segments will be converted to curves.</p>
+                outgoing segments will be converted to curves.</p>
 <p>Returns:
         bool: True if at least one segment was converted.</p>
 
@@ -2367,13 +2366,12 @@ on-curve nodes at 1/3 and 2/3 of the line.</p>
 
     <div class="doc doc-contents first">
 
-        <p>Convert curve segments to line segments at the given on-curve
-node indices. Removes the off-curve handles between consecutive
-on-curve nodes.</p>
+        <p>Convert curve segments to line segments. Removes the off-curve
+handles between each given on-curve node and the next one.</p>
 <p>Arguments:
         contour (Contour): The contour to operate on.
         node_indices (list[int]): Indices of on-curve nodes whose
-                incoming segments will be converted to lines.</p>
+                outgoing segments will be converted to lines.</p>
 <p>Returns:
         bool: True if at least one segment was converted.</p>
 

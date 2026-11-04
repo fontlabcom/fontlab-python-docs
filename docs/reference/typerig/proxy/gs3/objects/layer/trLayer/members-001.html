@@ -2275,6 +2275,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.objects.layer.trLayer.path_boolean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        path_boolean
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.proxy.gs3.objects.layer.trLayer.set_locked" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2704,6 +2715,42 @@ Replaces all paths, components, and anchors, then updates metrics.</p>
         &gt;&gt;&gt; core_layer.shift(10, 20)
         &gt;&gt;&gt; tr_g[0].mount(core_layer)
         &gt;&gt;&gt; tr_g.update()</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.objects.layer.trLayer.path_boolean" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">path_boolean</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">path_boolean</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">operation</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Boolean operation on the paths at indices (FL contour_bool).</p>
+<p>Left fold over the closed paths at indices, in index order (reverse:
+from the last). The result replaces the operands at the z-position
+of the base operand (first; reverse: last). Open paths at indices
+are not operands and stay where they are. Components and other paths
+are kept. Engine: pathops (GSPathOperator).</p>
+<p>Args:
+        indices (iterable of int): indices into layer.paths.
+        operation (str): pathops.OP_ADD / OP_SUBTRACT / OP_INTERSECT / OP_EXCLUDE.
+        reverse (bool): fold from the last operand (FL Alt).</p>
+<p>Returns:
+        tuple (status, new_paths, message):
+                status: pathops.STATUS_OK, STATUS_EMPTY (operands removed,
+                nothing added), STATUS_TOO_FEW / STATUS_BAD_INDEX /
+                STATUS_ENGINE_ERROR (layer not changed).
+                new_paths (list of GSPath): the paths now on the layer.
+                message (str): reason when not OK; open paths skipped.</p>
 
 
     </div>

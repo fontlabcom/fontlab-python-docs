@@ -2,6 +2,20 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-04 — Source lock and generated reference refreshed for the 1.2.x cohort (Issue 204 Task 6, interim)
+
+- `api-sources.lock.json` now pins 1103 inputs, up from 765. Against the previous lock: 228 removed, 566 added, 163 changed.
+  - All 1060 package inputs equal the committed HEAD bytes of their repositories.
+  - Every removed or changed input's previous hash appears in that file's committed history.
+  - The 43 examples pages equal the committed retained export.
+  - The cohort: App v1.2.4, Glyport v1.2.1, Remopy, Fly and Fontport v1.2.0, the current Echopy, pythonqtside, TypeRig and Grablab heads, and the committed Aidus HEAD.
+- The inventory reads imports in both branches of a top-level conditional, so platform-selected re-exports such as Remopy `platforms.launch` resolve.
+- The inventory skips dataclass `InitVar` pseudo-fields, which are `__init__` arguments, not attributes; griffe also drops them.
+- The generated reference and staged `docs/` are rebuilt for the moved App domain modules; the old module pages are removed.
+  - The App, Glyport and Grablab licence texts left over from before 70becfbb are dropped.
+  - Strict build, `--check`, 380 tests and the release audit (7992 files, no findings) pass.
+- This lock is interim. Issue 204 items 1 (main promotion), 3 (Aidus retirement) and 12 (FL provenance) will change inputs and need a refresh. Not published: `docs/` on main is the Pages source.
+
 <!-- workspace-handoff:2026-11-03 -->
 ## 2026-11-03 — Issue 205 canonical module paths
 

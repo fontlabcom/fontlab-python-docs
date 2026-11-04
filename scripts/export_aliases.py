@@ -28,12 +28,26 @@ def _export_contract(tree: ast.Module) -> tuple[set[str] | None, dict]:
     return exports, registries
 
 
+def _module_level(body: list[ast.stmt]):
+    """Yield module statements, including both branches of top-level conditionals.
+
+    Platform selection (``if sys.platform == ...``) binds module names at import
+    time exactly like unconditional imports; function bodies stay excluded.
+    """
+    for node in body:
+        if isinstance(node, ast.If):
+            yield from _module_level(node.body)
+            yield from _module_level(node.orelse)
+        else:
+            yield node
+
+
 def exported_aliases(tree: ast.Module, module: str, *, package: bool) -> dict[str, str]:
     """Resolve source-declared public imports and small lazy export registries."""
     exports, registries = _export_contract(tree)
     aliases = {}
     context = module if package else module.rpartition(".")[0]
-    for node in tree.body:
+    for node in _module_level(tree.body):
         if isinstance(node, ast.Import):
             for name in node.names:
                 public = name.asname or name.name.partition(".")[0]

@@ -2088,6 +2088,17 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#typerig.core.algo.stroke_sep_common.apply_cuts_exact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        apply_cuts_exact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.algo.stroke_sep_common.apply_cuts_to_layer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2110,10 +2121,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.core.algo.stroke_sep_common.contour_signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contour_signature
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.core.algo.stroke_sep_common.find_parameter_on_contour" class="md-nav__link">
     <span class="md-ellipsis">
       
         find_parameter_on_contour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.core.algo.stroke_sep_common.insert_cut_nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        insert_cut_nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.core.algo.stroke_sep_common.plan_cut_nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plan_cut_nodes
       
     </span>
   </a>
@@ -2168,6 +2212,27 @@
 <h1 id="typerigcorealgostroke_sep_common-declarations-001">typerig.core.algo.stroke_sep_common · declarations 001</h1>
 <p><a href="../stroke_sep_common.html#typerig.core.algo.stroke_sep_common">Back to <code>typerig.core.algo.stroke_sep_common</code></a></p>
 
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.algo.stroke_sep_common.apply_cuts_exact" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">apply_cuts_exact</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">apply_cuts_exact</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Insert planned cut nodes into <em>contours</em> and cut them node-exact.</p>
+<p>Returns list[Contour] (inputs are not modified).</p>
+
+
+    </div>
+
+</div>
 
 <div class="doc doc-object doc-function">
 
@@ -2234,6 +2299,26 @@ same node types at each position.</p>
 <div class="doc doc-object doc-function">
 
 
+<h2 id="typerig.core.algo.stroke_sep_common.contour_signature" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">contour_signature</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">contour_signature</span><span class="p">(</span><span class="n">contours</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Structural fingerprint for compatibility: per contour, node types.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="typerig.core.algo.stroke_sep_common.find_parameter_on_contour" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">find_parameter_on_contour</span>
 
@@ -2246,6 +2331,71 @@ same node types at each position.</p>
 
         <p>Find segment and parameter t closest to target point.</p>
 <p>Returns: (on_curve_node, t_parameter, distance)</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.algo.stroke_sep_common.insert_cut_nodes" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">insert_cut_nodes</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">insert_cut_nodes</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Insert the planned cut nodes into clones of <em>contours</em>.</p>
+<p>Per segment the inserts run in descending t, so the left part keeps a
+reparametrised t' = t / t_prev; segments run in descending ordinal so
+earlier ordinals stay valid. The original start node is kept.</p>
+<p>Args:
+        plan:      from plan_cut_nodes (reference master)
+        contours:  list[Contour] -- this master's contours
+        reference: list[Contour] -- the reference contours; when given, an
+                   inserted endpoint keeps the reference cut direction on this
+                   master (see _solve_master_ts); else it keeps the reference t.</p>
+<p>Returns:
+        (new_contours, cuts): cloned contours with the nodes inserted, and
+        the plan's cuts as ((x, y), (x, y)) pairs at those exact nodes.</p>
+<p>Raises:
+        ValueError on quadratic (TrueType) contours.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.core.algo.stroke_sep_common.plan_cut_nodes" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">plan_cut_nodes</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">plan_cut_nodes</span><span class="p">(</span><span class="n">cut_pairs</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="n">snap</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Decide on the reference contours how each cut endpoint becomes a node.</p>
+<p>An endpoint closer than <em>snap</em> units (or _T_EPS in t) to a segment end
+reuses that on-curve node; otherwise a node is inserted at t. Ordinals
+count on-curve nodes only, so the plan does not depend on where a
+contour starts (Glyphs keeps the start node last).</p>
+<p>Args:
+        cut_pairs: list[CutPair] -- from StrokeSep.analyze (reference master)
+        contours:  list[Contour] -- the analysed reference contours
+        snap:      float -- reuse-node distance on the reference master</p>
+<p>Returns:
+        list of ((ci, on_idx, t), (ci, on_idx, t)); t == 0 means the existing
+        on-curve node #on_idx. Degenerate cuts (both ends one node) are dropped.</p>
 
 
     </div>
