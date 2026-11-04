@@ -7,7 +7,10 @@ Fontlabapp is the Python layer for FontLab's application surface: menus and
 actions, panels, preferences, versions and paths, Glyph and Preview windows,
 drawing overlays, and docks, dialogs and widgets you create yourself.
 
-This page describes Fontlabapp v0.2.4.
+!!! note "Fontport's Qt editors live here"
+    Fontport's Qt editors moved into Fontlabapp as `fontlabapp.fontui`.
+    Fontlabapp is where FontLab user interface code belongs; Fontport keeps
+    font-data interoperability only.
 
 ## Install
 
@@ -64,9 +67,8 @@ with app.control as fl:
 Edit vertical metrics or alignment zones on several masters as one Undo step:
 
 ```python
-import fontlabapp.metrics.master_writer as master_metrics
-import fontlabapp.metrics.zones.native as zone_native
-from fontlabapp.core.scripting import current_package
+from fontlabapp import master_metrics, zone_native
+from fontlabapp.scripting import current_package
 
 package = current_package()                   # the current font, Font window active
 master_metrics.write_master_metrics(
@@ -85,8 +87,8 @@ file is correct. `outline_extent.vertical_extent(layer)` measures glyph extents 
 outline nodes, because `flLayer.boundingBox` can stay stale after scripted edits
 (fl#8575).
 
-The `fontlabapp_shim` reference lists FontLab's menus, actions and panels as
-Python names (788 of 788 resolve in FontLab 9).
+Fontlabapp owns the Python names for FontLab's menus, actions and panels
+(formerly the Echopy `fontlabapp_shim`).
 
 ## FontUI: font and glyph browsers and editors
 
@@ -97,13 +99,10 @@ Install the extra that matches the tools you need:
 | Extra | Adds |
 | --- | --- |
 | `fontlab-fontlabapp[fontui]` | `font_browser`, `glyph_browser`, `glyph_preview`, `features_editor`, `designspace_panel` |
+| `fontlab-fontlabapp[fontport]` (once Fontport is published; until then install both from checkouts) | The FontParts-bound editors, which call [Fontport](fontport.md) lazily: `font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`, `batch_panel` and `glyph_sequence` |
 
-The FontParts-bound editors also live in `fontlabapp.fontui`:
-`font_info_editor`, `groups_editor`, `kerning_editor`, `transform_editor`,
-`batch_panel` and `glyph_sequence`. Install `fontlab-fontlabapp[fontport]` and
-import these factories from `fontlabapp.fontui`. They use
-[Fontport](fontport.md#ui-editors) models; the retired Fontport UI package raises
-an `ImportError` naming the matching App home.
+The FontParts-bound editors moved here from Fontport. Importing them from
+`fontlab_fontport.ui` raises an `ImportError` that names this module.
 
 Each function returns a handle. Keep a reference to it, show its `.widget` and
 call `.close()` when you are done. The browsers, preview and features editor
@@ -143,6 +142,7 @@ The view updates on the next change after the script completes.
 - Native wrappers may be recreated on each access: compare fonts by native id,
   not with `is`.
 - Created panels, dialogs and widgets own only themselves; close them when done.
+- FontLab can keep its main window hidden. `create_panel` re-floats a dock that
+  would otherwise be docked into that hidden window, so the panel stays visible.
 
-Reference: [fontlabapp](../reference/fontlabapp.md),
-[FontLab menus and panels](../reference/fontlabapp_shim.md).
+Reference: [fontlabapp](../reference/fontlabapp.md).

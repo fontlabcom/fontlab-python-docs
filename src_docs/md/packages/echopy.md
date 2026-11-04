@@ -34,6 +34,11 @@ the running FontLab build or prove that every declaration matches that build.
 Keep the package version, native build and capture provenance together when
 reporting a mismatch.
 
+For maintenance work, see [module values and their documentation](../guide/echopy-values.md):
+current-value identity, source-safe aliases, exact bookkeeping fields, absent
+offline values, captured attribute docs, maintained overlays and static Griffe
+checks. Its executable experiments use invented owned modules.
+
 ## Use the two import names
 
 This check runs outside FontLab and does not construct native objects:
@@ -199,8 +204,9 @@ measured call on the actual host when an overload or property is uncertain.
 
 ## Understand runtime shims
 
-The `GlyphsApp`, `vanilla` and related shim declarations describe compatibility
-modules supplied by other packages. They do not install Glyphs.app or turn an
+Echopy shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr` (absent in measured
+builds), `FL` and `PythonQt`. The `GlyphsApp`, `vanilla` and related compatibility modules are
+supplied by Glyport (Echopy no longer ships them). They do not install Glyphs.app or turn an
 offline process into a running Glyphs-compatible session. Glyport owns the
 runtime providers used by adapted scripts.
 
@@ -213,8 +219,8 @@ Producer-derived shim freshness and native API fidelity are separate checks:
 | Run offline tests | The tested Python behavior works outside FontLab |
 | Run installed artifacts in FontLab | The exercised behavior works on that host build |
 
-`fontlabapp_shim` has a separate App capture/generation route. Regenerating the
-Glyport and Aidus shims does not refresh that capture or FontLab's native modules.
+FontLab's menu and panel names (formerly `fontlabapp_shim`) belong to Fontlabapp.
+Regenerating them does not refresh Echopy's capture of FontLab's native modules.
 
 ## Use PythonQt inside FontLab
 
@@ -538,6 +544,17 @@ These checks do not qualify actual native bindings, a regenerated reference site
 or a published release. Existing class aliases in merged facades remain supported;
 new nonidentifier declarations require reviewed generation from the capture.
 
+## Glyphs compatibility lives in Glyport
+
+Glyphs.app compatibility is not an Echopy feature. Glyport owns the
+`GlyphsApp`, `vanilla`, `AppKit`, `Cocoa`, `Foundation` and `objc` modules and
+the glyph-info, description and manager providers behind them; Echopy no longer
+ships its own copies. Read the [Glyport guide](glyport.md), the
+[compound](../guide/glyport-compounds.md), [description](../guide/glyport-descriptions.md)
+and [manager](../guide/glyport-managers.md) guides, and the
+[Glyport reference](../reference/fontlab_glyport.md). Echopy's own declarations
+cover only FontLab's native modules.
+
 ## Verification boundaries
 
 The offline examples can run in an ordinary Echopy installation. The two native
@@ -551,3 +568,8 @@ availability in the actual target host before designing a dependency on it.
 Reference: [fontlab_echopy](../reference/fontlab_echopy.md), [fontlab](../reference/fontlab.md),
 [fontgate](../reference/fontgate.md), [fontpr](../reference/fontpr.md),
 [PythonQt](../reference/PythonQt.md), and [Glyport](glyport.md).
+
+For capture maintenance, see [complete namespace discovery](../guide/echopy-discovery.md).
+Its five executable owned experiments distinguish discovered scope from
+capture-relative declaration coverage, without querying FontLab or refreshing
+retained native/generated inputs.

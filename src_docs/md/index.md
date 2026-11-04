@@ -8,6 +8,12 @@ this_file: src_docs/md/index.md
 
 # Python, inside FontLab.
 
+The [manager state, ranks and placeholder-font experiments](guide/glyport-manager-state.md)
+show raw container identity, retained rank caches, debug/shared construction,
+observer cleanup and source-derived font/error control flow over visible owned
+primitives. Actual native fonts/defaults/resources remain separately qualified.
+
+
 Work with native font objects, control a running FontLab from another Python
 process, and build interfaces with the application's Qt runtime.
 
@@ -17,6 +23,16 @@ process, and build interfaces with the application's Qt runtime.
 </div>
 
 ## Start outside the application
+
+For Glyphs metadata reads and local-manager source qualification, see
+[Select the metadata manager](guide/glyport-managers.md). The guide separates
+public global queries from local initialization with explicit resources, and
+executes complete Chinese/Hangul algorithms over invented lawful inputs.
+
+For changing sidebar trees, visibility, count publication and document URLs,
+see [Understand sidebar trees and document metadata](guide/glyport-sidebar.md).
+Its independent owned experiments execute the actual source algorithms and
+identify the adapters still needed for FontLab.
 
 ```python
 from fontlab_remopy import FontLab
@@ -57,9 +73,22 @@ upstream binding and may differ from PythonQt.
 | Chat with an AI agent in FontLab | [Aidus Code](packages/aidus-code.md) |
 
 Every package has an [overview, install and quick-start page](packages/index.md).
+Echopy maintainers can check [module values, aliases and value documentation](guide/echopy-values.md)
+with independent owned examples and explicit native/installed evidence limits.
 Glyphs compatibility and full PySide2 app compatibility are partial; their guides
 state what works today.
 
 ## Historical documentation
 
 The <a href="archive/fontlab7/index.html">FontLab 7 and PythonQt archive</a> preserves the previous reference and its original deep links.
+
+Echopy maintainers can also follow [complete namespace discovery](guide/echopy-discovery.md):
+five owned experiments verify hidden dictionary names, loaded child scopes,
+resolution precedence, dependency errors, cancellation and actual declarations.
+These source experiments do not refresh native captures or generated reference.
+
+For contour construction, see [original node-duplication actions](guide/original-node-actions.md):
+first-reference all-layer broadcast, current-layer copies, two handles, repeated
+parents, metadata and explicit missing-target reports.
+
+[Keep distinct foreground identities](guide/glyport-layer-identities.md): eight owned backend/proxy experiments.

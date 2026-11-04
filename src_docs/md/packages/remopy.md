@@ -17,6 +17,10 @@ fontlab-remopy launch
 fontlab-remopy --timeout 15 setup
 ```
 
+`setup` submits a macro that sets FontLab's `mcp.enabled` preference and verifies
+it. From inside FontLab, call `fontlab_remopy.enable_mcp()` to do the same
+preference update directly.
+
 ## Quick start
 
 ```python
@@ -52,6 +56,22 @@ fontlab-remopy call list_fonts
 ```
 
 Use `AsyncFontLab` with `async with` and `await` in asynchronous programs.
+
+Call any other FontLab tool by name with `fl.tool(name, **arguments)`. Remopy
+checks the argument names against the tool's input schema and raises `ValueError`
+for an unknown name before anything is sent. This matters because FontLab's MCP
+server silently drops unknown arguments: `set_kerning_pair(master="Bold")` would
+write to the current master. The kerning tools take `master_name`:
+
+```python
+with FontLab() as fl:
+    fl.tool("list_kerning_pairs", master_name="Bold")
+```
+
+Only names are checked, not types, and tools missing from the catalogue or with
+open schemas are not checked. The one-shot `call_tool` function and the CLI `call`
+command apply the same check (one catalogue request per call); pass
+`check_arguments=False` to opt out. `run_python` skips the check.
 
 ## Limits
 

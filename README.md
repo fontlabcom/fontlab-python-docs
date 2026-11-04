@@ -3,10 +3,8 @@ this_file: README.md
 ---
 # FontLab Python documentation
 
-Current source-derived documentation for FontLab's native Python APIs and **Workspace handoff (2026-11-03):** Issue 123 development is paused. Accepted feature d9c15dc adds the owned-window recovery guide after extensive generation/resource/manager/discovery/node/layer guides. Authored source/ordinary examples were checked; generated references, source-lock, rendered site and publication remain gated.
-scripting ecosystem. Echopy captures inside FontLab, then produces enriched,
-typed Python source. Mkdocstrings renders that source under the actual native
-fontlab/fontgate/fontpr/PythonQt names without runtime inspection.
+Current source-derived documentation for FontLab's native Python APIs and scripting ecosystem. Echopy captures inside FontLab, then produces enriched,
+typed Python source. Mkdocstrings renders that source under the actual native fontlab/fontgate/fontpr/PythonQt names without runtime inspection.
 
 ## Build
 
@@ -23,17 +21,14 @@ Build the examples site first to prepare its verified retained-catalogue export.
 ```
 
 `api-sources.lock.json` pins every documented input by SHA256. Normal builds
-reject missing, new or modified inputs; source changes require an explicit lock
-refresh. Checkout and installed-artifact modes enforce the same bytes.
+reject missing, new or modified inputs; source changes require an explicit lock refresh. Checkout and installed-artifact modes enforce the same bytes.
 
 The first synchronization may fetch locked build dependencies. Subsequent offline
 builds use the provisioned cache and source checkouts. To use installed artifacts,
 set FONTLAB_API_SOURCE_ROOT to their Python package directory; all documented
-packages must be available there. Private sources use normal authenticated GitHub
-provisioning without credentials in build configuration.
+packages must be available there. Private sources use normal authenticated GitHub provisioning without credentials in build configuration.
 
-Explicit ./build.sh --refresh-native captures through the running FontLab's
-scripting surface, then regenerates/enriches Echopy before building the site.
+Explicit ./build.sh --refresh-native captures through the running FontLab's scripting surface, then regenerates/enriches Echopy before building the site.
 It requires sibling Echopy/Remopy checkouts and FontLab. Ordinary builds do not.
 
 Authored pages are in `src_docs/md/`, with configuration in `src_docs/mkdocs.yml`.
@@ -45,8 +40,7 @@ rewriting the accepted baseline; missing baselines or stale HTML fail.
 Run `./scripts/accept-consumer.sh --offline` for the required build-plus-consumer
 gate after dependency/source provisioning. The gate provisions Playwright
 Chromium (network needed if uncached) and requires all 20 shipped-worker queries;
-missing inputs cannot silently skip. Lightweight test-only runs may skip this
-full-corpus case.
+missing inputs cannot silently skip. Lightweight test-only runs may skip this full-corpus case.
 
 Accessibility acceptance is local: run `uv run python scripts/a11y_check.py --site .build/site --out
 a11y.json` locally; `--pages` overrides the fixed representative page list.
@@ -54,15 +48,12 @@ Interaction receipts (deep links, type links, aliases, a deliberately late searc
 shard, keyboard paths) come from `uv run python -m scripts.interaction_check --site
 .build/site --out DIR/receipt.json`; screenshots are written beside the receipt.
 
-Complete search retains every original row in content-addressed page shards.
-Its checked global vocabulary/postings load before readiness; queries hydrate
+Complete search retains every original row in content-addressed page shards. Its checked global vocabulary/postings load before readiness; queries hydrate
 complete matching rows through the original MaterialX/Lunr engine. The initial
 5 MiB budget includes bootstrap, metadata, worker and retry UI even on a plain
-static server. Explicit `.gz` assets use native `DecompressionStream`; search
-requires a modern browser and HTTP(S). API pages retain the 2 MiB limit.
+static server. Explicit `.gz` assets use native `DecompressionStream`; search requires a modern browser and HTTP(S). API pages retain the 2 MiB limit.
 
-Install Node 22+ before building. Ordinary builds invoke the committed pinned
-engine bundle and never run npm/npx or download language assets. The current
+Install Node 22+ before building. Ordinary builds invoke the committed pinned engine bundle and never run npm/npx or download language assets. The current
 English configuration remains intact; other languages fail explicitly until
 their exact engine assets are provisioned. To update handwritten backend source:
 
@@ -197,3 +188,12 @@ See the source revisions and native acceptance limits in
 The earlier App .80 lock is historical; later .100 development is excluded.
 
 Metrics in the earlier Status section describe older builds.
+
+The authored [namespace discovery guide](src_docs/md/guide/echopy-discovery.md)
+adds five executable owned experiments over maintained Echopy discovery and its
+capture/generate/merge pipeline. They preserve native/generated/publication holds.
+
+The [original node-action guide](src_docs/md/guide/original-node-actions.md) explains
+three distinct menu scopes and four executable experiments over the actual App planning engine, with separate native preservation/history acceptance.
+
+The [layer-identity guide](src_docs/md/guide/glyport-layer-identities.md) adds eight owned experiments over actual native-boundary projection/history. [Window recovery](src_docs/md/guide/owned-window-recovery.md) explains priority, Close refusal and six standalone experiments; native acceptance stays separate.

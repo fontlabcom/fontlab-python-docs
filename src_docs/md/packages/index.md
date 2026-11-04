@@ -4,7 +4,8 @@ this_file: src_docs/md/packages/index.md
 # Packages
 
 FontLab 9 runs Python 3.11 with its own PythonQt (Qt 5). These packages extend
-it. Each page below gives an overview, installation, a quick start, examples and
+it. [Ecosystem and package boundaries](ecosystem.md) explains which package owns
+what. Each page below gives an overview, installation, a quick start, examples and
 the current limits; the API reference links lead to every documented member.
 
 | Package | Import | Use it to |
@@ -19,6 +20,9 @@ the current limits; the API reference links lead to every documented member.
 | [Fontport](fontport.md) | `fontlab_fontport` | Use FontParts, fontTools pens and ufoLib2 with FontLab fonts |
 | [TypeRig](typerig.md) | `typerig` | Use the TypeRig glyph and outline library |
 | [Aidus Code](aidus-code.md) | `fontlab_aidus_code` | Chat with an AI agent that inspects and edits fonts in FontLab |
+| [Scriptmix](scriptmix.md) | scripts | Copy practical menu tools into FontLab's Scripts folder |
+| [Examples](examples.md) | scripts | Learn PythonQt workflows from one hundred menu scripts |
+| [Plugmix](plugmix.md) | `fontlab_plugmix` | Add reporters, filters, palettes, tools and General plugins |
 
 ## Install into FontLab
 
@@ -64,10 +68,11 @@ Every API page is generated without running FontLab:
 
 - `fontlab`, `fontgate`, `fontpr` and `PythonQt` come from Echopy's captures of the
   live host (242,654 captured identities, each one documented).
-- Modules that exist only while a Glyphs script runs (`GlyphsApp`, `vanilla`,
-  `AppKit`, `Cocoa`, `Foundation`, `objc`), FontLab's menus and panels
-  (`fontlabapp_shim`) and the Aidus tools (`aidus_code_tools`) come from Echopy
-  shims generated from the providers FontLab scripts actually receive.
+- Echopy shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr`, `FL` and `PythonQt`.
+  The Glyphs.app emulation modules (`GlyphsApp`, `vanilla`, `AppKit`, `Cocoa`,
+  `Foundation`, `objc`) live in Glyport, FontLab's menu and panel names live in
+  Fontlabapp, and the Aidus tools belong to Aidus Code. Each is documented from
+  its own package source.
 - The packages above are read from their source, never imported, so code that
   needs FontLab still documents completely. The build fails when any package
   renders no members or no documentation.

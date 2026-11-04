@@ -1,7 +1,27 @@
 ---
 this_file: src_docs/md/packages/glyport.md
 ---
+
 # Glyport
+
+The [manager state, ranks and placeholder-font experiments](../guide/glyport-manager-state.md)
+show raw container identity, retained rank caches, debug/shared construction,
+observer cleanup and source-derived font/error control flow over visible owned
+primitives. Actual native fonts/defaults/resources remain separately qualified.
+
+
+The [sidebar and document guide](../guide/glyport-sidebar.md) explains dynamic
+tree filtering, defaults, row ownership, list expansion, count publication and
+document-selected local loading with independent executable owned experiments.
+
+
+The numerical ordinary-artifact results below identify their retained predecessor
+checkpoint. The [current manager/profile guide](../guide/glyport-managers.md) documents
+the H source changes. Earlier source assumptions are corrected below; original
+preimages remain in verification evidence. Old receipts do not qualify the new
+ordinary tuple or native behavior. Run the [owned graph setup](../guide/glyport-managers.md#prepare-an-owned-graph)
+first for examples using `owned_parsed_manager`; those examples explicitly select
+actual parsed owned data before a metadata refresh or rename.
 
 Glyport runs Glyphs scripts and plugins inside FontLab. It inspects and adapts
 the original source (including Glyphs 2 / Python 2 code), gives each run a live
@@ -15,9 +35,10 @@ not have the same input checks or overflow preflight.
 
 ## Install
 
-Install `fontlab-glyport` into FontLab's Python folder; see
-[Install into FontLab](index.md#install-into-fontlab). Its inspection API also
-works outside FontLab.
+Install `fontlab-glyport` into FontLab's Python folder together with a matching
+`fontlab-fontlabapp`; see [Install into FontLab](index.md#install-into-fontlab).
+Its dependencies include `fissix` and `glyphslib`. Its inspection API also works
+outside FontLab. Glyport never installs packages for you.
 
 ## Quick start
 
@@ -29,6 +50,15 @@ from fontlab_glyport import inspect_source
 
 assessment = inspect_source("OriginalScript.py")
 print(assessment.required_capabilities)
+```
+
+For ordinary Glyphs imports, activate Glyport on FontLab's GUI thread first. The
+default profile is `glyphs4`; pass `profile="glyphs3"` or `"glyphs2"` to match
+the script, and call `deactivate()` when you are done:
+
+```python
+import fontlab_glyport; fontlab_glyport.activate()
+from GlyphsApp import *
 ```
 
 Run a Glyphs script inside FontLab:
@@ -242,11 +272,13 @@ A glyph's stored Unicode is editable font data. A name-based Glyph Info lookup
 asks for database metadata. These differ when a glyph has been re-encoded: a
 script that resets Unicode cannot use the current encoding as its reference.
 
-The candidate `Glyphs.glyphInfoForName(name)` queries glyphsLib's global fallback
-without reading the active font. Passing `font=None` does the same. An explicit
-non-None font currently raises `Glyphs.glyphInfoForName.localData`, because Glyport
-does not yet implement document-local GlyphData. It must not silently substitute
-that font's glyph metadata or outlines.
+Omitting `font` or passing `font=None` queries the shared manager without reading
+the active font. An explicit font selects `font.glyphsInfo()`; the earlier
+unconditional `.localData` refusal is superseded. Integer Name dispatch differs
+by complete Glyphs2/3/4 profile. The [manager/profile guide](../guide/glyport-managers.md)
+provides current document selection, exact keywords, formatting, forwarding and
+provider examples. Its default Glyphs4 Unicode keyword is `string_or_int`;
+Glyphs2/3 retain `String` with their separate integer contracts.
 
 This diagnostic fixture runs outside FontLab. It instantiates the application
 facade with owned model/bridge doubles; it does not activate GlyphsApp, load a
@@ -263,7 +295,8 @@ from fontlab_glyport.glyphsapp.application import GSApplication
 current_glyph = SimpleNamespace(
     name="A", unicode="0042", category="Symbol", subCategory=None, script="custom-script", case=2, layers=[],
 )
-current_font = SimpleNamespace(glyphs={"A": current_glyph})
+local = owned_parsed_manager()
+current_font = SimpleNamespace(glyphs={"A": current_glyph}, glyphsInfo=lambda: local)
 model = SimpleNamespace(font=current_font)
 # This fixture never calls bridge methods or reads/writes persistent defaults.
 app = GSApplication(model, object(), {}, None, lambda *args: None)
@@ -290,12 +323,8 @@ assert current_glyph.case == 2, "A lookup must not edit case metadata"
 assert app.glyphInfoForName("A", font=None).unicode == "0041"
 assert current_glyph.unicode == "0042", "A lookup must not edit the glyph"
 
-try:
-    app.glyphInfoForName("A", font=current_font)
-except UnsupportedCapability as error:
-    assert error.capability == "Glyphs.glyphInfoForName.localData"
-else:
-    raise AssertionError("Font-local GlyphData is not implemented")
+assert app.glyphInfoForName("A", font=current_font) is local.glyphInfoForName_("A")
+assert current_glyph.unicode == "0042", "Explicit lookup must not edit current encoding"
 ```
 
 The read-only `script` field snapshots metadata supplied by the database. This
@@ -323,10 +352,53 @@ Tested private archive SHA256 values:
 | Wheel | `f174ab43d51c83dd1115e1509bd5920db5bee77cf771bffe1ca98fca8f8d3679` |
 | sdist | `64793db733288cef3131f14e47ff9b1074425d6f5e82487ceb62bcf353242eb6` |
 
-The fallback does not load Glyphs' custom global GlyphData overlays. Synthesized
-names, unknown-name results and full `GSGlyphInfo` records also remain incomplete.
+The fallback does not load Glyphs’ custom global GlyphData overlays. Name-based
+unknown-name results and full `GSGlyphInfo` records also remain incomplete.
+The new global Unicode route has its own audited raw-spelling synthesis; it does
+not establish arbitrary name-factory synthesis or proprietary data completeness.
 This example qualifies the default lookup's independence from font data, not
 complete Glyphs database equivalence or a native Unicode-reset workflow. The
+[legacy Unicode and ROS guide](../guide/glyport-metadata.md) covers the newer
+`GSGlyphInfo.unicodeLegacy` snapshot, canonical aliases and active-font isolation.
+Legacy Unicode remains separate from the primary encoding. The corrected source
+candidate implements
+[`Glyphs.glyphInfoForUnicode(String, font=None)`](../guide/glyport-unicode.md)
+with exact uppercase lookup in the shared primary/legacy index, followed by
+source-backed synthesis only on a miss. In source order each record contributes
+primary keys then its legacy key; later assignments win. `FE8D` selects
+`alef-ar.isol` with primary Unicode `None`, and duplicated `0000` selects `NULL`.
+The corrected ordinary six-wheel cohort passes all 24 owned examples across the
+parameter, metadata and Unicode guides, with installed origins checked. All 701
+runtime/data files match byte for byte before and after consumer execution. It passes 4,481 Scriptmix tests
+with 1 existing skip (`Spacing Preview has no selection read`) and 2,436 Examples
+tests without skips;69 original Scriptmix hashes are independently audited.
+The corrected Glyport wheel SHA256 is
+`607ed7a0417120dd12f486ee9fc72f0d2ddbb78bbd2a6242ecdf79897a68cc20`.
+The current Echopy wheel SHA256 is
+`8f74fa6ae7d9041103d6516c1360bd66a412e7f12333142153a09bca83342fc7`;
+its sdist SHA256 is
+`e678a77c6178894dfe4f7b363825999e39ae166feec83d95a5af24d85e88ed7d`.
+The exact six-wheel tuple is:
+
+| Package | Version | Wheel SHA256 |
+| --- | --- | --- |
+| fontlab-fly | `0.2.3.dev7+g42d106154` | `191b1daff6ac075c84737a5b377e97aecbc94eb7a7338530e941b1e864ec7eb6` |
+| fontlab-fontlabapp | `0.2.26.dev332+g73011d1ee` | `f31a76c7450a1c75f5412c243c2aa1facfaa9905de3fa2f1c0dd83b29acf5716` |
+| fontlab-fontport | `1.0.3.dev23+gcdf5200cc` | `294d0e66d992db651aaa1d1c00c4d9c849145cc7e7bf368b676e7102005e0c1c` |
+| pythonqtside | `0.2.2.dev2+g52d226291` | `27e49b526266e5a924d463cddeffacfb1bbd7fe690e4ebb230d8daa77dd91c6f` |
+| fontlab-glyport | `1.0.8.dev182+g94d4226dc.d20261101` | `607ed7a0417120dd12f486ee9fc72f0d2ddbb78bbd2a6242ecdf79897a68cc20` |
+| fontlab-echopy | `0.2.4.dev9+gac22b37ea.d20261101` | `8f74fa6ae7d9041103d6516c1360bd66a412e7f12333142153a09bca83342fc7` |
+
+The other four wheels and 40 third-party pins are unchanged. Independent ordinary
+wheel and complete 144-member-sdist installs each pass 32 isolation checks,
+356 Echopy tests,388 Glyport feature tests and14package examples, with project
+origins confined to each installed prefix. A standard build from the extracted
+sdist reproduces the source wheel byte-for-byte. All 13 Echopy producer catalogues
+match current source; only GlyphsApp shim provenance changes at runtime, with
+all 124 protected declarations/exports unchanged. This is producer refresh, not
+a new FontLab 9.0.9801 capture. Earlier archive hashes and results stay historical.
+Remaining fields, bridge conversion, local managers and native workflows remain
+separate acceptance boundaries. The
 [upstream lookup contract](https://docu.glyphsapp.com/#GSApplication.glyphInfoForName)
 describes the optional font-local database behavior still to implement.
 
@@ -360,6 +432,8 @@ glyph.storeCase = False
 assert glyph.case == 3  # An unchanged flag does not refresh metadata.
 
 font = Model(FakeBackend()).font
+
+font.parent._local_glyph_info = owned_parsed_manager()
 font.glyphs.append(glyph)
 assert glyph.case == 3  # Unique attachment retains the temporary value.
 glyph.storeCase = True
@@ -413,6 +487,8 @@ from fontlab_glyport.model import GSGlyph, Model
 from fontlab_glyport.model.fake_backend import FakeBackend
 
 font = Model(FakeBackend()).font
+
+font.parent._local_glyph_info = owned_parsed_manager()
 glyph = GSGlyph("f_f")
 assert glyph.script == "latin"
 glyph.script = "Rovas"
@@ -433,7 +509,8 @@ copied = glyph.copy()
 assert copied.script is None
 copied.script = ""
 assert copied.script == "" and glyph.script is None
-copied.name = "A-cy"
+with font.glyphsInfo()._scope():
+    copied.name = "A-cy"
 assert copied.script == "cyrillic"  # A known name refreshes unstored metadata.
 ```
 
@@ -488,8 +565,9 @@ assert glyph.name == "A" and glyph.unicodes == ["0061"]
 ```
 
 These are owned offline checks against retained upstream analysis, not native
-measurements. Custom data, ROS, Arabic presentation-form settings, complex small-cap mapping
-and language suffixes remain unqualified. Additional encodings now follow the
+measurements. Custom data, full ROS mapping, complex small-cap mapping and language suffixes remain
+unqualified. The current private parameter/presentation update is described in
+the [ordered parameter guide](../guide/glyport-parameters.md). Additional encodings now follow the
 audited helper gates; native workflow acceptance remains open. Earlier artifact hashes and examples above identify their
 historical, narrower candidates; they do not identify this source revision.
 
@@ -512,6 +590,8 @@ from fontlab_glyport.model import GSGlyph, Model
 from fontlab_glyport.model.fake_backend import FakeBackend
 
 font = Model(FakeBackend()).font
+
+font.parent._local_glyph_info = owned_parsed_manager()
 glyph = GSGlyph("I")
 font.glyphs.append(glyph)
 glyph.updateGlyphInfo(changeName=False)
@@ -520,6 +600,8 @@ glyph.updateGlyphInfo(changeName=False)
 assert glyph.unicodes == ["0049", "0069", "0131"]  # No duplicates.
 
 other_font = Model(FakeBackend()).font
+
+other_font.parent._local_glyph_info = owned_parsed_manager()
 other_font.glyphs.append(GSGlyph("i"))
 capital = GSGlyph("I")
 other_font.glyphs.append(capital)
@@ -539,30 +621,62 @@ The bundled Unicode17 scalar mapping matches actual NSString.lowercaseString
 for all1,112,064 valid scalars on macOS27.2. Python3.11 casing differs on55scalars.
 This pins that measured casing contract, not all Foundation versions. The
 public data and licence ship with the package; no Objective-C bridge is loaded
-for this operation. Native history/reopen, custom managers, ROS and Arabic
-presentation-form settings remain unqualified.
+for this operation. Native history/reopen, complete local initialization and full ROS mapping remain unqualified. The newer
+source/artifact-tested Arabic presentation stage is described in the
+[ordered parameter guide](../guide/glyport-parameters.md); it does not establish
+native font-workflow acceptance.
 
+
+## Ordered parameters and Arabic presentation forms
+
+The current private candidate preserves ordered duplicate parameters and live
+name/value/active edits. Name lookup selects the first active value; name writes
+and removal address the first matching object, even when inactive. Master and
+font parameter storage remain distinct from ordinary userData. The Arabic stage
+uses the exact `Use Arabic Presentation Form Unicodes` key and appends maintained
+legacy data during an explicit refresh.
+
+Read the [parameter and Arabic guide](../guide/glyport-parameters.md) for owned
+examples, direct/nil/empty legacy precedence, stored overlays, refresh/reset and
+macOS locale/float32 conversion. The [legacy Unicode and ROS guide](../guide/glyport-metadata.md)
+adds public `GSGlyphInfo.unicodeLegacy` snapshots, distinct primary/legacy values
+and the exact ROS shared-manager refusal/no-op boundary. The five proprietary
+map requests refuse before presentation and metadata writes; no maps or
+approximations ship. Non-macOS strings, arbitrary object conversion, full ROS
+mapping, complete local initialization/private resources and native collisions remain open.
+Earlier archive hashes on this page stay historical; they do not
+identify this newer source candidate. No published release or native
+workflow acceptance is implied.
 
 ## What is supported
 
+- The private candidate’s [global Unicode Glyph Info](../guide/glyport-unicode.md):
+  exact combined primary/legacy lookup and audited synthesis on a miss, returning
+  read-only name, Unicode, separate legacy Unicode, category, subCategory, script,
+  case and supported component snapshots. Font-local managers, arbitrary bridge
+  inputs, remaining
+  fields and native workflows retain explicit limits.
 - The `GlyphsApp` module for each run: `Glyphs`, the GS* model classes, callback
-  events and dialogs ([GlyphsApp reference](../reference/GlyphsApp.md)).
+  events and dialogs ([Glyport reference](../reference/fontlab_glyport.md)).
 - The seven Glyphs SDK plugin classes (`GeneralPlugin`, `FilterWithoutDialog`,
   `FilterWithDialog`, `ReporterPlugin`, `PalettePlugin`, `SelectTool`,
   `FileFormatPlugin`), registered as real FontLab menu actions, windows,
-  export items and Glyph-window painters where supported. `SelectTool` is
-  explicitly blocked, as noted below.
+  export items and native Glyph-window painters. Reporters draw through
+  FontLab's native canvas painters (`flCanvas.appendPythonPainter`): background
+  methods paint under the glyph outlines, foreground methods over them.
+  `SelectTool` plugins register as native FontLab tools
+  (`flWorkspace.registerPythonTool`); see [Native hooks](../guide/native-hooks.md).
 - Vanilla controls and dialogs, Qt-backed AppKit classes, NSBezierPath drawing and
-  NIB/XIB interface loading ([vanilla](../reference/vanilla.md),
-  [AppKit](../reference/AppKit.md)).
+  NIB/XIB interface loading ([Glyport reference](../reference/fontlab_glyport.md)).
 
 ## Limits
 
 - Compatibility is partial and still being extended; each run records a receipt
   with the outcome, and unsupported features raise `UnsupportedCapability` at the
   script line instead of failing silently.
-- FontLab host limits block `SelectTool` and drawing before FontLab's own glyph
-  layer; plugins that need them are reported as blocked.
+- Native tools have no toolbar icon, never claim keys (so FontLab shortcuts keep
+  working, with no shortcut override), and paint only while active. FontLab
+  always reports the active tool as select.
 - Bundles that ship only compiled macOS code cannot run.
 - Creating glyphs makes FontLab rebuild auto-layer composites. Glyport restores
   existing composites afterwards and refuses with a named reason when it cannot.
@@ -575,3 +689,94 @@ presentation-form settings remain unqualified.
 
 See the [Glyphs compatibility guide](../guide/glyphs.md). Reference:
 [fontlab_glyport](../reference/fontlab_glyport.md).
+
+## Compatibility status
+
+Native triage on FontLab 9.0.9802 ran 98 corpus Glyphs plugins and scripts through
+Glyport on an owned font (final code). Pass means the target loaded,
+registered its menu, tool or window, ran the hooks the harness could trigger
+without errors, and closed cleanly. Partial means it loaded and ran but a hook
+raised. Fail means it did not load or did not close.
+
+| Kind | Targets | Pass | Partial | Fail |
+| --- | --- | --- | --- | --- |
+| Reporters | 30 | 14 | 9 | 7 |
+| Tools | 7 | 2 | 2 | 3 |
+| Filters | 12 | 11 | 0 | 1 |
+| Palettes | 7 | 5 | 0 | 2 |
+| General plugins | 12 | 4 | 0 | 8 |
+| Scripts | 30 | 19 | 1 | 10 |
+| **Total** | **98** | **55** | **12** | **31** |
+
+A pass does not prove a plugin's whole behaviour: buttons, dialogs, filter output
+and outline edits were not exercised, and filters were only installed. Main known
+gaps:
+
+- Compiled Objective-C bundles (for example ShowAngledHandles) have no Python
+  entry point and cannot run.
+- The triage environment lacked `glyphsLib`, which Glyport declares as a
+  dependency. Plugins that import it failed there; a complete install avoids that
+  failure class, so the counts understate what a complete install passes.
+- Some AppKit and Cocoa members are missing (for example `NSGradient`, `NSBeep` and
+  a few layout and window constants), and a few Glyphs model members are absent.
+
+## Stored Glyph Info production
+
+The [production metadata guide](../guide/glyport-production.md) adds owned
+examples for the represented-record `GSGlyphInfo.productionName` contract:
+raw nullable reads, exact-name/alias nil fill, helper output, Unicode and
+suffix copies, model overlays and explicit unavailable-source errors. An equal
+stored name stays text, and empty text stays empty. These private candidate capabilities now pass source and two independent normal
+wheel/sdist prefixes: 5,697 Glyport tests, 370 Echopy tests, 479 focused controls,
+46 isolation checks, 15 package examples and all 35 central examples per prefix.
+All 702 runtime/data files, six provider versions and 40 pins match the exact
+ordinary tuple. Consumers pass 4,481 Scriptmix tests/one existing skip and 2,436
+Examples tests. Echopy's 13 producer catalogues are current; its 124 protected
+files and all runtime declarations remain unchanged. Prior archive
+hashes above identify their historical stages. Those receipts predate the compound
+candidate below; glyph production writes, application conversion and full native/
+original workflows retain their separate acceptance gates.
+
+## Compound Glyph Info
+
+The [compound metadata guide](../guide/glyport-compounds.md) adds nine owned
+examples through actual session exports: raw/shared fill, shallow duplicate
+positions, helper/raw production, suffix nesting, exact-name precedence,
+Arabic alternates, read-only metadata and long-production rebuilding. The current
+Glyport source and genuine archives have separate qualification; Echopy source
+provenance is regenerated and all 385 source tests pass with actual siblings.
+The refreshed ordinary provider/consumer/example tuple is still pending. Existing
+proprietary recipes/optional fields and full custom/local/resource/version/native
+workflows remain open; declaration currency does not close those gates.
+
+## Stored descriptions
+
+The [description guide](../guide/glyport-descriptions.md) adds seven owned examples
+for exact nullable text, alias/Unicode lookup, selected compound seeds, copies,
+model snapshots and unknown-source refusal. The source successor passes 6,060
+tests and 146,378 public-input comparisons; it adds `GSGlyphInfo.desc` without
+Unicode-name synthesis or private data. Matching Echopy source provenance is
+regenerated and all 399 source tests pass with actual siblings.
+
+The H source checkpoint implements the parent-aware `GSGlyph.glyphInfo` /
+`GSGlyphsInfo` routes. The [manager guide](../guide/glyport-managers.md) covers
+the selected manager, six stored overlays, groupIdx/direction, canonical/shallow/
+frozen distinctions and qualified custom parsing/finalization/discovery. Its
+connected local-manager section adds constructor/reload, base-versus-custom
+parsing, sidebar resources, queue identity and precise exception boundaries
+through invented lawful dependencies, with seven additional executable examples.
+Matching companion archives and the complete ordinary installed tuple remain
+separate. Complete default/private resources, native local initialization/reload, the original
+HTML tool and native FontLab behavior remain open. Earlier artifact receipts
+above retain their historical scope.
+
+
+### Complete generation with owned inputs
+
+The [complete-generation examples](../guide/glyport-managers.md#run-complete-generation-over-explicit-owned-inputs)
+run all ten Chinese jobs and the full queued Hangul traversal through the actual
+manager implementation. They inspect fixed ranges, profiles, row fields, collision
+identity, callback completion order, Jamo links and partial failure state.
+Their four Chinese banks are explicitly invented lawful inputs. Missing private
+banks refuse; these examples do not qualify proprietary defaults, native font
+workflows, history, dialogs or publication.

@@ -3,15 +3,21 @@ this_file: src_docs/md/packages/fontport.md
 ---
 # Fontport
 
-Fontport connects FontLab 9 to the Python font libraries most tools are built on:
-FontParts, fontTools and fontPens pens, and ufoLib2. It provides point pens over
+Fontport connects FontLab 9 to FontParts, UFO and DesignSpace data, and to the
+fontTools, fontPens and ufoLib2 libraries around them. It provides point pens over
 native FontGate glyphs, detached FontParts and UFO snapshots, and live FontParts
 objects bound to an open FontLab document.
 
+!!! note "No user interface"
+    Fontport has no UI. Its Qt editors now live in
+    [`fontlabapp.fontui`](fontlabapp.md#fontui-font-and-glyph-browsers-and-editors).
+
 ## Install
 
-Install `fontlab-fontport` with fontTools, fontPens, FontParts and ufoLib2 into
-FontLab's Python folder; see [Install into FontLab](index.md#install-into-fontlab).
+Fontport requires `fontlab-fontlabapp` (version 0.2.26.dev150 or later), plus
+defcon, fontTools, fontPens, FontParts and ufoLib2. Fontlabapp is not on a package
+index, so install it from a checkout or wheel first, then Fontport, into FontLab's
+Python folder; see [Install into FontLab](index.md#install-into-fontlab).
 Importing the package outside FontLab is safe; native access loads on demand.
 
 ## Quick start
@@ -60,37 +66,107 @@ font.info.apply({"familyName": "My Family", "ascender": 810.5},
                 undo_name="Edit font information")
 ```
 
-## UI editors
+## UFO and DesignSpace
 
-`fontlabapp.fontui` provides the Qt editors that work on FontParts and UFO
-models: `font_info_editor`, `groups_editor`, `kerning_editor`,
-`transform_editor`, `batch_panel` and `glyph_sequence`. Install App's `fontport`
-extra. App also owns the browsers, preview, features editor and designspace
-panel. Each factory returns a handle: keep a reference, show its
-`.widget` and call `.close()` when you are done.
+Fontport exports a whole FontLab font to UFO and DesignSpace, and opens UFO and
+DesignSpace files as new FontLab documents.
+
+Export a multi-master font as a `.designspace` plus one UFO per master. This
+example needs FontLab, because it reads a live font:
 
 ```python
-# Inside FontLab, with Fontport and ufoLib2 installed
-from ufoLib2 import Font
-from fontlabapp.fontui import kerning_editor
+from fontlab_fontport.designspace_io import export_designspace
 
-font = Font()                       # a detached demonstration model
-editor = kerning_editor(font)       # keep this handle alive
-editor.widget.show()
-# ... later:
-editor.close()
+path, losses = export_designspace(backend, "/absolute/path/Family.designspace")
+print(path)
+print(*losses, sep="\n")          # what the export did not carry
 ```
 
-Editors stage changes and apply them in one validated batch; a model without a
-batch apply opens read-only. The sequence and the info, groups and kerning
-editors have `.refresh()` for edits made elsewhere; `transform_editor` and
-`batch_panel` do not. The font information editor also offers the structured
-fields OS/2 weight and width class, Panose (ten integers) and horizontal and
-vertical stem snaps; it labels them "key master" because Fontport writes them to
-the current key master only. Name records are not offered. `batch_panel` runs work
-in a separate Python 3.11+ process so FontLab stays responsive.
+`export_designspace(backend, destination, document=None)` reads the backend and
+never changes it. Axes, master locations and instances come from the native
+package unless you pass your own `DesignSpaceDocument`. Each master is written as
+`<stem>-<master>.ufo` beside the `.designspace`, with its own outlines, anchors
+and kerning. `write_designspace(font, document, destination, master_kerning)`
+does the file writing for a font you already exported. Nothing is overwritten.
 
-## Behaviour and limits (Fontport v1.0.2)
+Open UFO and DesignSpace files through FontLab's native `open_font` (this also
+needs FontLab):
+
+```python
+from fontlab_fontport.native_import import import_designspace, import_ufo_native
+
+backend = import_designspace("/absolute/path/Family.designspace")
+# or: import_ufo_native("/absolute/path/Master.ufo")  # one master
+backend.close()                    # the result is an owned document
+```
+
+Both need absolute paths, a matching suffix and an existing file; FontLab
+resolves the source UFOs of a designspace. Import converts nothing in Fontport.
+
+The file writing itself runs without FontLab. This example splits a ufoLib2 font
+whose layers are the masters into `Family.designspace` and one UFO per master,
+with each master's own kerning:
+
+```python
+from fontTools.designspaceLib import (
+    AxisDescriptor, DesignSpaceDocument, SourceDescriptor)
+from ufoLib2 import Font
+from fontlab_fontport.designspace_io import write_designspace
+
+font = Font()
+font.layers.renameLayer(font.layers.defaultLayer.name, "Light")
+font.layers.newLayer("Bold")
+for layer in font.layers:
+    layer.newGlyph("A").width = 500
+
+doc = DesignSpaceDocument()
+axis = AxisDescriptor(name="Weight", tag="wght", minimum=300, default=300, maximum=700)
+doc.addAxis(axis)
+for name, weight in (("Light", 300), ("Bold", 700)):
+    doc.addSource(SourceDescriptor(name=name, location={"Weight": weight}))
+
+kerning = {"Light": {("A", "A"): -50}, "Bold": {("A", "A"): -80}}
+path = write_designspace(font, doc, "/absolute/path/Family.designspace", kerning)
+```
+
+Every source name must be a layer of the font, and nothing is overwritten.
+
+**What an export loses.** The `losses` list names it: designspace rules, axis and
+location labels, instances' generated UFOs (instances are listed only), and
+per-master groups, info, lib and features, which come from the key master and are
+shared by every master UFO. Brace layers are not exported. Kerning is the
+exception: each master's own kerning is exported.
+
+**Why Fontport does not use `fgFont.save("x.ufo")`.** The native UFO save is
+lossy. In a measured case it wrote the current master only (a three-master font gave
+one layer), no `kerning.plist`, and no anchors. The MCP `save_font` tool writes
+only VFJ, VFC and VFJP. Fontport's own exporter reads every master, so it keeps
+all masters, kerning and anchors. Use VFJ when you need a lossless native archive.
+See `docs/UFO-INTERCHANGE.md` in the Fontport repository for the full table.
+
+## The editors moved to Fontlabapp
+
+The six FontParts-bound Qt editors (`font_info_editor`, `groups_editor`,
+`kerning_editor`, `transform_editor`, `batch_panel` and `glyph_sequence`) live in
+`fontlabapp.fontui`. They call Fontport lazily, so install both packages in the
+same environment (Fontlabapp first). Once both are published, the Fontlabapp
+`fontport` extra installs Fontport for you.
+
+```python
+# old (removed): from fontlab_fontport.ui import font_info_editor
+from fontlabapp.fontui import font_info_editor
+```
+
+`fontlab_fontport.ui` remains for one release as a tombstone: reading any name
+from it raises `ImportError("fontlab_fontport.ui moved to fontlabapp.fontui")`.
+The batch panel still starts a separate Python 3.11+ process that needs
+`fontlab-fontport`. Vanilla support moved to `fontlab_glyport.ui.session`.
+
+Fontport also reads and writes feature blocks (`fontlab_fontport.feature_blocks`:
+`read_feature_blocks` and `write_feature_blocks`), which need the original font
+to be active and compare the source snapshot before writing.
+
+## Behaviour and limits
 
 - **Undo:** an edit through the live binding is undone by the first Edit > Undo.
   FontLab records one extra, empty Undo row with it (exact one-row Undo is the

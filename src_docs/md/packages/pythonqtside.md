@@ -35,6 +35,16 @@ Port an existing PySide2 tool by changing only its import:
 from pythonqtside import QtCore, QtWidgets
 ```
 
+In FontLab 9, natively, `QFileDialog.getOpenFileName` and `getSaveFileName` return
+a `str` and `getOpenFileNames` returns a tuple. The adapter always returns
+PySide2-style pairs instead: `(path, "")` for the single-file pickers and
+`(list_of_paths, "")` for `getOpenFileNames`. The chosen filter cannot be read back,
+so a `selectedFilter` argument is dropped and reported as `""`. `options` keeps its
+native position, and a result that is already a pair passes through. The
+repository's `examples/pyside2_dialog.py` is an unmodified PySide2 dialog that
+uses this; run it with `pythonqtside.run_app("examples/pyside2_dialog.py")` and
+keep the returned handle.
+
 Available namespaces: `QtCore`, `QtGui`, `QtWidgets`, `QtNetwork`, `QtOpenGL`,
 `QtSvg`, `QtUiTools`, `QtXmlPatterns` and the combined `Qt`.
 

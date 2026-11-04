@@ -47,6 +47,384 @@ changed by this documentation maintenance. Source/archive/ordinary/native and
 promotion acceptance remain separate claims. Detailed workspace evidence is
 recorded in the root CHANGELOG and retained verification reports.
 <!-- /workspace-handoff -->
+## Owned-window recovery authored guide — 2026-11-03
+
+Add practical FontLab usage and six executable standalone experiments covering
+floating priority, refusal, staged cleanup, factory failure ownership and parent
+destruction. Retain all inherited examples and generated/native/publication holds.
+All6pass in final source and both genuine App.dev334 prefixes; normal369/1existing
+skip. Preserve7482inherited modes,7476protected bodies,229old Python fences/173old
+tags;8newblocks compile and new links resolve. No generated/reference publication.
+
+## Foreground-layer identity guide verified — 2026-11-03
+
+New glyport-layer-identities.md has eight independent exact-setup experiments
+executing actual FontLabBackend/Model/proxy code over owned primitive objects.
+Same-name identity/order, ID-only lookup, read-only repeats, interpolation roles,
+masks/services, pending master no-creation, first-exposure history replacement
+and auxiliary-to-master retirement all pass in exact source and both fresh
+ordinary prefixes with genuine GP1.0.8.dev196+g40ac49ab4 and unchanged App.dev333.
+No projection/cache/history algorithm is replaced by a fixture.
+
+Complete ordinary suites pass7206GP/600Echo/4496Scriptmix(+1oldskip) in each prefix;
+46installed dependencies are compatible,990provider/RECORD hashes unchanged per
+suite and all loaded provider files remain inside their own prefix. The unchanged
+source-only GPpath assertion passes in exact source, separately from installed
+behavior. App/Examples/TypeRig/all-earlier-guide scopes retain their own Y/Vproof;
+these were not relabeled as whole Zconsumer qualification.
+
+Docs normal gate369pass/1existing D29built-inventory skip, exit0; zero changed
+production modules/no coverage claim. Exact rtk proxy quality.sh argv/environment/
+log/receipt is external foreground-layer-identity-20261102/docs-normal-quality.
+The direct protection audit checks7481inherited modes,7475protected bodies,
+all220old Python fences/164setup-example tags unchanged, nine new blocks compile,
+new links resolve, README199lines. Actual13-target shim comparison has39identical
+files; accepted XEcho and every native/manual/generated/source-lock/site/archive
+payload remain unchanged. Normal/ordinary/source receipts retain exact versions,
+origins and snippet hashes. Fullsource7203/3archive skips plus one further exact
+GPguide case pass; normal7128/79old skips/all58modules>80%; all9archive tests pass
+and wholewheel reproduces after materializing every508sdist member.
+
+Native four-font imported roles/order/full preservation/cache/date/lifetime/
+history/Undo/Redo/save-reopen, TypeRig window priority, actual binding/resource/
+version, full Transform and all migration/retirement goals remain open. D29native
+capture/generated/source-lock/strict rendering/browser/accessibility/archive/
+licence/publication and D30live safety holds remain separate. Pending declared
+slots do not make glyph.layers a literal stored-only Transform iterator.
+
+## Original node-action guide verified — 2026-11-02
+
+New161line original-node-actions.md explains three distinct Scriptmix actions,
+genuine App.dev333 and the guarded entry point. Four independent experiments
+execute actual App planning with fresh visible setup. Exact source and both
+ordinary installations pass all4 without native/Qt/font/document access.
+Both ordinary tuples also pass7485App/4496Scriptmix(+1oldskip)/600Echo checks.
+
+Normal Docs gate369pass/1existing D29built-inventory skip; zero changed production
+modules, no coverage claim. Command: rtk proxy /bin/sh .metaswarm/quality.sh
+coverage <this-checkout> fontlab-python-docs, exit0. Exact argv/environment/logs
+are in external original-workflows-20261102/docs-normal-quality.
+
+The direct protection review verifies7474protected file bodies and7480inherited
+modes against X, all215old Python fences/159setup-example tags exact. Five new
+blocks compile and new local links resolve. README is198lines after whitespace-
+only reflow. Source/installed origins, snippet hashes and review input pins are
+retained. Native selection/copy/four-font/history/window/lifetime, D29generated/
+source-lock/site/browser/publication and complete original scope remain open.
+
+## Namespace discovery authored companion — 2026-11-02
+
+Added linked echopy-discovery.md with five independent actual-tooling experiments:
+dictionary names omitted by custom dir, loaded PythonQt children and root-object
+precedence, failed import dependency, deadline propagation, and complete owned
+capture/generate/merge declarations. Examples use only owned modules/objects,
+scoped registry/import hooks and disposable temporary declaration trees.
+No native API calls or real capture/generated/site/source-lock refresh. All5new
+examples pass exact source and both ordinary installed prefixes. Each ordinary
+Echopy suite passes600tests, no skips; Docs normal369pass/1existing D29built-
+inventory skip, zero changed production/no coverage claim. All7472protected
+tracked payloads and210inherited Python fences/154setup-example tags stay exact.
+The new guide has175lines. Prior full consumer/142guide qualification remains
+separately pinned to V; it is not rerun or relabeled as a new full consumer tuple.
+
+
+## Manager state authored source companion — 2026-11-02
+
+New linked guide glyport-manager-state.md explains raw identity/nil setters,
+exact script/sidebar-category rank sources and retained caches, initDebug queue/
+group creation and actual parser adoption/failures, shared load/drain/observer
+order and retained URL/flag state, explicit dealloc/superclass dispatch, class
+placeholder-font cache/duplicates/partial failure/invalidation/current provider,
+exact observed key and error/recovery conditions/repeated reads/nil failures.
+
+25independent experiments execute the actual source algorithms against frozen
+Glyport5e04d1168b4e33823bed4940fce308637f8abadd. Three visible setups run afresh per
+body. Relevant global singleton/font-cache/once/provider identities are visibly
+scoped/restored and independently checked by the runner. Shared initialization
+uses the earlier complete invented-resource lifecycle, actual parser/sidebar/
+38281-row generation/indexes/queues, without replacing algorithm entry points.
+The primitive font tokens record operations and do not load real native fonts.
+
+Before editing, independently pinned 7,478 payloads/modes, 124 tags and 180 Python
+blocks. All 117 inherited active examples and 25 new examples pass exact U source
+(142 total); all old tags/blocks remain exact. The static audit compiles all 206
+blocks, verifies 55 local links and 7,469 protected payloads/modes, preserves the
+source lock/navigation/generated/archive state, and retains ten inherited D29
+reference links as held. Nine negative CLI cases reject source overrides before
+installed-mode imports/writes. New examples independently restore shared/font-
+cache/once/provider identities; all 219 producer/primary/report input pins match.
+
+Exact rtk proxy argv, exits, origins, setup/body hashes and receipts are in
+external manager-state-companions-20261102/docs-evidence: baseline-command.json,
+all-source-command.json and summary, static-second-command.json and cli-command.json.
+The initial static attempt lacked full baseline preimages; all 7,478 were filled
+from exact frozen T bytes after matching their before hashes. Its failed receipt
+is retained. Scoped runner Ruff/format checks pass with AST-identical formatting.
+Root owns complete normal Docs checks, ordinary prefixes/full consumers and
+commits/pushes. No unchanged full Docs suite is rerun by this lane.
+
+Wait, but: these are authored/source experiments. Actual private/default
+resources, native Foundation/CF/CG/CT/NSNumber/NSObject/once/destruction/races,
+FontLab original font workflows, D16/D29/D30/D31 and canonical/generated/source-
+lock/site/archive/browser/publication qualification remain independent. No native
+module/framework/MCP/app operation, install, capture, build, commit or push.
+
+## Dynamic sidebar and document source guide — 2026-11-02
+
+Added a linked practical guide with 18 independent executable experiments for
+actual dynamic trees, defaults/visibility/predicate paths, row identity and
+copy/reparenting, ordering/icons/once caches, current resource reads/reload
+failure, delayed weak-font counts, list expansion/collisions, count publication/
+Smallcaps and document parent-URL loading. Explicit invented primitives keep
+algorithms in the package and preserve missing FontLab/native dependencies.
+
+All 18 new plus 99 inherited active examples pass source with actual origins
+checked. All 106 prior tagged bodies (including seven held native/UI cases) and
+160 prior Python blocks are unchanged. Static compilation covers 180 blocks;
+7,469 protected payloads/modes and navigation/source-lock/generated/archive
+state remain exact. Reusable installed runner rejects source overrides and runs
+all 117 active examples independently. WORK.md and external evidence retain
+commands, failed first attempts, pins and the separate ordinary/native/root gates.
+No dependency, generated-reference, native capture or publication change.
+
+## Echopy module values and documentation — 2026-11-02
+
+Added the authored module-values guide and index/package links. Nine executable
+owned examples cover live object identity, sanitized aliases, accepted prefix
+names, write/delete/dir behavior, absent offline annotations, captured descriptor
+docs without getter execution, all three value collections, source-identifier
+keyed overlays/precedence, actual Griffe consumption and lazy native facades.
+The guide preserves retained capture/Any/variadic/Qt enrichment limits and keeps
+source, ordinary-installed, native and publication evidence separate.
+
+All nine new and 90 inherited active examples pass source with asserted origins;
+all 97 inherited tags (including seven held native/UI bodies) and all 150 prior
+Python blocks retain exact bytes. Static audit compiles 160 blocks, checks
+23 local links and preserves 7,470 protected payloads/modes, navigation, source
+lock and held generated/archive trees. WORK.md and external docs-evidence record
+commands, byte pins, runners and the remaining root gates. No dependencies changed.
+
+## Connected local-manager source companion — 2026-11-02
+
+Expanded the manager/profile guide with connected constructor/reload/base-parser/
+sidebar/resource/queue/error/summary semantics and seven executable invented-provider
+examples. Linked authored index and package/Glyphs entrypoints. All 75 prior active
+and 7 held native/UI bodies retain exact bytes; 82 active examples pass source.
+Static audit: 142 compiled Python blocks, 43 local links, 7,467 protected payloads/modes,
+unchanged navigation/index/generated/archive/source-lock state. WORK.md records
+full-suite results, retained failed harness attempts and exact evidence.
+Fresh full authored docs source suite: 369 passed, one inherited D29 skip, exit 0.
+Source-only acceptance does not close ordinary/native/resource/original workflow
+or D29/D30 generated/publication gates. No dependencies/runtime modules changed.
+
+## Parent-aware manager/profile authored companion — 2026-11-02
+
+Added a linked practical guide for selected managers, six stored overlays,
+groupIdx/direction, raw/copy/frozen distinctions, exact complete Glyphs2/3/4
+wrappers through both providers, and bounded custom parsing/finalization/discovery.
+Corrected stale missing-manager/localData/NFD and independent-view prose.
+
+All 75 current selected examples pass actual H source exports. Seventeen earlier
+examples receive visible source-qualified fixtures or corrected source oracles;
+exact originals remain externally pinned, and all 63 original G controls pass.
+The 12 new examples all fail meaningfully against G. All other 53 original tag
+bodies, including seven held native/UI controls, remain unchanged.
+
+Static audit compiles 134 Python blocks, resolves 76 local links and verifies
+233 unrelated payloads, 7,228 sparse paths and unchanged lock/generated/archive
+state. Fresh full docs source suite: 369 passed, one inherited D29 skip, exit 0.
+WORK.md records the restored historical AST context, failed attempts and evidence.
+No dependencies/runtime modules or existing tests/skips/thresholds changed.
+Ordinary tuple/consumers, complete local/resources/original/native workflows,
+generated/reference/site/browser and publication remain separate gates.
+
+## Stored-description guide and source verification — 2026-11-02
+
+Added seven owned actual-export examples for exact nullable descriptions,
+name/alias/Unicode routes, selected compound seeds, copies, model snapshots and
+unknown-source refusal. Navigation, package pages and the compound guide link
+this guidance with explicit source/artifact/parent-aware/native boundaries.
+
+All 63 selected Glyport examples pass: 56 prior + seven new. Against the unchanged
+prior compound source, all 56 earlier controls pass and all seven new examples
+fail meaningfully. All 63 pre-existing tagged examples remain byte-identical,
+including seven held native/UI controls. Audit: 89 Python blocks compile, 26 local
+links resolve, 238 unrelated payloads and 7,228 absent sparse paths are preserved,
+as are the source lock and held archive/reference trees. Nine inherited generated
+reference links remain explicitly held under D29. Navigation/privacy checks pass.
+
+Fresh full docs source: 369 passed / one existing D29 inventory skip, 123.57 s.
+An earlier attempt retains 368 passes / one fixture ENOSPC failure / that skip;
+the complete unchanged suite passes after verified recovery of closed own scratch.
+No test or budget assertion was weakened. No dependencies/runtime code changed.
+Matching provider artifacts, ordinary consumers, native/original workflows,
+generated references/site, accessibility and publication remain separate gates.
+
+
+## Compound Glyph Info guide and source verification — 2026-11-02
+
+Added a practical compound guide with nine owned examples through the actual
+session exports. It covers core fields, shared fills, shallow duplicate lists,
+raw/helper production, suffix nesting, exact-name precedence, Arabic alternate
+records, read-only metadata and the long-production rebuild. Navigation and
+Glyport/Echopy/production/Unicode pages describe its measured scope and limits.
+
+All 56 selected Glyport examples pass against current source. The older ordinary
+producer passes the 47 existing examples and one exact-lookup control, while the
+other eight new examples fail meaningfully. All 54 existing tagged examples are
+byte-identical, including seven held native/UI examples. The audit compiles 81
+Python blocks, checks 31 local links and preserves 236 unrelated payloads, 7,228
+sparse paths, the source lock and held trees. Nine existing generated-reference
+links remain held under D29; no new unresolved link was introduced.
+
+Fresh docs source tests: 369 passed / one existing full-built-inventory skip,
+123.10 s. No runtime code, dependency, generated reference/site or native result
+changed. Fresh matching committed artifacts and ordinary consumers, rendering,
+accessibility and publication remain separate acceptance gates.
+
+
+## Reviewed production checkpoint source gate — 2026-11-02
+
+Corrected the stale ordinary-qualification sentence while retaining native,
+factory/custom/local/version and publication boundaries. All47tagged examples
+remain unchanged. The unchanged quality gate passes369tests/1existing D29skip;
+no changed executable module and no module-coverage claim. WORK.md records exact
+commands and independent3.12environment provenance. Corrected ordinary/committed
+artifact qualification, generated/site/browser and native workflows remain open.
+
+## Production ordinary artifact/cohort acceptance — 2026-11-01
+
+Both fresh normal arm64Python3.11.14 prefixes install the six exact provider
+wheels plus40unchanged pins without source overrides. Per prefix:5,697full
+Glyport tests/0skips,370full Echopy/0skips,479focused checks,46isolation checks,
+15package and35central metadata examples. All12other tagged Glyphs/package
+examples also pass in each prefix:47tagged examples across six pages, using owned
+input files for inspect/compile only. Exact extra commands: ../additional-example-commands.json.
+All702runtime files match the exact
+source/wheel/installed tuple before and after consumers. Exact consumer result:
+Scriptmix4,481pass/1existing selection-read skip; Examples1,933+503=2,436/0skip.
+All69rescued originals and7historical generated-doc fixture hashes are retained.
+Glyport wheel SHA d92d425e58933ad100fbf439ec13398da54ef3409ed316ab4892a16cea7c5331;
+Echopy wheel SHA a9abee1955b9639b5740319595995ed0605727b53d80501d50440ff5757a2172.
+Standard source and complete-sdist builds reproduce identical wheels; all123+95
+Glyport/Echopy runtime files match current source and all412+145source members
+verify. Echopy's13catalogues are current and124protected files unchanged. Parent
+artifact hashes remain historical. Source lock and7228sparse paths remain intact.
+
+Exact root commands/exits0: ../artifact-check-commands.json (both final prefixes),
+../wheel-authored-command.json,../sdist-authored-command.json and ../consumer-commands.json
+(final applicable suites); artifacts/inputs in ../inputs.json and
+../wheel-reproduction.json. A missing basetemp parent and an empty wrong-alias
+consumer glob caused task-runner failures before correction; their complete
+first-attempt logs/XML/commands remain, with no product test or dependency edits.
+Fresh full docs source369pass/1D29skip is unchanged; subsequent status-only edits
+receive the complete static/example-byte/link/sparse/privacy audit, not another
+unchanged full run. Native/publication and1,580factory/glyph/application/full
+original workflow scope remain open. No new source commit/push or main/canonical
+promotion, live install, native call, source-lock/site rebuild, tag or publication.
+
+## Authored represented production metadata guide — 2026-11-01
+
+- Added a linked central guide with 11 owned examples plus an offline session
+  fixture using actual ExecutionContext/FontLabSession GlyphsApp exports and
+  Echopy declaration identity checks. Separate stored getter/shared fill/copy,
+  helper normalization, Unicode/alias/suffix/model routes and explicit refusal.
+- Corrected the present-tense claim that all production metadata is unqualified;
+  represented-record source behavior is now distinct from glyph/application
+  production and all 1,580 unqualified factory routes. Preserve historical results.
+- Source examples pass 11 new plus all 24 old; older ordinary-install negative
+  matrix retains all 11 failures and 24 passing old examples. Static verifies
+  53 compiled blocks, 34 links, 51 nav targets, old anchors, privacy, all inherited
+  244-file hashes, sparse 7,228 skipped paths and unchanged source lock.
+- Fresh full docs source suite: 369 passed, 1 existing D29 inventory/search skip
+  in 123.93 s; pytest and recorder exit 0. Borrowed context remains explicit.
+- Fresh successor ordinary wheel/sdist, producer provenance and exact consumer
+  checks remain root-owned and pending. Native/generated/publication and all
+  D16/D29/D30/D31 holds remain open; no source/example semantic rewrites.
+
+## Corrected Unicode-index cohort authored status — 2026-11-01
+
+- Replaced stale corrected-artifact/provenance/consumer pending claims across
+  the five authored Glyport/Glyphs/Unicode/metadata/parameter pages with inspected
+  exact six-wheel results and current archive hashes; earlier hashes stay historical.
+- Fresh ordinary installed execution passes 24 owned examples; all 701 runtime/data
+  files match byte for byte before and after, with 40 pins and installed origins checked. Preserve all 24 example
+  bytes,41 blocks,50 nav targets,57 heading anchors and25links; audit 244 inherited
+  source files and retain complete 9 file preimages plus the bounded diff.
+- Retain 369 passed/1D29skip as historical full-suite evidence; fresh acceptance
+  is the scoped authored/static/installed check. Source lock unchanged. No new
+  native9801capture, generated build, promotion or publication; D16/D29/D30/D31
+  and all full original native-workflow gates remain open.
+
+## Private authored shared Unicode-index correction — 2026-11-01
+
+- Corrected primary-only lookup claims across current authored guides/package
+  pages. Document primary-then-legacy insertion in record order, last-write
+  precedence, FE8D/FE80 records, duplicate0000 winnerNULL and separate fields.
+  Pinned public data adds730legacy keys to71401primary keys:72131combined keys.
+- Corrected one global-index example with its complete preimage retained;
+  preserved23/24examples,40/41blocks, all50navigation targets and the former
+  heading anchor. A rejected model-snapshot change is preserved as failed evidence;
+  its parentless Arabic nil-return example was restored byte-for-byte.
+- Verified24source examples with seven explicit Glyport source origins and seven
+  public dependency hashes,41compiled blocks,25local links and unchanged source
+  lock. The unchanged old six-wheel tuple/701payload files rejects only the newly
+  corrected snippet. Fresh corrected artifacts/cohort/provenance remain pending.
+- Docs suite369passed/1existing D29skip, exit0. RetainedENOSPC receipt-write failures,
+  recovered the recorder entry explicitly and did not repeat the unchanged suite.
+  No generated/native/build/browser/promotion/publication gate is closed.
+
+## Private authored global Unicode guidance — 2026-11-01
+
+- Added a dedicated linked global Unicode guide and eight owned examples for
+  exact wrapper dispatch, primary lookup, raw synthesis, UTF16/error boundaries
+  and historical parsing/classification. Corrected stale absent-API and font prose.
+- Retained all16earlier examples and all49existing nav routes. Verified24examples
+  in the NEW six-wheel tuple,701payload bytes and seven installed module origins;
+  compiled41blocks and checked24local links plus authored privacy.
+- Full source suite:369passed/1existing D29 generated-inventory skip, exit0.
+  Source-lock bytes unchanged. No generated/native/publication gate is cleared;
+  D16/D29/D30/D31 and proprietary data/full-workflow limits remain unchanged.
+
+## Private authored legacy Unicode and ROS guidance — 2026-11-01
+
+- Added a dedicated legacy/ROS guide with8owned examples: separate primary and
+  legacy metadata, canonical aliases, global font isolation, exact independent
+  snapshots, model/suffix/nil behavior and ROS refusal/no-op/value boundaries.
+- Corrected stale facade/ROS prose and cross-linked guide/package/navigation.
+  Retained all8prior parameter examples unchanged and48existing routes.
+- Verified16examples in the new six-wheel tuple with701payload-byte checks;
+  compiled33Python blocks and checked15local links plus authored privacy.
+  Full authored-source suite:369passed/1D29 generated-index skip (exit0).
+  Source-lock bytes remain unchanged. Source/generated/native/publication
+  acceptance levels and open D16/D29/D30/D31 holds remain distinct.
+
+## Ordered parameters and Arabic authored guide verified — 2026-11-01
+
+Added a dedicated central guide with8self-contained owned examples for duplicate
+selection, live object/positional edits, master/userData isolation, legacy storage,
+Arabic refresh, stored script, metadata-only reset and typed macOS values. The
+new guide explains the exact spaced key, direct/nil/empty legacy precedence,
+float32/sentinel behaviour and all current nonmacOS/ROS/native/facade limits.
+Navigation and the existing Glyport guide/package page link to it; historical
+artifact hashes and examples remain unchanged.
+
+Fresh installed cohort execution passes8examples with installed-origin/hash
+checks;25Python blocks compile and8local links plus navigation resolve. The
+existing docs baseline is368passed/1skipped plus1missing-TypeRig-sibling failure.
+The exact failed real-provider test passes with FONTLAB_API_SOURCE_ROOT pointed
+at the fresh installed cohort; no declarations or locks were substituted. The
+remaining skip requires a full built source inventory and MaterialX search index.
+No generated build, source-lock refresh, native call, rendered-page acceptance,
+canonical edit, commit, push or publication occurred.
+
+Exact argv/cwd/nonsecret environment and outputs are retained in the controller
+evidence under cohort-presentation-20261101/docs-evidence/commands.json,
+authored-check.json and docs-receipt.json. Commands use rtk proxy, including:
+`rtk proxy env -u PYTHONPATH -u SCRIPTMIX_APP_SOURCE -u SCRIPTMIX_FONTPORT_SOURCE
+-u EXAMPLES_APP_SOURCE PYTHONDONTWRITEBYTECODE=1 "$COHORT_PYTHON" -I -B
+"$DOCS_EVIDENCE/check_authored.py"` (exit0). Existing docs tests use the already
+provisioned docs interpreter, not a new build environment.
 
 ## Additional-Unicode guide verified — 2026-11-01
 
@@ -835,3 +1213,22 @@ branch changes. Verification from the workspace root:
 Authored guides are merged; the restored published build is retained.
 This test run does not qualify a new rendered site or native guide examples.
 No native FontLab operation was run.
+
+
+## 2026-11-02 — Complete-generation authored companion
+
+Document actual ten-job Chinese and full queued Hangul algorithms using four
+explicit invented banks and owned Jamo/targets. Replace the obsolete recording-only
+shared setup; preserve all 89prior tagged bodies (82 active/seven held). Add eight
+runnable examples for complete fixed ranges/profile/field/index checks, collision
+identity, callback completion order, actual Jamo tuples, component storage,
+current queued lookup and explicit missing-input/partial-failure state.
+
+All90active examples pass exact GP5a54b4b source;150 Python blocks compile,
+44 local links resolve,141 of 142 prior blocks retain exact bytes (only the setup
+changes), and all 7,469protected payloads/modes plus index/nav/lock remain exact.
+Retain the seven expected baseline setup failures and correction ruling in
+external info-generation-companions-20261102/docs-evidence/. Root owns the normal
+docs gate and matching ordinary tuples/consumers. No dependency/generated/native/
+canonical/publication change; D16/D29/D30/D31 and native/default-resource gates
+remain. This authored source result does not complete Issue123.
