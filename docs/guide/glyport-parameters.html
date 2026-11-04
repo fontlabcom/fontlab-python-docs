@@ -1,0 +1,2887 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/guide/glyport-parameters.html">
+      
+      
+        <link rel="prev" href="glyphs.html">
+      
+      
+        <link rel="next" href="glyport-metadata.html">
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>Parameters and Arabic encodings - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../assets/reference.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ordered-parameters-and-arabic-presentation-forms" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Parameters and Arabic encodings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="native-hooks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native Python hooks in FontLab 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameters and Arabic encodings
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="glyport-parameters.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameters and Arabic encodings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#choose-a-value-or-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choose a value or an object
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-positional-edits-explicit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep positional edits explicit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#separate-font-master-and-user-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separate font, master and user data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-arabic-presentation-encodings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Arabic presentation encodings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enable Arabic presentation encodings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-nil-and-empty-legacy-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct, nil and empty legacy data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-typed-values-on-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read typed values on macOS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-identity-and-acceptance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate identity and acceptance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-metadata.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Unicode and ROS metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-unicode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Global Unicode Glyph Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-production.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stored production metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-compounds.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compound Glyph Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-descriptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stored glyph descriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-managers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata managers and profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/ecosystem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem and package boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/plugmix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugmix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/scriptmix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scriptmix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#choose-a-value-or-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choose a value or an object
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-positional-edits-explicit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep positional edits explicit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#separate-font-master-and-user-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separate font, master and user data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-arabic-presentation-encodings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Arabic presentation encodings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enable Arabic presentation encodings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-nil-and-empty-legacy-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct, nil and empty legacy data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-typed-values-on-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read typed values on macOS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-identity-and-acceptance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate identity and acceptance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Start
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="install.html" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="ordered-parameters-and-arabic-presentation-forms">Ordered parameters and Arabic presentation forms</h1>
+<p>The numerical ordinary-artifact results below identify their retained predecessor
+checkpoint. The <a href="glyport-managers.html">current manager/profile guide</a> documents
+the H source changes. Earlier source assumptions are corrected below; original
+preimages remain in verification evidence. Old receipts do not qualify the new
+ordinary tuple or native behavior. Run the <a href="glyport-managers.html#prepare-an-owned-graph">owned graph setup</a>
+first for examples using <code>owned_parsed_manager</code>; those examples explicitly select
+actual parsed owned data before a metadata refresh or rename.</p>
+<p>Glyport's private candidate now preserves parameter order, duplicate names,
+active flags and live parameter objects. Its Arabic presentation stage can append
+legacy presentation-form encodings during an explicit metadata refresh. These
+are source and installed-artifact capabilities; native FontLab history,
+save/reopen and complete original-script workflows remain unqualified.</p>
+<p>All examples below create owned <code>FakeBackend</code> data outside FontLab. They do not
+open a font file, execute an original script, install a filter or change a live
+FontLab document. Examples use public model operations except the clearly named
+backend-storage diagnostic. They require the repaired candidate, not merely a
+matching development-version label: <a href="#candidate-identity-and-acceptance">artifact identity</a>
+matters when several dirty builds share that label.</p>
+<h2 id="choose-a-value-or-an-object">Choose a value or an object</h2>
+<p>The same collection supports two different questions:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>parameters["Name"]</code></td>
+<td>Value of the first <strong>active</strong> matching parameter, or <code>None</code></td>
+</tr>
+<tr>
+<td><code>"Name" in parameters</code></td>
+<td>A matching object exists, including an inactive one</td>
+</tr>
+<tr>
+<td><code>parameters[index]</code></td>
+<td>The actual ordered parameter object</td>
+</tr>
+<tr>
+<td><code>parameters["Name"] = value</code></td>
+<td>Change the first matching object, retaining its active flag; append if absent</td>
+</tr>
+<tr>
+<td><code>parameters["Name"] = None</code></td>
+<td>Remove the first matching object</td>
+</tr>
+<tr>
+<td><code>del parameters["Name"]</code></td>
+<td>Remove the first match; missing or empty names are a no-op</td>
+</tr>
+<tr>
+<td><code>parameters.remove(parameter)</code></td>
+<td>Remove that parameter object (by identity); <code>ValueError</code> if it is not in the collection</td>
+</tr>
+<tr>
+<td>Indexed replacement/deletion</td>
+<td>Replace/remove that position and detach the old object</td>
+</tr>
+</tbody>
+</table>
+<p>Do not treat name lookup as an ordinary dictionary when duplicates or inactive
+entries matter. A name assignment can change an inactive object while a later
+active duplicate still supplies the effective value.</p>
+<!-- example: glyport-ordered-parameters -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSCustomParameter</span><span class="p">,</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.fake_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeBackend</span>
+
+<span class="n">font</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">FakeBackend</span><span class="p">())</span><span class="o">.</span><span class="n">font</span>
+<span class="n">first</span> <span class="o">=</span> <span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">)</span>
+<span class="n">second</span> <span class="o">=</span> <span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">)</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="n">first</span>
+<span class="k">assert</span> <span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;first&quot;</span>
+
+<span class="n">first</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="s2">&quot;Owned Setting&quot;</span> <span class="ow">in</span> <span class="n">font</span><span class="o">.</span><span class="n">customParameters</span>
+<span class="k">assert</span> <span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;second&quot;</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;changed inactive object&quot;</span>
+<span class="k">assert</span> <span class="n">first</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;changed inactive object&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">first</span><span class="o">.</span><span class="n">active</span>
+<span class="k">assert</span> <span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;second&quot;</span>
+
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="n">second</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">first</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="n">first</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;detached edit&quot;</span>
+<span class="k">assert</span> <span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;second&quot;</span>
+</code></pre></div>
+<h2 id="keep-positional-edits-explicit">Keep positional edits explicit</h2>
+<p>Insertion order is retained. <code>insert</code> uses strict bounds rather than clamping a
+large positive or negative index. A negative index adds the current length once;
+<code>insert(-1, parameter)</code> therefore inserts before the last item. Replacing or
+removing an object detaches it, while the supplied replacement becomes live.</p>
+<!-- example: glyport-parameter-indexes -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSCustomParameter</span><span class="p">,</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.fake_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeBackend</span>
+
+<span class="n">font</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">FakeBackend</span><span class="p">())</span><span class="o">.</span><span class="n">font</span>
+<span class="n">first</span> <span class="o">=</span> <span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;Owned duplicate&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">later</span> <span class="o">=</span> <span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;Owned duplicate&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">first</span><span class="p">,</span> <span class="n">later</span><span class="p">])</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">later</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="n">first</span><span class="p">]</span>  <span class="c1"># Removal is by object identity.</span>
+<span class="k">assert</span> <span class="n">later</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span>
+
+<span class="n">before</span> <span class="o">=</span> <span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;Before last&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">before</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="n">before</span><span class="p">,</span> <span class="n">first</span><span class="p">]</span>
+<span class="n">replacement</span> <span class="o">=</span> <span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;Replacement&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">replacement</span>
+<span class="k">assert</span> <span class="n">first</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">replacement</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="n">font</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;Outside&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Out-of-range insertion must not clamp silently&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Iteration captures the initial count and fetches each object as it advances.
+Appending does not extend an existing iterator; shrinking the collection can
+make its next indexed access raise <code>IndexError</code>. Finish iteration before editing
+its structure, or collect the intended positions first. Nested mutation of an
+attached value container is not a qualified notification route; assign the whole
+replacement value instead. Same-object multiple insertion, cross-owner
+reparenting and complete native identity remain open. A copied parameter owns
+its nested value but retains its recorded parent pointer; a copy is not proven
+to be a detached native object.</p>
+<h2 id="separate-font-master-and-user-data">Separate font, master and user data</h2>
+<p>A font and its masters have distinct parameter collections. Ordinary master
+<code>userData</code> excludes reserved parameter storage and preserves it when other user
+data changes. The presentation setting is read from the glyph's parent <strong>font</strong>;
+a master parameter does not enable the font setting.</p>
+<!-- example: glyport-parameter-master-isolation -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSCustomParameter</span><span class="p">,</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.fake_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeBackend</span>
+
+<span class="n">font</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">FakeBackend</span><span class="p">())</span><span class="o">.</span><span class="n">font</span>
+<span class="n">master</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">masters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">master</span><span class="o">.</span><span class="n">userData</span><span class="p">[</span><span class="s2">&quot;Owned note&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;proof&quot;</span><span class="p">]}</span>
+<span class="n">font</span><span class="o">.</span><span class="n">userData</span><span class="p">[</span><span class="s2">&quot;Owned font data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">master</span><span class="o">.</span><span class="n">customParameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">,</span> <span class="s2">&quot;master&quot;</span><span class="p">))</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">,</span> <span class="s2">&quot;font&quot;</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">master</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;master&quot;</span>
+<span class="k">assert</span> <span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;font&quot;</span>
+<span class="k">assert</span> <span class="nb">dict</span><span class="p">(</span><span class="n">master</span><span class="o">.</span><span class="n">userData</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;Owned note&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;proof&quot;</span><span class="p">]}}</span>
+<span class="n">master</span><span class="o">.</span><span class="n">userData</span><span class="p">[</span><span class="s2">&quot;Another note&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="k">assert</span> <span class="n">master</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;Owned Setting&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;master&quot;</span>
+<span class="k">assert</span> <span class="nb">dict</span><span class="p">(</span><span class="n">font</span><span class="o">.</span><span class="n">userData</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;Owned font data&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+</code></pre></div>
+<p>The persistence representation uses ordered records and compatible flat-key
+mirrors. Old flat values import in their former sorted order because the old
+format recorded no original insertion order or active flags. New external flat
+names are retained. An external edit or deletion of an existing mirrored value
+wins: the collection follows the flat keys, reads never raise, and one
+<code>CUSTOM_PARAMETERS_REBUILT</code> warning is queued.</p>
+<p>This storage diagnostic reconstructs a Python model over the same owned backend.
+It is not a native font save/reopen test:</p>
+<!-- example: glyport-parameter-legacy-storage -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSCustomParameter</span><span class="p">,</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.fake_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeBackend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.proxies</span><span class="w"> </span><span class="kn">import</span> <span class="n">CUSTOM_PARAMETER_PREFIX</span>
+
+<span class="n">backend</span> <span class="o">=</span> <span class="n">FakeBackend</span><span class="p">()</span>
+<span class="c1"># &quot;font&quot; is this test backend&#39;s owned font identity, not a native font ID.</span>
+<span class="n">backend</span><span class="o">.</span><span class="n">set_lib</span><span class="p">(</span><span class="s2">&quot;font&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">CUSTOM_PARAMETER_PREFIX</span> <span class="o">+</span> <span class="s2">&quot;Z owned&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">CUSTOM_PARAMETER_PREFIX</span> <span class="o">+</span> <span class="s2">&quot;A owned&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;unrelated&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;keep&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">]},</span>
+<span class="p">})</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">backend</span><span class="p">)</span><span class="o">.</span><span class="n">font</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;A owned&quot;</span><span class="p">,</span> <span class="s2">&quot;Z owned&quot;</span><span class="p">]</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GSCustomParameter</span><span class="p">(</span><span class="s2">&quot;A owned&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">reconstructed</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">backend</span><span class="p">)</span><span class="o">.</span><span class="n">font</span>
+<span class="k">assert</span> <span class="p">[(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">active</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">reconstructed</span><span class="o">.</span><span class="n">customParameters</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;A owned&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Z owned&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;A owned&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="k">assert</span> <span class="n">reconstructed</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="s2">&quot;A owned&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="k">assert</span> <span class="n">backend</span><span class="o">.</span><span class="n">lib</span><span class="p">(</span><span class="s2">&quot;font&quot;</span><span class="p">)[</span><span class="s2">&quot;unrelated&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;keep&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">]}</span>
+</code></pre></div>
+<h2 id="enable-arabic-presentation-encodings">Enable Arabic presentation encodings</h2>
+<p>The exact key is <strong><code>Use Arabic Presentation Form Unicodes</code></strong>, including its
+spaces and case. <code>UseArabicPresentationFormUnicodes</code> is a different key. Prefer
+an explicit Boolean for a setting; raw Python truthiness does not describe the
+upstream string-conversion rules.</p>
+<!-- example: glyport-arabic-presentation -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSCustomParameter</span><span class="p">,</span> <span class="n">GSGlyph</span><span class="p">,</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.fake_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeBackend</span>
+
+<span class="n">KEY</span> <span class="o">=</span> <span class="s2">&quot;Use Arabic Presentation Form Unicodes&quot;</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">FakeBackend</span><span class="p">())</span><span class="o">.</span><span class="n">font</span>
+<span class="n">font</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">_local_glyph_info</span> <span class="o">=</span> <span class="n">owned_parsed_manager</span><span class="p">()</span>
+<span class="n">glyph</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">glyphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GSGlyph</span><span class="p">(</span><span class="s2">&quot;alef-ar&quot;</span><span class="p">))</span>
+<span class="n">font</span><span class="o">.</span><span class="n">masters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="n">KEY</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">glyph</span><span class="o">.</span><span class="n">updateGlyphInfo</span><span class="p">(</span><span class="n">changeName</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">glyph</span><span class="o">.</span><span class="n">unicodes</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;0627&quot;</span><span class="p">]</span>  <span class="c1"># A master setting does not enable it.</span>
+
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="n">KEY</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">glyph</span><span class="o">.</span><span class="n">updateGlyphInfo</span><span class="p">(</span><span class="n">changeName</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">glyph</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;alef-ar&quot;</span>
+<span class="k">assert</span> <span class="n">glyph</span><span class="o">.</span><span class="n">unicodes</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;0627&quot;</span><span class="p">,</span> <span class="s2">&quot;FE8D&quot;</span><span class="p">]</span>
+<span class="n">glyph</span><span class="o">.</span><span class="n">updateGlyphInfo</span><span class="p">(</span><span class="n">changeName</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">glyph</span><span class="o">.</span><span class="n">unicodes</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;0627&quot;</span><span class="p">,</span> <span class="s2">&quot;FE8D&quot;</span><span class="p">]</span>  <span class="c1"># Ordered deduplication.</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="n">KEY</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">glyph</span><span class="o">.</span><span class="n">updateGlyphInfo</span><span class="p">(</span><span class="n">changeName</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">glyph</span><span class="o">.</span><span class="n">unicodes</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;0627&quot;</span><span class="p">]</span>  <span class="c1"># Refresh removes the previous addition.</span>
+</code></pre></div>
+<p>The ordinary additional-Unicode helper and this presentation stage are separate.
+The former has its own gates and uses ordinary <code>.isol.unicode</code>; legacy-only
+<code>.isol</code> data does not become a primary encoding just because that helper ran.
+Presentation instead reads <code>unicodeLegacy</code>. A separately named <code>.isol</code> glyph can
+block the earlier helper's manager lookup without blocking the presentation
+stage's raw legacy lookup.</p>
+<h3 id="direct-nil-and-empty-legacy-data">Direct, nil and empty legacy data</h3>
+<p>The stage tests the <strong>resolved record's</strong> script, then uses its canonical name.
+A direct non-nil <code>unicodeLegacy</code> takes precedence. Only nil triggers a raw
+<code>&lt;resolved name&gt;.isol</code> database lookup. An empty string is non-nil: it blocks
+fallback, then adds no encoding. Additions retain order, deduplicate and follow
+the upstream nonempty/shorter-than-eight length gate. Generic constructed
+suffixes clear inherited legacy; direct database suffix records retain their own.</p>
+<p>Implemented ordering is resolution/private-use handling, the ordinary
+additional-Unicode helper, ROS processing, presentation processing, then stored
+metadata overlays. Requests for the five proprietary shipped ROS maps now refuse
+before presentation and metadata writes because their mapping data is unavailable.
+Malformed/unknown text leaves this stage unchanged under the audited shared-bundle
+contract. See the <a href="glyport-metadata.html">legacy and ROS guide</a> for exact delimiters,
+supplement handling, nontext refusal and owned no-write examples. Full ROS mapping,
+complete local initialization/private resources and unqualified suffix routes
+remain outside this bounded example matrix.</p>
+<p>A stored Latin script does not suppress presentation on an Arabic resolved
+record; the overlay runs later. Conversely, storing Arabic script on a Latin
+resolved record does not make it an Arabic presentation candidate.</p>
+<!-- example: glyport-arabic-stored-overlay -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSGlyph</span><span class="p">,</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.fake_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeBackend</span>
+
+<span class="n">KEY</span> <span class="o">=</span> <span class="s2">&quot;Use Arabic Presentation Form Unicodes&quot;</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">FakeBackend</span><span class="p">())</span><span class="o">.</span><span class="n">font</span>
+<span class="n">font</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">_local_glyph_info</span> <span class="o">=</span> <span class="n">owned_parsed_manager</span><span class="p">()</span>
+<span class="n">alias</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">glyphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GSGlyph</span><span class="p">(</span><span class="s2">&quot;OwnedArabicAlias&quot;</span><span class="p">))</span>
+<span class="n">alias</span><span class="o">.</span><span class="n">unicode</span> <span class="o">=</span> <span class="s2">&quot;0627&quot;</span>
+<span class="n">alias</span><span class="o">.</span><span class="n">storeScript</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">alias</span><span class="o">.</span><span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;latin&quot;</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="n">KEY</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">alias</span><span class="o">.</span><span class="n">updateGlyphInfo</span><span class="p">(</span><span class="n">changeName</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">alias</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;OwnedArabicAlias&quot;</span> <span class="ow">and</span> <span class="n">alias</span><span class="o">.</span><span class="n">script</span> <span class="o">==</span> <span class="s2">&quot;latin&quot;</span>
+<span class="k">assert</span> <span class="n">alias</span><span class="o">.</span><span class="n">unicodes</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;0627&quot;</span><span class="p">,</span> <span class="s2">&quot;FE8D&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Resetting a storage flag refreshes that metadata field without writing
+encodings. The next explicit refresh can apply presentation encodings. Native
+name-collision adjustment is a separate open route: it can clear encodings even
+with <code>changeName=False</code>. The no-conflict examples do not prove that route.</p>
+<!-- example: glyport-arabic-reset-and-refresh -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSGlyph</span><span class="p">,</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.fake_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeBackend</span>
+
+<span class="n">KEY</span> <span class="o">=</span> <span class="s2">&quot;Use Arabic Presentation Form Unicodes&quot;</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">FakeBackend</span><span class="p">())</span><span class="o">.</span><span class="n">font</span>
+<span class="n">font</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">_local_glyph_info</span> <span class="o">=</span> <span class="n">owned_parsed_manager</span><span class="p">()</span>
+<span class="n">glyph</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">glyphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GSGlyph</span><span class="p">(</span><span class="s2">&quot;alef-ar&quot;</span><span class="p">))</span>
+<span class="n">glyph</span><span class="o">.</span><span class="n">storeScript</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">glyph</span><span class="o">.</span><span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;latin&quot;</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="n">KEY</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">glyph</span><span class="o">.</span><span class="n">storeScript</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">glyph</span><span class="o">.</span><span class="n">script</span> <span class="o">==</span> <span class="s2">&quot;arabic&quot;</span> <span class="ow">and</span> <span class="n">glyph</span><span class="o">.</span><span class="n">unicodes</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;0627&quot;</span><span class="p">]</span>
+<span class="n">glyph</span><span class="o">.</span><span class="n">updateGlyphInfo</span><span class="p">(</span><span class="n">changeName</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">glyph</span><span class="o">.</span><span class="n">unicodes</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;0627&quot;</span><span class="p">,</span> <span class="s2">&quot;FE8D&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="read-typed-values-on-macos">Read typed values on macOS</h2>
+<p>For this exact BOOL-schema key, plain Python <code>bool</code>, <code>int</code> and <code>float</code> retain their
+numeric type and precision; <code>None</code> on the object becomes <code>False</code>. Assigning
+<code>None</code> by parameter name still removes the first matching object. A string
+containing the current locale's decimal separator uses real NSNumberFormatter
+parsing, then float32. Other strings use NSString.integerValue. The default
+formatter is process-cached; an explicit locale below owns a temporary formatter
+and changes no global preferences.</p>
+<table>
+<thead>
+<tr>
+<th>Input and route</th>
+<th>Result</th>
+<th>Enables presentation?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numeric <code>0.5</code></td>
+<td>Retained <code>0.5</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Numeric <code>1e-46</code></td>
+<td>Retained double precision</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>String <code>"YES"</code> or <code>"true"</code></td>
+<td>Integer <code>0</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td>String <code>"1e-3"</code> without the decimal separator</td>
+<td>Leading integer <code>1</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>String <code>"1.0e-46"</code>, dot-decimal locale</td>
+<td>Float32 <code>0.0</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td>String <code>"0,5"</code>, comma-decimal locale</td>
+<td>Float32 <code>0.5</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Malformed decimal <code>"0.5junk"</code>, dot-decimal locale</td>
+<td>Nonzero float <code>2**63</code> sentinel</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>The failed-parse sentinel is an upstream quirk established by retained machine
+code and independent Foundation observations. It is not a recommendation to use
+malformed input. Guessing <code>bool(text)</code> or treating every parse failure as zero
+would change the setting's behaviour.</p>
+<!-- example: glyport-parameter-numeric-macos -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSCustomParameter</span><span class="p">,</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.fake_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeBackend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.model.parameter_numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalize</span>
+
+<span class="k">assert</span> <span class="n">normalize</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">,</span> <span class="n">locale_name</span><span class="o">=</span><span class="s2">&quot;en_US&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">normalize</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="n">locale_name</span><span class="o">=</span><span class="s2">&quot;en_US&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">normalize</span><span class="p">(</span><span class="s2">&quot;0,5&quot;</span><span class="p">,</span> <span class="n">locale_name</span><span class="o">=</span><span class="s2">&quot;de_DE&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.5</span>
+<span class="k">assert</span> <span class="n">normalize</span><span class="p">(</span><span class="s2">&quot;1.0e-46&quot;</span><span class="p">,</span> <span class="n">locale_name</span><span class="o">=</span><span class="s2">&quot;en_US&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span>
+<span class="k">assert</span> <span class="n">normalize</span><span class="p">(</span><span class="mf">1e-46</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1e-46</span>
+<span class="k">assert</span> <span class="n">normalize</span><span class="p">(</span><span class="s2">&quot;0.5junk&quot;</span><span class="p">,</span> <span class="n">locale_name</span><span class="o">=</span><span class="s2">&quot;en_US&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">63</span><span class="p">)</span>
+
+<span class="n">KEY</span> <span class="o">=</span> <span class="s2">&quot;Use Arabic Presentation Form Unicodes&quot;</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">FakeBackend</span><span class="p">())</span><span class="o">.</span><span class="n">font</span>
+<span class="n">parameter</span> <span class="o">=</span> <span class="n">GSCustomParameter</span><span class="p">(</span><span class="n">KEY</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+<span class="n">parameter</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">parameter</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">False</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">[</span><span class="n">KEY</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">font</span><span class="o">.</span><span class="n">customParameters</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</code></pre></div>
+<p>This string route is measured on macOS 27.2 arm64 Foundation, not every Foundation
+version. Non-macOS strings and arbitrary object/container conversions explicitly
+raise <code>UnsupportedCapability</code>; their implementation/qualification remains open.
+Existing numeric NaN retains numeric enabling semantics and must not be mistaken
+for an external mirror conflict. Active-value cache construction validates all
+active duplicates, including shadowed ones. Indexed/name/active inspection and name-based removal remain available for an
+inactive imported value whose conversion is unsupported. Name membership is a
+separate object lookup that can still validate the first matching object; it is
+not a substitute for those recovery operations.</p>
+<h2 id="candidate-identity-and-acceptance">Candidate identity and acceptance</h2>
+<p>These authored examples require the current private source/ordinary-artifact
+candidate. Several uncommitted builds can share one hatch-vcs version string;
+use its wheel/sdist hashes and byte/origin audit to identify the tested tuple.
+Historical hashes on the <a href="../packages/glyport.html">Glyport package page</a> remain
+historical and are not silently updated to identify this candidate.</p>
+<p>The parameter and presentation source suites, fresh wheel/sdist checks and
+measured Foundation conversion establish bounded offline behaviour. They do not
+establish native history, complete font/UI/cache/dirty preservation, save/reopen,
+original-script acceptance, canonical promotion or a published release. The public
+<code>GSGlyphInfo.unicodeLegacy</code> field now exposes owned read-only legacy snapshots,
+separately from primary Unicode. The <a href="glyport-metadata.html">metadata guide</a> explains
+the global factory, namespace snapshots and actual model-glyph constructor route;
+read-only is package policy, not a claim about native Glyph Info setters.
+The shared global index now resolves legacy keys as well as primary keys, while
+keeping both returned fields separate. See the <a href="glyport-unicode.html">global Unicode guide</a>
+for record-order replacement and the corrected <code>FE8D</code>/<code>0000</code> examples. All 24 owned
+examples across these three guides now pass in the corrected ordinary six-wheel
+cohort; installed origins and current Echopy producer provenance are checked,
+and all 701 runtime/data files match byte for byte. The same exact tuple passes 4,481 Scriptmix tests with
+1 existing selection-read skip and 2,436 Examples tests without skips. Exact current
+hashes are recorded on the existing package page linked above; earlier hashes
+continue to identify their historical stages.</p>
+<p>The central site's generated source lock, rendered pages, browser accessibility,
+archive/routes and publication gates remain open. This authored page is not
+proof of a generated or deployed page. Continue with the <a href="glyphs.html">general Glyphs
+compatibility guide</a> or the <a href="../packages/glyport.html">Glyport package reference</a>.</p>
+
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../tags.html#tag:scripting" class="md-tag md-tag-icon">Scripting</a>
+      
+    
+  </nav>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../assets/javascripts/complete-search-ui.js"
+        data-worker="../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

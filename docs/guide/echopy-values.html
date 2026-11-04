@@ -1,0 +1,2762 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/guide/echopy-values.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>Echopy module values and their documentation - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../assets/reference.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#echopy-module-values-and-their-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Echopy module values and their documentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="native-hooks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native Python hooks in FontLab 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-parameters.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameters and Arabic encodings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-metadata.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Unicode and ROS metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-unicode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Global Unicode Glyph Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-production.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stored production metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-compounds.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compound Glyph Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-descriptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stored glyph descriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-managers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata managers and profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/ecosystem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem and package boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/plugmix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugmix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/scriptmix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scriptmix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#follow-a-value-through-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Follow a value through the pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-an-owned-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up an owned experiment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-the-current-object-and-forward-a-write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read the current object and forward a write
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-source-safe-and-native-spellings-connected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep source-safe and native spellings connected
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reserve-exact-bookkeeping-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reserve exact bookkeeping fields
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-annotation-only-values-absent-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep annotation-only values absent offline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capture-descriptor-documentation-without-invoking-its-getter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture descriptor documentation without invoking its getter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preserve-docs-for-each-value-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preserve docs for each value collection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target-source-identifiers-and-preserve-overlay-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target source identifiers and preserve overlay precedence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-the-actual-documentation-consumer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check the actual documentation consumer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-the-native-facade-small-and-lazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep the native facade small and lazy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpret-the-evidence-at-its-actual-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpret the evidence at its actual scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="echopy-module-values-and-their-documentation">Echopy module values and their documentation</h1>
+<p>Echopy keeps a native module value connected to its owner. A read through the
+facade sees the current object; an accepted module write or deletion reaches the
+native namespace. The adjacent declaration records documentation and a type
+without inventing an offline value. Maintainers need to check both routes:
+correct names alone cannot reveal a hidden write or a lost attribute docstring.</p>
+<p>This guide explains the source contract with invented, owned modules. The names
+<code>owned_echopy_values</code>, <code>value-with-dash</code> and <code>_echopy_value</code> below are test inputs,
+not claims that a FontLab build exposes those names. Every assignment changes an
+owned <code>ModuleType</code> object. For real native import and read-only class identity
+examples, start with the <a href="../packages/echopy.html#use-the-two-import-names">Echopy package guide</a>.
+An arbitrary native module assignment can change application state; these
+examples do not authorize copying invented assignments into FontLab.</p>
+<h2 id="follow-a-value-through-the-pipeline">Follow a value through the pipeline</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What it supplies</th>
+<th>What it does not establish</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capture metadata</td>
+<td>Names, recorded types, docs and inspection failures</td>
+<td>Complete getter/setter behavior or safe arbitrary introspection</td>
+</tr>
+<tr>
+<td>Raw generation</td>
+<td>Source-safe annotated names, adjacent docs and alias metadata</td>
+<td>Concrete offline values</td>
+</tr>
+<tr>
+<td>Maintained JSON overlays</td>
+<td>Targeted doc/type enrichment with explicit source attribution</td>
+<td>New measured native semantics</td>
+</tr>
+<tr>
+<td>Merged <code>.pyi</code></td>
+<td>Full declarations and adjacent attribute documentation</td>
+<td>A runtime implementation</td>
+</tr>
+<tr>
+<td>Tiny <code>.py</code> facade</td>
+<td>Current native dispatch, or offline declarations</td>
+<td>Emulation of FontLab</td>
+</tr>
+<tr>
+<td>Griffe static visitor</td>
+<td>What a documentation consumer reads from source</td>
+<td>Native argument conversion or execution</td>
+</tr>
+</tbody>
+</table>
+<p><code>from module import value</code> follows normal Python binding rules: the local name
+refers to the object obtained at that moment. Keep reading <code>module.value</code> when
+you need later module replacements. Similarly, <code>module.__dict__</code> can contain
+initial binding snapshots and runtime bookkeeping. Use attribute access, aliases
+and <code>dir()</code> to test delegation; do not treat the dictionary as a live native map.
+Python documents module subclasses in its
+<a href="https://docs.python.org/3.11/reference/datamodel.html#customizing-module-attribute-access">module attribute access reference</a>.</p>
+<h2 id="set-up-an-owned-experiment">Set up an owned experiment</h2>
+<p>Use Python 3.11 in a fresh directory that you own, with the Echopy revision being
+checked and its <code>docs</code> extra already provisioned (<code>griffe</code> is required). Check
+<code>fontlab_echopy.__file__</code> before proceeding so the source or installed copy is
+unambiguous. No FontLab, native Qt or macOS framework is required. The source
+runner and installed-prefix runner execute this exact setup anew before each
+marked example; they never rewrite the setup or example body.</p>
+<p>Save this setup followed by <strong>one</strong> marked example in a Python file and run that
+file. Each example is independent. <code>TemporaryDirectory</code> owns the raw/merged
+outputs and overlays; leaving the context removes those scratch files and the
+invented module registrations, even if an assertion fails. The helper calls the
+real capture/generation/merge/runtime code rather than reproducing its logic.</p>
+<!-- setup: echopy-owned-values -->
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tempfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">TemporaryDirectory</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModuleType</span><span class="p">,</span> <span class="n">SimpleNamespace</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_echopy.tooling.capture</span><span class="w"> </span><span class="kn">import</span> <span class="n">namespace</span> <span class="k">as</span> <span class="n">capture_namespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_echopy.tooling.generate</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate</span><span class="p">,</span> <span class="n">source_name</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_echopy.tooling.merge</span><span class="w"> </span><span class="kn">import</span> <span class="n">merge</span>
+
+<span class="n">OWNED_NATIVE</span> <span class="o">=</span> <span class="s2">&quot;owned_echopy_values&quot;</span>
+<span class="n">OWNED_FACADE</span> <span class="o">=</span> <span class="s2">&quot;owned_echopy_values_facade&quot;</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">owned_pipeline</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overlays</span><span class="o">=</span><span class="p">(),</span> <span class="n">stage</span><span class="o">=</span><span class="s2">&quot;merged&quot;</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">OWNED_NATIVE</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span> <span class="ow">and</span> <span class="n">OWNED_FACADE</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;modules&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">OWNED_NATIVE</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;namespace&quot;</span><span class="p">:</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">scope</span><span class="p">)}}}</span>
+    <span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;echopy-values-&quot;</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span> <span class="k">as</span> <span class="n">temporary</span><span class="p">:</span>
+        <span class="n">folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">temporary</span><span class="p">)</span>
+        <span class="n">raw</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;merged&quot;</span>
+        <span class="n">generate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
+        <span class="n">paths</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">patch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">overlays</span><span class="p">):</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;overlay-</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">.json&quot;</span>
+            <span class="n">path</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">patch</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+            <span class="n">paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">raw_before</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">raw</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">is_file</span><span class="p">()}</span>
+        <span class="n">overlay_before</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">paths</span><span class="p">)</span>
+        <span class="n">native</span> <span class="o">=</span> <span class="n">ModuleType</span><span class="p">(</span><span class="n">OWNED_NATIVE</span><span class="p">)</span> <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">native</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">native</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">OWNED_NATIVE</span><span class="p">]</span> <span class="o">=</span> <span class="n">native</span>
+        <span class="n">facade</span> <span class="o">=</span> <span class="n">ModuleType</span><span class="p">(</span><span class="n">OWNED_FACADE</span><span class="p">)</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="p">(</span><span class="n">raw</span> <span class="k">if</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;raw&quot;</span> <span class="k">else</span> <span class="n">output</span><span class="p">)</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.py&quot;</span>
+        <span class="n">facade</span><span class="o">.</span><span class="vm">__file__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">OWNED_FACADE</span><span class="p">]</span> <span class="o">=</span> <span class="n">facade</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">read_text</span><span class="p">(),</span> <span class="nb">str</span><span class="p">(</span><span class="n">source</span><span class="p">),</span> <span class="s2">&quot;exec&quot;</span><span class="p">),</span> <span class="n">facade</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">native</span><span class="o">=</span><span class="n">native</span><span class="p">,</span> <span class="n">facade</span><span class="o">=</span><span class="n">facade</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="n">raw</span><span class="p">,</span>
+                                  <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">overlays</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">raw_before</span> <span class="o">==</span> <span class="p">{</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">raw</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">is_file</span><span class="p">()}</span>
+            <span class="k">assert</span> <span class="n">overlay_before</span> <span class="o">==</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">]</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">OWNED_FACADE</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">OWNED_NATIVE</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>values=None</code> branch deliberately omits a native module. A dictionary,
+including an empty dictionary, explicitly supplies an owned native module.
+This distinction prevents an unavailable native namespace from becoming a
+successful dummy. The helper verifies raw and overlay byte preservation after
+every normally completed example; the capture example also checks its input.</p>
+<h2 id="read-the-current-object-and-forward-a-write">Read the current object and forward a write</h2>
+<p>The first example keeps an earlier local reference, replaces the value through
+the facade, then changes the native owner directly. Both module reads follow
+the owner. The earlier local reference keeps ordinary Python snapshot semantics.</p>
+<!-- example: echopy-live-value -->
+<div class="highlight"><pre><span></span><code><span class="n">initial</span><span class="p">,</span> <span class="n">replacement</span><span class="p">,</span> <span class="n">final</span> <span class="o">=</span> <span class="nb">object</span><span class="p">(),</span> <span class="nb">object</span><span class="p">(),</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">scope</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Any&quot;</span><span class="p">}]}</span>
+<span class="k">with</span> <span class="n">owned_pipeline</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">initial</span><span class="p">})</span> <span class="k">as</span> <span class="n">case</span><span class="p">:</span>
+    <span class="n">facade</span><span class="p">,</span> <span class="n">native</span> <span class="o">=</span> <span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="p">,</span> <span class="n">case</span><span class="o">.</span><span class="n">native</span>
+    <span class="n">saved_reference</span> <span class="o">=</span> <span class="n">facade</span><span class="o">.</span><span class="n">value</span>
+    <span class="k">assert</span> <span class="n">facade</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="n">native</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="n">initial</span>
+    <span class="n">facade</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">replacement</span>
+    <span class="k">assert</span> <span class="n">facade</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="n">native</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="n">replacement</span>
+    <span class="n">native</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">final</span>
+    <span class="k">assert</span> <span class="n">facade</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="n">native</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="n">final</span>
+    <span class="k">assert</span> <span class="n">saved_reference</span> <span class="ow">is</span> <span class="n">initial</span>
+</code></pre></div>
+<p>Echopy preserves native object identity; it does not clone a value or wrap it in
+a documentation object. This test proves dispatch on an owned Python module.
+It says nothing about whether a particular native attribute has a writable
+setter, accepts a type, or changes a document safely. Native setter errors
+propagate through either spelling. Any partial native side effects require their
+own preservation check.</p>
+<h2 id="keep-source-safe-and-native-spellings-connected">Keep source-safe and native spellings connected</h2>
+<p>A native name that cannot appear in Python source receives a source identifier.
+For this invented name, <code>source_name("value-with-dash")</code> is <code>value_with_dash</code>.
+Use <code>getattr</code>/<code>setattr</code>/<code>delattr</code> for the original spelling; the source identifier
+supports ordinary attribute syntax. Both routes must reach the same object.
+Deletion must remove both visible spellings, and re-creation must reconnect them.</p>
+<!-- example: echopy-sanitized-value -->
+<div class="highlight"><pre><span></span><code><span class="n">native_name</span> <span class="o">=</span> <span class="s2">&quot;value-with-dash&quot;</span>
+<span class="n">alias</span> <span class="o">=</span> <span class="n">source_name</span><span class="p">(</span><span class="n">native_name</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">alias</span> <span class="o">==</span> <span class="s2">&quot;value_with_dash&quot;</span>
+<span class="n">initial</span><span class="p">,</span> <span class="n">replacement</span> <span class="o">=</span> <span class="nb">object</span><span class="p">(),</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">scope</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">native_name</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Any&quot;</span><span class="p">}]}</span>
+<span class="k">with</span> <span class="n">owned_pipeline</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">{</span><span class="n">native_name</span><span class="p">:</span> <span class="n">initial</span><span class="p">})</span> <span class="k">as</span> <span class="n">case</span><span class="p">:</span>
+    <span class="n">facade</span><span class="p">,</span> <span class="n">native</span> <span class="o">=</span> <span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="p">,</span> <span class="n">case</span><span class="o">.</span><span class="n">native</span>
+    <span class="k">assert</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span> <span class="ow">is</span> <span class="n">facade</span><span class="o">.</span><span class="n">value_with_dash</span> <span class="ow">is</span> <span class="n">initial</span>
+    <span class="n">facade</span><span class="o">.</span><span class="n">value_with_dash</span> <span class="o">=</span> <span class="n">replacement</span>
+    <span class="k">assert</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">native</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span> <span class="ow">is</span> <span class="n">replacement</span>
+    <span class="k">assert</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span> <span class="ow">is</span> <span class="n">facade</span><span class="o">.</span><span class="n">value_with_dash</span> <span class="ow">is</span> <span class="n">replacement</span>
+    <span class="k">assert</span> <span class="p">{</span><span class="n">native_name</span><span class="p">,</span> <span class="n">alias</span><span class="p">}</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">facade</span><span class="p">))</span>
+    <span class="nb">delattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">native</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">alias</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">native_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">facade</span><span class="p">)</span> <span class="ow">and</span> <span class="n">alias</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">facade</span><span class="p">)</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">alias</span><span class="p">,</span> <span class="n">initial</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">native</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span> <span class="ow">is</span> <span class="n">initial</span>
+</code></pre></div>
+<p>This is module dispatch. A sanitized class-member declaration does not add a
+renamed member to an original native class: returning that class unchanged
+preserves its identity. Consult the native spelling with <code>getattr</code> when needed.
+The package import aliases <code>echopy</code> and <code>fontlab_echopy</code> are a separate mechanism;
+the <a href="../packages/echopy.html#use-the-two-import-names">package guide</a> checks those.</p>
+<h2 id="reserve-exact-bookkeeping-fields">Reserve exact bookkeeping fields</h2>
+<p>The runtime keeps <code>_echopy_native</code>, <code>_echopy_name</code> and <code>_echopy_aliases</code> local.
+Its child-facade import bookkeeping also remains special, so importing a child
+facade cannot overwrite a native pseudo-namespace. These rules do not reserve
+all <code>_echopy_</code> spellings. The generator separately refuses helper-name collisions
+before writing output; do not broaden its refusal policy to hide valid names.</p>
+<p>This matrix exercises accepted invented names at both raw and merged stages.
+It writes by both spellings, checks exact runtime state identities, deletes and
+checks <code>dir()</code> again. <code>_echopy_builtins</code> is an accepted invented value here; raw
+generation selects another private import alias when that name is occupied.
+None of these spellings is asserted to exist in the running FontLab.</p>
+<!-- example: echopy-prefix-values -->
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;merged&quot;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">native_name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;_echopy_value&quot;</span><span class="p">,</span> <span class="s2">&quot;_echopy-value&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;_echopy_value-with-dash&quot;</span><span class="p">,</span> <span class="s2">&quot;_echopy_builtins&quot;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">route</span> <span class="ow">in</span> <span class="p">(</span><span class="n">native_name</span><span class="p">,</span> <span class="n">source_name</span><span class="p">(</span><span class="n">native_name</span><span class="p">)):</span>
+            <span class="n">initial</span><span class="p">,</span> <span class="n">replacement</span> <span class="o">=</span> <span class="nb">object</span><span class="p">(),</span> <span class="nb">object</span><span class="p">()</span>
+            <span class="n">scope</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">native_name</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Any&quot;</span><span class="p">}]}</span>
+            <span class="k">with</span> <span class="n">owned_pipeline</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">{</span><span class="n">native_name</span><span class="p">:</span> <span class="n">initial</span><span class="p">},</span> <span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span> <span class="k">as</span> <span class="n">case</span><span class="p">:</span>
+                <span class="n">facade</span><span class="p">,</span> <span class="n">native</span> <span class="o">=</span> <span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="p">,</span> <span class="n">case</span><span class="o">.</span><span class="n">native</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">facade</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span>
+                         <span class="p">(</span><span class="s2">&quot;_echopy_native&quot;</span><span class="p">,</span> <span class="s2">&quot;_echopy_name&quot;</span><span class="p">,</span> <span class="s2">&quot;_echopy_aliases&quot;</span><span class="p">)}</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">replacement</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">native</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span> <span class="ow">is</span> <span class="n">replacement</span>
+                <span class="k">assert</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span> <span class="ow">is</span> <span class="n">replacement</span>
+                <span class="k">assert</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">source_name</span><span class="p">(</span><span class="n">native_name</span><span class="p">))</span> <span class="ow">is</span> <span class="n">replacement</span>
+                <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">facade</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">is</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+                <span class="nb">delattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">route</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">native</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">spelling</span> <span class="ow">in</span> <span class="p">{</span><span class="n">native_name</span><span class="p">,</span> <span class="n">source_name</span><span class="p">(</span><span class="n">native_name</span><span class="p">)}:</span>
+                    <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">facade</span><span class="p">,</span> <span class="n">spelling</span><span class="p">)</span> <span class="ow">and</span> <span class="n">spelling</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">facade</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="keep-annotation-only-values-absent-offline">Keep annotation-only values absent offline</h2>
+<p>An annotation is documentation, not a value assignment. The generated source
+and merged sidecar record an <code>AnnAssign</code> without a value. Offline loading keeps
+the annotation while attribute reads fail. A type or doc overlay must not
+materialize a sentinel, <code>None</code> or a fabricated constant.</p>
+<!-- example: echopy-offline-absence -->
+<div class="highlight"><pre><span></span><code><span class="n">native_name</span> <span class="o">=</span> <span class="s2">&quot;_echopy-value&quot;</span>
+<span class="n">alias</span> <span class="o">=</span> <span class="n">source_name</span><span class="p">(</span><span class="n">native_name</span><span class="p">)</span>
+<span class="n">scope</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">native_name</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Owned value.&quot;</span><span class="p">}]}</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">alias</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;returns&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Owned supplement.&quot;</span><span class="p">}}</span>
+<span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;merged&quot;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">owned_pipeline</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">overlays</span><span class="o">=</span><span class="p">[</span><span class="n">patch</span><span class="p">],</span> <span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span> <span class="k">as</span> <span class="n">case</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">case</span><span class="o">.</span><span class="n">native</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="k">assert</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="o">.</span><span class="vm">__annotations__</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="p">,</span> <span class="n">alias</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="p">,</span> <span class="n">native_name</span><span class="p">)</span>
+        <span class="n">stub</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">((</span><span class="n">case</span><span class="o">.</span><span class="n">output</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.pyi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">stub</span><span class="o">.</span><span class="n">body</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">AnnAssign</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="n">value</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ast</span><span class="o">.</span><span class="n">unparse</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">annotation</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;str&quot;</span>
+</code></pre></div>
+<p>For callable declarations, offline operations raise <code>NativeUnavailable</code>; see
+<a href="../packages/echopy.html#handle-unavailable-native-operations">unavailable native operations</a>.
+A missing annotation-only value instead has normal absent-attribute behavior.
+A <code>dir()</code> entry or a declared type is not proof that an offline value exists.</p>
+<h2 id="capture-descriptor-documentation-without-invoking-its-getter">Capture descriptor documentation without invoking its getter</h2>
+<p>Here a property object is stored directly on a plain owned module. Reading that
+module member returns the descriptor itself; capture can read its documentation
+without invoking the property getter. The deliberately failing getter makes the
+boundary testable. This is not a claim that every native module <code>getattr</code> is
+side-effect free, nor permission to run a fresh capture against a live host.</p>
+<!-- example: echopy-captured-value-doc -->
+<div class="highlight"><pre><span></span><code><span class="n">calls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">forbidden_getter</span><span class="p">(</span><span class="n">owner</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Owned captured descriptor documentation.&quot;&quot;&quot;</span>
+    <span class="n">calls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">owner</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;The property getter must never run&quot;</span><span class="p">)</span>
+
+<span class="n">owned</span> <span class="o">=</span> <span class="n">ModuleType</span><span class="p">(</span><span class="n">OWNED_NATIVE</span><span class="p">)</span>
+<span class="n">owned</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">forbidden_getter</span><span class="p">)</span>
+<span class="n">captured</span> <span class="o">=</span> <span class="n">capture_namespace</span><span class="p">(</span><span class="n">owned</span><span class="p">,</span> <span class="n">OWNED_NATIVE</span><span class="p">)</span>
+<span class="n">before</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">captured</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">captured</span><span class="p">[</span><span class="s2">&quot;attributes&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;doc&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">forbidden_getter</span><span class="o">.</span><span class="vm">__doc__</span>
+<span class="k">with</span> <span class="n">owned_pipeline</span><span class="p">(</span><span class="n">captured</span><span class="p">)</span> <span class="k">as</span> <span class="n">case</span><span class="p">:</span>
+    <span class="n">raw_text</span> <span class="o">=</span> <span class="p">(</span><span class="n">case</span><span class="o">.</span><span class="n">raw</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+    <span class="n">stub_text</span> <span class="o">=</span> <span class="p">(</span><span class="n">case</span><span class="o">.</span><span class="n">output</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.pyi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">forbidden_getter</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">in</span> <span class="n">raw_text</span> <span class="ow">and</span> <span class="n">forbidden_getter</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">in</span> <span class="n">stub_text</span>
+    <span class="k">assert</span> <span class="n">case</span><span class="o">.</span><span class="n">result</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;applied&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;unmatched&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+<span class="k">assert</span> <span class="n">captured</span> <span class="o">==</span> <span class="n">before</span> <span class="ow">and</span> <span class="n">calls</span> <span class="o">==</span> <span class="p">[]</span>
+</code></pre></div>
+<p>Capture records errors explicitly. Documentation and a recorded descriptor type
+do not establish whether a native property is readable, writable or callable.
+A docstring that includes parentheses is not enough to turn an attribute into a
+method. Preserve recorded fields and limitations rather than guessing a setter.</p>
+<h2 id="preserve-docs-for-each-value-collection">Preserve docs for each value collection</h2>
+<p>The generator accepts module <code>attributes</code>, <code>constants</code> and <code>modules</code> collections.
+Those are input collections; capture need not classify every object into all
+three. Each collection emits an annotation followed immediately by its captured
+docstring. The adjacent string belongs to the annotated value for documentation
+consumers; moving it to the module header loses that association.</p>
+<!-- example: echopy-value-collections -->
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;attributes&quot;</span><span class="p">,</span> <span class="s2">&quot;constants&quot;</span><span class="p">,</span> <span class="s2">&quot;modules&quot;</span><span class="p">):</span>
+    <span class="n">captured_doc</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Owned </span><span class="si">{</span><span class="n">collection</span><span class="si">}</span><span class="s2"> documentation.&quot;</span>
+    <span class="n">scope</span> <span class="o">=</span> <span class="p">{</span><span class="n">collection</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value-with-dash&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Any&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="n">captured_doc</span><span class="p">}]}</span>
+    <span class="k">with</span> <span class="n">owned_pipeline</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span> <span class="k">as</span> <span class="n">case</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="p">(</span><span class="n">case</span><span class="o">.</span><span class="n">raw</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.py&quot;</span><span class="p">,</span> <span class="n">case</span><span class="o">.</span><span class="n">output</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.pyi&quot;</span><span class="p">):</span>
+            <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">body</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">AnnAssign</span><span class="p">))</span>
+            <span class="n">annotation</span><span class="p">,</span> <span class="n">documentation</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span>
+            <span class="k">assert</span> <span class="n">annotation</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s2">&quot;value_with_dash&quot;</span> <span class="ow">and</span> <span class="n">annotation</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">documentation</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Expr</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">documentation</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">captured_doc</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="p">,</span> <span class="s2">&quot;value_with_dash&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Unknown captured types remain <code>Any</code>. That expresses missing type information;
+it does not mean every object can safely be passed to a native setter.
+The Python <a href="https://docs.python.org/3.11/library/ast.html#ast.AnnAssign">annotated assignment AST</a>
+records the target, annotation and optional value independently.</p>
+<h2 id="target-source-identifiers-and-preserve-overlay-precedence">Target source identifiers and preserve overlay precedence</h2>
+<p>Overlay keys use the emitted source identifier: <code>owned_echopy_values.value_with_dash</code>
+for native <code>value-with-dash</code>. On annotated attributes, the existing <code>returns</code>
+field specifies the annotation override; it does not call a getter or describe a
+method return. <code>doc</code> supplies supplemental prose and <code>source</code> gives its origin.</p>
+<p>Overlays are combined in list order, field by field. A later field replaces the
+earlier value for that field. Omitting a field in a later overlay retains the
+earlier setting. The following intentionally includes one unmatched native-name
+key to show the diagnostic, then verifies the correctly targeted source key.
+The later doc replaces the earlier supplemental doc; the earlier <code>float</code> type
+survives. Captured documentation remains first and appears once.</p>
+<!-- example: echopy-overlay-precedence -->
+<div class="highlight"><pre><span></span><code><span class="n">scope</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value-with-dash&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Captured value.&quot;</span><span class="p">}]}</span>
+<span class="n">first</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.value_with_dash&quot;</span><span class="p">:</span>
+         <span class="p">{</span><span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;First supplement.&quot;</span><span class="p">,</span> <span class="s2">&quot;returns&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;owned-first&quot;</span><span class="p">}}</span>
+<span class="n">last</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.value_with_dash&quot;</span><span class="p">:</span>
+        <span class="p">{</span><span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Final supplement.&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;owned-final&quot;</span><span class="p">},</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.value-with-dash&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Wrong target.&quot;</span><span class="p">}}</span>
+<span class="k">with</span> <span class="n">owned_pipeline</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">overlays</span><span class="o">=</span><span class="p">[</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">])</span> <span class="k">as</span> <span class="n">case</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">case</span><span class="o">.</span><span class="n">result</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;applied&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;unmatched&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.value-with-dash&quot;</span><span class="p">]}</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">((</span><span class="n">case</span><span class="o">.</span><span class="n">output</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.pyi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">body</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">AnnAssign</span><span class="p">))</span>
+    <span class="n">annotation</span><span class="p">,</span> <span class="n">documentation</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">ast</span><span class="o">.</span><span class="n">unparse</span><span class="p">(</span><span class="n">annotation</span><span class="o">.</span><span class="n">annotation</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;float&quot;</span>
+    <span class="k">assert</span> <span class="n">documentation</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="p">(</span><span class="s2">&quot;Captured value.</span><span class="se">\n\n</span><span class="s2">Supplemental documentation:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                         <span class="s2">&quot;Final supplement.</span><span class="se">\n\n</span><span class="s2">Source: owned-final&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;First supplement.&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">documentation</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">value</span>
+</code></pre></div>
+<p>An unmatched target must be investigated. It can mean a spelling error, an
+obsolete capture target or a patch for another producer; a green identity count
+does not prove the overlay was applied. Keep overlay inputs independent of
+regenerated raw output. Changing generation/merge code alone does not update
+already shipped captures, declarations, provenance or generated references.</p>
+<h2 id="check-the-actual-documentation-consumer">Check the actual documentation consumer</h2>
+<p>An AST string check catches emission mistakes. It does not establish which
+docstring a documentation consumer associates with the member. This example
+uses Griffe's actual static <code>visit</code> API against the emitted <code>.pyi</code>, then compares
+the member name, annotation and combined documentation. It does not import or
+execute the sidecar. Griffe documents the API in its
+<a href="https://mkdocstrings.github.io/griffe/reference/api/agents/#griffe.visit">agents reference</a>.</p>
+<!-- example: echopy-griffe-value-doc -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">griffe</span><span class="w"> </span><span class="kn">import</span> <span class="n">visit</span>
+
+<span class="n">scope</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value-with-dash&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Any&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Captured detail.&quot;</span><span class="p">}]}</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.value_with_dash&quot;</span><span class="p">:</span>
+         <span class="p">{</span><span class="s2">&quot;returns&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Maintained detail.&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;owned-guide&quot;</span><span class="p">}}</span>
+<span class="k">with</span> <span class="n">owned_pipeline</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">overlays</span><span class="o">=</span><span class="p">[</span><span class="n">patch</span><span class="p">])</span> <span class="k">as</span> <span class="n">case</span><span class="p">:</span>
+    <span class="n">stub</span> <span class="o">=</span> <span class="n">case</span><span class="o">.</span><span class="n">output</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.pyi&quot;</span>
+    <span class="n">documented</span> <span class="o">=</span> <span class="n">visit</span><span class="p">(</span><span class="n">OWNED_NATIVE</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="n">stub</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="n">stub</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+    <span class="n">member</span> <span class="o">=</span> <span class="n">documented</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="s2">&quot;value_with_dash&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">member</span><span class="o">.</span><span class="n">annotation</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;str&quot;</span>
+    <span class="k">assert</span> <span class="n">member</span><span class="o">.</span><span class="n">docstring</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="p">(</span><span class="s2">&quot;Captured detail.</span><span class="se">\n\n</span><span class="s2">Supplemental documentation:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                      <span class="s2">&quot;Maintained detail.</span><span class="se">\n\n</span><span class="s2">Source: owned-guide&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">member</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="p">,</span> <span class="s2">&quot;value_with_dash&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>This establishes the owned source-to-Griffe path. It does not qualify rendered
+pages, navigation, type links, browser accessibility or a published site.</p>
+<h2 id="keep-the-native-facade-small-and-lazy">Keep the native facade small and lazy</h2>
+<p>Detailed value docs belong in the sidecar. Native loading must not parse that
+sidecar merely to obtain a value. This example generates an owned facade, removes
+its sidecar only inside the temporary directory, and re-executes it while its
+owned native module remains registered. If native binding required the sidecar,
+this would fail. The descriptor-free live value still has exact identity.</p>
+<!-- example: echopy-lazy-facade -->
+<div class="highlight"><pre><span></span><code><span class="n">initial</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">scope</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Any&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Owned sidecar detail.&quot;</span><span class="p">}]}</span>
+<span class="k">with</span> <span class="n">owned_pipeline</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">initial</span><span class="p">})</span> <span class="k">as</span> <span class="n">case</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">case</span><span class="o">.</span><span class="n">output</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OWNED_NATIVE</span><span class="si">}</span><span class="s2">.py&quot;</span>
+    <span class="n">stub</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.pyi&quot;</span><span class="p">)</span>
+    <span class="n">facade_text</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="s2">&quot;Owned sidecar detail.&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">facade_text</span>
+    <span class="k">assert</span> <span class="s2">&quot;_populate(globals(),&quot;</span> <span class="ow">in</span> <span class="n">facade_text</span>
+    <span class="n">stub</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+    <span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="n">facade_text</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">source</span><span class="p">),</span> <span class="s2">&quot;exec&quot;</span><span class="p">),</span> <span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">case</span><span class="o">.</span><span class="n">facade</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="n">case</span><span class="o">.</span><span class="n">native</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="n">initial</span>
+</code></pre></div>
+<p>Deleting a shipped sidecar would break offline analysis and packaging. The
+example removes a disposable owned output solely to check native-path laziness;
+retain every packaged <code>.pyi</code> and its licence/provenance in real distributions.</p>
+<h2 id="interpret-the-evidence-at-its-actual-scope">Interpret the evidence at its actual scope</h2>
+<p>A retained full identity audit covered 17 namespace scopes: 16 available and one
+absent optional module. It matched 242,649 symbol identities and five root
+namespace identities across declarations, alias maps and facade routes. Those
+static matches do not classify every constructor or descriptor. The retained
+census still has 1,600 variadic constructors, 13,035 variadic methods and 68,103
+merged class attribute annotations typed <code>Any</code>. Exact historical raw capture
+input was unavailable to that audit; a different local capture is not a valid
+replacement. The retained upstream Qt enrichment report also has 35 failed
+documents and 266 unmatched native classes. These are limitations of those
+retained inputs, not newly measured current-host counts or results of this guide.</p>
+<p>Captured docs, inferred annotations and reference signatures are evidence with
+provenance. They cannot prove native semantic completeness. A successful owned
+example is source-contract evidence; a fresh ordinary wheel/sdist run is
+installed-artifact evidence. Consumer qualification, native FontLab workflows,
+canonical promotion, generated-reference/source-lock refresh and publication
+remain independent acceptance levels. Read <a href="build.html">rebuild and contribute</a>
+for the documented build process; obey the workspace's current approval and
+resource holds before attempting a capture, native run or generated build.</p>
+
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../tags.html#tag:scripting" class="md-tag md-tag-icon">Scripting</a>
+      
+    
+  </nav>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../assets/javascripts/complete-search-ui.js"
+        data-worker="../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

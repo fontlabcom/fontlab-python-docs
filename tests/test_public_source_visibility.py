@@ -36,6 +36,14 @@ from scripts.export_aliases import exported_aliases
             "else:\n    def launch():\n        raise NotImplementedError\n",
             {"public.api.launch": "public.macos.launch"},
         ),
+        (  # lazy registry naming a submodule of the declaring module
+            "_EXPORTS = {'value': 'sub'}",
+            {"public.api.value": "public.api.sub.value"},
+        ),
+        (  # lazy registry naming an absolute module in the same package
+            "_EXPORTS = {'value': 'public.core.host'}",
+            {"public.api.value": "public.core.host.value"},
+        ),
         (  # function-local imports stay invisible
             "def f():\n    from pkg import value as value\n",
             {},

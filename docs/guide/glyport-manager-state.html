@@ -1,0 +1,3328 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/guide/glyport-manager-state.html">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>Keep manager state, ranks and placeholder fonts distinct - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../assets/reference.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#keep-manager-state-ranks-and-placeholder-fonts-distinct" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Keep manager state, ranks and placeholder fonts distinct
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="native-hooks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native Python hooks in FontLab 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-parameters.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameters and Arabic encodings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-metadata.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Unicode and ROS metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-unicode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Global Unicode Glyph Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-production.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stored production metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-compounds.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compound Glyph Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-descriptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stored glyph descriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-managers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata managers and profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/ecosystem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem and package boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/plugmix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugmix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/scriptmix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scriptmix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#prepare-three-visible-setups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare three visible setups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-the-current-graph-without-making-a-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspect the current graph without making a copy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inspect the current graph without making a copy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-the-raw-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read the raw containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-the-supplied-object-including-nil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Store the supplied object, including nil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distinguish-a-nil-category-from-missing-initialized-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distinguish a nil category from missing initialized state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-correct-order-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use the correct order source
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use the correct order source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#script-ranks-use-the-current-script-list-when-first-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script ranks use the current script list when first built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category-ranks-use-sidebarcategories-then-four-terminal-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Category ranks use sidebarCategories, then four terminal names
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mutating-a-list-does-not-refresh-an-already-built-rank-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mutating a list does not refresh an already built rank cache
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-initialization-is-a-smaller-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug initialization is a smaller operation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug initialization is a smaller operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#allocate-a-queue-and-group-dictionary-leaving-raw-indexes-nil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Allocate a queue and group dictionary, leaving raw indexes nil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reinitialize-without-clearing-unrelated-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reinitialize without clearing unrelated state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#let-the-real-base-parser-adopt-initially-nil-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Let the real base parser adopt initially nil containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#separate-missing-file-falsenil-from-an-actual-parse-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separate missing-file false/nil from an actual parse error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preserve-the-partial-queue-when-a-primitive-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preserve the partial queue when a primitive fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-construction-and-observer-lifetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared construction and observer lifetime
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shared construction and observer lifetime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-actual-loading-before-registering-the-shared-observer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run actual loading before registering the shared observer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retain-an-existing-local-url-and-the-observer-flags-low-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retain an existing local URL and the observer flag's low bit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-the-current-global-shared-receiver-then-dispatch-superclass-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove the current global shared receiver, then dispatch superclass cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-failed-removal-neither-clears-the-flag-nor-destroys-the-receiver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A failed removal neither clears the flag nor destroys the receiver
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#treat-placeholder-fonts-as-an-explicit-primitive-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Treat placeholder fonts as an explicit primitive contract
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Treat placeholder fonts as an explicit primitive contract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#last-successful-duplicate-wins-nil-loads-do-not-replace-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Last successful duplicate wins; nil loads do not replace it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-a-published-partial-cache-after-a-later-load-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep a published partial cache after a later load fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invalidation-drops-the-pointer-without-releasing-the-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invalidation drops the pointer without releasing the dictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-primitives-are-capability-gaps-even-when-inputs-look-empty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing primitives are capability gaps even when inputs look empty
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolve-the-current-provider-on-every-class-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolve the current provider on every class call
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observe-only-the-exact-retained-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observe only the exact retained key
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preserve-error-and-recovery-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preserve error and recovery order
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preserve error and recovery order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#present-the-retained-domain-code-and-message-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Present the retained domain, code and message fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reveal-a-path-only-for-the-retained-codes-and-option1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reveal a path only for the retained codes and option1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-both-error-code-reads-in-their-original-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep both error-code reads in their original order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward-nil-paths-and-propagate-a-failing-reveal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward nil paths and propagate a failing reveal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-these-experiments-establish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What these experiments establish
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="keep-manager-state-ranks-and-placeholder-fonts-distinct">Keep manager state, ranks and placeholder fonts distinct</h1>
+<p>A glyph-info manager holds several graphs at once: raw records and indexes,
+sidebar groups, lazy rank caches, a work queue and observer state. A new list
+does not necessarily mean a new index, and changing a list does not necessarily
+invalidate its cached order. These experiments show the actual source-derived
+behavior and its failure boundaries.</p>
+<p>The described implementation is pinned to Glyport
+<code>5e04d1168b4e33823bed4940fce308637f8abadd</code>. It has source and package-archive
+verification. Matching Echopy declarations, ordinary installations and native
+FontLab workflows require their own verification.</p>
+<p>Start with <a href="glyport-managers.html">metadata managers and execution profiles</a> for
+lookup and complete local initialization, then
+<a href="glyport-sidebar.html">sidebar trees and document metadata</a> for projected groups,
+counts and URL loading. This page covers raw accessor identity, retained rank
+caches, debug/shared construction, observation, placeholder fonts and recovery.</p>
+<h2 id="prepare-three-visible-setups">Prepare three visible setups</h2>
+<p>For each tagged experiment, use a fresh namespace. Execute the
+<a href="glyport-managers.html#prepare-an-owned-graph">owned graph setup</a>, then the
+<code>glyport-local-lifecycle</code> setup in
+<a href="glyport-managers.html#construct-and-reload-a-local-manager-with-explicit-dependencies">connected local initialization</a>,
+then the setup below, and finally that single experiment. Do not carry a prior
+experiment's globals or mutations into the next one.</p>
+<p>The examples call the actual exported <code>GSGlyphsInfo</code> class. Attaching
+<code>InfoState</code> is an explicit implementation-level source experiment, not complete
+resource initialization. The two shared-constructor examples instead run the
+actual parser/sidebar/lifecycle and queued algorithms with the existing visible
+invented lifecycle provider.</p>
+<p>The following provider supplies individual operations only. It does not build
+rank caches, implement manager initialization, parse glyph data, choose a font,
+manage the global placeholder cache or perform error recovery. Its dictionaries
+and font tokens are owned Python models. The CF callback names are adapter
+contracts; they are not native pointers. No font file, framework, defaults
+database, application or workspace is accessed.</p>
+<!-- setup: glyport-owned-manager-state -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tempfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">TemporaryDirectory</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnsupportedCapability</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSGlyphsInfo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp.info_runtime</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">InfoErrorSlot</span><span class="p">,</span> <span class="n">InfoState</span><span class="p">,</span> <span class="n">using_info_provider</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">info_manager_observation</span>
+
+<span class="n">OBSERVER_KEY</span> <span class="o">=</span> <span class="s2">&quot;values.GSScriptToPlaceholderFontPath&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ManagerQueue</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">provider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maximum</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending</span> <span class="o">=</span> <span class="n">provider</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">[]</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setMaxConcurrentOperationCount_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;limit&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maximum</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">addOperationWithBlock_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pending</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">waitUntilAllOperationsAreFinished</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;wait&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pending</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)()</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ManagerPrimitives</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;owned&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">queues</span> <span class="o">=</span> <span class="n">label</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rows</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">font_files</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fail_store</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">new_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;new-queue&quot;</span><span class="p">,))</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="n">ManagerQueue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queue</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">active_processor_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;processors&quot;</span><span class="p">,))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_count</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_count</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">defaults_object_for_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;GSScriptToPlaceholderFontPath&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;defaults&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rows</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cf_dictionary_create_mutable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allocator</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">allocator</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="k">assert</span> <span class="n">keys</span> <span class="o">==</span> <span class="s2">&quot;kCFTypeDictionaryKeyCallBacks&quot;</span>
+        <span class="k">assert</span> <span class="n">values</span> <span class="o">==</span> <span class="s2">&quot;kCFTypeDictionaryValueCallBacks&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;dictionary&quot;</span><span class="p">,</span> <span class="n">capacity</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">{}</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cg_font_with_file_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;load-font&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">font_files</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cf_dictionary_set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;store-font&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fail_store</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;owned store failure&quot;</span><span class="p">)</span>
+        <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cf_release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;release&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cf_dictionary_get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;lookup&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">dictionary</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ct_font_create_with_graphics_font</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">font</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">attributes</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">matrix</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">attributes</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;sized-font&quot;</span><span class="p">,</span> <span class="n">font</span><span class="p">,</span> <span class="n">size</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">graphics</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">provider</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_observer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;add-observer&quot;</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">context</span><span class="p">))</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove_observer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;remove-observer&quot;</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">super_dealloc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">receiver</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;super-dealloc&quot;</span><span class="p">,</span> <span class="n">receiver</span><span class="p">))</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">present_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;present-error&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">select_file_in_viewer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;reveal-file&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">root</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">()</span> <span class="k">if</span> <span class="n">provider</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">provider</span>
+    <span class="n">manager</span> <span class="o">=</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">alloc</span><span class="p">()</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">_lifecycle</span> <span class="o">=</span> <span class="n">InfoState</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">_fixed_index</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span>
+    <span class="k">return</span> <span class="n">manager</span><span class="p">,</span> <span class="n">state</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">owned_placeholder_cache</span><span class="p">():</span>
+    <span class="n">saved</span> <span class="o">=</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span>
+    <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span> <span class="o">=</span> <span class="n">saved</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">owned_shared_pointer</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="n">saved</span> <span class="o">=</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">_shared</span>
+    <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">_shared</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">_shared</span> <span class="o">=</span> <span class="n">saved</span>
+</code></pre></div>
+<p>The two context managers isolate this process's owned source experiments and
+restore the exact previous objects. Assigning these private globals is not a
+supported application cache-refresh or singleton-management API. Explicit
+<code>dealloc</code> examples record a superclass primitive; they do not destroy a native
+object. Do not call these model helpers or manual destruction experiments on
+FontLab's live native objects.</p>
+<h2 id="inspect-the-current-graph-without-making-a-copy">Inspect the current graph without making a copy</h2>
+<h3 id="read-the-raw-containers">Read the raw containers</h3>
+<p>These getters return exact current storage. A read through <code>name2Info</code> sees
+later mutations to that same dictionary; it does not build a detached snapshot.</p>
+<!-- example: glyport-manager-raw-identity -->
+<div class="highlight"><pre><span></span><code><span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">()</span>
+<span class="n">row</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;owned.raw&quot;</span><span class="p">)</span>
+<span class="n">rows</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">],</span> <span class="p">{</span><span class="s2">&quot;owned.raw&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;0041&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">}</span>
+<span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unicodes</span> <span class="o">=</span> <span class="n">rows</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">codes</span>
+<span class="n">state</span><span class="o">.</span><span class="n">scriptIDs</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">sidebarCategories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;owned&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Letter&quot;</span><span class="p">]</span>
+<span class="n">state</span><span class="o">.</span><span class="n">categories</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">subCategories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mark&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Above&quot;</span><span class="p">]</span>
+<span class="n">state</span><span class="o">.</span><span class="n">iMatraCombinations</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;owned&quot;</span><span class="p">:</span> <span class="s2">&quot;combination&quot;</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">glyphInfos</span><span class="p">()</span> <span class="ow">is</span> <span class="n">rows</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">name2Info</span><span class="p">()</span> <span class="ow">is</span> <span class="n">names</span> <span class="ow">and</span> <span class="n">manager</span><span class="o">.</span><span class="n">unicode2Info</span><span class="p">()</span> <span class="ow">is</span> <span class="n">codes</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">scriptIDs</span><span class="p">()</span> <span class="ow">is</span> <span class="n">state</span><span class="o">.</span><span class="n">scriptIDs</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">sidebarCategories</span><span class="p">()</span> <span class="ow">is</span> <span class="n">state</span><span class="o">.</span><span class="n">sidebarCategories</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">categories</span><span class="p">()</span> <span class="ow">is</span> <span class="n">state</span><span class="o">.</span><span class="n">categories</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">subCategories</span><span class="p">()</span> <span class="ow">is</span> <span class="n">state</span><span class="o">.</span><span class="n">subCategories</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">iMatraCombinations</span><span class="p">()</span> <span class="ow">is</span> <span class="n">state</span><span class="o">.</span><span class="n">iMatraCombinations</span>
+<span class="n">names</span><span class="p">[</span><span class="s2">&quot;owned.alias&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">name2Info</span><span class="p">()[</span><span class="s2">&quot;owned.alias&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="n">row</span>
+</code></pre></div>
+<h3 id="store-the-supplied-object-including-nil">Store the supplied object, including nil</h3>
+<p>The list and group setters neither copy nor normalize. Each getter returns the
+identical assigned object. Python <code>None</code> represents the owned model's nil.</p>
+<!-- example: glyport-manager-setter-identity -->
+<div class="highlight"><pre><span></span><code><span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">()</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">setGlyphInfos_</span><span class="p">,</span> <span class="n">manager</span><span class="o">.</span><span class="n">glyphInfos</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">setLanguagesGroup_</span><span class="p">,</span> <span class="n">manager</span><span class="o">.</span><span class="n">languagesGroup</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">setCategoriesGroup_</span><span class="p">,</span> <span class="n">manager</span><span class="o">.</span><span class="n">categoriesGroup</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">setAllItem_</span><span class="p">,</span> <span class="n">manager</span><span class="o">.</span><span class="n">allItem</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">setFilterGroups_</span><span class="p">,</span> <span class="n">manager</span><span class="o">.</span><span class="n">filterGroups</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">setter</span><span class="p">,</span> <span class="n">getter</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">supplied</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;owned&quot;</span><span class="p">]</span>
+    <span class="n">setter</span><span class="p">(</span><span class="n">supplied</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">getter</span><span class="p">()</span> <span class="ow">is</span> <span class="n">supplied</span>
+    <span class="n">supplied</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;later&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">getter</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;owned&quot;</span><span class="p">,</span> <span class="s2">&quot;later&quot;</span><span class="p">]</span>
+    <span class="n">setter</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">getter</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">records</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div>
+<h3 id="distinguish-a-nil-category-from-missing-initialized-state">Distinguish a nil category from missing initialized state</h3>
+<p>A nil category returns nil before checking the manager lifecycle. A real
+category reads the current subcategory-order dictionary and returns its value
+without copying it.</p>
+<!-- example: glyport-manager-subcategory-identity -->
+<div class="highlight"><pre><span></span><code><span class="n">uninitialized</span> <span class="o">=</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">alloc</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">uninitialized</span><span class="o">.</span><span class="n">_subcategoriesForSidebarCategory_</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">()</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Above&quot;</span><span class="p">,</span> <span class="s2">&quot;Below&quot;</span><span class="p">]</span>
+<span class="n">state</span><span class="o">.</span><span class="n">subCategoryOrder</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Mark&quot;</span><span class="p">:</span> <span class="n">values</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">_subcategoriesForSidebarCategory_</span><span class="p">(</span><span class="s2">&quot;Mark&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="n">values</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">_subcategoriesForSidebarCategory_</span><span class="p">(</span><span class="s2">&quot;Letter&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="n">state</span><span class="o">.</span><span class="n">subCategoryOrder</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">_subcategoriesForSidebarCategory_</span><span class="p">(</span><span class="s2">&quot;Mark&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div>
+<h2 id="use-the-correct-order-source">Use the correct order source</h2>
+<h3 id="script-ranks-use-the-current-script-list-when-first-built">Script ranks use the current script list when first built</h3>
+<p>Repeated keys overwrite earlier positions. A missing key returns the retained
+NSNotFound value, <code>2**63 - 1</code>, rather than <code>-1</code> or a new appended rank.</p>
+<!-- example: glyport-manager-script-ranks -->
+<div class="highlight"><pre><span></span><code><span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">()</span>
+<span class="n">state</span><span class="o">.</span><span class="n">scriptIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;owned&quot;</span><span class="p">,</span> <span class="s2">&quot;latin&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">scriptOrder</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInScripts_</span><span class="p">(</span><span class="s2">&quot;owned&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInScripts_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInScripts_</span><span class="p">(</span><span class="s2">&quot;absent&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="mi">63</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">scriptOrder</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;owned&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="category-ranks-use-sidebarcategories-then-four-terminal-names">Category ranks use sidebarCategories, then four terminal names</h3>
+<p>The generic category list is a different field. After enumerating sidebar
+categories, the algorithm assigns Icon, SF-Symbol, Private Use and Corner
+successive terminal positions. Their exact spellings matter.</p>
+<!-- example: glyport-manager-category-ranks -->
+<div class="highlight"><pre><span></span><code><span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">()</span>
+<span class="n">state</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Wrong list&quot;</span><span class="p">]</span>
+<span class="n">state</span><span class="o">.</span><span class="n">sidebarCategories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mark&quot;</span><span class="p">,</span> <span class="s2">&quot;Icon&quot;</span><span class="p">,</span> <span class="s2">&quot;Letter&quot;</span><span class="p">,</span> <span class="s2">&quot;Mark&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInCategories_</span><span class="p">(</span><span class="s2">&quot;Mark&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInCategories_</span><span class="p">(</span><span class="s2">&quot;Letter&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInCategories_</span><span class="p">(</span><span class="s2">&quot;Wrong list&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="mi">63</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInCategories_</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span>
+        <span class="p">[</span><span class="s2">&quot;Icon&quot;</span><span class="p">,</span> <span class="s2">&quot;SF-Symbol&quot;</span><span class="p">,</span> <span class="s2">&quot;Private Use&quot;</span><span class="p">,</span> <span class="s2">&quot;Corner&quot;</span><span class="p">]]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInCategories_</span><span class="p">(</span><span class="s2">&quot;PrivateUse&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="mi">63</span> <span class="o">-</span> <span class="mi">1</span>
+</code></pre></div>
+<h3 id="mutating-a-list-does-not-refresh-an-already-built-rank-cache">Mutating a list does not refresh an already built rank cache</h3>
+<p>No rank invalidation is implied by a raw list change or group setter. This is
+useful when diagnosing a view whose raw category list and cached order disagree.
+The experiment observes that state; it does not recommend assigning private
+cache fields in an application.</p>
+<!-- example: glyport-manager-retained-ranks -->
+<div class="highlight"><pre><span></span><code><span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">()</span>
+<span class="n">state</span><span class="o">.</span><span class="n">scriptIDs</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">sidebarCategories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;latin&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Letter&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInScripts_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInCategories_</span><span class="p">(</span><span class="s2">&quot;Letter&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">script_cache</span><span class="p">,</span> <span class="n">category_cache</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">scriptOrder</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">categoryOrder</span>
+<span class="n">state</span><span class="o">.</span><span class="n">scriptIDs</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;owned&quot;</span><span class="p">]</span>
+<span class="n">state</span><span class="o">.</span><span class="n">sidebarCategories</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mark&quot;</span><span class="p">]</span>
+<span class="n">manager</span><span class="o">.</span><span class="n">setCategoriesGroup_</span><span class="p">([</span><span class="s2">&quot;different group&quot;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInScripts_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInScripts_</span><span class="p">(</span><span class="s2">&quot;owned&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="mi">63</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInCategories_</span><span class="p">(</span><span class="s2">&quot;Letter&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInCategories_</span><span class="p">(</span><span class="s2">&quot;Mark&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="mi">63</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">scriptOrder</span> <span class="ow">is</span> <span class="n">script_cache</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">categoryOrder</span> <span class="ow">is</span> <span class="n">category_cache</span>
+</code></pre></div>
+<p>The source checks for nil before synchronizing, then builds unconditionally
+inside the manager monitor. It publishes the cache before enumeration. Lookup
+locks the captured cache object but reads the current field. Owned RLocks and
+dictionaries do not establish Foundation key copying, fast-enumeration mutation
+counters, exception ABI or native concurrency. Stored ranks use signed 32-bit
+arithmetic and are returned as unsigned 64-bit values.</p>
+<h2 id="debug-initialization-is-a-smaller-operation">Debug initialization is a smaller operation</h2>
+<h3 id="allocate-a-queue-and-group-dictionary-leaving-raw-indexes-nil">Allocate a queue and group dictionary, leaving raw indexes nil</h3>
+<p><code>initDebug</code> creates a queue, queries the current active processor count,
+configures the then-current queue, then replaces name2Group. It does not load
+glyph data, create sidebar groups or register an observer. name2Group is not
+name2Info.</p>
+<!-- example: glyport-manager-debug-initial -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span><span class="p">,</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">(),</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">alloc</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">initDebug</span><span class="p">()</span> <span class="ow">is</span> <span class="n">manager</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">_lifecycle</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">queue</span> <span class="ow">is</span> <span class="n">provider</span><span class="o">.</span><span class="n">queues</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">maximum</span> <span class="o">==</span> <span class="mi">7</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">name2Group</span> <span class="o">==</span> <span class="p">{}</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">records</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unicodes</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">scriptIDs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">categoriesGroup</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">localURL</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">state</span><span class="o">.</span><span class="n">shared</span>
+<span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;new-queue&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;processors&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;limit&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>
+</code></pre></div>
+<h3 id="reinitialize-without-clearing-unrelated-state">Reinitialize without clearing unrelated state</h3>
+<p>Only the queue and group dictionary are replaced. Existing raw containers,
+local URL, rank cache and observer flag survive. Changing the explicit provider
+changes the primitives used by later source operations.</p>
+<!-- example: glyport-manager-debug-reinitialize -->
+<div class="highlight"><pre><span></span><code><span class="n">old_provider</span><span class="p">,</span> <span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">),</span> <span class="n">ManagerPrimitives</span><span class="p">(</span><span class="s2">&quot;second&quot;</span><span class="p">)</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">old_provider</span><span class="p">)</span>
+<span class="n">url</span><span class="p">,</span> <span class="n">old_groups</span> <span class="o">=</span> <span class="nb">object</span><span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;old&quot;</span><span class="p">:</span> <span class="nb">object</span><span class="p">()}</span>
+<span class="n">state</span><span class="o">.</span><span class="n">localURL</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">name2Group</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span> <span class="n">old_groups</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">rows</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">codes</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unicodes</span>
+<span class="n">state</span><span class="o">.</span><span class="n">scriptIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;latin&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">indexOfObjectInScripts_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">cache</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">scriptOrder</span>
+<span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">initDebug</span><span class="p">()</span>
+<span class="n">first_queue</span><span class="p">,</span> <span class="n">first_groups</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">name2Group</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">cpu_count</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">initDebug</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">_lifecycle</span> <span class="ow">is</span> <span class="n">state</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">localURL</span> <span class="ow">is</span> <span class="n">url</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">provider</span> <span class="ow">is</span> <span class="n">provider</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">records</span> <span class="ow">is</span> <span class="n">rows</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="ow">is</span> <span class="n">names</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unicodes</span> <span class="ow">is</span> <span class="n">codes</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">scriptOrder</span> <span class="ow">is</span> <span class="n">cache</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">queue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">first_queue</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">maximum</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">name2Group</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">first_groups</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">name2Group</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">old_groups</span>
+</code></pre></div>
+<h3 id="let-the-real-base-parser-adopt-initially-nil-containers">Let the real base parser adopt initially nil containers</h3>
+<p>This runs the actual base scanner and commit logic. It does not supply a
+precomputed parsed result. The parser installs its row/name/Unicode containers
+while retaining the group dictionary created by debug initialization.</p>
+<!-- example: glyport-manager-debug-base-adoption -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span><span class="p">,</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">(),</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">alloc</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">initDebug</span><span class="p">()</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">_lifecycle</span><span class="o">.</span><span class="n">name2Group</span>
+<span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span> <span class="k">as</span> <span class="n">temporary</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">temporary</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;OwnedGlyphData.xml&quot;</span>
+    <span class="n">source</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">&#39;&lt;glyph name=&quot;owned.debug&quot; unicode=&quot;0041&quot; &#39;</span>
+                      <span class="s1">&#39;category=&quot;Letter&quot; script=&quot;latin&quot;/&gt;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">source</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">loadGlyphDataFromURL_error_</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="n">row</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">glyphInfos</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">name2Info</span><span class="p">()[</span><span class="s2">&quot;owned.debug&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="n">row</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">unicode2Info</span><span class="p">()[</span><span class="s2">&quot;0041&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="n">row</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">infoFromDataForName_</span><span class="p">(</span><span class="s2">&quot;owned.debug&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="n">manager</span><span class="o">.</span><span class="n">infoFromDataForUnicode_</span><span class="p">(</span><span class="s2">&quot;0041&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">_lifecycle</span><span class="o">.</span><span class="n">name2Group</span> <span class="ow">is</span> <span class="n">groups</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">provider</span><span class="o">.</span><span class="n">queues</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">provider</span><span class="o">.</span><span class="n">queues</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">maximum</span> <span class="o">==</span> <span class="mi">7</span>
+</code></pre></div>
+<h3 id="separate-missing-file-falsenil-from-an-actual-parse-error">Separate missing-file false/nil from an actual parse error</h3>
+<p>A normal open failure returns false with a nil error. A qualified malformed
+attribute returns false with an error. Neither commits raw containers. Unknown
+native row-prefix/recovery behavior can still refuse as an unsupported
+capability; an arbitrary malformed string is not evidence of an ordinary
+parser error.</p>
+<!-- example: glyport-manager-debug-base-failure -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span><span class="p">,</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">(),</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">alloc</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">initDebug</span><span class="p">()</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">_lifecycle</span><span class="o">.</span><span class="n">name2Group</span>
+<span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span> <span class="k">as</span> <span class="n">temporary</span><span class="p">:</span>
+    <span class="n">folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">temporary</span><span class="p">)</span>
+    <span class="n">missing</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;absent.xml&quot;</span><span class="p">))</span>
+    <span class="n">slot</span> <span class="o">=</span> <span class="n">InfoErrorSlot</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">loadGlyphDataFromURL_error_</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="n">slot</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span>
+    <span class="k">assert</span> <span class="n">slot</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span>
+    <span class="n">malformed</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;OwnedMalformed.xml&quot;</span>
+    <span class="n">malformed</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">&quot;&lt;glyph name=/&gt;&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="n">bad</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">malformed</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">loadGlyphDataFromURL_error_</span><span class="p">(</span><span class="n">bad</span><span class="p">,</span> <span class="n">slot</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span>
+    <span class="k">assert</span> <span class="n">slot</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">glyphInfos</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">manager</span><span class="o">.</span><span class="n">name2Info</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">unicode2Info</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">manager</span><span class="o">.</span><span class="n">_lifecycle</span><span class="o">.</span><span class="n">name2Group</span> <span class="ow">is</span> <span class="n">groups</span>
+</code></pre></div>
+<h3 id="preserve-the-partial-queue-when-a-primitive-fails">Preserve the partial queue when a primitive fails</h3>
+<p>A processor-count failure occurs after queue assignment and before group
+replacement. A missing queue primitive is an explicit capability gap, not a
+successful empty initialization.</p>
+<!-- example: glyport-manager-debug-partial-failure -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">()</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">name2Group</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;keep&quot;</span><span class="p">:</span> <span class="nb">object</span><span class="p">()}</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">cpu_count</span> <span class="o">=</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;owned processor failure&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">manager</span><span class="o">.</span><span class="n">initDebug</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;owned processor failure&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;The failing primitive must propagate&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">queue</span> <span class="ow">is</span> <span class="n">provider</span><span class="o">.</span><span class="n">queues</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">maximum</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">name2Group</span> <span class="ow">is</span> <span class="n">groups</span>
+<span class="n">other</span> <span class="o">=</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">alloc</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="nb">object</span><span class="p">()):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">other</span><span class="o">.</span><span class="n">initDebug</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">UnsupportedCapability</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">capability</span> <span class="o">==</span> <span class="s2">&quot;GSGlyphsInfo.provider.new_queue&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Missing queue allocation must refuse&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">other</span><span class="o">.</span><span class="n">_lifecycle</span><span class="o">.</span><span class="n">queue</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">other</span><span class="o">.</span><span class="n">_lifecycle</span><span class="o">.</span><span class="n">name2Group</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div>
+<h2 id="shared-construction-and-observer-lifetime">Shared construction and observer lifetime</h2>
+<h3 id="run-actual-loading-before-registering-the-shared-observer">Run actual loading before registering the shared observer</h3>
+<p>This example executes the actual shared constructor, parser, sidebar builder,
+complete fixed generation algorithms over the four visible invented banks and
+queued summaries/linking from the earlier lifecycle setup. Only the individual
+resource/queue primitives come from that setup. Observer registration follows
+the final queue drain.</p>
+<!-- example: glyport-manager-shared-drain-register -->
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">owned_lifecycle</span><span class="p">()</span> <span class="k">as</span> <span class="p">(</span><span class="n">provider</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">manager</span> <span class="o">=</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">sharedManager</span><span class="p">()</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">_lifecycle</span>
+    <span class="k">assert</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">_shared</span> <span class="ow">is</span> <span class="n">manager</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">shared</span>
+    <span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">name2Info</span><span class="p">()[</span><span class="s2">&quot;owned.base&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="s2">&quot;owned.base&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">categoriesGroup</span><span class="p">()</span> <span class="ow">is</span> <span class="n">state</span><span class="o">.</span><span class="n">categoriesGroup</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">glyphInfos</span><span class="p">()</span> <span class="ow">is</span> <span class="n">state</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">records</span>
+    <span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">bank_calls</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">glyphInfos</span><span class="p">())</span> <span class="o">==</span> <span class="mi">38281</span>
+    <span class="k">assert</span> <span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">index</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">manager</span><span class="o">.</span><span class="n">glyphInfos</span><span class="p">()]</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">38281</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">infoFromDataForUnicode_</span><span class="p">(</span><span class="s2">&quot;30000&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">script</span> <span class="o">==</span> <span class="s2">&quot;han&quot;</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="ow">not</span> <span class="n">queue</span><span class="o">.</span><span class="n">pending</span> <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">provider</span><span class="o">.</span><span class="n">queues</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span>
+        <span class="s2">&quot;observer&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">OBSERVER_KEY</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;wait&quot;</span>
+</code></pre></div>
+<h3 id="retain-an-existing-local-url-and-the-observer-flags-low-bit">Retain an existing local URL and the observer flag's low bit</h3>
+<p>Reinitializing an allocated local-state receiver through plain init retains its
+URL and state identity. Flag3 already has the low bit set, so registration is
+skipped. Exact-1 removal is a different condition, shown next.</p>
+<!-- example: glyport-manager-shared-existing-state -->
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">owned_lifecycle</span><span class="p">()</span> <span class="k">as</span> <span class="p">(</span><span class="n">provider</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">localURL</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span> <span class="mi">3</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">name2Group</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">init</span><span class="p">()</span> <span class="ow">is</span> <span class="n">manager</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">_lifecycle</span> <span class="ow">is</span> <span class="n">state</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">localURL</span> <span class="ow">is</span> <span class="n">url</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">shared</span>
+    <span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">name2Group</span> <span class="ow">is</span> <span class="n">groups</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">name2Info</span><span class="p">()[</span><span class="s2">&quot;owned.local&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;owned.local&quot;</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;observer&quot;</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="ow">not</span> <span class="n">queue</span><span class="o">.</span><span class="n">pending</span> <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">provider</span><span class="o">.</span><span class="n">queues</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="remove-the-current-global-shared-receiver-then-dispatch-superclass-cleanup">Remove the current global shared receiver, then dispatch superclass cleanup</h3>
+<p>The source removes only when the original receiver flag equals exactly1.
+It removes the current global shared receiver, which need not be the original
+receiver. Every successful path then sends the explicit superclass primitive.
+The fixture records this dispatch without performing native destruction.</p>
+<!-- example: glyport-manager-dealloc-current-shared -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">()</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+<span class="n">current</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">with</span> <span class="n">owned_shared_pointer</span><span class="p">(</span><span class="n">current</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">dealloc</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;remove-observer&quot;</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="n">OBSERVER_KEY</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;super-dealloc&quot;</span><span class="p">,</span> <span class="n">manager</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">with</span> <span class="n">owned_shared_pointer</span><span class="p">(</span><span class="n">current</span><span class="p">):</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">dealloc</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;super-dealloc&quot;</span><span class="p">,</span> <span class="n">manager</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">==</span> <span class="mi">3</span>
+</code></pre></div>
+<h3 id="a-failed-removal-neither-clears-the-flag-nor-destroys-the-receiver">A failed removal neither clears the flag nor destroys the receiver</h3>
+<p>Failure order matters for recovery. The superclass primitive must not run after
+a failing observer-removal primitive; unrelated state remains available.</p>
+<!-- example: glyport-manager-dealloc-failure -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">()</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+<span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">categoriesGroup</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;owned&quot;</span><span class="p">]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fail_remove</span><span class="p">(</span><span class="n">receiver</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;remove-failed&quot;</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;owned removal failure&quot;</span><span class="p">)</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">remove_observer</span> <span class="o">=</span> <span class="n">fail_remove</span>
+<span class="k">with</span> <span class="n">owned_shared_pointer</span><span class="p">(</span><span class="n">manager</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">manager</span><span class="o">.</span><span class="n">dealloc</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;owned removal failure&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Failed removal must propagate&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;remove-failed&quot;</span><span class="p">,</span> <span class="n">manager</span><span class="p">,</span> <span class="n">OBSERVER_KEY</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">observer_flag</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">state</span><span class="o">.</span><span class="n">categoriesGroup</span> <span class="ow">is</span> <span class="n">groups</span>
+</code></pre></div>
+<h2 id="treat-placeholder-fonts-as-an-explicit-primitive-contract">Treat placeholder fonts as an explicit primitive contract</h2>
+<h3 id="last-successful-duplicate-wins-nil-loads-do-not-replace-it">Last successful duplicate wins; nil loads do not replace it</h3>
+<p><code>fontForScript_size_</code> is a <strong>class selector</strong>. A first cache miss reads defaults,
+creates and publishes a CF dictionary, then loads rows in order. Each nonnil
+graphics font is stored before its release. Missing files leave prior successful
+entries intact. The result below is an owned sized-font token.</p>
+<!-- example: glyport-manager-font-duplicates -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">()</span>
+<span class="n">first</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="nb">object</span><span class="p">(),</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">rows</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;missing&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;greek&quot;</span><span class="p">,</span> <span class="s2">&quot;also-missing&quot;</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">font_files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;first&quot;</span><span class="p">:</span> <span class="n">first</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="n">second</span><span class="p">}</span>
+<span class="k">with</span> <span class="n">owned_placeholder_cache</span><span class="p">(),</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mf">13.5</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">answer</span><span class="o">.</span><span class="n">graphics</span> <span class="ow">is</span> <span class="n">second</span> <span class="ow">and</span> <span class="n">answer</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mf">13.5</span>
+    <span class="k">assert</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;greek&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span>
+    <span class="k">assert</span> <span class="n">cache</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;latin&quot;</span><span class="p">:</span> <span class="n">second</span><span class="p">}</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">event</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;release&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;release&quot;</span><span class="p">,</span> <span class="n">first</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;release&quot;</span><span class="p">,</span> <span class="n">second</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;load-font&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span>
+    <span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="s2">&quot;missing&quot;</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">,</span> <span class="s2">&quot;also-missing&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="keep-a-published-partial-cache-after-a-later-load-fails">Keep a published partial cache after a later load fails</h3>
+<p>There is no retry or rollback hidden inside the class selector. A later lookup
+uses the surviving nonnil cache; merely fixing the provider input does not
+restart enumeration.</p>
+<!-- example: glyport-manager-font-partial-cache -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">(),</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">rows</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;greek&quot;</span><span class="p">,</span> <span class="s2">&quot;broken&quot;</span><span class="p">]]</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">font_files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;first&quot;</span><span class="p">:</span> <span class="n">font</span><span class="p">,</span> <span class="s2">&quot;broken&quot;</span><span class="p">:</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;owned font failure&quot;</span><span class="p">)}</span>
+<span class="k">with</span> <span class="n">owned_placeholder_cache</span><span class="p">(),</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;owned font failure&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;A later failing font load must propagate&quot;</span><span class="p">)</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span>
+    <span class="k">assert</span> <span class="n">cache</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;latin&quot;</span><span class="p">:</span> <span class="n">font</span><span class="p">}</span>
+    <span class="n">provider</span><span class="o">.</span><span class="n">font_files</span><span class="p">[</span><span class="s2">&quot;broken&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;greek&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+    <span class="k">assert</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">graphics</span> <span class="ow">is</span> <span class="n">font</span>
+    <span class="k">assert</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span> <span class="ow">is</span> <span class="n">cache</span>
+<span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;load-font&quot;</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</code></pre></div>
+<h3 id="invalidation-drops-the-pointer-without-releasing-the-dictionary">Invalidation drops the pointer without releasing the dictionary</h3>
+<p>The next class lookup rebuilds. The source invalidator performs no CFRelease of
+the old dictionary or its values. The earlier per-font releases remain recorded;
+there is no invented extra ownership operation.</p>
+<!-- example: glyport-manager-font-invalidate -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">(),</span> <span class="nb">object</span><span class="p">(),</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">rows</span><span class="p">,</span> <span class="n">provider</span><span class="o">.</span><span class="n">font_files</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">]],</span> <span class="p">{</span><span class="s2">&quot;first&quot;</span><span class="p">:</span> <span class="n">first</span><span class="p">}</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">owned_placeholder_cache</span><span class="p">(),</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">graphics</span> <span class="ow">is</span> <span class="n">first</span>
+    <span class="n">old_cache</span> <span class="o">=</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="p">)</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">setNeedsUpdateScriptToFontCache</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span> <span class="ow">is</span> <span class="kc">None</span>
+    <span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="n">events</span>
+    <span class="n">provider</span><span class="o">.</span><span class="n">rows</span><span class="p">,</span> <span class="n">provider</span><span class="o">.</span><span class="n">font_files</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">]],</span> <span class="p">{</span><span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="n">second</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">graphics</span> <span class="ow">is</span> <span class="n">second</span>
+    <span class="k">assert</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">old_cache</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">event</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;release&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;release&quot;</span><span class="p">,</span> <span class="n">first</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;release&quot;</span><span class="p">,</span> <span class="n">second</span><span class="p">)]</span>
+</code></pre></div>
+<h3 id="missing-primitives-are-capability-gaps-even-when-inputs-look-empty">Missing primitives are capability gaps even when inputs look empty</h3>
+<p>An explicit empty list is a fixture choice; it does not authorize a missing
+defaults or CF primitive to succeed. No framework is imported to fill that gap.</p>
+<!-- example: glyport-manager-font-missing-primitive -->
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">owned_placeholder_cache</span><span class="p">(),</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="nb">object</span><span class="p">()):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">UnsupportedCapability</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">capability</span> <span class="o">==</span> <span class="s2">&quot;GSGlyphsInfo.provider.defaults_object_for_key&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Missing defaults primitive must refuse&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">UnsupportedCapability</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">capability</span> <span class="o">==</span> <span class="s2">&quot;GSGlyphsInfo.initialization.provider&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;The class selector needs an explicit current provider&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="resolve-the-current-provider-on-every-class-call">Resolve the current provider on every class call</h3>
+<p>The cache is global across subclasses, but lookup and sized-font creation use
+the provider current at that call. A populated cache does not retain the first
+call's provider as an implicit default.</p>
+<!-- example: glyport-manager-font-current-provider -->
+<div class="highlight"><pre><span></span><code><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">),</span> <span class="n">ManagerPrimitives</span><span class="p">(</span><span class="s2">&quot;second&quot;</span><span class="p">),</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">first</span><span class="o">.</span><span class="n">rows</span><span class="p">,</span> <span class="n">first</span><span class="o">.</span><span class="n">font_files</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;owned&quot;</span><span class="p">]],</span> <span class="p">{</span><span class="s2">&quot;owned&quot;</span><span class="p">:</span> <span class="n">font</span><span class="p">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AnotherManager</span><span class="p">(</span><span class="n">GSGlyphsInfo</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="k">with</span> <span class="n">owned_placeholder_cache</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">first</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;first&quot;</span>
+    <span class="k">with</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">second</span><span class="p">):</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">AnotherManager</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">answer</span><span class="o">.</span><span class="n">graphics</span> <span class="ow">is</span> <span class="n">font</span> <span class="ow">and</span> <span class="n">answer</span><span class="o">.</span><span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;second&quot;</span>
+        <span class="k">assert</span> <span class="n">answer</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">21</span>
+<span class="k">assert</span> <span class="n">second</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;lookup&quot;</span><span class="p">,</span> <span class="s2">&quot;latin&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;sized-font&quot;</span><span class="p">,</span> <span class="n">font</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+</code></pre></div>
+<h3 id="observe-only-the-exact-retained-key">Observe only the exact retained key</h3>
+<p>An unrelated or differently capitalized key leaves the pointer alone. The exact
+key dispatches the overridable invalidation selector and performs no font load.</p>
+<!-- example: glyport-manager-observer-key -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">(),</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">rows</span><span class="p">,</span> <span class="n">provider</span><span class="o">.</span><span class="n">font_files</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="s2">&quot;owned&quot;</span><span class="p">]],</span> <span class="p">{</span><span class="s2">&quot;owned&quot;</span><span class="p">:</span> <span class="n">font</span><span class="p">}</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">owned_placeholder_cache</span><span class="p">(),</span> <span class="n">using_info_provider</span><span class="p">(</span><span class="n">provider</span><span class="p">):</span>
+    <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">fontForScript_size_</span><span class="p">(</span><span class="s2">&quot;latin&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span>
+    <span class="n">before</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;GSScriptToPlaceholderFontPath&quot;</span><span class="p">,</span> <span class="n">OBSERVER_KEY</span><span class="o">.</span><span class="n">lower</span><span class="p">()]:</span>
+        <span class="n">manager</span><span class="o">.</span><span class="n">observeValueForKeyPath_ofObject_change_context_</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">object</span><span class="p">(),</span> <span class="p">{},</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span> <span class="ow">is</span> <span class="n">cache</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">observeValueForKeyPath_ofObject_change_context_</span><span class="p">(</span><span class="n">OBSERVER_KEY</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">info_manager_observation</span><span class="o">.</span><span class="n">_script_to_placeholder_font_cache</span> <span class="ow">is</span> <span class="kc">None</span>
+    <span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="n">before</span>
+</code></pre></div>
+<p>The cache deliberately follows the retained unsynchronized publication and
+current-global-field reads. These serial examples do not establish native race,
+CF retain/release, font decoding, key equality, defaults or fast-enumeration
+semantics. A production adapter must supply and qualify those individual
+operations; an owned Python token is not a usable native font.</p>
+<h2 id="preserve-error-and-recovery-order">Preserve error and recovery order</h2>
+<h3 id="present-the-retained-domain-code-and-message-fields">Present the retained domain, code and message fields</h3>
+<p><code>reportInfoError</code> constructs the source English fields and ignores the
+presentation return value. The error below is an owned InfoError subclass;
+native NSError identity and localization remain unqualified.</p>
+<!-- example: glyport-manager-error-presentation -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">()</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">reportInfoError</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="n">label</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">label</span> <span class="o">==</span> <span class="s2">&quot;present-error&quot;</span>
+<span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">domain</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;GSGlyphsDomain&quot;</span> <span class="ow">and</span> <span class="n">error</span><span class="o">.</span><span class="n">code</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">localizedDescription</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;There was a problem loading glyph data&quot;</span>
+<span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">localizedRecoverySuggestion</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span>
+    <span class="s2">&quot;Please make sure the app is not damaged and maybe re-download it.&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">userInfo</span><span class="p">()[</span><span class="s2">&quot;NSLocalizedDescription&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">error</span><span class="o">.</span><span class="n">localizedDescription</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="reveal-a-path-only-for-the-retained-codes-and-option1">Reveal a path only for the retained codes and option1</h3>
+<p>The workspace primitive receives FilePath and an empty root string. A false
+primitive result is ignored; the manager still returns true after that call.
+Other options do not read userInfo or require a reveal primitive.</p>
+<!-- example: glyport-manager-recovery-options -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">()</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">code</span> <span class="ow">in</span> <span class="p">[</span><span class="mh">0x2AE2</span><span class="p">,</span> <span class="mh">0x8702</span><span class="p">]:</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span> <span class="n">userInfo</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;FilePath&quot;</span><span class="p">:</span> <span class="s2">&quot;owned.font&quot;</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">attemptRecoveryFromError_optionIndex_</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;reveal-file&quot;</span><span class="p">,</span> <span class="s2">&quot;owned.font&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unexpected_info</span><span class="p">():</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Unrelated options must not read userInfo&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">option</span> <span class="ow">in</span> <span class="p">[(</span><span class="mh">0x2AE2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mh">0x8702</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]:</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span> <span class="n">userInfo</span><span class="o">=</span><span class="n">unexpected_info</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">attemptRecoveryFromError_optionIndex_</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="p">[]</span>
+<span class="k">assert</span> <span class="n">GSGlyphsInfo</span><span class="o">.</span><span class="n">alloc</span><span class="p">()</span><span class="o">.</span><span class="n">attemptRecoveryFromError_optionIndex_</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+</code></pre></div>
+<h3 id="keep-both-error-code-reads-in-their-original-order">Keep both error-code reads in their original order</h3>
+<p>For a first code other than0x2ae2, the source reads code again before checking the
+option. A dynamic error can therefore select0x8702 on the second read. This
+experiment exposes that order instead of caching or normalizing the first code.</p>
+<!-- example: glyport-manager-recovery-repeated-code -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">()</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+<span class="n">events</span><span class="p">,</span> <span class="n">codes</span> <span class="o">=</span> <span class="p">[],</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mh">0x8702</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">code</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">codes</span><span class="p">)</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">value</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">():</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;userInfo&quot;</span><span class="p">,))</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;FilePath&quot;</span><span class="p">:</span> <span class="s2">&quot;owned.second&quot;</span><span class="p">}</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span> <span class="n">userInfo</span><span class="o">=</span><span class="n">info</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">attemptRecoveryFromError_optionIndex_</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">events</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="mh">0x8702</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;userInfo&quot;</span><span class="p">,)]</span>
+<span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;reveal-file&quot;</span><span class="p">,</span> <span class="s2">&quot;owned.second&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span>
+<span class="n">events</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">codes</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mh">0x8702</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">attemptRecoveryFromError_optionIndex_</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">events</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="mh">0x8702</span><span class="p">)]</span>
+</code></pre></div>
+<h3 id="forward-nil-paths-and-propagate-a-failing-reveal">Forward nil paths and propagate a failing reveal</h3>
+<p>The source does not replace missing FilePath with the current document or a
+working directory. A failing workspace primitive propagates before a successful
+return. No real file-viewer action occurs in this owned experiment.</p>
+<!-- example: glyport-manager-recovery-nil-failure -->
+<div class="highlight"><pre><span></span><code><span class="n">provider</span> <span class="o">=</span> <span class="n">ManagerPrimitives</span><span class="p">()</span>
+<span class="n">manager</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">owned_state_manager</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="mh">0x2AE2</span><span class="p">,</span> <span class="n">userInfo</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">manager</span><span class="o">.</span><span class="n">attemptRecoveryFromError_optionIndex_</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span> <span class="o">==</span> <span class="p">[(</span><span class="s2">&quot;reveal-file&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fail_reveal</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+    <span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;reveal-failed&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">root</span><span class="p">))</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;owned viewer failure&quot;</span><span class="p">)</span>
+<span class="n">provider</span><span class="o">.</span><span class="n">select_file_in_viewer</span> <span class="o">=</span> <span class="n">fail_reveal</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">attemptRecoveryFromError_optionIndex_</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">caught</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">caught</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;owned viewer failure&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;A failing reveal must propagate before return&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">provider</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="s2">&quot;reveal-failed&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="what-these-experiments-establish">What these experiments establish</h2>
+<p>The examples exercise the installed package's actual source-derived algorithms
+with visible invented inputs. They distinguish raw/current objects, retained
+caches, class-versus-instance dispatch, queue completion, observer conditions,
+partial failure and explicit primitive effects. The ordinary-prefix runner
+checks package origins and forbids source overrides in installed mode.</p>
+<p>They do not establish actual default/private resources, Foundation ownership,
+NSNumber/key/fast-enumeration or exception ABI, NSObject substitution/dispatch-once
+semantics, native fonts/destruction/concurrency, native document observers or the
+original four-font editor workflows. Source, ordinary artifacts, native
+preservation/Undo/Redo/save-reopen and publication remain separate gates.</p>
+
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../tags.html#tag:scripting" class="md-tag md-tag-icon">Scripting</a>
+      
+    
+  </nav>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../assets/javascripts/complete-search-ui.js"
+        data-worker="../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>

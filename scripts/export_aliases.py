@@ -77,7 +77,10 @@ def exported_aliases(tree: ast.Module, module: str, *, package: bool) -> dict[st
                 aliases[module + "." + public] = origin + "." + name.name
     for name, origin in registries.get("_EXPORTS", {}).items():
         if isinstance(name, str) and isinstance(origin, str):
-            aliases[module + "." + name] = module + "." + origin + "." + name
+            # absolute when rooted in this package (fontlabapp.qt.menus), else a submodule
+            absolute = origin.partition(".")[0] == module.partition(".")[0]
+            base = origin if absolute else module + "." + origin
+            aliases[module + "." + name] = base + "." + name
     for name, target in registries.get("ALIASES", {}).items():
         if isinstance(name, str) and isinstance(target, str):
             aliases[module + "." + name] = (

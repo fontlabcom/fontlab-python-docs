@@ -1,0 +1,2954 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Native Python APIs, remote control, Qt interfaces, and the FontLab scripting ecosystem.">
+      
+      
+      
+        <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/guide/glyport-unicode.html">
+      
+      
+        <link rel="prev" href="glyport-metadata.html">
+      
+      
+        <link rel="next" href="glyport-production.html">
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../assets/images/favicon.png">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.1.5">
+    
+    
+      
+        <title>Global Unicode Glyph Info - FontLab Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.5cda52a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.d7242098.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/components.css">
+    
+      <link rel="stylesheet" href="https://i.fontlab.com/fltheme26/1.0.0/theme.css">
+    
+      <link rel="stylesheet" href="../assets/reference.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#global-unicode-glyph-info" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="FontLab Python" class="md-header__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FontLab Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Global Unicode Glyph Info
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2M3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="install.html" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../packages/index.html" class="md-tabs__link">
+          
+  
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../examples/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/index.html" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/fontlab_echopy.html" class="md-tabs__link">
+          
+  
+  
+  Ecosystem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tags.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../topics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Topics
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="FontLab Python" class="md-nav__button md-logo" aria-label="FontLab Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FontLab Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fontlabcom/fontlab-python-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="native.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="native-hooks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Native Python hooks in FontLab 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ui.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panels and drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyphs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyphs compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-parameters.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameters and Arabic encodings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-metadata.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Unicode and ROS metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Global Unicode Glyph Info
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="glyport-unicode.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Global Unicode Glyph Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#call-the-executable-keyword" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Call the executable keyword
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preserve-integer-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preserve integer formatting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glyphs23-integer-name-lookup-discards-the-font-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glyphs2/3 integer name lookup discards the font first
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#respect-refusal-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Respect refusal precedence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exact-combined-index-lookup-precedes-raw-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exact combined-index lookup precedes raw synthesis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-original-utf16-length-before-uppercase-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check original UTF16 length before uppercase expansion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preserve-the-historical-parser-and-raw-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preserve the historical parser and raw encoding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classify-synthesis-using-historical-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classify synthesis using historical ranges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-acceptance-boundaries-explicit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep acceptance boundaries explicit
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-production.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stored production metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-compounds.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compound Glyph Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-descriptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stored glyph descriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glyport-managers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata managers and profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pyside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PySide2 compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="source-checkpoint.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source checkpoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rebuild and contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licenses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Packages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Packages
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/ecosystem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem and package boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/aidus-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/plugmix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugmix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/scriptmix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scriptmix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontgate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontgate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlabpr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fontlabpr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/PythonQt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PythonQt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_echopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlabapp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontlabapp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_remopy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/grablab.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grablab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/pythonqtside.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pythonqtside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fly.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/typerig.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeRig
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_glyport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glyport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_fontport.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fontport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/fontlab_aidus_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aidus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#call-the-executable-keyword" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Call the executable keyword
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preserve-integer-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preserve integer formatting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glyphs23-integer-name-lookup-discards-the-font-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glyphs2/3 integer name lookup discards the font first
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#respect-refusal-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Respect refusal precedence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exact-combined-index-lookup-precedes-raw-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exact combined-index lookup precedes raw synthesis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-original-utf16-length-before-uppercase-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check original UTF16 length before uppercase expansion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preserve-the-historical-parser-and-raw-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preserve the historical parser and raw encoding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classify-synthesis-using-historical-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classify synthesis using historical ranges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-acceptance-boundaries-explicit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep acceptance boundaries explicit
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Start
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="install.html" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="global-unicode-glyph-info">Global Unicode Glyph Info</h1>
+<p>Use <code>Glyphs.glyphInfoForUnicode(string_or_int, font=None)</code> in the default Glyphs4
+profile. Glyphs2/3 use <code>String</code> instead. The current private candidate returns
+the selected manager's read-only <code>GSGlyphInfo</code> view or <code>None</code>; omitting font
+selects shared metadata without reading the active font. Its maintained
+GlyphData index includes primary and legacy encodings. The returned record keeps
+those fields separate; lookup does not assign either encoding to a glyph or run
+font-local postprocessing.</p>
+<p>The <a href="glyport-managers.html">manager/profile guide</a> supplies current runnable
+replacements. The examples below now select their intended profiles explicitly, use real
+font-manager delegation and distinguish unknown public recipes from finalized
+owned recipes. Run its <a href="glyport-managers.html#prepare-an-owned-graph">owned graph setup</a>
+first for the <code>owned_application</code> and <code>owned_parsed_manager</code> fixtures. Original
+predecessor bodies remain preserved in external verification evidence.</p>
+<p>These eight examples use owned offline application fixtures and the linked setup.
+They import actual package exports without activating a synthetic <code>GlyphsApp</code>
+module, opening FontLab or executing an original script. At the earlier named checkpoint, all 24 retained examples
+and 11 then-new <a href="glyport-production.html">production examples</a> passed in both ordinary
+six-wheel prefixes, with installed module origins checked and all 702 runtime/data
+files matching byte for byte. Echopy producer
+provenance matches the corrected Glyport source; exact artifact identities and
+consumer results are on the existing Glyport package page linked below.
+These offline checks do not qualify a published release or native workflow.</p>
+<h2 id="call-the-executable-keyword">Call the executable keyword</h2>
+<p>Glyphs2/3 bind <code>String</code>, with a capital S; Glyphs4 binds <code>string_or_int</code>.
+The human-readable label <code>Unicode</code> is not a keyword alias. Missing/unknown/
+duplicate arguments fail at Python binding before lookup. Current indexed records
+retain canonical record views. Public NFD does not establish a physical metadata
+recipe; an unknown <code>components</code> source now refuses instead of publishing NFD as
+that recipe. The example checks that public refusal, then verifies a known owned recipe.</p>
+<!-- example: glyport-unicode-keyword-snapshot -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnsupportedCapability</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSApplication</span><span class="p">,</span> <span class="n">GSGlyphInfo</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">owned_application</span><span class="p">(</span><span class="s2">&quot;glyphs3&quot;</span><span class="p">,</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">String</span><span class="o">=</span><span class="s2">&quot;004a&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;J&quot;</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;00C1&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">GSGlyphInfo</span><span class="p">)</span> <span class="ow">and</span> <span class="n">info</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Aacute&quot;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">components</span>
+<span class="k">except</span> <span class="n">UnsupportedCapability</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">capability</span> <span class="o">==</span> <span class="s2">&quot;GSGlyphInfo.components.source&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Public NFD does not establish a physical recipe&quot;</span><span class="p">)</span>
+<span class="n">manager</span> <span class="o">=</span> <span class="n">owned_parsed_manager</span><span class="p">()</span>
+<span class="n">manager</span><span class="o">.</span><span class="n">updateComponentsInfos</span><span class="p">()</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">infoFromDataForUnicode_</span><span class="p">(</span><span class="s2">&quot;00C1&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">part</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">components</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;acutecomb&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="n">GSGlyphInfo</span><span class="p">)</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">components</span><span class="p">)</span>
+<span class="n">info</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">part</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">components</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;acutecomb&quot;</span><span class="p">]</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">Unicode</span><span class="o">=</span><span class="s2">&quot;0041&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Unicode is not the executable keyword&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Current known component records are shallow references in independent returned
+lists. <a href="glyport-managers.html#finalize-the-selected-graph-explicitly">Explicit custom finalization</a>
+shows an established recipe without inferring one from an encoding or outline.</p>
+<h2 id="preserve-integer-formatting">Preserve integer formatting</h2>
+<p>Glyphs3 tests <code>isinstance(String, int)</code> and applies exactly <code>"%04X" % String</code>;
+Glyphs2 uses an exact-int test. Glyphs4 uses <code>isinstance</code> and f-string <code>04X</code>
+formatting, including subclass <code>__format__</code>. Four is a minimum width and does
+not validate scalar range. The example selects the real Glyphs3 profile to retain its percent-formatting
+assertions. The new guide also exercises Glyphs2 and Glyphs4.</p>
+<!-- example: glyport-unicode-integer-format -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSApplication</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">OwnedInt</span><span class="p">(</span><span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__int__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Do not coerce an integer subclass&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__format__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">specification</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Preserve percent formatting&quot;</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">owned_application</span><span class="p">(</span><span class="s2">&quot;glyphs3&quot;</span><span class="p">,</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">spelling</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">65</span><span class="p">,</span> <span class="s2">&quot;0041&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">OwnedInt</span><span class="p">(</span><span class="mi">65</span><span class="p">),</span> <span class="s2">&quot;0041&quot;</span><span class="p">),</span>
+                        <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;0001&quot;</span><span class="p">),</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;0000&quot;</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;-001&quot;</span><span class="p">)]:</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">spelling</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">actual</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">actual</span><span class="o">.</span><span class="n">unicode</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">expected</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">expected</span><span class="o">.</span><span class="n">unicode</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">OwnedInt</span><span class="p">(</span><span class="mi">65</span><span class="p">))</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;uni-001&quot;</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="mh">0x10FFFF</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div>
+<p><a id="integer-name-lookup-discards-the-font-first"></a></p>
+<h2 id="glyphs23-integer-name-lookup-discards-the-font-first">Glyphs2/3 integer name lookup discards the font first</h2>
+<p>Glyphs2/3 integer Name dispatch calls the instance Unicode method without a font
+keyword. Glyphs4 passes <code>font=font</code>, including None, through the instance method.
+An explicit-font string Name query selects that font's manager in all three
+profiles. The former unconditional <code>.localData</code> refusal is superseded; a selected
+manager's actual result/error now propagates. The explicit Glyphs3 example below retains its integer/override contract while
+checking real string-name font delegation and its access-error propagation.</p>
+<!-- example: glyport-unicode-name-dispatch -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnsupportedCapability</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSApplication</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">UnreadableFont</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Global lookup must not read the active font&quot;</span><span class="p">)</span>
+
+<span class="n">active</span> <span class="o">=</span> <span class="n">UnreadableFont</span><span class="p">()</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">owned_application</span><span class="p">(</span><span class="s2">&quot;glyphs3&quot;</span><span class="p">,</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="n">active</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForName</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">active</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;0041&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span>
+<span class="n">local</span> <span class="o">=</span> <span class="n">owned_parsed_manager</span><span class="p">()</span>
+<span class="n">explicit</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">glyphsInfo</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">local</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForName</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">explicit</span><span class="p">)</span> <span class="ow">is</span> <span class="n">local</span><span class="o">.</span><span class="n">glyphInfoForName_</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForName</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">active</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Global lookup must not read the active font&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Explicit font access errors must propagate&quot;</span><span class="p">)</span>
+
+<span class="n">calls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OwnedApplication</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">app</span><span class="p">)):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">glyphInfoForUnicode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">calls</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s2">&quot;owned override&quot;</span>
+
+<span class="n">owned</span> <span class="o">=</span> <span class="n">OwnedApplication</span><span class="p">(</span><span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="n">active</span><span class="p">),</span> <span class="nb">object</span><span class="p">(),</span> <span class="p">{},</span> <span class="kc">None</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">owned</span><span class="o">.</span><span class="n">glyphInfoForName</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">active</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;owned override&quot;</span>
+<span class="k">assert</span> <span class="n">calls</span> <span class="o">==</span> <span class="p">[((</span><span class="kc">True</span><span class="p">,),</span> <span class="p">{})]</span>
+</code></pre></div>
+<p>Both global routes ignore active-font glyph state, parameters, ROS and stored
+overrides. They do not invoke the per-glyph metadata postprocessing pipeline.
+A result of <code>None</code> does not trigger a search of <code>font.glyphs</code>.</p>
+<h2 id="respect-refusal-precedence">Respect refusal precedence</h2>
+<p>Integer formatting occurs before selecting an explicit font manager. Only None
+selects shared; a false-valued font still receives <code>glyphsInfo()</code>. There is no
+unconditional <code>.localData</code> refusal. A malformed object used as a font can fail
+at its own method access. With the default manager, built-in strings and None
+remain supported after profile-specific integer dispatch; unqualified bridge
+payload types retain <code>.inputType</code> refusal. The example exercises conversion and selected-manager identity before default
+manager payload checks; it does not manufacture a blanket local-data refusal.</p>
+<!-- example: glyport-unicode-error-order -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnsupportedCapability</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSApplication</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NoCoercion</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Do not stringify bridge inputs&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__index__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Do not coerce bridge inputs to integers&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">OwnedString</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">GSApplication</span><span class="p">(</span><span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="nb">object</span><span class="p">(),</span> <span class="p">{},</span> <span class="kc">None</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Recorder</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">glyphInfoForUnicode_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExplicitFont</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">glyphsInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Recorder</span><span class="p">()</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">65</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\ud800</span><span class="s2">00&quot;</span><span class="p">):</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">ExplicitFont</span><span class="p">())</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">actual</span> <span class="o">==</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">actual</span> <span class="ow">is</span> <span class="n">value</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;0041&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="s2">&quot;glyphsInfo&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;False is an explicit font object, not omitted font&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="mf">65.0</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;0041&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="n">NoCoercion</span><span class="p">(),</span> <span class="n">OwnedString</span><span class="p">(</span><span class="s2">&quot;0041&quot;</span><span class="p">)):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">UnsupportedCapability</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">capability</span> <span class="o">==</span> <span class="s2">&quot;Glyphs.glyphInfoForUnicode.inputType&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Unqualified bridge inputs must refuse&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><a id="exact-primary-lookup-precedes-raw-synthesis"></a></p>
+<h2 id="exact-combined-index-lookup-precedes-raw-synthesis">Exact combined-index lookup precedes raw synthesis</h2>
+<p>After the original-length gate, the uppercase text is the exact Unicode-index
+key. There is no trimming, zero padding, prefix removal or numeric
+canonicalization. Thus <code>004a</code> selects <code>J</code>, while <code>041</code> and <code>000041</code> miss <code>0041</code>
+and synthesize their own raw names. Each source record contributes its
+primary encodings, then its non-nil legacy encoding to the same index, in
+record/file order; the last assignment wins. The parser/loader contract and
+retained ARM instructions establish this ordering, rather than a new native run.</p>
+<p>The pinned public glyphsLib 6.16.2 GlyphData snapshot has 74,247 records and
+71,401 primary keys.
+Its 730 distinct legacy keys produce 72,131 combined keys, with no overlap or
+change to existing primary entries in this snapshot. The duplicated legacy key
+<code>0000</code> belongs first to <code>.null</code>, then to <code>NULL</code>; lookup selects <code>NULL</code>.
+<code>FE8D</code> selects <code>alef-ar.isol</code>, and <code>FE80</code> selects <code>hamza-ar.isol</code>. Their primary
+Unicode remains <code>None</code>; a legacy hit never promotes its key into that field.
+These public counts do not establish proprietary database completeness or the
+same record set in every resource/version. Synthesis applies only after a true
+combined-index miss.</p>
+<!-- example: glyport-unicode-primary-legacy -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSApplication</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">GSApplication</span><span class="p">(</span><span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="nb">object</span><span class="p">(),</span> <span class="p">{},</span> <span class="kc">None</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;004a&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;J&quot;</span>
+<span class="k">for</span> <span class="n">text</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">&quot;041&quot;</span><span class="p">,</span> <span class="s2">&quot;uni041&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;000041&quot;</span><span class="p">,</span> <span class="s2">&quot;uni000041&quot;</span><span class="p">)]:</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">unicode</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">unicodeLegacy</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">text</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">primary</span><span class="p">,</span> <span class="n">legacy</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;FE8D&quot;</span><span class="p">,</span> <span class="s2">&quot;alef-ar.isol&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;FE8D&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;FE80&quot;</span><span class="p">,</span> <span class="s2">&quot;hamza-ar.isol&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;FE80&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;0000&quot;</span><span class="p">,</span> <span class="s2">&quot;NULL&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;0000&quot;</span><span class="p">),</span>
+<span class="p">]:</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">unicode</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">unicodeLegacy</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">primary</span><span class="p">,</span> <span class="n">legacy</span><span class="p">)</span>
+    <span class="n">named</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForName</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">named</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">named</span><span class="o">.</span><span class="n">unicode</span><span class="p">,</span> <span class="n">named</span><span class="o">.</span><span class="n">unicodeLegacy</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">primary</span><span class="p">,</span> <span class="n">legacy</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">info</span> <span class="ow">is</span> <span class="n">named</span>  <span class="c1"># Canonical views of the same selected raw record.</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;fe8d&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;alef-ar.isol&quot;</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;U+0041&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;0x41&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div>
+<h2 id="check-original-utf16-length-before-uppercase-expansion">Check original UTF16 length before uppercase expansion</h2>
+<p>None and text shorter than three UTF-16 code units return <code>None</code> before
+uppercasing, lookup or parsing. Count UTF-16 units rather than Python code
+points: a supplementary scalar occupies two. An uppercase expansion cannot rescue
+a too-short input. <code>0ﬀ</code> returns None; <code>00ﬀ</code> becomes <code>00FF</code> and selects <code>ydieresis</code>;
+<code>000ﬀ</code> becomes <code>000FF</code> and synthesizes.</p>
+<p>Actual malformed UTF16 and hex text naming a surrogate are different domains.
+After the minimum-length gate, malformed actual UTF16 refuses with <code>.UTF16</code>:
+Foundation can return a NULL UTF8 pointer that the retained upstream helper
+would dereference unchecked. Do not execute that native failure path. A shorter
+lone surrogate returns None at the earlier length gate; valid surrogate pairs
+are not rejected as malformed. Literal ASCII <code>D800</code> is accepted synthesis text.</p>
+<!-- example: glyport-unicode-utf16-gates -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnsupportedCapability</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSApplication</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">GSApplication</span><span class="p">(</span><span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="nb">object</span><span class="p">(),</span> <span class="p">{},</span> <span class="kc">None</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="s2">&quot;0ﬀ&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\ud800</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\ud800</span><span class="s2">0&quot;</span><span class="p">,</span> <span class="s2">&quot;😀0&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\ud83d\ude00</span><span class="s2">0&quot;</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;00ﬀ&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;ydieresis&quot;</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;000ﬀ&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;uni000FF&quot;</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\ud800</span><span class="s2">00&quot;</span><span class="p">,</span> <span class="s2">&quot;00</span><span class="se">\ud800</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\udc00</span><span class="s2">00&quot;</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">UnsupportedCapability</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">error</span><span class="o">.</span><span class="n">capability</span> <span class="o">==</span> <span class="s2">&quot;Glyphs.glyphInfoForUnicode.UTF16&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&quot;Unsafe malformed UTF16 must refuse&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;D800&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">unicode</span> <span class="o">==</span> <span class="s2">&quot;D800&quot;</span>
+</code></pre></div>
+<p>Standalone macOS 27.2 Foundation calibration checked all 1,112,064 valid Unicode
+scalars against Python 3.11 Unicode 14 uppercasing. There were 55 differences;
+only non-ASCII <code>ﬀ</code> uppercased entirely into the parser alphabet, identically in
+both systems. That establishes this measured parser-alphabet boundary. It does
+not establish arbitrary Foundation-version equivalence, PyObjC conversion or
+native font-workflow compatibility.</p>
+<h2 id="preserve-the-historical-parser-and-raw-encoding">Preserve the historical parser and raw encoding</h2>
+<p>On a combined-index miss, the retained helper scans ASCII hex in reverse. Spaces
+contribute nothing; any minus sign requests final negation, regardless of its
+position, and repeated minuses do not toggle the sign. Both are skipped without
+advancing the nibble position. Other characters return sentinel <code>0x7FFFFFFF</code>,
+which fails the manager’s range check. Nonempty spaces/minuses alone parse as zero.</p>
+<p>Nibble contributions are <strong>added</strong> modulo 2³² with shifts <code>(4 * position) &amp; 31</code>.
+This differs from parsing an unlimited integer and truncating it: <code>100000000</code>
+parses as 1 and <code>FFFFFFFFF</code> as 14. Signed values below <code>0x10000</code> use the <code>uni</code>
+prefix; other accepted values use <code>u</code>. Signed high-bit patterns take the BMP
+branch and bypass its upper-range guard. On the other branch, <code>10FFFE</code> passes
+but <code>10FFFF</code> fails. This is not a strict Unicode scalar validator.</p>
+<p>Names use that prefix plus the <strong>uppercase original text</strong>, not a reformatted
+parsed integer. The synthesized primary encoding preserves the same text only
+when its uppercase UTF16 length is 1–7. A longer valid record has <code>unicode=None</code>.
+No encoding is assigned to a font by reading one of these snapshots.</p>
+<!-- example: glyport-unicode-raw-parser -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSApplication</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">GSApplication</span><span class="p">(</span><span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="nb">object</span><span class="p">(),</span> <span class="p">{},</span> <span class="kc">None</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;--41&quot;</span><span class="p">,</span> <span class="s2">&quot;04-1&quot;</span><span class="p">,</span> <span class="s2">&quot; 4 1 &quot;</span><span class="p">,</span> <span class="s2">&quot;   &quot;</span><span class="p">,</span> <span class="s2">&quot;---&quot;</span><span class="p">):</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;uni&quot;</span> <span class="o">+</span> <span class="n">text</span> <span class="ow">and</span> <span class="n">info</span><span class="o">.</span><span class="n">unicode</span> <span class="o">==</span> <span class="n">text</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;00000041&quot;</span><span class="p">,</span> <span class="s2">&quot;80000000&quot;</span><span class="p">,</span> <span class="s2">&quot;FFFFFFFF&quot;</span><span class="p">,</span> <span class="s2">&quot;100000000&quot;</span><span class="p">,</span> <span class="s2">&quot;FFFFFFFFF&quot;</span><span class="p">):</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;uni&quot;</span> <span class="o">+</span> <span class="n">text</span> <span class="ow">and</span> <span class="n">info</span><span class="o">.</span><span class="n">unicode</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="s2">&quot;10FFFE&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;u10FFFE&quot;</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;10FFFF&quot;</span><span class="p">,</span> <span class="s2">&quot;110000&quot;</span><span class="p">,</span> <span class="s2">&quot;7FFFFFFF&quot;</span><span class="p">,</span> <span class="s2">&quot;nothex&quot;</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div>
+<h2 id="classify-synthesis-using-historical-ranges">Classify synthesis using historical ranges</h2>
+<p>Synthesized case is 0; subCategory and unicodeLegacy are None. Private Use gets
+category <code>Private Use</code> and no script in exactly E000–F8FF, F0000–FFFFD and
+100000–10FFFD. Otherwise the audited historical Han set gives script <code>han</code> and
+category <code>Letter</code>; other synthesized records have script None and category
+<code>Other</code>. Surrogate hex text, unassigned points, controls, punctuation and
+noncharacters are not generally filtered out. Direct indexed entries retain
+their maintained metadata and can mask these synthesis rules.</p>
+<p>The Han intervals are the following hexadecimal <strong>start/count</strong> pairs; each
+covers <code>[start, start + count)</code>. They describe retained source, not current Unicode
+Script data:</p>
+<table>
+<thead>
+<tr>
+<th>Start</th>
+<th>Count</th>
+<th>Start</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2E80</td>
+<td>1A</td>
+<td>2E9B</td>
+<td>59</td>
+</tr>
+<tr>
+<td>2F00</td>
+<td>D6</td>
+<td>3005</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3007</td>
+<td>1</td>
+<td>3021</td>
+<td>9</td>
+</tr>
+<tr>
+<td>3038</td>
+<td>3</td>
+<td>303B</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3400</td>
+<td>19B6</td>
+<td>4E00</td>
+<td>51CD</td>
+</tr>
+<tr>
+<td>F900</td>
+<td>16E</td>
+<td>FA70</td>
+<td>6A</td>
+</tr>
+<tr>
+<td>2F800</td>
+<td>21E</td>
+<td>20000</td>
+<td>A6D7</td>
+</tr>
+<tr>
+<td>2A700</td>
+<td>1035</td>
+<td>2B740</td>
+<td>DE</td>
+</tr>
+<tr>
+<td>2B820</td>
+<td>1682</td>
+<td>2CEB0</td>
+<td>1D31</td>
+</tr>
+<tr>
+<td>30000</td>
+<td>134B</td>
+<td>1F200</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p>The seven-digit spellings below force a combined-index miss so the historical
+classification can be observed independently of canonical maintained entries.</p>
+<!-- example: glyport-unicode-historical-classification -->
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_glyport.glyphsapp</span><span class="w"> </span><span class="kn">import</span> <span class="n">GSApplication</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">GSApplication</span><span class="p">(</span><span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="nb">object</span><span class="p">(),</span> <span class="p">{},</span> <span class="kc">None</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">script</span><span class="p">,</span> <span class="n">category</span> <span class="ow">in</span> <span class="p">[(</span><span class="mh">0x9FCC</span><span class="p">,</span> <span class="s2">&quot;han&quot;</span><span class="p">,</span> <span class="s2">&quot;Letter&quot;</span><span class="p">),</span>
+                                <span class="p">(</span><span class="mh">0x9FCD</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Other&quot;</span><span class="p">),</span>
+                                <span class="p">(</span><span class="mh">0x3134A</span><span class="p">,</span> <span class="s2">&quot;han&quot;</span><span class="p">,</span> <span class="s2">&quot;Letter&quot;</span><span class="p">),</span>
+                                <span class="p">(</span><span class="mh">0x3134B</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Other&quot;</span><span class="p">),</span>
+                                <span class="p">(</span><span class="mh">0xF8FF</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Private Use&quot;</span><span class="p">)]:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%07X</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">value</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">script</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">category</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="o">.</span><span class="n">unicode</span> <span class="o">==</span> <span class="n">text</span> <span class="ow">and</span> <span class="n">info</span><span class="o">.</span><span class="n">case</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="o">.</span><span class="n">subCategory</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">info</span><span class="o">.</span><span class="n">unicodeLegacy</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="mh">0xE000</span><span class="p">,</span> <span class="mh">0xF0000</span><span class="p">,</span> <span class="mh">0xFFFFD</span><span class="p">,</span> <span class="mh">0x100000</span><span class="p">,</span> <span class="mh">0x10FFFD</span><span class="p">):</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">glyphInfoForUnicode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">info</span><span class="o">.</span><span class="n">category</span> <span class="o">==</span> <span class="s2">&quot;Private Use&quot;</span> <span class="ow">and</span> <span class="n">info</span><span class="o">.</span><span class="n">script</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div>
+<h2 id="keep-acceptance-boundaries-explicit">Keep acceptance boundaries explicit</h2>
+<p>Supported snapshot fields here are name, primary Unicode, separate legacy
+Unicode, category, subCategory, script, case and supported component snapshots.
+A synthesized record’s minimal fields do not qualify every Glyph Info property.
+Maintained glyphsLib data is not proof of Glyphs’ proprietary database
+completeness, the same record contents or Unicode version. Source-supported
+index ordering alone does not qualify custom resource loading or replacement.
+The <a href="glyport-production.html">stored production guide</a> now describes the bounded
+represented-record source contract; it remains separate from glyph production
+write/export and application conversion. The retained production successor passes
+both ordinary prefixes and the exact consumer checks; the checkpoint suffix-route
+correction has separate source/archive evidence. The <a href="glyport-compounds.html">compound guide</a>
+now covers raw/shared/copy state and multi-record composition; its new ordinary
+provider/consumer cohort remains pending. Private global overlays, font-local
+managers, remaining fields and arbitrary bridge conversion remain unimplemented
+or unqualified.</p>
+<p>See <a href="glyport-metadata.html">legacy Unicode and ROS</a> for legacy snapshots and the
+proprietary ROS mapping refusal, <a href="glyport-parameters.html">parameters and Arabic encodings</a>
+for ordered font-local postprocessing, and the <a href="../packages/glyport.html">Glyport package</a>
+for the broader compatibility surface. Whole original scripts, native collisions,
+history and saved/reopened workflows remain separate acceptance work. The
+source-lock review, generated reference/site, archive/routes, browser/accessibility
+and publication gates remain open; this authored candidate does not clear them.</p>
+
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../tags.html#tag:scripting" class="md-tag md-tag-icon">Scripting</a>
+      
+    
+  </nav>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden>
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc" >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "navigation.path"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.download": "Download", "code.select": "Toggle line selection", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+<script src="../assets/javascripts/complete-search-ui.js"
+        data-worker="../assets/javascripts/workers/complete-search.js"></script>
+
+    
+      <script src="../assets/javascripts/bundle.1a8646e9.min.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/basecoat.js"></script>
+      
+        <script src="https://i.fontlab.com/fltheme26/1.0.0/theme.js"></script>
+      
+    
+  </body>
+</html>
