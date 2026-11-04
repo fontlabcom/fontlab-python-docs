@@ -2152,13 +2152,21 @@
 panel's Bake, but each target row also names a glyph group, so one layer
 can get different stems and sizes for different glyphs (Vassil for the
 lowercase with one set of values, Vassil for the uppercase with another).
-A row without a group works on the selected glyphs. Width and height are
+Axes and targets are apart (format 5): an axis is a set of input layers
+with their stems (Weight lc: Regular 80 / Bold 160), a target row names the
+axis it is computed from, so the lowercase and the capitals of one layer
+can use different axes. A row without a group works on the selected
+glyphs. A row may name several
+groups, or All groups (every group of the document, also groups added
+later); an override row under it changes the values for one of its groups
+and inherits the cells it leaves empty (format 4). Width and height are
 in percent (default) or in units, each on its own: 60 % wide and exactly
 700 units high is one row. Units are measured on the group's reference
 glyph when it has one (the scale found there is used for the whole group,
 so overshoots and descenders keep their proportions), else on each glyph.</p>
 <p>This module is host neutral: the document (normalize, validate), unit
-parsing, and the plan that turns the rows into one core Delta setup per
+parsing, machine_expand (rows -&gt; one resolved row per group, overrides
+first) and the plan that turns the rows into one core Delta setup per
 glyph (delta_panel_actions.npa_delta_bake / npa_delta_solve_target).</p>
 
 
@@ -2204,6 +2212,16 @@ glyph (delta_panel_actions.npa_delta_bake / npa_delta_solve_target).</p>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.ADVANCED_DEFAULTS">Signature and documentation</a></td>
 </tr>
 <tr>
+<td><span id="typerig.core.actions.delta_machine_actions.ALL_GROUPS"></span><code>ALL_GROUPS</code></td>
+<td>attribute</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.ALL_GROUPS">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.ALL_GROUPS_LABEL"></span><code>ALL_GROUPS_LABEL</code></td>
+<td>attribute</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.ALL_GROUPS_LABEL">Signature and documentation</a></td>
+</tr>
+<tr>
 <td><span id="typerig.core.actions.delta_machine_actions.FLAG_KEYS"></span><code>FLAG_KEYS</code></td>
 <td>attribute</td>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.FLAG_KEYS">Signature and documentation</a></td>
@@ -2214,6 +2232,16 @@ glyph (delta_panel_actions.npa_delta_bake / npa_delta_solve_target).</p>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.FORMAT">Signature and documentation</a></td>
 </tr>
 <tr>
+<td><span id="typerig.core.actions.delta_machine_actions.INHERIT_KEYS"></span><code>INHERIT_KEYS</code></td>
+<td>attribute</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.INHERIT_KEYS">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.INHERIT_MARK"></span><code>INHERIT_MARK</code></td>
+<td>attribute</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.INHERIT_MARK">Signature and documentation</a></td>
+</tr>
+<tr>
 <td><span id="typerig.core.actions.delta_machine_actions.ITALIC_FIX_DEFAULTS"></span><code>ITALIC_FIX_DEFAULTS</code></td>
 <td>attribute</td>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.ITALIC_FIX_DEFAULTS">Signature and documentation</a></td>
@@ -2222,6 +2250,16 @@ glyph (delta_panel_actions.npa_delta_bake / npa_delta_solve_target).</p>
 <td><span id="typerig.core.actions.delta_machine_actions.ITALIC_SOURCES"></span><code>ITALIC_SOURCES</code></td>
 <td>attribute</td>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.ITALIC_SOURCES">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.KERN_GROUP_RULES"></span><code>KERN_GROUP_RULES</code></td>
+<td>attribute</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.KERN_GROUP_RULES">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.KERN_SIDE_RULES"></span><code>KERN_SIDE_RULES</code></td>
+<td>attribute</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.KERN_SIDE_RULES">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.LABEL_COLORS"></span><code>LABEL_COLORS</code></td>
@@ -2252,6 +2290,11 @@ glyph (delta_panel_actions.npa_delta_bake / npa_delta_solve_target).</p>
 <td><span id="typerig.core.actions.delta_machine_actions.ORIGIN_LABELS"></span><code>ORIGIN_LABELS</code></td>
 <td>attribute</td>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.ORIGIN_LABELS">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.OVERRIDE_MARK"></span><code>OVERRIDE_MARK</code></td>
+<td>attribute</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.OVERRIDE_MARK">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.SELECTION"></span><code>SELECTION</code></td>
@@ -2304,6 +2347,16 @@ glyph (delta_panel_actions.npa_delta_bake / npa_delta_solve_target).</p>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.core_setup">Signature and documentation</a></td>
 </tr>
 <tr>
+<td><span id="typerig.core.actions.delta_machine_actions.covers"></span><code>covers</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.covers">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.empty_advance"></span><code>empty_advance</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.empty_advance">Signature and documentation</a></td>
+</tr>
+<tr>
 <td><span id="typerig.core.actions.delta_machine_actions.format_dimension"></span><code>format_dimension</code></td>
 <td>function</td>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.format_dimension">Signature and documentation</a></td>
@@ -2314,9 +2367,19 @@ glyph (delta_panel_actions.npa_delta_bake / npa_delta_solve_target).</p>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.format_metrics_scale">Signature and documentation</a></td>
 </tr>
 <tr>
+<td><span id="typerig.core.actions.delta_machine_actions.groups_label"></span><code>groups_label</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.groups_label">Signature and documentation</a></td>
+</tr>
+<tr>
 <td><span id="typerig.core.actions.delta_machine_actions.has_units"></span><code>has_units</code></td>
 <td>function</td>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.has_units">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.is_override"></span><code>is_override</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.is_override">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.italic_fix"></span><code>italic_fix</code></td>
@@ -2339,64 +2402,89 @@ glyph (delta_panel_actions.npa_delta_bake / npa_delta_solve_target).</p>
 <td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.machine_dump">Signature and documentation</a></td>
 </tr>
 <tr>
+<td><span id="typerig.core.actions.delta_machine_actions.machine_expand"></span><code>machine_expand</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.machine_expand">Signature and documentation</a></td>
+</tr>
+<tr>
 <td><span id="typerig.core.actions.delta_machine_actions.machine_log"></span><code>machine_log</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.machine_log">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.machine_log">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.machine_new"></span><code>machine_new</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.machine_new">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.machine_new">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.machine_normalize"></span><code>machine_normalize</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.machine_normalize">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.machine_normalize">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.machine_plan"></span><code>machine_plan</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.machine_plan">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.machine_plan">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.machine_validate"></span><code>machine_validate</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.machine_validate">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.machine_validate">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.new_row_id"></span><code>new_row_id</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.new_row_id">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.norm_group"></span><code>norm_group</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.norm_group">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.norm_group">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.norm_groups"></span><code>norm_groups</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.norm_groups">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.norm_italic_fix"></span><code>norm_italic_fix</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.norm_italic_fix">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.norm_italic_fix">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.norm_label"></span><code>norm_label</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.norm_label">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.norm_label">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.norm_target"></span><code>norm_target</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.norm_target">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.norm_target">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.overlap"></span><code>overlap</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.overlap">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.parse_dimension"></span><code>parse_dimension</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.parse_dimension">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.parse_dimension">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.parse_metrics_scale"></span><code>parse_metrics_scale</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.parse_metrics_scale">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.parse_metrics_scale">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.ref_setup"></span><code>ref_setup</code></td>
 <td>function</td>
-<td><a href="delta_machine_actions/members-001.html#typerig.core.actions.delta_machine_actions.ref_setup">Signature and documentation</a></td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.ref_setup">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.resolve"></span><code>resolve</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.resolve">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.row_label"></span><code>row_label</code></td>
@@ -2407,6 +2495,16 @@ glyph (delta_panel_actions.npa_delta_bake / npa_delta_solve_target).</p>
 <td><span id="typerig.core.actions.delta_machine_actions.target_to_core"></span><code>target_to_core</code></td>
 <td>function</td>
 <td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.target_to_core">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.target_tree"></span><code>target_tree</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.target_tree">Signature and documentation</a></td>
+</tr>
+<tr>
+<td><span id="typerig.core.actions.delta_machine_actions.unique_axis_name"></span><code>unique_axis_name</code></td>
+<td>function</td>
+<td><a href="delta_machine_actions/members-002.html#typerig.core.actions.delta_machine_actions.unique_axis_name">Signature and documentation</a></td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_machine_actions.worst_status"></span><code>worst_status</code></td>

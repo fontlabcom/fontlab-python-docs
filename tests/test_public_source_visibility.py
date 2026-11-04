@@ -30,6 +30,16 @@ from scripts.export_aliases import exported_aliases
             "import pkg as _private\n__all__ = ['_private']",
             {"public.api._private": "pkg"},
         ),
+        (  # platform-selected re-export inside a top-level conditional
+            "import sys\n__all__ = ['launch']\n"
+            "if sys.platform == 'darwin':\n    from .macos import launch\n"
+            "else:\n    def launch():\n        raise NotImplementedError\n",
+            {"public.api.launch": "public.macos.launch"},
+        ),
+        (  # function-local imports stay invisible
+            "def f():\n    from pkg import value as value\n",
+            {},
+        ),
     ],
 )
 def test_export_when_explicit_source_forms_then_only_declared_aliases_are_visible(
@@ -56,6 +66,22 @@ def test_inventory_when_absolute_self_alias_then_private_body_has_public_route(
     assert plan["symbols"]["pkg._impl.value"]["source"] == f"pkg/_impl.{extension}"
     assert "pkg._impl.unused" not in plan["symbols"]
     assert "pkg.api.value" not in plan["symbols"], "Keep one canonical body"
+
+
+@pytest.mark.parametrize("annotation", ["InitVar[int]", "dataclasses.InitVar[int]", "InitVar"])
+def test_inventory_when_dataclass_initvar_then_it_is_not_a_member(tmp_path, annotation):
+    """InitVar pseudo-fields are __init__ arguments, never class attributes."""
+    package = tmp_path / "pkg"
+    package.mkdir()
+    (package / "__init__.py").write_text("")
+    (package / "api.py").write_text(
+        "import dataclasses\nfrom dataclasses import dataclass, InitVar\n"
+        "@dataclass\nclass Fact:\n    name: str\n"
+        f"    check: {annotation} = 0\n"
+    )
+    plan = plan_pages(inventory_sources([(tmp_path, "pkg")]))
+    assert "pkg.api.Fact.name" in plan["symbols"]
+    assert "pkg.api.Fact.check" not in plan["symbols"]
 
 
 @pytest.mark.parametrize("private_file", [False, True])

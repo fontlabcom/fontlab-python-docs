@@ -2136,11 +2136,15 @@
 
     <div class="doc doc-contents first">
 
-        <p>Compatibility import for App's generic optional Qt-backed Vanilla session.</p>
-<p>Keep this historical path for existing FontParts scripts. App owns window
-retention and teardown; Glyport supplies optional foreign control factories.
-Import remains host-free. Constructing a session requires Glyport and either
-FontLab's existing PythonQt binding or explicitly supplied Qt test doubles.</p>
+        <p>Tombstone: <code>VanillaSession</code> left Fontport.</p>
+<p>Fontport holds only FontParts and UFO code, so it keeps no Vanilla or other
+window-toolkit shim. The session class now lives in Glyport.</p>
+<p>Migrate:
+    old: <code>from fontlab_fontport.vanilla import VanillaSession</code>
+    new: <code>from fontlab_glyport.ui.session import VanillaSession</code></p>
+<p>This module imports nothing, on purpose. A forwarding import would put a
+Fontport-to-Glyport edge back. Any import of this path fails at once and names
+the new home. Delete this file in the release after the move.</p>
 
 
 
@@ -2148,23 +2152,6 @@ FontLab's existing PythonQt binding or explicitly supplied Qt test doubles.</p>
 
 
 
-
-
-
-<div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
 
     </div>
 

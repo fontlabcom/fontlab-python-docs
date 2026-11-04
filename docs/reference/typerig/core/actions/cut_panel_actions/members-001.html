@@ -2318,12 +2318,18 @@ NO_CANDIDATE or NO_SELECTION).</p>
 
     <div class="doc doc-contents first">
 
-        <p>Stroke Separate (V3). Eject the analysis layer to pure core, run
-StrokeSep.analyze, then for each scope layer eject → apply cuts → mount.</p>
-<p>The first entry in <code>scope_layers</code> is the analysis (reference) layer;
-cuts are derived from its geometry and propagated to all other layers
-in scope. Selection on the analysis layer (per-contour) drives which
-contours are analysed; if no selection, all contours are processed.</p>
+        <p>Stroke Separate (V3). Analyse the first scope layer once, then cut
+every scope layer node-exact, all or nothing.</p>
+<p>The first entry in <code>scope_layers</code> is the analysis (reference) layer.
+Selection on it (per-contour) drives which contours are cut; with no
+selection, all contours are. Cut endpoints are planned once on the
+reference (plan_cut_nodes) and inserted as nodes at the same (contour,
+segment, t) on every layer, so no distance snap can diverge between
+masters. Nothing is written unless every layer is compatible before the
+cut and gives the same structure after it.</p>
+<p>Returns dict: {'status': 'OK' | 'NO_CUTS' | 'INCOMPATIBLE' |
+'DIVERGED' | 'EMPTY', 'layer': name or None, 'message': str,
+'cuts': int, 'pieces': int}.</p>
 
 
     </div>

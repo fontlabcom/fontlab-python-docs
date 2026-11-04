@@ -2099,17 +2099,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fontlab_glyport.plugins.fontlab_host.FontLabPluginHost.close" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        close
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fontlab_glyport.plugins.fontlab_host.FontLabPluginHost.current_font" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2125,6 +2114,17 @@
     <span class="md-ellipsis">
       
         has_callbacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_glyport.plugins.fontlab_host.FontLabPluginHost.main_window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        main_window
       
     </span>
   </a>
@@ -2333,28 +2333,6 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="fontlab_glyport.plugins.fontlab_host.FontLabPluginHost.close" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">close</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">close</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Remove every registration, run deferred teardown, drop owned menus.</p>
-<p>Called from inside a host slot (e.g. a dialog's <code>on_close</code>), all of
-it runs later from the reaper instead.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
 <h2 id="fontlab_glyport.plugins.fontlab_host.FontLabPluginHost.current_font" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">current_font</span>
 
@@ -2387,6 +2365,29 @@ it runs later from the reaper instead.</p>
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_glyport.plugins.fontlab_host.FontLabPluginHost.main_window" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">main_window</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">main_window</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>FontLab's main window; a missing one raises <code>HostUnavailable</code>.</p>
+<p>Only App's <code>qtsafe.MainWindowNotFound</code> means "no window". A plain
+<code>RuntimeError</code> (the off-GUI-thread refusal) propagates, whatever its
+text says.</p>
+
 
     </div>
 
@@ -2462,6 +2463,11 @@ it runs later from the reaper instead.</p>
 
     <div class="doc doc-contents first">
 
+        <p>Add <code>item</code> as an owned QAction in <code>menu</code>; return its token.</p>
+<p>Atomic: if the first sync fails (for example a bad icon), the token
+and its QAction are removed before the error re-raises (inside a
+host slot App defers that removal to the end of the dispatch).</p>
+
 
     </div>
 
@@ -2534,6 +2540,8 @@ it runs later from the reaper instead.</p>
 
     <div class="doc doc-contents first">
 
+        <p>Undo one item, including its NSMenuItem observer (see App <code>remove</code>).</p>
+
 
     </div>
 
@@ -2595,7 +2603,10 @@ it runs later from the reaper instead.</p>
 
         <p>Show <code>view</code> with Cancel/Apply; <code>on_close(applied)</code> runs once.</p>
 <p>Apply, Cancel, the title-bar close and removing the token all end the
-session through <code>finish</code>; widget teardown is deferred (see module).</p>
+session through App's tool-window close. A button only records the
+outcome and closes the window. The button connections are dropped from
+the shared timer, after the dispatch that ended the session and before
+the window is closed and deleted.</p>
 
 
     </div>

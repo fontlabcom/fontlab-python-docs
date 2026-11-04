@@ -2176,6 +2176,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.gui.toolbar_base.TRToolbarBase.foldable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        foldable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.gui.toolbar_base.TRToolbarBase.folded_sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        folded_sections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.proxy.gs3.gui.toolbar_base.TRToolbarBase.label" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2191,6 +2213,17 @@
     <span class="md-ellipsis">
       
         newline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.gui.toolbar_base.TRToolbarBase.on_height" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on_height
       
     </span>
   </a>
@@ -2257,6 +2290,17 @@
     <span class="md-ellipsis">
       
         separator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.gui.toolbar_base.TRToolbarBase.set_folded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_folded
       
     </span>
   </a>
@@ -2376,7 +2420,9 @@
 
         <p>Section caption at the start of a new row (PALETTE.CAPTION): small
 secondary-colour text, stored as self.group.cap_<key>. Use it directly
-for the first section, which follows the masthead separator.</p>
+for the first section, which follows the masthead separator.
+With CAP.FOLD a disclosure arrow (self.group.fold_<key>) folds the
+section that starts here.</p>
 
 
     </div>
@@ -2498,6 +2544,47 @@ Returns {name: GridIconButton}.</p>
 
 </div>
 
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="typerig.proxy.gs3.gui.toolbar_base.TRToolbarBase.foldable" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">foldable</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">foldable</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.gui.toolbar_base.TRToolbarBase.folded_sections" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">folded_sections</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">folded_sections</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+
+    </div>
+
+</div>
+
 <div class="doc doc-object doc-function">
 
 
@@ -2533,6 +2620,29 @@ Returns {name: GridIconButton}.</p>
 
         <p>Finish the current row; the next item starts a new one.</p>
 
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="typerig.proxy.gs3.gui.toolbar_base.TRToolbarBase.on_height" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">on_height</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">on_height</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
 
     </div>
 
@@ -2654,6 +2764,27 @@ Returns {name: GridIconButton}.</p>
         <p>Close the row and leave SEP space before the next section, with a
 thin line when PALETTE.SEP_LINE is on, then the section caption
 <code>title</code> (see caption()). <code>key</code> must be unique.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.gui.toolbar_base.TRToolbarBase.set_folded" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">set_folded</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">set_folded</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">folded</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Fold or unfold section <code>key</code>, remember it, and tell the host the
+new height through on_height.</p>
 
 
     </div>

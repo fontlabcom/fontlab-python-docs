@@ -1196,10 +1196,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#identify-an-installed-candidate-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identify an installed candidate offline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#programmatic-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
         Programmatic tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glyph-info-preservation-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glyph-info preservation boundary
       
     </span>
   </a>
@@ -2212,10 +2234,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#identify-an-installed-candidate-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identify an installed candidate offline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#programmatic-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
         Programmatic tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glyph-info-preservation-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glyph-info preservation boundary
       
     </span>
   </a>
@@ -2303,7 +2347,9 @@ Python. Responses stream into the dock.</p>
 <p>The FontLab plugin runs in FontLab's Python 3.11. The AI "brain" runs in a
 separate Python 3.13+ process, so no AI libraries go into FontLab. The AI provider
 you configure receives your prompts and the tool results the agent uses.</p>
-<p>This page describes Aidus Code v0.2.1.</p>
+<p>The installation walkthrough describes Aidus Code v0.2.1. The read-preservation
+notes below describe the private <code>0.2.2.dev4+gb07867092.d20261101</code> candidate;
+they do not announce a release or establish compatibility with every FontLab build.</p>
 <h2 id="install">Install</h2>
 <ol>
 <li>
@@ -2333,17 +2379,83 @@ would replace was modified, is not its own or is a symlink.</p>
 </li>
 </ol>
 <h2 id="quick-start">Quick start</h2>
-<p>In FontLab, open the <strong>Aidus Code</strong> entry in the Scripts menu. Try:
-"What are the sidebearings of the current glyph?" or "Set the right sidebearing
-of all selected glyphs to 50."</p>
+<p>In FontLab, open the <strong>Aidus Code</strong> entry in the Scripts menu. Use owned fixture
+fonts when trying requests that inspect or edit glyphs; the current read path
+has the preservation limitation below. The built-in metrics tool targets the
+current glyph. A request to edit every selected glyph requires additional script
+execution and is not evidence that the single-glyph tool supports batch edits.</p>
+<h2 id="identify-an-installed-candidate-offline">Identify an installed candidate offline</h2>
+<p>This prints package identity without opening the dock or starting the brain:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Outside FontLab</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">version</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">fontlab_aidus_code</span>
+
+<span class="k">assert</span> <span class="n">fontlab_aidus_code</span><span class="o">.</span><span class="n">__version__</span> <span class="o">==</span> <span class="n">version</span><span class="p">(</span><span class="s2">&quot;fontlab-aidus-code&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fontlab_aidus_code</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fontlab_aidus_code</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+</code></pre></div>
+<p>For maintainer diagnostics, the plugin executor can list its built-in tool
+metadata without calling a font operation. This is an internal diagnostic
+interface, not a replacement for the native tool API:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Outside FontLab; installed plugin diagnostic only</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aidus_code_plugin.executor</span><span class="w"> </span><span class="kn">import</span> <span class="n">FontLabExecutor</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">FontLabExecutor</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;list_tools&quot;</span><span class="p">)</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="p">{</span><span class="n">tool</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]:</span> <span class="n">tool</span> <span class="k">for</span> <span class="n">tool</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;tools&quot;</span><span class="p">]}</span>
+<span class="k">assert</span> <span class="n">tools</span><span class="p">[</span><span class="s2">&quot;get_current_glyph_info&quot;</span><span class="p">][</span><span class="s2">&quot;requires_glyph&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">tools</span><span class="p">[</span><span class="s2">&quot;set_glyph_metrics&quot;</span><span class="p">][</span><span class="s2">&quot;optional_params&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="s2">&quot;lsb&quot;</span><span class="p">,</span> <span class="s2">&quot;rsb&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">tools</span><span class="p">[</span><span class="s2">&quot;run_fontlab_script&quot;</span><span class="p">][</span><span class="s2">&quot;required_params&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">tools</span><span class="p">))</span>
+</code></pre></div>
+<p>A listed tool is not a successful native operation. Neither example contacts an
+AI provider, creates a font or proves native read/write safety.</p>
 <h2 id="programmatic-tools">Programmatic tools</h2>
 <p>The agent's FontLab tools are also callable from Python inside FontLab, through
 the <a href="../reference/aidus_code_tools.html">Aidus tools reference</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Inside FontLab, with fontlab-aidus-code installed</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inside FontLab; native execution required; owned fixture only</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_echopy</span><span class="w"> </span><span class="kn">import</span> <span class="n">aidus_code_tools</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">aidus_code_tools</span><span class="o">.</span><span class="n">get_current_glyph_info</span><span class="p">())</span>
 </code></pre></div>
+<h2 id="glyph-info-preservation-boundary">Glyph-info preservation boundary</h2>
+<p><code>get_current_glyph_info</code> returns current-glyph metadata, but its name does not
+guarantee a side-effect-free read. On a historically affected FontLab build,
+<code>CurrentGlyph()</code> could export glyph data and lose the fresh FontGate note mirror.
+The public tool still calls that preflight. A later Unicode export was a second
+independent route to the same loss.</p>
+<p>The private candidate removes the inner export. It resolves the registered
+package, checks package/font identities, requires a unique glyph name and checks
+the record's name and ID before reading Unicode. It refuses missing or ambiguous
+ownership instead of reading another glyph or restoring metadata afterwards.
+It does not repair the earlier <code>CurrentGlyph()</code> call.</p>
+<p>Fresh wheel and sdist installs each pass 18 targeted checks and retain the
+preflight preservation failure. The full source suite in the brain environment
+passes 808 tests with that same failure. These tests use owned doubles; the
+current native build, full font state, Undo/Redo and save/reopen remain unqualified.
+The native snippet above is compile-checked only. Do not use it on owner fonts
+to demonstrate read safety.</p>
+<p>Tested private archive SHA256 values:</p>
+<table>
+<thead>
+<tr>
+<th>Archive</th>
+<th>SHA256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wheel</td>
+<td><code>f9745105a1aca6a738ce62b6ecb5b041eb5d783bf14aca1d6104853476a8d0ad</code></td>
+</tr>
+<tr>
+<td>sdist</td>
+<td><code>64a431624d767e5ada8045dc4603e405a7bc116e4bda601abddaa1e3797338e1</code></td>
+</tr>
+</tbody>
+</table>
+<p>Version text alone does not distinguish uncommitted builds. Keep exact archive
+hashes with test evidence. The obsolete <code>aidus-code</code> source remains protected
+until migration and retirement requirements are satisfied.</p>
 <h2 id="limits">Limits</h2>
 <ul>
 <li>Use a disposable font for your first editing experiments: the agent can change

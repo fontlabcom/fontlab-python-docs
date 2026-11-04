@@ -2198,6 +2198,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab_glyport.model.fake_backend.FakeBackend.append_layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        append_layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_glyport.model.fake_backend.FakeBackend.append_master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        append_master
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_glyport.model.fake_backend.FakeBackend.append_master_guide" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2290,6 +2312,17 @@
     <span class="md-ellipsis">
       
         component_bounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_glyport.model.fake_backend.FakeBackend.component_selected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        component_selected
       
     </span>
   </a>
@@ -2484,43 +2517,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fontlab_glyport.model.fake_backend.FakeBackend.hints" class="md-nav__link">
+  <a href="#fontlab_glyport.model.fake_backend.FakeBackend.guide_selected" class="md-nav__link">
     <span class="md-ellipsis">
       
-        hints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab_glyport.model.fake_backend.FakeBackend.insert_path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        insert_path
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab_glyport.model.fake_backend.FakeBackend.insert_path_node" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        insert_path_node
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab_glyport.model.fake_backend.FakeBackend.instances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        instances
+        guide_selected
       
     </span>
   </a>
@@ -2752,6 +2752,42 @@
 <div class="doc doc-object doc-function">
 
 
+<h2 id="fontlab_glyport.model.fake_backend.FakeBackend.append_layer" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">append_layer</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">append_layer</span><span class="p">(</span><span class="n">glyph_id</span><span class="p">,</span> <span class="n">master_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snapshot</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_glyport.model.fake_backend.FakeBackend.append_master" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">append_master</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">append_master</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="fontlab_glyport.model.fake_backend.FakeBackend.append_master_guide" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">append_master_guide</span>
 
@@ -2893,10 +2929,12 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">close_font</span><span class="p">(</span><span class="n">font_id</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">close_font</span><span class="p">(</span><span class="n">font_id</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">ignore_changes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+        <p>Close the fake document and invalidate all descendant handles.</p>
 
 
     </div>
@@ -2912,6 +2950,24 @@
 
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">component_bounds</span><span class="p">(</span><span class="n">component_id</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_glyport.model.fake_backend.FakeBackend.component_selected" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">component_selected</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">component_selected</span><span class="p">(</span><span class="n">component_id</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -3250,86 +3306,12 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="fontlab_glyport.model.fake_backend.FakeBackend.hints" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">hints</span>
+<h2 id="fontlab_glyport.model.fake_backend.FakeBackend.guide_selected" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">guide_selected</span>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">hints</span><span class="p">(</span><span class="n">layer_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="HintInfo
-
-
-  
-      dataclass
-   (fontlab_glyport.model.backend.HintInfo)" href="../../backend/HintInfo.html#fontlab_glyport.model.backend.HintInfo">HintInfo</a></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab_glyport.model.fake_backend.FakeBackend.insert_path" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">insert_path</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">insert_path</span><span class="p">(</span><span class="n">layer_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="PathInfo
-
-
-  
-      dataclass
-   (fontlab_glyport.model.backend.PathInfo)" href="../../backend/PathInfo.html#fontlab_glyport.model.backend.PathInfo">PathInfo</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="str">str</span></span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab_glyport.model.fake_backend.FakeBackend.insert_path_node" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">insert_path_node</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">insert_path_node</span><span class="p">(</span><span class="n">path_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="NodeInfo
-
-
-  
-      dataclass
-   (fontlab_glyport.model.backend.NodeInfo)" href="../../backend/NodeInfo.html#fontlab_glyport.model.backend.NodeInfo">NodeInfo</a></span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">on_attach</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[[</span><span class="n"><span title="str">str</span></span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="str">str</span></span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab_glyport.model.fake_backend.FakeBackend.instances" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">instances</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">instances</span><span class="p">(</span><span class="n">font_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="InstanceInfo
-
-
-  
-      dataclass
-   (fontlab_glyport.model.backend.InstanceInfo)" href="../../backend/InstanceInfo.html#fontlab_glyport.model.backend.InstanceInfo">InstanceInfo</a></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">guide_selected</span><span class="p">(</span><span class="n">guide_id</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">

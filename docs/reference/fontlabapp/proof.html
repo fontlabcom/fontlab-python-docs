@@ -2099,10 +2099,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#complete-member-index" class="md-nav__link">
+  <a href="#modules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Complete member index
+        Modules
       
     </span>
   </a>
@@ -2147,8 +2147,10 @@
 
     <div class="doc doc-contents first">
 
-        <p>Read-only outline, advance-only text and word-filter helpers for Proof tools.</p>
-<p>Native modules load only inside the access functions; importing this module is host-free.</p>
+        <p>proof domain helpers; children load only when explicitly imported.</p>
+<p>Legacy compatibility: missing attribute reads and model writes/deletes forward to
+fontlabapp.proof.inspect.model. The implementation loads on first access as a normal,
+separate module; this package retains its own children and metadata.</p>
 
 
 
@@ -2176,104 +2178,21 @@
 
     </div>
 
-</div><h2 id="complete-member-index">Complete member index</h2>
-<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
-<table>
-<thead>
-<tr>
-<th>Member</th>
-<th>Kind</th>
-<th>Declaration</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span id="fontlabapp.proof.CASES"></span><code>CASES</code></td>
-<td>attribute</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.CASES">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.ENGLISH"></span><code>ENGLISH</code></td>
-<td>attribute</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.ENGLISH">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.LATIN"></span><code>LATIN</code></td>
-<td>attribute</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.LATIN">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.WORDS"></span><code>WORDS</code></td>
-<td>attribute</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.WORDS">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.cased"></span><code>cased</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.cased">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.character_map"></span><code>character_map</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.character_map">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.find_words"></span><code>find_words</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.find_words">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.font_chars"></span><code>font_chars</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.font_chars">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.font_maps"></span><code>font_maps</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.font_maps">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.glyph_run"></span><code>glyph_run</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.glyph_run">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.grid_scale"></span><code>grid_scale</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.grid_scale">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.layer_path"></span><code>layer_path</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.layer_path">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.metrics"></span><code>metrics</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.metrics">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.parse_sizes"></span><code>parse_sizes</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.parse_sizes">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.parse_text"></span><code>parse_text</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.parse_text">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.path_span"></span><code>path_span</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.path_span">Signature and documentation</a></td>
-</tr>
-<tr>
-<td><span id="fontlabapp.proof.selected_glyphs"></span><code>selected_glyphs</code></td>
-<td>function</td>
-<td><a href="proof/members-001.html#fontlabapp.proof.selected_glyphs">Signature and documentation</a></td>
-</tr>
-</tbody>
-</table>
+</div><h2 id="modules">Modules</h2>
+<ul>
+<li><a href="proof/context.html#fontlabapp.proof.context"><code>context</code></a></li>
+<li><a href="proof/crossfont.html#fontlabapp.proof.crossfont"><code>crossfont</code></a></li>
+<li><a href="proof/extrema.html#fontlabapp.proof.extrema"><code>extrema</code></a></li>
+<li><a href="proof/inspect.html#fontlabapp.proof.inspect"><code>inspect</code></a></li>
+<li><a href="proof/inspectors.html#fontlabapp.proof.inspectors"><code>inspectors</code></a></li>
+<li><a href="proof/numeric.html#fontlabapp.proof.numeric"><code>numeric</code></a></li>
+<li><a href="proof/random.html#fontlabapp.proof.random"><code>random</code></a></li>
+<li><a href="proof/reports.html#fontlabapp.proof.reports"><code>reports</code></a></li>
+<li><a href="proof/review.html#fontlabapp.proof.review"><code>review</code></a></li>
+<li><a href="proof/tabs.html#fontlabapp.proof.tabs"><code>tabs</code></a></li>
+<li><a href="proof/text_filter.html#fontlabapp.proof.text_filter"><code>text_filter</code></a></li>
+<li><a href="proof/text_holder.html#fontlabapp.proof.text_holder"><code>text_holder</code></a></li>
+</ul>
 
 
 

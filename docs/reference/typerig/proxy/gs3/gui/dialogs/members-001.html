@@ -2176,10 +2176,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.gui.dialogs.ask_choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ask_choices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.gui.dialogs.ask_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ask_values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.proxy.gs3.gui.dialogs.layer_kind" class="md-nav__link">
     <span class="md-ellipsis">
       
         layer_kind
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.gui.dialogs.read_master_steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        read_master_steps
       
     </span>
   </a>
@@ -2395,6 +2428,51 @@
 <div class="doc doc-object doc-function">
 
 
+<h2 id="typerig.proxy.gs3.gui.dialogs.ask_choices" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">ask_choices</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">ask_choices</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">choices</span><span class="p">,</span> <span class="n">ok_title</span><span class="o">=</span><span class="s1">&#39;OK&#39;</span><span class="p">,</span> <span class="n">cancel_title</span><span class="o">=</span><span class="s1">&#39;Cancel&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Modal alert: a message, an informative text and one popup per choice.
+choices: [(key, caption, [(value, title), ...], default value)].
+Returns {key: value} on OK, None on Cancel. No vanilla window is made.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.gui.dialogs.ask_values" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">ask_values</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">ask_values</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">ok_title</span><span class="o">=</span><span class="s1">&#39;OK&#39;</span><span class="p">,</span> <span class="n">cancel_title</span><span class="o">=</span><span class="s1">&#39;Cancel&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Modal alert: a message, an informative text and one number field per value.
+fields: [(key, caption, default, (min, max))]. A value that does not parse
+falls back to its default; one outside the range is clamped.
+Returns {key: float} on OK, None on Cancel. No vanilla window is made.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="typerig.proxy.gs3.gui.dialogs.layer_kind" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">layer_kind</span>
 
@@ -2406,6 +2484,27 @@
     <div class="doc doc-contents first">
 
         <p>Return the Glyphs-accurate type name for a GSLayer.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.gui.dialogs.read_master_steps" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">read_master_steps</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">read_master_steps</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">lib_key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Per-master (x, y) steps stored by TRMasterStepsDialog, as
+dict[master_name -&gt; (x, y)]; {} if absent. Malformed entries get <code>default</code>.</p>
 
 
     </div>

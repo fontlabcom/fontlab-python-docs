@@ -18,11 +18,21 @@ from .source_visibility import (
 NATIVE_FAMILIES = {"fontlab", "fontgate", "fontpr", "fontlabpr", "PythonQt"}
 
 
+def _initvar(annotation: ast.expr) -> bool:
+    """`InitVar`, `InitVar[T]` or `dataclasses.InitVar[T]`: an __init__ argument only."""
+    if isinstance(annotation, ast.Subscript):
+        annotation = annotation.value
+    return (isinstance(annotation, ast.Name) and annotation.id == "InitVar") or (
+        isinstance(annotation, ast.Attribute) and annotation.attr == "InitVar"
+    )
+
+
 def _name(node: ast.AST) -> str | None:
     if isinstance(node, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)):
         return node.name
     if isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name):
-        return node.target.id
+        # Dataclasses drop InitVar pseudo-fields from the class; so does griffe.
+        return None if _initvar(node.annotation) else node.target.id
     if (
         isinstance(node, ast.Assign)
         and len(node.targets) == 1

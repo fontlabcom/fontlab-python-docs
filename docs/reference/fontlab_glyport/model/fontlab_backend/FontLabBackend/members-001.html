@@ -2187,6 +2187,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.append_layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        append_layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.append_master_guide" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2275,10 +2286,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.close_font" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        close_font
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.component_bounds" class="md-nav__link">
     <span class="md-ellipsis">
       
         component_bounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.component_selected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        component_selected
       
     </span>
   </a>
@@ -2488,39 +2521,6 @@
     <span class="md-ellipsis">
       
         glyph_tags
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.glyphs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        glyphs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.hints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        hints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab_glyport.model.fontlab_backend.FontLabBackend.insert_path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        insert_path
       
     </span>
   </a>
@@ -2762,6 +2762,24 @@ it. Use the same target-owned builder as fontport, including for replace.</p>
 <div class="doc doc-object doc-function">
 
 
+<h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.append_layer" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">append_layer</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">append_layer</span><span class="p">(</span><span class="n">glyph_id</span><span class="p">,</span> <span class="n">master_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snapshot</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.append_master_guide" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">append_master_guide</span>
 
@@ -2924,12 +2942,50 @@ workspace. Closed/unregistered packages must never reach flItems.</p>
 <div class="doc doc-object doc-function">
 
 
+<h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.close_font" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">close_font</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">close_font</span><span class="p">(</span><span class="n">font_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">ignore_changes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Close a document, requiring deliberate permission to discard edits.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.component_bounds" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">component_bounds</span>
 
 
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">component_bounds</span><span class="p">(</span><span class="n">component_id</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.component_selected" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">component_selected</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">component_selected</span><span class="p">(</span><span class="n">component_id</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -3230,8 +3286,9 @@ workspace. Closed/unregistered packages must never reach flItems.</p>
     <div class="doc doc-contents first">
 
         <p>Master order first, followed by ordinary auxiliaries in native order.</p>
-<p>FontLab has no associated master for an ordinary auxiliary. Use Glyphs'
-documented first-master default without writing any native metadata.</p>
+<p>Keep explicit copied associations across live peers/history. Imported
+auxiliaries without session metadata use the first-master fallback;
+no persistent native lib keys are invented for this mapping.</p>
 
 
     </div>
@@ -3309,79 +3366,6 @@ Older/incomplete hosts without a finder use the bounded index fallback.</p>
 </code></pre></div>
 
     <div class="doc doc-contents first">
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.glyphs" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">glyphs</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">glyphs</span><span class="p">(</span><span class="n">font_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="GlyphInfo
-
-
-  
-      dataclass
-   (fontlab_glyport.model.backend.GlyphInfo)" href="../../backend/GlyphInfo.html#fontlab_glyport.model.backend.GlyphInfo">GlyphInfo</a></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.hints" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">hints</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">hints</span><span class="p">(</span><span class="n">layer_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="HintInfo
-
-
-  
-      dataclass
-   (fontlab_glyport.model.backend.HintInfo)" href="../../backend/HintInfo.html#fontlab_glyport.model.backend.HintInfo">HintInfo</a></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab_glyport.model.fontlab_backend.FontLabBackend.insert_path" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">insert_path</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">insert_path</span><span class="p">(</span><span class="n">layer_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="PathInfo
-
-
-  
-      dataclass
-   (fontlab_glyport.model.backend.PathInfo)" href="../../backend/PathInfo.html#fontlab_glyport.model.backend.PathInfo">PathInfo</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="str">str</span></span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>A new one-contour shape before the shape that holds the entry at
-<code>index</code> of the layer's shape order (path and component ids); a
-negative or past-the-end index appends.</p>
 
 
     </div>

@@ -2109,17 +2109,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#complete-member-index" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Complete member index
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2158,28 +2147,11 @@
 
     <div class="doc doc-contents first">
 
-        <p>Painters in FontLab's glyph editor: after-native-layer overlays (R032).</p>
-<p>Native facts (FontLab 9.0.9780; evidence <code>glyport-ui/probe-editor-paint.json</code>):</p>
-<ul>
-<li>The editor viewport is the widget <code>workspace.getCanvasForViewport</code> accepts
-  (a plain <code>QWidget</code> named <code>widget</code> here; <code>QOpenGLWidget</code> by preference).
-  The native canvas paints it from an event filter (<code>CanvasImpl::eventFilter</code>
-  -&gt; <code>_on_event_paint</code>) and fills it opaquely, so a Python event filter that
-  paints before the native one leaves no visible pixel: before-native-layer
-  painting needs a host hook (R054 note in the L2 report).</li>
-<li>A transparent child widget of the viewport paints after the native canvas.</li>
-<li>Glyph-local units map to the viewport as the native glyph paint does
-  (<code>TextParagraphBlock::_paint_cousins</code>/<code>overlay</code>):
-  <code>glyph transform * text block transform</code> to canvas units (kerning is
-  already in the glyph transform; only the anchor display adds it again),
-  then <code>flCanvas.mapToViewportF</code> to pixels.
-  The fixture's square edges agreed with the native outline within 1 px.</li>
-</ul>
-<p><code>EditorPainters</code> keeps one overlay per open glyph-window viewport (polling
-for new windows), calls each registered after-native-layer painter once per
-laid-out glyph matching its layer filter, with a :class:<code>PaintContext</code>
-whose painter is saved/restored around the callback and only valid during
-it. Callback errors go to the sink; nothing raises out of <code>paintEvent</code>.</p>
+        <p>Glyphs-facing glyph-editor painters over App's shared registry (R032).</p>
+<p><code>fontlabapp.qt.painting.editor</code> owns the overlays, polling, paint maths and
+teardown. Glyport adds only the Glyphs rule: the before-native phase raises
+<code>UnsupportedCapability</code> (a loader diagnostic), not <code>ValueError</code>. The base
+class also takes <code>layer_resolver</code> for reporter model layers.</p>
 
 
 
@@ -2211,24 +2183,6 @@ it. Callback errors go to the sink; nothing raises out of <code>paintEvent</code
 <ul>
 <li><a href="editor/EditorPainters.html#fontlab_glyport.drawing.editor.EditorPainters"><code>EditorPainters</code></a></li>
 </ul>
-<h2 id="complete-member-index">Complete member index</h2>
-<p>Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.</p>
-<table>
-<thead>
-<tr>
-<th>Member</th>
-<th>Kind</th>
-<th>Declaration</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span id="fontlab_glyport.drawing.editor.POLL_MS"></span><code>POLL_MS</code></td>
-<td>attribute</td>
-<td><a href="editor/members-001.html#fontlab_glyport.drawing.editor.POLL_MS">Signature and documentation</a></td>
-</tr>
-</tbody>
-</table>
 
 
 

@@ -2099,6 +2099,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typerig.proxy.gs3.gui.toolbar_host.fit_height" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fit_height
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typerig.proxy.gs3.gui.toolbar_host.install_toolbar" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2164,6 +2175,33 @@
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="typerig.proxy.gs3.gui.toolbar_host.fit_height" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">fit_height</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">fit_height</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Size the palette's sidebar section to <code>h</code> (a Toolbar fold changed it).</p>
+<p>Glyphs sizes a section with a plain height constraint on plugin.dialog,
+our own view, and its sidebar is a stack view, so changing that
+constraint re-lays out the sidebar (GS3 + GS4, 2026-10-27,
+Dev/probe_palette_height_glyphs.py). min / max follow, and the stored
+height (one key for every window) is cleared: with none stored Glyphs
+sizes each window's section from that instance's max. Before Glyphs
+adds the constraint (inside settings()) only those are set.</p>
+
 
     </div>
 

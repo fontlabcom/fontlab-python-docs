@@ -2363,6 +2363,26 @@ the context exits:</p>
     <span class="n">panel</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">create_panel</span><span class="p">(</span><span class="s2">&quot;My panel&quot;</span><span class="p">,</span> <span class="n">build</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
     <span class="n">panel</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
+<p>Edit vertical metrics or alignment zones on several masters as one Undo step:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlabapp.metrics.master_writer</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">master_metrics</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">fontlabapp.metrics.zones.native</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">zone_native</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fontlabapp.core.scripting</span><span class="w"> </span><span class="kn">import</span> <span class="n">current_package</span>
+
+<span class="n">package</span> <span class="o">=</span> <span class="n">current_package</span><span class="p">()</span>                   <span class="c1"># the current font, Font window active</span>
+<span class="n">master_metrics</span><span class="o">.</span><span class="n">write_master_metrics</span><span class="p">(</span>
+    <span class="n">package</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Regular&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;xHeight&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">},</span> <span class="s2">&quot;Bold&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;capsHeight&quot;</span><span class="p">:</span> <span class="mi">705</span><span class="p">}},</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Master Metrics&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">zones</span> <span class="o">=</span> <span class="n">zone_native</span><span class="o">.</span><span class="n">backend</span><span class="p">()</span>                 <span class="c1"># the zone_editor.Backend for this font</span>
+</code></pre></div>
+<p>These writers refuse before any history call when FontLab is not on the GUI thread,
+when a Glyph window is the active editor, or when the font has an unknown field or
+master. A failure during the write restores every written value and adds nothing to
+Undo (<code>font_history.RolledBackError</code>). After Undo or Redo of such a step, FontLab
+shows only some metric guidelines until the font is reopened (fl#8574); the saved
+file is correct. <code>outline_extent.vertical_extent(layer)</code> measures glyph extents from
+outline nodes, because <code>flLayer.boundingBox</code> can stay stale after scripted edits
+(fl#8575).</p>
 <p>The <code>fontlabapp_shim</code> reference lists FontLab's menus, actions and panels as
 Python names (788 of 788 resolve in FontLab 9).</p>
 <h2 id="fontui-font-and-glyph-browsers-and-editors">FontUI: font and glyph browsers and editors</h2>
@@ -2379,22 +2399,19 @@ Install the extra that matches the tools you need:</p>
 <tbody>
 <tr>
 <td><code>fontlab-fontlabapp[fontui]</code></td>
-<td><code>font_browser</code>, <code>glyph_browser</code>, <code>glyph_preview</code></td>
-</tr>
-<tr>
-<td><code>fontlab-fontlabapp[fontsequence]</code></td>
-<td><code>glyph_sequence</code></td>
-</tr>
-<tr>
-<td><code>fontlab-fontlabapp[fontedit]</code></td>
-<td><code>font_info_editor</code>, <code>groups_editor</code>, <code>kerning_editor</code>, <code>features_editor</code>, <code>designspace_panel</code>, <code>transform_editor</code>, <code>batch_panel</code></td>
+<td><code>font_browser</code>, <code>glyph_browser</code>, <code>glyph_preview</code>, <code>features_editor</code>, <code>designspace_panel</code></td>
 </tr>
 </tbody>
 </table>
+<p>The FontParts-bound editors also live in <code>fontlabapp.fontui</code>:
+<code>font_info_editor</code>, <code>groups_editor</code>, <code>kerning_editor</code>, <code>transform_editor</code>,
+<code>batch_panel</code> and <code>glyph_sequence</code>. Install <code>fontlab-fontlabapp[fontport]</code> and
+import these factories from <code>fontlabapp.fontui</code>. They use
+<a href="fontport.html#ui-editors">Fontport</a> models; the retired Fontport UI package raises
+an <code>ImportError</code> naming the matching App home.</p>
 <p>Each function returns a handle. Keep a reference to it, show its <code>.widget</code> and
-call <code>.close()</code> when you are done. The browsers, preview, sequence and the info,
-groups, kerning and features editors also have <code>.refresh()</code> for edits made
-elsewhere; <code>batch_panel</code>, <code>transform_editor</code> and <code>designspace_panel</code> do not:</p>
+call <code>.close()</code> when you are done. The browsers, preview and features editor
+also have <code>.refresh()</code> for edits made elsewhere; <code>designspace_panel</code> does not:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inside FontLab, with the fontui extra and ufoLib2 installed</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ufoLib2</span><span class="w"> </span><span class="kn">import</span> <span class="n">Font</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlabapp.fontui</span><span class="w"> </span><span class="kn">import</span> <span class="n">font_browser</span>
@@ -2412,16 +2429,12 @@ elsewhere; <code>batch_panel</code>, <code>transform_editor</code> and <code>des
 <span class="c1"># ... later:</span>
 <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
-<p>Editors stage changes and apply them in one validated batch; a model without a
-batch apply opens read-only. The font information editor also offers the
-structured fields OS/2 weight and width class, Panose (ten integers) and
-horizontal and vertical stem snaps; it labels them "key master" because Fontport
-writes them to the current key master only. Name records are not offered.</p>
+<p>The features editor stages changes and applies them in one validated batch; a
+model without a batch apply opens read-only.</p>
 <p>While a script has unfinished point edits on a font, the controls that follow
 FontLab changes skip that font's reload rather than discard the edits, and show
 "A font has unfinished script edits; its view updates when the script finishes."
-The view updates on the next change after the script completes. <code>batch_panel</code> runs work in a separate Python 3.11+
-process so FontLab stays responsive.</p>
+The view updates on the next change after the script completes.</p>
 <h2 id="limits">Limits</h2>
 <ul>
 <li><code>Application(with_preflib=False)</code> inspects the application without opening or
