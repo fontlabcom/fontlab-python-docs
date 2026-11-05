@@ -2,6 +2,93 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-05 — independently approved documentation applied
+
+[Task 2 final review](../verification/issue-230/task-2-fix2-review.md) records
+SPEC PASS / QUALITY APPROVED. The [78-file application receipt](../verification/issue-230/task-2-apply.json)
+includes this repository's six guides and preserves all 21 repository heads,
+branches, indexes and non-selected diffs. This is applied documentation evidence,
+not a new product test, installed artifact, native result or publication.
+
+[Round 2 independent review](../verification/issue-230/round-2/repair-review.md),
+[application](../verification/issue-230/round-2/apply.json) and
+[controller verification](../verification/issue-230/round-2/controller-verification.json)
+include this repository's `TODO.md`, `WORK.md`. The complete round
+has 26 successors across the workspace; its acceptance is source/documentation-
+receipt scope, not runtime/native acceptance.
+
+The complete earlier handoff/history below retains its proposal-stage statements
+and dated source pins. Later review, application and delivery status belong in the
+[live workspace ledger](../verification/issue-230/progress.md). Original future,
+native, artifact and preservation contracts remain binding.
+
+## 2026-11-05 — documentation reconciliation proposal
+
+Prepared repository-specific organization, test and MVP/delivery guidance from current source/test configuration and retained Issue 207–211 evidence. Distinguished current canonical layout from qualified candidates, future plugin ownership and unfinished native/artifact gates. Preserved all prior work and changelog evidence; no runtime completion, installation or publication is claimed. Completed historical task rows were removed from the active checklist and consolidated below from existing local CHANGELOG/WORK receipts. Unfinished native, artifact and integration checks remain open.
+
+## Retained scoped completion receipts — corrected evidence map
+
+These are dated results at the stated source/version and acceptance surface. They do not establish current integrated, installed, native or published acceptance. Full receipts and hashes are indexed in the workspace Issue 230 task-2 manifest. Canonical-preimage line ranges below refer to the unchanged historical documents, before these new entries.
+
+- Manager-state GP5e04d1168:25new+117retained=142 source examples;124oldtags/180oldblocks exact;206compile/55links/7469payloads.
+  Historical receipt: CHANGELOG.md:131–170.
+
+- Dynamic/sidebar GP788959172:18new+99retained source examples;106tags/160oldblocks exact;180compiled.
+  Historical receipt: CHANGELOG.md:172–188.
+
+- Dynamic/sidebar same source:106tags/160blocks unchanged;180compile;7469protected;nav/lock/archive preserved.
+  Historical receipt: WORK.md:157–195.
+
+- Echopy-values stage:nine new+90retained source examples;97tags incl7held;160blocks compile.
+  Historical receipt: CHANGELOG.md:190–205.
+
+- Echopy-values same stage:150oldblocks/97tags/7470protected payloads remain exact;nav/lock/archive unchanged.
+  Historical receipt: CHANGELOG.md:190–205.
+
+- Generation GP5a54b4b:82retained+8new pass;89oldtags incl7held unchanged;150blocks/44links/7469protected.
+  Historical receipt: WORK.md:2258–2283; CHANGELOG.md:1218–1234.
+
+- Connected manager:75prior+7new=82 source examples;82 prior tag bodies unchanged.
+  Historical receipt: CHANGELOG.md:207–218.
+
+- Connected manager:142compiled/43links/7467protected payloads;index/nav/lock/archive unchanged.
+  Historical receipt: CHANGELOG.md:207–218.
+
+- Connected-manager final source run369passes/1inheritedD29skip,exit0;first13-pass scratch-path interruption retained.
+  Historical receipt: WORK.md:216–242.
+
+- Parent-aware H:75current examples pass;17 documented migrations;63oldG controls pass;12new meaningful negative controls;7held bodies unchanged.
+  Historical receipt: CHANGELOG.md:220–239.
+
+- Parent-aware final source run369/1skip;233payloads/7228sparsepaths/lock/archive state preserved.
+  Historical receipt: WORK.md:244–288.
+
+- Represented-production guide:11new+24prior source examples and older-install negative matrix;369/1skip;source-lock/sparse/archive preserved.
+  Historical receipt: CHANGELOG.md:326–345.
+
+- Combined-index exact six-wheel/701runtime tuple;24installed examples;earlier consumer/provenance bytes preserved.
+  Historical receipt: CHANGELOG.md:347–361.
+
+- Local docs setup2026-10-18:src_docs migration;strict5368page/6293file build+check;allroute/archive/budget gates;20queries;309tests;28/28interactions;0privacy findings.
+  Historical receipt: WORK.md:1832–1868.
+
+- Receiver-name fixture:Echopy0.2.4.dev6 dirty wheel/sdist each8offline snippets pass;old artifact fails metadata;10blocks compile;2native held.
+  Historical receipt: CHANGELOG.md:683–697.
+
+- Script metadata fixture:each fresh wheel/sdist8examples pass;16blocks compile;older lookup-only artifact fails GSGlyphInfo.script.
+  Historical receipt: CHANGELOG.md:622–635.
+
+- Case metadata fixture:each installed private artifact8examples pass;old script-only artifact fails case;native blocks compile only.
+  Historical receipt: CHANGELOG.md:605–620.
+
+## 2026-11-05 — planning chronology reconciliation
+
+Authored source-guide, example/static and local2026-10-18 layout receipts are past work. Keep each exact stage denominator and held native bodies distinct. Future current source/ordinary/native/rendered/site acceptance remains open; Node tests/compiler are separate lanes. Old exact source stages and historical source-lock commands are not instructions to reset current inputs. Historical passing results retain their dated source and acceptance scope in the entries above and original history below. This documentation change creates no new runtime acceptance.
+
+---
+this_file: CHANGELOG.md
+---
+
 ## 2026-11-04 — Source lock and generated reference refreshed for the 1.2.x cohort (Issue 204 Task 6, interim)
 
 - `api-sources.lock.json` now pins 1103 inputs, up from 765. Against the previous lock: 228 removed, 566 added, 163 changed.

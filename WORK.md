@@ -2,6 +2,63 @@
 this_file: WORK.md
 ---
 
+## 2026-11-05 — independently approved documentation applied
+
+[Task 2 final review](../verification/issue-230/task-2-fix2-review.md) records
+SPEC PASS / QUALITY APPROVED. The [78-file application receipt](../verification/issue-230/task-2-apply.json)
+includes this repository's six guides and preserves all 21 repository heads,
+branches, indexes and non-selected diffs. This is applied documentation evidence,
+not a new product test, installed artifact, native result or publication.
+
+[Round 2 independent review](../verification/issue-230/round-2/repair-review.md),
+[application](../verification/issue-230/round-2/apply.json) and
+[controller verification](../verification/issue-230/round-2/controller-verification.json)
+include this repository's `TODO.md`, `WORK.md`. The complete round
+has 26 successors across the workspace; its acceptance is source/documentation-
+receipt scope, not runtime/native acceptance.
+
+The complete earlier handoff/history below retains its proposal-stage statements
+and dated source pins. Later review, application and delivery status belong in the
+[live workspace ledger](../verification/issue-230/progress.md). Original future,
+native, artifact and preservation contracts remain binding.
+
+# Current handoff — 2026-11-05
+
+Issue 230 documentation reconciliation is current. Issue 123 remains paused. The qualified Issue 207 isolated candidate is separate from canonical source, installed artifacts, native acceptance and publication. Reconcile that candidate with later work before integration. Issue 210 specifies future architecture; Issue 211 retains unfinished follow-up checks. Retained dated receipts describe their original source and acceptance surface only.
+
+Canonical source inspected for this proposal: `a07ffa5c1258`. This is a dated source observation, not an installed or native acceptance claim.
+
+`src_docs/` contains authored pages/configuration; `scripts/` builds and checks the site; `tests/` checks contracts; `api-sources.lock.json` pins inputs; `docs/` is generated output; `archive/` preserves old documentation.
+
+Next: Reconcile Issue 207 provider/source-lock and generated documentation with current App/Plugmix APIs. Complete the source/export and artifact tuple before intentional lock refresh. Qualify strict rendering, every provider, complete search, archive routes, browser accessibility and licences; owner installation, native capture and publication need their own evidence.
+
+Checks for the next milestone: use the exact [Development checks](PLAN.md#development-checks)
+and [Python, Node and generated-site lanes](PLAN.md#python-node-and-generated-site-lanes).
+Prepare an isolated Python 3.12+ environment with the explicit dev group, Playwright
+Chromium and the approved Echopy/source/artifact tuple. Provision the verified
+Examples export and exact locked inputs first. Echopy is not a declared project
+dependency. The Python source recipe supplies its reviewed sibling explicitly.
+
+Run the separate Node 22+ search-test lane. If handwritten backend source changes,
+use [README's locked compiler setup](README.md#build) with esbuild 0.25.12.
+Provision its pinned package files and npm cache, then rebuild bundles and hashes
+together. Python pytest does not replace that lane or browser/search acceptance.
+After source/export provisioning, `./scripts/accept-consumer.sh --offline` runs the
+build/consumer gate. `./build.sh --check` compares the accepted baseline in a
+temporary tree. Bare builds can promote output into `docs/` and remain separate.
+
+This Issue 230 proposal changes documentation only. No product suite, native process, installer, remote fetch, generated site, push or retirement was run. Exact proposal preimages and checks are recorded in the workspace Issue 230 task-2 report.
+
+## Fix 1 documentation disposition
+
+The forward plan now separates current work from dated source/release receipts. The task-2 manifest binds each historical checkbox to an exact retained receipt or restores its unsupported part to TODO. This is a documentation repair, not a new runtime or native acceptance.
+
+## Retained work history
+
+---
+this_file: WORK.md
+---
+
 ## Owned-window recovery authored companion — 2026-11-03
 
 New guide explains real FontLab factory usage, Common Glyphs/plugin priority,

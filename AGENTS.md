@@ -2,22 +2,21 @@
 this_file: AGENTS.md
 ---
 
-<!-- workspace-handoff:2026-11-03 -->
-## Workspace documentation handoff —2026-11-03
+## Current scope — 2026-11-05
 
-Issue 123 implementation is paused by the owner. The present request authorizes
-only documentation maintenance; preserve all source, owner edits and branch state.
-Authored guides and source-derived native API documentation. Observed canonical checkout: `main` at `5ec628a388fa`. No source integration is performed by this update.
+Issue 230 documentation reconciliation is current. Issue 123 remains paused. The qualified Issue 207 isolated candidate is separate from canonical source, installed artifacts, native acceptance and publication. Reconcile that candidate with later work before integration. Issue 210 specifies future architecture; Issue 211 retains unfinished follow-up checks. Retained dated receipts describe their original source and acceptance surface only.
 
-Accepted feature d9c15dc adds the owned-window recovery guide after extensive generation/resource/manager/discovery/node/layer guides.
+Canonical source inspected for this proposal: `a07ffa5c1258`. This is a dated source observation, not an installed or native acceptance claim.
 
-Authored source/ordinary examples were checked; generated references, source-lock, rendered site and publication remain gated.
+Reconcile Issue 207 provider/source-lock and generated documentation with current App/Plugmix APIs. Complete the source/export and artifact tuple before intentional lock refresh.
 
-Read workspace AGENTS/DECISIONS and local project guidance before later work.
-Use direct execution unless a new request explicitly authorizes agents. Product
-work stays isolated; this docs-only request does not authorize native actions,
-installs, merges, pushes, releases, generated-site updates or legacy retirement.
-<!-- /workspace-handoff -->
+Qualify strict rendering, every provider, complete search, archive routes, browser accessibility and licences; owner installation, native capture and publication need their own evidence.
+
+## Organization and checks
+
+`src_docs/` contains authored pages/configuration; `scripts/` builds and checks the site; `tests/` checks contracts; `api-sources.lock.json` pins inputs; `docs/` is generated output; `archive/` preserves old documentation.
+
+Use Python 3.12+, Node 22+ and `uv sync --locked --group dev`. Provision Playwright Chromium and the matching approved Echopy/source tuple. Run `uv run --group dev --with-editable ../fontlab-echopy python -B -m pytest -q -p no:cacheprovider tests` for Python source tests; run the separate Node lane below. After source/export provisioning, `./scripts/accept-consumer.sh --offline` runs the build/consumer gate. `./build.sh --check` checks the accepted baseline; ordinary builds can update `docs/`.
 
 <!-- this_file: AGENTS.md -->
 
@@ -37,3 +36,30 @@ HTML after overlays; a source-only change is not proof of a live deployment.
 Do not commit unrelated local edits or hand-edit generated CSS as the source fix.
 Work directly unless the current user explicitly requests delegation.
 <!-- shared-theme-integration:end -->
+
+## Milestones and delivery
+
+Read [PLAN.md](PLAN.md), [TODO.md](TODO.md) and [WORK.md](WORK.md) before work.
+Make the smallest complete MVP for one named acceptance task. Find all callers,
+tests, fixtures, exports and documentation first. Use graph impact before source
+symbol edits; confirm stale or unknown graph results against current source.
+Keep product work in isolated successors and preserve the owner's checkout.
+
+Run this repository's exact checks and the unchanged 80% gate for each complete
+changed production module. Use an independent review before a milestone commit.
+Under the current owner task, commit and push reviewed, passing milestones;
+verify remote heads rather than inferring delivery from local tracking refs.
+Before main integration, reconcile concurrent work and all consumers, run graph
+change analysis and repeat the required acceptance on the combined source.
+
+Before removing obsolete branches or files, prove integration, retain recoverable
+unique work and check fresh owner/worktree attachments. Preserve sealed reports,
+licences, archives and private data. Do not rewrite history by implication.
+Remove verified completed work from PLAN/TODO and record scoped evidence in
+CHANGELOG. Keep implemented-only native/artifact checks open in TODO. Issue 123
+remains paused; no instruction here authorizes driving the owner's FontLab,
+installing into its user folder or publishing a site.
+
+## Search backend development lane
+
+Use Node22+ for this documentation site. Run `node --test scripts/search_backend/tests.cjs` separately from Python pytest. If handwritten backend source changes, follow README's locked compiler setup with esbuild0.25.12 and `node scripts/search_backend/compile.cjs`; commit the rebuilt bundle and its hashes together. Ordinary builds consume the committed bundle. Offline recompilation needs the provisioned npm cache. Browser/search, source-lock, archive and publication checks remain separate.

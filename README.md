@@ -1,6 +1,23 @@
 ---
 this_file: README.md
 ---
+
+## Development status — 2026-11-05
+
+Canonical source inspected for this proposal: `a07ffa5c1258`. This is a dated source observation, not an installed or native acceptance claim.
+
+Reconcile Issue 207 provider/source-lock and generated documentation with current App/Plugmix APIs. Complete the source/export and artifact tuple before intentional lock refresh.
+
+Qualify strict rendering, every provider, complete search, archive routes, browser accessibility and licences; owner installation, native capture and publication need their own evidence.
+
+## Repository and development
+
+`src_docs/` contains authored pages/configuration; `scripts/` builds and checks the site; `tests/` checks contracts; `api-sources.lock.json` pins inputs; `docs/` is generated output; `archive/` preserves old documentation.
+
+Use Python 3.12+, Node 22+ and `uv sync --locked --group dev`. Provision Playwright Chromium and the matching approved Echopy/source tuple. Run `uv run --group dev --with-editable ../fontlab-echopy python -B -m pytest -q -p no:cacheprovider tests` for Python source tests; run the separate Node lane below. After source/export provisioning, `./scripts/accept-consumer.sh --offline` runs the build/consumer gate. `./build.sh --check` checks the accepted baseline; ordinary builds can update `docs/`.
+
+Keep runtime, ordinary installed artifacts, native workflows and published documentation as separate acceptance results. Track open checks in [TODO.md](TODO.md), the implementation route in [PLAN.md](PLAN.md), and dated evidence in [CHANGELOG.md](CHANGELOG.md).
+
 # FontLab Python documentation
 
 Current source-derived documentation for FontLab's native Python APIs and scripting ecosystem. Echopy captures inside FontLab, then produces enriched,
@@ -197,3 +214,7 @@ The [original node-action guide](src_docs/md/guide/original-node-actions.md) exp
 three distinct menu scopes and four executable experiments over the actual App planning engine, with separate native preservation/history acceptance.
 
 The [layer-identity guide](src_docs/md/guide/glyport-layer-identities.md) adds eight owned experiments over actual native-boundary projection/history. [Window recovery](src_docs/md/guide/owned-window-recovery.md) explains priority, Close refusal and six standalone experiments; native acceptance stays separate.
+
+## Search backend development lane
+
+Use Node22+ for this documentation site. Run `node --test scripts/search_backend/tests.cjs` separately from Python pytest. If handwritten backend source changes, follow README's locked compiler setup with esbuild0.25.12 and `node scripts/search_backend/compile.cjs`; commit the rebuilt bundle and its hashes together. Ordinary builds consume the committed bundle. Offline recompilation needs the provisioned npm cache. Browser/search, source-lock, archive and publication checks remain separate.
