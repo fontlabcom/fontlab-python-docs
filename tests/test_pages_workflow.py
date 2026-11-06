@@ -145,3 +145,111 @@ def test_private_build_when_audit_exit_is_unexpected_then_disposition_still_fail
     assert "Documentation release-audit exit: 7" in result.stdout
     assert "stage audit-disposition failed (exit 23)" in result.stdout
     assert (private / "release-audit.exit").read_text() == "7\n"
+
+
+@pytest.fixture
+def consumer_gate(tmp_path):
+    project = tmp_path / "PRIVATE-SOURCE-SENTINEL-project"
+    (project / "scripts").mkdir(parents=True)
+    (project / "tests").mkdir()
+    consumer = project / "scripts/accept-consumer.sh"
+    consumer.write_bytes((ROOT / "scripts/accept-consumer.sh").read_bytes())
+    (project / "tests/consumer_error.py").write_text(
+        "from playwright.sync_api import Error\n"
+        "def fail(): raise Error('PRIVATE-SOURCE-SENTINEL')\n"
+    )
+    (project / "tests/test_search_identities.py").write_text(
+        "import os\nfrom consumer_error import fail\n"
+        "def test_full_index():\n"
+        "    print('PRIVATE-SOURCE-SENTINEL')\n"
+        "    kind = os.environ.get('CI_TEST_EXCEPTION', '')\n"
+        "    if kind == 'assertion': assert False, 'PRIVATE-SOURCE-SENTINEL'\n"
+        "    if kind == 'playwright': fail()\n"
+        "    if kind == 'unknown': raise Exception('PRIVATE-SOURCE-SENTINEL')\n"
+    )
+    binary = tmp_path / "bin"
+    binary.mkdir()
+    driver = f"#!{sys.executable}\n" + '''import os,sys,subprocess
+from pathlib import Path
+args=sys.argv[1:]
+if Path(sys.argv[0]).name=='build.sh': stage='build'
+elif args[0]=='sync': stage='dependencies'
+elif 'playwright' in args: stage='browser'
+elif 'pytest' in args: stage='full-index'
+else:
+    index=args.index('python')
+    os.execv(sys.executable,[sys.executable,*args[index+1:]])
+print('PRIVATE-SOURCE-SENTINEL',stage,args,flush=True)
+if os.environ.get('CI_TEST_FAIL_STAGE')==stage: raise SystemExit(7)
+if stage=='full-index':
+    report=Path(next(arg.split('=',1)[1] for arg in args if arg.startswith('--junitxml=')))
+    assert report.parent.stat().st_mode & 0o077 == 0
+    if os.environ.get('CI_TEST_MALFORMED_XML')=='1':
+        report.write_text('<PRIVATE-SOURCE-SENTINEL')
+        raise SystemExit(9)
+    index=args.index('python')
+    code=subprocess.run([sys.executable,*args[index+1:]]).returncode
+    assert report.stat().st_mode & 0o077 == 0
+    raise SystemExit(code)
+'''
+    for path in (binary / "uv", project / "build.sh"):
+        path.write_text(driver)
+        path.chmod(0o755)
+    private_tmp = tmp_path / "PRIVATE-SOURCE-SENTINEL-tmp"
+    private_tmp.mkdir()
+
+    def run(fail_stage="", exception="", public_fd=True, malformed_xml=False):
+        log = tmp_path / "PRIVATE-SOURCE-SENTINEL.log"
+        wrapper = 'exec 3>&1; exec >"$1" 2>&1; exec bash "$2" --offline'
+        command = ["bash", "-c", wrapper, "consumer-test", str(log), str(consumer)]
+        if not public_fd:
+            command = ["bash", str(consumer), "--offline"]
+        result = subprocess.run(command, cwd=project, capture_output=True, text=True,
+                                env=os.environ | {"PATH": str(binary) + os.pathsep + os.environ["PATH"],
+                                                  "TMPDIR": str(private_tmp), "CI_TEST_FAIL_STAGE": fail_stage,
+                                                  "CI_TEST_EXCEPTION": exception,
+                                                  "CI_TEST_MALFORMED_XML": str(int(malformed_xml))})
+        if public_fd:
+            assert "PRIVATE-SOURCE-SENTINEL" not in result.stdout + result.stderr
+            assert "PRIVATE-SOURCE-SENTINEL" in log.read_text()
+        assert not list(private_tmp.iterdir()), "Ephemeral JUnit diagnostics must be removed"
+        return result
+
+    return run
+
+
+@pytest.mark.parametrize("stage", ["dependencies", "browser", "build", "full-index"])
+def test_consumer_when_substep_fails_then_static_stage_and_original_exit_are_public(consumer_gate, stage):
+    result = consumer_gate(fail_stage=stage)
+    assert result.returncode == 7
+    assert f"Consumer stage {stage} failed (exit 7)" in result.stdout
+    assert "Consumer stage: complete" not in result.stdout
+    if stage == "full-index":
+        assert "Consumer pytest failure: unavailable" in result.stdout
+
+
+@pytest.mark.parametrize("exception,classification,line", [
+    ("assertion", "AssertionError", 6), ("playwright", "Error", 7), ("unknown", "unknown", 8),
+])
+def test_consumer_when_real_pytest_fails_then_only_allowlisted_class_and_line_escape(consumer_gate, exception, classification, line):
+    result = consumer_gate(exception=exception)
+    assert result.returncode == 1
+    assert f"Consumer pytest failure: class={classification} line={line}" in result.stdout
+    assert "Consumer stage full-index failed (exit 1)" in result.stdout
+
+
+def test_consumer_when_junit_is_malformed_then_diagnostics_are_withheld_deleted_and_exit_preserved(consumer_gate):
+    result = consumer_gate(malformed_xml=True)
+    assert result.returncode == 9
+    assert "Consumer pytest failure: unavailable" in result.stdout
+    assert "Consumer stage full-index failed (exit 9)" in result.stdout
+
+
+@pytest.mark.parametrize("public_fd", [True, False])
+def test_consumer_when_passes_then_all_substeps_run_with_or_without_inherited_fd(consumer_gate, public_fd):
+    result = consumer_gate(public_fd=public_fd)
+    assert result.returncode == 0, result.stdout + result.stderr
+    stages = [line.removeprefix("Consumer stage: ") for line in result.stdout.splitlines()
+              if line.startswith("Consumer stage: ")]
+    assert stages == ["dependencies", "browser", "build", "full-index", "complete"]
+    assert "Consumer pytest failure:" not in result.stdout
