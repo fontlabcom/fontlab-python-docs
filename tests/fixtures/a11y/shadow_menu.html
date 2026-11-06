@@ -1,0 +1,26 @@
+<!-- this_file: tests/fixtures/a11y/shadow_menu.html -->
+<!doctype html><meta charset="utf-8"><title>Shadow menu acceptance</title>
+<style>
+body { color:#111; background:white; font:16px sans-serif; }
+a,button,input { margin:8px; }
+:focus-visible { outline:3px solid #174fff; }
+</style>
+<a class="md-skip" href="#main">Skip to content</a>
+<fontlab-menu></fontlab-menu>
+<nav id="drawer" hidden><a href="#main">Site navigation</a></nav>
+<label for="__search" tabindex="0" hidden>Hidden old search opener</label>
+<input id="__search" type="checkbox" hidden>
+<section id="search" hidden><input class="md-search__input" type="search" aria-label="Search documentation">
+<div class="md-search__output" data-complete-search-state="ready"></div></section>
+<main id="main" class="md-content"><h1>Shadow controls</h1><a href="#main">Content link</a></main>
+<script>
+const root=document.querySelector('fontlab-menu').attachShadow({mode:'open'});
+root.innerHTML=`<style>button { margin:8px; color:#111; background:white; } button:focus-visible { outline:3px solid #174fff; }</style>
+<button aria-label="Open search">Search</button><button aria-label="Open site navigation" aria-controls="drawer">Navigation</button>`;
+root.querySelector('[aria-label="Open search"]').onclick=()=>{
+ document.querySelector('#search').hidden=false; document.querySelector('#__search').checked=true;
+ document.querySelector('input[type=search]').focus();
+};
+root.querySelector('[aria-controls]').onclick=()=>{document.querySelector('#drawer').hidden=false;};
+document.documentElement.classList.remove('no-js');
+</script>

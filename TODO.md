@@ -4,6 +4,8 @@ this_file: TODO.md
 
 # Open tasks
 
+- [ ] Independently review the complete frozen-input light-theme/CI candidate, then qualify actual main X/Y Actions, Pages main:/docs, live search/browser behavior, code-only and unchanged-output runs without conflating current-provider or native acceptance.
+
 - [ ] Reconcile Issue 207 provider/source-lock and generated documentation with current App/Plugmix APIs. Complete the source/export and artifact tuple before intentional lock refresh.
 - [ ] Qualify strict rendering, every provider, complete search, archive routes, browser accessibility and licences; owner installation, native capture and publication need their own evidence.
 - [ ] Run the exact repository checks on the integrated source, obtain independent review, commit/push the scoped milestone and verify its remote head.

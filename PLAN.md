@@ -4,6 +4,15 @@ this_file: PLAN.md
 
 # Forward plan
 
+## Public Pages acceptance (Issue 233)
+
+Independently review the complete frozen-input light-theme/CI candidate. Qualify
+its real main-triggered X build, normal docs-only Y commit, immutable Y rebuild
+and full output parity, explicit branch-source Pages build and live bytes/search.
+Include code-only, unchanged-output, stale-main and cross-UTC-day cases. Preserve
+the reviewed source lock; this publication checkpoint does not qualify current
+provider parity or native workflows.
+
 Issue 230 reconciliation is current. Issue 123 implementation remains paused; its acceptance backlog below is preserved, not resumed. Keep qualified Issue 207 candidates distinct from canonical source, ordinary installed artifacts, native acceptance and publication. Issue 210 defines the future plugin split; Issue 211 retains follow-up checks. The owner corrected the preparation catalogue reference to Issue 214.
 
 ## Authored guides and exact input tuple

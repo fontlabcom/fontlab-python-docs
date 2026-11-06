@@ -1,5 +1,19 @@
 {# this_file: overrides/main.html #}
 {% extends "base.html" %}
+{% block extrahead %}
+{{ super() }}
+<script src="https://i.fontlab.com/menu/fontlab.js" defer></script>
+{% endblock %}
+{% block header %}
+<fontlab-menu mode="light" site-label="{{ config.site_name | e }}"
+              site-url="{{ config.site_url | e }}"
+              mobile-menu="materialx" mobile-search="materialx"></fontlab-menu>
+{{ super() }}
+{% endblock %}
+{% block footer %}
+{{ super() }}
+<fontlab-footer mode="light"></fontlab-footer>
+{% endblock %}
 {% block config %}
 {{ super() }}
 <script src="{{ 'assets/javascripts/complete-search-ui.js' | url }}"

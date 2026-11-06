@@ -1328,3 +1328,11 @@ explains Glyport's actual per-script factory and links the source-derived helper
 reference. Preserve every existing source identity, producer lock and whole-index
 search assertion. The complete frozen-input local consumer passes; native
 workflow acceptance and publication remain separate.
+
+## Issue 233 complete light-theme/CI candidate — 2026-11-06
+
+- Added supported fixed light palette, shared menu/footer and a scoped real search-dialog stacking fix without replacing the complete worker/index.
+- Added immutable private-input bootstrap, private diagnostics, strict three-surface audit disposition and main-only X/Y build/publication/Pages qualification with source-epoch transfer.
+- Expanded real acceptance checks for shadow controls; positive and deliberately broken focus/name/reach/opener/stacking fixtures retain existing oracles.
+- Final local gates: 435 Python / 0 skips / 1 inherited warning, 23 Node, 20 mandatory worker queries, 28 accessibility, 28 interaction, 2 stored-dark/global-control cases, accepted check and promotion; raw audit remains exit1 with exactly 3 reviewed findings. Whole changed Python module coverage remains above 80% with no exclusions. Local interaction-server BrokenPipeError is retained.
+- Preserved the exact source lock, complete native/reference/search/archive identities and legal inventory. Independent review, installed hook, actual main/CI/Pages/live behavior, current providers and native workflows remain separate. No product commit or push occurred.

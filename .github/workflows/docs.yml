@@ -1,0 +1,148 @@
+# this_file: .github/workflows/docs.yml
+name: Complete documentation
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    if: github.repository == 'fontlabcom/fontlab-python-docs' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: site
+    outputs:
+      sha: ${{ steps.publish.outputs.sha }}
+      epoch: ${{ steps.epoch.outputs.value }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+          path: site
+          fetch-depth: 1
+          submodules: false
+      - id: epoch
+        run: |
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+          epoch=$(git show -s --format=%ct "$SOURCE_SHA")
+          printf 'value=%s\n' "$epoch" >> "$GITHUB_OUTPUT"
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          repository: fontlabcom/fontlab-python-docs-inputs
+          ref: 688dbac51848d8a58b81f2cd8b3d0270385ddd9e
+          path: private-input-store
+          ssh-key: ${{ secrets.DOCS_INPUTS_SSH_KEY }}
+          ssh-strict: true
+          persist-credentials: false
+          fetch-depth: 1
+          submodules: false
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7.6.0
+        with:
+          version: '0.13.7'
+          python-version: '3.12'
+          enable-cache: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Complete frozen-input build and acceptance
+        run: bash scripts/pages-build.sh "$GITHUB_WORKSPACE/private-input-store"
+        env:
+          SOURCE_DATE_EPOCH: ${{ steps.epoch.outputs.value }}
+          DOCS_PRIVATE_RUNTIME: ${{ runner.temp }}/fontlab-docs
+      - id: publish
+        name: Normal docs-only generated commit Y
+        run: |
+          if ! uv run --no-sync python -m scripts.pages_publish publish "$SOURCE_SHA" >"$DOCS_PRIVATE_RUNTIME/publish.log" 2>&1; then
+            echo '::error::Generated publication failed; private diagnostics withheld.'
+            exit 1
+          fi
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          DOCS_PRIVATE_RUNTIME: ${{ runner.temp }}/fontlab-docs
+          UV_PROJECT_ENVIRONMENT: ${{ runner.temp }}/fontlab-docs/environment
+      - name: Remove private ephemeral inputs and diagnostics
+        if: always()
+        run: rm -rf -- "$GITHUB_WORKSPACE/private-input-store" "$DOCS_PRIVATE_RUNTIME" .build
+        env:
+          DOCS_PRIVATE_RUNTIME: ${{ runner.temp }}/fontlab-docs
+  qualify-generated-output:
+    needs: build
+    if: needs.build.outputs.sha != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+      pages: write
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ needs.build.outputs.sha }}
+          path: site
+          fetch-depth: 2
+          persist-credentials: false
+          submodules: false
+      - name: Verify immutable Y source lineage before private input access
+        run: |
+          if ! python -m scripts.pages_publish lineage "$SOURCE_SHA" "$GENERATED_SHA" >"$RUNNER_TEMP/docs-lineage.log" 2>&1; then
+            echo '::error::Generated source identity or lineage differs.'
+            exit 1
+          fi
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          GENERATED_SHA: ${{ needs.build.outputs.sha }}
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          repository: fontlabcom/fontlab-python-docs-inputs
+          ref: 688dbac51848d8a58b81f2cd8b3d0270385ddd9e
+          path: private-input-store
+          ssh-key: ${{ secrets.DOCS_INPUTS_SSH_KEY }}
+          ssh-strict: true
+          persist-credentials: false
+          fetch-depth: 1
+          submodules: false
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7.6.0
+        with:
+          version: '0.13.7'
+          python-version: '3.12'
+          enable-cache: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Complete immutable Y rebuild and acceptance
+        run: bash scripts/pages-build.sh "$GITHUB_WORKSPACE/private-input-store"
+        env:
+          SOURCE_DATE_EPOCH: ${{ needs.build.outputs.epoch }}
+          DOCS_PRIVATE_RUNTIME: ${{ runner.temp }}/fontlab-docs
+      - name: Qualify all committed and untracked docs bytes, then request exact Pages build
+        run: |
+          if ! uv run --no-sync python -m scripts.pages_publish pages "$SOURCE_SHA" "$GENERATED_SHA" "$DOCS_PRIVATE_RUNTIME/pages.json" >"$DOCS_PRIVATE_RUNTIME/pages.log" 2>&1; then
+            echo '::error::Generated parity or exact Pages build failed; private diagnostics withheld.'
+            exit 1
+          fi
+          uv run --no-sync python - <<'PY'
+          import json, os
+          from pathlib import Path
+          binding = json.loads((Path(os.environ['DOCS_PRIVATE_RUNTIME']) / 'pages.json').read_text())
+          print(json.dumps({'source_sha': binding['source'], 'generated_sha': binding['generated'],
+                            'pages_commit': binding['build']['commit'], 'pages_status': binding['build']['status']}))
+          PY
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          GENERATED_SHA: ${{ needs.build.outputs.sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+          DOCS_PRIVATE_RUNTIME: ${{ runner.temp }}/fontlab-docs
+          UV_PROJECT_ENVIRONMENT: ${{ runner.temp }}/fontlab-docs/environment
+      - name: Remove private ephemeral inputs and diagnostics
+        if: always()
+        run: rm -rf -- "$GITHUB_WORKSPACE/private-input-store" "$DOCS_PRIVATE_RUNTIME" "$RUNNER_TEMP/docs-lineage.log" .build
+        env:
+          DOCS_PRIVATE_RUNTIME: ${{ runner.temp }}/fontlab-docs

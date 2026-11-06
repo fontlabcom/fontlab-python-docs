@@ -27,7 +27,8 @@ with the locked dependencies already cached. API source hashes are pinned in
 `--update-source-lock`. Normal builds fail when source bytes differ.
 
 The rebuilt root uses one MaterialX navigation/search owner and the four shared
-fltheme26 assets. It does not add a global FontLab menu/footer. The build copies its verified local artifact into `docs/`. Keep remote
+fltheme26 assets, with one light FontLab global menu and footer. The menu delegates
+local navigation and the complete documentation search to MaterialX. The build copies its verified local artifact into `docs/`. Keep remote
 publication gated on the complete deployment checks. Local generation and browser receipts do not establish publication.
 
 ## Shared runtime contract
@@ -47,6 +48,10 @@ dock when either control serves the local site. Escape closes local panels and
 returns focus. Plain static/Webflow pages without MaterialX targets keep global
 controls.
 
+The local reference stylesheet keeps the reparented search dialog above its
+outside-click overlay. Results and Retry retain ordinary pointer interaction;
+outside clicks and Escape still close the panel.
+
 Choose ownership independently with `mobile-menu="materialx|global"` and
 `mobile-search="materialx|global"` on `<fontlab-menu>` or `<vexy-menu>`. These
 strings describe the allowed alternatives: use one value, not the literal pipe.
@@ -64,8 +69,10 @@ open dialogs, selected text and other modifiers retain their normal behavior.
 Wrap Basecoat and daisyUI markup in a separate `.fltheme-components` container.
 Basecoat keeps its classes; prefix every daisyUI component class with `du-`.
 MaterialX keeps `md-` classes. Enable `attr_list` and `md_in_html` when using Markdown
-attributes and `markdown="1"` inside HTML containers. The host retains its fonts
-and theme picker; wrappers may opt into `data-fltheme-mode="light"` or `"dark"`.
+attributes and `markdown="1"` inside HTML containers. The host retains its fonts.
+This site fixes MaterialX to the `default` palette mapping and the shared
+menu/footer to `mode="light"`; OS dark mode and a previously stored slate palette
+cannot select a dark site theme. Component wrappers may use `data-fltheme-mode="light"`.
 Call `FLTheme.refresh()` after manual DOM replacement; native instant navigation
 is already handled. Do not load another Basecoat runtime.
 

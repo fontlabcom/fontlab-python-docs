@@ -6,7 +6,7 @@ import zlib
 from pathlib import Path
 
 import pytest
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import Error as PlaywrightError, sync_playwright
 
 from scripts.a11y_check import serve_site
 from scripts.interaction_check import (
@@ -17,11 +17,44 @@ from scripts.interaction_check import (
     check_search_slow_shard,
     check_type_link,
     main,
+    open_search,
     read_inventory,
     shard_for,
 )
 
 FIXTURES = Path(__file__).parent / "fixtures/interactions"
+
+
+@pytest.mark.parametrize("broken", [False, True])
+def test_open_search_when_shadow_button_then_requires_real_native_field(browser, broken):
+    page = new_page(browser)
+    page.set_default_timeout(500)
+    with serve_site(FIXTURES.parent / "a11y") as url:
+        page.goto(url + "shadow_menu.html")
+        if broken:
+            page.evaluate("document.querySelector('fontlab-menu').shadowRoot.querySelector('button').onclick=()=>{}")
+            with pytest.raises(PlaywrightError, match="Timeout"):
+                open_search(page)
+        else:
+            open_search(page)
+            assert page.locator('.md-search__input').is_visible()
+            assert page.evaluate("document.activeElement.matches('.md-search__input')")
+
+
+@pytest.mark.parametrize("broken", [False, True])
+def test_keyboard_when_shadow_menu_then_each_real_control_must_be_reachable(browser, broken):
+    page = new_page(browser)
+    if broken:
+        source = (FIXTURES.parent / "a11y/shadow_menu.html").read_text()
+        source = source.replace('aria-controls="drawer"', 'aria-controls="drawer" tabindex="-1"')
+        page.route("**/shadow_menu.html", lambda route: route.fulfill(body=source, content_type="text/html"))
+    with serve_site(FIXTURES.parent / "a11y") as url:
+        result = check_keyboard(page, url, {"page": "shadow_menu.html"})
+    if broken:
+        assert "nav_unreachable" in reasons(result), result
+    else:
+        assert result["passed"], result
+        assert {"skip", "search", "nav"}.issubset(result["reached_at_tab"])
 ALIAS = {
     "name": "alias.T",
     "canonical": "m.T",

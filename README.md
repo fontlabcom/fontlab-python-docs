@@ -10,6 +10,11 @@ Reconcile Issue 207 provider/source-lock and generated documentation with curren
 
 Qualify strict rendering, every provider, complete search, archive routes, browser accessibility and licences; owner installation, native capture and publication need their own evidence.
 
+The frozen-input local checkpoint retains 253,151 member identities on 7,018
+reference pages, 78,486 search rows and all 242,654 captured native identities.
+The older Status totals below remain historical. Current-provider, native and
+published-site acceptance remain separate.
+
 ## Repository and development
 
 `src_docs/` contains authored pages/configuration; `scripts/` builds and checks the site; `tests/` checks contracts; `api-sources.lock.json` pins inputs; `docs/` is generated output; `archive/` preserves old documentation.
@@ -194,7 +199,11 @@ Built and verified locally (unpublished; evidence in the workspace
   search, accessibility 28/28 against the published fltheme26 theme.
 - Pinned API sources (`api-sources.lock.json`) and `--check` regeneration.
 
-GitHub CI was removed by owner decision (workspace DECISIONS.md D3).
+Issue 233 supersedes the earlier D3 CI removal for this public site. The reviewed
+workflow candidate rebuilds every main push with the exact private input packet,
+then independently rebuilds the immutable generated commit before requesting
+Pages from `main:/docs`. Real Actions, Pages and live acceptance are separate
+delivery gates; local tests do not establish them.
 
 
 ## Pinned source checkpoint

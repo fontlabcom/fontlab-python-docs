@@ -87,18 +87,25 @@ SIGNATURE_JS = """member => {
     page_signature_links: document.querySelectorAll('.doc-signature a[href], .doc-heading code a[href]').length};
 }"""
 TARGETS_JS = """() => {
+  const all = root => [...root.querySelectorAll('*')].flatMap(e => [e, ...(e.shadowRoot ? all(e.shadowRoot) : [])]);
+  const elements = all(document), query = pattern => elements.filter(e => e.matches(pattern));
   const rendered = e => e.getClientRects().length > 0 && getComputedStyle(e).visibility === 'visible' &&
     !e.closest('[hidden],[inert]');
   const focusable = e => rendered(e) && e.tabIndex >= 0 && !e.disabled;
   const mark = (name, e) => { if (e) e.dataset.r043 = name; return !!e; };
   const skip = document.querySelector('.md-skip,a[href^="#"][class*="skip"]');
-  const searches = [...document.querySelectorAll('.md-search__input,input[type="search"],label[for="__search"][tabindex]')];
+  const searches = query('.md-search__input,input[type="search"],label[for="__search"][tabindex],button[aria-label*="search" i]');
   const navLinks = [...document.querySelectorAll('nav a[href],[role="navigation"] a[href]')];
   let nav = navLinks.find(focusable), panel = null;
-  if (!nav) nav = [...document.querySelectorAll('[aria-controls]')].find(e => {
+  if (!nav) nav = query('[aria-controls]').find(e => {
     const p = document.getElementById(e.getAttribute('aria-controls'));
     if (!focusable(e) || !p || !navLinks.some(a => p.contains(a))) return false;
     panel = '#' + CSS.escape(p.id); return true; });
+  const local = document.querySelector('.md-sidebar--primary');
+  const shared = query('button[aria-label="Open site navigation"]').find(focusable);
+  if (!nav && shared && local && navLinks.some(a => local.contains(a))) {
+    nav = shared; panel = '.md-sidebar--primary';
+  }
   const root = document.querySelector('.md-content,main,[role="main"]');
   const start = skip && document.getElementById(decodeURIComponent(skip.hash.slice(1)));
   const content = root && [...root.querySelectorAll('a[href]')].find(a => focusable(a) &&
@@ -106,7 +113,11 @@ TARGETS_JS = """() => {
   return {skip: mark('skip', skip), search: mark('search', searches.find(focusable)),
     nav: mark('nav', nav), nav_panel: panel, content: mark('content', content)};
 }"""
-ACTIVE_JS = "() => document.activeElement?.dataset?.r043 || null"
+ACTIVE_JS = """() => {
+  let e = document.activeElement;
+  while (e?.shadowRoot?.activeElement) e = e.shadowRoot.activeElement;
+  return e?.dataset?.r043 || null;
+}"""
 SEARCH_ACTIVE_JS = (
     "() => !!document.activeElement?.matches('.md-search__input,input[type=search]')"
 )
@@ -190,7 +201,10 @@ def check_type_link(page: Page, base: str, spec: dict, shot=no_shot) -> dict:
 def open_search(page: Page) -> None:
     """Reveal the single search field (mobile hides it behind its label)."""
     field = page.locator(".md-search__input")
-    if not field.is_visible():
+    shared = page.get_by_role("button", name=re.compile(r"^Open search$", re.I))
+    if shared.count():
+        shared.click()
+    elif not field.is_visible():
         page.locator('label[for="__search"]:visible').first.click()
     field.click()
     field.fill("")

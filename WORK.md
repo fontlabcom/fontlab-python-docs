@@ -2431,3 +2431,41 @@ hashes, source patch, generated manifests and remaining gates.
 Wait, but: this is the frozen-source local documentation consumer. Current-provider
 parity, ordinary runtime support, native workflows, input transport, CI, Pages,
 publication and independent review remain separate acceptance surfaces.
+
+## Issue 233 light theme and complete CI candidate — 2026-11-06
+
+The isolated successor of reviewed 13fe38e2 now uses the supported MaterialX
+light palette mapping and one light shared menu/footer, preserving the complete
+search worker. A scoped dialog stacking rule repairs actual desktop result/Retry
+click interception while retaining outside-close, Escape and focus restoration.
+Shadow-aware acceptance checks now inspect actual controls, with deliberately
+broken focus/name/reach/opener/stacking fixtures; no oracle or deadline was weakened.
+
+The main-only two-job workflow binds the immutable private input commit, both
+payload digests, a single source timestamp, normal docs-only publication and an
+independent immutable generated-commit rebuild before exact Pages qualification.
+Private inputs, names and diagnostics stay ephemeral; the release oracle remains
+unchanged and its raw exit 1 is retained separately from the exact D40 disposition.
+
+Final stable checks: 435 Python passes with zero skips and one inherited
+SyntaxWarning; 23 Node passes; 20 mandatory worker queries; 28/28 accessibility and
+28/28 interaction cases;2/2 dark-OS/stored-slate global-control cases; accepted
+check and promotion pass. The local HTTP server logs BrokenPipeError during the
+interaction run; the receipt still passes 28/28, and output is not described as pristine.
+Whole changed Python modules retain statement-plus-branch coverage of 97.4359%
+(pages_inputs), 91.8519% (pages_publish) and 80.5195% (interaction_check), with zero
+excluded lines and greenlet-aware measurement.
+
+The complete reference retains 253,151 member identities, 256,865 symbols, 554,497
+aliases and all 242,654 captured native identities, 7,018 reference pages, 78,486
+search rows, 278 legacy routes and 128,733 fragments. The source lock, coverage
+SHA and full 149-file search payload remain exact; initial search 3,304,582 bytes
+and largest API page 324,157 bytes pass the existing budgets. All 27 frozen legal
+inputs and nine published licence texts/links remain. Raw privacy audit is
+exit1 for exactly three reviewed installation-name surfaces; disposition exits 0.
+
+No product commit, push, canonical promotion, installed-hook change, native call
+or publication was performed. Independent review, the ordinary installed hook,
+actual main/Actions/Pages/live qualification and current-provider/native gates
+remain separate. The private proposal for the root hook's Docs-only greenlet
+configuration is not applied and changes no product dependency or test policy.

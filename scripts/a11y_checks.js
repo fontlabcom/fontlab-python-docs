@@ -1,14 +1,19 @@
 // this_file: scripts/a11y_checks.js
 () => {
   const failures = [], focus = [], needs_manual = [];
+  const all = root => [...root.querySelectorAll('*')].flatMap(e => [e, ...(e.shadowRoot ? all(e.shadowRoot) : [])]);
+  const elements = all(document), query = pattern => elements.filter(e => e.matches(pattern));
+  const parent = e => e.parentElement || e.getRootNode().host;
+  const active = () => { let e = document.activeElement; while (e?.shadowRoot?.activeElement) e = e.shadowRoot.activeElement; return e; };
   const selector = e => {
+    const root = e.getRootNode();
     const parts = [];
     while (e && e.nodeType === 1) {
-      const index = e.parentElement ? 1 + [...e.parentElement.children].filter(x => x.localName === e.localName).indexOf(e) : 1;
+      const index = e.parentNode ? 1 + [...e.parentNode.children].filter(x => x.localName === e.localName).indexOf(e) : 1;
       parts.unshift(`${e.localName}:nth-of-type(${index})`);
       e = e.parentElement;
     }
-    return parts.join(' > ');
+    return (root.host ? selector(root.host) + ' >> ' : '') + parts.join(' > ');
   };
   const fail = (check, e, measured) => failures.push({check, selector: e ? selector(e) : null, ...measured});
   const rendered = e => {
@@ -17,7 +22,7 @@
   };
   const visible = e => {
     if (!rendered(e)) return false;
-    for (let p = e; p; p = p.parentElement) if (Number(getComputedStyle(p).opacity) === 0) return false;
+    for (let p = e; p; p = parent(p)) if (Number(getComputedStyle(p).opacity) === 0) return false;
     return true;
   };
   const style = e => {
@@ -36,17 +41,17 @@
   if (oldTabindex === null) document.body.removeAttribute('tabindex');
   else document.body.setAttribute('tabindex', oldTabindex);
   window.scrollTo(0, 0);
-  const baseline = new Map([...document.querySelectorAll('*')].map(e => [e, style(e)]));
+  const baseline = new Map(elements.map(e => [e, style(e)]));
   window.a11yFocus = async () => {
     // Focus-triggered transitions can start with opacity zero (MaterialX skip).
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const animations = [];
-    for (let p = document.activeElement; p; p = p.parentElement) animations.push(...p.getAnimations());
+    for (let p = active(); p; p = parent(p)) animations.push(...p.getAnimations());
     await Promise.race([
       Promise.all(animations.map(a => a.finished.catch(() => {}))),
       new Promise(resolve => setTimeout(resolve, 700))
     ]);
-    const e = document.activeElement;
+    const e = active();
     if (!e || e === document.body || e === document.documentElement) return null;
     const before = baseline.get(e), after = style(e);
     const rect = e.getBoundingClientRect();
@@ -70,9 +75,9 @@
   for (const e of document.images) if (!e.hasAttribute('alt')) fail('image_alt', e, {alt: null});
   const name = e => {
     const refs = (e.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean);
-    const labelled = refs.map(id => document.getElementById(id)?.textContent || '').join(' ').trim();
+    const labelled = refs.map(id => e.getRootNode().getElementById(id)?.textContent || '').join(' ').trim();
     if (labelled) return labelled;
-    const labels = [...new Set([...(e.labels || []), ...[...document.querySelectorAll('label[for]')].filter(label => label.htmlFor === e.id && e.id)])];
+    const labels = [...new Set([...(e.labels || []), ...[...e.getRootNode().querySelectorAll('label[for]')].filter(label => label.htmlFor === e.id && e.id)])];
     return [e.getAttribute('aria-label'), labels.map(x => x.textContent).join(' '),
       labels.map(x => x.getAttribute('aria-label') || x.title || '').join(' '),
       e.matches('button,[role="button"]') ? e.textContent : '',
@@ -83,7 +88,7 @@
   };
   const controls = 'input:not([type="hidden"]),select,textarea,button,[role="button"]';
   const keyboardFocusable = e => rendered(e) && e.tabIndex >= 0 && !e.matches(':disabled');
-  for (const e of document.querySelectorAll(controls)) {
+  for (const e of query(controls)) {
     if ((rendered(e) || keyboardFocusable(e)) && !name(e)) fail('accessible_name', e, {name: ''});
   }
   const rgba = value => {
@@ -101,13 +106,18 @@
   document.documentElement.append(canvas);
   const canvasColor = rgba(getComputedStyle(canvas).backgroundColor);
   canvas.remove();
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  while (walker.nextNode()) {
-    const node = walker.currentNode, e = node.parentElement;
+  const textNodes = [];
+  for (const scope of [document.body, ...elements.flatMap(e => e.shadowRoot ? [e.shadowRoot] : [])]) {
+    const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+  }
+  for (const node of textNodes) {
+    const e = node.parentElement;
+    if (!e) continue;
     if (!node.textContent.trim() || checked.has(e) || !visible(e) || e.closest('script,style,noscript')) continue;
     checked.add(e);
     const ancestors = []; let unsupported = null;
-    for (let p = e; p; p = p.parentElement) {
+    for (let p = e; p; p = parent(p)) {
       const s = getComputedStyle(p);
       if (s.backgroundImage !== 'none' || Number(s.opacity) !== 1 || s.mixBlendMode !== 'normal') unsupported = 'background image, opacity or blending';
       ancestors.unshift(rgba(s.backgroundColor));
@@ -130,7 +140,7 @@
   }
   const skip = document.querySelector('.md-skip,a[href^="#"][class*="skip"],a[href^="#"][id*="skip"]') ||
     [...document.querySelectorAll('a[href^="#"]')].find(e => /skip/i.test(e.textContent));
-  const searchCandidates = [...document.querySelectorAll('input[type="search"],.md-search__input,[data-md-component="search-query"],[role="searchbox"],button[aria-label*="Search"],a[aria-label*="Search"],label[for="__search"][tabindex]')];
+  const searchCandidates = query('input[type="search"],.md-search__input,[data-md-component="search-query"],[role="searchbox"],button[aria-label*="search" i],a[aria-label*="search" i],label[for="__search"][tabindex]');
   const search = searchCandidates.find(keyboardFocusable) || searchCandidates.find(rendered) || searchCandidates[0];
   // MaterialX's article tag list is metadata navigation, not the site drawer.
   // Prefer its primary landmark; retain generic landmarks for plain sites.
@@ -141,14 +151,19 @@
   let nav = navLinks.find(rendered), navPanel = null;
   if (!nav) {
     // Closed mobile navigation is reached through a keyboard opener that controls it.
-    const opener = [...document.querySelectorAll('[aria-controls]')].find(e => {
+    const opener = query('[aria-controls]').find(e => {
       const panel = document.getElementById(e.getAttribute('aria-controls'));
       return keyboardFocusable(e) && panel && navLinks.some(a => panel.contains(a));
     });
     if (opener) { nav = opener; navPanel = '#' + CSS.escape(opener.getAttribute('aria-controls')); }
+    const local = document.querySelector('.md-sidebar--primary');
+    const shared = query('button[aria-label="Open site navigation"]').find(keyboardFocusable);
+    if (!nav && shared && local && navLinks.some(a => local.contains(a))) {
+      nav = shared; navPanel = '.md-sidebar--primary';
+    }
   }
   return {failures, focus, needs_manual, scrollWidth: width, innerWidth, text_elements: checked.size,
-    tab_budget: document.querySelectorAll('a,button,input,select,textarea,[tabindex],label').length + 2,
+    tab_budget: query('a,button,input,select,textarea,[tabindex],label').length + 2,
     reach_budget: 40, nav_panel: navPanel,
     targets: {...(skip ? {skip: selector(skip)} : {}), search: search ? selector(search) : null, nav: nav ? selector(nav) : null}};
 }

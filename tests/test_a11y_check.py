@@ -14,6 +14,28 @@ from scripts.a11y_check import SiteServer, check_page, main, open_page, serve_si
 FIXTURES = Path(__file__).parent / "fixtures/a11y"
 
 
+@pytest.mark.browser
+@pytest.mark.parametrize("damage", [None, "focus", "name", "reach"])
+def test_shadow_controls_when_checked_then_real_focus_names_and_reach_are_enforced(browser_page, damage):
+    with serve_site(FIXTURES) as url:
+        browser_page.goto(url + "shadow_menu.html")
+        if damage == "focus":
+            browser_page.evaluate("document.querySelector('fontlab-menu').shadowRoot.querySelector('style').textContent += 'button:focus-visible {outline:none}'")
+        elif damage == "name":
+            browser_page.evaluate("let b=document.querySelector('fontlab-menu').shadowRoot.querySelector('button'); b.removeAttribute('aria-label'); b.textContent='' ")
+        elif damage == "reach":
+            browser_page.evaluate("document.querySelector('fontlab-menu').shadowRoot.querySelector('[aria-controls]').tabIndex=-1")
+        result = check_page(browser_page)
+    if damage is None:
+        assert result["passed"], result["failures"]
+        shadow = [row for row in result["focus"] if "fontlab-menu" in row["selector"]]
+        assert len(shadow) >= 2 and len({row["selector"] for row in shadow}) >= 2
+        assert all(row["indicator"] for row in shadow)
+    else:
+        expected = {"focus": "focus", "name": "accessible_name", "reach": "keyboard_reach"}[damage]
+        assert any(row["check"] == expected for row in result["failures"]), result
+
+
 @pytest.fixture
 def browser_page():
     with sync_playwright() as playwright:
