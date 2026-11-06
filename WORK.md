@@ -2469,3 +2469,16 @@ or publication was performed. Independent review, the ordinary installed hook,
 actual main/Actions/Pages/live qualification and current-provider/native gates
 remain separate. The private proposal for the root hook's Docs-only greenlet
 configuration is not applied and changes no product dependency or test policy.
+
+## Search manifest gzip size — 2026-11-06
+
+The bootstrap now records the byte size of the gzip manifest produced by Node,
+instead of predicting it with a separate Python compression. Raw size/SHA256,
+gzip size, decompression identity, search coverage and payload budgets remain
+mandatory. A real-producer regression with a valid alternate gzip encoding fails
+before the correction and passes afterwards; missing manifest companions,
+corruption and budget failures remain covered. The 17 focused search/site tests
+pass. Complete search_shards module statement-plus-branch coverage is 87.0968%
+with no excluded lines. Full frozen-build, independent review and hosted delivery
+evidence are separate from these focused results; no compressor-version cause
+is inferred from the earlier combined size/decompression error.

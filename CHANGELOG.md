@@ -1336,3 +1336,10 @@ workflow acceptance and publication remain separate.
 - Expanded real acceptance checks for shadow controls; positive and deliberately broken focus/name/reach/opener/stacking fixtures retain existing oracles.
 - Final local gates: 435 Python / 0 skips / 1 inherited warning, 23 Node, 20 mandatory worker queries, 28 accessibility, 28 interaction, 2 stored-dark/global-control cases, accepted check and promotion; raw audit remains exit1 with exactly 3 reviewed findings. Whole changed Python module coverage remains above 80% with no exclusions. Local interaction-server BrokenPipeError is retained.
 - Preserved the exact source lock, complete native/reference/search/archive identities and legal inventory. Independent review, installed hook, actual main/CI/Pages/live behavior, current providers and native workflows remain separate. No product commit or push occurred.
+
+## 2026-11-06 — Search manifest compressed-size correction
+
+- Record the actual produced manifest gzip size in the bootstrap; preserve raw
+  hash, compressed size, decompression, complete-search and budget checks.
+- Add real alternate-gzip and missing-manifest regressions. All 17 focused tests
+  pass; complete changed-module coverage is 87.0968% with no exclusions.

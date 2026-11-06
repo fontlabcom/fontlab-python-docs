@@ -1,8 +1,10 @@
 # this_file: tests/test_search_shards.py
 """Complete rows are durable; browser bootstrap must never replace coverage."""
 
+import gzip
 import json
 from collections import Counter
+from pathlib import Path
 
 import pytest
 
@@ -126,4 +128,40 @@ def test_corrupt_gzip_companion_fails_even_when_raw_rows_are_intact(tmp_path, co
     compressed = next((tmp_path / "complete").glob("rows-*.json.gz"))
     compressed.write_bytes(b"broken gzip")
     with pytest.raises(ValueError, match="compressed"):
+        read_complete_index(path)
+
+
+def test_manifest_when_producer_gzip_differs_then_records_actual_size(
+    tmp_path, corpus, monkeypatch
+):
+    from scripts import search_shards
+
+    run = search_shards.subprocess.run
+
+    def alternate_gzip(command, **kwargs):
+        result = run(command, **kwargs)
+        if command[1] == str(search_shards.BACKEND / "build.cjs"):
+            compressed = Path(command[3]) / "manifest.json.gz"
+            raw = gzip.decompress(compressed.read_bytes())
+            alternate = gzip.compress(raw, compresslevel=0, mtime=0)
+            assert len(alternate) != len(gzip.compress(raw, mtime=0))
+            compressed.write_bytes(alternate)
+        return result
+
+    monkeypatch.setattr(search_shards.subprocess, "run", alternate_gzip)
+    path = tmp_path / "search_index.json"
+    path.write_text(json.dumps(corpus))
+    build_shards(path)
+    spec = json.loads(path.read_bytes())["config"]["complete"]["manifest"]
+    assert spec["gzip"] == (tmp_path / "complete/manifest.json.gz").stat().st_size
+    assert read_complete_index(path) == corpus
+
+
+@pytest.mark.parametrize("name", ["manifest.json", "manifest.json.gz"])
+def test_manifest_when_asset_missing_then_read_fails(tmp_path, corpus, name):
+    path = tmp_path / "search_index.json"
+    path.write_text(json.dumps(corpus))
+    build_shards(path)
+    (tmp_path / "complete" / name).unlink()
+    with pytest.raises(FileNotFoundError):
         read_complete_index(path)

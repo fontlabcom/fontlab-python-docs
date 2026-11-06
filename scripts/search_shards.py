@@ -153,7 +153,7 @@ def build_shards(path: Path, *, shard_bytes: int = 1024 * 1024) -> dict:
                     "manifest": {
                         "file": "manifest.json",
                         "raw": len(manifest_bytes),
-                        "gzip": len(gzip.compress(manifest_bytes, mtime=0)),
+                        "gzip": (directory / "manifest.json.gz").stat().st_size,
                         "sha256": hashlib.sha256(manifest_bytes).hexdigest(),
                     }
                 }
