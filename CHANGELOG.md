@@ -1319,3 +1319,12 @@ external info-generation-companions-20261102/docs-evidence/. Root owns the norma
 docs gate and matching ordinary tuples/consumers. No dependency/generated/native/
 canonical/publication change; D16/D29/D30/D31 and native/default-resource gates
 remain. This authored source result does not complete Issue123.
+
+
+## 2026-11-06 — GlyphsApp documentation entry point
+
+Restore `reference/GlyphsApp.html` through an authored compatibility page that
+explains Glyport's actual per-script factory and links the source-derived helper
+reference. Preserve every existing source identity, producer lock and whole-index
+search assertion. The complete frozen-input local consumer passes; native
+workflow acceptance and publication remain separate.

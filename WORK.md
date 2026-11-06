@@ -2398,3 +2398,36 @@ full original workflows. D16/D29/D30/D31, generated/reference/source-lock/site,
 archive/routes, browser/accessibility and publication remain independent holds.
 
 Root direct spec/quality/whole-authored review clean. Clarified native setter-error propagation and side-effect acceptance in prose only; all97old tags/150old blocks unchanged,160totalcompile. Mandatory normal docs gate369passed/1inheritedD29skip,130.17s, exit0. Exact command/exit: adjacent root-gates/fontlab-python-docs/command.json. All90retained and9new examples pass each fresh ordinary wheel/sdist prefix without source arguments; full package/consumer qualification remains separately running. The guide has422lines after prose clarification; no native/generated/source-lock/site action.
+
+
+## Issue 233 frozen-input Docs consumer — 2026-11-06
+
+Reproduced the complete existing consumer from the approved clean source and
+all 1,135 exact locked inputs (55,412,344 bytes), retaining all 27 legal records.
+The unchanged whole-index test exposed the missing `reference/GlyphsApp.html`
+entry point. Added a substantive authored compatibility page for Glyport's actual
+per-script module factory, with the constructed namespace explicitly distinct
+from the importable helper namespace. No static shim or source identity was
+invented; production code, tests, dependency locks and producer inputs are exact.
+
+The complete offline build and all 20 shipped-worker queries pass. Stable-site
+Python tests pass 382/382 with one existing source SyntaxWarning; the unchanged
+Node search suite passes 23/23. Accessibility and interaction checks each pass
+28/28. The complete coverage SHA, every generated reference-page hash and the
+full legacy route-map bytes equal the approved baseline: 256,865 symbols,
+554,497 aliases, all 242,654 captured native identities, 278 legacy routes and
+128,733 legacy fragments. Search retains 78,486 rows, including the two new
+compatibility-page entries; API-page and initial-search limits remain unchanged.
+
+The decoded release audit retains exit 1 with three occurrences of the reviewed
+installation name on its guide and matching search JSON/gzip surfaces. New search
+rows change content-addressed shard filenames. Its actual oracle derives four
+non-documented private names from thirteen retained private-repository records;
+no policy or allowlist changed. Initial browser-provisioning and concurrent-site-
+cleaning failures remain in private evidence, followed by the stable sequential
+acceptance runs. Task 5's workspace evidence report carries exact commands,
+hashes, source patch, generated manifests and remaining gates.
+
+Wait, but: this is the frozen-source local documentation consumer. Current-provider
+parity, ordinary runtime support, native workflows, input transport, CI, Pages,
+publication and independent review remain separate acceptance surfaces.
