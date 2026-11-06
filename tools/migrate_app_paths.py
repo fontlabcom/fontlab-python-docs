@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # this_file: tools/migrate_app_paths.py
-"""Rewrite authored API paths using the sibling App alias oracle (stdlib only).
+"""Rewrite authored API paths using the configured App alias oracle (stdlib only).
 
 Run from any directory; --check reports pending edits without writing files.
+FONTLAB_API_SOURCE_ROOT selects a package root; otherwise use the sibling App.
 The migration regression fixtures deliberately retain their legacy inputs.
 """
 
 import argparse
 import importlib.util
+import os
 from pathlib import Path
 import re
 
@@ -35,7 +37,10 @@ EXPLICIT = {
 
 def load_mapping() -> dict[str, str]:
     """Load only _legacy.py, without importing native App or Qt."""
-    path = ROOT.parent / "fontlab-fontlabapp/src/fontlabapp/_legacy.py"
+    artifact_root = os.environ.get("FONTLAB_API_SOURCE_ROOT")
+    source = (Path(artifact_root).expanduser().resolve() if artifact_root
+              else ROOT.parent / "fontlab-fontlabapp/src")
+    path = source / "fontlabapp/_legacy.py"
     spec = importlib.util.spec_from_file_location("_migration_legacy", path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

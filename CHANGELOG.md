@@ -1343,3 +1343,12 @@ workflow acceptance and publication remain separate.
   hash, compressed size, decompression, complete-search and budget checks.
 - Add real alternate-gzip and missing-manifest regressions. All 17 focused tests
   pass; complete changed-module coverage is 87.0968% with no exclusions.
+
+## 2026-11-06 — Migration oracle source-root correction
+
+- Honor the existing frozen package-root setting in the migration helper while
+  preserving sibling checkout use and strict missing-input errors.
+- Cover explicit-root precedence, absent/empty settings, missing inputs and
+  native-package import avoidance. Existing migration assertions remain unchanged.
+- Nine focused tests pass; complete module combined coverage exceeds 80% with
+  no exclusions. Hosted source CI and publication remain separate gates.

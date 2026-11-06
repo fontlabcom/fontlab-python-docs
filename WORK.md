@@ -2482,3 +2482,17 @@ pass. Complete search_shards module statement-plus-branch coverage is 87.0968%
 with no excluded lines. Full frozen-build, independent review and hosted delivery
 evidence are separate from these focused results; no compressor-version cause
 is inferred from the earlier combined size/decompression error.
+
+## Migration oracle source root — 2026-11-06
+
+The migration helper now honors the existing FONTLAB_API_SOURCE_ROOT package
+root, retaining the sibling App default when the setting is absent or empty.
+Explicit missing inputs still fail; the loader reads only the alias module and
+does not import the native package. This corrects three hosted test failures
+caused by requiring an unprovisioned sibling checkout despite frozen inputs.
+
+The new precedence and missing-input regressions fail before the fix. All nine
+migration tests then pass, including the original mapping/route/archive assertions
+against the unchanged frozen oracle. Complete module combined coverage is above
+80%, with no exclusions. Full consumer, suite, review and hosted acceptance have
+separate receipts; no input lock, assertion, deadline or dependency changed.
