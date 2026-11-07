@@ -2496,3 +2496,17 @@ migration tests then pass, including the original mapping/route/archive assertio
 against the unchanged frozen oracle. Complete module combined coverage is above
 80%, with no exclusions. Full consumer, suite, review and hosted acceptance have
 separate receipts; no input lock, assertion, deadline or dependency changed.
+
+## Two archive helper notices — 2026-11-07
+
+Add the exact Taku Kudo 2008 TinySegmenter BSD notice and David J. Brenes 2012
+stopwords-filter MIT notice. Bind TinySegmenter 0.1 and the demonstrated French
+stopword-data derivation to the shipped lunr-languages 1.14.0 archive members
+and root/two-archive paths. Preserve the original HTTP licence URL and literal
+<ORGANIZATION> wording, all existing notice bytes and every helper.
+
+Ten focused notice tests pass, including wrong-version/member/language and
+missing-notice controls plus actual Git filter/checkout/archive preservation.
+Complete build/output and independent review have separate evidence. These two
+notices do not close transitive wrapper/Wordcut/clipboard/CSS/font provenance,
+archive runtime caveats or publication qualification. No runtime or lock changes.

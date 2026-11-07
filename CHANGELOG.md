@@ -1352,3 +1352,12 @@ workflow acceptance and publication remain separate.
   native-package import avoidance. Existing migration assertions remain unchanged.
 - Nine focused tests pass; complete module combined coverage exceeds 80% with
   no exclusions. Hosted source CI and publication remain separate gates.
+
+## 2026-11-07 — Two source-bound archive helper notices
+
+- Retain the exact TinySegmenter BSD and stopwords-filter MIT notices with their
+  original copyright, wording and verified source/member bindings.
+- Attribute only the demonstrated French stopword derivation; preserve all 102
+  helpers, existing legal texts and incomplete transitive-review fields.
+- Ten focused notice tests pass, including malformed bindings and real Git
+  stage/checkout/archive checks. Full build and delivery remain separate gates.

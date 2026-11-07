@@ -162,3 +162,59 @@ def test_notice_distribution_when_git_context_is_inherited_then_parent_is_unchan
         assert dict(os.environ) == outer_env, "Foreign Git commands changed the caller environment"
         assert snapshot() == before, "Foreign Git commands changed parent index/config/refs/tree/objects"
         assert not any(alternate_objects.iterdir()), "Foreign Git commands wrote alternate objects"
+
+
+def test_archive_notices_when_bound_then_exact_component_sources_and_scope():
+    manifest = json.loads((DOCS / "frontend-notices.json").read_text())
+    components = {item["name"]: item for item in manifest["components"]}
+    archive_url = "https://registry.npmjs.org/lunr-languages/-/lunr-languages-1.14.0.tgz"
+    cases = [
+        ("TinySegmenter", "0.1", "tinyseg.js", "bsd-tinysegmenter.txt", 1485,
+         "ba1aea1dfa045e96563b5a7a6878d91a88231fc4acef57d7109345f3d9153ee1"),
+        ("stopwords-filter French data", "vendored in lunr-languages 1.14.0",
+         "min/lunr.fr.min.js", "mit-stopwords-filter.txt", 1059,
+         "0905c5c7efbf514976764ba3a8fe324ea3bf805ebbce8e902517fbe02d750bcf"),
+    ]
+    for name, version, member, filename, size, digest in cases:
+        component = components[name]
+        assert component["version"] == version
+        assert component["source_url"] == archive_url
+        assert component["shipped_member"] == "package/" + member
+        assert component["shipped_paths"] == [
+            prefix + "assets/javascripts/lunr/" + member
+            for prefix in ("", "archive/fontlab7/", "archive/fontlab7/pythonqt/")
+        ]
+        assert component["notices"] == [{"path": "licenses/" + filename, "sha256": digest}]
+        data = (DOCS / "licenses" / filename).read_bytes()
+        assert len(data) == size and hashlib.sha256(data).hexdigest() == digest
+        assert b"\r" not in data
+    tiny = components["TinySegmenter"]
+    assert tiny["notice_source_url"] == "http://chasen.org/~taku/software/TinySegmenter/LICENCE.txt"
+    assert tiny["shipped_sha256"] == "1b044c239610ef65fceff6039567442bb1692d413f5ee8686fee81b1a3067761"
+    assert b"<ORGANIZATION>" in (DOCS / "licenses/bsd-tinysegmenter.txt").read_bytes()
+    french = components["stopwords-filter French data"]
+    assert french["source_member"] == "package/build/stopwords-filter/lib/stopwords/snowball/locales/fr.csv"
+    assert french["derived_language"] == "fr"
+    assert french["shipped_sha256"] == "4dd56aa2551e770ad26ef4b85092cd31447671e0e84b39514278547f54177377"
+    assert french["source_sha256"] == "7145f68621c83e98c2ff6db9d3b7b44bbefd85913a6fa3f0bf8a2ccd7e4cdba3"
+    assert french["notice_member"] == "package/build/stopwords-filter/LICENSE.txt"
+    assert french["scope"] == "French stopword-data derivation only; no claim about other languages."
+    assert manifest["complete_transitive_inventory"] is False
+    assert manifest["publication_qualified"] is False
+
+
+@pytest.mark.parametrize("field", ["version", "shipped_member", "derived_language", "notices"])
+def test_archive_notice_when_binding_is_missing_or_wrong_then_contract_rejects(
+    tmp_path, monkeypatch, field,
+):
+    import shutil
+    import sys
+
+    shutil.copytree(DOCS / "licenses", tmp_path / "licenses")
+    manifest = json.loads((DOCS / "frontend-notices.json").read_text())
+    french = next(item for item in manifest["components"] if item["name"] == "stopwords-filter French data")
+    french[field] = [] if field == "notices" else "unproved"
+    (tmp_path / "frontend-notices.json").write_text(json.dumps(manifest))
+    monkeypatch.setattr(sys.modules[__name__], "DOCS", tmp_path)
+    with pytest.raises(AssertionError):
+        test_archive_notices_when_bound_then_exact_component_sources_and_scope()

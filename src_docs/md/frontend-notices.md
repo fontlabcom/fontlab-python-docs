@@ -30,6 +30,8 @@ Retained archive assets keep their existing bytes and attribution.
 | material-design-color | [2.3.2](https://registry.npmjs.org/material-design-color/-/material-design-color-2.3.2.tgz) | MIT: [mit-material-design-color.txt](licenses/mit-material-design-color.txt) |
 | tiny-emitter | [2.1.0](https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz) | MIT: [mit-tiny-emitter.txt](licenses/mit-tiny-emitter.txt) |
 | lunr-languages | [1.14.0](https://registry.npmjs.org/lunr-languages/-/lunr-languages-1.14.0.tgz) | MPL-1.1 (package; embedded components retain their terms): [mpl-1.1-lunr-languages.txt](licenses/mpl-1.1-lunr-languages.txt) |
+| TinySegmenter | [0.1, shipped in lunr-languages 1.14.0](https://registry.npmjs.org/lunr-languages/-/lunr-languages-1.14.0.tgz) | BSD: [original Taku Kudo 2008 notice](licenses/bsd-tinysegmenter.txt) |
+| stopwords-filter French data | [vendored in lunr-languages 1.14.0](https://registry.npmjs.org/lunr-languages/-/lunr-languages-1.14.0.tgz) | MIT: [David J. Brenes 2012 notice](licenses/mit-stopwords-filter.txt) |
 | basecoat-css | [1.0.2](https://i.fontlab.com/fltheme26/1.0.0/licenses/basecoat-css.txt) | MIT: [mit-basecoat-css.txt](licenses/mit-basecoat-css.txt) |
 | daisyui | [5.7.44](https://i.fontlab.com/fltheme26/1.0.0/licenses/daisyui.txt) | MIT: [mit-daisyui.txt](licenses/mit-daisyui.txt) |
 | tailwindcss | [4.3.3](https://i.fontlab.com/fltheme26/1.0.0/licenses/tailwindcss.txt) | MIT: [mit-tailwindcss.txt](licenses/mit-tailwindcss.txt) |
@@ -44,10 +46,22 @@ Retained archive assets keep their existing bytes and attribution.
 | UMD contributors | [returnExports wrapper](https://github.com/umdjs/umd/blob/master/LICENSE.md) | MIT: [mit-umd.txt](licenses/mit-umd.txt) |
 | mkdocstrings-python frontend CSS | [2.0.9](https://pypi.org/project/mkdocstrings-python/2.0.9/) | ISC: [isc-mkdocstrings-python.txt](licenses/isc-mkdocstrings-python.txt) |
 
+The 102 language and support helpers in the root site and both retained archives
+match the official lunr-languages 1.14.0 distribution. The TinySegmenter notice
+comes from its shipped header's [original licence URL](http://chasen.org/~taku/software/TinySegmenter/LICENCE.txt)
+and preserves the literal `<ORGANIZATION>` wording. Its wrapper-source provenance
+remains open.
+
+The stopwords-filter notice applies to the demonstrated French stopword-data
+derivation: the distribution's `build/build.js` splits, sorts and joins `fr.csv`
+into the literal retained in all three French helpers. This does not establish
+that other languages use the same data source. Exact member paths and digests
+are recorded in the machine-readable notice list.
+
 ## Review still open
 
 - Complete provenance and source availability for the 29 modules and dictionary in wordcut.js; its upstream Wordcut source is LGPL-3.0.
-- TinySegmenter original BSD full notice and exact wrapper/source provenance.
+- TinySegmenter exact wrapper/source provenance.
 - Clipboard nested delegate/good-listener/select notices and embedded-version closure.
 - CSS data-SVG components and any historical archive-only frontend dependencies.
 - External-font response variants, complete shared-theme build provenance, and full site publication gates.

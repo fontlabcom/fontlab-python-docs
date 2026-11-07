@@ -135,6 +135,54 @@
       ]
     },
     {
+      "name": "TinySegmenter",
+      "version": "0.1",
+      "licence": "BSD-3-Clause (original notice wording retained)",
+      "source_url": "https://registry.npmjs.org/lunr-languages/-/lunr-languages-1.14.0.tgz",
+      "source_member": "package/tinyseg.js",
+      "shipped_member": "package/tinyseg.js",
+      "shipped_sha256": "1b044c239610ef65fceff6039567442bb1692d413f5ee8686fee81b1a3067761",
+      "shipped_paths": [
+        "assets/javascripts/lunr/tinyseg.js",
+        "archive/fontlab7/assets/javascripts/lunr/tinyseg.js",
+        "archive/fontlab7/pythonqt/assets/javascripts/lunr/tinyseg.js"
+      ],
+      "notice_source_url": "http://chasen.org/~taku/software/TinySegmenter/LICENCE.txt",
+      "notices": [
+        {
+          "path": "licenses/bsd-tinysegmenter.txt",
+          "sha256": "ba1aea1dfa045e96563b5a7a6878d91a88231fc4acef57d7109345f3d9153ee1"
+        }
+      ],
+      "scope": "TinySegmenter helper in root and both retained archives; wrapper preferred-source provenance remains unqualified."
+    },
+    {
+      "name": "stopwords-filter French data",
+      "version": "vendored in lunr-languages 1.14.0",
+      "licence": "MIT",
+      "source_url": "https://registry.npmjs.org/lunr-languages/-/lunr-languages-1.14.0.tgz",
+      "source_member": "package/build/stopwords-filter/lib/stopwords/snowball/locales/fr.csv",
+      "source_sha256": "7145f68621c83e98c2ff6db9d3b7b44bbefd85913a6fa3f0bf8a2ccd7e4cdba3",
+      "derived_language": "fr",
+      "derivation": "build/build.js: stopWords.split(\",\").sort().join(\" \")",
+      "derived_literal_sha256": "b37a94b662df903a66d8ce439bfc64c99ad2ec8a8fddfca5eb80921499ee4add",
+      "shipped_member": "package/min/lunr.fr.min.js",
+      "shipped_sha256": "4dd56aa2551e770ad26ef4b85092cd31447671e0e84b39514278547f54177377",
+      "shipped_paths": [
+        "assets/javascripts/lunr/min/lunr.fr.min.js",
+        "archive/fontlab7/assets/javascripts/lunr/min/lunr.fr.min.js",
+        "archive/fontlab7/pythonqt/assets/javascripts/lunr/min/lunr.fr.min.js"
+      ],
+      "notice_member": "package/build/stopwords-filter/LICENSE.txt",
+      "notices": [
+        {
+          "path": "licenses/mit-stopwords-filter.txt",
+          "sha256": "0905c5c7efbf514976764ba3a8fe324ea3bf805ebbce8e902517fbe02d750bcf"
+        }
+      ],
+      "scope": "French stopword-data derivation only; no claim about other languages."
+    },
+    {
       "name": "basecoat-css",
       "version": "1.0.2",
       "licence": "MIT",
@@ -293,7 +341,7 @@
   ],
   "pending": [
     "Complete provenance and source availability for the 29 modules and dictionary in wordcut.js; its upstream Wordcut source is LGPL-3.0.",
-    "TinySegmenter original BSD full notice and exact wrapper/source provenance.",
+    "TinySegmenter exact wrapper/source provenance.",
     "Clipboard nested delegate/good-listener/select notices and embedded-version closure.",
     "CSS data-SVG components and any historical archive-only frontend dependencies.",
     "External-font response variants, complete shared-theme build provenance, and full site publication gates."
@@ -679,6 +727,20 @@
     "local_worker_modification": {
       "source_url": "https://github.com/fontlabcom/fontlab-python-docs/blob/d5dfd0e7bf0ac90ac84d6b8b8e943dc93301e823/scripts/lunr_patch.py",
       "description": "Existing stock-worker TokenSet key collision patch adds a semicolon separator; source-map content retains the original upstream record. Full search bundles also declare this patch in scripts/search_backend/bundles.json."
+    },
+    "lunr_languages_distribution": {
+      "version": "1.14.0",
+      "url": "https://registry.npmjs.org/lunr-languages/-/lunr-languages-1.14.0.tgz",
+      "sha256": "73a8e812b88c8842c091fdd62488e798ae1594e8d770fd415cc643d2f67d05bf",
+      "integrity": "sha512-hWUAb2KqM3L7J5bcrngszzISY4BxrXn/Xhbb9TTCJYEGqlR1nG67/M14sp09+PTIRklobrn57IAxcdcO/ZFyNA==",
+      "git_head": "18787d6dd8277216bba54f19bdeaad93427f7a32",
+      "shipped_helper_count": 102,
+      "cohorts": {
+        "root": 34,
+        "archive/fontlab7": 34,
+        "archive/fontlab7/pythonqt": 34
+      },
+      "binding": "Every shipped helper matches its official npm 1.14.0 archive member byte for byte; this does not establish complete transitive source closure."
     }
   }
 }
