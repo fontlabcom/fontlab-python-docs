@@ -1361,3 +1361,14 @@ workflow acceptance and publication remain separate.
   helpers, existing legal texts and incomplete transitive-review fields.
 - Ten focused notice tests pass, including malformed bindings and real Git
   stage/checkout/archive checks. Full build and delivery remain separate gates.
+
+## 2026-11-07 — PythonQt archive search repair candidate
+
+- Restore ordinary literal completions, including callable and available QPen
+  help, with the approved existing-engine BM25/boost/grouping policy.
+- Preserve explicit query parsing and messages. Pure-negative queries now score
+  finite zero instead of the original theme ratio producing NaN.
+- Retain preferred sources, exact original dependencies/licences, locked compiler,
+  truthful maps, full regression fixtures and preflight installation. All twelve
+  PythonQt configurations use the content-addressed derivative, including404.
+- Source/local candidate only; hosted delivery and publication require review.

@@ -227,3 +227,11 @@ The [layer-identity guide](src_docs/md/guide/glyport-layer-identities.md) adds e
 ## Search backend development lane
 
 Use Node22+ for this documentation site. Run `node --test scripts/search_backend/tests.cjs` separately from Python pytest. If handwritten backend source changes, follow README's locked compiler setup with esbuild0.25.12 and `node scripts/search_backend/compile.cjs`; commit the rebuilt bundle and its hashes together. Ordinary builds consume the committed bundle. Offline recompilation needs the provisioned npm cache. Browser/search, source-lock, archive and publication checks remain separate.
+
+## PythonQt archive worker maintenance
+
+The archive has a separately verified literal-completion derivative. See
+[scripts/archive_search](scripts/archive_search/README.md) for the frozen query
+contract, pinned compiler, immutable provenance, regression and coverage commands.
+Ordinary builds use its committed assets; source-X/generated-Y tests also run
+the locked archive Node lane. Root search and FontLab7 keep their existing engine.

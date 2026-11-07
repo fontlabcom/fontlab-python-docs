@@ -2,6 +2,8 @@
 """Trusted-main routing, immutable inputs, epoch transfer and private diagnostics."""
 
 import os
+import json
+import hashlib
 import subprocess
 import sys
 from pathlib import Path
@@ -74,9 +76,12 @@ def test_private_build_when_tool_prints_source_then_public_log_is_sanitized(tmp_
 def private_gate(tmp_path):
     project = tmp_path / "project"
     (project / "scripts").mkdir(parents=True)
+    (project / "scripts/archive_search").mkdir()
+    for name in ("package.json", "package-lock.json"):
+        (project / "scripts/archive_search" / name).write_text('{}')
     binary = tmp_path / "bin"
     binary.mkdir()
-    driver = f"#!{sys.executable}\n" + '''import os,sys
+    driver = f"#!{sys.executable}\n" + '''import os,sys,json
 from pathlib import Path
 args=sys.argv[1:]
 name=Path(sys.argv[0]).name
@@ -90,31 +95,61 @@ if name=='uv':
     elif 'capture' in args: stage='release-audit'
     elif 'disposition' in args: stage='audit-disposition'
     else: raise SystemExit(99)
-elif name=='node': stage='node-tests'
+elif name in {'node','npm'}: stage='node-tests'
 elif name=='accept-consumer.sh': stage='consumer'
 else: stage='accepted-check'
 print('PRIVATE-SOURCE-SENTINEL',stage,args)
+command='compiler' if name=='npm' else ('root-node' if name=='node' and args[-1]=='scripts/search_backend/tests.cjs' else 'archive-node' if name=='node' else stage)
+with open(os.environ['CI_TEST_CALLS'],'a') as log: log.write(json.dumps({'command':command,'name':name,'args':args})+'\\n')
+if os.environ.get('CI_TEST_FAIL_COMMAND')==command: raise SystemExit(8)
 if os.environ.get('CI_TEST_FAIL_STAGE')==stage: raise SystemExit(7)
 if stage=='release-audit': raise SystemExit(int(os.environ['CI_TEST_AUDIT_EXIT']))
 if stage=='audit-disposition' and args[-1]!='1': raise SystemExit(23)
 '''
-    for path in (binary / "uv", binary / "node", project / "build.sh", project / "scripts/accept-consumer.sh"):
+    for path in (binary / "uv", binary / "node", binary / "npm", project / "build.sh", project / "scripts/accept-consumer.sh"):
         path.write_text(driver)
         path.chmod(0o755)
 
-    def run(fail_stage="", audit_exit="1"):
+    def run(fail_stage="", audit_exit="1", fail_command=""):
         private = tmp_path / "PRIVATE-SOURCE-SENTINEL-runtime"
         store = tmp_path / "PRIVATE-SOURCE-SENTINEL-store"
-        result = subprocess.run(
-            ["bash", str(ROOT / "scripts/pages-build.sh"), str(store)], cwd=project,
-            capture_output=True, text=True,
-            env=os.environ | {"PATH": str(binary) + os.pathsep + os.environ["PATH"],
+        calls = tmp_path / "calls.jsonl"
+        command = [os.environ.get("ARCHIVE_SHELL_BASH", "bash"), str(ROOT / "scripts/pages-build.sh"), str(store)]
+        env = os.environ | {"PATH": str(binary) + os.pathsep + os.environ["PATH"],
                               "DOCS_PRIVATE_RUNTIME": str(private), "SOURCE_DATE_EPOCH": "1700000000",
-                              "CI_TEST_FAIL_STAGE": fail_stage, "CI_TEST_AUDIT_EXIT": audit_exit},
-        )
+                              "CI_TEST_FAIL_STAGE": fail_stage, "CI_TEST_AUDIT_EXIT": audit_exit,
+                              "CI_TEST_FAIL_COMMAND": fail_command, "CI_TEST_CALLS": str(calls)}
+        trace = tmp_path / "trace"
+        with trace.open("w") as stream:
+            if os.environ.get("ARCHIVE_SHELL_EVIDENCE"):
+                env.update(BASH_XTRACEFD=str(stream.fileno()), PS4='+${BASH_SOURCE}:${LINENO}: ')
+                command.insert(1, "-x")
+            result = subprocess.run(command, cwd=project, capture_output=True, text=True, env=env, pass_fds=(stream.fileno(),))
+        if os.environ.get("ARCHIVE_SHELL_EVIDENCE"):
+            evidence = Path(os.environ["ARCHIVE_SHELL_EVIDENCE"])
+            evidence.mkdir(parents=True, exist_ok=True)
+            label = f"{fail_stage or 'success'}-{audit_exit}-{fail_command or 'none'}"
+            (evidence / (label + ".trace")).write_bytes(trace.read_bytes())
+            (evidence / (label + ".json")).write_text(json.dumps({"exit": result.returncode,
+                "script_sha256": hashlib.sha256((ROOT / "scripts/pages-build.sh").read_bytes()).hexdigest(),
+                "calls": [json.loads(line) for line in calls.read_text().splitlines()],
+                "stdout": result.stdout, "stderr": result.stderr}, indent=2))
         assert "PRIVATE-SOURCE-SENTINEL" not in result.stdout + result.stderr
         assert str(private) not in result.stdout + result.stderr
         assert "PRIVATE-SOURCE-SENTINEL" in (private / "build.log").read_text()
+        assert private.stat().st_mode & 0o077 == 0
+        assert (private / "build.log").stat().st_mode & 0o077 == 0
+        if not fail_stage and not fail_command:
+            invoked = [json.loads(line) for line in calls.read_text().splitlines()]
+            compiler = next(row for row in invoked if row["command"] == "compiler")
+            assert compiler["args"] == ["ci", "--prefix", ".build/archive-compiler", "--ignore-scripts", "--no-audit", "--no-fund"]
+            assert (project / ".build/archive-compiler/package.json").read_text() == '{}'
+            assert (project / ".build/archive-compiler/package-lock.json").read_text() == '{}'
+            names = [row["command"] for row in invoked]
+            assert names[names.index("compiler"):names.index("archive-node") + 1] == ["compiler", "root-node", "archive-node"]
+        if fail_command:
+            invoked = [json.loads(line) for line in calls.read_text().splitlines()]
+            assert invoked[-1]["command"] == fail_command
         return result, private
 
     return run
@@ -145,6 +180,51 @@ def test_private_build_when_audit_exit_is_unexpected_then_disposition_still_fail
     assert "Documentation release-audit exit: 7" in result.stdout
     assert "stage audit-disposition failed (exit 23)" in result.stdout
     assert (private / "release-audit.exit").read_text() == "7\n"
+
+
+def test_private_build_when_audit_is_green_then_existing_disposition_rejects_zero(private_gate):
+    result, private = private_gate(audit_exit="0")
+    assert result.returncode == 23
+    assert (private / "release-audit.exit").read_text() == "0\n"
+
+
+@pytest.mark.parametrize("command", ["compiler", "root-node", "archive-node"])
+def test_private_build_when_each_distinct_node_command_fails_then_later_commands_do_not_run(private_gate, command):
+    result, _ = private_gate(fail_command=command)
+    assert result.returncode == 8
+    assert "stage node-tests failed (exit 8)" in result.stdout
+    assert "Documentation stage: complete" not in result.stdout
+
+
+@pytest.mark.parametrize("missing", ["DOCS_PRIVATE_RUNTIME", "SOURCE_DATE_EPOCH", "store"])
+@pytest.mark.parametrize("empty", [False, True])
+def test_private_build_when_required_input_is_absent_or_empty_then_fails_before_dependent_steps(tmp_path, missing, empty):
+    env = os.environ | {"DOCS_PRIVATE_RUNTIME": str(tmp_path / "runtime"), "SOURCE_DATE_EPOCH": "1700000000"}
+    command = [os.environ.get("ARCHIVE_SHELL_BASH", "bash"), str(ROOT / "scripts/pages-build.sh")]
+    if missing != "store":
+        command.append(str(tmp_path / "store"))
+        env.pop(missing)
+        if empty:
+            env[missing] = ""
+    elif empty:
+        command.append("")
+    trace = tmp_path / "trace"
+    with trace.open("w") as stream:
+        if os.environ.get("ARCHIVE_SHELL_EVIDENCE"):
+            env.update(BASH_XTRACEFD=str(stream.fileno()), PS4='+${BASH_SOURCE}:${LINENO}: ')
+            command.insert(1, "-x")
+        result = subprocess.run(command, cwd=tmp_path, capture_output=True, text=True, env=env, pass_fds=(stream.fileno(),))
+    assert result.returncode != 0
+    assert (missing if missing != "store" else "Private input checkout is required") in result.stderr
+    assert "Documentation stage:" not in result.stdout
+    assert not (tmp_path / "runtime").exists()
+    if os.environ.get("ARCHIVE_SHELL_EVIDENCE"):
+        evidence = Path(os.environ["ARCHIVE_SHELL_EVIDENCE"])
+        evidence.mkdir(parents=True, exist_ok=True)
+        label = f"required-{missing}-{'empty' if empty else 'absent'}"
+        (evidence / (label + ".trace")).write_bytes(trace.read_bytes())
+        (evidence / (label + ".json")).write_text(json.dumps({"exit": result.returncode, "stdout": result.stdout, "stderr": result.stderr,
+            "script_sha256": hashlib.sha256((ROOT / "scripts/pages-build.sh").read_bytes()).hexdigest()}, indent=2))
 
 
 @pytest.fixture

@@ -36,3 +36,13 @@ support. MaterialX supplies meta, tags, search, native breadcrumbs and ToC.
 The complete tested resolution is in uv.lock. The old breadcrumbs and
 ToC-sidebar packages are excluded after compatibility trials; see
 `src_docs/md/plugins.md` in the smaller sites.
+
+## PythonQt archive search maintainer lane
+
+The separate scripts/archive_search/package-lock.json pins official Lunr2.3.9
+and esbuild0.25.12. Lunr source must equal the archived mapped dependency and
+its official npm SRI; the nine unchanged mapped MaterialX modules and three
+resolution modules retain individual upstream identities. No existing dependency
+is upgraded. c8 10.1.3 measures the compiler; istanbul-lib-instrument6.0.3
+instruments complete TypeScript modules in tests. Dependencies install only
+under .build/archive-compiler, outside all hashed production-script inputs.

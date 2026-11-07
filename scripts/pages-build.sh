@@ -34,7 +34,11 @@ stage consumer
 stage python-tests
 uv run --no-sync python -B -m pytest -q -rs -p no:cacheprovider tests
 stage node-tests
+mkdir -p .build/archive-compiler
+cp scripts/archive_search/package.json scripts/archive_search/package-lock.json .build/archive-compiler/
+npm ci --prefix .build/archive-compiler --ignore-scripts --no-audit --no-fund
 node --test scripts/search_backend/tests.cjs
+node --test scripts/archive_search/tests.cjs
 stage accessibility
 uv run --no-sync python scripts/a11y_check.py --site .build/site --out "$DOCS_PRIVATE_RUNTIME/a11y.json"
 stage interaction

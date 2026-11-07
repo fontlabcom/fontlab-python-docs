@@ -2510,3 +2510,12 @@ missing-notice controls plus actual Git filter/checkout/archive preservation.
 Complete build/output and independent review have separate evidence. These two
 notices do not close transitive wrapper/Wordcut/clipboard/CSS/font provenance,
 archive runtime caveats or publication qualification. No runtime or lock changes.
+
+## 2026-11-07 — PythonQt archive ordinary search repair candidate
+
+Implement the independently approved literal-completion adapter with the narrow
+Query.isNegated finite-zero score correction, reproducible preferred-source
+build, preflight installer and all twelve PythonQt worker URLs. Preserve original
+archives, index/configuration and root/FontLab7 search. Full query fixtures and
+meaningful stock RED are retained. Source/build/test qualification is in progress;
+independent review, commit/main/CI/Pages and browser delivery remain separate.

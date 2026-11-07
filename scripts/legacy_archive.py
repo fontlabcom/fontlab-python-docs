@@ -139,4 +139,7 @@ def publish_archive(root: Path, site: Path, coverage: dict | None = None) -> dic
         json.dumps(report, separators=(",", ":")) + "\n"
     )
     save_route_map(site, route_map)
+    from .archive_search import install_archive_search
+
+    install_archive_search(root, destination)
     return report
