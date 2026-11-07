@@ -2207,6 +2207,16 @@ Retained archive assets keep their existing bytes and attribution.</p>
 <td>MPL-1.1 (package; embedded components retain their terms): <a href="licenses/mpl-1.1-lunr-languages.txt">mpl-1.1-lunr-languages.txt</a></td>
 </tr>
 <tr>
+<td>TinySegmenter</td>
+<td><a href="https://registry.npmjs.org/lunr-languages/-/lunr-languages-1.14.0.tgz">0.1, shipped in lunr-languages 1.14.0</a></td>
+<td>BSD: <a href="licenses/bsd-tinysegmenter.txt">original Taku Kudo 2008 notice</a></td>
+</tr>
+<tr>
+<td>stopwords-filter French data</td>
+<td><a href="https://registry.npmjs.org/lunr-languages/-/lunr-languages-1.14.0.tgz">vendored in lunr-languages 1.14.0</a></td>
+<td>MIT: <a href="licenses/mit-stopwords-filter.txt">David J. Brenes 2012 notice</a></td>
+</tr>
+<tr>
 <td>basecoat-css</td>
 <td><a href="https://i.fontlab.com/fltheme26/1.0.0/licenses/basecoat-css.txt">1.0.2</a></td>
 <td>MIT: <a href="licenses/mit-basecoat-css.txt">mit-basecoat-css.txt</a></td>
@@ -2273,10 +2283,20 @@ Retained archive assets keep their existing bytes and attribution.</p>
 </tr>
 </tbody>
 </table>
+<p>The 102 language and support helpers in the root site and both retained archives
+match the official lunr-languages 1.14.0 distribution. The TinySegmenter notice
+comes from its shipped header's <a href="http://chasen.org/~taku/software/TinySegmenter/LICENCE.txt">original licence URL</a>
+and preserves the literal <code>&lt;ORGANIZATION&gt;</code> wording. Its wrapper-source provenance
+remains open.</p>
+<p>The stopwords-filter notice applies to the demonstrated French stopword-data
+derivation: the distribution's <code>build/build.js</code> splits, sorts and joins <code>fr.csv</code>
+into the literal retained in all three French helpers. This does not establish
+that other languages use the same data source. Exact member paths and digests
+are recorded in the machine-readable notice list.</p>
 <h2 id="review-still-open">Review still open</h2>
 <ul>
 <li>Complete provenance and source availability for the 29 modules and dictionary in wordcut.js; its upstream Wordcut source is LGPL-3.0.</li>
-<li>TinySegmenter original BSD full notice and exact wrapper/source provenance.</li>
+<li>TinySegmenter exact wrapper/source provenance.</li>
 <li>Clipboard nested delegate/good-listener/select notices and embedded-version closure.</li>
 <li>CSS data-SVG components and any historical archive-only frontend dependencies.</li>
 <li>External-font response variants, complete shared-theme build provenance, and full site publication gates.</li>
