@@ -46,3 +46,13 @@ resolution modules retain individual upstream identities. No existing dependency
 is upgraded. c8 10.1.3 measures the compiler; istanbul-lib-instrument6.0.3
 instruments complete TypeScript modules in tests. Dependencies install only
 under .build/archive-compiler, outside all hashed production-script inputs.
+
+The PythonQt-only UI derivative additionally pins clipboard2.0.11,
+escape-html1.0.3, focus-visible5.2.1, RxJS7.8.2 and tslib2.7.0, with clipboard's
+exact good-listener1.2.2, delegate3.2.0, select1.1.2 and tiny-emitter2.1.0 helpers.
+Preferred sources/full notices are retained under scripts/archive_search/ui.
+Postcss8.5.6 and cssnano5.1.0 reproduce the frozen Mermaid CSS target set only
+in maintainer tests. The existing esbuild0.25.12 compiler emits es2015 browser
+syntax for the UI, retaining original JSX/strict/interop/module settings.
+The existing locked Python Playwright supplies the actual DOM test runtime;
+no new browser/DOM package or ordinary-build network dependency is added.

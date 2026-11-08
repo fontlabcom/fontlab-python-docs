@@ -39,6 +39,7 @@ cp scripts/archive_search/package.json scripts/archive_search/package-lock.json 
 npm ci --prefix .build/archive-compiler --ignore-scripts --no-audit --no-fund
 node --test scripts/search_backend/tests.cjs
 node --test scripts/archive_search/tests.cjs
+node --test scripts/archive_search/tests-ui.cjs
 stage accessibility
 uv run --no-sync python scripts/a11y_check.py --site .build/site --out "$DOCS_PRIVATE_RUNTIME/a11y.json"
 stage interaction

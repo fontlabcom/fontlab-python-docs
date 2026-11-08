@@ -1372,3 +1372,45 @@ workflow acceptance and publication remain separate.
   truthful maps, full regression fixtures and preflight installation. All twelve
   PythonQt configurations use the content-addressed derivative, including404.
 - Source/local candidate only; hosted delivery and publication require review.
+
+
+## Task43 PythonQt archive rendering candidate
+
+- Escape literal help representations only in the archived PythonQt search
+  template while retaining worker messages, marks, grouping and routing.
+- Add a pinned preferred-source UI build, truthful maps/full notices and complete
+  joint worker/UI preflight; retain original assets and add four UI artifacts.
+- Add full-message DOM/branch/build failure tests and run the UI suite in both
+  common hosted build lanes. Independent review and actual delivery remain gates.
+
+
+### Task43 scoped archived-404 asset correction
+
+- Rewrite only four inherited absolute asset hrefs on archived PythonQt404 to
+  their existing archive-relative destinations, with exact link/member preflight
+  and no partial worker/UI output on missing, corrupt or ambiguous input.
+- Retain all other page bytes, existing assets, worker messages and8001 published paths;
+  qualify the corrected source/output cohort separately from its predecessor.
+
+
+### Task46 archived content initialization and404 search base
+
+- Keep existing content component streams/order and RxJS zero/one lifecycle while
+  avoiding a large function-argument list for multiple streams. Cover the complete
+  module at the real source-bound lexical article-link scale and every feature.
+- Correct only archived404's uniquely expected search base through the existing
+  buffered preflight; reject missing, unexpected and duplicate/ambiguous bases
+  without partial output. Preserve the earlier four href corrections and index.
+- Record both preferred-source overrides and regenerate the content-addressed UI
+  assets. Whole module source/local tests do not establish browser or delivery acceptance.
+
+
+### Task49 source-only visibility dispatch candidate
+
+- Route observer entries through per-target RxJS Subjects, preserving existing
+  observer, duplicate-subscription, ordering, error and cleanup semantics. Release
+  unused channels even on unobserve failure without deleting reentrant replacements.
+- Retain fourteen old/new lifecycle oracles, add bounded dispatch-work/edge tests
+  and actual source-bound checks of all four caller pipelines and boundary export.
+- Record the third preferred-source override and rebuild the exact UI artifacts;
+  all56 Node tests pass. Current full builds, browser and delivery remain unqualified.

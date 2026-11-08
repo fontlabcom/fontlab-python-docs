@@ -99,7 +99,7 @@ elif name in {'node','npm'}: stage='node-tests'
 elif name=='accept-consumer.sh': stage='consumer'
 else: stage='accepted-check'
 print('PRIVATE-SOURCE-SENTINEL',stage,args)
-command='compiler' if name=='npm' else ('root-node' if name=='node' and args[-1]=='scripts/search_backend/tests.cjs' else 'archive-node' if name=='node' else stage)
+command='compiler' if name=='npm' else ('root-node' if name=='node' and args[-1]=='scripts/search_backend/tests.cjs' else 'ui-node' if name=='node' and args[-1]=='scripts/archive_search/tests-ui.cjs' else 'archive-node' if name=='node' else stage)
 with open(os.environ['CI_TEST_CALLS'],'a') as log: log.write(json.dumps({'command':command,'name':name,'args':args})+'\\n')
 if os.environ.get('CI_TEST_FAIL_COMMAND')==command: raise SystemExit(8)
 if os.environ.get('CI_TEST_FAIL_STAGE')==stage: raise SystemExit(7)
@@ -146,7 +146,7 @@ if stage=='audit-disposition' and args[-1]!='1': raise SystemExit(23)
             assert (project / ".build/archive-compiler/package.json").read_text() == '{}'
             assert (project / ".build/archive-compiler/package-lock.json").read_text() == '{}'
             names = [row["command"] for row in invoked]
-            assert names[names.index("compiler"):names.index("archive-node") + 1] == ["compiler", "root-node", "archive-node"]
+            assert names[names.index("compiler"):names.index("ui-node") + 1] == ["compiler", "root-node", "archive-node", "ui-node"]
         if fail_command:
             invoked = [json.loads(line) for line in calls.read_text().splitlines()]
             assert invoked[-1]["command"] == fail_command
@@ -188,7 +188,7 @@ def test_private_build_when_audit_is_green_then_existing_disposition_rejects_zer
     assert (private / "release-audit.exit").read_text() == "0\n"
 
 
-@pytest.mark.parametrize("command", ["compiler", "root-node", "archive-node"])
+@pytest.mark.parametrize("command", ["compiler", "root-node", "archive-node", "ui-node"])
 def test_private_build_when_each_distinct_node_command_fails_then_later_commands_do_not_run(private_gate, command):
     result, _ = private_gate(fail_command=command)
     assert result.returncode == 8

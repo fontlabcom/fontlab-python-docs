@@ -2519,3 +2519,79 @@ build, preflight installer and all twelve PythonQt worker URLs. Preserve origina
 archives, index/configuration and root/FontLab7 search. Full query fixtures and
 meaningful stock RED are retained. Source/build/test qualification is in progress;
 independent review, commit/main/CI/Pages and browser delivery remain separate.
+
+
+## Task43 isolated source candidate
+
+The PythonQt-only UI template now escapes returned title/teaser/tag literals with
+escape-html1.0.3 and restores exact worker mark delimiters. Worker/index/corpus
+bytes and shared JSX factory remain unchanged. A pinned es2015 UI compiler, full
+preferred-source/dependency/notices inventory and joint installer preflight retain
+all original archive assets. Common X/Y CI runs UI, worker and root Node suites.
+
+The full769106-character untouched-renderer RED creates4019 accidental nodes.
+The actual compiled successor passes full-text and ordered UTF16 mark oracles
+for every article in the real fixtures, with actual translations. The complete
+search template has33/33 statements and30/30 branch outcomes covered. Final
+whole-module/full-suite, dual complete builds, archive/privacy/legal/browser
+qualification and independent implementation review are tracked in the separate
+Task43 writer evidence; source/local results do not establish delivery or Pages.
+
+
+## Task43 scoped archived-404 correction
+
+The independently approved asset scope extends only the four existing archived
+404 link hrefs: favicon, main/palette stylesheets and fontlab_pyapi.css. The
+installer validates one unambiguous original link and original manifest-bound
+asset bytes for each, after all other page checks and before any writes. Only
+those four href values additionally change; no assets/routes are added. The
+prior905-source/two-build cohort and inherited HTTP404 evidence remain retained.
+Actual final frozen-source/build/browser qualifications and independent review
+are recorded in the separate Task43 writer/controller evidence, not inferred here.
+
+
+## Task46 bounded archived content and404 base successor
+
+The complete preferred content module now collects its existing streams once,
+retains the original zero/one-source merge identity and cleanup order, and uses
+the locked RxJS7.8.2 array route for larger inputs. The complete original module
+reproduces the argument RangeError at140171 source-bound lexical article anchors;
+the corrected module emits and cleans up all140171 streams. Selectors, factories,
+feature branches, dependency identities, sync/async/error/completion/cancellation
+and footnote construction/disposal remain covered. Whole content coverage is
+21/21 statements and2/2 branch outcomes; the complete search template remains
+33/33 and30/30. Both complete preferred overrides are recorded truthfully.
+
+The installer changes only archived404's uniquely expected original base to `.`,
+using its existing JSON extraction and read-only buffered preflight. Missing,
+unexpected, already-different and duplicate/ambiguous bases reject before writes.
+The four earlier href corrections and all other config fields/pages remain exact.
+
+The complete UI suite passes12 tests. Final full suites, frozen independent
+builds/output preservation, actual browser qualification and independent review
+are recorded in the separate Task46 evidence; no source/main/CI/Pages delivery,
+canonical or native acceptance is implied by this uncommitted source candidate.
+
+
+## Task49 source-only visibility dispatch candidate
+
+The complete preferred visibility module uses one map of per-target RxJS7.8.2
+Subjects, retaining the existing shared observer and all four caller sources.
+Actual public Subject.observed and channel identity guard last-unsubscribe cleanup
+in finally, including unobserve failure and nested teardown/re-subscription. No
+refcount repair, disconnect change, replay, coalescing, scheduler or package was added.
+
+The complete old module violates the dispatch-cost contract at128 entries with
+16384 target reads. The corrected module performs128 target reads plus128 map
+lookups and128 matching emissions, with no map scan. All fourteen old/new value,
+observer-call, ordering, error and subscription-state cases match. Further tests
+cover unknown/repeated targets, same-target reentrancy, returned-observable reuse,
+take1/done, consumer errors, cleanup and unchanged boundary behavior. Four caller
+tests execute the whole original ellipsis module or exact AST-selected original
+annotation/code/tabs pipelines, using actual pinned RxJS operators and scheduling.
+
+All56 Node tests pass, including23 UI tests. The third preferred override and
+actual content-addressed compiler outputs are recorded together. Full current
+site/consumer suites, two genuine committed-epoch builds, browser readiness/QPen/
+search/back, independent review and delivery remain separate future gates. The
+Task46 first-build567-test/eleven-gate result remains dated predecessor evidence.

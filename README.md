@@ -235,3 +235,14 @@ The archive has a separately verified literal-completion derivative. See
 contract, pinned compiler, immutable provenance, regression and coverage commands.
 Ordinary builds use its committed assets; source-X/generated-Y tests also run
 the locked archive Node lane. Root search and FontLab7 keep their existing engine.
+
+The PythonQt archive's separate UI derivative preserves literal help text and
+places generated highlights in their original sentence contexts. Its complete
+preferred sources, frozen compiler/CSS identities, full notices and maintainer
+recipe are in [the archive search guide](scripts/archive_search/README.md).
+Root and FontLab7 search retain their existing renderers. Independent review,
+actual hosted CI/Pages and complete browser acceptance remain separate gates.
+
+The archived content initializer preserves its component order and RxJS lifecycle
+without passing every article link as a function argument. The archived404 search
+base resolves its existing local index after strict original-config preflight.
