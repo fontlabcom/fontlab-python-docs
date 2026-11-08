@@ -3,6 +3,8 @@
 
 import hashlib
 import json
+import os
+import re
 from importlib.metadata import version
 from pathlib import Path
 
@@ -45,20 +47,29 @@ def generation_manifest(root: Path, stage: Path) -> dict:
         path = root / name
         if path.exists():
             inputs[name] = digest(path.read_bytes())
-    return {
+    manifest = {
         "inputs": inputs,
         "packages": {name: version(name) for name in PACKAGES},
         "content": file_manifest(stage / "content"),
         "native_names": file_manifest(stage / "native-names"),
         "coverage": digest((stage / "coverage.json").read_bytes()),
-        # Normalize owned paths; source/artifact location parity is a separate gate.
-        "config": digest(
-            (stage / "mkdocs.yml")
-            .read_text()
-            .replace(str(root), "<docs-root>")
-            .encode()
-        ),
     }
+    # Normalize owned paths; source/artifact location parity is a separate gate.
+    config = (stage / "mkdocs.yml").read_text().replace(str(root), "<docs-root>")
+    artifact_root = os.environ.get("FONTLAB_API_SOURCE_ROOT")
+    if artifact_root:
+        source_root = str(Path(artifact_root).expanduser().resolve())
+        boundary = r"(?=/|\2[ \t]*$)"
+        if source_root.endswith(os.sep):
+            source_root = source_root[:-1]
+            boundary = r"(?:/(?=\2[ \t]*$)|(?=/))"
+        config = re.sub(
+            r"(?m)^([ \t]*-[ \t]+)(['\"]?)" + re.escape(source_root) + boundary,
+            lambda match: match[1] + match[2] + "<api-source-root>",
+            config,
+        )
+    manifest["config"] = digest(config.encode())
+    return manifest
 
 
 def check_generation(root: Path, candidate: dict) -> None:

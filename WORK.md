@@ -2595,3 +2595,78 @@ actual content-addressed compiler outputs are recorded together. Full current
 site/consumer suites, two genuine committed-epoch builds, browser readiness/QPen/
 search/back, independent review and delivery remain separate future gates. The
 Task46 first-build567-test/eleven-gate result remains dated predecessor evidence.
+
+
+## Task61 source-only portable provenance candidate
+
+The generation config fingerprint now resolves the explicitly selected API source
+root with the existing expanduser/resolve policy and replaces only matching
+literal YAML list-path prefixes with a stable logical token. Existing docs-root
+normalization still runs first. Exact root/descendant boundaries preserve relative
+tails, quotes, indentation, comments, outside paths and other semantic values.
+Unset or empty selection retains the previous hash behavior. Runtime YAML and
+all other manifest fields, acceptance receipts and source-lock checks are unchanged.
+
+The old implementation fails the actual two-root generated-config relocation
+regression while all other manifest fields match. The successor passes the real
+relocation, explicit resolver, literal space/quote/boundary and negative cases.
+Hand-authored literal scalar tests do not claim folded or escaped YAML parity;
+the first folded-fixture error remains separate from the meaningful bug RED.
+
+Focused lifecycle64 and full Python601 tests pass with zero skips; the full run
+retains one inherited SyntaxWarning. All56 Node tests pass with ten inherited
+Lunr registration notices. All13 complete production modules exceed80% combined
+coverage without exclusions or splitting; provenance is52/55 statements plus
+17/20 branch outcomes (92%). The full installer is239/241 (99.1701245%);
+the older focused238/241 (98.7551867%) remains a separate measurement.
+
+The unchanged committed predecessor's worker/UI/corpus cohort was copied only
+under private build prerequisites. The tracked7993-file docs preimage remains
+untouched. These CODE results do not establish a freshly generated successor
+site, independent two-build parity, browser, native or delivery acceptance.
+Complete-source/cold/archive/graph/preservation evidence and independent CODE
+review remain separate from any later source commit or full build qualification.
+
+
+## Task64 separator-root provenance correction candidate
+
+Independent review rejected Task61's separator-ending root branch: it removed
+the separator before a descendant. The bounded successor consumes the terminal
+separator only for an exact-root scalar and retains the slash for a descendant,
+so `/` and an ordinary explicit root yield the same logical token and relative
+tail. The ordinary-root boundary, docs-root-first policy, evaluation order,
+other manifest fields and runtime YAML remain unchanged.
+
+Six actual whole-function metadata cases cover plain/single/double-quoted exact
+roots and descendants with real installed package metadata and no API-file
+traversal. Rejected61 fails all three descendant cases while its three exact-root
+controls pass. The minimal function-only successor passes all70 focused lifecycle,
+generated-extension and promotion tests. Fresh complete provenance coverage is
+55/58 statements plus19/22 branch outcomes (92.5%), without exclusions/splitting.
+
+The other12 complete-module gates are retained only as dated Task61 measurements
+bound to exact unchanged current source hashes. Its601 Python/56 Node executions
+and warning/notices remain historical on the rejected candidate. A new full
+Python run is held for sufficient storage and parent release; it was not run
+or inferred from the focused result. No new site/build pair, browser, milestone
+commit or delivery is qualified. Existing literal/escaped/folded boundaries and
+all old tests, source/cohorts, failures and historical raw-index exceptions remain
+retained for independent correction review.
+
+
+Current source validation is complete: all607 Python tests and56 Node tests
+pass with zero skips. All13 complete production-module gates exceed80% combined
+coverage without exclusions or splitting; provenance is74/80 (92.5%) and the
+minimum is legacy81/99 (81.8182%). One inherited SyntaxWarning and ten inherited
+Lunr registration notices remain retained. The full checks and preservation
+for this exact code have independent acceptance, subject to reviewed
+documentation, fresh graph/staging and recovery guards for a local milestone.
+
+The first validation attempt stopped because the harness PATH omitted the
+existing properdocs entrypoint. Adding the qualified build environment's bin
+directory corrected that operational harness issue; the failed attempt and
+clock-measurement correction remain preserved. No product oracle was weakened.
+
+This is source-only local qualification using dated worker/corpus prerequisites.
+It does not establish a new generated site, independent committed-source build
+pair, native behavior, main integration or publication. Those gates remain open.

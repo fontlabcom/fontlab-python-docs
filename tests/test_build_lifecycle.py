@@ -332,3 +332,229 @@ def test_artifact_roots_when_explicit_then_typerig_uses_package_directory(tmp_pa
     monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", str(tmp_path / "installed"))
     root = next(root for root, package in builder.source_roots() if package == "typerig")
     assert root == (tmp_path / "installed").resolve()
+
+
+@pytest.fixture
+def explicit_generation(project, monkeypatch):
+    """Generate real fixture metadata with aligned, owned explicit source roots."""
+    root, source = project
+    monkeypatch.setattr(builder, "source_roots", lambda: [(source, "fontlab_echopy")])
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", str(source))
+    builder.generate(update_source_lock=True)
+    runtime = (root / ".build/mkdocs.yml").read_bytes()
+    expected = runtime.decode().replace(str(root), "<docs-root>")
+    for tail in ("", "/fontlab_echopy/tooling/griffe_native.py"):
+        literal = f"- {source}{tail}\n"
+        assert expected.count(literal) == 1
+        expected = expected.replace(literal, f"- <api-source-root>{tail}\n")
+    return root, source, runtime, expected
+
+
+def test_generation_config_when_explicit_roots_relocated_then_all_fields_match(
+    explicit_generation, monkeypatch,
+):
+    from scripts.build_provenance import digest, generation_manifest
+
+    root, source, runtime, expected = explicit_generation
+    first = generation_manifest(root, root / ".build")
+    second_root, second_source = root.with_name("second-docs"), source.with_name("second-sources")
+    shutil.copytree(root, second_root)
+    shutil.copytree(source, second_source)
+    monkeypatch.setattr(builder, "ROOT", second_root)
+    monkeypatch.setattr(builder, "source_roots", lambda: [(second_source, "fontlab_echopy")])
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", str(second_source))
+    builder.generate()
+    second_runtime = (second_root / ".build/mkdocs.yml").read_bytes()
+    second = generation_manifest(second_root, second_root / ".build")
+    assert {k: v for k, v in first.items() if k != "config"} == {
+        k: v for k, v in second.items() if k != "config"
+    }
+    assert first["config"] == second["config"], "Equivalent separately owned explicit roots must be portable"
+    assert first["config"] == digest(expected.encode())
+    assert (root / ".build/mkdocs.yml").read_bytes() == runtime
+    assert (second_root / ".build/mkdocs.yml").read_bytes() == second_runtime
+    assert runtime != second_runtime, "Runtime YAML must retain each actual absolute path"
+
+
+@pytest.mark.parametrize(
+    "value, logical",
+    [
+        ("{api}", "<api-source-root>"),
+        ("'{api}'", "'<api-source-root>'"),
+        ('"{api}"', '"<api-source-root>"'),
+        ("{api}/folder with spaces/tool.py", "<api-source-root>/folder with spaces/tool.py"),
+        ("'{api}/folder with spaces/tool.py'", "'<api-source-root>/folder with spaces/tool.py'"),
+        ('"{api}/folder with spaces/tool.py"', '"<api-source-root>/folder with spaces/tool.py"'),
+        ("{api}  ", "<api-source-root>  "),
+        ('"{api}"  ', '"<api-source-root>"  '),
+        ("{api}-extra/tool.py", "{api}-extra/tool.py"),
+        ("{api}2/tool.py", "{api}2/tool.py"),
+        ("{api} extra/tool.py", "{api} extra/tool.py"),
+        ("'{api} extra/tool.py'", "'{api} extra/tool.py'"),
+        ('"{api} extra/tool.py"', '"{api} extra/tool.py"'),
+        ("{outside}/tool.py", "{outside}/tool.py"),
+        ("prefix {api}/tool.py", "prefix {api}/tool.py"),
+        ('"{escaped}/tool.py"', '"{escaped}/tool.py"'),
+    ],
+)
+def test_generation_config_when_list_path_boundary_then_only_selected_root_changes(
+    explicit_generation, value, logical,
+):
+    from scripts.build_provenance import digest, generation_manifest
+
+    root, source, runtime, expected = explicit_generation
+    fields = {"api": str(source), "outside": str(source.parent / "outside"),
+              "escaped": str(source.parent / r"sour\u0063es")}
+    before = runtime.decode().replace(f"- {source}\n", f"- {value.format(**fields)}\n")
+    wanted = expected.replace("- <api-source-root>\n", f"- {logical.format(**fields)}\n")
+    path = root / ".build/mkdocs.yml"
+    path.write_text(before)
+    actual = generation_manifest(root, root / ".build")
+    assert actual["config"] == digest(wanted.encode())
+    assert path.read_text() == before, "Fingerprinting must not rewrite runtime YAML"
+
+
+@pytest.mark.parametrize("quote", ["", "'", '"'])
+@pytest.mark.parametrize("tail, selected", [("", True), ("/folder with spaces/tool.py", True),
+                                           (" extra/tool.py", False), ("-extra/tool.py", False)])
+def test_generation_config_when_literal_root_contains_spaces_then_full_scalar_boundary_is_used(
+    explicit_generation, monkeypatch, quote, tail, selected,
+):
+    from scripts.build_provenance import digest, generation_manifest
+
+    root, source, runtime, expected = explicit_generation
+    spaced = source.with_name("api packages")
+    shutil.copytree(source, spaced)
+    monkeypatch.setattr(builder, "source_roots", lambda: [(spaced, "fontlab_echopy")])
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", str(spaced))
+    # Author a valid literal scalar unit input; do not claim folded-YAML parity or a site build.
+    before = runtime.decode().replace(str(source), str(spaced))
+    assert before.count(str(spaced)) == 2
+    before = before.replace(f"- {spaced}\n", f"- {quote}{spaced}{tail}{quote}\n")
+    value = "<api-source-root>" if selected else str(spaced)
+    wanted = expected.replace("- <api-source-root>\n", f"- {quote}{value}{tail}{quote}\n")
+    path = root / ".build/mkdocs.yml"
+    path.write_text(before)
+    assert generation_manifest(root, root / ".build")["config"] == digest(wanted.encode())
+    assert path.read_text() == before
+
+
+def test_generation_config_when_semantics_comments_or_tails_change_then_digest_stays_sensitive(
+    explicit_generation,
+):
+    from scripts.build_provenance import digest, generation_manifest
+
+    root, source, runtime, expected = explicit_generation
+    path = root / ".build/mkdocs.yml"
+    base = generation_manifest(root, root / ".build")
+    fingerprints = []
+    for marker in ("first", "second"):
+        comment = f"\n# - {source}/{marker}.py\n"
+        before = runtime.decode() + comment
+        wanted = expected + comment
+        path.write_text(before)
+        actual = generation_manifest(root, root / ".build")
+        assert actual["config"] == digest(wanted.encode())
+        assert {k: v for k, v in actual.items() if k != "config"} == {
+            k: v for k, v in base.items() if k != "config"
+        }
+        assert path.read_text() == before
+        fingerprints.append(actual["config"])
+    assert fingerprints[0] != fingerprints[1]
+    for marker in ("first", "second"):
+        before = runtime.decode().replace("site_name:", f"site_name: {source}/{marker} #")
+        wanted = expected.replace("site_name:", f"site_name: {source}/{marker} #")
+        path.write_text(before)
+        actual = generation_manifest(root, root / ".build")
+        assert actual["config"] == digest(wanted.encode()), "Map-scalar values are semantic, not selected list paths"
+        fingerprints.append(actual["config"])
+    assert fingerprints[2] != fingerprints[3]
+    for marker in ("first", "second"):
+        original_tail = "/fontlab_echopy/tooling/griffe_native.py"
+        changed_tail = f"/fontlab_echopy/tooling/{marker}.py"
+        before = runtime.decode().replace(original_tail, changed_tail)
+        wanted = expected.replace(original_tail, changed_tail)
+        path.write_text(before)
+        actual = generation_manifest(root, root / ".build")
+        assert actual["config"] == digest(wanted.encode()), "Relative extension tails remain fingerprint inputs"
+        assert path.read_text() == before
+        fingerprints.append(actual["config"])
+    assert fingerprints[4] != fingerprints[5]
+
+
+@pytest.mark.parametrize("setting", [None, ""])
+def test_generation_config_when_explicit_root_unset_or_empty_then_current_hash_is_retained(
+    explicit_generation, monkeypatch, setting,
+):
+    from scripts.build_provenance import digest, generation_manifest
+
+    root, _source, runtime, _expected = explicit_generation
+    if setting is None:
+        monkeypatch.delenv("FONTLAB_API_SOURCE_ROOT")
+    else:
+        monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", setting)
+    actual = generation_manifest(root, root / ".build")
+    assert actual["config"] == digest(runtime.decode().replace(str(root), "<docs-root>").encode())
+    assert (root / ".build/mkdocs.yml").read_bytes() == runtime
+
+
+def test_source_roots_when_explicit_home_and_parent_components_then_real_resolver_is_used(
+    tmp_path, monkeypatch,
+):
+    home = tmp_path / "owned home"
+    source = home / "api packages"
+    source.mkdir(parents=True)
+    (home / "scratch").mkdir()
+    monkeypatch.setenv("HOME", str(home))
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", "~/scratch/../api packages")
+    roots = builder.source_roots()
+    assert len(roots) == len(builder.PACKAGES)
+    assert {path for path, _package in roots} == {source.resolve()}
+
+
+def test_generation_config_when_explicit_value_expands_and_resolves_then_generated_root_matches(
+    explicit_generation, monkeypatch,
+):
+    from scripts.build_provenance import digest, generation_manifest
+
+    root, source, runtime, expected = explicit_generation
+    (source.parent / "scratch").mkdir()
+    monkeypatch.setenv("HOME", str(source.parent))
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", "~/scratch/../sources")
+    assert generation_manifest(root, root / ".build")["config"] == digest(expected.encode())
+    assert (root / ".build/mkdocs.yml").read_bytes() == runtime
+
+
+@pytest.mark.parametrize("quote", ["", "'", '"'])
+@pytest.mark.parametrize("tail", ["", "/fontlab_echopy/tooling/griffe_native.py"])
+def test_generation_config_when_separator_root_then_exact_root_and_descendants_match(
+    tmp_path, monkeypatch, quote, tail,
+):
+    from scripts.build_provenance import digest, generation_manifest
+
+    # Actual whole-function metadata input; API paths are strings, never traversed.
+    root = tmp_path / "docs"
+    stage = root / "stage"
+    stage.mkdir(parents=True)
+    for folder in ("content", "native-names"):
+        (stage / folder).mkdir()
+    (stage / "coverage.json").write_text("{}\n")
+    ordinary = tmp_path / "owned-api"
+    ordinary.mkdir()
+    expected = f"paths:\n  - {quote}<api-source-root>{tail}{quote}\n"
+    manifests = []
+    for api_root in (str(ordinary), "/"):
+        value = api_root.rstrip("/") + tail if tail else api_root
+        runtime = f"paths:\n  - {quote}{value}{quote}\n"
+        path = stage / "mkdocs.yml"
+        path.write_text(runtime)
+        monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", api_root)
+        manifests.append(generation_manifest(root, stage))
+        assert path.read_text() == runtime, "Fingerprinting must not rewrite runtime YAML"
+    first, second = manifests
+    assert first["config"] == digest(expected.encode()), "Ordinary external-root control must match"
+    assert {k: v for k, v in first.items() if k != "config"} == {
+        k: v for k, v in second.items() if k != "config"
+    }
+    assert second["config"] == digest(expected.encode()), "Separator root retains the canonical tail separator"
+    assert first["config"] == second["config"]

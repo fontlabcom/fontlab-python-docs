@@ -1414,3 +1414,41 @@ workflow acceptance and publication remain separate.
   and actual source-bound checks of all four caller pipelines and boundary export.
 - Record the third preferred-source override and rebuild the exact UI artifacts;
   all56 Node tests pass. Current full builds, browser and delivery remain unqualified.
+
+
+### Task61 source-only generation provenance portability candidate
+
+- Normalize only the explicitly selected resolved API root in literal generated
+  YAML list-path fingerprint inputs, after the existing docs-root replacement.
+  Preserve exact scalar boundaries, relative tails, semantic values and runtime
+  YAML; unset/empty selection keeps the existing behavior.
+- Add actual generated-root relocation, aligned fixture/environment, real
+  expanduser/resolve, literal space/quote and outside/prefix/semantic regressions.
+  Folded and escaped representations are outside this literal-path correction.
+- Focused64/full601 Python and all56 Node tests pass; all13 complete production
+  coverage gates exceed80%. Retain the inherited Python warning and ten Lunr
+  notices. Reused predecessor consumer prerequisites are not a new successor
+  site or independent pair/browser/delivery qualification.
+
+
+### Task64 separator-root provenance correction candidate
+
+- Correct the reviewed separator-ending root branch: exact-root scalars consume
+  the separator; descendants retain the canonical slash and relative tail after
+  the logical token. Preserve the ordinary-root pattern and runtime YAML.
+- Add six whole-function exact-root/descendant quote regressions, retaining the
+  rejected implementation's three descendant failures and passing root controls.
+- Fresh70 focused tests pass; complete provenance coverage is92.5%. The other12
+  unchanged-source coverage gates and601/56 suites remain dated Task61 evidence.
+  New full checks await storage/release; independent review and all later site,
+  commit, browser and delivery gates remain open.
+
+
+- Complete current source validation:607 Python tests,56 Node tests and all13
+  whole-module gates pass; minimum combined coverage81.8182%, provenance92.5%.
+  Preserve one inherited SyntaxWarning and ten inherited Lunr notices.
+- Correct the validation harness PATH to expose the existing properdocs
+  entrypoint; retain the first failed attempt and clock-measurement erratum.
+  Product tests and oracles are unchanged.
+- Keep this source-only qualification separate from a new site/build pair,
+  native behavior, main integration and publication, which remain unqualified.
