@@ -4,6 +4,14 @@ this_file: PLAN.md
 
 # Forward plan
 
+## Task 414 remaining acceptance
+
+The portable gzip source and Node regression pass. Provision the matched native
+sidecars/provider inputs and working Chromium permissions; resolve the recorded
+promotion-fixture Git-ignore failures, rerun full Python/offline build gates,
+and measure actual Mac/CI output parity. Do not clear historical 77-file output
+differences from codec-only evidence. See WORK.md and .build/task414/REPORT.md.
+
 ## Public Pages acceptance (Issue 233)
 
 Independently review the complete frozen-input light-theme/CI candidate. Qualify

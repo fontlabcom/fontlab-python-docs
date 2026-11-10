@@ -30,8 +30,22 @@ for (const [entry, outfile, platform, format] of [
   ["query.js", "scripts/search_backend/query.cjs", "node", "cjs"],
 ]) await esbuild.build({entryPoints:[path.join(__dirname, entry)], outfile:path.join(root,outfile), bundle:true, platform, format, plugins:[lunrPatch],
   legalComments:"inline", banner:{js:`// this_file: ${outfile}\n// Generated with esbuild 0.25.12; retained MIT engine headers below.\n${materialLicense}\n${lunrLicense}`}});
+const compilerModules = path.join(root,".build/search-compiler/node_modules");
+const portable = provenance.portable_gzip;
+if (JSON.parse(fs.readFileSync(path.join(compilerModules,"fflate/package.json"))).version !== portable.version)
+  throw Error("Pinned fflate version is required");
+const lockedFflate = JSON.parse(fs.readFileSync(path.join(compilerModules,".package-lock.json"))).packages["node_modules/fflate"];
+if (!lockedFflate || lockedFflate.integrity !== portable.npm_integrity)
+  throw Error("Pinned fflate integrity is required");
+const gzipLicense = fs.readFileSync(path.join(root,portable.license),"utf8");
+if (crypto.createHash("sha256").update(gzipLicense).digest("hex") !== portable.license_sha256 ||
+    fs.readFileSync(path.join(compilerModules,"fflate/LICENSE"),"utf8") !== gzipLicense)
+  throw Error("Pinned fflate licence drift");
+await esbuild.build({entryPoints:[path.join(__dirname,"gzip.ts")], outfile:path.join(__dirname,"gzip.cjs"),
+  bundle:true, platform:"node", format:"cjs", nodePaths:[compilerModules], legalComments:"inline",
+  banner:{js:`// this_file: scripts/search_backend/gzip.cjs\n// Generated with esbuild 0.25.12 from fflate ${portable.version}.\n/*\n${gzipLicense}\n*/`}});
 const files = {};
-for (const file of ["engine.cjs", "router.cjs", "query.cjs", "../../overrides/assets/javascripts/workers/complete-search.js"])
+for (const file of ["engine.cjs", "router.cjs", "query.cjs", "gzip.cjs", "../../overrides/assets/javascripts/workers/complete-search.js"])
   files[file] = crypto.createHash("sha256").update(fs.readFileSync(path.join(__dirname,file))).digest("hex");
 fs.writeFileSync(path.join(__dirname,"bundles.json"),JSON.stringify({esbuild:"0.25.12",files,
   patches:{"vendor/lunr.js":LUNR_PATCH}},null,2)+"\n");

@@ -198,3 +198,46 @@ test("search UI starts on plain-http pages, where crypto.randomUUID is unavailab
  const search=new URL(JSON.parse(element.textContent).search);
  assert.match(search.searchParams.get("channel"),/^complete-search-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
 });
+
+test("complete search gzip artifacts have portable zero-time headers",()=>{
+ const {gunzipSync}=require("node:zlib");
+ for(const spec of [...manifest.shards,manifest.terms,manifest.postings,{file:"manifest.json"}]) {
+  const raw=fs.readFileSync(path.join(dir,spec.file));
+  const compressed=fs.readFileSync(path.join(dir,spec.file+".gz"));
+  assert.equal(compressed.subarray(0,10).toString("hex"),"1f8b0800000000000203",spec.file+": portable gzip header");
+  assert.deepEqual(gunzipSync(compressed),raw,spec.file+": complete unchanged input");
+ }
+});
+
+test("portable codec repeats exact bytes and round-trips edge inputs",()=>{
+ const {gzipSync}=require("./gzip.cjs"),{gunzipSync}=require("node:zlib");
+ for(const raw of [Buffer.alloc(0),Buffer.of(0),Buffer.from("Zażółć 日本語 😀"),Buffer.from(Array.from({length:256},(_,i)=>i)),Buffer.from("Alpha.resize Signal ".repeat(60000))]) {
+  const first=Buffer.from(gzipSync(raw,{level:9,mtime:0}));
+  assert.deepEqual(first,Buffer.from(gzipSync(raw,{level:9,mtime:0})));
+  assert.equal(first.subarray(0,10).toString("hex"),"1f8b0800000000000203");
+  assert.deepEqual(gunzipSync(first),raw);
+ }
+});
+
+// The header check above cannot tell fflate from Linux zlib (both write OS 3);
+// these byte goldens are the cross-platform regression check for the codec.
+test("portable codec matches a pinned golden for a 1.2 MB input",()=>{
+ const {createHash}=require("node:crypto"),{gzipSync}=require("./gzip.cjs");
+ const out=Buffer.from(gzipSync(Buffer.from("Alpha.resize Signal ".repeat(60000)),{level:9,mtime:0}));
+ assert.equal(out.length,2967,"fflate 0.8.3 level-9 size (native zlib gives 2970)");
+ assert.equal(createHash("sha256").update(out).digest("hex"),"393bf4916ab28eeadbbf900a923cabe8416e592a3a8bab6c743c4498734f9b90");
+});
+
+test("producer payloads match pinned fflate public-fixture goldens",()=>{
+ const {createHash}=require("node:crypto"),{gzipSync}=require("./gzip.cjs");
+ const golden=require("../../tests/fixtures/search-gzip-golden.json");
+ const sha=data=>createHash("sha256").update(data).digest("hex");
+ for(const [file,expected] of Object.entries(golden)) {
+  const raw=fs.readFileSync(path.join(dir,file));
+  const compressed=file==="input.json" ? gzipSync(raw,{level:9,mtime:0}) : fs.readFileSync(path.join(dir,file+".gz"));
+  assert.equal(sha(raw),expected.raw_sha256,file);
+  assert.equal(sha(compressed),expected.gzip_sha256,file);
+  assert.equal(compressed.length,expected.gzip_bytes,file);
+ }
+ assert.equal(manifest.input_gzip,golden["input.json"].gzip_bytes);
+});

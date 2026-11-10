@@ -2,6 +2,34 @@
 this_file: WORK.md
 ---
 
+## 2026-11-10 — Task 414 portable search gzip
+
+Both search compression sites now use pinned fflate 0.8.3 (MIT), bundled by
+esbuild 0.25.12 into Node-only gzip.cjs. Level 9, mtime 0 and upstream OS byte 3
+produce header 1f8b0800000000000203. Ordinary builds use the committed-format
+bundle without npm. Package lock, bundle hash, provenance and licence agree;
+all four existing bundles and all original source records remain unchanged.
+
+RED: 23 passed / 1 failed (actual header ended 0213, expected 0203).
+GREEN: 26 passed, including public-fixture payload hashes, repeated identical
+bytes and Node gunzip round-trips for empty, short, binary, Unicode and large
+inputs. Native Node coverage: build.cjs 100% lines / 88% branches; gzip.cjs
+87.25% / 84.25%; compile.cjs 100% / 58.33%. The TypeScript re-export is exercised
+through its generated bundle, without separate source-mapped coverage. No Python
+production module changed. Compiler error branches are not fully covered.
+
+uv sync --locked --group dev passed. Full requested pytest: 532 passed,
+1 skipped, 12 failed, 62 errors. Failures include Chromium launch permissions,
+missing typerig/fontlabapp sibling sources and promotion-fixture Git-ignore
+checks. Offline build --check failed importing Echopy; an explicit sibling
+PYTHONPATH retry then failed because native API sidecars are absent. No source
+lock refresh, generated docs changes, native access or publication occurred.
+Generated docs changed: 0. No Git mutation was performed.
+
+Detailed commands, gate tails and limits: .build/task414/REPORT.md; raw logs are
+in the same ignored worktree directory. Full-site and actual Mac/CI parity
+remain open; this source result does not resolve the historical 77-file diff.
+
 ## 2026-11-05 — independently approved documentation applied
 
 [Task 2 final review](../verification/issue-230/task-2-fix2-review.md) records

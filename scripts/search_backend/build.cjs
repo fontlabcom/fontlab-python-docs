@@ -1,6 +1,7 @@
 // this_file: scripts/search_backend/build.cjs
 // Extract complete postings from the pinned original engine, preserving raw rows before mutation.
-const fs = require("node:fs"), path = require("node:path"), crypto = require("node:crypto"), zlib = require("node:zlib");
+const fs = require("node:fs"), path = require("node:path"), crypto = require("node:crypto");
+const {gzipSync} = require("./gzip.cjs");
 const {Search} = require("./engine.cjs"), {encodeTerms} = require("./router.cjs");
 const [input, directory, target] = process.argv.slice(2);
 const corpus = JSON.parse(fs.readFileSync(input)), groups = new Map(), termDocs = new Map();
@@ -19,14 +20,14 @@ for (const rows of groups.values()) {
 if (current.length) shards.push(current);
 const hash = data => crypto.createHash("sha256").update(data).digest("hex");
 function write(file, data) {
-  const gzip = zlib.gzipSync(data, {level:9});
+  const gzip = gzipSync(data, {level:9,mtime:0});
   fs.writeFileSync(path.join(directory,file),data);
   fs.writeFileSync(path.join(directory,file+".gz"),gzip);
   return {file, raw:data.length, gzip:gzip.length, sha256:hash(data)};
 }
 const manifest = {version:1, engine:"materialx-10.1.5/lunr-2.3.9", config:corpus.config, rows:corpus.docs.length,
   input_sha256:hash(fs.readFileSync(input)), input_raw:fs.statSync(input).size,
-  input_gzip:zlib.gzipSync(fs.readFileSync(input),{level:9}).length, tokens:0, shards:[]};
+  input_gzip:gzipSync(fs.readFileSync(input),{level:9,mtime:0}).length, tokens:0, shards:[]};
 let start = 0;
 for (const [id, docs] of shards.entries()) {
   const raw = Buffer.from(JSON.stringify(docs));

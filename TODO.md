@@ -4,6 +4,9 @@ this_file: TODO.md
 
 # Open tasks
 
+- [ ] Task 414: switch the size-budget metrics in `scripts/search_shards.py:102` and `scripts/verify_site.py:103` from host `gzip.compress` to the portable codec (or document that they are host-dependent reports only).
+- [ ] Task 414: provision matching native sidecars/provider sources and browser permissions, rerun full Python/offline build gates, then verify actual Mac/CI generated-byte parity.
+
 - [ ] Independently review the complete frozen-input light-theme/CI candidate, then qualify actual main X/Y Actions, Pages main:/docs, live search/browser behavior, code-only and unchanged-output runs without conflating current-provider or native acceptance.
 
 - [ ] Reconcile Issue 207 provider/source-lock and generated documentation with current App/Plugmix APIs. Complete the source/export and artifact tuple before intentional lock refresh.

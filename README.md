@@ -86,7 +86,7 @@ npm ci --prefix .build/search-compiler --ignore-scripts --no-audit --no-fund
 node scripts/search_backend/compile.cjs
 ```
 
-The one-time compiler bootstrap installs locked esbuild 0.25.12. Later use
+The compiler bootstrap installs locked esbuild 0.25.12 and fflate 0.8.3. Later use
 `npm ci --offline --prefix .build/search-compiler --ignore-scripts --no-audit --no-fund`
 from its populated cache, or rebuild with the existing compiler. Commit updated
 bundles and hashes together. Regular `./build.sh --offline` needs neither compiler

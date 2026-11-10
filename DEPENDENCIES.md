@@ -27,6 +27,13 @@ Locked esbuild 0.25.12 is needed only for explicit maintainer recompilation;
 installs it under the ignored `.build/search-compiler` tree. Browser gzip decoding
 uses the standard native `DecompressionStream` API, without another library.
 
+Portable search gzip uses MIT-licensed fflate 0.8.3, bundled into the Node-only
+`scripts/search_backend/gzip.cjs` by the same locked compiler. Both shard assets
+and input-size accounting use level 9 and mtime 0. The fixed Unix OS byte (3)
+makes the header `1f8b0800000000000203` on every host; the pinned JavaScript
+DEFLATE implementation avoids host-zlib payload differences. The full licence
+is in `src_docs/md/licenses/mit-fflate.txt` and in the generated bundle.
+
 ## Documentation plugins
 
 Added codeinclude 0.3.1, awesome-nav 3.3.0, live-edit 0.4.1, categories 0.6.0
