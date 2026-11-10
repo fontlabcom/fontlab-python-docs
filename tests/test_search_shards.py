@@ -237,21 +237,18 @@ def test_initial_gzip_bytes_when_host_gzip_unavailable_then_uses_portable_codec(
     assert inspect_shards(path)["initial_gzip_bytes"] == recorded + estimate
 
 
-def test_initial_gzip_bytes_when_shipped_gz_differs_then_recorded_manifest_sizes_win(
+def test_initial_gzip_bytes_when_recorded_gzip_size_is_wrong_then_asset_check_refuses(
     tmp_path, corpus
 ):
     path = tmp_path / "search_index.json"
     path.write_text(json.dumps(corpus))
     build_shards(path)
-    before = inspect_shards(path)["initial_gzip_bytes"]
     spec = json.loads(path.read_text())["config"]["complete"]["manifest"]
     spec["gzip"] += 1000
     data = json.loads(path.read_text())
     data["config"]["complete"]["manifest"] = spec
     path.write_text(json.dumps(data))
-    # The recorded size feeds the budget; a stale-looking edit must show through.
-    try:
-        after = inspect_shards(path)["initial_gzip_bytes"]
-    except ValueError:
-        return  # the recorded size is verified against the asset: tampering is refused
-    assert after == before + 1000
+    # A recorded size that disagrees with the shipped .gz is refused, so a stale
+    # manifest can never silently feed the budget.
+    with pytest.raises(ValueError, match="compressed asset size/hash mismatch"):
+        inspect_shards(path)
