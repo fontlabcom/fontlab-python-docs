@@ -1452,3 +1452,7 @@ workflow acceptance and publication remain separate.
   Product tests and oracles are unchanged.
 - Keep this source-only qualification separate from a new site/build pair,
   native behavior, main integration and publication, which remain unqualified.
+
+## 2026-11-10 — integration-round guidance
+
+Require independent verification, fresh upstream/team reconciliation and normal nonforce integration after important rounds. Move only verified solved TODO scope into cumulative history, update remaining plans and continue authorized work; existing preservation and admission holds remain unchanged.

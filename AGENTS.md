@@ -63,3 +63,7 @@ installing into its user folder or publishing a site.
 ## Search backend development lane
 
 Use Node22+ for this documentation site. Run `node --test scripts/search_backend/tests.cjs` separately from Python pytest. If handwritten backend source changes, follow README's locked compiler setup with esbuild0.25.12 and `node scripts/search_backend/compile.cjs`; commit the rebuilt bundle and its hashes together. Ordinary builds consume the committed bundle. Offline recompilation needs the provisioned npm cache. Browser/search, source-lock, archive and publication checks remain separate.
+
+## Integration rounds
+
+After each important round, independently verify the result, refresh the actual upstream main (or existing default branch), and reconcile concurrent team work in an isolated successor. Integrate qualified changes upstream through normal gates without force-pushing. Move only verified solved TODO items to cumulative CHANGELOG, update PLAN for remaining work, and continue the authorized backlog. Existing preservation rules, exclusions, pauses, native/install restrictions, private P/L holds and capability gates remain in force.

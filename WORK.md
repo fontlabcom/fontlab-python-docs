@@ -2670,3 +2670,7 @@ clock-measurement correction remain preserved. No product oracle was weakened.
 This is source-only local qualification using dated worker/corpus prerequisites.
 It does not establish a new generated site, independent committed-source build
 pair, native behavior, main integration or publication. Those gates remain open.
+
+## 2026-11-10 — integration-round guidance
+
+Added the owner’s round-by-round review, upstream reconciliation and backlog-maintenance rule to AGENTS. This is documentation-only preparation; independent review and applicable repository checks remain required before delivery. No runtime, installation, native or publication acceptance is asserted.
