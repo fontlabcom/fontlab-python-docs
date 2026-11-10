@@ -17,6 +17,35 @@ UI = ROOT / "overrides/assets/javascripts/complete-search-ui.js"
 INITIAL_BUDGET = 5 * 1024 * 1024
 
 
+# Size budgets must describe the bytes the portable codec (fflate, level 9, mtime 0)
+# emits for shipped assets, not whatever zlib build the host Python links.
+PORTABLE_GZIP_SIZES = (
+    "const {gzipSync}=require(process.argv[1]);const fs=require('node:fs');"
+    "console.log(JSON.stringify(process.argv.slice(2).map("
+    "f=>gzipSync(fs.readFileSync(f),{level:9,mtime:0}).length)))"
+)
+
+
+def portable_gzip_sizes(paths: list[Path]) -> list[int]:
+    """Gzip sizes of files under the bundled portable codec, in one node call."""
+    if not paths:
+        return []
+    done = subprocess.run(
+        [
+            "node",
+            "-e",
+            PORTABLE_GZIP_SIZES,
+            str(BACKEND / "gzip.cjs"),
+            *map(str, paths),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=60,
+    )
+    return json.loads(done.stdout)
+
+
 def encode(data: dict) -> bytes:
     return json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode()
 
@@ -77,16 +106,15 @@ def inspect_shards(path: Path, *, deployed: bool = False) -> dict:
         text=True,
         timeout=60,
     )
-    initial = [path.read_bytes(), (directory / spec["file"]).read_bytes()]
+    initial = [path, directory / spec["file"]]
     initial.extend(
-        (directory / asset["file"]).read_bytes()
-        for asset in (manifest["terms"], manifest["postings"])
+        directory / asset["file"] for asset in (manifest["terms"], manifest["postings"])
     )
-    site = path.parent.parent
     for source in (WORKER, UI):
         relative = source.relative_to(ROOT / "overrides")
-        asset = site / relative
-        initial.append((asset if deployed else source).read_bytes())
+        asset = path.parent.parent / relative
+        initial.append(asset if deployed else source)
+    initial_sizes = [file.stat().st_size for file in initial]
     original = encode(corpus)
     return {
         "rows": len(corpus["docs"]),
@@ -98,14 +126,12 @@ def inspect_shards(path: Path, *, deployed: bool = False) -> dict:
         "reconstructed_bytes": len(original),
         "shard_bytes": sum(s["raw"] for s in manifest["shards"]),
         "shard_gzip_bytes": sum(s["gzip"] for s in manifest["shards"]),
-        "initial_gzip_bytes": sum(
-            len(gzip.compress(data, mtime=0)) for data in initial
-        ),
-        "initial_static_bytes": len(initial[0])
+        "initial_gzip_bytes": sum(portable_gzip_sizes(initial)),
+        "initial_static_bytes": initial_sizes[0]
         + spec["gzip"]
         + manifest["terms"]["gzip"]
         + manifest["postings"]["gzip"]
-        + sum(len(data) for data in initial[-2:]),
+        + sum(initial_sizes[-2:]),
         "largest_shard_bytes": max((s["raw"] for s in manifest["shards"]), default=0),
     }
 

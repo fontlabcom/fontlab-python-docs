@@ -1,7 +1,6 @@
 # this_file: scripts/verify_site.py
 """Check complete rendered source identities, inventory and declared budgets."""
 
-import gzip
 import hashlib
 import json
 import re
@@ -10,6 +9,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 from mkdocstrings import Inventory
+
+from .search_shards import portable_gzip_sizes
 
 
 class Anchors(HTMLParser):
@@ -99,9 +100,8 @@ def verify_site(
             missing.append({"page": relative, "missing_ids": sorted(absent)})
         sizes[relative] = path.stat().st_size
     largest = max(sizes.values(), default=0)
-    search = (site / "search/search_index.json").read_bytes()
-    compressed = len(gzip.compress(search, mtime=0))
-    search_data = json.loads(search)
+    search_path = site / "search/search_index.json"
+    search_data = json.loads(search_path.read_bytes())
     sharding = None
     if "complete" in search_data.get("config", {}):
         from .search_identities import verify_search_coverage
@@ -111,6 +111,8 @@ def verify_site(
         verify_search_coverage(complete, coverage["symbols"], coverage["aliases"])
         sharding = inspect_shards(site / "search/search_index.json", deployed=True)
         compressed = sharding["initial_gzip_bytes"]
+    else:
+        compressed = portable_gzip_sizes([search_path])[0]
     packages = sorted({identifier.split(".")[0] for identifier in coverage["symbols"]})
     content_problems = package_content_problems(site, packages)
     report = {
@@ -124,7 +126,7 @@ def verify_site(
         "missing_anchors": missing,
         "missing_inventory": sorted(absent_inventory),
         "largest_api_page_bytes": largest,
-        "search_bytes": sharding["aggregate_bytes"] if sharding else len(search),
+        "search_bytes": sharding["aggregate_bytes"] if sharding else search_path.stat().st_size,
         "search_gzip_bytes": compressed,
         "initial_search_static_bytes": sharding["initial_static_bytes"]
         if sharding

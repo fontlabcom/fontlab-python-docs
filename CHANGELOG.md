@@ -2,6 +2,11 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-10 — Task 414 size-budget metrics use the portable codec (Issue 250)
+
+- `scripts/search_shards.py` gains `portable_gzip_sizes()`: one `node -e` call runs the bundled fflate codec (`search_backend/gzip.cjs`, level 9, mtime 0) over the actual files. `initial_gzip_bytes` and the monolithic `search_gzip_bytes` in `scripts/verify_site.py` now match the shipped bytes instead of host zlib, so budgets no longer vary by Python/zlib build.
+- Tests: portable sizes equal emitted `.gz` sizes; host `gzip.compress` forbidden in both paths. Full suite 611 passed, 1 skipped; `search_shards.py` 92%, `verify_site.py` 97%; Node 27/27; ruff clean.
+
 ## 2026-11-10 — live font editing rule (Issue 250, D44)
 
 - AGENTS.md: agents test and edit the font open in FontLab 9, starting from the Desktop VFJs, and may save them.

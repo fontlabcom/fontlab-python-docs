@@ -3,12 +3,18 @@
 
 import gzip
 import json
+import subprocess
 from collections import Counter
 from pathlib import Path
 
 import pytest
 
-from scripts.search_shards import build_shards, read_complete_index
+from scripts.search_shards import (
+    build_shards,
+    inspect_shards,
+    portable_gzip_sizes,
+    read_complete_index,
+)
 
 
 @pytest.fixture
@@ -165,3 +171,49 @@ def test_manifest_when_asset_missing_then_read_fails(tmp_path, corpus, name):
     (tmp_path / "complete" / name).unlink()
     with pytest.raises(FileNotFoundError):
         read_complete_index(path)
+
+
+def test_portable_gzip_sizes_when_asset_is_shipped_then_equals_emitted_gz_size(
+    tmp_path, corpus
+):
+    path = tmp_path / "search_index.json"
+    path.write_text(json.dumps(corpus))
+    build_shards(path)
+    shipped = sorted((tmp_path / "complete").glob("*.json.gz"))
+    assert shipped, "Build must emit gzip companions"
+    raw = [p.with_suffix("") for p in shipped]
+    assert portable_gzip_sizes(raw) == [p.stat().st_size for p in shipped]
+
+
+def test_portable_gzip_sizes_when_no_paths_then_empty():
+    assert portable_gzip_sizes([]) == []
+
+
+def test_portable_gzip_sizes_when_path_missing_then_raises(tmp_path):
+    with pytest.raises(subprocess.CalledProcessError):
+        portable_gzip_sizes([tmp_path / "absent.json"])
+
+
+def test_initial_gzip_bytes_when_host_gzip_unavailable_then_uses_portable_codec(
+    tmp_path, corpus, monkeypatch
+):
+    path = tmp_path / "search_index.json"
+    path.write_text(json.dumps(corpus))
+    build_shards(path)
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("host zlib must not define size budgets")
+
+    monkeypatch.setattr(gzip, "compress", forbidden)
+    report = inspect_shards(path)
+    from scripts import search_shards
+
+    manifest = json.loads((tmp_path / "complete/manifest.json").read_text())
+    shipped = [manifest[name]["file"] for name in ("terms", "postings")] + [
+        "manifest.json"
+    ]
+    expected_shipped = sum(
+        (tmp_path / "complete" / (name + ".gz")).stat().st_size for name in shipped
+    )
+    others = portable_gzip_sizes([path, search_shards.WORKER, search_shards.UI])
+    assert report["initial_gzip_bytes"] == expected_shipped + sum(others)
