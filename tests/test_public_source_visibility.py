@@ -31,9 +31,11 @@ from scripts.export_aliases import exported_aliases
             {"public.api._private": "pkg"},
         ),
         (  # platform-selected re-export inside a top-level conditional
-            "import sys\n__all__ = ['launch']\n"
-            "if sys.platform == 'darwin':\n    from .macos import launch\n"
-            "else:\n    def launch():\n        raise NotImplementedError\n",
+            (
+                "import sys\n__all__ = ['launch']\n"
+                "if sys.platform == 'darwin':\n    from .macos import launch\n"
+                "else:\n    def launch():\n        raise NotImplementedError\n"
+            ),
             {"public.api.launch": "public.macos.launch"},
         ),
         (  # lazy registry naming a submodule of the declaring module

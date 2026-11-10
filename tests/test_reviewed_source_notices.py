@@ -1,10 +1,11 @@
 # this_file: tests/test_reviewed_source_notices.py
 """Actual default audit inputs: exact upstream notices and public/private controls."""
-from pathlib import Path
 import hashlib
 import shutil
+from pathlib import Path
 
 import pytest
+
 from scripts import release_audit as audit
 
 SOURCE = Path(__file__).resolve().parents[1] / "src_docs/md/licenses"

@@ -6,7 +6,8 @@ import zlib
 from pathlib import Path
 
 import pytest
-from playwright.sync_api import Error as PlaywrightError, sync_playwright
+from playwright.sync_api import Error as PlaywrightError
+from playwright.sync_api import sync_playwright
 
 from scripts.a11y_check import serve_site
 from scripts.interaction_check import (

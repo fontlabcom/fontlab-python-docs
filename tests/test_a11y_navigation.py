@@ -3,6 +3,7 @@
 
 import pytest
 from playwright.sync_api import sync_playwright
+
 from scripts.a11y_check import check_page, serve_site
 
 

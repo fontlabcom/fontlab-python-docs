@@ -1,11 +1,10 @@
 # this_file: tests/test_pages_publish.py
 """Exercise publication against real disposable Git histories, never shared refs."""
 
+import io
 import json
 import os
 import subprocess
-import io
-from pathlib import Path
 
 import pytest
 

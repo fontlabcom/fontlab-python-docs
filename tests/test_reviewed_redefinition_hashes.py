@@ -3,8 +3,9 @@
 
 import copy
 
-from scripts.reconcile_coverage import _declaration_reason
 from test_reconcile_coverage import MANIFEST
+
+from scripts.reconcile_coverage import _declaration_reason
 
 IDENTITY = "typerig.core.objects.matrix.Table.__eq__"
 HASHES = (

@@ -2,7 +2,6 @@
 """Regression gates for complete source identities and build lifecycle."""
 
 import json
-from pathlib import Path
 
 from scripts.api_inventory import inventory_sources, plan_pages
 from scripts.build_reference import source_roots

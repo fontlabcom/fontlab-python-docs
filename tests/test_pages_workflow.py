@@ -1,9 +1,9 @@
 # this_file: tests/test_pages_workflow.py
 """Trusted-main routing, immutable inputs, epoch transfer and private diagnostics."""
 
-import os
-import json
 import hashlib
+import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -27,7 +27,7 @@ def test_workflow_when_every_main_push_then_x_y_rebuild_same_frozen_inputs():
     assert set(jobs) == {"build", "qualify-generated-output"}
     assert "github.ref == 'refs/heads/main'" in jobs["build"]["if"]
     paths, epochs = [], []
-    for name, job in jobs.items():
+    for job in jobs.values():
         private = [step for step in job["steps"] if step.get("with", {}).get("repository") == "fontlabcom/fontlab-python-docs-inputs"]
         assert len(private) == 1
         settings = private[0]["with"]
@@ -60,7 +60,7 @@ def test_private_build_when_tool_prints_source_then_public_log_is_sanitized(tmp_
     uv.chmod(0o755)
     private = tmp_path / "private"
     result = subprocess.run(["bash", str(ROOT / "scripts/pages-build.sh"), str(tmp_path / "store")],
-                            cwd=ROOT, capture_output=True, text=True,
+                            cwd=ROOT, capture_output=True, text=True, check=False,
                             env=os.environ | {"PATH": str(binary) + os.pathsep + os.environ["PATH"],
                                               "DOCS_PRIVATE_RUNTIME": str(private), "SOURCE_DATE_EPOCH": "1700000000"})
     assert result.returncode == 7
@@ -124,7 +124,7 @@ if stage=='audit-disposition' and args[-1]!='1': raise SystemExit(23)
             if os.environ.get("ARCHIVE_SHELL_EVIDENCE"):
                 env.update(BASH_XTRACEFD=str(stream.fileno()), PS4='+${BASH_SOURCE}:${LINENO}: ')
                 command.insert(1, "-x")
-            result = subprocess.run(command, cwd=project, capture_output=True, text=True, env=env, pass_fds=(stream.fileno(),))
+            result = subprocess.run(command, cwd=project, capture_output=True, text=True, check=False, env=env, pass_fds=(stream.fileno(),))
         if os.environ.get("ARCHIVE_SHELL_EVIDENCE"):
             evidence = Path(os.environ["ARCHIVE_SHELL_EVIDENCE"])
             evidence.mkdir(parents=True, exist_ok=True)
@@ -213,7 +213,7 @@ def test_private_build_when_required_input_is_absent_or_empty_then_fails_before_
         if os.environ.get("ARCHIVE_SHELL_EVIDENCE"):
             env.update(BASH_XTRACEFD=str(stream.fileno()), PS4='+${BASH_SOURCE}:${LINENO}: ')
             command.insert(1, "-x")
-        result = subprocess.run(command, cwd=tmp_path, capture_output=True, text=True, env=env, pass_fds=(stream.fileno(),))
+        result = subprocess.run(command, cwd=tmp_path, capture_output=True, text=True, check=False, env=env, pass_fds=(stream.fileno(),))
     assert result.returncode != 0
     assert (missing if missing != "store" else "Private input checkout is required") in result.stderr
     assert "Documentation stage:" not in result.stdout
@@ -284,7 +284,7 @@ if stage=='full-index':
         command = ["bash", "-c", wrapper, "consumer-test", str(log), str(consumer)]
         if not public_fd:
             command = ["bash", str(consumer), "--offline"]
-        result = subprocess.run(command, cwd=project, capture_output=True, text=True,
+        result = subprocess.run(command, cwd=project, capture_output=True, text=True, check=False,
                                 env=os.environ | {"PATH": str(binary) + os.pathsep + os.environ["PATH"],
                                                   "TMPDIR": str(private_tmp), "CI_TEST_FAIL_STAGE": fail_stage,
                                                   "CI_TEST_EXCEPTION": exception,

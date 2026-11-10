@@ -1,12 +1,12 @@
 # this_file: tests/test_generated_git_bytes.py
 """Real Git staging/checkout must retain accepted generated and licence bytes."""
-from pathlib import Path
 import gzip
 import io
-import tarfile
 import os
 import shutil
 import subprocess
+import tarfile
+from pathlib import Path
 
 import pytest
 

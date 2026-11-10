@@ -201,7 +201,7 @@ def check_type_link(page: Page, base: str, spec: dict, shot=no_shot) -> dict:
 def open_search(page: Page) -> None:
     """Reveal the single search field (mobile hides it behind its label)."""
     field = page.locator(".md-search__input")
-    shared = page.get_by_role("button", name=re.compile(r"^Open search$", re.I))
+    shared = page.get_by_role("button", name=re.compile(r"^Open search$", re.IGNORECASE))
     if shared.count():
         shared.click()
     elif not field.is_visible():
@@ -605,17 +605,17 @@ def run(site: Path, out_dir: Path, plan: dict = PLAN, base: str | None = None) -
         resolved = resolve_plan(site, plan)
         receipt["plan"] = resolved
         server = nullcontext(base) if base else serve_site(site)
-        with sync_playwright() as playwright, server as base:
+        with sync_playwright() as playwright, server as served:
             browser = playwright.chromium.launch(headless=True)
             try:
                 for case, spec in resolved.items():
                     for viewport in VIEWPORTS:
                         for scheme in SCHEMES:
                             entry = run_entry(
-                                browser, base, case, spec, viewport, scheme, out_dir
+                                browser, served, case, spec, viewport, scheme, out_dir
                             )
                             receipt["results"].append(
-                                json.loads(json.dumps(entry).replace(base, "/"))
+                                json.loads(json.dumps(entry).replace(served, "/"))
                             )
             finally:
                 browser.close()

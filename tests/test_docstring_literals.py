@@ -5,6 +5,7 @@ from types import SimpleNamespace as NS
 
 import pytest
 from griffe import load, load_extensions
+
 from scripts.docstring_literals import LiteralIndexes
 
 

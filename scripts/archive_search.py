@@ -6,7 +6,7 @@ import json
 import re
 from pathlib import Path
 
-CONFIG = re.compile(rb'(<script\b[^>]*\bid="__config"[^>]*>)(.*?)(</script>)', re.S)
+CONFIG = re.compile(rb'(<script\b[^>]*\bid="__config"[^>]*>)(.*?)(</script>)', re.DOTALL)
 PAGES = {
     "404.html", "index.html", "PythonQt.html", "PythonQt.private.html",
     *{f"PythonQt.{name}.html" for name in (

@@ -11,7 +11,16 @@ from urllib.parse import urljoin
 
 import pytest
 
-from scripts.archive_search import ASSETS, CONFIG, OLD, PAGES, UI_ASSETS, UI_OLD, SCRIPT, install_archive_search
+from scripts.archive_search import (
+    ASSETS,
+    CONFIG,
+    OLD,
+    PAGES,
+    SCRIPT,
+    UI_ASSETS,
+    UI_OLD,
+    install_archive_search,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_404_ASSETS = (

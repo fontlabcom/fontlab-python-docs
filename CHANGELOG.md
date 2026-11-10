@@ -7,6 +7,10 @@ this_file: CHANGELOG.md
 - `scripts/search_shards.py` gains `portable_gzip_sizes()`: one `node -e` call runs the bundled fflate codec (`search_backend/gzip.cjs`, level 9, mtime 0) over the actual files. `initial_gzip_bytes` now sums the manifest-recorded (verified) gzip sizes of the three shipped assets with a portable-codec estimate for the bootstrap index, worker and UI, which ship no `.gz`; the monolithic `search_gzip_bytes` in `scripts/verify_site.py` is that estimate alone. Budgets no longer vary by Python/zlib build. Committed `docs/search/complete` `.gz` files predate fflate, so only recorded sizes, not re-compression, describe them. Size-budget tests now use fixed, once-measured golden byte counts instead of values derived from the code under test; the README states that `verify_site.py` needs Node. A failing node codec now raises `RuntimeError` with its stderr.
 - Tests: portable sizes equal freshly emitted `.gz` sizes; manifest-based oracle for `initial_gzip_bytes`; host `gzip.compress` forbidden.
 
+## 2026-11-11 — Ruff clean on scripts and tests (Issue 250)
+
+Fixed the 21 findings on main: import order (10), unused imports (2), `re.S`/`re.I` aliases (2), explicit `check=False` on four asserted `subprocess.run` calls, `values()` loop, one parenthesised string literal and the `base` with-target rename in `scripts/interaction_check.py` (`served`; the Playwright-only branch is covered by the browser lane, not unit tests). No behaviour change. Suite 606 passed, 1 skipped; `ruff check scripts tests` clean.
+
 ## 2026-11-10 — live font editing rule (Issue 250, D44)
 
 - AGENTS.md: agents test and edit the font open in FontLab 9, starting from the Desktop VFJs, and may save them.
