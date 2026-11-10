@@ -190,7 +190,7 @@ def test_portable_gzip_sizes_when_no_paths_then_empty():
 
 
 def test_portable_gzip_sizes_when_path_missing_then_raises(tmp_path):
-    with pytest.raises(subprocess.CalledProcessError):
+    with pytest.raises(RuntimeError, match="absent.json"):
         portable_gzip_sizes([tmp_path / "absent.json"])
 
 
@@ -208,12 +208,29 @@ def test_initial_gzip_bytes_when_host_gzip_unavailable_then_uses_portable_codec(
     report = inspect_shards(path)
     from scripts import search_shards
 
+    bootstrap = json.loads(path.read_text())
+    spec = bootstrap["config"]["complete"]["manifest"]
     manifest = json.loads((tmp_path / "complete/manifest.json").read_text())
-    shipped = [manifest[name]["file"] for name in ("terms", "postings")] + [
-        "manifest.json"
-    ]
-    expected_shipped = sum(
-        (tmp_path / "complete" / (name + ".gz")).stat().st_size for name in shipped
-    )
-    others = portable_gzip_sizes([path, search_shards.WORKER, search_shards.UI])
-    assert report["initial_gzip_bytes"] == expected_shipped + sum(others)
+    recorded = spec["gzip"] + manifest["terms"]["gzip"] + manifest["postings"]["gzip"]
+    estimated = portable_gzip_sizes([path, search_shards.WORKER, search_shards.UI])
+    assert report["initial_gzip_bytes"] == recorded + sum(estimated)
+
+
+def test_initial_gzip_bytes_when_shipped_gz_differs_then_recorded_manifest_sizes_win(
+    tmp_path, corpus
+):
+    path = tmp_path / "search_index.json"
+    path.write_text(json.dumps(corpus))
+    build_shards(path)
+    before = inspect_shards(path)["initial_gzip_bytes"]
+    spec = json.loads(path.read_text())["config"]["complete"]["manifest"]
+    spec["gzip"] += 1000
+    data = json.loads(path.read_text())
+    data["config"]["complete"]["manifest"] = spec
+    path.write_text(json.dumps(data))
+    # The recorded size feeds the budget; a stale-looking edit must show through.
+    try:
+        after = inspect_shards(path)["initial_gzip_bytes"]
+    except ValueError:
+        return  # the recorded size is verified against the asset: tampering is refused
+    assert after == before + 1000

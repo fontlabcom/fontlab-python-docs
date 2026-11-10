@@ -17,8 +17,9 @@ UI = ROOT / "overrides/assets/javascripts/complete-search-ui.js"
 INITIAL_BUDGET = 5 * 1024 * 1024
 
 
-# Size budgets must describe the bytes the portable codec (fflate, level 9, mtime 0)
-# emits for shipped assets, not whatever zlib build the host Python links.
+# Assets with no shipped .gz (bootstrap index, worker, UI) get an estimate under the
+# portable codec (fflate, level 9, mtime 0), not whatever zlib build Python links.
+# Shipped complete/ assets use the gzip sizes their manifest records and verifies.
 PORTABLE_GZIP_SIZES = (
     "const {gzipSync}=require(process.argv[1]);const fs=require('node:fs');"
     "console.log(JSON.stringify(process.argv.slice(2).map("
@@ -38,11 +39,13 @@ def portable_gzip_sizes(paths: list[Path]) -> list[int]:
             str(BACKEND / "gzip.cjs"),
             *map(str, paths),
         ],
-        check=True,
+        check=False,
         capture_output=True,
         text=True,
         timeout=60,
     )
+    if done.returncode:
+        raise RuntimeError(f"portable gzip codec failed: {done.stderr.strip()}")
     return json.loads(done.stdout)
 
 
@@ -126,7 +129,11 @@ def inspect_shards(path: Path, *, deployed: bool = False) -> dict:
         "reconstructed_bytes": len(original),
         "shard_bytes": sum(s["raw"] for s in manifest["shards"]),
         "shard_gzip_bytes": sum(s["gzip"] for s in manifest["shards"]),
-        "initial_gzip_bytes": sum(portable_gzip_sizes(initial)),
+        # Recorded (verified) gzip for the three shipped assets; estimate for the rest.
+        "initial_gzip_bytes": sum(portable_gzip_sizes([initial[0], *initial[-2:]]))
+        + spec["gzip"]
+        + manifest["terms"]["gzip"]
+        + manifest["postings"]["gzip"],
         "initial_static_bytes": initial_sizes[0]
         + spec["gzip"]
         + manifest["terms"]["gzip"]

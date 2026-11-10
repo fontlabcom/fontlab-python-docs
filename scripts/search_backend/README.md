@@ -30,7 +30,7 @@ native `DecompressionStream("gzip")`, with compressed and expanded size bounds.
 The original raw assets remain for offline verification and original-consumer
 reconstruction. `initial_static_bytes` counts these actual gzip files plus raw
 bootstrap/worker/UI bytes, independent of server HTTP compression policy.
-`initial_gzip_bytes` separately models gzip for the other startup assets.
+`initial_gzip_bytes` sums the verified recorded gzip sizes of the three shipped assets with a portable-codec (fflate) estimate for the bootstrap index, worker and UI, which ship no `.gz`. Local `verify_site.py` runs need Node for that estimate.
 
 `cacheBytes` counts owned original byte buffers. `liveBytes` counts completed
 response-buffer ownership (including cached buffers borrowed for a query), not

@@ -4,8 +4,8 @@ this_file: CHANGELOG.md
 
 ## 2026-11-10 — Task 414 size-budget metrics use the portable codec (Issue 250)
 
-- `scripts/search_shards.py` gains `portable_gzip_sizes()`: one `node -e` call runs the bundled fflate codec (`search_backend/gzip.cjs`, level 9, mtime 0) over the actual files. `initial_gzip_bytes` and the monolithic `search_gzip_bytes` in `scripts/verify_site.py` now match the shipped bytes instead of host zlib, so budgets no longer vary by Python/zlib build.
-- Tests: portable sizes equal emitted `.gz` sizes; host `gzip.compress` forbidden in both paths. Full suite 611 passed, 1 skipped; `search_shards.py` 92%, `verify_site.py` 97%; Node 27/27; ruff clean.
+- `scripts/search_shards.py` gains `portable_gzip_sizes()`: one `node -e` call runs the bundled fflate codec (`search_backend/gzip.cjs`, level 9, mtime 0) over the actual files. `initial_gzip_bytes` now sums the manifest-recorded (verified) gzip sizes of the three shipped assets with a portable-codec estimate for the bootstrap index, worker and UI, which ship no `.gz`; the monolithic `search_gzip_bytes` in `scripts/verify_site.py` is that estimate alone. Budgets no longer vary by Python/zlib build. Committed `docs/search/complete` `.gz` files predate fflate, so only recorded sizes, not re-compression, describe them. A failing node codec now raises `RuntimeError` with its stderr.
+- Tests: portable sizes equal freshly emitted `.gz` sizes; manifest-based oracle for `initial_gzip_bytes`; host `gzip.compress` forbidden.
 
 ## 2026-11-10 — live font editing rule (Issue 250, D44)
 
