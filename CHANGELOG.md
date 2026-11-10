@@ -2,6 +2,11 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-10 — Issue 250 documentation round
+
+- AGENTS.md describes the delegation, integration and release workflow.
+- WORK.md reset to the current round; the earlier bytes are archived on the owner's workspace data volume, not public.
+
 ## 2026-11-05 — independently approved documentation applied
 
 [Task 2 final review](../verification/issue-230/task-2-fix2-review.md) records
