@@ -3,7 +3,6 @@
 
 import gzip
 import json
-import subprocess
 from collections import Counter
 from pathlib import Path
 
@@ -15,6 +14,9 @@ from scripts.search_shards import (
     portable_gzip_sizes,
     read_complete_index,
 )
+
+# Portable-codec size of the built bootstrap index for the `corpus` fixture, measured once.
+INDEX_GOLDEN = 150
 
 
 @pytest.fixture
@@ -185,6 +187,15 @@ def test_portable_gzip_sizes_when_asset_is_shipped_then_equals_emitted_gz_size(
     assert portable_gzip_sizes(raw) == [p.stat().st_size for p in shipped]
 
 
+def test_portable_gzip_sizes_when_fixed_inputs_then_golden_byte_counts(tmp_path):
+    # Goldens measured once with fflate level 9, mtime 0 (not derived from the code under test).
+    flat = tmp_path / "flat.txt"
+    flat.write_text("a" * 1000)
+    doc = tmp_path / "doc.json"
+    doc.write_text(json.dumps({"docs": [{"title": "x", "text": "hello world " * 50}]}))
+    assert portable_gzip_sizes([flat, doc]) == [28, 72]
+
+
 def test_portable_gzip_sizes_when_no_paths_then_empty():
     assert portable_gzip_sizes([]) == []
 
@@ -205,15 +216,25 @@ def test_initial_gzip_bytes_when_host_gzip_unavailable_then_uses_portable_codec(
         raise AssertionError("host zlib must not define size budgets")
 
     monkeypatch.setattr(gzip, "compress", forbidden)
-    report = inspect_shards(path)
     from scripts import search_shards
 
+    fake = tmp_path / "fake-root"
+    moved = {}
+    for name in ("WORKER", "UI"):
+        real = getattr(search_shards, name)
+        target = fake / real.relative_to(search_shards.ROOT)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("a" * 1000)  # 28 bytes under the portable codec (golden)
+        moved[name] = target
+    monkeypatch.setattr(search_shards, "ROOT", fake)
+    for name, target in moved.items():
+        monkeypatch.setattr(search_shards, name, target)
     bootstrap = json.loads(path.read_text())
     spec = bootstrap["config"]["complete"]["manifest"]
     manifest = json.loads((tmp_path / "complete/manifest.json").read_text())
     recorded = spec["gzip"] + manifest["terms"]["gzip"] + manifest["postings"]["gzip"]
-    estimated = portable_gzip_sizes([path, search_shards.WORKER, search_shards.UI])
-    assert report["initial_gzip_bytes"] == recorded + sum(estimated)
+    estimate = 28 * 2 + INDEX_GOLDEN
+    assert inspect_shards(path)["initial_gzip_bytes"] == recorded + estimate
 
 
 def test_initial_gzip_bytes_when_shipped_gz_differs_then_recorded_manifest_sizes_win(

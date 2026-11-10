@@ -19,7 +19,7 @@ published-site acceptance remain separate.
 
 `src_docs/` contains authored pages/configuration; `scripts/` builds and checks the site; `tests/` checks contracts; `api-sources.lock.json` pins inputs; `docs/` is generated output; `archive/` preserves old documentation.
 
-Use Python 3.12+, Node 22+ and `uv sync --locked --group dev`. Provision Playwright Chromium and the matching approved Echopy/source tuple. Run `uv run --group dev --with-editable ../fontlab-echopy python -B -m pytest -q -p no:cacheprovider tests` for Python source tests; run the separate Node lane below. After source/export provisioning, `./scripts/accept-consumer.sh --offline` runs the build/consumer gate. `./build.sh --check` checks the accepted baseline; ordinary builds can update `docs/`.
+Use Python 3.12+, Node 22+ (also required by `scripts/verify_site.py`, whose search size budgets call the bundled node gzip codec) and `uv sync --locked --group dev`. Provision Playwright Chromium and the matching approved Echopy/source tuple. Run `uv run --group dev --with-editable ../fontlab-echopy python -B -m pytest -q -p no:cacheprovider tests` for Python source tests; run the separate Node lane below. After source/export provisioning, `./scripts/accept-consumer.sh --offline` runs the build/consumer gate. `./build.sh --check` checks the accepted baseline; ordinary builds can update `docs/`.
 
 Keep runtime, ordinary installed artifacts, native workflows and published documentation as separate acceptance results. Track open checks in [TODO.md](TODO.md), the implementation route in [PLAN.md](PLAN.md), and dated evidence in [CHANGELOG.md](CHANGELOG.md).
 

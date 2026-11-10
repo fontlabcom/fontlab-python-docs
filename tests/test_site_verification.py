@@ -154,12 +154,14 @@ def test_package_content_when_package_page_is_empty_or_stubless_then_reported(tm
     assert package_content_problems(tmp_path, ["fontport"]) == [{"package": "fontport", "problem": problem}]
 
 
+# Portable-codec (fflate level 9) size of fixture_site's search index, measured once.
+MONOLITHIC_GOLDEN = 31
+
+
 def test_search_gzip_bytes_when_monolithic_index_then_uses_portable_codec(
     tmp_path, monkeypatch
 ):
     import gzip
-
-    from scripts.search_shards import portable_gzip_sizes
 
     site, coverage = fixture_site(tmp_path)
 
@@ -170,5 +172,5 @@ def test_search_gzip_bytes_when_monolithic_index_then_uses_portable_codec(
     report = verify_site(site, coverage, legacy_root=tmp_path)
     assert (
         report["search_gzip_bytes"]
-        == portable_gzip_sizes([site / "search/search_index.json"])[0]
+        == MONOLITHIC_GOLDEN
     )
