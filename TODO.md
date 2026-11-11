@@ -4,6 +4,9 @@ this_file: TODO.md
 
 # Open tasks
 
+- [ ] Decide whether the website package keeps static `version = "0.1.0"` in pyproject.toml: release tags (v1.2.4 on e7594b6) carry the version, but `uv build` cannot reflect them; switch to hatch-vcs only if the owner wants tag-derived builds.
+- [ ] Fix the `Complete documentation` workflow: its audit-disposition stage has failed on every main push since ca7f88a (last success 2026-11-08, run 42510203676), including v1.2.4 on e7594b6 (run 42923314969); Pages deployment still succeeds.
+
 - [ ] Task 414: provision matching native sidecars/provider sources and browser permissions, rerun full Python/offline build gates, then verify actual Mac/CI generated-byte parity.
 
 - [ ] Independently review the complete frozen-input light-theme/CI candidate, then qualify actual main X/Y Actions, Pages main:/docs, live search/browser behavior, code-only and unchanged-output runs without conflating current-provider or native acceptance.
