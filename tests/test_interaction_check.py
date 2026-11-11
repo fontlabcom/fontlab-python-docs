@@ -10,6 +10,7 @@ from playwright.sync_api import Error as PlaywrightError
 from playwright.sync_api import sync_playwright
 
 from scripts.a11y_check import serve_site
+from scripts import interaction_check
 from scripts.interaction_check import (
     check_alias,
     check_deep_link,
@@ -353,3 +354,75 @@ def test_slow_shard_when_shard_arrives_in_time_then_retry_missing_fails(browser,
     )
     assert not result["passed"] and "retry_not_shown" in reasons(result), result
     assert result["result_shown"] is True, result
+
+
+RESULT_PAGE = (
+    "<ul id=list><li><a class=md-search-result__link href='#hit'>hit</a></li></ul>"
+    "<script>window.rerender=()=>{list.innerHTML=list.innerHTML}</script>"
+)
+
+
+@pytest.mark.parametrize("rerenders", [0, 1, 2])
+def test_open_result_when_list_rerenders_after_find_then_refinds_and_clicks(
+    browser, monkeypatch, rerenders
+):
+    page = new_page(browser)
+    page.set_default_timeout(2000)
+    page.set_content(RESULT_PAGE)
+    expected = page.evaluate("new URL('#hit', location.href).href")
+    real_find, calls = interaction_check.find_result, []
+
+    def find_then_rerender(page_, expected_, timeout_ms):
+        link = real_find(page_, expected_, timeout_ms)
+        if len(calls) < rerenders:
+            page_.evaluate("rerender()")
+        calls.append(1)
+        return link
+
+    monkeypatch.setattr(interaction_check, "find_result", find_then_rerender)
+    result = {"case": "alias", "failures": []}
+    assert interaction_check.open_result(page, result, expected, 500, interaction_check.no_shot) is True
+    assert page.url == expected and len(calls) == rerenders + 1
+
+
+def test_open_result_when_every_find_is_stale_then_raises_after_bounded_attempts(
+    browser, monkeypatch
+):
+    page = new_page(browser)
+    page.set_default_timeout(2000)
+    page.set_content(RESULT_PAGE)
+    expected = page.evaluate("new URL('#hit', location.href).href")
+    real_find = interaction_check.find_result
+
+    def always_stale(page_, expected_, timeout_ms):
+        link = real_find(page_, expected_, timeout_ms)
+        page_.evaluate("rerender()")
+        return link
+
+    finds = []
+
+    def counting_stale(page_, expected_, timeout_ms):
+        finds.append(1)
+        return always_stale(page_, expected_, timeout_ms)
+
+    monkeypatch.setattr(interaction_check, "find_result", counting_stale)
+    with pytest.raises(PlaywrightError, match="not attached"):
+        interaction_check.open_result(page, {"case": "x", "failures": []}, expected, 500, interaction_check.no_shot)
+    assert len(finds) == interaction_check.RERENDER_ATTEMPTS == 3, "bounded at three attempts"
+
+
+def test_open_result_when_click_fails_for_another_reason_then_not_retried(monkeypatch):
+    finds = []
+    monkeypatch.setattr(
+        interaction_check, "find_result", lambda *a: finds.append(1) or object()
+    )
+
+    def timeout(*args):
+        raise PlaywrightError("Timeout 500ms exceeded")
+
+    monkeypatch.setattr(interaction_check, "click_result", timeout)
+    with pytest.raises(PlaywrightError, match="Timeout"):
+        interaction_check.open_result(
+            None, {"case": "x", "failures": []}, "u", 500, interaction_check.no_shot
+        )
+    assert len(finds) == 1, "only a detached element is retried"

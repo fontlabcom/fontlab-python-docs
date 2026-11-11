@@ -121,6 +121,7 @@ ACTIVE_JS = """() => {
 SEARCH_ACTIVE_JS = (
     "() => !!document.activeElement?.matches('.md-search__input,input[type=search]')"
 )
+RERENDER_ATTEMPTS = 3
 FIND_RESULT_JS = """expected => [...document.querySelectorAll('.md-search-result__link')]
   .find(a => a.href === expected) || null"""
 
@@ -224,11 +225,23 @@ def find_result(page: Page, expected: str, timeout_ms: int):
 
 def open_result(page: Page, result: dict, expected: str, timeout_ms: int, shot) -> bool:
     """Click the exact rendered result and require same-tab navigation to it."""
-    link = find_result(page, expected, timeout_ms)
-    if link is None:
-        fail(result, "search_result_missing", expected=expected)
-        result["screen"] = shot(page)
-        return False
+    for attempt in range(RERENDER_ATTEMPTS):
+        link = find_result(page, expected, timeout_ms)
+        if link is None:
+            fail(result, "search_result_missing", expected=expected)
+            result["screen"] = shot(page)
+            return False
+        try:
+            return click_result(page, result, link, expected, shot)
+        except PlaywrightError as error:
+            # Search re-renders its list while shards arrive; a handle taken before
+            # that is detached. Only that cause is retried, on a freshly found link.
+            if "not attached" not in str(error) or attempt == RERENDER_ATTEMPTS - 1:
+                raise
+    return False
+
+
+def click_result(page: Page, result: dict, link, expected: str, shot) -> bool:
     # MaterialX folds extra same-page hits under "N more on this page"; a user opens it.
     summary = link.evaluate_handle(
         "a => a.closest('details:not([open])')?.querySelector('summary') || null"

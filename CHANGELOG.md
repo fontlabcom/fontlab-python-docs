@@ -2,6 +2,13 @@
 this_file: CHANGELOG.md
 ---
 
+
+## 2026-11-11 — Interaction check survives a search re-render (Issue 250)
+
+- Cause of the intermittent `interaction` failure (run 43079462598 attempt 1): `open_result` in `scripts/interaction_check.py` held an element handle to a search result while MaterialX re-rendered the result list as shards arrived, so `ElementHandle.click` failed with "Element is not attached to the DOM" (case `alias`). Reproduced locally 1 of 6 times with CPU load (8 busy processes) and not otherwise.
+- `open_result` now re-finds the result and retries up to `RERENDER_ATTEMPTS` (3) times, only for that detached-element error; every other error, and a persistently stale result, still fails. Tests in `tests/test_interaction_check.py` re-render the list between find and click (2 fail without the fix with the same error; 4 pass with it); file 37 passed; 8 of 8 loaded local runs of `scripts.interaction_check` pass. Exact-SHA CI proof is pending.
+- Evidence for the closed gzip row (2fcf469f, Task 414), checked on 0b47214b by lander1: `scripts/` has no `gzip.compress` (gzip is used only to decompress); `search_shards.py:133` `initial_gzip_bytes` uses `portable_gzip_sizes`; swapping that line back to `gzip.compress` fails 1 test (12 others pass).
+
 ## 2026-11-11 — Browser-stage failure is not the runner image; its cause becomes visible (Issue 250)
 
 - Reverted the `ubuntu-24.04` pin from 0ce2fcce: run 43053911785 on ubuntu-24.04 failed the `browser` stage after the same ten minutes as the ubuntu-26.04 runs 43040901865 and 43048681844, so the image was not the cause. The real pin commits are 0ce2fcce and the fflate notice fix 2d2f6ab7; 187567c1 does not exist in the repository.
