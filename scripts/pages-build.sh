@@ -28,7 +28,20 @@ export FONTLAB_EXAMPLES_EXPORT="$DOCS_PRIVATE_RUNTIME/inputs/examples"
 export PYTHONPATH="$FONTLAB_API_SOURCE_ROOT"
 export FONTLAB_REQUIRE_CONSUMER=1
 stage browser
-uv run --no-sync python -m playwright install --with-deps chromium
+# Bounded so a hung apt or CDN fetch fails by name, not after ten silent minutes.
+# A stale apt index is the commonest cause, so refresh it first (CI only).
+# No tool output is ever echoed publicly: on failure only fixed strings
+# (stage, exit code, timeout flag) are printed; full output stays in the private log.
+code=0
+if [[ -n "${GITHUB_ACTIONS:-}" ]] && command -v sudo >/dev/null; then
+    timeout -k 10 120 sudo apt-get update || true
+fi
+timeout -k 10 300 uv run --no-sync python -m playwright install --with-deps chromium || code=$?
+if (( code )); then
+    if (( code == 124 )); then echo "browser stage: install timed out after 300 s (exit 124)" >&3
+    else echo "browser stage: install failed (exit $code)" >&3; fi
+    exit "$code"
+fi
 stage consumer
 ./scripts/accept-consumer.sh --offline
 stage python-tests

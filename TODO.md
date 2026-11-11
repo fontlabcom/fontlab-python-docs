@@ -4,7 +4,8 @@ this_file: TODO.md
 
 # Open tasks
 
-- [ ] Remove the `runs-on: ubuntu-24.04` pin from both jobs in `.github/workflows/docs.yml` once the `browser` stage (`playwright install --with-deps chromium`) passes on ubuntu-26.04 (failed there since 2026-11-11, runs 43040901865 and 43048681844).
+- [ ] Read the exit code `scripts/pages-build.sh` now prints when the `browser` stage (`playwright install --with-deps chromium`, bounded at 300 s) fails (124 = timeout) and fix the named cause; no tool output is public, so reproduce in a Linux container if the code is not enough.
+- [ ] Four tests fail identically on clean main: tests/test_final_fixes.py::test_actual_void_has_source_proven_point_members and three in tests/test_migrate_app_paths.py (rewrite_when_paths_overlap, migrate_when_archive_present, rewrite_when_reference_routes); fix or quarantine with cause.
 - [ ] Decide whether the website package keeps static `version = "0.1.0"` in pyproject.toml: release tags (v1.2.4 on e7594b6) carry the version, but `uv build` cannot reflect them; switch to hatch-vcs only if the owner wants tag-derived builds.
 
 - [ ] Task 414: provision matching native sidecars/provider sources and browser permissions, rerun full Python/offline build gates, then verify actual Mac/CI generated-byte parity.

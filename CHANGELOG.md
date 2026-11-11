@@ -2,6 +2,12 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-11 — Browser-stage failure is not the runner image; its cause becomes visible (Issue 250)
+
+- Reverted the `ubuntu-24.04` pin from 0ce2fcce: run 43053911785 on ubuntu-24.04 failed the `browser` stage after the same ten minutes as the ubuntu-26.04 runs 43040901865 and 43048681844, so the image was not the cause. The real pin commits are 0ce2fcce and the fflate notice fix 2d2f6ab7; 187567c1 does not exist in the repository.
+- Local reproduction of `playwright install --with-deps chromium` (playwright 1.63.0 from uv.lock, macOS arm64) succeeds, so the locked version and the Playwright CDN are fine; the Linux apt part cannot be reproduced without a container.
+- `scripts/pages-build.sh` refreshes the apt index (`sudo apt-get update`, CI only, bounded at 120 s, failure tolerated) and bounds the install with `timeout -k 10 300`. On failure the public log gets only fixed strings (stage, exit code, whether the timeout fired as exit 124); no apt, playwright or network output is echoed, and a sentinel test pins that. The cause remains open until the exit code is known. A second test pins the exit-124 message and both timeouts.
+
 ## 2026-11-11 — Complete documentation audit accepts the reviewed fflate notice (Issue 250)
 
 - Cause of the red `Complete documentation` runs since f70f756: Task 414 (db79daa) linked `licenses/mit-fflate.txt` from `src_docs/md/licenses.md` but did not add it to `LICENCES` in `scripts/release_audit.py`. The unchanged auditor therefore reported a fourth finding, `licence: mit-fflate.txt linked-but-unreviewed`, beside the three reviewed private-name rows, and `scripts/pages_inputs.py disposition` correctly refused the non-reviewed result (stage audit-disposition, exit 1). The earlier reds on bd8b94c and cd5357c were a different failure: GitHub Pages builds for d87cd7e errored ("Page build failed"); later Pages builds succeed.

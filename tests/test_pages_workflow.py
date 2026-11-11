@@ -333,3 +333,45 @@ def test_consumer_when_passes_then_all_substeps_run_with_or_without_inherited_fd
               if line.startswith("Consumer stage: ")]
     assert stages == ["dependencies", "browser", "build", "full-index", "complete"]
     assert "Consumer pytest failure:" not in result.stdout
+
+
+def test_private_build_when_browser_stage_fails_then_no_tool_output_is_public(tmp_path):
+    binary = tmp_path / "bin"
+    binary.mkdir()
+    uv = binary / "uv"
+    uv.write_text("#!/bin/sh\n"
+                  "case \"$*\" in *playwright*) ;; *) exit 0;; esac\n"
+                  "printf '%s\\n' 'E: PRIVATE-SOURCE-SENTINEL' 'Err:1 http://h/p?token=abc' "
+                  "'/home/runner/work/x' 'Timeout HTTP/1.1'\nexit 7\n")
+    uv.chmod(0o755)
+    private = tmp_path / "private"
+    result = subprocess.run(["bash", str(ROOT / "scripts/pages-build.sh"), str(tmp_path / "store")],
+                            cwd=ROOT, capture_output=True, text=True, check=False,
+                            env=os.environ | {"PATH": str(binary) + os.pathsep + os.environ["PATH"],
+                                              "DOCS_PRIVATE_RUNTIME": str(private), "SOURCE_DATE_EPOCH": "1700000000"})
+    public = result.stdout + result.stderr
+    assert result.returncode == 7
+    assert "browser stage: install failed (exit 7)" in public
+    for leaked in ("SENTINEL", "token", "/home/", "Timeout", "HTTP/"):
+        assert leaked not in public, leaked
+    assert "PRIVATE-SOURCE-SENTINEL" in (private / "build.log").read_text()
+
+
+def test_private_build_when_browser_install_times_out_then_named_and_bounded(tmp_path):
+    binary = tmp_path / "bin"
+    binary.mkdir()
+    uv = binary / "uv"
+    uv.write_text("#!/bin/sh\ncase \"$*\" in *playwright*) echo SENTINEL; exit 124;; *) exit 0;; esac\n")
+    uv.chmod(0o755)
+    result = subprocess.run(["bash", str(ROOT / "scripts/pages-build.sh"), str(tmp_path / "store")],
+                            cwd=ROOT, capture_output=True, text=True, check=False,
+                            env=os.environ | {"PATH": str(binary) + os.pathsep + os.environ["PATH"],
+                                              "DOCS_PRIVATE_RUNTIME": str(tmp_path / "private"),
+                                              "SOURCE_DATE_EPOCH": "1700000000"})
+    public = result.stdout + result.stderr
+    assert result.returncode == 124
+    assert "browser stage: install timed out after 300 s (exit 124)" in public
+    assert "SENTINEL" not in public
+    script = (ROOT / "scripts/pages-build.sh").read_text()
+    assert "timeout -k 10 300" in script
+    assert "timeout -k 10 120 sudo apt-get update" in script
