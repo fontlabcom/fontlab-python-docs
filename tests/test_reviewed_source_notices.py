@@ -1,6 +1,7 @@
 # this_file: tests/test_reviewed_source_notices.py
 """Actual default audit inputs: exact upstream notices and public/private controls."""
 import hashlib
+import re
 import shutil
 from pathlib import Path
 
@@ -66,3 +67,15 @@ def test_default_policy_rejects_incomplete_or_altered_reviewed_notice(tmp_path, 
     report = audit.audit(site, workspace=tmp_path)
     assert not report["pass"]
     assert {"file": name, "problem": corruption} in report["findings"]["licence"]
+
+
+def test_every_licence_linked_from_the_source_page_has_a_reviewed_digest():
+    """A notice linked from licenses.md but absent from LICENCES fails the release audit
+    as linked-but-unreviewed; the fflate MIT text (Task 414) was missed this way."""
+    page = (SOURCE.parent / "licenses.md").read_text()
+    linked = set(re.findall(r"\]\((?:\./)?licenses/([^)#?]+)\)", page))
+    assert linked, "licenses.md links no notices"
+    assert linked - set(audit.LICENCES) == set(), "linked notices lack a reviewed digest"
+    for name in linked:
+        digest = hashlib.sha256((SOURCE / name).read_bytes()).hexdigest()
+        assert audit.LICENCES[name] == digest, f"{name} differs from its reviewed digest"

@@ -2,6 +2,13 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-11 — Complete documentation audit accepts the reviewed fflate notice (Issue 250)
+
+- Cause of the red `Complete documentation` runs since f70f756: Task 414 (db79daa) linked `licenses/mit-fflate.txt` from `src_docs/md/licenses.md` but did not add it to `LICENCES` in `scripts/release_audit.py`. The unchanged auditor therefore reported a fourth finding, `licence: mit-fflate.txt linked-but-unreviewed`, beside the three reviewed private-name rows, and `scripts/pages_inputs.py disposition` correctly refused the non-reviewed result (stage audit-disposition, exit 1). The earlier reds on bd8b94c and cd5357c were a different failure: GitHub Pages builds for d87cd7e errored ("Page build failed"); later Pages builds succeed.
+- `LICENCES` now pins `mit-fflate.txt` at sha256 `0a1df3a0…8b551`, byte-identical to the LICENSE in the npm tarball fflate 0.8.3 (the locked version). The disposition rule and the audit are unchanged.
+- New test `test_every_licence_linked_from_the_source_page_has_a_reviewed_digest` fails before the fix and passes after; it keeps every notice linked from `licenses.md` pinned in `LICENCES`.
+- Reproduced locally with the private input store at the workflow's pinned ref and Python 3.12 (`scripts/pages-build.sh` through every stage): before the fix audit-disposition exit 1 with exactly that extra licence finding; after it, capture exit 1 (the reviewed three rows) and disposition passes.
+
 ## 2026-11-10 — Task 414 size-budget metrics use the portable codec (Issue 250)
 
 - `scripts/search_shards.py` gains `portable_gzip_sizes()`: one `node -e` call runs the bundled fflate codec (`search_backend/gzip.cjs`, level 9, mtime 0) over the actual files. `initial_gzip_bytes` now sums the manifest-recorded (verified) gzip sizes of the three shipped assets with a portable-codec estimate for the bootstrap index, worker and UI, which ship no `.gz`; the monolithic `search_gzip_bytes` in `scripts/verify_site.py` is that estimate alone. Budgets no longer vary by Python/zlib build. Committed `docs/search/complete` `.gz` files predate fflate, so only recorded sizes, not re-compression, describe them. Size-budget tests now use fixed, once-measured golden byte counts instead of values derived from the code under test; the README states that `verify_site.py` needs Node. A failing node codec now raises `RuntimeError` with its stderr.
