@@ -3,6 +3,12 @@ this_file: CHANGELOG.md
 ---
 
 
+## 2026-11-11 — Interaction flake: fix landed, row kept open (Issue 250)
+
+- Per-stage log of Complete documentation run 43103878240 (b4bdd851): job `build` logged `Documentation stage: interaction` at 21:51:28Z then `accepted-check` at 21:52:41Z; job `qualify-generated-output` logged `interaction` at 22:18:18Z then `accepted-check` at 22:19:33Z. No retry or "not attached" line in either job; no re-run.
+- Run 43103878122 (same SHA) is "pages build and deployment" (jobs build, deploy, report-build-status); it has no `interaction` stage and is not counted.
+- One clean run is thin for a flake that failed 1 in 6, so the TODO row stays open, reworded to await a second clean exact-SHA run.
+
 ## 2026-11-11 — Interaction check survives a search re-render (Issue 250)
 
 - Cause of the intermittent `interaction` failure (run 43079462598 attempt 1): `open_result` in `scripts/interaction_check.py` held an element handle to a search result while MaterialX re-rendered the result list as shards arrived, so `ElementHandle.click` failed with "Element is not attached to the DOM" (case `alias`). Reproduced locally 1 of 6 times with CPU load (8 busy processes) and not otherwise.
