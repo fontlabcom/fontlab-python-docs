@@ -4,6 +4,7 @@ this_file: TODO.md
 
 # Open tasks
 
+- [ ] Intermittent `interaction` failure in the `qualify-generated-output` job of Complete documentation: run 43079462598 (75d8bd84) attempt 1 failed there (exit 1, diagnostics private) and the re-run of the same SHA passed every stage through `complete`; locally `python -m scripts.interaction_check` passes 4/4 on every case. Nov 10 runs (e7594b61 run 42923314969, 9ef6ae66 run 42912597510) failed later, at `audit-disposition`. Next check: capture the interaction diagnostic privately (job-private artifact or local Linux repro on Python 3.12, never echoed to public logs), find the flaky check and fix its cause rather than weakening it; then diagnose `audit-disposition`.
 - [ ] Read the exit code `scripts/pages-build.sh` now prints when the `browser` stage (`playwright install --with-deps chromium`, bounded at 300 s) fails (124 = timeout) and fix the named cause; no tool output is public, so reproduce in a Linux container if the code is not enough.
 - [ ] Four tests fail identically on clean main: tests/test_final_fixes.py::test_actual_void_has_source_proven_point_members and three in tests/test_migrate_app_paths.py (rewrite_when_paths_overlap, migrate_when_archive_present, rewrite_when_reference_routes); fix or quarantine with cause.
 - [ ] Decide whether the website package keeps static `version = "0.1.0"` in pyproject.toml: release tags (v1.2.4 on e7594b6) carry the version, but `uv build` cannot reflect them; switch to hatch-vcs only if the owner wants tag-derived builds.

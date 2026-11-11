@@ -7,6 +7,7 @@ this_file: CHANGELOG.md
 - Reverted the `ubuntu-24.04` pin from 0ce2fcce: run 43053911785 on ubuntu-24.04 failed the `browser` stage after the same ten minutes as the ubuntu-26.04 runs 43040901865 and 43048681844, so the image was not the cause. The real pin commits are 0ce2fcce and the fflate notice fix 2d2f6ab7; 187567c1 does not exist in the repository.
 - Local reproduction of `playwright install --with-deps chromium` (playwright 1.63.0 from uv.lock, macOS arm64) succeeds, so the locked version and the Playwright CDN are fine; the Linux apt part cannot be reproduced without a container.
 - `scripts/pages-build.sh` refreshes the apt index (`sudo apt-get update`, CI only, bounded at 120 s, failure tolerated) and bounds the install with `timeout -k 10 300`. On failure the public log gets only fixed strings (stage, exit code, whether the timeout fired as exit 124); no apt, playwright or network output is echoed, and a sentinel test pins that. The cause remains open until the exit code is known. A second test pins the exit-124 message and both timeouts.
+- Verified: exact-SHA run 43079462598 on 75d8bd84 passed the `browser` stage and, after re-running its failed job, every stage through `complete`. Caveat: attempt 1 failed at the `interaction` stage (exit 1), which is intermittent and tracked in TODO; green status therefore needed a re-run.
 
 ## 2026-11-11 — Complete documentation audit accepts the reviewed fflate notice (Issue 250)
 
