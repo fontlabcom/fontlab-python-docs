@@ -8,7 +8,10 @@ permissions:
 jobs:
   build:
     if: github.repository == 'fontlabcom/fontlab-python-docs' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    # Pinned to ubuntu-24.04 (Issue 250): on ubuntu-latest (26.04) the browser
+    # stage (playwright install --with-deps chromium) began failing on
+    # 2026-11-11 with withheld diagnostics; remove once it passes on 26.04.
+    runs-on: ubuntu-24.04
     timeout-minutes: 90
     permissions:
       contents: write
@@ -74,7 +77,10 @@ jobs:
   qualify-generated-output:
     needs: build
     if: needs.build.outputs.sha != ''
-    runs-on: ubuntu-latest
+    # Pinned to ubuntu-24.04 (Issue 250): on ubuntu-latest (26.04) the browser
+    # stage (playwright install --with-deps chromium) began failing on
+    # 2026-11-11 with withheld diagnostics; remove once it passes on 26.04.
+    runs-on: ubuntu-24.04
     timeout-minutes: 90
     permissions:
       contents: read
