@@ -9,6 +9,7 @@ this_file: CHANGELOG.md
 - `api-sources.lock.json` (1135 -> 1127 entries), `scripts/pages_inputs.py` (`ARCHIVE`, `HASHES`), `.github/workflows/docs.yml` (both `ref`s) and `tests/test_pages_workflow.py` follow the packet.
 - Generated pages (rebuilt by CI as the usual docs commit, not committed here): the eight removed shims `control`, `controls`, `execution`, `functions`, `launch_api`, `mcp_api`, `mcp_compat` and `native` lose their reference pages, index entries, inventory and search rows (7018 -> 7010 pages, objects.inv 12 entries fewer, search rows 78486 -> 78462). `fontlab_remopy.mcp_bridge` stays and shows "Deprecated compatibility entry point; use fontlab_remopy.mcp.relay."
 - Full offline gate (`scripts/pages-build.sh`) passed with the reviewed release-audit exit 1.
+- `.python-version` (3.12) pins local builds to the CI interpreter; other versions can differ (reviewer finding: typerig `Table.__eq__` on 3.14).
 - Aidus rename (`fontlab-aidus-code` -> `fontlab-aidus-agentus`) is a separate TODO row.
 
 ## 2026-11-12 — Browser-stage row closed by resolution; cause inferred, not named (Issue 250)
