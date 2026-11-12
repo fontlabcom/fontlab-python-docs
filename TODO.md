@@ -4,7 +4,7 @@ this_file: TODO.md
 
 # Open tasks
 
-- [ ] After the Remopy v2.0.0 release, regenerate the Remopy API pages: Remopy 2.0 removed `fontlab_remopy.control`, `controls`, `execution`, `functions`, `launch_api`, `mcp_api`, `mcp_compat` and `native`. Refresh `api-sources.lock.json` from the v2.0.0 source, so the lock and `docs/reference/fontlab_remopy/` drop those eight modules and the reference index and search rows stop listing them, then rerun the docs gates. `tools/migrate_app_paths.py` keeps the old names as rewrite inputs. `fontlab_remopy.mcp_bridge` stays until the next major.
+- [ ] Rename the Aidus provider in `scripts/build_reference.py:37` (`"fontlab-aidus-code": ("", "fontlab_aidus_code")`, also line 291) and in the `fontlab_aidus_code/*` entries of `api-sources.lock.json` to the current `fontlab-aidus-agentus` checkout and its `src/fontlab_aidus_agentus` package. Until then `./build.sh` finds no `fontlab-aidus-code` sibling and stops with `Missing source package: fontlab_aidus_code`, so a local build needs a stand-in checkout. Refreshing the lock needs a matching input packet (see the 2026-11-12 Remopy entry in CHANGELOG.md).
 
 - [ ] Decide whether the website package keeps static `version = "0.1.0"` in pyproject.toml: release tags (v1.2.4 on e7594b6) carry the version, but `uv build` cannot reflect them; switch to hatch-vcs only if the owner wants tag-derived builds.
 

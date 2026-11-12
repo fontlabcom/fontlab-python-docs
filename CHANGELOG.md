@@ -3,6 +3,14 @@ this_file: CHANGELOG.md
 ---
 
 
+## 2026-11-12 — Remopy 2.0 pages regenerated from a new input packet (Issue 250)
+
+- CI builds from the frozen private packet, so a lock refresh alone would fail `--check`. New packet `inputs-be7df9c8dc66.tar.gz` (sha256 `b499e0ba639bb23eeac10525b902f85d821bcd8558fb5aec892b94ce5cf5c9aa`, private repository commit `778ca4981257218905c6090e00111899235499c8`) replaces only `packages/fontlab_remopy` with the v2.0.0 source (`02cdcda`, 16 `.py` files). Every other member is byte-identical to `inputs-4558c5e9f8ae.tar.gz`; the old archive stays in the private repository.
+- `api-sources.lock.json` (1135 -> 1127 entries), `scripts/pages_inputs.py` (`ARCHIVE`, `HASHES`), `.github/workflows/docs.yml` (both `ref`s) and `tests/test_pages_workflow.py` follow the packet.
+- Generated pages (rebuilt by CI as the usual docs commit, not committed here): the eight removed shims `control`, `controls`, `execution`, `functions`, `launch_api`, `mcp_api`, `mcp_compat` and `native` lose their reference pages, index entries, inventory and search rows (7018 -> 7010 pages, objects.inv 12 entries fewer, search rows 78486 -> 78462). `fontlab_remopy.mcp_bridge` stays and shows "Deprecated compatibility entry point; use fontlab_remopy.mcp.relay."
+- Full offline gate (`scripts/pages-build.sh`) passed with the reviewed release-audit exit 1.
+- Aidus rename (`fontlab-aidus-code` -> `fontlab-aidus-agentus`) is a separate TODO row.
+
 ## 2026-11-12 — Browser-stage row closed by resolution; cause inferred, not named (Issue 250)
 
 - `scripts/pages-build.sh:31-46` bounds the browser stage (`timeout -k 10 300 ... playwright install --with-deps chromium`; 124 prints "timed out after 300 s", otherwise "failed (exit $code)") and refreshes the apt index in CI (`:40-42`), added in 75d8bd84. All 7 of 7 "Complete documentation" push runs on main since then succeeded (75d8bd84, 3b21fe81, b4bdd851, 512d5595, 60f0d892, 6b2c2e62, 0ac34d5b); the browser stage takes about 18 s.
