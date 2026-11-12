@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2343,7 +2399,12 @@
 
   
       dataclass
-   (fontlabapp.metrics.zones.data.Change)" href="../data/Change.html#fontlabapp.metrics.zones.data.Change">Change</a></span><span class="p">,</span> <span class="o">...</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="Snapshot
+   (fontlabapp.metrics.zones.data.Change)" href="../data/Change.html#fontlabapp.metrics.zones.data.Change">Change</a></span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="TITLE
+
+
+  
+      module-attribute
+   (fontlabapp.metrics.zones.native.TITLE)" href="#fontlabapp.metrics.zones.native.TITLE">TITLE</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="Snapshot
 
 
   
@@ -2353,7 +2414,7 @@
 
     <div class="doc doc-contents first">
 
-        <p>Write every changed master as ONE Undo step; return the new baseline.</p>
+        <p>Write every changed master as ONE Undo step named <code>title</code>; return the new baseline.</p>
 <p>Refuse rows first (<code>RowRefusal</code>), then off the GUI thread or without
 an active Font window (<code>font_history.require_font_window</code>), before any
 master switch. Check that the font still equals <code>before</code> and that every row can be
@@ -2379,7 +2440,12 @@ caller may treat a <code>ValueError</code> as a refusal made before any write.</
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">backend</span><span class="p">(</span><span class="n">package_id</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="Backend
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">backend</span><span class="p">(</span><span class="n">package_id</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="TITLE
+
+
+  
+      module-attribute
+   (fontlabapp.metrics.zones.native.TITLE)" href="#fontlabapp.metrics.zones.native.TITLE">TITLE</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="Backend
 
 
   
@@ -2390,6 +2456,8 @@ caller may treat a <code>ValueError</code> as a refusal made before any write.</
     <div class="doc doc-contents first">
 
         <p>Return the native <code>zone_editor.Backend</code> for <code>package_id</code> or the current font.</p>
+<p>Its <code>apply</code> names the Undo step <code>title</code> (default <code>TITLE</code>; the
+Vertical Metrics &amp; Zones app passes its own label).</p>
 
 
     </div>

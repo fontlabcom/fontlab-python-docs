@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2484,7 +2540,7 @@ native one).</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">require_no_editors</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">qt</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">deadline</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">require_no_editors</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">qt</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">deadline</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s1">&#39;removing Unicode assignments&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2492,6 +2548,7 @@ native one).</p>
         <p>Refuse a write while any Glyph editor is open, also an inactive one.</p>
 <p><code>qt</code> is the PythonQt module (default: the native one). <code>deadline</code> is a
 <code>time.monotonic()</code> instant (default: now plus <code>EDITOR_SCAN_SECONDS</code>).
+<code>action</code> completes the refusal text "before <action>."
 Raise <code>ValueError</code> for an open or unreadable editor and <code>TimeoutError</code>
 when the widget scan passes the deadline. The scan reads only the
 <code>inherits("GlyphWindow")</code> predicate, with cyclic GC off.</p>

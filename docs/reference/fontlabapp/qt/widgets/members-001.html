@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2133,6 +2189,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fontlabapp.qt.widgets.release_owned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        release_owned
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2208,6 +2275,31 @@
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlabapp.qt.widgets.release_owned" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">release_owned</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">release_owned</span><span class="p">(</span><span class="n">scope</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">owned</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">problems</span><span class="p">:</span> <span class="n"><span title="list">list</span></span><span class="p">,</span> <span class="n">closers</span><span class="p">:</span> <span class="n"><span title="collections.abc.Sequence">Sequence</span></span><span class="p">[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span> <span class="o">=</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="n"><span title="bool">bool</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Finish <code>scope</code>, close <code>closers</code> then <code>owned</code>; True only when all released.</p>
+<p>Stops at the first refusal so the window stays usable: a falsy
+<code>scope.finish()</code>, a falsy <code>owned.close()</code> or a <code>RuntimeError</code> from
+any close, which is appended to <code>problems</code>. Other errors propagate.
+Closer results are ignored; <code>None</code> closers and a <code>None</code> owned are
+skipped. The caller keeps its handle and reports when this returns False.</p>
 
 
     </div>

@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2171,11 +2227,17 @@
 
     <div class="doc doc-contents first">
 
-        <p>Point protocol over FontGate; segment algorithms remain in fontTools.</p>
-<p>Native fgPen lacks component and full quadratic protocols. These pens store
-validated contours with point names and smooth flags through the native node
-API. Empty native contours are never passed to fgContour.drawPoints, whose
-implementation dereferences the first node without checking its existence.</p>
+        <p>Glyph-level adapter over <code>fontlab_pens.fontgate</code>.</p>
+<p>Fontport's native model is an fgGlyph whose outline lives on <code>glyph.layer</code>,
+with glyph-level components. Pens target layers and elements only, so this
+module resolves the glyph itself: contours are validated, then written by
+<code>fontlab_pens.fontgate.FontGatePointPen</code> into the layer's first element (point
+names and smooth flags kept); components stay on <code>glyph.components</code>. Empty
+native contours are never passed to fgContour.drawPoints, whose implementation
+dereferences the first node without checking its existence.</p>
+<p>The target kind is stated to pens (<code>kind=</code>), not detected from the native type
+name, so the same code serves FontGate objects and the duck-typed offline doubles.
+Only public <code>fontlab_pens</code> names are used.</p>
 
 
 
@@ -2205,7 +2267,6 @@ implementation dereferences the first node without checking its existence.</p>
 
 </div><h2 id="classes">Classes</h2>
 <ul>
-<li><a href="pens/IncompleteContour.html#fontlab_fontport.pens.IncompleteContour"><code>IncompleteContour</code></a></li>
 <li><a href="pens/FontGatePointPen.html#fontlab_fontport.pens.FontGatePointPen"><code>FontGatePointPen</code></a></li>
 </ul>
 <h2 id="complete-member-index">Complete member index</h2>

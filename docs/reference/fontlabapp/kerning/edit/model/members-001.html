@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2244,6 +2300,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlabapp.kerning.edit.model.plan_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plan_values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlabapp.kerning.edit.model.remove_run" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2303,6 +2370,17 @@
     <span class="md-ellipsis">
       
         small_pairs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlabapp.kerning.edit.model.small_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        small_values
       
     </span>
   </a>
@@ -2647,6 +2725,38 @@
 <div class="doc doc-object doc-function">
 
 
+<h2 id="fontlabapp.kerning.edit.model.plan_values" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">plan_values</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">plan_values</span><span class="p">(</span><span class="n">pairs</span><span class="p">:</span> <span class="n"><span title="collections.abc.Mapping">Mapping</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="Pairs
+
+
+  
+      module-attribute
+   (fontlabapp.kerning.edit.model.Pairs)" href="#fontlabapp.kerning.edit.model.Pairs">Pairs</a></span><span class="p">],</span> <span class="n">parameter</span><span class="p">:</span> <span class="n"><span title="float">float</span></span><span class="p">,</span> <span class="n">drop_zero</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">snap</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="Changes
+
+
+  
+      module-attribute
+   (fontlabapp.kerning.edit.model.Changes)" href="#fontlabapp.kerning.edit.model.Changes">Changes</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Round (<code>snap</code>) or scale already-read <code>{master: pairs}</code>, e.g. a kerning snapshot's pairs.</p>
+<p>The same rule as <code>round_plan</code>/<code>scale_plan</code>; used by Kerning Batch so
+Apply writes exactly the plan built from the snapshot it shows.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="fontlabapp.kerning.edit.model.remove_run" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">remove_run</span>
 
@@ -2768,6 +2878,31 @@
     <div class="doc doc-contents first">
 
         <p>List strictly smaller magnitudes, ordered by magnitude then pair names.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlabapp.kerning.edit.model.small_values" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">small_values</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">small_values</span><span class="p">(</span><span class="n">pairs</span><span class="p">:</span> <span class="n"><span title="collections.abc.Mapping">Mapping</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="Pairs
+
+
+  
+      module-attribute
+   (fontlabapp.kerning.edit.model.Pairs)" href="#fontlabapp.kerning.edit.model.Pairs">Pairs</a></span><span class="p">],</span> <span class="n">threshold</span><span class="p">:</span> <span class="n"><span title="float">float</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="dict">dict</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="float">float</span></span><span class="p">]]]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p><code>small_pairs</code> over already-read <code>{master: pairs}</code> (a kerning snapshot's pairs).</p>
 
 
     </div>

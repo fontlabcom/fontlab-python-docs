@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2278,15 +2334,17 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create_message_box</span><span class="p">(</span><span class="n">gui</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">informative</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">icon</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">parent_args</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create_message_box</span><span class="p">(</span><span class="n">gui</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">informative</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">icon</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">parent_args</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span> <span class="o">*</span><span class="p">,</span> <span class="n">detail</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
         <p>Prepare a caller-owned QMessageBox; do not show it.</p>
-<p><code>icon</code> is a <code>QMessageBox</code> attribute name such as <code>"Warning"</code>. If
-setup fails, the box is deleted and the error propagates. Hand the box to
-<code>run_message_box</code> (modal) or <code>show_message_box</code> (modeless).</p>
+<p><code>icon</code> is a <code>QMessageBox</code> attribute name such as <code>"Warning"</code>. A
+truthy <code>detail</code> becomes the box's Show Details text as <code>str(detail)</code>;
+a falsy one ("", None) sets none.
+If setup fails, the box is deleted and the error propagates. Hand the box
+to <code>run_message_box</code> (modal) or <code>show_message_box</code> (modeless).</p>
 
 
     </div>

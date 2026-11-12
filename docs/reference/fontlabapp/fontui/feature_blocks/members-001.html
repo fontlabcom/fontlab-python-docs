@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2192,7 +2248,9 @@ before mutation, and notifies only package/features. Groups are untouched.
 Unexpected native errors may leave partial changes; they are not hidden.</p>
 <p>Refuse with ValueError when the font is inactive, the source differs from
 <code>expected</code>, or a referenced glyph is gone. Return <code>{"changed": 0}</code> when
-<code>expected == updated</code> and <code>{"changed": 1}</code> after a write. The master
+<code>expected == updated</code> and <code>{"changed": 1}</code> after a write. Feature codes
+missing a final newline, or with trailing spaces/tabs after it, are
+normalised by <code>_terminated</code> before comparing and staging. The master
 that was active before the write is restored in <code>finally</code>.</p>
 
 

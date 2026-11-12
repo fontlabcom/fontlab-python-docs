@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2134,6 +2190,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlabapp.qt.menus.OwnedMenus.add_menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        add_menu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlabapp.qt.menus.OwnedMenus.close" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2171,6 +2238,28 @@
     <span class="md-ellipsis">
       
         main_window
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlabapp.qt.menus.OwnedMenus.menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        menu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlabapp.qt.menus.OwnedMenus.own_menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        own_menu
       
     </span>
   </a>
@@ -2284,16 +2373,39 @@ menu. <code>main_window</code>: an already known main window; <code>None</code> 
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">add_action</span><span class="p">(</span><span class="n">menu_title</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[[],</span> <span class="n"><span title="object">object</span></span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">checkable</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="int">int</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">add_action</span><span class="p">(</span><span class="n">menu_title</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[[],</span> <span class="n"><span title="object">object</span></span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">checkable</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="int">int</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
         <p>Add an action to the menu titled <code>menu_title</code>; return its token.</p>
-<p><code>&amp;</code> in menu titles is ignored when matching. If no menu matches, the
+<p><code>menu_title</code> may also be a QMenu, such as one from <code>menu(token)</code>.
+<code>&amp;</code> in menu titles is ignored when matching. If no menu matches, the
 action goes to the owned menu. <code>index</code> inserts before that action
 position; an index outside the menu appends. <code>callback()</code> runs when
 the action triggers, inside the dispatch guard.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlabapp.qt.menus.OwnedMenus.add_menu" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">add_menu</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">add_menu</span><span class="p">(</span><span class="n">menu_title</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="int">int</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Append a submenu titled <code>text</code> to <code>menu_title</code>; return its token.</p>
+<p><code>menu(token)</code> returns the QMenu; pass it to <code>add_action</code>. Removing
+the submenu removes its owned actions before deleting their Qt parent.</p>
 
 
     </div>
@@ -2386,6 +2498,49 @@ one of our slots the whole call is queued instead.</p>
         <p>Return FontLab's main window (cached); see <code>qtsafe.main_window</code>.</p>
 <p>Raises <code>qtsafe.MainWindowNotFound</code> (a <code>RuntimeError</code>) if the
 window does not exist. Nothing is cached then; the next call retries.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlabapp.qt.menus.OwnedMenus.menu" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">menu</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">menu</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Return the live QMenu of an <code>add_menu</code> token, or <code>None</code> once removed.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlabapp.qt.menus.OwnedMenus.own_menu" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">own_menu</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">own_menu</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Return this owner's own menu, creating it on first use.</p>
+<p>The lookup never consults other menus, so a FontLab or another host's
+menu with the same title as <code>owned_title</code> is not shared. Pass the
+result to <code>add_action</code>.</p>
 
 
     </div>

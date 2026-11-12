@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2112,6 +2168,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlabapp.fontui.kerning.apply_kerning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        apply_kerning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlabapp.fontui.kerning.number_text" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2166,6 +2233,35 @@
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlabapp.fontui.kerning.apply_kerning" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">apply_kerning</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">apply_kerning</span><span class="p">(</span><span class="n">font</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">pair</span><span class="p">:</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="str">str</span></span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">undo_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">pairs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">before</span><span class="p">:</span> <span class="n"><span title="dict">dict</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">master</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="dict">dict</span></span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Stage <code>action</code> on <code>pair</code> with Fontport, apply it once, verify readback.</p>
+<p>Return the applied values, or None when the staged kerning equals the
+current kerning (nothing is written). Raise TypeError for a model without
+<code>kerning.apply</code> and RuntimeError when the backend reads back different
+values. Shared by <code>KerningEditor.edit</code> and <code>fontlabapp.fontui.tmetrics</code>.</p>
+<p>Fontport writes kerning to the default master only (its <code>set_kerning</code>
+has no master argument). <code>master</code> names the master the caller resolved;
+when it is not the default master (<code>font.defaultLayerName</code>) the write is
+refused with ValueError before anything changes. None keeps the old
+behaviour: the default kerning target.</p>
+
 
     </div>
 

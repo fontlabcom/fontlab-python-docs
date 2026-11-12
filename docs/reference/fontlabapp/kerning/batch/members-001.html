@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2239,12 +2295,15 @@
 
   
       module-attribute
-   (fontlabapp.kerning.identity.Pair)" href="../identity/members-001.html#fontlabapp.kerning.identity.Pair">Pair</a></span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">groups</span><span class="p">:</span> <span class="n"><span title="collections.abc.Mapping">Mapping</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span>
+   (fontlabapp.kerning.identity.Pair)" href="../identity/members-001.html#fontlabapp.kerning.identity.Pair">Pair</a></span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">groups</span><span class="p">:</span> <span class="n"><span title="collections.abc.Mapping">Mapping</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">members</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
         <p>Require existing glyphs or classes of the correct side/mode before any write.</p>
+<p><code>members=False</code> checks only the class identity; it is used for pairs the
+batch merely re-seeds, so a stale class member elsewhere in the font (common
+in subset fonts) does not block unrelated edits.</p>
 
 
     </div>

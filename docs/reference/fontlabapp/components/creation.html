@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2214,7 +2270,9 @@ prototype qualifies only when every one of these reads as the default
 through Python; <code>_qualifies</code> holds the rules:</p>
 <ul>
 <li>the bound <code>flShape</code> members (<code>pyflshape.cpp:438-443</code>): <code>excluded</code>
-  and <code>contentLocked</code> are the bool <code>False</code>, <code>opacity</code> is 1.0;</li>
+  is the bool <code>False</code>, <code>opacity</code> is 1.0 (<code>contentLocked</code> is not read: it
+  is True for every component on FontLab 9.0.9808, 504 of 504 in plum, A2
+  report 18, so it cannot tell a user lock; the VFJ <code>locked</code> key below does);</li>
 <li>the fontpr <code>get_glyph</code> VFJ of its glyph (<code>mcptools_source.cpp:58-79</code>,
   a bound Python call; no <code>flShape</code> member reads these fields): the
   layer's <code>elements</code> match the layer shapes one to one; the element of

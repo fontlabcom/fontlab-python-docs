@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2190,13 +2246,15 @@
 and writes nothing on failure. The work then runs in a separate Python
 3.11+ with fontlab-fontport (python=..., else $FONTLABAPP_BATCH_PYTHON), so
 it never holds FontLab's GIL; each 50 ms poll reads at most 64 KiB and
-records at most 64 rows from a non-blocking pipe. Output that is not a
-result row stops the run visibly. Cancel stops before the next font. Close
-(including parent or own-widget destruction) cancels and returns at once;
-batch_worker.supervise then collects the child (terminated after
-GRACE_SECONDS, killed later; a terminated font can leave a partial
-destination), removes its scratch files and deletes the hidden, detached
-panel. Outputs are named <stem>-transformed.ufo and never replace a file.</p>
+records at most 64 rows from a non-blocking socket on Darwin or pipe
+elsewhere. Output that is not a result row stops the run visibly. Cancel stops before the next font. Close
+(including parent or own-widget destruction) normally hands off cleanup
+without waiting; at the pending-child cap, overflow cleanup can wait up to
+KILL_WAIT (1.0 second) for the child after killing it. batch_worker.supervise
+watches for exit (termination after GRACE_SECONDS, killing later; a
+terminated font can leave a partial destination), then attempts scratch
+cleanup and schedules deletion of the surviving hidden, detached panel.
+Outputs are named <stem>-transformed.ufo and never replace a file.</p>
 
 
 

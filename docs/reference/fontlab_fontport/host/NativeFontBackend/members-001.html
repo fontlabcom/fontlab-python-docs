@@ -1287,6 +1287,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../packages/pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../packages/typerig.html" class="md-nav__link">
         
   
@@ -1992,6 +2020,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../fontlab_pens.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../fontlab_aidus_code.html" class="md-nav__link">
         
   
@@ -2554,6 +2610,8 @@
 
     <div class="doc doc-contents first">
 
+        <p>Static capability metadata; valid after the document has closed.</p>
+
 
     </div>
 
@@ -3112,7 +3170,9 @@ changes only the stored UPM, without scaling glyphs or other metrics.
 A pre-edit package checkpoint makes the entire first Undo reliable.
 The host exposes this no-op checkpoint as an additional Undo row.
 Default editing preserves the v1.0.0 history contract (D18).
-Set require_single_undo=True to refuse the extra checkpoint.</p>
+Set require_single_undo=True to refuse the extra checkpoint.
+Changing postscriptStemSnapH/V is refused unless the font is the
+active document without unsaved history (Issue 250 N3).</p>
 
 
     </div>
