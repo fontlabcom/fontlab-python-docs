@@ -4,7 +4,6 @@ this_file: TODO.md
 
 # Open tasks
 
-- [ ] Intermittent `interaction` failure in the `qualify-generated-output` job of Complete documentation: fix landed (b4bdd851, re-find a search result detached by a re-render), awaiting a second clean exact-SHA run. Evidence so far: Complete documentation run 43103878240 (b4bdd851) passed `interaction` then `accepted-check` in both jobs with no retry line; earlier failure was run 43079462598 (75d8bd84) attempt 1, which passed on re-run. Run 43103878122 is the pages deployment, not a documentation run (no `interaction` stage), so it is not evidence. Next check: the next exact-SHA Complete documentation run on a later main commit passes `interaction` without a re-run and without a retry line; then close this row. Original diagnostics were never echoed to public logs; keep it that way.
 - [ ] Read the exit code `scripts/pages-build.sh` now prints when the `browser` stage (`playwright install --with-deps chromium`, bounded at 300 s) fails (124 = timeout) and fix the named cause; no tool output is public, so reproduce in a Linux container if the code is not enough.
 - [ ] Decide whether the website package keeps static `version = "0.1.0"` in pyproject.toml: release tags (v1.2.4 on e7594b6) carry the version, but `uv build` cannot reflect them; switch to hatch-vcs only if the owner wants tag-derived builds.
 

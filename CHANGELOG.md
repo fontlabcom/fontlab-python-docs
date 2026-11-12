@@ -9,6 +9,12 @@ this_file: CHANGELOG.md
 - New `tests/sibling_sources.py` `require_sibling(repo)` skips with a stated reason only when `FONTLAB_API_SOURCE_ROOT` is unset and `../<repo>` is not a directory. The documentation build (`scripts/pages-build.sh`) sets the variable, so there the tests still run and a missing source still fails. Assertions are unchanged.
 - Results: with siblings 18 passed; lone clone 14 passed, 4 skipped with reasons; lone clone with the variable pointing at a missing root 4 failed. `tests/test_sibling_sources.py` covers absent, present, variable-set and file-not-directory cases.
 
+## 2026-11-12 — Interaction flake row closed on two clean exact-SHA runs (Issue 250)
+
+- Closed the TODO row for the intermittent `interaction` failure. Fix b4bdd851 (re-find a search result detached by a re-render). Two clean Complete documentation runs: 43103878240 (b4bdd851) and 43114761576 (512d5595, a later main commit containing b4bdd851; this counts as the second sample). Neither was re-run (attempt 1).
+- Run 43114761576 stage log: job `build` `Documentation stage: interaction` 23:06:54Z then `accepted-check` 23:08:06Z; job `qualify-generated-output` `interaction` 23:30:45Z then `accepted-check` 23:32:01Z. Both end "...interaction gates passed". Retries are not observable in the public log (pages-build.sh sends command output to the private build.log; only stage lines reach the public log, and the b4bdd851 retry in `scripts/interaction_check.py` is silent), so the evidence is two attempt-1 passes on SHAs containing the fix plus its unit tests, not the absence of a retry line.
+- Two clean runs for a flake that failed about 1 in 6 is still modest evidence. Reopen if `interaction` fails again.
+
 ## 2026-11-11 — Interaction flake: fix landed, row kept open (Issue 250)
 
 - Per-stage log of Complete documentation run 43103878240 (b4bdd851): job `build` logged `Documentation stage: interaction` at 21:51:28Z then `accepted-check` at 21:52:41Z; job `qualify-generated-output` logged `interaction` at 22:18:18Z then `accepted-check` at 22:19:33Z. No retry or "not attached" line in either job; no re-run.
