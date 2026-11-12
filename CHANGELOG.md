@@ -3,6 +3,12 @@ this_file: CHANGELOG.md
 ---
 
 
+## 2026-11-12 — Real-source tests skip in a lone clone (Issue 250)
+
+- Cause of the four "fail on clean main" tests: they read real sibling sources. `tests/test_final_fixes.py::test_actual_void_has_source_proven_point_members` needs `../TypeRig/Lib/typerig` (`scripts/build_reference.py` `source_roots()`, `FileNotFoundError: Missing source package: typerig` at `scripts/api_inventory.py:235`); the three `tests/test_migrate_app_paths.py` tests (`rewrite_when_paths_overlap`, `migrate_when_archive_present`, `rewrite_when_reference_routes`) load `../fontlab-fontlabapp/src/fontlabapp/_legacy.py` through `tools/migrate_app_paths.py` `load_mapping()`. Not a stale TMPDIR cache or full disk: all four pass in a fresh TMPDIR when the siblings exist and fail only in a clone without them.
+- New `tests/sibling_sources.py` `require_sibling(repo)` skips with a stated reason only when `FONTLAB_API_SOURCE_ROOT` is unset and `../<repo>` is not a directory. The documentation build (`scripts/pages-build.sh`) sets the variable, so there the tests still run and a missing source still fails. Assertions are unchanged.
+- Results: with siblings 18 passed; lone clone 14 passed, 4 skipped with reasons; lone clone with the variable pointing at a missing root 4 failed. `tests/test_sibling_sources.py` covers absent, present, variable-set and file-not-directory cases.
+
 ## 2026-11-11 — Interaction flake: fix landed, row kept open (Issue 250)
 
 - Per-stage log of Complete documentation run 43103878240 (b4bdd851): job `build` logged `Documentation stage: interaction` at 21:51:28Z then `accepted-check` at 21:52:41Z; job `qualify-generated-output` logged `interaction` at 22:18:18Z then `accepted-check` at 22:19:33Z. No retry or "not attached" line in either job; no re-run.

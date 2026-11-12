@@ -3,6 +3,8 @@
 
 import json
 
+from sibling_sources import require_sibling
+
 from scripts.api_inventory import inventory_sources, plan_pages
 from scripts.build_reference import source_roots
 from scripts.reference_pages import render_page
@@ -58,6 +60,7 @@ def test_guarded_inheritance_and_nested_navigation(tmp_path):
 
 
 def test_actual_void_has_source_proven_point_members():
+    require_sibling("TypeRig")
     root = next(root for root, package in source_roots() if package == "typerig")
     plan = plan_pages(inventory_sources([(root, "typerig")]))
     row = plan["symbols"]["typerig.core.objects.point.Void"]

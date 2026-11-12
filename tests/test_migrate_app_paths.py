@@ -5,9 +5,11 @@ import importlib.util
 from pathlib import Path
 
 import pytest
+from sibling_sources import require_sibling
 
 
 def test_rewrite_when_paths_overlap_then_preserve_boundaries_and_bindings():
+    require_sibling("fontlab-fontlabapp")
     path = Path(__file__).resolve().parents[1] / "tools/migrate_app_paths.py"
     spec = importlib.util.spec_from_file_location("migrate_app_paths", path)
     migration = importlib.util.module_from_spec(spec)
@@ -48,6 +50,7 @@ assert row["api_module"] == "glyphs.tree.model"
 
 
 def test_migrate_when_archive_present_then_leave_it_untouched(tmp_path):
+    require_sibling("fontlab-fontlabapp")
     path = Path(__file__).resolve().parents[1] / "tools/migrate_app_paths.py"
     spec = importlib.util.spec_from_file_location("migrate_app_paths", path)
     migration = importlib.util.module_from_spec(spec)
@@ -89,6 +92,7 @@ def test_interaction_plan_when_remopy_then_members_and_routes_are_canonical():
 
 
 def test_rewrite_when_reference_routes_then_use_canonical_module_paths():
+    require_sibling("fontlab-fontlabapp")
     path = Path(__file__).resolve().parents[1] / "tools/migrate_app_paths.py"
     spec = importlib.util.spec_from_file_location("migrate_app_paths", path)
     migration = importlib.util.module_from_spec(spec)
