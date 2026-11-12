@@ -27,6 +27,7 @@ PACKAGE_GUIDES = {
     "pythonqtside": ("Pythonqtside", "pythonqtside"),
     "fontlab_glyport": ("Glyport", "glyport"),
     "fontlab_fontport": ("Fontport", "fontport"),
+    "fontlab_pens": ("Pens", "pens"),
     "typerig": ("TypeRig", "typerig"),
     "fontlab_aidus_code": ("Aidus Code", "aidus-code"),
 }

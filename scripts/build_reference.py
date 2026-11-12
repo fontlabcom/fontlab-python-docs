@@ -36,6 +36,7 @@ PACKAGES = {
     "fontlab-glyport": ("src", "fontlab_glyport"),
     "fontlab-aidus-code": ("", "fontlab_aidus_code"),
     "fontlab-fontport": ("src", "fontlab_fontport"),  # D14: docstrings/signatures only
+    "fontlab-python-pens": ("src", "fontlab_pens"),
 }
 
 
@@ -288,6 +289,7 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         "fly",
         "typerig",
         "fontlab_glyport",
+        "fontlab_pens",
         "fontlab_aidus_code",
     ]
     index = [

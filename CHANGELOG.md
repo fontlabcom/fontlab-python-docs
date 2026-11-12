@@ -3,6 +3,13 @@ this_file: CHANGELOG.md
 ---
 
 
+## 2026-11-12 — Whole private docs snapshot refreshed; Pens documented (Issue 250, D46)
+
+- New private packet `inputs-c58df6023000.tar.gz` (sha256 `20ad46b2c04e064dae4dbe349f44a86f3a5d25619b65230e9fa5eaf01319a45e`, packet commit `b357ccc6`) replaces the snapshots of Echopy, Fontlabapp (540 -> 1007 files), Remopy, Grablab, Pythonqtside, Fly, Glyport and Fontport (+1 file) with their current origin/main sources. Each package SHA is recorded in `package_commits` of `input-manifest.json`; the Fontlabapp NOTICE is refreshed. Examples regenerate byte-identical.
+- Added `fontlab_pens` (fontlab-python-pens a2efd35, Apache licence and NOTICE mirrored): current Fontport re-exports `IncompleteContour` from it, which otherwise fails R014 `alias-unresolved`. `PACKAGES`, `PACKAGE_GUIDES`, nav, `packages/pens.md`, the package index and the ecosystem page follow; `tests/test_reference_pages.py` checks every guided package has a guide, nav entries and an index row.
+- Approved exceptions, recorded in the manifest `notes`: the TypeRig frozen snapshot stays (read-only repository) and the legacy `fontlab_aidus_code` snapshot stays until the Aidus rename row is done.
+- `api-sources.lock.json` (1127 -> 1609 entries), `scripts/pages_inputs.py`, both `docs.yml` refs and `tests/test_pages_workflow.py` follow the packet.
+
 ## 2026-11-12 — Remopy 2.0 pages regenerated from a new input packet (Issue 250)
 
 - CI builds from the frozen private packet, so a lock refresh alone would fail `--check`. New packet `inputs-be7df9c8dc66.tar.gz` (sha256 `b499e0ba639bb23eeac10525b902f85d821bcd8558fb5aec892b94ce5cf5c9aa`, private repository commit `778ca4981257218905c6090e00111899235499c8`) replaces only `packages/fontlab_remopy` with the v2.0.0 source (`02cdcda`, 16 `.py` files). Every other member is byte-identical to `inputs-4558c5e9f8ae.tar.gz`; the old archive stays in the private repository.

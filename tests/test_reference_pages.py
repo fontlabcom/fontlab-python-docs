@@ -191,3 +191,19 @@ def test_package_page_when_a_guide_exists_then_it_links_overview_install_and_qui
     page = render_page("reference/fly.md", plan)
     assert "[Fly guide](../packages/fly.md)" in page
     assert "packages/" not in render_page("reference/fly/sub.md", plan)
+
+
+def test_package_guides_when_package_documented_then_page_nav_and_table_exist():
+    """Every documented package root needs a guide, a nav entry and an index row."""
+    from pathlib import Path
+
+    from scripts.reference_pages import PACKAGE_GUIDES
+
+    root = Path(__file__).resolve().parents[1] / "src_docs/md"
+    nav = (root / ".nav.yml").read_text()
+    index = (root / "packages/index.md").read_text()
+    for package, (_title, slug) in PACKAGE_GUIDES.items():
+        assert (root / "packages" / f"{slug}.md").is_file(), f"{package}: no guide"
+        assert f"reference/{package}.md" in nav, f"{package}: no nav entry"
+        assert f"packages/{slug}.md" in nav, f"{package}: no guide nav entry"
+        assert f"[{_title}]({slug}.md)" in index, f"{package}: not in packages/index.md"

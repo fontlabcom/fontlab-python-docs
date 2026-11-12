@@ -12,6 +12,7 @@ matches your answer instead of reaching across a boundary.
 | [Remopy](remopy.md) | Pip-installable remote control of a running FontLab from an ordinary Python process outside it. |
 | [Glyport](glyport.md) | Runs unmodified Glyphs.app scripts and plugins inside FontLab. |
 | [Fontport](fontport.md) | FontParts, fontTools pens, UFO and DesignSpace interoperability. No user interface. |
+| [Pens](pens.md) | The fontTools Pen and PointPen protocol with native FontGate and `fontlab` layer pens. No dependencies. |
 | [Echopy](echopy.md) | Generates documented, pure-Python passthrough shims of `fontlab`, `fontgate`, `fontpr`, `fontlabpr`, `FL` and `PythonQt`. |
 | [Fontlabapp](fontlabapp.md) | The large object and UI API: menus, panels, windows, drawing overlays, dialogs. |
 | [Fly](fly.md) | Nine short, lazy import aliases for the packages above. It adds no behaviour. |
@@ -34,6 +35,7 @@ flowchart TD
     qside["Pythonqtside"]
     glyport["Glyport"]
     fontport["Fontport"]
+    pens["Pens<br/>no dependencies"]
     fly["Fly<br/>aliases"]
     aidus["Aidus Code"]
     plugmix["Plugmix"]
@@ -48,6 +50,7 @@ flowchart TD
     glyport --> echopy
     fontport --> host
     fontport --> app
+    fontport --> pens
     app -.->|fontport extra| fontport
     plugmix --> app
     aidus --> app

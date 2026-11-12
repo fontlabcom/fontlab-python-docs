@@ -18,6 +18,7 @@ the current limits; the API reference links lead to every documented member.
 | [Pythonqtside](pythonqtside.md) | `pythonqtside` | Run PySide2-style Qt code on FontLab's PythonQt |
 | [Glyport](glyport.md) | `fontlab_glyport` | Run Glyphs scripts and plugins inside FontLab |
 | [Fontport](fontport.md) | `fontlab_fontport` | Use FontParts, fontTools pens and ufoLib2 with FontLab fonts |
+| [Pens](pens.md) | `fontlab_pens` | Draw, measure, transform and reverse outlines with the fontTools pen protocol and no dependencies |
 | [TypeRig](typerig.md) | `typerig` | Use the TypeRig glyph and outline library |
 | [Aidus Code](aidus-code.md) | `fontlab_aidus_code` | Chat with an AI agent that inspects and edits fonts in FontLab |
 | [Scriptmix](scriptmix.md) | scripts | Copy practical menu tools into FontLab's Scripts folder |
