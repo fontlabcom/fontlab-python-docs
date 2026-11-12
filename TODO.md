@@ -4,7 +4,6 @@ this_file: TODO.md
 
 # Open tasks
 
-- [ ] Read the exit code `scripts/pages-build.sh` now prints when the `browser` stage (`playwright install --with-deps chromium`, bounded at 300 s) fails (124 = timeout) and fix the named cause; no tool output is public, so reproduce in a Linux container if the code is not enough.
 - [ ] Decide whether the website package keeps static `version = "0.1.0"` in pyproject.toml: release tags (v1.2.4 on e7594b6) carry the version, but `uv build` cannot reflect them; switch to hatch-vcs only if the owner wants tag-derived builds.
 
 - [ ] Task 414: provision matching native sidecars/provider sources and browser permissions, rerun full Python/offline build gates, then verify actual Mac/CI generated-byte parity.

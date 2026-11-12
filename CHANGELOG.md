@@ -3,6 +3,11 @@ this_file: CHANGELOG.md
 ---
 
 
+## 2026-11-12 — Browser-stage row closed by resolution; cause inferred, not named (Issue 250)
+
+- `scripts/pages-build.sh:31-46` bounds the browser stage (`timeout -k 10 300 ... playwright install --with-deps chromium`; 124 prints "timed out after 300 s", otherwise "failed (exit $code)") and refreshes the apt index in CI (`:40-42`), added in 75d8bd84. All 7 of 7 "Complete documentation" push runs on main since then succeeded (75d8bd84, 3b21fe81, b4bdd851, 512d5595, 60f0d892, 6b2c2e62, 0ac34d5b); the browser stage takes about 18 s.
+- No failure exit code was ever printed after the change, so the original cause (a stale apt index) is inferred, not named. Proof is CI, not a unit test. Run 43095751524 (0b47214b) is a ghost: it shows `queued` with no jobs, and the API refuses to cancel it as "completed".
+
 ## 2026-11-12 — Real-source tests skip in a lone clone (Issue 250)
 
 - Cause of the four "fail on clean main" tests: they read real sibling sources. `tests/test_final_fixes.py::test_actual_void_has_source_proven_point_members` needs `../TypeRig/Lib/typerig` (`scripts/build_reference.py` `source_roots()`, `FileNotFoundError: Missing source package: typerig` at `scripts/api_inventory.py:235`); the three `tests/test_migrate_app_paths.py` tests (`rewrite_when_paths_overlap`, `migrate_when_archive_present`, `rewrite_when_reference_routes`) load `../fontlab-fontlabapp/src/fontlabapp/_legacy.py` through `tools/migrate_app_paths.py` `load_mapping()`. Not a stale TMPDIR cache or full disk: all four pass in a fresh TMPDIR when the siblings exist and fail only in a clone without them.
