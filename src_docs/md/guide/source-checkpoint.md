@@ -4,8 +4,8 @@ this_file: src_docs/md/guide/source-checkpoint.md
 
 # Source checkpoint: App .98
 
-This documentation checkpoint pins the reviewed App .98 source and its paired
-Examples and Scriptmix menus. It describes source interfaces; each tool retains
+This historical documentation checkpoint pins the reviewed App .98 source and
+its paired Examples and Scriptmix menus. It describes source interfaces; each tool retains
 its separate native workflow and font-preservation acceptance requirements.
 
 | Producer | Source revision |
@@ -18,7 +18,7 @@ its separate native workflow and font-preservation acceptance requirements.
 | fontlab-fly | `6cf9dc1503f3d11d42c72918effe6c50597345ff` |
 | TypeRig | `7b8dad952ae3cd698e46a4cbc1dc3e709d870888` |
 | fontlab-glyport | `2c46c729f6780ad07fb1254296426189a0e4bb84` |
-| fontlab-aidus-code | `32523d418abb6122136b317411b127251b7f8bee` |
+| Aidus | `32523d418abb6122136b317411b127251b7f8bee` |
 | fontlab-fontport | `7a6e400ebb1d95bcf01528fb0a4036922e468bad` |
 | fontlab-python-examples | `1f54a9a72c24cf6ed76b5fcee76a0d557b92a252` |
 | fontlab-python-scriptmix | `9ab9d36a0ccecfb15bdaee93b700acaeb72e3390` |
@@ -49,6 +49,10 @@ and every applicable original-baseline module coverage gate. Those checks do not
 establish complete native font, history, saved-file or editor workflow acceptance.
 The inherited .90 spinbox controls have separate bounded native evidence.
 
-This is an explicit .98 checkpoint. Later Text Holder .100 development is not
-part of its source lock. The earlier .80 checkpoint remains historical.
+This is an explicit historical .98 checkpoint. Later Text Holder .100 development
+is not part of this historical .98 checkpoint. The earlier .80 checkpoint remains
+historical. The current source lock is newer: it includes five
+`fontlabapp/proof/text_holder/` files, 31 `fontlabapp/plugins/` files and the deprecated
+`fontlabapp/plugmix/__init__.py` alias. Its per-file hashes do not identify a current
+App package commit; the revisions and qualification results above apply to .98.
 Local documentation builds and browser checks do not establish site publication.

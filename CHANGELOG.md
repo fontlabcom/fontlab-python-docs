@@ -2,6 +2,103 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-15 — Current Glyport notice linked
+
+- Added the unchanged 3,254-byte current Glyport NOTICE and linked its Vanilla ownership/source provenance from the licence row, alongside complete Apache terms. The guide binds commit `d06c9848bd518367856951b0dcb606248dcc0b2b` and distinguishes source-distribution resource/fixture notices from published API documentation.
+- Existing audit and regression digest tables bind SHA256 `c098a35b70e64dd117076630a273854a4a7afe44262d683f58a3585355eb5b19`. Focused checks passed: 61 tests in 1.44 seconds, F821 lint and the copied-asset/default-privacy fixture with five private-name fixtures. App notices, Qt/PySide2 provenance, source lock, audit policy and disposition are unchanged. Final rendered, independent review and broader acceptance remain open.
+
+## 2026-11-15 — Exact PySide2 source-release download identified
+
+- Added the exact Qt-hosted PySide2 5.15.2.1 source archive, published SHA256 and
+  official release tag/commit to the metadata download, with direct licence-guide
+  links. All original document mappings and wheel/source metadata are unchanged.
+- A bounded source archive GET returned HTTP 200 with 3,473,548 bytes and exact
+  official SHA256 `91e78e4e3b31ebb0053c2e4f1029703e578615695450c0dd03072248d713b391`;
+  no source extraction, binary download or installation occurred.
+- Existing registry and notice checks bind the revised JSON bytes; focused
+  notice/release-audit checks pass: 58 tests in 1.34 seconds. Independent review,
+  rendered links/bytes, complete source/legal/privacy qualification and final
+  combined/source/CI/main/publication/native acceptance remain open.
+
+## 2026-11-15 — Qt and PySide2 provenance download
+
+- Added a licence-guide download containing all 576 reviewed Qt source URL/digest
+  mappings and the original six-field PySide2 5.15.2.1 upstream record, bound to
+  Echopy commit `617d077413e2950de6fdb80633ef997d80fe4b99` and its original report
+  digest. Diagnostic and native-context report fields are excluded.
+- Bound exact asset bytes in the existing release audit and added a focused
+  metadata preservation check. Notice/release-audit checks pass: 57 tests in
+  1.49 seconds; both App notices remain unchanged.
+- Observed all 576 official documentation URLs at HTTP 200 with exact historical
+  digests (573 fresh requests, three reused controller proofs). The recorded
+  wheel's HEAD returned HTTP 200; its binary/digest were not fetched or verified.
+  Complete source offers, independent review, rendered/publication, final
+  combined checks and native/install acceptance remain open.
+
+
+## 2026-11-15 — Current App notice added beside the historical checkpoint
+
+- Added a separate notice derivative bound to App commit `8d921c8e63be18dfeaf525487ed1f6d2d896873a`, with one internal Plugmix source label neutralized and every other byte preserved. Historical App .98 notice bytes and digest remain unchanged.
+- Linked both snapshots with current/historical context and pinned the derivative digest in the existing licence registry and reviewed-notice test table; no audit allowance or disposition changed.
+- Focused notice checks passed: 11 tests in 0.37 seconds. Private exact-span, unchanged copyright/licence/source-offer lines, known-identifier removal, default audit and copied-asset integrity checks passed. Independent attribution/privacy review, rendered checks, complete-source availability and broader acceptance remain open; no site generation or publication occurred.
+
+## 2026-11-15 — Modern-source regeneration and local site gates qualified
+
+- Actual-pin review passed for private-input main `02116e96f6df0310e43f50ef8f44fcbef82405fa` and both workflow refs/exact oracle. The manual-only private data workflow had no CI runs.
+- Independent T21 fix and fixed-generation result reviews passed. The working candidate regenerated in 288.46 seconds with 1,642 locked inputs and 90 Agentus HTML pages. Real Root B generation and Root A check passed; both roots matched all locked bytes.
+- Current raw privacy remains FAIL with exactly three findings; the unchanged disposition passed. The unexpected producer-label exposure is absent from its regenerated HTML/current search JSON/gzip. The old six-finding audit, failed disposition and first failed prefix check remain failed historical evidence.
+- Independent review passed for a one-line lifecycle fixture isolation fix, with 75 lifecycle tests passing in 4.15 seconds and no production change. The initial complete run remains 7 failed/635 passed, with all nine changed production modules above 80% combined coverage; the successor complete QA passed 642 tests with one existing SyntaxWarning and no skips in 249.92 seconds (251.40 seconds overall), with all nine module coverage gates passing.
+- Terminal local site results passed: accessibility, 28 cases with zero failures (386.75 seconds); interaction (80.97 seconds); archive worker (9.77 seconds); archive UI (3.39 seconds). These receipts qualify the local candidate only.
+- Full T20/T21, complete public privacy/source availability/licence notices, both ordinary prefixes, final Source X/exact-SHA CI, historical 77-file Mac/CI parity, complete search qualification, native, main and publication acceptance remain open. The current delivery target is the reviewed source feature branch for PR5.
+
+## 2026-11-15 — Retained source-prefix and historical label corrected
+
+- Reproduced the materialized-source failure in a real generation fixture and isolated the actual manifest difference to retained config normalization. The retained config uses its own generation-time source prefix; fresh candidate normalization and source-lock validation remain strict.
+- Focused lifecycle/normalization checks passed: 50 tests in 0.82 seconds, including relocated-source parity and rejected option, path-order, provider-path, extension, content, native-name, coverage, authored-input and provider-byte changes.
+- Replaced one historical producer table label with the public product name Aidus. Exact revision `32523d418abb6122136b317411b127251b7f8bee` and all other page bytes passed a private-preimage comparison. The six-finding raw predecessor and unchanged three-finding disposition remain separate failed evidence until controller regeneration and re-audit; no rendered privacy or T20/T21 completion is claimed.
+
+## 2026-11-15 — Current source collection and Agentus candidate
+
+- Existing static helpers collected the complete selected 1,642-input source lock, including all 23 modern Agentus modules, 219 frozen reference files, 43 Examples inputs and two Echopy JSON identities, without provider execution.
+- Reconciled the reviewed authored draft with actual main and updated Agentus resolver/API family, guide import/install paths, package index and navigation while retaining the guide URL and historical preservation checkpoint.
+- Constructed the new private stdlib archive from qualified owned bytes: all 1,705 selected files plus private provenance passed exact member/hash/mode round-trip checks. Private source-availability support and four migration records remain private; current Remopy licensing is Apache 2.0 and Agentus remains proprietary.
+- The controller delivered the independently reviewed private packet at actual main `02116e96f6df0310e43f50ef8f44fcbef82405fa`; fresh ordinary Git readback matched manifest `da3dd1f3b460fcbe2eeee2e7724de4826918ad05116c17392f760eec080aae76` and archive `98d15af0d23a836e95fadc1d0adef1ef0c48555b0993f21ffe289c9261ffa35e`. Both workflow checkout refs and the exact test oracle now pin that real commit. The private data repository's manual-only workflow had zero check runs and Actions runs; no green-CI claim follows.
+- Affected workflow and static Agentus/notice checks passed: 39 tests in 4.30 seconds. The two checkout refs, exact oracle-only literal change, unchanged 1,642/23/219 source tuple/data hashes and open acceptance-task count passed the bounded binding check.
+- F1 planning correction passed independent scoped review. Affected actual-pin review, required combined Docs gates, full generation/source availability, public/rendered/search/export privacy, native/install acceptance and publication remain open. These data/source facts do not establish Docs main readiness or close T20/T21.
+
+
+
+
+## 2026-11-15 — Authored checkpoint and Plugmix startup corrected
+
+- Carried the exact owner-priority functional-progress-first section into AGENTS
+  for future Docs agents, retaining existing mandatory hooks, coverage and holds.
+- Preserved the historical App .98 revisions, Examples 37/Scriptmix 107 menus,
+  coverage statements and native limits. Clarified that the current lock includes
+  five Text Holder files, 31 plugin files and the deprecated App alias; its file
+  hashes do not identify a current App package commit.
+- Aligned the Plugmix guide with v1.1.17 source (`a34a3206467cb5b3fc6de30d9207d61b727111b1`):
+  50 Extensions using App's `fontlabapp.plugins` core through Fly, separate from
+  the supported compatibility wheel. Corrected the shipped startup and Show
+  Reporters script, removed absent launchers and retained the compatibility
+  examples. Documented separate class/entry-point identities and one runtime per
+  session because both use `fontlab-plugmix.json`; migration remains unqualified.
+- Static authored checks passed: historical evidence and compatibility blocks
+  retained; four Python snippets compile without execution; 11 guide/nav/index
+  contracts and 33 authored link targets pass. Five inherited generated-reference
+  targets, full generation, installed/native and publication
+  acceptance remain open. The Aidus migration stays held for the complete matched
+  provider/manifest/packet/lock tuple. No input lock or generated output changed.
+- Independent authored-source review passed SPEC and QUALITY, including the exact
+  owner-priority amendment, for this local source milestone only.
+- Controller graph analysis of the present sparse source indexed 256 nodes and
+  14 flows; change detection reported scoped LOW for 26 symbols in ten files,
+  zero reported affected flows and no partial/truncated result. Six ranked entries
+  remained untraced, 24 callees were dropped and two walks were cut. This does not
+  establish whole-program/corpus coverage or main delivery acceptance.
+- Prior raw privacy audit remains FAIL/exit 1/pass:false with exactly three
+  private-name findings; the existing disposition PASS is a separate result.
+
 
 ## 2026-11-12 — Whole private docs snapshot refreshed; Pens documented (Issue 250, D46)
 

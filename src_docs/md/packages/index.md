@@ -20,10 +20,10 @@ the current limits; the API reference links lead to every documented member.
 | [Fontport](fontport.md) | `fontlab_fontport` | Use FontParts, fontTools pens and ufoLib2 with FontLab fonts |
 | [Pens](pens.md) | `fontlab_pens` | Draw, measure, transform and reverse outlines with the fontTools pen protocol and no dependencies |
 | [TypeRig](typerig.md) | `typerig` | Use the TypeRig glyph and outline library |
-| [Aidus Code](aidus-code.md) | `fontlab_aidus_code` | Chat with an AI agent that inspects and edits fonts in FontLab |
+| [Aidus Agentus](aidus-code.md) | `fontlab_aidus_agentus` | Chat with an AI agent that inspects and edits fonts in FontLab |
 | [Scriptmix](scriptmix.md) | scripts | Copy practical menu tools into FontLab's Scripts folder |
 | [Examples](examples.md) | scripts | Learn PythonQt workflows from one hundred menu scripts |
-| [Plugmix](plugmix.md) | `fontlab_plugmix` | Add reporters, filters, palettes, tools and General plugins |
+| [Plugmix](plugmix.md) | `fontlab_plugmix` (compatibility wheel) | Use the Extensions pack with App's plugin core, or the retained compatibility runtime |
 
 ## Install into FontLab
 
@@ -51,7 +51,7 @@ uv pip install --python "$FL_PY" --link-mode=copy -e path/to/fontlab-fontport
 ```
 
 Repeat for each checkout you develop
-(Echopy, Fly, Fontlabapp, Grablab, Remopy, Aidus Code, Glyport, Fontport). Source
+(Echopy, Fly, Fontlabapp, Grablab, Remopy, Aidus Agentus, Glyport, Fontport). Source
 edits are live in FontLab once the package's modules are reloaded.
 
 Restart FontLab, or remove the package's modules from `sys.modules`, to load a
@@ -72,7 +72,7 @@ Every API page is generated without running FontLab:
 - Echopy shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr`, `FL` and `PythonQt`.
   The Glyphs.app emulation modules (`GlyphsApp`, `vanilla`, `AppKit`, `Cocoa`,
   `Foundation`, `objc`) live in Glyport, FontLab's menu and panel names live in
-  Fontlabapp, and the Aidus tools belong to Aidus Code. Each is documented from
+  Fontlabapp, and the Aidus tools belong to Aidus Agentus. Each is documented from
   its own package source.
 - The packages above are read from their source, never imported, so code that
   needs FontLab still documents completely. The build fails when any package

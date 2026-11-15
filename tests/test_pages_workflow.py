@@ -31,7 +31,7 @@ def test_workflow_when_every_main_push_then_x_y_rebuild_same_frozen_inputs():
         private = [step for step in job["steps"] if step.get("with", {}).get("repository") == "fontlabcom/fontlab-python-docs-inputs"]
         assert len(private) == 1
         settings = private[0]["with"]
-        assert settings["ref"] == "cff3cbcd531df18e1588e5b2572c5b8edf05b222"
+        assert settings["ref"] == "02116e96f6df0310e43f50ef8f44fcbef82405fa"
         assert settings["ssh-key"] == "${{ secrets.DOCS_INPUTS_SSH_KEY }}"
         assert settings["ssh-strict"] == "true" and settings["persist-credentials"] == "false"
         assert settings["fetch-depth"] == "1" and settings["submodules"] == "false"

@@ -16,18 +16,53 @@ docstrings and signatures from the packages below; each keeps its own terms.
 | Search engine: lunr.js © Oliver Nightingale | [MIT](licenses/mit-lunr.txt) |
 | Theme and search integration: MaterialX © Martin Donath | [MIT](licenses/mit-materialx.txt) |
 | TypeRig | [Mozilla Public License 2.0](licenses/mpl-2.0-typerig.txt) |
-| Fontlabapp | [Apache 2.0](licenses/apache-2.0.txt); bundled third-party code keeps the MIT and BSD 3-Clause terms in its [source notices](licenses/fontlabapp-notice.txt) |
-| Glyport, Grablab, Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
-| Remopy and Aidus, © Fontlab Ltd | Proprietary. Only API docstrings and signatures are rendered; no package files are published here. |
+| Fontlabapp | [Apache 2.0](licenses/apache-2.0.txt); bundled third-party code keeps the MIT and BSD 3-Clause terms in its [current source notices (8d921c8)](licenses/fontlabapp-current-notice.txt) |
+| Grablab, Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
+| Glyport | [Apache 2.0](licenses/apache-2.0.txt) for package code; [current source notices](licenses/glyport-notice.txt) retain Vanilla ownership and source-distribution resource attributions. Unicode-derived data retains Unicode License V3 in the source distribution. |
+| Remopy | [Apache 2.0](licenses/apache-2.0.txt) for the current source snapshot; older proprietary notices describe historical inputs. |
+| Aidus Agentus, © Fontlab Ltd | Proprietary. Only API docstrings and signatures are rendered; no package files or prompt values are published here. |
 
 Qt documentation and PySide2 signatures were transformed into Python
-docstrings by Echopy. Their source URLs and SHA-256 revisions are recorded in
-Echopy's `reports/qt-enrichment.json`. No Qt, PySide2 or proprietary binaries
-or source files are published on this site.
+docstrings by Echopy. Download the [Qt and PySide2 source provenance
+records](licenses/echopy-qt-provenance.json) for all 576 recorded Qt document URLs
+and SHA-256 digests, plus the PySide2 5.15.2.1 wheel metadata. The records retain
+Echopy commit `617d077413e2950de6fdb80633ef997d80fe4b99` and the original
+`reports/qt-enrichment.json` digest; they contain metadata only. These records
+do not establish a complete corresponding-source offer.
+
+The exact PySide2 5.15.2.1 [upstream source release](https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2.1-src/pyside-setup-opensource-src-5.15.2.1.tar.gz)
+is available from Qt. Its [published SHA-256 checksum](https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2.1-src/pyside-setup-opensource-src-5.15.2.1.tar.gz.sha256)
+is `91e78e4e3b31ebb0053c2e4f1029703e578615695450c0dd03072248d713b391`.
+Qt's [release tag v5.15.2.1](https://code.qt.io/cgit/pyside/pyside-setup.git/tag/?h=v5.15.2.1)
+identifies commit `9282e03de471bb3772c8d3997159e49c113d7678`. The metadata download
+records this source route separately from the historical wheel input. This
+identifies an available upstream source release; complete corresponding-source
+and broader licence qualification remain open. No Qt, PySide2 or proprietary
+binaries or source files are published on this site.
 
 The [browser asset notices](frontend-notices.md) retain full texts and source
 provenance for named frontend components. Their transitive review remains open.
 
 The .98 Close But No Cigar adaptation retains Simon Cozens’s original
-[MIT licence text](licenses/simon-cozens-mit.txt). The current App notices
-retain source attribution and the licence disposition of other adapted tools.
+[MIT licence text](licenses/simon-cozens-mit.txt). The
+[historical App .98 notices](licenses/fontlabapp-notice.txt) remain unchanged.
+
+The current App notices cover source commit
+`8d921c8e63be18dfeaf525487ed1f6d2d896873a`. This public derivative replaces one
+internal source identifier with the public product name Plugmix; all other notice
+text, including attribution and licence terms, is unchanged.
+
+The Glyport notice is an unchanged copy from source commit
+`d06c9848bd518367856951b0dcb606248dcc0b2b`, the 178-module locked cohort.
+Its SHA-256 is `c098a35b70e64dd117076630a273854a4a7afe44262d683f58a3585355eb5b19`.
+It preserves the Vanilla session ownership and source provenance. The notice
+also describes data and fixtures in the source distribution; those paragraphs
+do not establish that resource tables or fixtures are published on this site.
+Complete Apache 2.0 terms are linked above. Rendered notices and broader licence
+qualification remain open.
+
+The current private input packet retains the selected licence texts, notices and
+source-availability records separately from published pages. Echopy keeps its Qt
+terms, Fontlabapp its adapted third-party terms and Glyport its Unicode terms.
+Current complete-source availability, rendered notice qualification and broader
+licence review remain separate gates.

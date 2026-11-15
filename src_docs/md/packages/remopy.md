@@ -81,5 +81,6 @@ command apply the same check (one catalogue request per call); pass
 - Launch and file association are macOS only; MCP works wherever FontLab's bridge
   executable is available.
 
-Reference: [fontlab_remopy](../reference/fontlab_remopy.md). Remopy is
-proprietary (© Fontlab Ltd); only its API documentation is published here.
+Reference: [fontlab_remopy](../reference/fontlab_remopy.md). The current Remopy
+source is licensed under Apache 2.0; earlier proprietary notices describe
+historical snapshots. This site publishes its API documentation.

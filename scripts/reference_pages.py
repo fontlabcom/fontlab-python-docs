@@ -29,7 +29,7 @@ PACKAGE_GUIDES = {
     "fontlab_fontport": ("Fontport", "fontport"),
     "fontlab_pens": ("Pens", "pens"),
     "typerig": ("TypeRig", "typerig"),
-    "fontlab_aidus_code": ("Aidus Code", "aidus-code"),
+    "fontlab_aidus_agentus": ("Aidus Agentus", "aidus-code"),
 }
 
 

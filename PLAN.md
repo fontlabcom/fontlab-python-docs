@@ -2,6 +2,63 @@
 this_file: PLAN.md
 ---
 
+## Glyport notice qualification — 2026-11-15
+
+Independently review the exact current Glyport NOTICE copy and source binding.
+At the next required strict build, verify its rendered licence-row link and all
+3,254 downloaded bytes. The copied notice retains source-distribution resource
+and fixture attributions; it does not establish their publication on the site.
+Keep broader licences/privacy, final Source X, T20/T21, exact-SHA CI, historical
+parity, ordinary installed prefixes, native and main/publication gates open.
+
+## Exact PySide2 source-release qualification — 2026-11-15
+
+Independently review the separate 5.15.2.1 source-release metadata and exact
+archive/checksum/tag links. At the next required strict render, verify all three
+external links and the updated downloaded JSON bytes. The archive's observed
+HTTP 200 and exact official SHA256 qualify dated availability only; archive/Git
+or binary reproducibility, complete corresponding source and broader legal
+qualification remain open. Preserve all original Qt/wheel metadata, broader
+privacy/notices, final Source X, T20/T21, exact-SHA CI, historical parity,
+ordinary installed prefixes, native and main/publication requirements.
+
+## Qt provenance qualification — 2026-11-15
+
+Independently review the metadata-only Qt/PySide2 provenance download and its
+licence-guide link. At the next required strict build, verify the rendered link
+and exact JSON bytes. All 576 official document URLs returned HTTP 200 with the
+recorded digests (573 fresh checks and three reused controller proofs); the
+recorded wheel returned HTTP 200 to HEAD only. Complete corresponding-source
+offers, other package notices, final public privacy, Source X, T20/T21, exact-SHA
+CI, main/publication and native acceptance remain separate open checks.
+
+
+## Current App notice qualification — 2026-11-15
+
+Independently review the current App notice derivative and its single internal
+source-label substitution against commit `8d921c8e63be18dfeaf525487ed1f6d2d896873a`.
+At the next required strict build, verify current and historical notice bytes
+and links in the rendered site. Keep complete-source availability, Echopy,
+Glyport and Agentus notice applicability, full private-value checks, final Source X,
+T20/T21, native, main and publication qualification open.
+
+## Remaining source qualification and delivery — 2026-11-15
+
+Qualify complete public privacy, source availability, licence notices and exports.
+Reconcile the reviewed source with current upstream and run the required affected
+checks on the final composed tree before delivery.
+The reviewed working-candidate generation, two-root check and four local site
+lanes are completed scoped checks; they do not close full T20/T21.
+
+Prepare the reviewed source feature branch for PR5. Before main integration or
+public Pages delivery, qualify the final committed Source X and epoch, required
+combined checks, exact-SHA CI and full generated-output parity. Keep both ordinary
+installed prefixes, historical 77-file Mac/CI parity, complete search qualification,
+native and installation acceptance open. Preserve the failed six-finding audit
+and first failed prefix check as history; the current raw audit still fails with
+exactly three findings and its unchanged disposition passes.
+
+
 # Forward plan
 
 ## Task 414 remaining acceptance
@@ -21,9 +78,24 @@ Include code-only, unchanged-output, stale-main and cross-UTC-day cases. Preserv
 the reviewed source lock; this publication checkpoint does not qualify current
 provider parity or native workflows.
 
-Issue 230 reconciliation is current. Issue 123 implementation remains paused; its acceptance backlog below is preserved, not resumed. Keep qualified Issue 207 candidates distinct from canonical source, ordinary installed artifacts, native acceptance and publication. Issue 210 defines the future plugin split; Issue 211 retains follow-up checks. The owner corrected the preparation catalogue reference to Issue 214.
+Issue 230 reconciliation is current. Issue 123 implementation remains paused; its acceptance backlog below is preserved, not resumed. Keep qualified Issue 207 candidates distinct from canonical source, ordinary installed artifacts, native acceptance and publication. Issue 210's App `fontlabapp.plugins` core and Plugmix Extensions source split is implemented; qualify its native startup, palette/menu synchronization, drawing, teardown and writer history on the exact installed tuple. Issue 211 retains follow-up checks. The owner corrected the preparation catalogue reference to Issue 214.
 
 ## Authored guides and exact input tuple
+
+Qualify the authored App .98 checkpoint and Plugmix startup correction's
+generated/rendered instructions and native workflows. The reviewed source
+milestone needs the remaining combined-source/input/generated/site gates before
+main delivery; the current delivery target is the reviewed source feature branch
+for PR5.
+The implemented Agentus resolver/API/guide/source-lock/input-packet tuple retains
+all 23 modern modules. The reviewed private packet is delivered and both workflow
+checkout refs and the exact oracle bind ACTUAL commit
+`02116e96f6df0310e43f50ef8f44fcbef82405fa`; actual-pin review passed. Complete
+controller delivery through the remaining combined gates, final Source X
+regeneration, complete source availability, exports and public privacy checks.
+Native, installation, main and publication acceptance remain open.
+The five legacy Aidus lock entries are historical evidence; per-file hashes alone
+do not qualify a package commit or complete current-source acceptance.
 
 Reconcile current reviewed App, TypeRig, Pythonqtside, Remopy, Glyport, Fontport, Fly, Aidus and enriched native providers. Keep Issue 207's qualified source/generated candidate separate from current canonical providers. After current producer integration, refresh Echopy using its actual tooling and choose one exact source/artifact tuple before intentional source-lock regeneration. Preserve every inherited guide body/tag/mode/source identity and actual held native examples; record any source-backed fixture migration with its exact preimage and negative control.
 

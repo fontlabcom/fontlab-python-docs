@@ -30,6 +30,7 @@ def _write_export(folder, pages):
 
 @pytest.fixture
 def project(tmp_path, monkeypatch):
+    monkeypatch.delenv("FONTLAB_API_SOURCE_ROOT", raising=False)
     root = tmp_path / "docs"
     root.mkdir()
     source = tmp_path / "sources"
@@ -558,3 +559,94 @@ def test_generation_config_when_separator_root_then_exact_root_and_descendants_m
     }
     assert second["config"] == digest(expected.encode()), "Separator root retains the canonical tail separator"
     assert first["config"] == second["config"]
+
+
+def test_generation_check_when_source_prefix_moves_then_retained_config_still_matches(
+    explicit_generation, monkeypatch,
+):
+    from scripts.build_provenance import check_generation, generation_manifest
+
+    root, source, runtime, _expected = explicit_generation
+    accepted = generation_manifest(root, root / ".build")
+    (root / ".build/accepted-build.json").write_text(json.dumps({"generation": accepted}))
+    moved = source.with_name("materialized-sources")
+    shutil.copytree(source, moved)
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", str(moved))
+    monkeypatch.setattr(builder, "source_roots", lambda: [(moved, "fontlab_echopy")])
+    builder.generate(check=True)
+    assert (root / ".build/mkdocs.yml").read_bytes() == runtime
+    check_generation(root, accepted)
+
+
+@pytest.mark.parametrize("change", ["options", "order", "source", "extension", "content", "native", "coverage", "input"])
+def test_generation_check_when_retained_inputs_change_then_relocation_does_not_hide_them(
+    explicit_generation, monkeypatch, change,
+):
+    from scripts.build_provenance import check_generation, generation_manifest
+
+    root, source, runtime, _expected = explicit_generation
+    accepted = generation_manifest(root, root / ".build")
+    (root / ".build/accepted-build.json").write_text(json.dumps({"generation": accepted}))
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", str(source.with_name("materialized-sources")))
+    path = root / ".build/mkdocs.yml"
+    if change in {"options", "order", "source", "extension"}:
+        config = yaml.safe_load(runtime)
+        handler = config["plugins"][-1]["mkdocstrings"]["handlers"]["python"]
+        if change == "options":
+            handler["options"]["show_source"] = not handler["options"]["show_source"]
+        elif change == "order":
+            handler["paths"].reverse()
+        elif change == "source":
+            handler["paths"][1] = str(source.with_name("wrong-provider"))
+        else:
+            handler["options"]["extensions"][0] = str(source / "wrong-provider.py")
+        path.write_text(yaml.safe_dump(config, sort_keys=False))
+    else:
+        paths = {"content": root / ".build/content/index.md",
+                 "native": root / ".build/native-names/fontlab.py",
+                 "coverage": root / ".build/coverage.json",
+                 "input": root / "src_docs/md/index.md"}
+        paths[change].write_text("changed")
+    with pytest.raises(ValueError, match="Generated content/input manifest differs"):
+        check_generation(root, accepted)
+
+
+def test_generation_check_when_relocated_source_content_changes_then_source_lock_rejects_it(
+    explicit_generation, monkeypatch,
+):
+    root, source, _runtime, _expected = explicit_generation
+    moved = source.with_name("materialized-sources")
+    shutil.copytree(source, moved)
+    (moved / "fontlab_echopy/__init__.py").write_text("class Changed: pass\n")
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", str(moved))
+    monkeypatch.setattr(builder, "source_roots", lambda: [(moved, "fontlab_echopy")])
+    with pytest.raises(ValueError, match="lock"):
+        builder.generate(check=True)
+
+
+def test_generation_check_when_fresh_candidate_uses_wrong_root_then_explicit_root_stays_strict(
+    explicit_generation, monkeypatch, tmp_path,
+):
+    from scripts.build_provenance import check_generation, generation_manifest
+
+    root, source, runtime, _expected = explicit_generation
+    accepted = generation_manifest(root, root / ".build")
+    (root / ".build/accepted-build.json").write_text(json.dumps({"generation": accepted}))
+    selected = source.with_name("materialized-sources")
+    wrong = source.with_name("wrong-provider")
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", str(selected))
+    stage = tmp_path / "fresh-stage"
+    shutil.copytree(root / ".build", stage)
+    path = stage / "mkdocs.yml"
+    assert runtime.decode().count(str(source)) == 2
+    path.write_text(runtime.decode().replace(str(source), str(selected)))
+    valid = generation_manifest(root, stage)
+    check_generation(root, valid)
+    path.write_text(runtime.decode().replace(str(source), str(wrong)))
+    candidate = generation_manifest(root, stage)
+    assert candidate["config"] != valid["config"]
+    assert {k: v for k, v in candidate.items() if k != "config"} == {
+        k: v for k, v in valid.items() if k != "config"
+    }
+    with pytest.raises(ValueError, match="Generated content/input manifest differs"):
+        check_generation(root, candidate)

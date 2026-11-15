@@ -1,6 +1,7 @@
 # this_file: tests/test_reviewed_source_notices.py
 """Actual default audit inputs: exact upstream notices and public/private controls."""
 import hashlib
+import json
 import re
 import shutil
 from pathlib import Path
@@ -11,9 +12,55 @@ from scripts import release_audit as audit
 
 SOURCE = Path(__file__).resolve().parents[1] / "src_docs/md/licenses"
 REVIEWED = {
+    "glyport-notice.txt": "c098a35b70e64dd117076630a273854a4a7afe44262d683f58a3585355eb5b19",
+    "echopy-qt-provenance.json": "d81bda8da692e29775a4059acc457395a0a2fb2d1c7718fbef254d0f08211712",
     "fontlabapp-notice.txt": "6695d925f4eaa38a2160938dfe5cd3dd70a0133ca625c84de68945e3ad6d2d53",
+    "fontlabapp-current-notice.txt": "0acc1a436737b7eec88a61b44f2983d4df6e0a38d52aa018101551d8f2d75362",
     "simon-cozens-mit.txt": "6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5",
 }
+
+
+def test_qt_provenance_preserves_reviewed_metadata_without_private_report_context():
+    records = json.loads((SOURCE / "echopy-qt-provenance.json").read_text())
+    assert set(records) == {"this_file", "source", "documents", "upstream", "pyside2_source"}
+    assert records["this_file"] == "src_docs/md/licenses/echopy-qt-provenance.json"
+    assert records["source"] == {
+        "project": "FontLab Echopy",
+        "commit": "617d077413e2950de6fdb80633ef997d80fe4b99",
+        "report": "reports/qt-enrichment.json",
+        "sha256": "ce03defef8d33fea2518dbfe4b14dd64621d1c0ba7c62ec4b7e9244b1f5a0d92",
+    }
+    assert len(records["documents"]) == 576
+    for record in records["documents"].values():
+        assert set(record) == {"url", "sha256"}
+        assert record["url"].startswith("https://doc.qt.io/archives/qt-5.15/")
+        assert re.fullmatch(r"[0-9a-f]{64}", record["sha256"])
+    assert set(records["upstream"]) == {"metadata_url", "project", "sha256", "url", "version", "wheel"}
+    # Canonical digests bind every mapping and upstream field to the reviewed original report.
+    assert hashlib.sha256(json.dumps(records["documents"], sort_keys=True).encode()).hexdigest() == (
+        "d15ad867e33c4ca8d1cb89580ded30ce39052924fbed55552a169aa5d573b909"
+    )
+    assert hashlib.sha256(json.dumps(records["upstream"], sort_keys=True).encode()).hexdigest() == (
+        "76bbd481a7cd44322cd2eaae6564e1908b6a5f30643d33ef0007845ee643d71e"
+    )
+
+
+def test_pyside2_source_release_has_exact_archive_checksum_and_guide_links():
+    records = json.loads((SOURCE / "echopy-qt-provenance.json").read_text())
+    assert records["pyside2_source"] == {
+        "version": "5.15.2.1",
+        "url": "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2.1-src/pyside-setup-opensource-src-5.15.2.1.tar.gz",
+        "sha256": "91e78e4e3b31ebb0053c2e4f1029703e578615695450c0dd03072248d713b391",
+        "bytes": 3473548,
+        "checksum_url": "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2.1-src/pyside-setup-opensource-src-5.15.2.1.tar.gz.sha256",
+        "tag": "v5.15.2.1",
+        "tag_url": "https://code.qt.io/cgit/pyside/pyside-setup.git/tag/?h=v5.15.2.1",
+        "commit": "9282e03de471bb3772c8d3997159e49c113d7678"
+    }
+    assert records["pyside2_source"]["version"] == records["upstream"]["version"]
+    page = (SOURCE.parent / "licenses.md").read_text()
+    for field in ("url", "checksum_url", "tag_url"):
+        assert f']({records["pyside2_source"][field]})' in page
 
 
 def actual_site(tmp_path):

@@ -8,6 +8,8 @@ import re
 from importlib.metadata import version
 from pathlib import Path
 
+import yaml
+
 PACKAGES = (
     "properdocs",
     "mkdocs-materialx",
@@ -34,7 +36,9 @@ def file_manifest(root: Path, *, exclude=()) -> dict:
     }
 
 
-def generation_manifest(root: Path, stage: Path) -> dict:
+def generation_manifest(
+    root: Path, stage: Path, *, api_source_root: str | None = None,
+) -> dict:
     inputs = {}
     for directory in ("src_docs/md", "scripts", "overrides", "archive"):
         inputs.update(
@@ -56,7 +60,7 @@ def generation_manifest(root: Path, stage: Path) -> dict:
     }
     # Normalize owned paths; source/artifact location parity is a separate gate.
     config = (stage / "mkdocs.yml").read_text().replace(str(root), "<docs-root>")
-    artifact_root = os.environ.get("FONTLAB_API_SOURCE_ROOT")
+    artifact_root = api_source_root or os.environ.get("FONTLAB_API_SOURCE_ROOT")
     if artifact_root:
         source_root = str(Path(artifact_root).expanduser().resolve())
         boundary = r"(?=/|\2[ \t]*$)"
@@ -79,7 +83,15 @@ def check_generation(root: Path, candidate: dict) -> None:
             "Missing accepted build baseline; run a normal strict build first"
         )
     accepted = json.loads(baseline.read_text())["generation"]
-    if candidate != accepted or generation_manifest(root, root / ".build") != accepted:
+    build = root / ".build"
+    source_root = None
+    if os.environ.get("FONTLAB_API_SOURCE_ROOT"):
+        # Recheck retained YAML with its own generation-time prefix.
+        config = yaml.safe_load((build / "mkdocs.yml").read_text())
+        source_root = config["plugins"][-1]["mkdocstrings"]["handlers"]["python"]["paths"][1]
+    if candidate != accepted or generation_manifest(
+        root, build, api_source_root=source_root,
+    ) != accepted:
         raise ValueError("Generated content/input manifest differs from accepted build")
 
 

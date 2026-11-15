@@ -207,3 +207,23 @@ def test_package_guides_when_package_documented_then_page_nav_and_table_exist():
         assert f"reference/{package}.md" in nav, f"{package}: no nav entry"
         assert f"packages/{slug}.md" in nav, f"{package}: no guide nav entry"
         assert f"[{_title}]({slug}.md)" in index, f"{package}: not in packages/index.md"
+
+
+def test_aidus_when_current_source_then_resolver_guide_and_navigation_agree(monkeypatch):
+    from pathlib import Path
+
+    from scripts.build_reference import PACKAGES, source_roots
+    from scripts.reference_pages import PACKAGE_GUIDES
+
+    assert PACKAGES["fontlab-aidus-agentus"] == ("src", "fontlab_aidus_agentus")
+    assert "fontlab-aidus-code" not in PACKAGES
+    assert PACKAGE_GUIDES["fontlab_aidus_agentus"] == ("Aidus Agentus", "aidus-code")
+    monkeypatch.setenv("FONTLAB_API_SOURCE_ROOT", "/approved/packages")
+    assert (Path("/approved/packages"), "fontlab_aidus_agentus") in source_roots()
+    root = Path(__file__).resolve().parents[1]
+    nav = (root / "src_docs/md/.nav.yml").read_text()
+    guide = (root / "src_docs/md/packages/aidus-code.md").read_text()
+    assert "reference/fontlab_aidus_agentus.md" in nav
+    assert "reference/fontlab_aidus_code.md" not in nav
+    assert "fontlab_aidus_agentus.plugin.executor" in guide
+    assert 'version("fontlab-aidus-agentus")' in guide
