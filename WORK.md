@@ -2,6 +2,33 @@
 this_file: WORK.md
 ---
 
+## 2026-11-15 — Separate current App notice prepared
+
+Added a public notice derivative for App commit
+`8d921c8e63be18dfeaf525487ed1f6d2d896873a`, replacing only one qualified internal
+Plugmix source label with the public product name. The source commit, upstream
+credits, copyright, licence terms and every other notice byte remain unchanged.
+The historical App .98 notice and its digest are unchanged. The licences page
+separates both snapshots; the existing audit registry and reviewed-notice test
+table bind the new derivative SHA256
+`0acc1a436737b7eec88a61b44f2983d4df6e0a38d52aa018101551d8f2d75362`.
+
+Focused notice tests passed: baseline 8 in 0.47 seconds; updated 11 in 0.37 seconds.
+A private exact-span check passed, including existing decoded/private-name policy
+and default audit with a synthetic private-remote fixture: one known match in
+the original, zero in the derivative, no decoding limits, and exact current and
+historical copy integrity. This is fixture evidence, not rendered-site acceptance.
+Independent review and the next strict-build rendered checks remain open, as do
+complete-source availability, other package notices, full private-value checks,
+final Source X, T20/T21, installed/native, main and publication qualification.
+No actual site output, audit policy, disposition or source lock changed.
+Focused F821 lint passed using the installed Ruff executable; the venv module
+route was unavailable. Complete graph payload reports LOW risk for eight symbols
+in seven tracked files and zero affected processes, without partial/truncated
+flags. The separate new text asset is hash-checked. The existing sparse index
+is one commit behind; UNKNOWN registry impact was corroborated from current AST
+consumers. Existing graph limits remain.
+
 ## 2026-11-15 — Materialized-source check and public producer label
 
 The real materialized-prefix failure was isolated without regeneration: only the

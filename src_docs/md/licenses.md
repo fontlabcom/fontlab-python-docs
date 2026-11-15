@@ -16,7 +16,7 @@ docstrings and signatures from the packages below; each keeps its own terms.
 | Search engine: lunr.js © Oliver Nightingale | [MIT](licenses/mit-lunr.txt) |
 | Theme and search integration: MaterialX © Martin Donath | [MIT](licenses/mit-materialx.txt) |
 | TypeRig | [Mozilla Public License 2.0](licenses/mpl-2.0-typerig.txt) |
-| Fontlabapp | [Apache 2.0](licenses/apache-2.0.txt); bundled third-party code keeps the MIT and BSD 3-Clause terms in its [source notices](licenses/fontlabapp-notice.txt) |
+| Fontlabapp | [Apache 2.0](licenses/apache-2.0.txt); bundled third-party code keeps the MIT and BSD 3-Clause terms in its [current source notices (8d921c8)](licenses/fontlabapp-current-notice.txt) |
 | Grablab, Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
 | Glyport | [Apache 2.0](licenses/apache-2.0.txt) for package code; Unicode-derived data retains Unicode License V3 in the source distribution. |
 | Remopy | [Apache 2.0](licenses/apache-2.0.txt) for the current source snapshot; older proprietary notices describe historical inputs. |
@@ -31,11 +31,16 @@ The [browser asset notices](frontend-notices.md) retain full texts and source
 provenance for named frontend components. Their transitive review remains open.
 
 The .98 Close But No Cigar adaptation retains Simon Cozens’s original
-[MIT licence text](licenses/simon-cozens-mit.txt). The current App notices
-retain source attribution and the licence disposition of other adapted tools.
+[MIT licence text](licenses/simon-cozens-mit.txt). The
+[historical App .98 notices](licenses/fontlabapp-notice.txt) remain unchanged.
+
+The current App notices cover source commit
+`8d921c8e63be18dfeaf525487ed1f6d2d896873a`. This public derivative replaces one
+internal source identifier with the public product name Plugmix; all other notice
+text, including attribution and licence terms, is unchanged.
 
 The current private input packet retains the selected licence texts, notices and
 source-availability records separately from published pages. Echopy keeps its Qt
 terms, Fontlabapp its adapted third-party terms and Glyport its Unicode terms.
-The earlier Fontlabapp notice linked above remains its historical checkpoint;
-current complete-source and rendered notice qualification remain separate gates.
+Current complete-source availability, rendered notice qualification and broader
+licence review remain separate gates.

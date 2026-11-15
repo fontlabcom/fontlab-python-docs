@@ -2,6 +2,12 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-15 — Current App notice added beside the historical checkpoint
+
+- Added a separate notice derivative bound to App commit `8d921c8e63be18dfeaf525487ed1f6d2d896873a`, with one internal Plugmix source label neutralized and every other byte preserved. Historical App .98 notice bytes and digest remain unchanged.
+- Linked both snapshots with current/historical context and pinned the derivative digest in the existing licence registry and reviewed-notice test table; no audit allowance or disposition changed.
+- Focused notice checks passed: 11 tests in 0.37 seconds. Private exact-span, unchanged copyright/licence/source-offer lines, known-identifier removal, default audit and copied-asset integrity checks passed. Independent attribution/privacy review, rendered checks, complete-source availability and broader acceptance remain open; no site generation or publication occurred.
+
 ## 2026-11-15 — Modern-source regeneration and local site gates qualified
 
 - Actual-pin review passed for private-input main `02116e96f6df0310e43f50ef8f44fcbef82405fa` and both workflow refs/exact oracle. The manual-only private data workflow had no CI runs.

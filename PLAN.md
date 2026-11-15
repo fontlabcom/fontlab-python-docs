@@ -2,6 +2,15 @@
 this_file: PLAN.md
 ---
 
+## Current App notice qualification — 2026-11-15
+
+Independently review the current App notice derivative and its single internal
+source-label substitution against commit `8d921c8e63be18dfeaf525487ed1f6d2d896873a`.
+At the next required strict build, verify current and historical notice bytes
+and links in the rendered site. Keep complete-source availability, Echopy,
+Glyport and Agentus notice applicability, full private-value checks, final Source X,
+T20/T21, native, main and publication qualification open.
+
 ## Remaining source qualification and delivery — 2026-11-15
 
 Qualify complete public privacy, source availability, licence notices and exports.

@@ -2,6 +2,10 @@
 this_file: TODO.md
 ---
 
+## Current App notice qualification — 2026-11-15
+
+- [ ] Independently review the current App notice derivative and one-label substitution; verify current/historical rendered links and exact asset hashes at the next required strict build. Complete-source availability, other package notices, full private-value checks, final Source X, T20/T21, native, main and publication remain open.
+
 ## Remaining source qualification — 2026-11-15
 
 - [ ] Complete public privacy, source availability, licence notices and exports beyond the reviewed working-candidate generation, real two-root check and unchanged three-finding disposition; full T20/T21 remain open.
