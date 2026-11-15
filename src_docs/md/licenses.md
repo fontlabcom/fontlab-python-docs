@@ -28,8 +28,17 @@ records](licenses/echopy-qt-provenance.json) for all 576 recorded Qt document UR
 and SHA-256 digests, plus the PySide2 5.15.2.1 wheel metadata. The records retain
 Echopy commit `617d077413e2950de6fdb80633ef997d80fe4b99` and the original
 `reports/qt-enrichment.json` digest; they contain metadata only. These records
-do not establish a complete corresponding-source offer. No Qt, PySide2 or
-proprietary binaries or source files are published on this site.
+do not establish a complete corresponding-source offer.
+
+The exact PySide2 5.15.2.1 [upstream source release](https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2.1-src/pyside-setup-opensource-src-5.15.2.1.tar.gz)
+is available from Qt. Its [published SHA-256 checksum](https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2.1-src/pyside-setup-opensource-src-5.15.2.1.tar.gz.sha256)
+is `91e78e4e3b31ebb0053c2e4f1029703e578615695450c0dd03072248d713b391`.
+Qt's [release tag v5.15.2.1](https://code.qt.io/cgit/pyside/pyside-setup.git/tag/?h=v5.15.2.1)
+identifies commit `9282e03de471bb3772c8d3997159e49c113d7678`. The metadata download
+records this source route separately from the historical wheel input. This
+identifies an available upstream source release; complete corresponding-source
+and broader licence qualification remain open. No Qt, PySide2 or proprietary
+binaries or source files are published on this site.
 
 The [browser asset notices](frontend-notices.md) retain full texts and source
 provenance for named frontend components. Their transitive review remains open.

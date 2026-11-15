@@ -102,7 +102,7 @@ REVIEWED = {
 }
 # Reviewed licence texts, notices and provenance under licenses/ (sha256 of each file).
 LICENCES = {
-    "echopy-qt-provenance.json": "46a9e88d0432cb647f739a6dd392333ab20a5b2054a454b001c29cd2d65693e3",
+    "echopy-qt-provenance.json": "d81bda8da692e29775a4059acc457395a0a2fb2d1c7718fbef254d0f08211712",
     "fontlabapp-notice.txt": "6695d925f4eaa38a2160938dfe5cd3dd70a0133ca625c84de68945e3ad6d2d53",
     "fontlabapp-current-notice.txt": "0acc1a436737b7eec88a61b44f2983d4df6e0a38d52aa018101551d8f2d75362",
     "simon-cozens-mit.txt": "6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5",

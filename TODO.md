@@ -2,6 +2,10 @@
 this_file: TODO.md
 ---
 
+## Exact PySide2 source-release qualification — 2026-11-15
+
+- [ ] Independently review the exact PySide2 5.15.2.1 source-release metadata and archive/checksum/tag links; verify rendered links and revised JSON bytes at the next strict build. Complete corresponding-source/legal/privacy qualification, final Source X, full T20/T21, exact-SHA CI, historical parity, ordinary installed prefixes, native and main/publication remain open.
+
 ## Qt provenance qualification — 2026-11-15
 
 - [ ] Independently review the Qt/PySide2 metadata download and verify its rendered licence-guide link and exact bytes at the next required strict build. Complete corresponding-source offers, broader package notices/privacy, final Source X, T20/T21, exact-SHA CI, main/publication and native acceptance remain open.

@@ -2,6 +2,17 @@
 this_file: PLAN.md
 ---
 
+## Exact PySide2 source-release qualification — 2026-11-15
+
+Independently review the separate 5.15.2.1 source-release metadata and exact
+archive/checksum/tag links. At the next required strict render, verify all three
+external links and the updated downloaded JSON bytes. The archive's observed
+HTTP 200 and exact official SHA256 qualify dated availability only; archive/Git
+or binary reproducibility, complete corresponding source and broader legal
+qualification remain open. Preserve all original Qt/wheel metadata, broader
+privacy/notices, final Source X, T20/T21, exact-SHA CI, historical parity,
+ordinary installed prefixes, native and main/publication requirements.
+
 ## Qt provenance qualification — 2026-11-15
 
 Independently review the metadata-only Qt/PySide2 provenance download and its

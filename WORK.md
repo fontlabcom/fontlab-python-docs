@@ -2,6 +2,33 @@
 this_file: WORK.md
 ---
 
+## 2026-11-15 — Exact PySide2 source-release route prepared
+
+The public provenance JSON now adds a separate `pyside2_source` record for the
+exact upstream 5.15.2.1 source archive, official checksum and release tag/commit.
+All 576 document mappings, the six-field historical wheel record and Echopy
+source binding are unchanged. The licence guide links the archive, checksum and
+tag directly; its complete corresponding-source and broader licence gates stay
+open. The asset is 107,918 bytes, SHA256
+`d81bda8da692e29775a4059acc457395a0a2fb2d1c7718fbef254d0f08211712`.
+
+Qt's source archive GET returned HTTP 200 through its listed mirror, with
+3,473,548 bytes and exact published SHA256
+`91e78e4e3b31ebb0053c2e4f1029703e578615695450c0dd03072248d713b391`.
+Official tag `v5.15.2.1` identifies commit
+`9282e03de471bb3772c8d3997159e49c113d7678`. Version-specific PyPI metadata
+matches the historical input wheel. No source archive was retained or extracted;
+no binary was downloaded, installed or reproduced. Archive/Git tree equivalence
+and complete legal compliance are not established by this observation.
+
+Focused baseline notice checks passed: 15 tests in 0.73 seconds. Updated notice
+and release-audit checks passed: 58 tests in 1.34 seconds; focused F821 lint passed.
+Existing copied-site missing/altered/unlinked JSON controls remain active. Both
+App notice assets and prior metadata are unchanged. Independent review and the
+next strict-build rendered links/asset bytes remain open, alongside full source,
+privacy, final Source X, T20/T21, exact-SHA CI, main/publication and native gates.
+No source lock, workflow, audit-policy allowance or generated output changed.
+
 ## 2026-11-15 — Public Qt/PySide2 provenance prepared
 
 Added a metadata-only JSON download linked from the licence guide, preserving

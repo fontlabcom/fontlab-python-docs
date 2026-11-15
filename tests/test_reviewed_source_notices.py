@@ -12,7 +12,7 @@ from scripts import release_audit as audit
 
 SOURCE = Path(__file__).resolve().parents[1] / "src_docs/md/licenses"
 REVIEWED = {
-    "echopy-qt-provenance.json": "46a9e88d0432cb647f739a6dd392333ab20a5b2054a454b001c29cd2d65693e3",
+    "echopy-qt-provenance.json": "d81bda8da692e29775a4059acc457395a0a2fb2d1c7718fbef254d0f08211712",
     "fontlabapp-notice.txt": "6695d925f4eaa38a2160938dfe5cd3dd70a0133ca625c84de68945e3ad6d2d53",
     "fontlabapp-current-notice.txt": "0acc1a436737b7eec88a61b44f2983d4df6e0a38d52aa018101551d8f2d75362",
     "simon-cozens-mit.txt": "6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5",
@@ -21,7 +21,7 @@ REVIEWED = {
 
 def test_qt_provenance_preserves_reviewed_metadata_without_private_report_context():
     records = json.loads((SOURCE / "echopy-qt-provenance.json").read_text())
-    assert set(records) == {"this_file", "source", "documents", "upstream"}
+    assert set(records) == {"this_file", "source", "documents", "upstream", "pyside2_source"}
     assert records["this_file"] == "src_docs/md/licenses/echopy-qt-provenance.json"
     assert records["source"] == {
         "project": "FontLab Echopy",
@@ -42,6 +42,24 @@ def test_qt_provenance_preserves_reviewed_metadata_without_private_report_contex
     assert hashlib.sha256(json.dumps(records["upstream"], sort_keys=True).encode()).hexdigest() == (
         "76bbd481a7cd44322cd2eaae6564e1908b6a5f30643d33ef0007845ee643d71e"
     )
+
+
+def test_pyside2_source_release_has_exact_archive_checksum_and_guide_links():
+    records = json.loads((SOURCE / "echopy-qt-provenance.json").read_text())
+    assert records["pyside2_source"] == {
+        "version": "5.15.2.1",
+        "url": "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2.1-src/pyside-setup-opensource-src-5.15.2.1.tar.gz",
+        "sha256": "91e78e4e3b31ebb0053c2e4f1029703e578615695450c0dd03072248d713b391",
+        "bytes": 3473548,
+        "checksum_url": "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2.1-src/pyside-setup-opensource-src-5.15.2.1.tar.gz.sha256",
+        "tag": "v5.15.2.1",
+        "tag_url": "https://code.qt.io/cgit/pyside/pyside-setup.git/tag/?h=v5.15.2.1",
+        "commit": "9282e03de471bb3772c8d3997159e49c113d7678"
+    }
+    assert records["pyside2_source"]["version"] == records["upstream"]["version"]
+    page = (SOURCE.parent / "licenses.md").read_text()
+    for field in ("url", "checksum_url", "tag_url"):
+        assert f']({records["pyside2_source"][field]})' in page
 
 
 def actual_site(tmp_path):

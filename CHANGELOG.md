@@ -2,6 +2,19 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-15 — Exact PySide2 source-release download identified
+
+- Added the exact Qt-hosted PySide2 5.15.2.1 source archive, published SHA256 and
+  official release tag/commit to the metadata download, with direct licence-guide
+  links. All original document mappings and wheel/source metadata are unchanged.
+- A bounded source archive GET returned HTTP 200 with 3,473,548 bytes and exact
+  official SHA256 `91e78e4e3b31ebb0053c2e4f1029703e578615695450c0dd03072248d713b391`;
+  no source extraction, binary download or installation occurred.
+- Existing registry and notice checks bind the revised JSON bytes; focused
+  notice/release-audit checks pass: 58 tests in 1.34 seconds. Independent review,
+  rendered links/bytes, complete source/legal/privacy qualification and final
+  combined/source/CI/main/publication/native acceptance remain open.
+
 ## 2026-11-15 — Qt and PySide2 provenance download
 
 - Added a licence-guide download containing all 576 reviewed Qt source URL/digest
