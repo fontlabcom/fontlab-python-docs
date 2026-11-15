@@ -17,8 +17,10 @@ docstrings and signatures from the packages below; each keeps its own terms.
 | Theme and search integration: MaterialX © Martin Donath | [MIT](licenses/mit-materialx.txt) |
 | TypeRig | [Mozilla Public License 2.0](licenses/mpl-2.0-typerig.txt) |
 | Fontlabapp | [Apache 2.0](licenses/apache-2.0.txt); bundled third-party code keeps the MIT and BSD 3-Clause terms in its [source notices](licenses/fontlabapp-notice.txt) |
-| Glyport, Grablab, Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
-| Remopy and Aidus, © Fontlab Ltd | Proprietary. Only API docstrings and signatures are rendered; no package files are published here. |
+| Grablab, Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
+| Glyport | [Apache 2.0](licenses/apache-2.0.txt) for package code; Unicode-derived data retains Unicode License V3 in the source distribution. |
+| Remopy | [Apache 2.0](licenses/apache-2.0.txt) for the current source snapshot; older proprietary notices describe historical inputs. |
+| Aidus Agentus, © Fontlab Ltd | Proprietary. Only API docstrings and signatures are rendered; no package files or prompt values are published here. |
 
 Qt documentation and PySide2 signatures were transformed into Python
 docstrings by Echopy. Their source URLs and SHA-256 revisions are recorded in
@@ -31,3 +33,9 @@ provenance for named frontend components. Their transitive review remains open.
 The .98 Close But No Cigar adaptation retains Simon Cozens’s original
 [MIT licence text](licenses/simon-cozens-mit.txt). The current App notices
 retain source attribution and the licence disposition of other adapted tools.
+
+The current private input packet retains the selected licence texts, notices and
+source-availability records separately from published pages. Echopy keeps its Qt
+terms, Fontlabapp its adapted third-party terms and Glyport its Unicode terms.
+The earlier Fontlabapp notice linked above remains its historical checkpoint;
+current complete-source and rendered notice qualification remain separate gates.

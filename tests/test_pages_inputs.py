@@ -136,3 +136,12 @@ def test_main_when_valid_prepare_and_disposition_then_runs_real_boundaries(tmp_p
     monkeypatch.setattr(pages_inputs, "REVIEWED_NAME_DIGEST", hashlib.sha256(b"reviewed-installation").hexdigest()[:12])
     assert pages_inputs.main(["disposition", str(report), "1"]) == 0
     with pytest.raises(ValueError): pages_inputs.main(["unknown"])
+
+
+def test_packet_when_source_lock_changes_then_archive_name_binds_actual_lock_bytes():
+    root = Path(__file__).resolve().parents[1]
+    digest = hashlib.sha256((root / "api-sources.lock.json").read_bytes()).hexdigest()
+    assert pages_inputs.ARCHIVE == f"inputs-{digest[:12]}.tar.gz"
+    assert pages_inputs.HASHES[pages_inputs.ARCHIVE] == (
+        "98d15af0d23a836e95fadc1d0adef1ef0c48555b0993f21ffe289c9261ffa35e"
+    )

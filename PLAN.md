@@ -2,6 +2,23 @@
 this_file: PLAN.md
 ---
 
+## Remaining source qualification and delivery — 2026-11-15
+
+Qualify complete public privacy, source availability, licence notices and exports.
+Reconcile the reviewed source with current upstream and run the required affected
+checks on the final composed tree before delivery.
+The reviewed working-candidate generation, two-root check and four local site
+lanes are completed scoped checks; they do not close full T20/T21.
+
+Prepare the reviewed source feature branch for PR5. Before main integration or
+public Pages delivery, qualify the final committed Source X and epoch, required
+combined checks, exact-SHA CI and full generated-output parity. Keep both ordinary
+installed prefixes, historical 77-file Mac/CI parity, complete search qualification,
+native and installation acceptance open. Preserve the failed six-finding audit
+and first failed prefix check as history; the current raw audit still fails with
+exactly three findings and its unchanged disposition passes.
+
+
 # Forward plan
 
 ## Task 414 remaining acceptance
@@ -27,11 +44,18 @@ Issue 230 reconciliation is current. Issue 123 implementation remains paused; it
 
 Qualify the authored App .98 checkpoint and Plugmix startup correction's
 generated/rendered instructions and native workflows. The reviewed source
-milestone still needs separate controller admission for any local/source draft,
-then full combined-source/input/generated/site gates before main delivery.
-The Aidus provider migration still requires the complete reviewed input manifest,
-modern provider layout, matching packet and all five replacement lock identities
-and hashes together; per-file hashes alone do not qualify a package commit.
+milestone needs the remaining combined-source/input/generated/site gates before
+main delivery; the current delivery target is the reviewed source feature branch
+for PR5.
+The implemented Agentus resolver/API/guide/source-lock/input-packet tuple retains
+all 23 modern modules. The reviewed private packet is delivered and both workflow
+checkout refs and the exact oracle bind ACTUAL commit
+`02116e96f6df0310e43f50ef8f44fcbef82405fa`; actual-pin review passed. Complete
+controller delivery through the remaining combined gates, final Source X
+regeneration, complete source availability, exports and public privacy checks.
+Native, installation, main and publication acceptance remain open.
+The five legacy Aidus lock entries are historical evidence; per-file hashes alone
+do not qualify a package commit or complete current-source acceptance.
 
 Reconcile current reviewed App, TypeRig, Pythonqtside, Remopy, Glyport, Fontport, Fly, Aidus and enriched native providers. Keep Issue 207's qualified source/generated candidate separate from current canonical providers. After current producer integration, refresh Echopy using its actual tooling and choose one exact source/artifact tuple before intentional source-lock regeneration. Preserve every inherited guide body/tag/mode/source identity and actual held native examples; record any source-backed fixture migration with its exact preimage and negative control.
 

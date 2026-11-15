@@ -16,7 +16,7 @@ matches your answer instead of reaching across a boundary.
 | [Echopy](echopy.md) | Generates documented, pure-Python passthrough shims of `fontlab`, `fontgate`, `fontpr`, `fontlabpr`, `FL` and `PythonQt`. |
 | [Fontlabapp](fontlabapp.md) | The large object and UI API: menus, panels, windows, drawing overlays, dialogs. |
 | [Fly](fly.md) | Nine short, lazy import aliases for the packages above. It adds no behaviour. |
-| [Aidus Code](aidus-code.md) | An in-FontLab coding agent with a graphical dock. |
+| [Aidus Agentus](aidus-code.md) | An in-FontLab coding agent with a graphical dock. |
 | [Pythonqtside](pythonqtside.md) | Runs PySide2-style code on FontLab's PythonQt. |
 | [Scriptmix](scriptmix.md) | A collection of practical menu scripts for FontLab 9. |
 | [Examples](examples.md) | PythonQt-rich example scripts that show how to build panels and tools. |
@@ -37,7 +37,7 @@ flowchart TD
     fontport["Fontport"]
     pens["Pens<br/>no dependencies"]
     fly["Fly<br/>aliases"]
-    aidus["Aidus Code"]
+    aidus["Aidus Agentus"]
     plugmix["Plugmix"]
     scripts["Scriptmix / Examples"]
     remopy["Remopy<br/>outside FontLab"]
@@ -68,9 +68,9 @@ The same dependencies as a plain list:
 
 - Echopy, Fontlabapp, Pythonqtside and Fontport build on the FontLab host.
 - Glyport builds on Fontlabapp and Echopy.
-- Plugmix, Aidus Code, Scriptmix and Examples build on Fontlabapp.
+- Plugmix, Aidus Agentus, Scriptmix and Examples build on Fontlabapp.
 - Fontport requires Fontlabapp; Fontlabapp's Qt editors call Fontport lazily through its `fontport` extra.
-- Aidus Code can reach FontLab from outside through Remopy.
+- Aidus Agentus can reach FontLab from outside through Remopy.
 - Remopy talks to FontLab's native MCP server, not to the host modules.
 - Fly optionally aliases Echopy, Fontlabapp, Glyport, Fontport and Pythonqtside.
 
@@ -91,7 +91,7 @@ until you ask for an alias, so importing it never loads a target package.
 | Draw an always-available read-only overlay in the Glyph window | [Plugmix](plugmix.md) reporters, or the [native hooks](../guide/native-hooks.md) directly |
 | Add a custom editing tool | A [Plugmix](plugmix.md) Tool, or the [native hooks](../guide/native-hooks.md) (`registerPythonTool`) |
 | Write a short script and share it as a menu entry | Scriptmix conventions, built on Fontlabapp |
-| Ask an AI agent to inspect or edit the font | Aidus Code |
+| Ask an AI agent to inspect or edit the font | Aidus Agentus |
 
 ## Boundary rules
 

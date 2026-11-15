@@ -2,11 +2,23 @@
 this_file: TODO.md
 ---
 
+## Remaining source qualification — 2026-11-15
+
+- [ ] Complete public privacy, source availability, licence notices and exports beyond the reviewed working-candidate generation, real two-root check and unchanged three-finding disposition; full T20/T21 remain open.
+
+## Remaining current Docs source work — 2026-11-15
+
+- [ ] Reconcile current upstream and qualify the final composed source before delivery; the current complete QA rerun passes 642 tests and all nine changed-module coverage gates after the reviewed fixture fix. Retain the initial 7-failure/635-pass receipt as history.
+- [ ] Deliver the reviewed source feature branch for PR5 after the required combined Docs gates. Both workflow refs and the exact oracle bind independently reviewed private-input main `02116e96f6df0310e43f50ef8f44fcbef82405fa`; no data-repository CI run is claimed. Main/public Pages acceptance remains open.
+- [ ] Qualify final committed Source X/epoch generation, every provider, exports, complete search/archive/privacy/licence behavior and exact-SHA CI beyond the four passing local site lanes; retain ordinary-prefix, native/install and publication acceptance.
+
+
+
 # Open tasks
 
-- [ ] Qualify generated/rendered checkpoint/Plugmix startup instructions and the exact installed native tuple; source prose does not close T20 or T21. Any local/source draft needs separate controller admission; main delivery still needs the complete combined-source/input/generated/site gates.
+- [ ] Qualify generated/rendered checkpoint/Plugmix startup instructions and the exact installed native tuple; source prose does not close T20 or T21. The current delivery target is the reviewed source feature branch for PR5; main delivery still needs the complete combined-source/input/generated/site gates.
 
-- [ ] Rename the Aidus provider in `scripts/build_reference.py:37` (`"fontlab-aidus-code": ("", "fontlab_aidus_code")`, also line 293) and in the `fontlab_aidus_code/*` entries of `api-sources.lock.json` to the current `fontlab-aidus-agentus` checkout and its `src/fontlab_aidus_agentus` package. Until then `./build.sh` finds no `fontlab-aidus-code` sibling and stops with `Missing source package: fontlab_aidus_code`, so a local build needs a stand-in checkout. Keep this migration held until the complete reviewed member/package-commit manifest, modern provider layout, matching input packet and all five replacement lock identities and hashes are admitted together (see the 2026-11-12 Remopy entry in CHANGELOG.md). Do not retain the old hashes under renamed keys.
+- [ ] Complete controller Docs delivery of the independently reviewed 23-module Agentus resolver/API/guide/source-lock/input-packet tuple. The reviewed private packet is delivered and both workflow refs plus the exact test oracle now bind ACTUAL commit `02116e96f6df0310e43f50ef8f44fcbef82405fa`; qualify the required combined-source/delivery gates. Qualify final Source X generation, complete source availability, exports and public rendered/search privacy beyond the reviewed local candidate; retain ordinary-prefix/native/install/publication limits. The prior five legacy Aidus lock entries are historical evidence, not the current replacement scope.
 
 - [ ] Decide whether the website package keeps static `version = "0.1.0"` in pyproject.toml: release tags (v1.2.4 on e7594b6) carry the version, but `uv build` cannot reflect them; switch to hatch-vcs only if the owner wants tag-derived builds.
 
@@ -14,7 +26,7 @@ this_file: TODO.md
 
 - [ ] Independently review the complete frozen-input light-theme/CI candidate, then qualify actual main X/Y Actions, Pages main:/docs, live search/browser behavior, code-only and unchanged-output runs without conflating current-provider or native acceptance.
 
-- [ ] Reconcile Issue 207 provider/source-lock and generated documentation with current App/Plugmix APIs. The D46 snapshot refresh is done (CHANGELOG 2026-11-12); remaining are the Aidus provider rename (row above) and TypeRig, whose frozen wheel snapshot stays until the owner allows a refresh.
+- [ ] Reconcile Issue 207 provider/source-lock and generated documentation with current App/Plugmix APIs. The D46 snapshot refresh is done (CHANGELOG 2026-11-12); remaining are qualification and delivery of the current 23-module Agentus tuple (row above) and the other current providers. Preserve the 219 frozen TypeRig reference identities; no upstream refresh is authorized.
 - [ ] Qualify strict rendering, every provider, complete search, archive routes, browser accessibility and licences; owner installation, native capture and publication need their own evidence.
 - [ ] Run the exact repository checks on the integrated source, obtain independent review, commit/push the scoped milestone and verify its remote head.
 - [ ] After qualified main integration, inventory obsolete branches/files, preserve unique work and remove only proven stale items with recovery evidence.

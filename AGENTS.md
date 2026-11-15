@@ -2,6 +2,26 @@
 this_file: AGENTS.md
 ---
 
+## Current source candidate — 2026-11-15
+
+The resolver now targets `fontlab-aidus-agentus/src/fontlab_aidus_agentus` and
+retains the historical guide URL. Its complete source lock has 1,642 inputs,
+including all 23 Agentus modules and 219 frozen reference files. The selected
+licence/source support and four MIGRATION records remain private. Do not copy
+package bodies, prompt values, the private manifest or support records to site
+output. Static collection is separate from provider execution and generation.
+
+The reviewed private packet is delivered at actual main
+`02116e96f6df0310e43f50ef8f44fcbef82405fa`; both workflow checkout refs and their
+exact test oracle now bind that commit. Fresh ordinary Git readback matched the
+selected archive and manifest bytes. This manual-workflow-only data delivery
+had no CI runs; it is not green-CI or complete Docs acceptance. Complete affected
+review and the required combined gates before Docs delivery. Full generation,
+source availability and rendered/search/export privacy remain open; never infer
+a ready build from passing source tests.
+
+
+
 ## Owner priority: functional progress first (2026-11-15)
 
 Future agents must make large, swift advances in working functionality. Prioritize visible user problems and useful, coherent feature increments. This instruction sets the work order and supersedes older requirements to complete exhaustive testing or build test infrastructure before ordinary implementation.

@@ -2,6 +2,32 @@
 this_file: README.md
 ---
 
+## Materialized-source check correction — 2026-11-15
+
+The retained build config now uses its own source prefix when checking an
+identical relocated input packet. Fresh candidate generation still uses the
+selected source root and unchanged source-lock checks. The historical App .98
+producer table uses the public product name Aidus with its exact revision.
+Focused source checks pass; regeneration and rendered/search privacy checks for
+this final candidate remain open before delivery.
+
+## Current source candidate — 2026-11-15
+
+Static collection now locks 1,642 source inputs, including all 23 modern Aidus
+Agentus modules, current maintained package snapshots and Examples, and the
+219 frozen reference files. The Agentus guide keeps its existing URL. Private
+source and provenance stay separate from public reference content.
+
+The reviewed private packet is delivered at actual main
+`02116e96f6df0310e43f50ef8f44fcbef82405fa`; both workflow checkout refs and their
+exact test oracle bind that commit. Fresh ordinary Git readback matched the
+manifest and archive bytes. The data repository has a manual-only workflow and
+no CI runs; no green-CI claim follows. The Docs source candidate remains
+uncommitted, with affected review, full generation/source/public-privacy and
+required combined gates open before main delivery or publication.
+
+
+
 ## Development status — 2026-11-05
 
 Canonical source inspected for this proposal: `a07ffa5c1258`. This is a dated source observation, not an installed or native acceptance claim.

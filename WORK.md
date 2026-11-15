@@ -2,6 +2,63 @@
 this_file: WORK.md
 ---
 
+## 2026-11-15 — Materialized-source check and public producer label
+
+The real materialized-prefix failure was isolated without regeneration: only the
+retained config fingerprint changed, from `81ac18c7` to `2e959821`, when the
+source environment changed. All other manifest fields stayed equal. The check
+now fingerprints retained YAML with its generation-time Python source prefix;
+fresh candidates retain current-root normalization and unchanged source locking.
+A focused real-generation fixture reproduced the failure before the fix.
+
+The unexpected public private-name exposure came from one historical producer
+table label. It now reads Aidus; exact revision
+`32523d418abb6122136b317411b127251b7f8bee` and every other page byte are retained
+against the private preimage. No audit rule or disposition changed.
+
+Focused lifecycle/normalization checks passed: 50 tests in 0.82 seconds,
+including relocation and eight config/content/input negative controls plus
+changed-source rejection. Independent review and controller regeneration,
+materialized-root and rendered/search/gzip privacy checks remain open. Existing
+accepted output is unchanged; T20/T21, installed/native, CI and publication
+acceptance remain separate.
+
+## 2026-11-15 — Current private source candidate
+
+Fresh actual Docs main and the reviewed authored draft reconcile by fast-forward;
+the inputs clone starts at the actual retained main. Existing AST inventory,
+Examples validation and exact source-lock helpers collected 1,642 inputs in
+19.22 seconds without importing providers: 23 Agentus, 219 frozen references,
+43 Examples and two Echopy JSON identities are included. The ordinary stdlib
+USTAR/gzip packet contains the 1,705 qualified source/support files plus its new
+private provenance manifest; every new member/hash/mode passed a round-trip
+check. Archive name binds the actual lock digest.
+
+Resolver, API family, retained guide URL, index/navigation and current licensing
+statements are updated together. Existing lock rejection and privacy/licence
+oracles remain intact. Baseline focused tests: 76 passed in 5.91 seconds. Candidate focused suite:
+116 passed in 4.57 seconds; final affected documentation/notice checks:
+16 passed in 0.58 seconds. Independent review remains pending before delivery.
+
+The controller delivered the independently reviewed private packet at actual main
+`02116e96f6df0310e43f50ef8f44fcbef82405fa`; fresh ordinary Git readback matched
+the exact selected archive/manifest bytes. The data repository remains private;
+its manual-only workflow had zero check runs and Actions runs, so no green-CI
+claim follows. The retained two-byte raw HTTP archive response remains a failed
+route without an inferred cause. Both Docs workflow refs and the existing exact
+test oracle now bind the actual delivered commit.
+Affected workflow and static Agentus/notice checks passed: 39 tests in 4.30s.
+The exact pin/source-data binding self-check and diff check also passed.
+
+F1 planning correction passed independent scoped review. Affected actual-pin
+review and the required combined Docs gates remain open. No real materializer,
+full generator/provider import, native operation, install, Docs commit/push,
+release, publication or cleanup occurred in this source lane. T20/T21 remain
+open. Graph pool failure and flow/candidate caps are retained; named source
+impact does not qualify the whole graph. The controller owns Docs delivery.
+
+
+
 # Work in progress
 
 ## 2026-11-15 — Authored checkpoint and Plugmix correction
@@ -40,3 +97,39 @@ for any local/source draft and full main integration gates remain separate; no
 commit, draft, push or workflow run is authorized by this source result.
 
 Earlier WORK.md (181,813 bytes, SHA256 `2ecde40cf56b84b1a214ae5ecb8d561c4df5b0ef6a2cd0cbda38b6469393ccc8`) is archived on the owner's workspace data volume (not public) under `issue250/work-archives/` (Issue 250). Completed work is in CHANGELOG.md; open work is in TODO.md and PLAN.md.
+
+## 2026-11-15 — Current successor status from terminal receipts
+
+This append supersedes pending/failure wording above only for the scoped checks
+below; every earlier WORK byte is retained. Actual-pin review passed for delivered
+private-input main `02116e96f6df0310e43f50ef8f44fcbef82405fa` and the workflow/oracle
+bindings; its manual-only data workflow had no CI runs.
+
+`t21-fixes/REVIEW.md` and
+`t21-readiness/fixed-generation/RESULT-REVIEW.md` passed. Actual regeneration
+completed in 288.46 seconds, retaining the 1,642-input lock and rendering 90
+Agentus HTML pages. Real Root B generation and Root A checking passed with equal
+locked bytes. Current raw privacy remains FAIL with exactly three findings;
+unchanged disposition PASS is separate. The old six-finding audit, failed
+disposition and first failed prefix check remain historical failures, not the
+current relocation result.
+
+`lifecycle-fix/REVIEW.md` passed for the one-line fixture environment isolation
+fix: 75 tests passed in 4.15 seconds, assertions and production code unchanged.
+The initial complete QA result remains 7 failed/635 passed, with nine-module
+coverage PASS, as history. The successor
+`t21-readiness/full-qa-fixture-fix/result.json` now records terminal exit 0 in
+251.40 seconds: 642 tests passed, one existing SyntaxWarning and no skips in
+249.92 seconds. All nine changed production modules pass combined 80% coverage;
+`build_provenance.py` is 93.18%.
+
+`t21-readiness/site-gates/result.json` records four terminal passes:
+accessibility 386.75 seconds (28 cases, zero failures), interaction 80.97 seconds,
+archive worker 9.77 seconds and archive UI 3.39 seconds. No reruns were performed
+for this prose update. Full T20/T21, complete public privacy/source availability/
+licence notices/exports, both ordinary installed prefixes, final Source X/epoch,
+exact-SHA CI, historical 77-file Mac/CI parity and complete search qualification, native,
+installation, main and publication remain open. The current delivery target is
+the reviewed source feature branch for PR5; controller review and combined gates
+own delivery. The 52 unchecked acceptance entries remain, with completed clauses
+moved into CHANGELOG and remaining requirements retained.

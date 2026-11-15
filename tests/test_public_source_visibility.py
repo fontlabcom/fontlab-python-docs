@@ -211,3 +211,23 @@ def test_inventory_when_private_nested_class_is_a_real_base_then_only_its_scope_
     plan = plan_pages(inventory_sources([(tmp_path, "pkg")]))
     assert _aliases(plan)["pkg.api.Public.close"] == "pkg.api._Outer._Base.close"
     assert "pkg.api._Outer.unrelated" not in plan["symbols"]
+
+
+def test_prompt_when_source_is_locked_then_values_stay_out_of_public_metadata(tmp_path):
+    import json
+
+    from scripts.api_inventory import inventory_sources, plan_pages
+    from scripts.reference_pages import render_page
+
+    package = tmp_path / "fontlab_aidus_agentus"
+    package.mkdir()
+    (package / "__init__.py").write_text('"""Agentus API."""\n')
+    (package / "prompts.py").write_text(
+        'raise RuntimeError("never import")\nMCP_PROMPT = "PRIVATE-PROMPT-SENTINEL"\n'
+    )
+    inventory = inventory_sources([(tmp_path, "fontlab_aidus_agentus")])
+    assert len(inventory["inputs"]) == 2, "private prompt source still needs a byte identity"
+    plan = plan_pages(inventory)
+    public = json.dumps(plan) + "".join(render_page(path, plan) for path in plan["pages"])
+    assert "PRIVATE-PROMPT-SENTINEL" not in public
+    assert "fontlab_aidus_agentus.prompts.MCP_PROMPT" in inventory["symbols"]
