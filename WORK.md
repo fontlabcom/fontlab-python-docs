@@ -2,6 +2,35 @@
 this_file: WORK.md
 ---
 
+## 2026-11-15 — Public Qt/PySide2 provenance prepared
+
+Added a metadata-only JSON download linked from the licence guide, preserving
+all 576 Qt document URL/SHA256 mappings and all six PySide2 upstream fields from
+Echopy commit `617d077413e2950de6fdb80633ef997d80fe4b99`. It records the original
+report SHA256 `ce03defef8d33fea2518dbfe4b14dd64621d1c0ba7c62ec4b7e9244b1f5a0d92`;
+coverage, diagnostic failures and unmatched native context are omitted. The
+existing audit registry binds the asset SHA256
+`46a9e88d0432cb647f739a6dd392333ab20a5b2054a454b001c29cd2d65693e3`.
+
+The original-report projection check preserves all mappings/upstream metadata
+exactly. Baseline notice tests: 11 passed in 0.36 seconds. Updated notice and
+release-audit tests: 57 passed in 1.49 seconds, including the metadata whitelist
+and complete mapping digests, unchanged privacy controls and missing/altered/
+unlinked asset failures. Both existing App notice assets remain byte-identical.
+
+Public availability: 573 fresh ordinary urllib GETs, six threads, 20-second
+socket timeouts, no retries; three existing exact controller proofs reused.
+All 576 URLs returned HTTP 200 and matched their recorded SHA256 digests.
+The recorded PySide2 wheel returned HTTP 200 to HEAD; no binary was downloaded
+and its digest was not independently checked. No response bodies were retained.
+This proves observed URL availability, not complete corresponding-source offers.
+
+Independent review, rendered link/asset checks at the next strict build, broader
+notice/privacy qualification and final combined/source/CI/main/publication gates
+remain open. No generated site, source lock, audit policy or disposition changed.
+Full suites, generation, native/install and delivery were not repeated here.
+
+
 ## 2026-11-15 — Separate current App notice prepared
 
 Added a public notice derivative for App commit

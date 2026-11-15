@@ -1,6 +1,7 @@
 # this_file: tests/test_reviewed_source_notices.py
 """Actual default audit inputs: exact upstream notices and public/private controls."""
 import hashlib
+import json
 import re
 import shutil
 from pathlib import Path
@@ -11,10 +12,36 @@ from scripts import release_audit as audit
 
 SOURCE = Path(__file__).resolve().parents[1] / "src_docs/md/licenses"
 REVIEWED = {
+    "echopy-qt-provenance.json": "46a9e88d0432cb647f739a6dd392333ab20a5b2054a454b001c29cd2d65693e3",
     "fontlabapp-notice.txt": "6695d925f4eaa38a2160938dfe5cd3dd70a0133ca625c84de68945e3ad6d2d53",
     "fontlabapp-current-notice.txt": "0acc1a436737b7eec88a61b44f2983d4df6e0a38d52aa018101551d8f2d75362",
     "simon-cozens-mit.txt": "6463ad87fde6016bb3bc48dc58fdf2c8fa82ba33fbefb995038eb90a5b0b93a5",
 }
+
+
+def test_qt_provenance_preserves_reviewed_metadata_without_private_report_context():
+    records = json.loads((SOURCE / "echopy-qt-provenance.json").read_text())
+    assert set(records) == {"this_file", "source", "documents", "upstream"}
+    assert records["this_file"] == "src_docs/md/licenses/echopy-qt-provenance.json"
+    assert records["source"] == {
+        "project": "FontLab Echopy",
+        "commit": "617d077413e2950de6fdb80633ef997d80fe4b99",
+        "report": "reports/qt-enrichment.json",
+        "sha256": "ce03defef8d33fea2518dbfe4b14dd64621d1c0ba7c62ec4b7e9244b1f5a0d92",
+    }
+    assert len(records["documents"]) == 576
+    for record in records["documents"].values():
+        assert set(record) == {"url", "sha256"}
+        assert record["url"].startswith("https://doc.qt.io/archives/qt-5.15/")
+        assert re.fullmatch(r"[0-9a-f]{64}", record["sha256"])
+    assert set(records["upstream"]) == {"metadata_url", "project", "sha256", "url", "version", "wheel"}
+    # Canonical digests bind every mapping and upstream field to the reviewed original report.
+    assert hashlib.sha256(json.dumps(records["documents"], sort_keys=True).encode()).hexdigest() == (
+        "d15ad867e33c4ca8d1cb89580ded30ce39052924fbed55552a169aa5d573b909"
+    )
+    assert hashlib.sha256(json.dumps(records["upstream"], sort_keys=True).encode()).hexdigest() == (
+        "76bbd481a7cd44322cd2eaae6564e1908b6a5f30643d33ef0007845ee643d71e"
+    )
 
 
 def actual_site(tmp_path):

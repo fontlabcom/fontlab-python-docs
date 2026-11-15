@@ -23,9 +23,13 @@ docstrings and signatures from the packages below; each keeps its own terms.
 | Aidus Agentus, © Fontlab Ltd | Proprietary. Only API docstrings and signatures are rendered; no package files or prompt values are published here. |
 
 Qt documentation and PySide2 signatures were transformed into Python
-docstrings by Echopy. Their source URLs and SHA-256 revisions are recorded in
-Echopy's `reports/qt-enrichment.json`. No Qt, PySide2 or proprietary binaries
-or source files are published on this site.
+docstrings by Echopy. Download the [Qt and PySide2 source provenance
+records](licenses/echopy-qt-provenance.json) for all 576 recorded Qt document URLs
+and SHA-256 digests, plus the PySide2 5.15.2.1 wheel metadata. The records retain
+Echopy commit `617d077413e2950de6fdb80633ef997d80fe4b99` and the original
+`reports/qt-enrichment.json` digest; they contain metadata only. These records
+do not establish a complete corresponding-source offer. No Qt, PySide2 or
+proprietary binaries or source files are published on this site.
 
 The [browser asset notices](frontend-notices.md) retain full texts and source
 provenance for named frontend components. Their transitive review remains open.

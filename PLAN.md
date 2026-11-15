@@ -2,6 +2,17 @@
 this_file: PLAN.md
 ---
 
+## Qt provenance qualification — 2026-11-15
+
+Independently review the metadata-only Qt/PySide2 provenance download and its
+licence-guide link. At the next required strict build, verify the rendered link
+and exact JSON bytes. All 576 official document URLs returned HTTP 200 with the
+recorded digests (573 fresh checks and three reused controller proofs); the
+recorded wheel returned HTTP 200 to HEAD only. Complete corresponding-source
+offers, other package notices, final public privacy, Source X, T20/T21, exact-SHA
+CI, main/publication and native acceptance remain separate open checks.
+
+
 ## Current App notice qualification — 2026-11-15
 
 Independently review the current App notice derivative and its single internal

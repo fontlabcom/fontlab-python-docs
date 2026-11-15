@@ -2,6 +2,11 @@
 this_file: TODO.md
 ---
 
+## Qt provenance qualification — 2026-11-15
+
+- [ ] Independently review the Qt/PySide2 metadata download and verify its rendered licence-guide link and exact bytes at the next required strict build. Complete corresponding-source offers, broader package notices/privacy, final Source X, T20/T21, exact-SHA CI, main/publication and native acceptance remain open.
+
+
 ## Current App notice qualification — 2026-11-15
 
 - [ ] Independently review the current App notice derivative and one-label substitution; verify current/historical rendered links and exact asset hashes at the next required strict build. Complete-source availability, other package notices, full private-value checks, final Source X, T20/T21, native, main and publication remain open.

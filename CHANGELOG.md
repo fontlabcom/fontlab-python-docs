@@ -2,6 +2,22 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-15 — Qt and PySide2 provenance download
+
+- Added a licence-guide download containing all 576 reviewed Qt source URL/digest
+  mappings and the original six-field PySide2 5.15.2.1 upstream record, bound to
+  Echopy commit `617d077413e2950de6fdb80633ef997d80fe4b99` and its original report
+  digest. Diagnostic and native-context report fields are excluded.
+- Bound exact asset bytes in the existing release audit and added a focused
+  metadata preservation check. Notice/release-audit checks pass: 57 tests in
+  1.49 seconds; both App notices remain unchanged.
+- Observed all 576 official documentation URLs at HTTP 200 with exact historical
+  digests (573 fresh requests, three reused controller proofs). The recorded
+  wheel's HEAD returned HTTP 200; its binary/digest were not fetched or verified.
+  Complete source offers, independent review, rendered/publication, final
+  combined checks and native/install acceptance remain open.
+
+
 ## 2026-11-15 — Current App notice added beside the historical checkpoint
 
 - Added a separate notice derivative bound to App commit `8d921c8e63be18dfeaf525487ed1f6d2d896873a`, with one internal Plugmix source label neutralized and every other byte preserved. Historical App .98 notice bytes and digest remain unchanged.
