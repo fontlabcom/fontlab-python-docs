@@ -23,7 +23,7 @@ the current limits; the API reference links lead to every documented member.
 | [Aidus Code](aidus-code.md) | `fontlab_aidus_code` | Chat with an AI agent that inspects and edits fonts in FontLab |
 | [Scriptmix](scriptmix.md) | scripts | Copy practical menu tools into FontLab's Scripts folder |
 | [Examples](examples.md) | scripts | Learn PythonQt workflows from one hundred menu scripts |
-| [Plugmix](plugmix.md) | `fontlab_plugmix` | Add reporters, filters, palettes, tools and General plugins |
+| [Plugmix](plugmix.md) | `fontlab_plugmix` (compatibility wheel) | Use the Extensions pack with App's plugin core, or the retained compatibility runtime |
 
 ## Install into FontLab
 

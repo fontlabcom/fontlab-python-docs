@@ -21,9 +21,17 @@ Include code-only, unchanged-output, stale-main and cross-UTC-day cases. Preserv
 the reviewed source lock; this publication checkpoint does not qualify current
 provider parity or native workflows.
 
-Issue 230 reconciliation is current. Issue 123 implementation remains paused; its acceptance backlog below is preserved, not resumed. Keep qualified Issue 207 candidates distinct from canonical source, ordinary installed artifacts, native acceptance and publication. Issue 210 defines the future plugin split; Issue 211 retains follow-up checks. The owner corrected the preparation catalogue reference to Issue 214.
+Issue 230 reconciliation is current. Issue 123 implementation remains paused; its acceptance backlog below is preserved, not resumed. Keep qualified Issue 207 candidates distinct from canonical source, ordinary installed artifacts, native acceptance and publication. Issue 210's App `fontlabapp.plugins` core and Plugmix Extensions source split is implemented; qualify its native startup, palette/menu synchronization, drawing, teardown and writer history on the exact installed tuple. Issue 211 retains follow-up checks. The owner corrected the preparation catalogue reference to Issue 214.
 
 ## Authored guides and exact input tuple
+
+Qualify the authored App .98 checkpoint and Plugmix startup correction's
+generated/rendered instructions and native workflows. The reviewed source
+milestone still needs separate controller admission for any local/source draft,
+then full combined-source/input/generated/site gates before main delivery.
+The Aidus provider migration still requires the complete reviewed input manifest,
+modern provider layout, matching packet and all five replacement lock identities
+and hashes together; per-file hashes alone do not qualify a package commit.
 
 Reconcile current reviewed App, TypeRig, Pythonqtside, Remopy, Glyport, Fontport, Fly, Aidus and enriched native providers. Keep Issue 207's qualified source/generated candidate separate from current canonical providers. After current producer integration, refresh Echopy using its actual tooling and choose one exact source/artifact tuple before intentional source-lock regeneration. Preserve every inherited guide body/tag/mode/source identity and actual held native examples; record any source-backed fixture migration with its exact preimage and negative control.
 

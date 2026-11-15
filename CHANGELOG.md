@@ -3,6 +3,37 @@ this_file: CHANGELOG.md
 ---
 
 
+## 2026-11-15 — Authored checkpoint and Plugmix startup corrected
+
+- Carried the exact owner-priority functional-progress-first section into AGENTS
+  for future Docs agents, retaining existing mandatory hooks, coverage and holds.
+- Preserved the historical App .98 revisions, Examples 37/Scriptmix 107 menus,
+  coverage statements and native limits. Clarified that the current lock includes
+  five Text Holder files, 31 plugin files and the deprecated App alias; its file
+  hashes do not identify a current App package commit.
+- Aligned the Plugmix guide with v1.1.17 source (`a34a3206467cb5b3fc6de30d9207d61b727111b1`):
+  50 Extensions using App's `fontlabapp.plugins` core through Fly, separate from
+  the supported compatibility wheel. Corrected the shipped startup and Show
+  Reporters script, removed absent launchers and retained the compatibility
+  examples. Documented separate class/entry-point identities and one runtime per
+  session because both use `fontlab-plugmix.json`; migration remains unqualified.
+- Static authored checks passed: historical evidence and compatibility blocks
+  retained; four Python snippets compile without execution; 11 guide/nav/index
+  contracts and 33 authored link targets pass. Five inherited generated-reference
+  targets, full generation, installed/native and publication
+  acceptance remain open. The Aidus migration stays held for the complete matched
+  provider/manifest/packet/lock tuple. No input lock or generated output changed.
+- Independent authored-source review passed SPEC and QUALITY, including the exact
+  owner-priority amendment, for this local source milestone only.
+- Controller graph analysis of the present sparse source indexed 256 nodes and
+  14 flows; change detection reported scoped LOW for 26 symbols in ten files,
+  zero reported affected flows and no partial/truncated result. Six ranked entries
+  remained untraced, 24 callees were dropped and two walks were cut. This does not
+  establish whole-program/corpus coverage or main delivery acceptance.
+- Prior raw privacy audit remains FAIL/exit 1/pass:false with exactly three
+  private-name findings; the existing disposition PASS is a separate result.
+
+
 ## 2026-11-12 — Whole private docs snapshot refreshed; Pens documented (Issue 250, D46)
 
 - New private packet `inputs-886e538a404b.tar.gz` (sha256 `b2cb1eb27a359913d8b90d573105deee1a00c8bf4d29cee43bb37f08b4e7a703`, packet commit `cff3cbcd`) replaces the snapshots of Echopy, Fontlabapp (540 -> 1022 files), Remopy, Grablab, Pythonqtside, Fly, Glyport and Fontport (+1 file) with their current origin/main sources. Each package SHA is recorded in `package_commits` of `input-manifest.json`; the Fontlabapp NOTICE is refreshed. Examples regenerate byte-identical.

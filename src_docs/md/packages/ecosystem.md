@@ -20,7 +20,7 @@ matches your answer instead of reaching across a boundary.
 | [Pythonqtside](pythonqtside.md) | Runs PySide2-style code on FontLab's PythonQt. |
 | [Scriptmix](scriptmix.md) | A collection of practical menu scripts for FontLab 9. |
 | [Examples](examples.md) | PythonQt-rich example scripts that show how to build panels and tools. |
-| [Plugmix](plugmix.md) | New: native FontLab plugins, reporters, filters, palettes, tools and General plugins. |
+| [Plugmix](plugmix.md) | Extensions pack for App's `fontlabapp.plugins` core, plus a separate `fontlab_plugmix` compatibility wheel without bundles. |
 
 ## How the packages depend on each other
 

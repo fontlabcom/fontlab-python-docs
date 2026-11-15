@@ -4,8 +4,8 @@ this_file: src_docs/md/guide/source-checkpoint.md
 
 # Source checkpoint: App .98
 
-This documentation checkpoint pins the reviewed App .98 source and its paired
-Examples and Scriptmix menus. It describes source interfaces; each tool retains
+This historical documentation checkpoint pins the reviewed App .98 source and
+its paired Examples and Scriptmix menus. It describes source interfaces; each tool retains
 its separate native workflow and font-preservation acceptance requirements.
 
 | Producer | Source revision |
@@ -49,6 +49,10 @@ and every applicable original-baseline module coverage gate. Those checks do not
 establish complete native font, history, saved-file or editor workflow acceptance.
 The inherited .90 spinbox controls have separate bounded native evidence.
 
-This is an explicit .98 checkpoint. Later Text Holder .100 development is not
-part of its source lock. The earlier .80 checkpoint remains historical.
+This is an explicit historical .98 checkpoint. Later Text Holder .100 development
+is not part of this historical .98 checkpoint. The earlier .80 checkpoint remains
+historical. The current source lock is newer: it includes five
+`fontlabapp/proof/text_holder/` files, 31 `fontlabapp/plugins/` files and the deprecated
+`fontlabapp/plugmix/__init__.py` alias. Its per-file hashes do not identify a current
+App package commit; the revisions and qualification results above apply to .98.
 Local documentation builds and browser checks do not establish site publication.

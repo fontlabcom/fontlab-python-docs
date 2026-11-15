@@ -3,7 +3,12 @@ this_file: src_docs/md/packages/plugmix.md
 ---
 # Plugmix
 
-Plugmix is a package of native FontLab 9 plugins. It has five plugin kinds:
+Plugmix v1.1.17 is an Extensions pack for App's `fontlabapp.plugins` core: 50 plugins,
+with 39 reporters, five filters, four tools, one palette and one General plugin.
+The separate `fontlab_plugmix` wheel remains a supported compatibility runtime;
+it contains no Extensions bundles.
+
+Both runtimes have five plugin kinds:
 **reporters** (toggleable, read-only overlays on the Glyph window), **filters**
 (undoable edits to selected glyphs), **palettes** (dockable panels), **tools**
 (native FontLab tools) and **General** plugins (menu commands and font events).
@@ -11,11 +16,49 @@ Plugmix uses
 FontLab's PythonQt and, on older builds, Fontlabapp's editor painters. It does not
 use PySide2, and it does not emulate Glyphs.app.
 
-!!! note "Under revision"
-    Plugmix is being revised. This page describes the stable concepts. Exact
-    module names and defaults can still change.
+## Install and start the Extensions pack
 
-## How it works
+Use the released `fontlab-python-plugmix-extensions.zip` pack with
+`fontlab-fontlabapp>=1.2.10` and `fontlab-fly>=1.3.0` in FontLab's Python 3.11 arm64
+environment. Run App's `install.vfpy` first, then the Plugmix checkout's
+`install.vfpy` from FontLab's Scripts panel with the App checkout beside it.
+For a manual installation, prepare those packages and copy the pack's Extensions
+contents into the FontLab user-data `Extensions/` folder. The pack's bundles live
+under `Extensions/<kind>/`; installing the compatibility wheel does not install them.
+
+The shipped `initScript-snippet.py` starts App through Fly. Its startup call is:
+
+```python
+from fly.ap.plugins import install
+install()
+```
+
+Use the Reporters palette or **View > Reporters** to enable reporters.
+
+<a id="the-scripts-folder"></a>
+
+The only shipped menu script, `Scripts/Plugmix/Show Reporters.py`, opens that palette.
+App owns bundle discovery, preferences, callbacks and native UI.
+`fontlabapp.plugmix` is a deprecated alias retaining the same App objects; it is
+distinct from the independent `fontlab_plugmix` compatibility runtime below.
+
+App plugin classes use the `fontlabapp.plugmix` entry-point group. Compatibility
+classes use `fontlab_plugmix.plugins`. The class bases and groups are not
+interchangeable; Fly's `fly.ap.plugins` returns App's own classes.
+
+!!! warning "Choose one runtime per session"
+    App and the compatibility runtime both use `fontlab-plugmix.json` in FontLab's
+    Data folder. Do not combine their startup installers in one FontLab session.
+    Cross-runtime preference migration remains unqualified. Native palette/menu,
+    drawing, teardown and writer-history acceptance still need the exact installed tuple.
+
+## Retained compatibility runtime
+
+The remaining API descriptions and examples use the supported
+`fontlab_plugmix` compatibility package: 19 reporters, one filter, one palette,
+one tool and one General plugin. They do not describe the 50 Extensions bundles.
+
+### How it works
 
 FontLab 9 builds with native canvas painters expose two Python hooks on the host
 itself: a canvas painter (`flCanvas.appendPythonPainter`) and a workspace tool
@@ -42,7 +85,7 @@ FontLab 9](../guide/native-hooks.md). Plugmix reporters build on the painter hoo
 Plugins compute from immutable, plain-Python snapshots, so you can test them
 without FontLab.
 
-## Install
+### Install
 
 Install `fontlab-python-plugmix` and its `fontlab-fontlabapp` dependency into
 FontLab's Python folder; see [Install into FontLab](index.md#install-into-fontlab).
@@ -55,18 +98,18 @@ try:
 except Exception as error: print(f"Plugmix startup: {error}")
 ```
 
-The package ships this snippet as `initScript-snippet.py`. Nothing in the package
-edits a FontLab installation. Alternatively, run `Install Plugmix Menu.py` from
-the Script menu.
+This is an explicit compatibility startup example. The shipped
+`initScript-snippet.py` starts the App runtime instead; do not use both. Nothing
+in the package edits FontLab's startup file.
 
-`install()` adds menu entries and restores your choices:
+For the compatibility runtime, `install()` adds menu entries and restores your choices:
 
 | Kind | Where it appears |
 | --- | --- |
 | Reporter | One checkable **Plugmix: Show ...** action per reporter in the View menu. |
 | Filter | **Plugmix: Delete Small Paths…** in the Glyph menu, opening a non-modal parameter dialog. |
 | Palette | **Plugmix: Step and Repeat Panel** in the Window menu, checkable, hidden until shown. |
-| Tool | **Plugmix: Tool Smart Select**, which registers a native tool when enabled. |
+| Tool | **Plugmix: Tool Smart Select** in the Window menu, which registers a native tool when enabled. |
 | General | **Plugmix: Zoom to Selection** in the View menu. |
 
 Choices live in one JSON file in FontLab's `Data` folder, with these keys:
@@ -74,11 +117,12 @@ Choices live in one JSON file in FontLab's `Data` folder, with these keys:
 `enabled_general` and `params` (last-used filter values). Older files with only
 `enabled` still load, filters, tools and General plugins are enabled by default,
 and `enabled_palettes` is written only after you choose a
-visibility. A selection saved under the former name `nodes_outside_paths`
-restores as `offcurve_outside_bounds`. `uninstall()` removes the actions, overlays
+visibility. Within this compatibility runtime, a selection saved under the former
+name `nodes_outside_paths` restores as `offcurve_outside_bounds`.
+`fontlab_plugmix.boot.uninstall()` removes the actions, overlays
 and panels and keeps the saved choices.
 
-## Reporters
+### Reporters
 
 Built-in reporters:
 
@@ -104,7 +148,9 @@ Built-in reporters:
 | Imprecise Italic Angle | Straight segments close to, but not exactly on, the master slant. |
 | Smooth Node Angles | Handle-angle mismatch and handle-length ratio at smooth nodes. |
 
-### Write your own reporter
+#### Write your own reporter
+
+This example uses the compatibility runtime's `Mark` and `Reporter` classes.
 
 ```python
 from fontlab_plugmix import Mark, Reporter
@@ -135,7 +181,7 @@ origin = "my_package.reporters:Origin"
 
 Reinstall your package and restart FontLab; the reporter appears in the View menu.
 
-## Filters
+### Filters
 
 A filter computes a proposed edit for one layer from a frozen snapshot and typed
 values, and Plugmix applies the result to the selected glyphs as one Undo step.
@@ -171,7 +217,7 @@ flattened curves, is strictly below the threshold. A contour whose flattened
 bounding-box area is below the threshold is treated the same way. Open paths always
 stay, and a contour exactly at the threshold stays.
 
-## Palettes
+### Palettes
 
 A palette is a dockable panel. `Palette.build(ui)` creates controls once through
 `PaletteUI`, `refresh(context)` runs when the active glyph, master, revision or node
@@ -185,7 +231,7 @@ by another (`dx`, `dy`), so offsets accumulate. Apply is one Undo step. It works
 on the current master layer only: when the Glyph window shows another layer, Apply
 refuses with a status message instead of writing to the master.
 
-## Tools
+### Tools
 
 A tool becomes a native FontLab tool through `flWorkspace.registerPythonTool`.
 `Tool.activate(ctx)` and `deactivate()` bracket its use; `press`, `move`, `release`,
@@ -200,7 +246,7 @@ Shift toggles those contours. It is selection-only and never changes outline
 geometry. It omits the source plugin's double-click containment and native move
 handling.
 
-## General plugins
+### General plugins
 
 A General plugin is a menu command with optional font events. `General.start(ctx)`
 and `stop()` bracket its life, `run()` handles the command, and
@@ -215,14 +261,7 @@ margin. It omits the source plugin's delayed viewport adjustment. Shortcut
 conflicts are reported, not overridden. Shortcut handling and keyboard cursor
 mapping still need an in-app recheck.
 
-## The Scripts folder
-
-The repository's `Scripts/` folder holds two ordinary FontLab menu scripts:
-`Scripts/Plugmix/Install Plugmix Menu.py` installs the Plugmix menus, and
-`Scripts/Reports/Duplicate Anchor Rings.py` runs one reporter from the Script menu.
-Copy them into FontLab's Scripts folder to use them.
-
-## Limits
+### Limits
 
 - Reporters are read-only. Filters, palettes and tools edit only through Plugmix's
   shared outline writer.

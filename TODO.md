@@ -4,7 +4,9 @@ this_file: TODO.md
 
 # Open tasks
 
-- [ ] Rename the Aidus provider in `scripts/build_reference.py:37` (`"fontlab-aidus-code": ("", "fontlab_aidus_code")`, also line 291) and in the `fontlab_aidus_code/*` entries of `api-sources.lock.json` to the current `fontlab-aidus-agentus` checkout and its `src/fontlab_aidus_agentus` package. Until then `./build.sh` finds no `fontlab-aidus-code` sibling and stops with `Missing source package: fontlab_aidus_code`, so a local build needs a stand-in checkout. Refreshing the lock needs a matching input packet (see the 2026-11-12 Remopy entry in CHANGELOG.md).
+- [ ] Qualify generated/rendered checkpoint/Plugmix startup instructions and the exact installed native tuple; source prose does not close T20 or T21. Any local/source draft needs separate controller admission; main delivery still needs the complete combined-source/input/generated/site gates.
+
+- [ ] Rename the Aidus provider in `scripts/build_reference.py:37` (`"fontlab-aidus-code": ("", "fontlab_aidus_code")`, also line 293) and in the `fontlab_aidus_code/*` entries of `api-sources.lock.json` to the current `fontlab-aidus-agentus` checkout and its `src/fontlab_aidus_agentus` package. Until then `./build.sh` finds no `fontlab-aidus-code` sibling and stops with `Missing source package: fontlab_aidus_code`, so a local build needs a stand-in checkout. Keep this migration held until the complete reviewed member/package-commit manifest, modern provider layout, matching input packet and all five replacement lock identities and hashes are admitted together (see the 2026-11-12 Remopy entry in CHANGELOG.md). Do not retain the old hashes under renamed keys.
 
 - [ ] Decide whether the website package keeps static `version = "0.1.0"` in pyproject.toml: release tags (v1.2.4 on e7594b6) carry the version, but `uv build` cannot reflect them; switch to hatch-vcs only if the owner wants tag-derived builds.
 

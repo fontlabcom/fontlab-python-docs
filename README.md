@@ -211,7 +211,9 @@ delivery gates; local tests do not establish them.
 The reviewed App .98 checkpoint includes Examples 37 and Scriptmix 107 menus.
 See the source revisions and native acceptance limits in
 [src_docs/md/guide/source-checkpoint.md](src_docs/md/guide/source-checkpoint.md).
-The earlier App .80 lock is historical; later .100 development is excluded.
+The earlier App .80 lock is historical; later Text Holder .100 development was
+excluded from the historical .98 checkpoint. The current source lock is newer
+and includes Text Holder and plugin modules; see the guide for its scope.
 
 Metrics in the earlier Status section describe older builds.
 
