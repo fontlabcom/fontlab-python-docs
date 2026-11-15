@@ -2,6 +2,11 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-15 — Current Glyport notice linked
+
+- Added the unchanged 3,254-byte current Glyport NOTICE and linked its Vanilla ownership/source provenance from the licence row, alongside complete Apache terms. The guide binds commit `d06c9848bd518367856951b0dcb606248dcc0b2b` and distinguishes source-distribution resource/fixture notices from published API documentation.
+- Existing audit and regression digest tables bind SHA256 `c098a35b70e64dd117076630a273854a4a7afe44262d683f58a3585355eb5b19`. Focused checks passed: 61 tests in 1.44 seconds, F821 lint and the copied-asset/default-privacy fixture with five private-name fixtures. App notices, Qt/PySide2 provenance, source lock, audit policy and disposition are unchanged. Final rendered, independent review and broader acceptance remain open.
+
 ## 2026-11-15 — Exact PySide2 source-release download identified
 
 - Added the exact Qt-hosted PySide2 5.15.2.1 source archive, published SHA256 and

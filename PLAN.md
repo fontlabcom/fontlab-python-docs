@@ -2,6 +2,15 @@
 this_file: PLAN.md
 ---
 
+## Glyport notice qualification — 2026-11-15
+
+Independently review the exact current Glyport NOTICE copy and source binding.
+At the next required strict build, verify its rendered licence-row link and all
+3,254 downloaded bytes. The copied notice retains source-distribution resource
+and fixture attributions; it does not establish their publication on the site.
+Keep broader licences/privacy, final Source X, T20/T21, exact-SHA CI, historical
+parity, ordinary installed prefixes, native and main/publication gates open.
+
 ## Exact PySide2 source-release qualification — 2026-11-15
 
 Independently review the separate 5.15.2.1 source-release metadata and exact

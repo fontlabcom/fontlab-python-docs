@@ -102,6 +102,7 @@ REVIEWED = {
 }
 # Reviewed licence texts, notices and provenance under licenses/ (sha256 of each file).
 LICENCES = {
+    "glyport-notice.txt": "c098a35b70e64dd117076630a273854a4a7afe44262d683f58a3585355eb5b19",
     "echopy-qt-provenance.json": "d81bda8da692e29775a4059acc457395a0a2fb2d1c7718fbef254d0f08211712",
     "fontlabapp-notice.txt": "6695d925f4eaa38a2160938dfe5cd3dd70a0133ca625c84de68945e3ad6d2d53",
     "fontlabapp-current-notice.txt": "0acc1a436737b7eec88a61b44f2983d4df6e0a38d52aa018101551d8f2d75362",

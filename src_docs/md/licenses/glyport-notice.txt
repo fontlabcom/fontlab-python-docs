@@ -1,0 +1,63 @@
+fontlab-glyport
+Copyright (c) 2026 FontLab contributors
+
+Glyport is licensed under the Apache License 2.0 (see LICENSE). It was first published
+under the MIT License; its copyright owner relicenses it under Apache-2.0. The Unicode data
+listed below retains its own licence.
+
+Vanilla session ownership
+=========================
+
+src/fontlab_glyport/ui/session.py (VanillaSession) carries the SPDX header
+"Apache-2.0". Its code was first written in FontLab's Apache-2.0
+fontlab-fontport, src/fontlab_fontport/vanilla.py. It moved to
+fontlab-fontlabapp src/fontlabapp/vanilla.py (issue 120), and then to Glyport
+(issue 122, T8), with constructor and lifetime behaviour unchanged. Glyport's
+adaptations to this file are also licensed under the Apache License, Version
+2.0.
+
+Unicode scalar lowercase data
+==============================
+
+src/fontlab_glyport/data/unicode17_lowercase.json derives from Unicode 17.0.0
+UnicodeData.txt and unconditional lowercase mappings in SpecialCasing.txt.
+Copyright © 1991-2026 Unicode, Inc. Distributed under Unicode License V3;
+see LICENSE-UNICODE-3.0. Public inputs:
+https://www.unicode.org/Public/17.0.0/ucd/UnicodeData.txt
+https://www.unicode.org/Public/17.0.0/ucd/SpecialCasing.txt
+Only single-scalar, nonlocalized lowercase behavior is supplied. This is not
+a general string-casing or locale implementation. No proprietary app data is
+included. Provenance and scope are recorded in DEPENDENCIES.md.
+
+Unicode casing and retained name context
+========================================
+
+src/fontlab_glyport/data/unicode17_casing.json.gz uses the same public
+UnicodeData.txt/SpecialCasing.txt inputs above for full uppercase and general
+categories. U+0027/U+2019 augment the retained ignorable-category predicate.
+Unicode License V3 applies to these public data; no private app table is included.
+The nonlocalized name scan is calibrated against standalone Foundation5027.1.8
+on macOS27.2; this establishes no FontLab/Glyphs workflow acceptance and adds
+no runtime Cocoa, ICU or Objective-C dependency.
+
+Public script and joining-name data
+====================================
+
+src/fontlab_glyport/data/public_script_suffixes.json and the public name inputs
+for unicode17_positional_right.json derive from GlyphData.xml and
+GlyphData_Ideographs.xml distributed by glyphsLib6.16.2 under Apache-2.0; see
+LICENSE-APACHE-2.0. Their payloads retain the exact public XML source hashes.
+No proprietary Glyphs database or ScriptData resource is redistributed.
+
+unicode17_positional_right.json also derives positive joining facts from
+Unicode17ArabicShaping.txt. Copyright ©2025Unicode, Inc.; Unicode License V3
+applies (LICENSE-UNICODE-3.0). The unchanged public source is retained as
+tests/data/ArabicShaping-17.0.0.txt, including its original notice. Public input:
+https://www.unicode.org/Public/17.0.0/ucd/ArabicShaping.txt
+The calibrated predicate is R-versus-other for retained build4108; it is not
+a complete Unicode Joining_Type implementation.
+
+Source-distribution-only GetGo fixtures in realuse/fixtures/getgo: Cafe and
+Zoto Sans Gurmukhi retain Apache-2.0; Plum retains CC0-1.0. The unmodified
+upstream licenses, metadata and byte provenance accompany these fixtures.
+No GetGo fixture is included in the runtime wheel.

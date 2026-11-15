@@ -2,6 +2,10 @@
 this_file: TODO.md
 ---
 
+## Glyport notice qualification — 2026-11-15
+
+- [ ] Independently review the exact current Glyport notice and source binding; verify its rendered licence-row link and exact bytes at the next strict build. Broader licences/privacy, final Source X, T20/T21, exact-SHA CI, historical parity, ordinary installed prefixes, native and main/publication remain open.
+
 ## Exact PySide2 source-release qualification — 2026-11-15
 
 - [ ] Independently review the exact PySide2 5.15.2.1 source-release metadata and archive/checksum/tag links; verify rendered links and revised JSON bytes at the next strict build. Complete corresponding-source/legal/privacy qualification, final Source X, full T20/T21, exact-SHA CI, historical parity, ordinary installed prefixes, native and main/publication remain open.

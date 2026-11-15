@@ -18,7 +18,7 @@ docstrings and signatures from the packages below; each keeps its own terms.
 | TypeRig | [Mozilla Public License 2.0](licenses/mpl-2.0-typerig.txt) |
 | Fontlabapp | [Apache 2.0](licenses/apache-2.0.txt); bundled third-party code keeps the MIT and BSD 3-Clause terms in its [current source notices (8d921c8)](licenses/fontlabapp-current-notice.txt) |
 | Grablab, Pythonqtside, Fly, Fontport | [Apache 2.0](licenses/apache-2.0.txt) |
-| Glyport | [Apache 2.0](licenses/apache-2.0.txt) for package code; Unicode-derived data retains Unicode License V3 in the source distribution. |
+| Glyport | [Apache 2.0](licenses/apache-2.0.txt) for package code; [current source notices](licenses/glyport-notice.txt) retain Vanilla ownership and source-distribution resource attributions. Unicode-derived data retains Unicode License V3 in the source distribution. |
 | Remopy | [Apache 2.0](licenses/apache-2.0.txt) for the current source snapshot; older proprietary notices describe historical inputs. |
 | Aidus Agentus, © Fontlab Ltd | Proprietary. Only API docstrings and signatures are rendered; no package files or prompt values are published here. |
 
@@ -51,6 +51,15 @@ The current App notices cover source commit
 `8d921c8e63be18dfeaf525487ed1f6d2d896873a`. This public derivative replaces one
 internal source identifier with the public product name Plugmix; all other notice
 text, including attribution and licence terms, is unchanged.
+
+The Glyport notice is an unchanged copy from source commit
+`d06c9848bd518367856951b0dcb606248dcc0b2b`, the 178-module locked cohort.
+Its SHA-256 is `c098a35b70e64dd117076630a273854a4a7afe44262d683f58a3585355eb5b19`.
+It preserves the Vanilla session ownership and source provenance. The notice
+also describes data and fixtures in the source distribution; those paragraphs
+do not establish that resource tables or fixtures are published on this site.
+Complete Apache 2.0 terms are linked above. Rendered notices and broader licence
+qualification remain open.
 
 The current private input packet retains the selected licence texts, notices and
 source-availability records separately from published pages. Echopy keeps its Qt

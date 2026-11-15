@@ -2,6 +2,28 @@
 this_file: WORK.md
 ---
 
+## 2026-11-15 — Current Glyport notice prepared
+
+Added the exact 3,254-byte Glyport NOTICE from source commit
+`d06c9848bd518367856951b0dcb606248dcc0b2b`; all 178 selected module hashes match
+the source lock. The public asset SHA256 is
+`c098a35b70e64dd117076630a273854a4a7afe44262d683f58a3585355eb5b19`.
+There are no excerpts, substitutions or encoding changes. The licence guide
+links the notice and complete Apache terms, preserving Vanilla ownership and
+source provenance while distinguishing source-distribution resources/fixtures
+from published API documentation. Existing audit and test digest tables bind it.
+
+Baseline focused notice/audit tests passed: 58 in 1.41 seconds. Updated tests
+passed: 61 in 1.44 seconds, including missing, changed and unlinked controls for
+the new notice. F821 lint passed. An isolated copied-asset fixture with the
+Markdown licence guide and five retained private-name fixtures passed the
+unchanged default audit with zero findings. Both App notices, all Qt/PySide2
+provenance bytes and the source lock remain unchanged. This is fixture evidence;
+strict generated-site links/bytes, independent review, broader licence/privacy,
+final Source X, full T20/T21, exact-SHA CI, historical parity, ordinary installed
+prefixes, native and main/publication remain open. No audit policy, disposition,
+workflow, source packet or generated output changed.
+
 ## 2026-11-15 — Exact PySide2 source-release route prepared
 
 The public provenance JSON now adds a separate `pyside2_source` record for the
