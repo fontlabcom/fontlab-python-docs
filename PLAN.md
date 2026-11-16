@@ -4,6 +4,10 @@ this_file: PLAN.md
 
 # Forward plan
 
+## FontLab 9.1 API pages
+
+The guide page `guide/whats-new-9-1.md` documents the 9.1.9812 changes from source. Live-verify the examples, then regenerate the API reference from a 9.1 Echopy capture through a new input packet.
+
 ## Task 414 remaining acceptance
 
 The portable gzip source and Node regression pass. Provision the matched native
