@@ -2358,9 +2358,9 @@
 
 
         <p>Represents one finding from FontLab's built-in font audit system. Each <code>flAuditInfo</code> wraps a <code>FaBasic</code> record that describes a specific problem (an open contour, an almost-flat curve, a wrong-direction path, etc.) and can point you to the exact location in the glyph.</p>
-<h4 id="fontlab.flAuditInfo--when-do-you-use-it">When do you use it?</h4>
+<h3 id="fontlab.flAuditInfo--when-do-you-use-it">When do you use it?</h3>
 <p>When you want to programmatically run the audit and process or fix the results. Combine with <code>FaBasic.fix()</code> to auto-fix all fixable issues in a batch.</p>
-<h4 id="fontlab.flAuditInfo--tutorial">Tutorial</h4>
+<h3 id="fontlab.flAuditInfo--tutorial">Tutorial</h3>
 <p>The code below shows how to build a simple interactive tool function that works with info objects. You can run parts of it in the scripting panel when a glyph window is open.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2461,8 +2461,8 @@
     <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done — nodes aligned.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flAuditInfo--common-scripting-patterns">Common Scripting Patterns</h4>
-<h4 id="fontlab.flAuditInfo--pattern-1-print-the-canvas-position-of-every-node-in-the-active-glyph">Pattern 1 — Print the canvas position of every node in the active glyph</h4>
+<h3 id="fontlab.flAuditInfo--common-scripting-patterns">Common Scripting Patterns</h3>
+<h3 id="fontlab.flAuditInfo--pattern-1-print-the-canvas-position-of-every-node-in-the-active-glyph">Pattern 1 — Print the canvas position of every node in the active glyph</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2475,7 +2475,7 @@
             <span class="n">gp</span> <span class="o">=</span> <span class="n">ni</span><span class="o">.</span><span class="n">getGlyphPoint</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Glyph (</span><span class="si">{</span><span class="n">gp</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">gp</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">) → Canvas (</span><span class="si">{</span><span class="n">cp</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">cp</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flAuditInfo--pattern-2-nudge-all-selected-nodes-up-by-one-unit">Pattern 2 — Nudge all selected nodes up by one unit</h4>
+<h3 id="fontlab.flAuditInfo--pattern-2-nudge-all-selected-nodes-up-by-one-unit">Pattern 2 — Nudge all selected nodes up by one unit</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2486,7 +2486,7 @@
         <span class="n">ni</span><span class="o">.</span><span class="n">setGlyphPoint</span><span class="p">(</span><span class="n">QPointF</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
     <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flAuditInfo--pattern-3-print-all-auto-fixable-audit-issues-for-the-current-glyph">Pattern 3 — Print all auto-fixable audit issues for the current glyph</h4>
+<h3 id="fontlab.flAuditInfo--pattern-3-print-all-auto-fixable-audit-issues-for-the-current-glyph">Pattern 3 — Print all auto-fixable audit issues for the current glyph</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="c1"># (Run after fl.flItems.notifyFontChanged() has been called</span>

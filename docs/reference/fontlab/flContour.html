@@ -2398,10 +2398,10 @@
 
         <p>A contour is the <strong>closed or open path that forms a letter's shape</strong>. Everything you see when you look at a glyph in the editor — the outer edge of an "H", the bowl of a "p", the counter inside an "O" — is a contour. Each contour is made up of an ordered sequence of <code>flNode</code> objects connected by curve and line segments. The contour is the level at which you think about the overall shape of a letter part, while nodes are the individual control points that define exactly where the path goes.</p>
 <p>Inherits from <code>flObject</code>.</p>
-<h4 id="fontlab.flContour--what-is-a-contour">What Is a Contour?</h4>
+<h3 id="fontlab.flContour--what-is-a-contour">What Is a Contour?</h3>
 <p><strong>Open vs. closed contours.</strong> Most glyphs consist entirely of <em>closed</em> contours — the path's last node connects back to its first node, enclosing an area. Closed contours are what you use for all regular letterforms. An <em>open</em> contour, by contrast, has two free endpoints that don't connect. Open contours appear in some decorative or component-based designs, in stroke-based workflows where a skeleton is later expanded, and in glyphs built from paths that are meant to be processed further rather than filled directly. The <code>closed</code> property tells you which kind you have.</p>
 <p><strong>Winding direction and why it matters.</strong> In digital type, a filled shape is defined not just by its path but by the <em>direction</em> the path travels — clockwise or counter-clockwise. FontLab follows the PostScript convention: <strong>outer contours wind counter-clockwise</strong> and <strong>counter-shapes (holes) wind clockwise</strong>. The letter "O", for example, is built from two contours: the outer oval winds counter-clockwise, and the inner counter-oval winds clockwise — together they create a filled ring. If you get the directions wrong, the font renderer may fill the hole or leave the outer shape empty. The <code>clockwise</code> property and the <code>setStartPoint</code> method (combined with a direction reversal) are your tools for managing this. When scripting, always verify and normalize winding direction after building contours programmatically.</p>
-<h4 id="fontlab.flContour--tutorial-building-the-letter-o-from-two-contours">Tutorial: Building the Letter "O" from Two Contours</h4>
+<h3 id="fontlab.flContour--tutorial-building-the-letter-o-from-two-contours">Tutorial: Building the Letter "O" from Two Contours</h3>
 <p>The letter "O" is the classic test case for understanding contour structure in font design. It requires exactly two contours: the outer oval (counter-clockwise, the positive shape) and the inner counter-oval (clockwise, the hole). This tutorial builds a simplified circular "O" from scratch using <code>flContour</code> and <code>flNode</code>, demonstrating the key concepts of contour construction, node types, smooth nodes, and winding direction.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flContour</span><span class="p">,</span> <span class="n">flNode</span>
@@ -2503,9 +2503,9 @@
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done! The letter O has been rebuilt.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flContour--common-scripting-patterns">Common Scripting Patterns</h4>
+<h3 id="fontlab.flContour--common-scripting-patterns">Common Scripting Patterns</h3>
 <p>These self-contained examples solve the tasks that come up most often when working with contours in scripts.</p>
-<h5 id="fontlab.flContour--reverse-winding-direction-of-all-counter-shapes">Reverse winding direction of all counter-shapes</h5>
+<h4 id="fontlab.flContour--reverse-winding-direction-of-all-counter-shapes">Reverse winding direction of all counter-shapes</h4>
 <p>When importing outlines, the winding direction can come in wrong. This script identifies any clockwise outer contour (which should be counter-clockwise) and any counter-clockwise inner contour (which should be clockwise) and fixes them. The heuristic used here is area: the largest contour by area is assumed to be the outer shape.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2535,7 +2535,7 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flContour--find-all-open-contours-in-the-font">Find all open contours in the font</h5>
+<h4 id="fontlab.flContour--find-all-open-contours-in-the-font">Find all open contours in the font</h4>
 <p>Open contours are usually unintentional in a production font. This script lists every open contour by glyph name so you can investigate and close them.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2563,7 +2563,7 @@
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No open contours found.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flContour--add-extremum-nodes-to-all-contours">Add extremum nodes to all contours</h5>
+<h4 id="fontlab.flContour--add-extremum-nodes-to-all-contours">Add extremum nodes to all contours</h4>
 <p>Extremum nodes — points at the topmost, bottommost, leftmost, and rightmost positions of a curve — are required for correct PostScript hinting. This script inserts them where they are missing by using <code>insertNodeTo</code> at the parametric position of each extremum.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2586,7 +2586,7 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flContour--simplify-all-contours-by-removing-redundant-nodes">Simplify all contours by removing redundant nodes</h5>
+<h4 id="fontlab.flContour--simplify-all-contours-by-removing-redundant-nodes">Simplify all contours by removing redundant nodes</h4>
 <p>After auto-tracing or importing from SVG, outlines often contain far too many nodes. This script applies the <code>simplify</code> method to each contour to reduce node count while preserving the visual shape within a tolerance of 1 em unit.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2609,7 +2609,7 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flContour--check-contour-compatibility-across-masters-for-variable-fonts">Check contour compatibility across masters for variable fonts</h5>
+<h4 id="fontlab.flContour--check-contour-compatibility-across-masters-for-variable-fonts">Check contour compatibility across masters for variable fonts</h4>
 <p>Variable font masters must have the same number and type of nodes on each corresponding contour. This script compares the first two masters of a variable font and reports any incompatible glyphs.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2635,7 +2635,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;INCOMPATIBLE </span><span class="si">{</span><span class="n">glyph</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> contour </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: &quot;</span>
                   <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ca</span><span class="o">.</span><span class="n">nodesCount</span><span class="si">}</span><span class="s2"> vs </span><span class="si">{</span><span class="n">cb</span><span class="o">.</span><span class="n">nodesCount</span><span class="si">}</span><span class="s2"> nodes&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flContour--flcontourfiguretype">flContour.FigureType</h4>
+<h3 id="fontlab.flContour--flcontourfiguretype">flContour.FigureType</h3>
 <p>Use the <code>flContour.FigureType</code> dictionary with subscription.</p>
 <table>
 <thead>

@@ -2364,7 +2364,7 @@
 
 
         <p>A TrueType hinting instruction.</p>
-<h4 id="fontlab.flTTHCommand--what-is-fltthcommand">What is flTTHCommand?</h4>
+<h3 id="fontlab.flTTHCommand--what-is-fltthcommand">What is flTTHCommand?</h3>
 <p>TrueType fonts can contain a hint program — a small sequence of instructions embedded in each glyph that tells the rasterizer how to snap outlines to the pixel grid at small display sizes. Each individual instruction in that program is one <code>flTTHCommand</code>.</p>
 <p>The instructions you will most commonly see are:
 - <strong>Align</strong> — snap a single point to a zone boundary (e.g. snap the top of 'x' to the x-height zone)
@@ -2372,7 +2372,7 @@
 - <strong>Double Link</strong> — constrain three points so that the stem width is centred on the midpoint
 - <strong>Delta</strong> — a manual pixel-level correction at a specific PPEM size (e.g. "at 11px, move this node 1/8 pixel to the right")</p>
 <p>Most designers using FontLab's automatic TrueType hinting will not need to create <code>flTTHCommand</code> objects manually — the autohinting engine handles this. But if you are auditing, exporting, or modifying TT hints programmatically, these are the objects you work with.</p>
-<h4 id="fontlab.flTTHCommand--tutorial">Tutorial</h4>
+<h3 id="fontlab.flTTHCommand--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2444,8 +2444,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Font-wide TT hints: &quot;</span>
       <span class="sa">f</span><span class="s2">&quot;V=</span><span class="si">{</span><span class="n">v_count</span><span class="si">}</span><span class="s2">  H=</span><span class="si">{</span><span class="n">h_count</span><span class="si">}</span><span class="s2">  Deltas=</span><span class="si">{</span><span class="n">d_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flTTHCommand--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flTTHCommand--count-tt-hints-per-glyph">Count TT hints per glyph</h5>
+<h3 id="fontlab.flTTHCommand--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flTTHCommand--count-tt-hints-per-glyph">Count TT hints per glyph</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2455,7 +2455,7 @@
     <span class="k">if</span> <span class="n">cmds</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">glyph</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span><span class="si">}</span><span class="s2"> hint(s)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flTTHCommand--find-all-glyphs-with-delta-corrections">Find all glyphs with delta corrections</h5>
+<h4 id="fontlab.flTTHCommand--find-all-glyphs-with-delta-corrections">Find all glyphs with delta corrections</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2465,7 +2465,7 @@
     <span class="k">if</span> <span class="n">deltas</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">glyph</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">deltas</span><span class="p">)</span><span class="si">}</span><span class="s2"> delta(s)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flTTHCommand--list-all-point-names-used-in-tt-hints-for-a-glyph">List all point names used in TT hints for a glyph</h5>
+<h4 id="fontlab.flTTHCommand--list-all-point-names-used-in-tt-hints-for-a-glyph">List all point names used in TT hints for a glyph</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span>  <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

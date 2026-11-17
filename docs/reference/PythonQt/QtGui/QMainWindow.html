@@ -2395,8 +2395,8 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtGui.QMainWindow--detailed-description">Detailed Description</h4>
-<h5 id="PythonQt.QtGui.QMainWindow--qt-main-window-framework">Qt Main Window Framework</h5>
+<h3 id="PythonQt.QtGui.QMainWindow--detailed-description">Detailed Description</h3>
+<h4 id="PythonQt.QtGui.QMainWindow--qt-main-window-framework">Qt Main Window Framework</h4>
 <p>A main window provides a framework for building an application's user interface. Qt has
 QMainWindow and its <a href="https://doc.qt.io/archives/qt-5.15/widget-classes.html#main-window-and-related-classes">related
 classes</a>
@@ -2410,7 +2410,7 @@ layout below.</p>
 <p><img alt="" src="https://doc.qt.io/archives/qt-5.15/images/mainwindowlayout.png" /></p>
 <p><strong>Note:</strong> Creating a main window without a central widget is not supported. You must
 have a central widget even if it is just a placeholder.</p>
-<h5 id="PythonQt.QtGui.QMainWindow--creating-main-window-components">Creating Main Window Components</h5>
+<h4 id="PythonQt.QtGui.QMainWindow--creating-main-window-components">Creating Main Window Components</h4>
 <p>A central widget will typically be a standard Qt widget such as a
 <a href="https://doc.qt.io/archives/qt-5.15/qtextedit.html">QTextEdit</a> or a
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicsview.html">QGraphicsView</a>. Custom widgets
@@ -2421,7 +2421,7 @@ MDI applications in Qt by using a
 <a href="https://doc.qt.io/archives/qt-5.15/qmdiarea.html">QMdiArea</a> as the central widget.</p>
 <p>We will now examine each of the other widgets that can be added to a main window. We
 give examples on how to create and add them.</p>
-<h6 id="PythonQt.QtGui.QMainWindow--creating-menus">Creating Menus</h6>
+<h5 id="PythonQt.QtGui.QMainWindow--creating-menus">Creating Menus</h5>
 <p>Qt implements menus in <a href="https://doc.qt.io/archives/qt-5.15/qmenu.html">QMenu</a> and
 QMainWindow keeps them in a
 <a href="https://doc.qt.io/archives/qt-5.15/qmenubar.html">QMenuBar</a>.
@@ -2447,7 +2447,7 @@ with <code>setMenuWidget()</code>.</p>
 context menu events. The default implementation generates a menu with the checkable
 actions from the dock widgets and toolbars. You can reimplement <code>createPopupMenu()</code> for
 a custom menu.</p>
-<h6 id="PythonQt.QtGui.QMainWindow--creating-toolbars">Creating Toolbars</h6>
+<h5 id="PythonQt.QtGui.QMainWindow--creating-toolbars">Creating Toolbars</h5>
 <p>Toolbars are implemented in the
 <a href="https://doc.qt.io/archives/qt-5.15/qtoolbar.html">QToolBar</a> class. You add a toolbar to
 a main window with <code>addToolBar()</code>.</p>
@@ -2468,7 +2468,7 @@ of all tool buttons in the toolbars with <code>setToolButtonStyle()</code>.</p>
         fileToolBar = addToolBar(tr(&quot;File&quot;));
         fileToolBar-&gt;addAction(newAct);
 </code></pre></div>
-<h6 id="PythonQt.QtGui.QMainWindow--creating-dock-widgets">Creating Dock Widgets</h6>
+<h5 id="PythonQt.QtGui.QMainWindow--creating-dock-widgets">Creating Dock Widgets</h5>
 <p>Dock widgets are implemented in the
 <a href="https://doc.qt.io/archives/qt-5.15/qdockwidget.html">QDockWidget</a> class. A dock widget
 is a window that can be docked into the main window. You add dock widgets to a main
@@ -2489,12 +2489,12 @@ of the widgets should be displayed.</p>
     dockWidget-&gt;setWidget(dockWidgetContents);
     addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
 </code></pre></div>
-<h6 id="PythonQt.QtGui.QMainWindow--the-status-bar">The Status Bar</h6>
+<h5 id="PythonQt.QtGui.QMainWindow--the-status-bar">The Status Bar</h5>
 <p>You can set a status bar with <code>setStatusBar()</code>, but one is created the first time
 <code>statusBar()</code> (which returns the main window's status bar) is called. See
 <a href="https://doc.qt.io/archives/qt-5.15/qstatusbar.html">QStatusBar</a> for information on how
 to use it.</p>
-<h5 id="PythonQt.QtGui.QMainWindow--storing-state">Storing State</h5>
+<h4 id="PythonQt.QtGui.QMainWindow--storing-state">Storing State</h4>
 <p>QMainWindow can store the state of its layout with <code>saveState()</code>; it can later be
 retrieved with <code>restoreState()</code>. It is the position and size (relative to the size of
 the main window) of the toolbars and dock widgets that are stored.</p>

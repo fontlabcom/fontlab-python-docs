@@ -2342,11 +2342,11 @@
 
 
         <p>Canvas-transform-aware info object.</p>
-<h4 id="fontlab.flGraphicsInfo--what-is-flgraphicsinfo">What is flGraphicsInfo?</h4>
+<h3 id="fontlab.flGraphicsInfo--what-is-flgraphicsinfo">What is flGraphicsInfo?</h3>
 <p><code>flGraphicsInfo</code> extends <code>flSearchInfo</code> with the one thing that makes canvas rendering possible: the transformation matrix (<code>transform</code>) that maps from glyph-space coordinates (font units) to canvas-space coordinates (screen pixels at the current zoom level).</p>
 <p>Once you have an <code>flGraphicsInfo</code>, you can convert any glyph-space point to its screen position by applying the transform. Conversely, you can map screen coordinates back to glyph coordinates using the inverse transform. Every shape, contour, and node info object inherits from <code>flGraphicsInfo</code>, which is why all of them can answer "where on screen am I?".</p>
 <p>Most scripting that works with canvas positions will receive <code>flGraphicsInfo</code> (or one of its subclasses like <code>flShapeInfo</code>, <code>flContourInfo</code>, or <code>flNodeInfo</code>) back from a query method rather than constructing one directly.</p>
-<h4 id="fontlab.flGraphicsInfo--tutorial">Tutorial</h4>
+<h3 id="fontlab.flGraphicsInfo--tutorial">Tutorial</h3>
 <p>The <code>transform</code> property is the bridge between the mathematical world of font units and the visual world of the screen. Here is how to use it to map points between the two coordinate systems.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2390,8 +2390,8 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Canvas (</span><span class="si">{</span><span class="n">canvas_pt</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">canvas_pt</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">) &quot;</span>
           <span class="sa">f</span><span class="s2">&quot;→ Glyph (</span><span class="si">{</span><span class="n">back</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">back</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flGraphicsInfo--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flGraphicsInfo--get-the-canvas-zoom-level-from-a-shapes-transform">Get the canvas zoom level from a shape's transform</h5>
+<h3 id="fontlab.flGraphicsInfo--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flGraphicsInfo--get-the-canvas-zoom-level-from-a-shapes-transform">Get the canvas zoom level from a shape's transform</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>

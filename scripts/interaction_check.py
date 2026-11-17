@@ -108,7 +108,7 @@ TARGETS_JS = """() => {
   }
   const root = document.querySelector('.md-content,main,[role="main"]');
   const start = skip && document.getElementById(decodeURIComponent(skip.hash.slice(1)));
-  const content = root && [...root.querySelectorAll('a[href]')].find(a => focusable(a) &&
+  const content = root && [...root.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')].find(a => focusable(a) &&
     (!start || start === a || start.compareDocumentPosition(a) & Node.DOCUMENT_POSITION_FOLLOWING));
   return {skip: mark('skip', skip), search: mark('search', searches.find(focusable)),
     nav: mark('nav', nav), nav_panel: panel, content: mark('content', content)};
@@ -433,7 +433,11 @@ def tab_walk(page: Page) -> dict:
 
 
 def content_via_skip(page: Page, base: str, route: str) -> bool:
-    """Skip link + Enter, then one Tab must land on the first content link."""
+    """Skip link + Enter, then one Tab must land on the first focusable content element.
+
+    Reference prose can open with code blocks whose copy buttons come before
+    any link; the skip link must still lead straight to that first control.
+    """
     goto(page, base, route)
     page.evaluate(TARGETS_JS)
     page.keyboard.press("Tab")

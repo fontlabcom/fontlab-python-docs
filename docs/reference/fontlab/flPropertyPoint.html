@@ -2353,10 +2353,10 @@
 
 
         <p>2-D point axis-driven attribute.</p>
-<h4 id="fontlab.flPropertyPoint--what-is-flpropertypoint">What is flPropertyPoint?</h4>
+<h3 id="fontlab.flPropertyPoint--what-is-flpropertypoint">What is flPropertyPoint?</h3>
 <p><code>flPropertyPoint</code> is like <code>flPropertyDouble</code> but for a 2-D coordinate (x and y together). Guideline positions and anchor positions can be driven by separate formula expressions for their x and y components. <code>flPropertyPoint</code> holds both component expressions and the current evaluated point value.</p>
 <p>The <code>paramType</code> property controls how the x and y values are interpreted — whether they represent an absolute coordinate, a delta from the default position, or an angle-and-distance pair. In most scripting contexts, <code>paramType</code> does not need to be changed.</p>
-<h4 id="fontlab.flPropertyPoint--tutorial">Tutorial</h4>
+<h3 id="fontlab.flPropertyPoint--tutorial">Tutorial</h3>
 <p><code>flPropertyPoint</code> is most commonly encountered when inspecting formula-driven guideline or anchor positions.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2397,8 +2397,8 @@
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Point property &#39;</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">&#39;: (</span><span class="si">{</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)  &quot;</span>
                   <span class="sa">f</span><span class="s2">&quot;formula-driven=</span><span class="si">{</span><span class="n">has_expr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flPropertyPoint--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flPropertyPoint--list-all-formula-driven-guideline-positions">List all formula-driven guideline positions</h5>
+<h3 id="fontlab.flPropertyPoint--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flPropertyPoint--list-all-formula-driven-guideline-positions">List all formula-driven guideline positions</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2407,7 +2407,7 @@
     <span class="k">if</span> <span class="n">expr</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">gl</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: formula=&#39;</span><span class="si">{</span><span class="n">expr</span><span class="si">}</span><span class="s2">&#39;  pos=</span><span class="si">{</span><span class="n">gl</span><span class="o">.</span><span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flPropertyPoint--flpropertypointparametertype">flPropertyPoint.ParameterType</h4>
+<h3 id="fontlab.flPropertyPoint--flpropertypointparametertype">flPropertyPoint.ParameterType</h3>
 <p>Use the <code>flPropertyPoint.ParameterType</code> dictionary with subscription.</p>
 <table>
 <thead>

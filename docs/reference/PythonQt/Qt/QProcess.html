@@ -2356,8 +2356,8 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QProcess--detailed-description">Detailed Description</h4>
-<h5 id="PythonQt.Qt.QProcess--running-a-process">Running a Process</h5>
+<h3 id="PythonQt.Qt.QProcess--detailed-description">Detailed Description</h3>
+<h4 id="PythonQt.Qt.QProcess--running-a-process">Running a Process</h4>
 <p>To start a process, pass the name and command line arguments of the program you want to
 run as arguments to <a href="https://doc.qt.io/archives/qt-5.15/qprocess.html#start">start</a>().
 Arguments are supplied as individual strings in a
@@ -2416,7 +2416,7 @@ process state.</p>
 <p><strong>Note:</strong> QProcess is not supported on
 <a href="https://doc.qt.io/archives/qt-5.15/vxworks.html">VxWorks</a>, iOS, tvOS, watchOS, or the
 Universal Windows Platform.</p>
-<h5 id="PythonQt.Qt.QProcess--communicating-via-channels">Communicating via Channels</h5>
+<h4 id="PythonQt.Qt.QProcess--communicating-via-channels">Communicating via Channels</h4>
 <p>Processes have two predefined output channels: The standard output channel (<code>stdout</code>)
 supplies regular console output, and the standard error channel (<code>stderr</code>) usually
 supplies the errors that are printed by the process. These channels represent two
@@ -2466,7 +2466,7 @@ By default, processes are run in the current working directory of the calling pr
 with QProcess are controlled by the underlying windowing system. For Qt 5 applications,
 the positioning can be specified using the <code>-qwindowgeometry</code> command line option; X11
 applications generally accept a <code>-geometry</code> command line option.</p>
-<h5 id="PythonQt.Qt.QProcess--synchronous-process-api">Synchronous Process API</h5>
+<h4 id="PythonQt.Qt.QProcess--synchronous-process-api">Synchronous Process API</h4>
 <p>QProcess provides a set of functions which allow it to be used without an event loop, by
 suspending the calling thread until certain signals are emitted:</p>
 <ul>
@@ -2493,7 +2493,7 @@ loop:</p>
 
     QByteArray result = gzip.readAll();
 </code></pre></div>
-<h5 id="PythonQt.Qt.QProcess--notes-for-windows-users">Notes for Windows Users</h5>
+<h4 id="PythonQt.Qt.QProcess--notes-for-windows-users">Notes for Windows Users</h4>
 <p>Some Windows commands (for example, <code>dir</code>) are not provided by separate applications,
 but by the command interpreter itself. If you attempt to use QProcess to execute these
 commands directly, it won't work. One possible solution is to execute the command

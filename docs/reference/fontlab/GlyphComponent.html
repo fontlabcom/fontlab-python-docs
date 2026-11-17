@@ -2364,11 +2364,11 @@
 
 
         <p>A component reference inside a composite glyph.</p>
-<h4 id="fontlab.GlyphComponent--what-is-glyphcomponent">What is GlyphComponent?</h4>
+<h3 id="fontlab.GlyphComponent--what-is-glyphcomponent">What is GlyphComponent?</h3>
 <p>A <strong>composite glyph</strong> is a glyph whose shapes are built entirely from references to other glyphs, rather than containing its own outlines. For example, the "é" (e-acute) glyph in most fonts does not contain its own curves — instead, it contains two component references: one to the "e" base glyph and one to "acutecomb" (the combining acute accent).</p>
 <p>Each of those references is a <code>GlyphComponent</code>. It identifies the base glyph (by name or ID), specifies where to place it (through a transform matrix), and optionally says whether to use anchor-to-anchor alignment instead of a fixed transform.</p>
 <p><code>GlyphComponent</code> is the data object describing the reference. On the canvas, each component appears as an <code>flShape</code> with <code>isComponent == True</code>, and <code>shape.component</code> gives you the <code>GlyphComponent</code> data.</p>
-<h4 id="fontlab.GlyphComponent--tutorial">Tutorial</h4>
+<h3 id="fontlab.GlyphComponent--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTransform</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">GlyphComponent</span>
@@ -2449,8 +2449,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  &#39;e&#39; component: use_anchors=</span><span class="si">{</span><span class="n">comp_e</span><span class="o">.</span><span class="n">use_anchors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  &#39;acutecomb&#39; component: use_anchors=</span><span class="si">{</span><span class="n">comp_acute</span><span class="o">.</span><span class="n">use_anchors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.GlyphComponent--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.GlyphComponent--count-composites-and-simple-glyphs">Count composites and simple glyphs</h5>
+<h3 id="fontlab.GlyphComponent--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.GlyphComponent--count-composites-and-simple-glyphs">Count composites and simple glyphs</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2468,7 +2468,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simple: </span><span class="si">{</span><span class="n">simple</span><span class="si">}</span><span class="s2">  Composites: </span><span class="si">{</span><span class="n">composites</span><span class="si">}</span><span class="s2">  &quot;</span>
       <span class="sa">f</span><span class="s2">&quot;Total: </span><span class="si">{</span><span class="n">composites</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">simple</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.GlyphComponent--find-all-composites-that-use-a-specific-base-glyph">Find all composites that use a specific base glyph</h5>
+<h4 id="fontlab.GlyphComponent--find-all-composites-that-use-a-specific-base-glyph">Find all composites that use a specific base glyph</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span>    <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2483,7 +2483,7 @@
             <span class="k">if</span> <span class="n">comp</span> <span class="ow">and</span> <span class="n">comp</span><span class="o">.</span><span class="n">name_id</span> <span class="o">==</span> <span class="n">base_id</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">glyph</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; uses &#39;</span><span class="si">{</span><span class="n">base</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; as a component&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.GlyphComponent--switch-all-composites-from-transform-based-to-anchor-based-positioning">Switch all composites from transform-based to anchor-based positioning</h5>
+<h4 id="fontlab.GlyphComponent--switch-all-composites-from-transform-based-to-anchor-based-positioning">Switch all composites from transform-based to anchor-based positioning</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

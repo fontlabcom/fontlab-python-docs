@@ -2364,7 +2364,7 @@
 
 
         <p>A single font audit finding.</p>
-<h4 id="fontlab.FaBasicPtr--what-is-fabasic">What is FaBasic?</h4>
+<h3 id="fontlab.FaBasicPtr--what-is-fabasic">What is FaBasic?</h3>
 <p>When you run FontLab's font audit (the grid of checkmarks in Font Window → Font Audit), the engine inspects every glyph for common outline problems: open contours, reversed winding, nearly-straight curves that should be lines, extremum nodes that are missing, and so on. Each detected problem is an <code>FaBasic</code> record.</p>
 <p>In scripts, you access <code>FaBasic</code> records through <code>flAuditInfo.basic</code>. The most useful scripting workflow is:
 1. Run the audit (open the Font Audit panel to populate results).
@@ -2372,7 +2372,7 @@
 3. For each auto-fixable finding (<code>canBeFixed == True</code>), call <code>fix()</code>.
 4. Call <code>fl.Update()</code> to refresh the display.</p>
 <p><em>(Registered as <code>FaBasicPtr</code> in source; Python sees it as <code>FaBasic</code>)</em></p>
-<h4 id="fontlab.FaBasicPtr--tutorial">Tutorial</h4>
+<h3 id="fontlab.FaBasicPtr--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="c1"># ============================================================</span>
@@ -2415,8 +2415,8 @@
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Audit review complete.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.FaBasicPtr--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.FaBasicPtr--print-a-full-audit-report-for-a-glyph">Print a full audit report for a glyph</h5>
+<h3 id="fontlab.FaBasicPtr--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.FaBasicPtr--print-a-full-audit-report-for-a-glyph">Print a full audit report for a glyph</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="c1"># After running the audit panel:</span>
@@ -2427,7 +2427,7 @@
 <span class="c1">#         b = ai.basic</span>
 <span class="c1">#         print(f&quot;[{glyph.name}] {b.title} — {b.report}&quot;)</span>
 </code></pre></div>
-<h5 id="fontlab.FaBasicPtr--auto-fix-all-fixable-issues-across-the-whole-font">Auto-fix all fixable issues across the whole font</h5>
+<h4 id="fontlab.FaBasicPtr--auto-fix-all-fixable-issues-across-the-whole-font">Auto-fix all fixable issues across the whole font</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="c1"># font = fl.CurrentFont()</span>
@@ -2441,7 +2441,7 @@
 <span class="c1"># fl.Update()</span>
 <span class="c1"># print(f&quot;Auto-fixed {fixed_count} issues.&quot;)</span>
 </code></pre></div>
-<h5 id="fontlab.FaBasicPtr--sort-audit-issues-by-priority">Sort audit issues by priority</h5>
+<h4 id="fontlab.FaBasicPtr--sort-audit-issues-by-priority">Sort audit issues by priority</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># issues = [ai.basic for ai in layer.auditResults()]</span>
 <span class="c1"># issues.sort(key=lambda b: b.priority, reverse=True)</span>
 <span class="c1"># for b in issues:</span>

@@ -2386,10 +2386,10 @@
 
 
         <p>Interactive Bounding Frame.</p>
-<h4 id="fontlab.TransformFrame--what-is-transformframe">What is TransformFrame?</h4>
+<h3 id="fontlab.TransformFrame--what-is-transformframe">What is TransformFrame?</h3>
 <p>The <code>TransformFrame</code> is the rectangular selection bounding box you see in FontLab when you choose the Transform tool and select objects. It has eight handles (four corners plus four mid-edge points) that you can drag to scale, rotate, slant, or reflect the selected content. The box can be freely rotated, so it is not always axis-aligned.</p>
 <p>In scripts, <code>TransformFrame</code> lets you compute what transform to apply based on dragging one handle to a new position — essentially implementing the math behind FontLab's Transform tool in your own scripts. You build a frame, manipulate it, then call <code>getTransform()</code> to get the resulting <code>QTransform</code> that you apply to the actual geometry.</p>
-<h4 id="fontlab.TransformFrame--handle-query-methods">Handle Query Methods</h4>
+<h3 id="fontlab.TransformFrame--handle-query-methods">Handle Query Methods</h3>
 <table>
 <thead>
 <tr>
@@ -2448,7 +2448,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.TransformFrame--transformation-methods">Transformation Methods</h4>
+<h3 id="fontlab.TransformFrame--transformation-methods">Transformation Methods</h3>
 <table>
 <thead>
 <tr>
@@ -2527,7 +2527,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.TransformFrame--corner-properties">Corner Properties</h4>
+<h3 id="fontlab.TransformFrame--corner-properties">Corner Properties</h3>
 <table>
 <thead>
 <tr>
@@ -2570,7 +2570,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.TransformFrame--tutorial">Tutorial</h4>
+<h3 id="fontlab.TransformFrame--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformFrame</span>
@@ -2634,8 +2634,8 @@
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done — shape scaled 2× horizontally.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.TransformFrame--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.TransformFrame--rotate-a-shape-45-degrees-around-its-centre">Rotate a shape 45 degrees around its centre</h5>
+<h3 id="fontlab.TransformFrame--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.TransformFrame--rotate-a-shape-45-degrees-around-its-centre">Rotate a shape 45 degrees around its centre</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformFrame</span>
@@ -2658,7 +2658,7 @@
 <span class="n">shape</span><span class="o">.</span><span class="n">transformBy</span><span class="p">(</span><span class="n">frame</span><span class="o">.</span><span class="n">getTransform</span><span class="p">())</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.TransformFrame--mirror-a-shape-horizontally">Mirror a shape horizontally</h5>
+<h4 id="fontlab.TransformFrame--mirror-a-shape-horizontally">Mirror a shape horizontally</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformFrame</span>

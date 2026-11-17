@@ -2283,9 +2283,7 @@
     <div class="doc doc-contents first">
 
         <p>Install PyPI or <code>git+</code> packages into FontLab's site-packages with uv.</p>
-<p>Uses <code>uv pip install --target &lt;site-packages&gt; --python-version 3.11
---python-platform &lt;triple&gt;</code> so packages match FontLab's embedded Python,
-whatever Python runs instamix.</p>
+<p>Installs through a verified standalone interpreter into the shared canonical site.</p>
 
 
 
@@ -2334,25 +2332,31 @@ whatever Python runs instamix.</p>
 <tr>
 <td><span id="fontlab_instamix.packages.install"></span><a href="packages/members-001.html#fontlab_instamix.packages.install"><code>install</code></a></td>
 <td>function</td>
-<td><code>(data: Path, specs: list&#91;str&#93;, &#42;, upgrade: bool=False, uv&#95;bin: Path &#124; None=None, runner=subprocess.run) -&gt; su…</code></td>
+<td><code>(data: Path, specs: list&#91;str&#93;, &#42;, upgrade: bool=False, uv&#95;bin: Path &#124; None=None, runner=subprocess.run, targe…</code></td>
 <td>Install <code>&lt;code&gt;specs&lt;/code&gt;&lt;code&gt; into &lt;/code&gt;&lt;code&gt;&amp;lt;data&amp;gt;/python/3.11/site-packages&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.packages.install_args"></span><a href="packages/members-001.html#fontlab_instamix.packages.install_args"><code>install_args</code></a></td>
 <td>function</td>
-<td><code>(data: Path, specs: list&#91;str&#93;, &#42;, upgrade: bool=False) -&gt; list&#91;str&#93;</code></td>
+<td><code>(data: Path, specs: list&#91;str&#93;, &#42;, upgrade: bool=False, target: env.Target &#124; None=None) -&gt; list&#91;str&#93;</code></td>
 <td>Uv arguments (without the uv binary) for installing <code>&lt;code&gt;specs&lt;/code&gt;</code>.</td>
+</tr>
+<tr>
+<td><span id="fontlab_instamix.packages.install_packages"></span><a href="packages/members-001.html#fontlab_instamix.packages.install_packages"><code>install_packages</code></a></td>
+<td>function</td>
+<td><code>(&#42;specs: str, data: Path &#124; None=None) -&gt; subprocess.CompletedProcess</code></td>
+<td>Install distribution requirements for a script; existing imports are not reloaded.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.packages.listed"></span><a href="packages/members-001.html#fontlab_instamix.packages.listed"><code>listed</code></a></td>
 <td>function</td>
-<td><code>(data: Path) -&gt; list&#91;tuple&#91;str, str&#93;&#93;</code></td>
+<td><code>(data: Path, &#42;, target: env.Target &#124; None=None) -&gt; list&#91;tuple&#91;str, str&#93;&#93;</code></td>
 <td><code>&lt;code&gt;(name, version)&lt;/code&gt;</code> of every distribution in site-packages.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.packages.uninstall"></span><a href="packages/members-001.html#fontlab_instamix.packages.uninstall"><code>uninstall</code></a></td>
 <td>function</td>
-<td><code>(data: Path, name: str) -&gt; list&#91;str&#93;</code></td>
+<td><code>(data: Path, name: str, &#42;, target: env.Target &#124; None=None) -&gt; list&#91;str&#93;</code></td>
 <td>Remove a distribution installed with <code>&lt;code&gt;--target&lt;/code&gt;</code> using its RECORD.</td>
 </tr>
 </tbody>

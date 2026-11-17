@@ -57,8 +57,10 @@ REPOSITORY_URL = re.compile(rb"github\.com[/:](fontlabcom|fontlaborg)/([A-Za-z0-
 # Reviewed public repositories that the site may link (visibility checked with gh api).
 PUBLIC_REPOSITORIES = {
     "fontlabcom/extend-fontlab",
+    "fontlabcom/fontlab-aidus-agentus",
     "fontlabcom/fontlab-python-docs",
     "fontlabcom/fontlab-python-examples",
+    "fontlabcom/fontlab-python-instamix",
     "fontlabcom/fontlab-python-scriptmix",
     "fontlabcom/typerig-lib",
 }

@@ -2420,39 +2420,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#typerig.core.func.geometry.squircle_fit_smoothing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        squircle_fit_smoothing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#typerig.core.func.geometry.squircle_sample_chain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        squircle_sample_chain
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#typerig.core.func.geometry.squircle_stroke_side" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        squircle_stroke_side
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2890,87 +2857,6 @@ segments (ease-in, arc, ease-out), 4 on-curve and 6 off-curve points.</p>
 <p>Returns:
         list(tuple(x, y)) -&gt; [A, c, c, arc_in, c, c, arc_out, c, c, B], A on the
         incoming edge, B on the outgoing edge; or None for a degenerate corner.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.func.geometry.squircle_fit_smoothing" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">squircle_fit_smoothing</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">squircle_fit_smoothing</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">vertex</span><span class="p">,</span> <span class="n">prev_unit</span><span class="p">,</span> <span class="n">next_unit</span><span class="p">,</span> <span class="n">reach</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Inverse of squircle_corner: find the smoothing whose squircle (at the given reach)
-best matches a drawn corner [A, c, c, arc_in, c, c, arc_out, c, c, B].</p>
-<p>Args:
-        points -&gt; list(tuple(x, y)): the drawn corner's 10 points;
-        vertex, prev_unit, next_unit, reach -&gt; as squircle_corner.</p>
-<p>Returns:
-        tuple(smoothing, rms_error): the best-fit smoothing (0.0 - 1.0) and the RMS
-        deviation (design units) of that fit.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.func.geometry.squircle_sample_chain" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">squircle_sample_chain</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">squircle_sample_chain</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Sample a chain of cubic segments [on, off, off, on, off, off, on, ...] into a
-flat list of (x, y) points, steps subdivisions per segment. Companion to
-squircle_corner for measuring a drawn corner against a candidate squircle.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="typerig.core.func.geometry.squircle_stroke_side" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">squircle_stroke_side</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">squircle_stroke_side</span><span class="p">(</span><span class="n">outer_reach</span><span class="p">,</span> <span class="n">stroke</span><span class="p">,</span> <span class="n">smoothing</span><span class="p">,</span> <span class="n">half_angle</span><span class="p">,</span> <span class="n">side</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Reach and arc radius for one side of a single stroked skeleton squircle corner.</p>
-<p>The outer and inner sides share one skeleton (same arc centre and sweep); offsetting
-the skeleton edges by half the stroke moves each tangent point by
-half_stroke / tan(half_angle). Feed the result to squircle_corner (reach + explicit
-radius) to build that side so outer and inner on-curve nodes share normals.</p>
-<p>Args:
-        outer_reach -&gt; float: reach of the OUTER side (vertex -&gt; where the edge ends);
-        stroke -&gt; float: distance between the outer and inner sides (0 = standalone);
-        smoothing -&gt; float: corner smoothing 0.0 - 1.0;
-        half_angle -&gt; float: half the interior corner angle (radians);
-        side -&gt; int: +1 outer, -1 inner.</p>
-<p>Returns:
-        tuple(reach, radius) for the requested side.</p>
 
 
     </div>

@@ -2385,7 +2385,7 @@
 
 
 
-        <h4 id="fontlab.flInstance--what-is-a-named-instance">What is a named instance?</h4>
+        <h3 id="fontlab.flInstance--what-is-a-named-instance">What is a named instance?</h3>
 <p>A named instance is a preset — a specific location in design space that you've given a name to, like "Regular", "Bold", "Light Italic", or "SemiBold Condensed". Named instances are the styles that end users see in their font menu when they install your variable font. They're also what get exported as separate font files when you generate a family of static fonts from your variable font source.</p>
 <p>Each named instance has:
 - A <strong>name</strong> (the style name the user sees)
@@ -2398,7 +2398,7 @@
 - Bold: <code>{wght: 700, wdth: 100}</code>
 - Condensed: <code>{wght: 400, wdth: 75}</code>
 - Bold Condensed: <code>{wght: 700, wdth: 75}</code></p>
-<h4 id="fontlab.flInstance--tutorial">Tutorial</h4>
+<h3 id="fontlab.flInstance--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flAxis</span><span class="p">,</span> <span class="n">flInstance</span><span class="p">,</span> <span class="n">flLocation</span>
 
@@ -2541,8 +2541,8 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flInstance--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flInstance--print-a-full-instance-summary">Print a full instance summary</h5>
+<h3 id="fontlab.flInstance--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flInstance--print-a-full-instance-summary">Print a full instance summary</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Print every instance with its full location and naming info.</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2555,7 +2555,7 @@
     <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">inst</span><span class="o">.</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;25</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">loc_str</span><span class="si">:</span><span class="s2">&lt;35</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">inst</span><span class="o">.</span><span class="n">exportable</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flInstance--add-a-second-axis-width-to-an-existing-variable-font">Add a second axis (Width) to an existing variable font</h5>
+<h4 id="fontlab.flInstance--add-a-second-axis-width-to-an-existing-variable-font">Add a second axis (Width) to an existing variable font</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flAxis</span>
 
@@ -2570,14 +2570,14 @@
 <span class="n">font</span><span class="o">.</span><span class="n">addAxis</span><span class="p">(</span><span class="n">wd_axis</span><span class="p">)</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flInstance--mark-all-instances-as-exportable">Mark all instances as exportable</h5>
+<h4 id="fontlab.flInstance--mark-all-instances-as-exportable">Mark all instances as exportable</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">inst</span> <span class="ow">in</span> <span class="n">font</span><span class="o">.</span><span class="n">instances</span><span class="p">:</span>
     <span class="n">inst</span><span class="o">.</span><span class="n">exportable</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flInstance--find-which-instances-are-on-the-edge-of-any-axis">Find which instances are on the edge of any axis</h5>
+<h4 id="fontlab.flInstance--find-which-instances-are-on-the-edge-of-any-axis">Find which instances are on the edge of any axis</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Identify instances that sit at the min or max of at least one axis.</span>
 <span class="c1"># These are typically the &quot;extreme&quot; masters or corner instances.</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2593,7 +2593,7 @@
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">inst</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is at the edge of axis &#39;</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
                 <span class="k">break</span>
 </code></pre></div>
-<h5 id="fontlab.flInstance--normalize-all-instance-locations">Normalize all instance locations</h5>
+<h4 id="fontlab.flInstance--normalize-all-instance-locations">Normalize all instance locations</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Print the normalized axis values for every instance.</span>
 <span class="c1"># These are the values that OpenType actually interpolates.</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>

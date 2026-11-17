@@ -2341,10 +2341,22 @@ falls back to the console. <code>message</code> always prints and never opens a 
 </thead>
 <tbody>
 <tr>
+<td><span id="fontlab_instamix.gui.FILE_PATTERN"></span><a href="gui/members-001.html#fontlab_instamix.gui.FILE_PATTERN"><code>FILE_PATTERN</code></a></td>
+<td>attribute</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><span id="fontlab_instamix.gui.confirm"></span><a href="gui/members-001.html#fontlab_instamix.gui.confirm"><code>confirm</code></a></td>
 <td>function</td>
 <td><code>(text: str, title: str=&#x27;Instamix&#x27;) -&gt; bool</code></td>
 <td></td>
+</tr>
+<tr>
+<td><span id="fontlab_instamix.gui.install_selected"></span><a href="gui/members-001.html#fontlab_instamix.gui.install_selected"><code>install_selected</code></a></td>
+<td>function</td>
+<td><code>(paths: list&#91;str &#124; Path&#93; &#124; None=None, &#42;, data: Path &#124; None=None, folder: bool=False) -&gt; list&#91;dict&#93;</code></td>
+<td>Install selected extensions; report each failure and continue other selections.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.gui.message"></span><a href="gui/members-001.html#fontlab_instamix.gui.message"><code>message</code></a></td>
@@ -2355,8 +2367,20 @@ falls back to the console. <code>message</code> always prints and never opens a 
 <tr>
 <td><span id="fontlab_instamix.gui.pick_file"></span><a href="gui/members-001.html#fontlab_instamix.gui.pick_file"><code>pick_file</code></a></td>
 <td>function</td>
-<td><code>(title: str=&#x27;Choose an extension&#x27;, pattern: str=&#x27;Extensions (&#42;.fontlabextz &#42;.fontlabext)&#x27;) -&gt; str</code></td>
-<td>Return a chosen path, or an empty string when cancelled.</td>
+<td><code>(title: str=&#x27;Choose an extension&#x27;, pattern: str=FILE&#95;PATTERN) -&gt; str</code></td>
+<td>Return PythonQt's QString path, or an empty string on cancellation.</td>
+</tr>
+<tr>
+<td><span id="fontlab_instamix.gui.pick_files"></span><a href="gui/members-001.html#fontlab_instamix.gui.pick_files"><code>pick_files</code></a></td>
+<td>function</td>
+<td><code>(title: str=&#x27;Choose extensions&#x27;, pattern: str=FILE&#95;PATTERN) -&gt; list&#91;str&#93;</code></td>
+<td>Choose archives/manifests; console fallback takes one literal path per line.</td>
+</tr>
+<tr>
+<td><span id="fontlab_instamix.gui.pick_folder"></span><a href="gui/members-001.html#fontlab_instamix.gui.pick_folder"><code>pick_folder</code></a></td>
+<td>function</td>
+<td><code>(title: str=&#x27;Choose an extension folder&#x27;) -&gt; str</code></td>
+<td>Choose a .fontlabext directory without mixing folders into a file dialog.</td>
 </tr>
 </tbody>
 </table>

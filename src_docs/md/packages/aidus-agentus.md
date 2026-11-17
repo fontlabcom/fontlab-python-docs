@@ -10,7 +10,7 @@ prompts and the tool results the agent uses, so try editing on a disposable font
 first.
 
 The package is `fontlab-aidus-agentus` (import `fontlab_aidus_agentus`). It
-replaces the earlier `fontlab-aidus-code` package.
+replaces the earlier Aidus Code package.
 
 ## How it is built
 

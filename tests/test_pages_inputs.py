@@ -80,35 +80,21 @@ def test_prepare_when_member_escapes_then_stdlib_data_filter_rejects(tmp_path, m
     assert not (tmp_path / "private/escape").exists()
 
 
-def reviewed_report():
-    return {"pass": False, "findings": {"private-repository-name": [
-        {"file": "packages/plugmix.html", "match": "reviewed-installation"},
-        {"file": "search/complete/rows-" + "a" * 64 + ".json", "match": "reviewed-installation"},
-        {"file": "search/complete/rows-" + "a" * 64 + ".json.gz", "match": "reviewed-installation"},
-    ]}}
+def green_report():
+    return {"pass": True, "findings": {}}
 
 
-def test_disposition_when_exact_three_reviewed_surfaces_then_keeps_raw_exit_one(monkeypatch):
-    report = reviewed_report()
-    monkeypatch.setattr(pages_inputs, "REVIEWED_NAME_DIGEST", hashlib.sha256(b"reviewed-installation").hexdigest()[:12])
-    pages_inputs.disposition(report, 1)
-    assert report["pass"] is False
+def test_disposition_when_audit_green_then_accepts():
+    pages_inputs.disposition(green_report(), 0)
 
 
-@pytest.mark.parametrize("damage", ["exit", "pass", "extra", "name", "path", "pair", "missing", "category"])
-def test_disposition_when_boundary_broadens_then_fails(monkeypatch, damage):
-    report = reviewed_report()
-    monkeypatch.setattr(pages_inputs, "REVIEWED_NAME_DIGEST", hashlib.sha256(b"reviewed-installation").hexdigest()[:12])
-    rows = report["findings"]["private-repository-name"]
-    code = 1
-    if damage == "exit": code = 2
-    elif damage == "pass": report["pass"] = True
-    elif damage == "extra": rows.append(dict(rows[0]))
-    elif damage == "name": rows[0]["match"] = "new-private-name"
-    elif damage == "path": rows[0]["file"] = "other.html"
-    elif damage == "pair": rows[2]["file"] = "search/complete/rows-" + "b" * 64 + ".json.gz"
-    elif damage == "missing": rows.pop()
-    else: report["findings"]["credential"] = [{"file": "x", "match": "secret"}]
+@pytest.mark.parametrize("damage", ["exit", "pass", "finding", "name"])
+def test_disposition_when_not_green_then_fails(damage):
+    report, code = green_report(), 0
+    if damage == "exit": code = 1
+    elif damage == "pass": report["pass"] = False
+    elif damage == "finding": report["findings"]["credential"] = [{"file": "x", "match": "secret"}]
+    else: report["findings"]["private-repository-name"] = [{"file": "packages/plugmix.html", "match": "n"}]
     with pytest.raises(ValueError):
         pages_inputs.disposition(report, code)
 
@@ -132,7 +118,6 @@ def test_main_when_valid_prepare_and_disposition_then_runs_real_boundaries(tmp_p
     store = packet(tmp_path, monkeypatch)
     assert pages_inputs.main(["prepare", str(store), str(tmp_path / "private")]) == 0
     report = tmp_path / "report.json"
-    report.write_text(json.dumps(reviewed_report()))
-    monkeypatch.setattr(pages_inputs, "REVIEWED_NAME_DIGEST", hashlib.sha256(b"reviewed-installation").hexdigest()[:12])
-    assert pages_inputs.main(["disposition", str(report), "1"]) == 0
+    report.write_text(json.dumps(green_report()))
+    assert pages_inputs.main(["disposition", str(report), "0"]) == 0
     with pytest.raises(ValueError): pages_inputs.main(["unknown"])

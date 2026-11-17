@@ -2353,7 +2353,7 @@
 
 
         <p>Formula string for axis-driven values.</p>
-<h4 id="fontlab.flExpression--what-is-flexpression">What is flExpression?</h4>
+<h3 id="fontlab.flExpression--what-is-flexpression">What is flExpression?</h3>
 <p>An <code>flExpression</code> stores and evaluates a text formula that can reference design-space axis values and font metric names. For example:</p>
 <div class="highlight"><pre><span></span><code>&quot;ascender * 0.7&quot;
 &quot;xHeight + stemWidth&quot;
@@ -2361,7 +2361,7 @@
 </code></pre></div>
 <p>When FontLab evaluates an expression, it substitutes the current values of axis tags (like <code>wght</code>, <code>wdth</code>) and metric names (like <code>ascender</code>, <code>xHeight</code>, <code>capHeight</code>) for the variable names in the formula, then computes the result.</p>
 <p>Expressions are used by guidelines, anchors, and parametric shape nodes to make their positions vary smoothly across the design space.</p>
-<h4 id="fontlab.flExpression--tutorial">Tutorial</h4>
+<h3 id="fontlab.flExpression--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flExpression</span>
@@ -2431,8 +2431,8 @@
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Guideline is now tracking xHeight.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flExpression--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flExpression--validate-a-formula-before-assigning-it">Validate a formula before assigning it</h5>
+<h3 id="fontlab.flExpression--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flExpression--validate-a-formula-before-assigning-it">Validate a formula before assigning it</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flExpression</span>
 
@@ -2444,7 +2444,7 @@
     <span class="n">valid</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>   <span class="c1"># check against font&#39;s variable scope</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">formula</span><span class="si">}</span><span class="s2">&#39;: valid=</span><span class="si">{</span><span class="n">valid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flExpression--copy-a-formula-from-one-guideline-to-another">Copy a formula from one guideline to another</h5>
+<h4 id="fontlab.flExpression--copy-a-formula-from-one-guideline-to-another">Copy a formula from one guideline to another</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

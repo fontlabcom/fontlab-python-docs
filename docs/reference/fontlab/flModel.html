@@ -2342,7 +2342,7 @@
 <li><strong>Type checking</strong> — use <code>ModelType</code> IDs and <code>typeToStr()</code> to confirm what kind of object you're holding.</li>
 </ul>
 <p>The class is a singleton; you don't need an instance. All methods are called directly on the class, like <code>flModel.notifyGlyphChanged(fg_id)</code>.</p>
-<h4 id="fontlab.flModel--enum-flmodelmodeltype">Enum: flModel.ModelType</h4>
+<h3 id="fontlab.flModel--enum-flmodelmodeltype">Enum: flModel.ModelType</h3>
 <p>A dictionary of integer constants, one for every object type in the font model. You use these with <code>createObject()</code>, <code>typeToStr()</code>, and type-checking code.</p>
 <p>The table below is organized from most to least relevant for scripting work. The bolded entries are ones you're likely to encounter in day-to-day type design scripting.</p>
 <table>
@@ -2781,7 +2781,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flModel--enum-flmodelobjectparameter">Enum: flModel.ObjectParameter</h4>
+<h3 id="fontlab.flModel--enum-flmodelobjectparameter">Enum: flModel.ObjectParameter</h3>
 <p>Parameters that can be applied to model objects. Used in ShapeBuilder and advanced transformation contexts.</p>
 <table>
 <thead>
@@ -2814,7 +2814,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flModel--common-scripting-patterns">Common Scripting Patterns</h4>
+<h3 id="fontlab.flModel--common-scripting-patterns">Common Scripting Patterns</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># The most common pattern: after any scripted edit, fire a notification</span>
 <span class="n">glyph</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span>
 <span class="c1"># ... (make changes to glyph.layers[0].shapes[0] here) ...</span>
@@ -2836,7 +2836,7 @@
 <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">flModel</span><span class="o">.</span><span class="n">ModelType</span><span class="p">[</span><span class="s2">&quot;Node&quot;</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s a node!&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flModel--tutorial">Tutorial</h4>
+<h3 id="fontlab.flModel--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flModel</span>
 

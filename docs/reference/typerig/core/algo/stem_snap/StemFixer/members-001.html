@@ -2343,7 +2343,7 @@
   
       class-attribute
       instance-attribute
-   (typerig.core.algo.stem_snap.Cascade.FAMILY)" href="../Cascade/members-001.html#typerig.core.algo.stem_snap.Cascade.FAMILY">FAMILY</a></span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="p">(),</span> <span class="n">pin_extremes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">whole</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">protect_aligned</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">align_tol</span><span class="o">=</span><span class="n"><span title="typerig.core.algo.stem_snap._DEFAULT_ALIGN_TOL">_DEFAULT_ALIGN_TOL</span></span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">)</span>
+   (typerig.core.algo.stem_snap.Cascade.FAMILY)" href="../Cascade/members-001.html#typerig.core.algo.stem_snap.Cascade.FAMILY">FAMILY</a></span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="p">(),</span> <span class="n">pin_extremes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2365,21 +2365,6 @@ so interpolation between moved stems cannot bend them.</p>
 put unless it is a stem face (baseline, cap height, the side of a
 glyph beyond its last stem): the counters absorb the change.
 False: parts beyond the outermost stems move with them.</p>
-<p>whole: the outline will be rounded to integers afterwards. A
-'center' correction of a whole number of units is then split into
-whole units, (-(d // 2), d - d // 2): for an odd d the centre
-shifts half a unit up / right. Half-unit moves would round back
-(half to even) and leave the stem untouched or a unit off target.</p>
-<p>protect_aligned: with anchor 'center', a face already level with
-something the correction does not carry along stays put and the
-other face takes the whole correction, so aligned strokes do not
-drift apart. "Something" is an edge facing the same way (top with
-top) on a contour outside the stem's group, or a face of another
-stem. A level edge that also touches the face along its length
-outranks one elsewhere in the glyph; the better aligned face stays.
-With both faces equally aligned the stem is centred as usual.
-plan.meta lists the stems: 'aligned_kept' and 'aligned_both'.
-Explicit 'lower' / 'upper' anchors are not changed.</p>
 <p>scope picks the contours a stem acts on (see Cascade): the two
 face contours, their containment family (outer + counters, default)
 or the whole layer. Each group gets its own map, built from the

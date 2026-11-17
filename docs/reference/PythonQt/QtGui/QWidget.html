@@ -2422,7 +2422,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtGui.QWidget--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtGui.QWidget--detailed-description">Detailed Description</h3>
 <p>The widget is the atom of the user interface: it receives mouse, keyboard and other
 events from the window system, and paints a representation of itself on the screen.
 Every widget is rectangular, and they are sorted in a Z-order. A widget is clipped by
@@ -2446,7 +2446,7 @@ subclasses which provide real functionality, such as
 <a href="https://doc.qt.io/archives/qt-5.15/qpushbutton.html">QPushButton</a>,
 <a href="https://doc.qt.io/archives/qt-5.15/qlistwidget.html">QListWidget</a>, and
 <a href="https://doc.qt.io/archives/qt-5.15/qtabwidget.html">QTabWidget</a>.</p>
-<h5 id="PythonQt.QtGui.QWidget--top-level-and-child-widgets">Top-Level and Child Widgets</h5>
+<h4 id="PythonQt.QtGui.QWidget--top-level-and-child-widgets">Top-Level and Child Widgets</h4>
 <p>A widget without a parent widget is always an independent window (top-level widget). For
 these widgets,
 <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#windowTitle-prop">setWindowTitle</a>() and
@@ -2466,7 +2466,7 @@ outlined to indicate their full sizes.</p>
 <p>If you want to use a QWidget to hold child widgets you will usually want to add a layout
 to the parent QWidget. See <a href="https://doc.qt.io/archives/qt-5.15/layout.html">Layout
 Management</a> for more information.</p>
-<h5 id="PythonQt.QtGui.QWidget--composite-widgets">Composite Widgets</h5>
+<h4 id="PythonQt.QtGui.QWidget--composite-widgets">Composite Widgets</h4>
 <p>When a widget is used as a container to group a number of child widgets, it is known as
 a composite widget. These can be created by constructing a widget with the required
 visual properties - a <a href="https://doc.qt.io/archives/qt-5.15/qframe.html">QFrame</a>, for
@@ -2478,7 +2478,7 @@ layout and child widgets in the constructor of the subclass. Many of the <a href
 provided with Qt</a> use this
 approach, and it is also covered in the Qt
 <a href="https://doc.qt.io/archives/qt-5.15/qtwidgets-index.html#tutorials">Tutorials</a>.</p>
-<h5 id="PythonQt.QtGui.QWidget--custom-widgets-and-painting">Custom Widgets and Painting</h5>
+<h4 id="PythonQt.QtGui.QWidget--custom-widgets-and-painting">Custom Widgets and Painting</h4>
 <p>Since QWidget is a subclass of
 <a href="https://doc.qt.io/archives/qt-5.15/qpaintdevice.html">QPaintDevice</a>, subclasses can be
 used to display custom content that is composed using a series of painting operations
@@ -2493,7 +2493,7 @@ external change or when requested by the application.</p>
 <p>The <a href="https://doc.qt.io/archives/qt-5.15/qtwidgets-widgets-analogclock-example.html">Analog Clock
 example</a>
 shows how a simple widget can handle paint events.</p>
-<h5 id="PythonQt.QtGui.QWidget--size-hints-and-size-policies">Size Hints and Size Policies</h5>
+<h4 id="PythonQt.QtGui.QWidget--size-hints-and-size-policies">Size Hints and Size Policies</h4>
 <p>When implementing a new widget, it is almost always useful to reimplement
 <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#sizeHint-prop">sizeHint</a>() to provide a
 reasonable default size for the widget and to set the correct size policy with
@@ -2507,7 +2507,7 @@ often good enough for many widgets.</p>
 <p><strong>Note:</strong> The size of top-level widgets are constrained to 2/3 of the desktop's height
 and width. You can <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#size-prop">resize</a>()
 the widget manually if these bounds are inadequate.</p>
-<h5 id="PythonQt.QtGui.QWidget--events">Events</h5>
+<h4 id="PythonQt.QtGui.QWidget--events">Events</h4>
 <p>Widgets respond to events that are typically caused by user actions. Qt delivers events
 to widgets by calling specific event handler functions with instances of
 <a href="https://doc.qt.io/archives/qt-5.15/qevent.html">QEvent</a> subclasses containing
@@ -2557,7 +2557,7 @@ these events, you need to reimplement
 one of the more specialized handlers above.</p>
 <p>Events and the mechanism used to deliver them are covered in <a href="https://doc.qt.io/archives/qt-5.15/eventsandfilters.html">The Event
 System</a>.</p>
-<h5 id="PythonQt.QtGui.QWidget--groups-of-functions-and-properties">Groups of Functions and Properties</h5>
+<h4 id="PythonQt.QtGui.QWidget--groups-of-functions-and-properties">Groups of Functions and Properties</h4>
 <table>
 <thead>
 <tr>
@@ -2616,7 +2616,7 @@ System</a>.</p>
 </tr>
 </tbody>
 </table>
-<h5 id="PythonQt.QtGui.QWidget--widget-style-sheets">Widget Style Sheets</h5>
+<h4 id="PythonQt.QtGui.QWidget--widget-style-sheets">Widget Style Sheets</h4>
 <p>In addition to the standard widget styles for each platform, widgets can also be styled
 according to rules specified in a <a href="https://doc.qt.io/archives/qt-5.15/stylesheet.html">style
 sheet</a>. This feature enables you to
@@ -2625,7 +2625,7 @@ purpose. For example, a button could be styled in a particular way to indicate t
 performs a destructive action.</p>
 <p>The use of widget style sheets is described in more detail in the <a href="https://doc.qt.io/archives/qt-5.15/stylesheet.html">Qt Style
 Sheets</a> document.</p>
-<h5 id="PythonQt.QtGui.QWidget--transparency-and-double-buffering">Transparency and Double Buffering</h5>
+<h4 id="PythonQt.QtGui.QWidget--transparency-and-double-buffering">Transparency and Double Buffering</h4>
 <p>Since Qt 4.0, QWidget automatically double-buffers its painting, so there is no need to
 write double-buffering code in
 <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#paintEvent">paintEvent</a>() to avoid
@@ -2677,7 +2677,7 @@ resorting to subclassing, is slightly less than that possible for custom widgets
 Usually, the desired appearance of a standard widget can be achieved by setting its
 <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#autoFillBackground-prop">autoFillBackground</a>
 property.</p>
-<h5 id="PythonQt.QtGui.QWidget--creating-translucent-windows">Creating Translucent Windows</h5>
+<h4 id="PythonQt.QtGui.QWidget--creating-translucent-windows">Creating Translucent Windows</h4>
 <p>Since Qt 4.5, it has been possible to create windows with translucent regions on window
 systems that support compositing.</p>
 <p>To enable this feature in a top-level widget, set its
@@ -2692,7 +2692,7 @@ be partially transparent.</p>
 <li>Windows: The widget needs to have the <a href="https://doc.qt.io/archives/qt-5.15/qt.html#WindowType-enum">Qt::FramelessWindowHint</a> window flag set for the translucency to work.</li>
 <li>macOS: The widget needs to have the <a href="https://doc.qt.io/archives/qt-5.15/qt.html#WindowType-enum">Qt::FramelessWindowHint</a> window flag set for the translucency to work.</li>
 </ul>
-<h5 id="PythonQt.QtGui.QWidget--native-widgets-vs-alien-widgets">Native Widgets vs Alien Widgets</h5>
+<h4 id="PythonQt.QtGui.QWidget--native-widgets-vs-alien-widgets">Native Widgets vs Alien Widgets</h4>
 <p>Introduced in Qt 4.4, alien widgets are widgets unknown to the windowing system. They do
 not have a native window handle associated with them. This feature significantly speeds
 up widget painting, resizing, and removes flicker.</p>

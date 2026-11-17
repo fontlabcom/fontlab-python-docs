@@ -2380,7 +2380,7 @@
 
 
 
-        <h4 id="fontlab.flLocation--what-is-a-location">What is a location?</h4>
+        <h3 id="fontlab.flLocation--what-is-a-location">What is a location?</h3>
 <p>A <strong>location</strong> is a coordinate in design space. It answers the question: <em>"Which specific style am I looking at right now?"</em></p>
 <p>If your font has two axes — Weight (<code>wght</code>) and Width (<code>wdth</code>) — then every style you can imagine in that font lives somewhere in a 2D grid. The Regular lives at <code>{wght: 400, wdth: 100}</code>. The Bold Condensed lives at <code>{wght: 700, wdth: 75}</code>. The Thin Extended lives at <code>{wght: 100, wdth: 125}</code>. Each of those coordinates is an <code>flLocation</code>.</p>
 <p>Think of it as a Python dictionary where:
@@ -2394,7 +2394,7 @@
 - The current editor view (<code>font.currentLocation()</code>) — which master/location am I viewing?
 - Variation layer lookups — which layer corresponds to this design-space point?
 - Interpolation calls — evaluate the font at this location</p>
-<h5 id="fontlab.flLocation--how-fllocation-behaves-like-a-dictionary">How <code>flLocation</code> behaves like a dictionary</h5>
+<h4 id="fontlab.flLocation--how-fllocation-behaves-like-a-dictionary">How <code>flLocation</code> behaves like a dictionary</h4>
 <p><code>flLocation</code> supports the full Python mapping protocol. You can treat it almost exactly like a plain Python <code>dict</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">loc</span> <span class="o">=</span> <span class="n">flLocation</span><span class="p">()</span>
 <span class="n">loc</span><span class="p">[</span><span class="s2">&quot;wght&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">400</span>         <span class="c1"># set a value</span>
@@ -2407,7 +2407,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;wght&quot;</span> <span class="ow">in</span> <span class="n">loc</span><span class="p">)</span>      <span class="c1"># check for a key</span>
 </code></pre></div>
 <p>The main difference from a plain dict: the values are <code>LocationValue</code> objects, not raw floats. For simple cases (the vast majority), they behave like numbers. For advanced cases, they can be anisotropic — see the <code>LocationValue</code> section below.</p>
-<h4 id="fontlab.flLocation--mapping-protocol">Mapping Protocol</h4>
+<h3 id="fontlab.flLocation--mapping-protocol">Mapping Protocol</h3>
 <p><code>flLocation</code> behaves like a Python <code>dict</code> keyed by axis tag (<code>str</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="n">loc</span> <span class="o">=</span> <span class="n">flLocation</span><span class="p">({</span><span class="s2">&quot;Weight&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;Width&quot;</span><span class="p">:</span> <span class="mi">75</span><span class="p">})</span>
 <span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Weight&quot;</span><span class="p">]</span>              <span class="c1"># → LocationValue (reads as 100)</span>
@@ -2415,7 +2415,7 @@
 <span class="nb">len</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>                   <span class="c1"># → number of axes set</span>
 <span class="s2">&quot;Weight&quot;</span> <span class="ow">in</span> <span class="n">loc</span>            <span class="c1"># → True</span>
 </code></pre></div>
-<h4 id="fontlab.flLocation--tutorial">Tutorial</h4>
+<h3 id="fontlab.flLocation--tutorial">Tutorial</h3>
 <p><code>flLocation</code> is the everyday currency for navigating variable font design space. Here is how to create, read, and use locations in practical scenarios.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2470,8 +2470,8 @@
     <span class="n">same</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">loc_a</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">==</span> <span class="n">loc_b</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">loc_a</span> <span class="k">if</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">loc_b</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Instances at same location: </span><span class="si">{</span><span class="n">same</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flLocation--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flLocation--build-a-location-from-a-plain-python-dict">Build a location from a plain Python dict</h5>
+<h3 id="fontlab.flLocation--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flLocation--build-a-location-from-a-plain-python-dict">Build a location from a plain Python dict</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2480,7 +2480,7 @@
     <span class="n">loc</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flLocation</span><span class="p">({</span><span class="n">axis</span><span class="o">.</span><span class="n">tag</span><span class="p">:</span> <span class="n">axis</span><span class="o">.</span><span class="n">default</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">font</span><span class="o">.</span><span class="n">axes</span><span class="p">})</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Default location:&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">tag</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">loc</span><span class="p">[</span><span class="n">tag</span><span class="p">])</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">loc</span><span class="p">})</span>
 </code></pre></div>
-<h5 id="fontlab.flLocation--copy-a-location">Copy a location</h5>
+<h4 id="fontlab.flLocation--copy-a-location">Copy a location</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

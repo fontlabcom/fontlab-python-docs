@@ -2360,11 +2360,11 @@
 <li><strong>Exporting fonts</strong> — <code>ws.exportCurrentFont()</code> or <code>ws.exportFont(pkg, options)</code>.</li>
 <li><strong>Batch scripts</strong> — loop over <code>ws.packages()</code> to process every open font.</li>
 </ul>
-<h4 id="fontlab.flWorkspace--getting-the-instance">Getting the Instance</h4>
+<h3 id="fontlab.flWorkspace--getting-the-instance">Getting the Instance</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flWorkspace</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flWorkspace--common-scripting-patterns">Common Scripting Patterns</h4>
+<h3 id="fontlab.flWorkspace--common-scripting-patterns">Common Scripting Patterns</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flWorkspace</span>
 
 <span class="n">ws</span> <span class="o">=</span> <span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2390,7 +2390,7 @@
 <span class="c1"># Switch to the node editor tool when your script finishes</span>
 <span class="n">ws</span><span class="o">.</span><span class="n">setToolEditor</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flWorkspace--tutorial-looping-over-all-open-fonts">Tutorial: Looping Over All Open Fonts</h4>
+<h3 id="fontlab.flWorkspace--tutorial-looping-over-all-open-fonts">Tutorial: Looping Over All Open Fonts</h3>
 <p>This pattern is the foundation of most batch-processing scripts.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTransform</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2494,7 +2494,7 @@
 <span class="n">ws</span><span class="o">.</span><span class="n">setToolEditor</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Script complete. Switched to Node Editor tool.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flWorkspace--registering-a-python-tool">Registering a Python tool</h4>
+<h3 id="fontlab.flWorkspace--registering-a-python-tool">Registering a Python tool</h3>
 <p><code>registerPythonTool(name, icon, object) -&gt; int</code> adds a tool to the palette/menu and returns a cleanup token. <code>icon</code> must be a PythonQt QIcon or <code>None</code>. <code>unregisterPythonTool(token) -&gt; bool</code> removes the registered tool and deactivates it if necessary. Run both operations on the GUI thread.</p>
 <p>The callback object can implement <code>activate()</code> and <code>deactivate()</code> with no arguments; mouse callbacks <code>mousePressed(event, canvas)</code>, <code>mouseMoved(event, canvas)</code>, <code>mouseReleased(event, canvas)</code> and <code>mouseDoubleClicked(event, canvas)</code>; key callbacks <code>keyPressed(event, canvas)</code> and <code>keyReleased(event, canvas)</code>; and <code>paint(painter, canvas)</code>. Event callbacks receive borrowed Qt QMouseEvent/QKeyEvent wrappers, not <code>flMouseEvent</code>. Return a truthy value to consume an event, or false/None to allow normal processing. Painter coordinates are viewport coordinates.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2510,7 +2510,7 @@
 <span class="n">workspace</span><span class="o">.</span><span class="n">unregisterPythonTool</span><span class="p">(</span><span class="n">tool_token</span><span class="p">)</span>
 </code></pre></div>
 <p>The registry keeps the callback object alive while registered. Do not retain borrowed event/painter wrappers beyond their callbacks. Keep cleanup tokens and unregister before unloading a plugin. Callback errors are printed to Python output. The registration does not itself select the tool.</p>
-<h4 id="fontlab.flWorkspace--flworkspacerendermode">flWorkspace.RenderMode</h4>
+<h3 id="fontlab.flWorkspace--flworkspacerendermode">flWorkspace.RenderMode</h3>
 <p>Use the <code>flWorkspace.RenderMode</code> dictionary with subscription.</p>
 <table>
 <thead>

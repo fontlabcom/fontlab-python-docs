@@ -2367,7 +2367,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QClipboard--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QClipboard--detailed-description">Detailed Description</h3>
 <p>The clipboard offers a simple mechanism to copy and paste data between applications.</p>
 <p>QClipboard supports the same data types that
 <a href="https://doc.qt.io/archives/qt-5.15/qdrag.html">QDrag</a> does, and uses similar
@@ -2414,27 +2414,27 @@ clipboard by calling
         setText(tr(&quot;Cannot display data&quot;));
     }
 </code></pre></div>
-<h5 id="PythonQt.Qt.QClipboard--notes-for-x11-users">Notes for X11 Users</h5>
+<h4 id="PythonQt.Qt.QClipboard--notes-for-x11-users">Notes for X11 Users</h4>
 <ul>
 <li>The X11 Window System has the concept of a separate selection and clipboard. When text is selected, it is immediately available as the global mouse selection. The global mouse selection may later be copied to the clipboard. By convention, the middle mouse button is used to paste the global mouse selection.</li>
 <li>X11 also has the concept of ownership; if you change the selection within a window, X11 will only notify the owner and the previous owner of the change, i.e. it will not notify all applications that the selection or clipboard data changed.</li>
 <li>Lastly, the X11 clipboard is event driven, i.e. the clipboard will not function properly if the event loop is not running. Similarly, it is recommended that the contents of the clipboard are stored or retrieved in direct response to user-input events, e.g. mouse button or key presses and releases. You should not store or retrieve the clipboard contents in response to timer or non-user-input events.</li>
 <li>Since there is no standard way to copy and paste files between applications on X11, various MIME types and conventions are currently in use. For instance, Nautilus expects files to be supplied with a <code>x-special/gnome-copied-files</code> MIME type with data beginning with the cut/copy action, a newline character, and the URL of the file.</li>
 </ul>
-<h5 id="PythonQt.Qt.QClipboard--notes-for-macos-users">Notes for macOS Users</h5>
+<h4 id="PythonQt.Qt.QClipboard--notes-for-macos-users">Notes for macOS Users</h4>
 <p>macOS supports a separate find buffer that holds the current search string in Find
 operations. This find clipboard can be accessed by specifying the
 <a href="https://doc.qt.io/archives/qt-5.15/qclipboard.html#Mode-enum">FindBuffer</a> mode.</p>
-<h5 id="PythonQt.Qt.QClipboard--notes-for-windows-and-macos-users">Notes for Windows and macOS Users</h5>
+<h4 id="PythonQt.Qt.QClipboard--notes-for-windows-and-macos-users">Notes for Windows and macOS Users</h4>
 <ul>
 <li>Windows and macOS do not support the global mouse selection; they only supports the global clipboard, i.e. they only add text to the clipboard when an explicit copy or cut is made.</li>
 <li>Windows and macOS does not have the concept of ownership; the clipboard is a fully global resource so all applications are notified of changes.</li>
 </ul>
-<h5 id="PythonQt.Qt.QClipboard--notes-for-universal-windows-platform-users">Notes for Universal Windows Platform Users</h5>
+<h4 id="PythonQt.Qt.QClipboard--notes-for-universal-windows-platform-users">Notes for Universal Windows Platform Users</h4>
 <ul>
 <li>The Universal Windows Platform only allows to query the clipboard in case the application is active and an application window has focus. Accessing the clipboard data when in background will fail due to access denial.</li>
 </ul>
-<h5 id="PythonQt.Qt.QClipboard--notes-for-android-users">Notes for Android Users</h5>
+<h4 id="PythonQt.Qt.QClipboard--notes-for-android-users">Notes for Android Users</h4>
 <p>On Android only these mime types are supported: text/plain, text/html, and
 text/uri-list.</p>
 <p>Source: https://doc.qt.io/archives/qt-5.15/qclipboard.html</p>

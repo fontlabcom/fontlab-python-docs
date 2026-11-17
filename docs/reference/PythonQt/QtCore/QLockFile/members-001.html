@@ -2668,7 +2668,7 @@ Base 0 means to interpret the base from the string as an integer literal.</p>
         <p>X.error()</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QLockFile.error--qlockfilelockerror-qlockfileerror-const"><a href="https://doc.qt.io/archives/qt-5.15/qlockfile.html#LockError-enum">QLockFile::LockError</a> QLockFile::error() const</h5>
+<h3 id="PythonQt.QtCore.QLockFile.error--qlockfilelockerror-qlockfileerror-const"><a href="https://doc.qt.io/archives/qt-5.15/qlockfile.html#LockError-enum">QLockFile::LockError</a> QLockFile::error() const</h3>
 <p>Returns the lock file error status.</p>
 <p>If <a href="https://doc.qt.io/archives/qt-5.15/qlockfile.html#tryLock">tryLock</a>() returns
 <code>false</code>, this function can be called to find out the reason why the locking failed.</p>
@@ -2698,7 +2698,7 @@ Qt 5 reference:</p>
         <p>X.getLockInfo(pid, hostname, appname) -&gt; bool</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QLockFile.getLockInfo--bool-qlockfilegetlockinfoqint64-pid-qstring-hostname-qstring-appname-const">bool QLockFile::getLockInfo(<a href="https://doc.qt.io/archives/qt-5.15/qtglobal.html#qint64-typedef">qint64</a> *<em>pid</em>, <a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> *<em>hostname</em>, <a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> *<em>appname</em>) const</h5>
+<h3 id="PythonQt.QtCore.QLockFile.getLockInfo--bool-qlockfilegetlockinfoqint64-pid-qstring-hostname-qstring-appname-const">bool QLockFile::getLockInfo(<a href="https://doc.qt.io/archives/qt-5.15/qtglobal.html#qint64-typedef">qint64</a> *<em>pid</em>, <a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> *<em>hostname</em>, <a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> *<em>appname</em>) const</h3>
 <p>Retrieves information about the current owner of the lock file.</p>
 <p>If <a href="https://doc.qt.io/archives/qt-5.15/qlockfile.html#tryLock">tryLock</a>() returns
 <code>false</code>, and <a href="https://doc.qt.io/archives/qt-5.15/qlockfile.html#error">error</a>() returns
@@ -2751,7 +2751,7 @@ happens.</p>
         <p>X.isLocked() -&gt; bool</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QLockFile.isLocked--bool-qlockfileislocked-const">bool QLockFile::isLocked() const</h5>
+<h3 id="PythonQt.QtCore.QLockFile.isLocked--bool-qlockfileislocked-const">bool QLockFile::isLocked() const</h3>
 <p>Returns <code>true</code> if the lock was acquired by this
 <a href="https://doc.qt.io/archives/qt-5.15/qlockfile.html">QLockFile</a> instance, otherwise
 returns <code>false</code>.</p>
@@ -2784,7 +2784,7 @@ returns <code>false</code>.</p>
         <p>X.lock() -&gt; bool</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QLockFile.lock--bool-qlockfilelock">bool QLockFile::lock()</h5>
+<h3 id="PythonQt.QtCore.QLockFile.lock--bool-qlockfilelock">bool QLockFile::lock()</h3>
 <p>Creates the lock file.</p>
 <p>If another process (or another thread) has created the lock file already, this function
 will block until that process (or thread) releases it.</p>
@@ -2821,7 +2821,7 @@ unrecoverable error, such as no permissions in the parent directory.</p>
         <p>X.removeStaleLockFile() -&gt; bool</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QLockFile.removeStaleLockFile--bool-qlockfileremovestalelockfile">bool QLockFile::removeStaleLockFile()</h5>
+<h3 id="PythonQt.QtCore.QLockFile.removeStaleLockFile--bool-qlockfileremovestalelockfile">bool QLockFile::removeStaleLockFile()</h3>
 <p>Attempts to forcefully remove an existing lock file.</p>
 <p>Calling this is not recommended when protecting a short-lived operation:
 <a href="https://doc.qt.io/archives/qt-5.15/qlockfile.html">QLockFile</a> already takes care of
@@ -2860,7 +2860,7 @@ Windows, when the application owning the lock is still running.</p>
         <p>X.setStaleLockTime(arg__1)</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QLockFile.setStaleLockTime--void-qlockfilesetstalelocktimeint-stalelocktime">void QLockFile::setStaleLockTime(int <em>staleLockTime</em>)</h5>
+<h3 id="PythonQt.QtCore.QLockFile.setStaleLockTime--void-qlockfilesetstalelocktimeint-stalelocktime">void QLockFile::setStaleLockTime(int <em>staleLockTime</em>)</h3>
 <p>Sets <em>staleLockTime</em> to be the time in milliseconds after which a lock file is
 considered stale. The default value is 30000, i.e. 30 seconds. If your application
 typically keeps the file locked for more than 30 seconds (for instance while saving
@@ -2900,7 +2900,7 @@ detect a stale lock file is by the fact that it has been around for a long time.
         <p>X.staleLockTime() -&gt; int</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QLockFile.staleLockTime--int-qlockfilestalelocktime-const">int QLockFile::staleLockTime() const</h5>
+<h3 id="PythonQt.QtCore.QLockFile.staleLockTime--int-qlockfilestalelocktime-const">int QLockFile::staleLockTime() const</h3>
 <p>Returns the time in milliseconds after which a lock file is considered stale.</p>
 <p><strong>See also</strong>
 <a href="https://doc.qt.io/archives/qt-5.15/qlockfile.html#setStaleLockTime">setStaleLockTime</a>().</p>
@@ -2930,7 +2930,7 @@ Qt 5 reference:</p>
         <p>X.tryLock(timeout) -&gt; bool</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QLockFile.tryLock--bool-qlockfiletrylockint-timeout-0">bool QLockFile::tryLock(int <em>timeout</em> \= 0)</h5>
+<h3 id="PythonQt.QtCore.QLockFile.tryLock--bool-qlockfiletrylockint-timeout-0">bool QLockFile::tryLock(int <em>timeout</em> \= 0)</h3>
 <p>Attempts to create the lock file. This function returns <code>true</code> if the lock was obtained;
 otherwise it returns <code>false</code>. If another process (or another thread) has created the
 lock file already, this function will wait for at most <em>timeout</em> milliseconds for the
@@ -2972,7 +2972,7 @@ to lock the file recursively.</p>
         <p>X.unlock()</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QLockFile.unlock--void-qlockfileunlock">void QLockFile::unlock()</h5>
+<h3 id="PythonQt.QtCore.QLockFile.unlock--void-qlockfileunlock">void QLockFile::unlock()</h3>
 <p>Releases the lock, by deleting the lock file.</p>
 <p>Calling unlock() without locking the file first, does nothing.</p>
 <p><strong>See also</strong> <a href="https://doc.qt.io/archives/qt-5.15/qlockfile.html#lock">lock</a>() and

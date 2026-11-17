@@ -2365,15 +2365,15 @@
 
         <p>PythonQtInstanceWrapper object</p>
 <p>Dockable panel system.</p>
-<h4 id="fontlab.YPanelManager--what-is-ypanelmanager">What is YPanelManager?</h4>
+<h3 id="fontlab.YPanelManager--what-is-ypanelmanager">What is YPanelManager?</h3>
 <p>FontLab's sidebar and panel system is managed by <code>YPanelManager</code>. Every dockable panel you see in FontLab — the Layers panel, the Glyph panel, the Properties panel — is registered with and managed by this singleton.</p>
 <p>If you want to <strong>create a custom side panel</strong> that always appears in the FontLab UI (rather than a separate window), you subclass <code>YPanelWidget</code> and register it with <code>YPanelManager.instance()</code>.</p>
-<h4 id="fontlab.YPanelManager--getting-the-instance">Getting the instance</h4>
+<h3 id="fontlab.YPanelManager--getting-the-instance">Getting the instance</h3>
 <p>There is always exactly one <code>YPanelManager</code> in a running FontLab:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">YPanelManager</span>
 <span class="n">pm</span> <span class="o">=</span> <span class="n">YPanelManager</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.YPanelManager--tutorial">Tutorial</h4>
+<h3 id="fontlab.YPanelManager--tutorial">Tutorial</h3>
 <p><code>YPanelManager</code> lets you open, close, and inspect FontLab's dockable panels. Here is how to work with both the built-in panels and your own custom ones.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">YPanelManager</span><span class="p">,</span> <span class="n">YPanelWidget</span>
@@ -2427,8 +2427,8 @@
 <span class="c1"># pm.openPanel(panel)</span>
 <span class="c1"># print(f&quot;Custom panel id={panel.id}&quot;)</span>
 </code></pre></div>
-<h4 id="fontlab.YPanelManager--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.YPanelManager--find-a-panel-by-id-and-activate-it">Find a panel by ID and activate it</h5>
+<h3 id="fontlab.YPanelManager--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.YPanelManager--find-a-panel-by-id-and-activate-it">Find a panel by ID and activate it</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">YPanelManager</span>
 
 <span class="n">pm</span>    <span class="o">=</span> <span class="n">YPanelManager</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2437,7 +2437,7 @@
     <span class="n">pm</span><span class="o">.</span><span class="n">activatePanel</span><span class="p">(</span><span class="n">panel</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activated &#39;</span><span class="si">{</span><span class="n">panel</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.YPanelManager--open-a-panel-as-a-floating-window">Open a panel as a floating window</h5>
+<h4 id="fontlab.YPanelManager--open-a-panel-as-a-floating-window">Open a panel as a floating window</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">YPanelManager</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">Qt</span>
 

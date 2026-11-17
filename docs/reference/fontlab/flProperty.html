@@ -2342,10 +2342,10 @@
 
 
         <p>Base class for axis-aware attributes.</p>
-<h4 id="fontlab.flProperty--what-is-flproperty">What is flProperty?</h4>
+<h3 id="fontlab.flProperty--what-is-flproperty">What is flProperty?</h3>
 <p>In a variable font, certain values — a node's x-coordinate, a guideline's position, a stem width — need to change smoothly as you move between masters. Instead of storing a single fixed number, these attributes store an <code>flProperty</code> object: a "smart slot" that knows the attribute's name and can hold an expression formula to be evaluated at any point in design space.</p>
 <p><code>flProperty</code> is the root base class. It is never used directly — you will always encounter one of its concrete subclasses: <code>flPropertyDouble</code> (for a single number) or <code>flPropertyPoint</code> (for an x,y coordinate). Understanding this base class helps you write scripts that inspect or modify axis-driven values in parametric shapes and smart components.</p>
-<h4 id="fontlab.flProperty--tutorial">Tutorial</h4>
+<h3 id="fontlab.flProperty--tutorial">Tutorial</h3>
 <p>Properties come up when you inspect the <code>properties</code> map on a parametric shape or guideline. This example shows how to walk through a shape's properties and read each one's attribute name.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2378,8 +2378,8 @@
         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    (not a scalar property)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flProperty--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flProperty--check-whether-any-property-on-a-shape-has-an-active-expression">Check whether any property on a shape has an active expression</h5>
+<h3 id="fontlab.flProperty--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flProperty--check-whether-any-property-on-a-shape-has-an-active-expression">Check whether any property on a shape has an active expression</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span>  <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

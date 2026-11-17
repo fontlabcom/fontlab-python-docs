@@ -2364,10 +2364,10 @@
 
 
         <p>Guideline snap geometry engine.</p>
-<h4 id="fontlab.flSnapLine--what-is-flsnapline">What is flSnapLine?</h4>
+<h3 id="fontlab.flSnapLine--what-is-flsnapline">What is flSnapLine?</h3>
 <p><code>flSnapLine</code> is the technical base class that powers all guideline snapping in FontLab. It holds the two geometric nodes (center and vector) that define a line's position and angle, and provides the distance and offset math that the snapping system uses to "pull" nodes toward a guide as the designer drags them.</p>
 <p>You almost never interact with <code>flSnapLine</code> directly — <code>flGuideLine</code> inherits everything from it, so you get all of these methods and properties through your <code>flGuideLine</code> objects. Understanding <code>flSnapLine</code> is most useful when writing custom snap tools or reading the snap distance from a guideline programmatically.</p>
-<h4 id="fontlab.flSnapLine--tutorial">Tutorial</h4>
+<h3 id="fontlab.flSnapLine--tutorial">Tutorial</h3>
 <p>The <code>distanceTo</code> and <code>offsetTo</code> methods are the practical core of <code>flSnapLine</code> for scripting. Here is how to use them to measure how far nodes are from a guideline.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2425,8 +2425,8 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Point (</span><span class="si">{</span><span class="n">test_pt</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">test_pt</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">) &quot;</span>
           <span class="sa">f</span><span class="s2">&quot;→ snapped to (</span><span class="si">{</span><span class="n">snapped</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">snapped</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flSnapLine--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flSnapLine--check-whether-an-object-is-a-snap-line">Check whether an object is a snap line</h5>
+<h3 id="fontlab.flSnapLine--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flSnapLine--check-whether-an-object-is-a-snap-line">Check whether an object is a snap line</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flSnapLine</span>
 
@@ -2434,7 +2434,7 @@
 <span class="k">for</span> <span class="n">gl</span> <span class="ow">in</span> <span class="n">font</span><span class="o">.</span><span class="n">guidelines</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">gl</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is snap line: </span><span class="si">{</span><span class="n">flSnapLine</span><span class="o">.</span><span class="n">isSnapLine</span><span class="p">(</span><span class="n">gl</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flSnapLine--read-snap-flags-from-a-guideline">Read snap flags from a guideline</h5>
+<h4 id="fontlab.flSnapLine--read-snap-flags-from-a-guideline">Read snap flags from a guideline</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flSnaps</span>
 
@@ -2445,7 +2445,7 @@
     <span class="n">is_horz</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">flag</span> <span class="o">&amp;</span> <span class="n">flSnaps</span><span class="o">.</span><span class="n">SnapLineFlags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Horizontal&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">gl</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: horiz=</span><span class="si">{</span><span class="n">is_horz</span><span class="si">}</span><span class="s2"> vert=</span><span class="si">{</span><span class="n">is_vert</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flSnapLine--inspecting-hint-links">Inspecting hint links</h5>
+<h4 id="fontlab.flSnapLine--inspecting-hint-links">Inspecting hint links</h4>
 <p><code>isGhost</code> is inherited from <code>flSnapObject</code> and reports the actual native flag.
 <code>hasExtLine</code> describes geometry; an ordinary stem can have an independent
 extension node, so it does not establish a contour link. After checking for

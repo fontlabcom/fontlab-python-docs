@@ -2486,7 +2486,7 @@
 
         <p>Font Info data</p>
 <p>Complete font metadata.</p>
-<h4 id="fontlab.Info--what-is-info">What is Info?</h4>
+<h3 id="fontlab.Info--what-is-info">What is Info?</h3>
 <p><code>Info</code> is the metadata wrapper for all the descriptive information about your font that gets embedded in the file: the family name, style name, designer's name, copyright notice, license, all the OpenType metric values, PostScript hinting parameters, and much more.</p>
 <p>It follows the <strong>UFO (Unified Font Object) specification</strong> for attribute names, which means the property names like <code>openTypeNameDesigner</code>, <code>openTypeOS2WeightClass</code>, and <code>postscriptFontName</code> correspond directly to documented UFO 3 attributes. If you know UFO, you already know this interface.</p>
 <p>Access <code>Info</code> through <code>package.info</code> on an <code>flPackage</code> wrapper:</p>
@@ -2496,7 +2496,7 @@
 <span class="n">info</span><span class="o">.</span><span class="n">copyright</span> <span class="o">=</span> <span class="s2">&quot;© 2026 My Foundry&quot;</span>
 </code></pre></div>
 <p>All properties read/write the font's metadata storage directly. There is no need to call a save method — changes take effect immediately in the in-memory font.</p>
-<h4 id="fontlab.Info--basic-font-identification">Basic Font Identification</h4>
+<h3 id="fontlab.Info--basic-font-identification">Basic Font Identification</h3>
 <p>These are the most important fields for most type designers.</p>
 <table>
 <thead>
@@ -2612,7 +2612,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.Info--opentype-hhea-table">OpenType hhea Table</h4>
+<h3 id="fontlab.Info--opentype-hhea-table">OpenType hhea Table</h3>
 <p>The <code>hhea</code> (horizontal header) table is used by older applications for line spacing. Values are in design units.</p>
 <table>
 <thead>
@@ -2662,7 +2662,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.Info--opentype-os2-table">OpenType OS/2 Table</h4>
+<h3 id="fontlab.Info--opentype-os2-table">OpenType OS/2 Table</h3>
 <p>The OS/2 table carries the most commonly queried font metadata, including the weight class (100–900) that determines how a font appears in application weight lists.</p>
 <table>
 <thead>
@@ -2820,7 +2820,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.Info--opentype-name-table">OpenType Name Table</h4>
+<h3 id="fontlab.Info--opentype-name-table">OpenType Name Table</h3>
 <p>The name table stores human-readable strings that applications display when users browse or install fonts.</p>
 <table>
 <thead>
@@ -2930,7 +2930,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.Info--opentype-head-table">OpenType head Table</h4>
+<h3 id="fontlab.Info--opentype-head-table">OpenType head Table</h3>
 <table>
 <thead>
 <tr>
@@ -2961,7 +2961,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.Info--opentype-vhea-table-vertical-metrics-for-cjk-fonts">OpenType vhea Table (vertical metrics for CJK fonts)</h4>
+<h3 id="fontlab.Info--opentype-vhea-table-vertical-metrics-for-cjk-fonts">OpenType vhea Table (vertical metrics for CJK fonts)</h3>
 <table>
 <thead>
 <tr>
@@ -3010,7 +3010,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.Info--opentype-gasp-table">OpenType gasp Table</h4>
+<h3 id="fontlab.Info--opentype-gasp-table">OpenType gasp Table</h3>
 <table>
 <thead>
 <tr>
@@ -3029,7 +3029,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.Info--postscript-cff">PostScript / CFF</h4>
+<h3 id="fontlab.Info--postscript-cff">PostScript / CFF</h3>
 <p>These are the PostScript-specific font-level metadata fields.</p>
 <table>
 <thead>
@@ -3169,7 +3169,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.Info--macintosh-legacy">Macintosh Legacy</h4>
+<h3 id="fontlab.Info--macintosh-legacy">Macintosh Legacy</h3>
 <table>
 <thead>
 <tr>
@@ -3194,7 +3194,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.Info--tutorial">Tutorial</h4>
+<h3 id="fontlab.Info--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -3278,8 +3278,8 @@
 <span class="n">info</span><span class="o">.</span><span class="n">postscriptFullName</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">familyName</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">styleName</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PS name set to: &#39;</span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">postscriptFontName</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.Info--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.Info--quick-metadata-update-before-export">Quick metadata update before export</h5>
+<h3 id="fontlab.Info--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.Info--quick-metadata-update-before-export">Quick metadata update before export</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">package</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flPackage</span><span class="p">(</span><span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">())</span>
@@ -3291,7 +3291,7 @@
 <span class="n">info</span><span class="o">.</span><span class="n">versionMinor</span>            <span class="o">=</span> <span class="mi">0</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Metadata updated.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.Info--print-all-postscript-blue-values">Print all PostScript blue values</h5>
+<h4 id="fontlab.Info--print-all-postscript-blue-values">Print all PostScript blue values</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">package</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flPackage</span><span class="p">(</span><span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">())</span>
@@ -3303,7 +3303,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BlueScale:   </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">postscriptBlueScale</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BlueShift:   </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">postscriptBlueShift</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.Info--auto-generate-postscript-names-from-familystyle">Auto-generate PostScript names from family/style</h5>
+<h4 id="fontlab.Info--auto-generate-postscript-names-from-familystyle">Auto-generate PostScript names from family/style</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -3316,7 +3316,7 @@
 <span class="n">info</span><span class="o">.</span><span class="n">postscriptFullName</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">familyName</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">styleName</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PS name: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">postscriptFontName</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.Info--verify-all-name-table-fields-are-filled">Verify all name-table fields are filled</h5>
+<h4 id="fontlab.Info--verify-all-name-table-fields-are-filled">Verify all name-table fields are filled</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">package</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flPackage</span><span class="p">(</span><span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">())</span>
@@ -3345,7 +3345,7 @@
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Some fields are missing — fill them before export.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.Info--custom-unicodename-mapping-and-other-settings">Custom Unicode–name mapping and Other settings</h5>
+<h4 id="fontlab.Info--custom-unicodename-mapping-and-other-settings">Custom Unicode–name mapping and Other settings</h4>
 <table>
 <thead>
 <tr>

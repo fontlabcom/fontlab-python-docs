@@ -2435,12 +2435,12 @@
 
 
 
-        <h4 id="fontlab.flNode--what-is-a-node">What Is a Node?</h4>
+        <h3 id="fontlab.flNode--what-is-a-node">What Is a Node?</h3>
 <p>If you've ever edited a glyph in FontLab's glyph editor, you've clicked on nodes. A node is a <strong>single point on a Bézier curve contour</strong> — it's the fundamental building block of every letter shape you draw. When you look at a capital "S" in the glyph editor, you're looking at a collection of nodes connected by curve segments, and it's those nodes that define where the path goes and how it bends.</p>
 <p>There are two fundamental kinds of nodes: <strong>on-curve nodes</strong> and <strong>off-curve nodes</strong> (also called handles or control points). On-curve nodes lie directly on the path — they're the filled squares or circles you see in the editor. Off-curve nodes (the hollow circles connected by dotted lines) sit off to the side of the curve and act like magnets, pulling the curve toward them without the path actually passing through them. In PostScript (Type 1 / OpenType CFF) fonts, every curve segment between two on-curve nodes has exactly two off-curve control points — this is the classic cubic Bézier. In TrueType fonts, each curve segment can be described with a single off-curve point between two on-curve anchors.</p>
 <p>On-curve nodes can also be <strong>smooth</strong> or <strong>corner</strong> nodes. A smooth node keeps its two neighboring handles in a straight line through it, producing a fluid, tangent-continuous transition between the incoming and outgoing curves. A corner node lets the handles point in any direction, creating a sharp angle or cusp. In FontLab, smooth nodes are shown as circles and corner nodes as squares. When you're scripting, the <code>smooth</code> property tells you which kind you have, and setting it to <code>True</code> or <code>False</code> instantly changes the node's behavior.</p>
-<h4 id="fontlab.flNode--nested-types">Nested Types</h4>
-<h5 id="fontlab.flNode--nodetype">NodeType</h5>
+<h3 id="fontlab.flNode--nested-types">Nested Types</h3>
+<h4 id="fontlab.flNode--nodetype">NodeType</h4>
 <table>
 <thead>
 <tr>
@@ -2477,7 +2477,7 @@
 - <code>Off</code> — an off-curve Bézier control handle; the path does not pass through this node
 - <code>Curve</code> — an on-curve point that is part of a curve segment (has associated handles)
 - <code>AnyNodeMask</code> — a wildcard that matches any node type (used in filter arguments)</p>
-<h5 id="fontlab.flNode--nodekind">NodeKind</h5>
+<h4 id="fontlab.flNode--nodekind">NodeKind</h4>
 <table>
 <thead>
 <tr>
@@ -2589,7 +2589,7 @@
 - <code>SCV</code> — Smooth Curve Vector is active
 - <code>KindMask</code> / <code>SmartMask</code> / <code>SmoothMask</code> — bitmask combinations for filtering
 - <code>ExtraLast</code> — internal flag for open contour endpoint handling</p>
-<h4 id="fontlab.flNode--tutorial">Tutorial</h4>
+<h3 id="fontlab.flNode--tutorial">Tutorial</h3>
 <p>This tutorial walks through the most common node operations you'll use in scripts: accessing nodes from a glyph, reading their properties, navigating between them, creating new nodes by hand, and performing transforms. Each section builds on the previous one.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flNode</span>
@@ -2668,9 +2668,9 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flNode--common-scripting-patterns">Common Scripting Patterns</h4>
+<h3 id="fontlab.flNode--common-scripting-patterns">Common Scripting Patterns</h3>
 <p>These ready-to-use patterns cover the tasks designers most often automate with node-level scripting.</p>
-<h5 id="fontlab.flNode--move-all-smooth-nodes-up-by-10-units">Move all smooth nodes up by 10 units</h5>
+<h4 id="fontlab.flNode--move-all-smooth-nodes-up-by-10-units">Move all smooth nodes up by 10 units</h4>
 <p>Useful for nudging the smooth transition points in a design across all glyphs, for example when adjusting x-height in a batch operation.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2684,7 +2684,7 @@
                         <span class="n">node</span><span class="o">.</span><span class="n">moveBy</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flNode--select-all-extremum-nodes-vertical-and-horizontal">Select all extremum nodes (vertical and horizontal)</h5>
+<h4 id="fontlab.flNode--select-all-extremum-nodes-vertical-and-horizontal">Select all extremum nodes (vertical and horizontal)</h4>
 <p>Select the topmost, bottommost, leftmost, and rightmost nodes on every contour. FontLab highlights these after running <code>extremes()</code>, but this script lets you query and select them manually.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2701,7 +2701,7 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flNode--convert-all-curve-nodes-to-line-nodes-in-a-glyph">Convert all curve nodes to line nodes in a glyph</h5>
+<h4 id="fontlab.flNode--convert-all-curve-nodes-to-line-nodes-in-a-glyph">Convert all curve nodes to line nodes in a glyph</h4>
 <p>Strips all Bézier handles from a glyph, reducing every curve to a straight line. Handy for creating a simplified or geometric version of a design.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2717,7 +2717,7 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flNode--round-all-node-coordinates-to-integers">Round all node coordinates to integers</h5>
+<h4 id="fontlab.flNode--round-all-node-coordinates-to-integers">Round all node coordinates to integers</h4>
 <p>Ensures every node in the current glyph has integer coordinates — a required step before manual hinting in many workflows.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2732,7 +2732,7 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flNode--find-nodes-that-are-nearly-smooth-but-flagged-as-corners">Find nodes that are nearly smooth but flagged as corners</h5>
+<h4 id="fontlab.flNode--find-nodes-that-are-nearly-smooth-but-flagged-as-corners">Find nodes that are nearly smooth but flagged as corners</h4>
 <p>Sometimes imported outlines have handles that are almost collinear but the smooth flag isn't set. This script finds and fixes them.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2752,7 +2752,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fixed </span><span class="si">{</span><span class="n">fixed</span><span class="si">}</span><span class="s2"> near-smooth nodes&quot;</span><span class="p">)</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flNode--keyword-arguments">Keyword arguments</h4>
+<h3 id="fontlab.flNode--keyword-arguments">Keyword arguments</h3>
 <p><code>transformBy</code>, <code>scaleBy</code>, <code>rotateBy</code>, <code>skewBy</code>, <code>copyFrom</code>, <code>isEqualTo</code> accept positional or keyword arguments. Other registered node methods take positional arguments. See the signatures above for parameter names and defaults.</p>
 <p>Inherited binding members: flObject.</p>
 <p>Constructors:

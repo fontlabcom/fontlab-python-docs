@@ -2353,10 +2353,10 @@
 
 
         <p>A single Bézier segment.</p>
-<h4 id="fontlab.CurveEx--what-is-curveex">What is CurveEx?</h4>
+<h3 id="fontlab.CurveEx--what-is-curveex">What is CurveEx?</h3>
 <p>When you look at a letterform's outline in FontLab, you see a series of nodes connected by curve segments. Internally, each of those curve segments is stored as a <strong>CurveEx</strong> object. It holds four points — the two on-curve endpoints and the two off-curve control points (the "handles") — and provides mathematical operations on that single Bézier segment.</p>
 <p>Most designers won't use <code>CurveEx</code> directly unless they are writing geometry-processing scripts. The most common way to encounter CurveEx objects is through <code>flShapeData.segments</code>, which gives you all segments of a shape as a flat list for bulk processing.</p>
-<h4 id="fontlab.CurveEx--tutorial">Tutorial</h4>
+<h3 id="fontlab.CurveEx--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="c1"># ============================================================</span>
@@ -2419,8 +2419,8 @@
 <span class="k">if</span> <span class="n">missing</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  None found — all extrema have nodes.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.CurveEx--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.CurveEx--count-curve-vs-line-segments-across-a-glyph">Count curve vs line segments across a glyph</h5>
+<h3 id="fontlab.CurveEx--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.CurveEx--count-curve-vs-line-segments-across-a-glyph">Count curve vs line segments across a glyph</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span>  <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2439,7 +2439,7 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;O&#39;: </span><span class="si">{</span><span class="n">curves</span><span class="si">}</span><span class="s2"> curve segments, </span><span class="si">{</span><span class="n">lines</span><span class="si">}</span><span class="s2"> line segments&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.CurveEx--check-if-all-smooth-nodes-are-actually-smooth">Check if all smooth nodes are actually smooth</h5>
+<h4 id="fontlab.CurveEx--check-if-all-smooth-nodes-are-actually-smooth">Check if all smooth nodes are actually smooth</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span>  <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

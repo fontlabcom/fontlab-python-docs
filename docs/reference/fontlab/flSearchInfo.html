@@ -2342,10 +2342,10 @@
 
 
         <p>Base canvas info object.</p>
-<h4 id="fontlab.flSearchInfo--what-is-flsearchinfo">What is flSearchInfo?</h4>
+<h3 id="fontlab.flSearchInfo--what-is-flsearchinfo">What is flSearchInfo?</h3>
 <p><code>flSearchInfo</code> is the root of the canvas info class hierarchy. Every object that describes where something is on the FontLab canvas — a shape, a contour, a node — ultimately inherits from <code>flSearchInfo</code>. This base class provides two things: a link back to the rendered glyph context (<code>glyphInfo</code>) and a <code>dist</code> value used when searching for the nearest feature to a mouse position.</p>
 <p>You will rarely create <code>flSearchInfo</code> objects directly. Instead you receive them (or their subclasses) as results from canvas queries like <code>flGlyphInfo.getNearbyContours()</code> or <code>canvas.selectedNodes()</code>. Understanding this base class helps you write tool code that works generically across different info types.</p>
-<h4 id="fontlab.flSearchInfo--tutorial">Tutorial</h4>
+<h3 id="fontlab.flSearchInfo--tutorial">Tutorial</h3>
 <p><code>flSearchInfo</code> is primarily useful through its <code>dist</code> property, which tells you how far a query result was from the search point. This is the basis of nearest-feature tools.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2385,8 +2385,8 @@
     <span class="c1"># All results share the same glyphInfo:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Glyph: </span><span class="si">{</span><span class="n">closest</span><span class="o">.</span><span class="n">glyphInfo</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flSearchInfo--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flSearchInfo--check-that-all-nearby-results-belong-to-the-same-glyph">Check that all nearby results belong to the same glyph</h5>
+<h3 id="fontlab.flSearchInfo--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flSearchInfo--check-that-all-nearby-results-belong-to-the-same-glyph">Check that all nearby results belong to the same glyph</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 

@@ -3,6 +3,14 @@ this_file: CHANGELOG.md
 ---
 
 
+## 2026-11-17 — Issue 257: new private input packet, green release audit
+
+- CI now reads packet `inputs-93a2be39e2d1.tar.gz` from fontlab-python-docs-inputs `b911f99` (current package mains, echopy regenerated from FontLab 9.1.9813, instamix/plugmix/agentus added, examples export and fontlabpr removed; TypeRig snapshot from the 2026-11-15 packet). The source lock and the reviewed TypeRig redefinition line numbers follow it.
+- New `scripts/docstring_headings.py` renders native docstring headings from level 1 without skipped levels, fixing the heading-order accessibility failure on the enriched `flNode` page. Sources are unchanged.
+- The R043 keyboard check now targets the first focusable content control after the skip link (a code block copy button on enriched native pages), not only the first link.
+- `fontlab-aidus-agentus` and `fontlab-python-instamix` are public and listed as such in the release audit; the agentus page no longer names the retired private package. The audit disposition now accepts only a green audit; the former plugmix name waiver is gone because plugmix is a documented package.
+- Local reproduction of the full CI gate (`scripts/pages-build.sh` against the packet) passed every stage, release audit exit 0.
+
 ## 2026-11-16 — What's new in FontLab 9.1 for Python
 
 The 9.1 page now shows the live-read `penParameters` dict (string join/caps) and the live-read `fgBrush()` defaults table; `expandStroke` and `makeStroke` stay marked unverified.

@@ -2353,10 +2353,10 @@
 
 
         <p>A snap target.</p>
-<h4 id="fontlab.flSnapObject--what-is-flsnapobject">What is flSnapObject?</h4>
+<h3 id="fontlab.flSnapObject--what-is-flsnapobject">What is flSnapObject?</h3>
 <p>Every node, guideline, and metric line that can "attract" the cursor during editing is a snap object. The <code>flSnapObject</code> class provides the interface for querying snap distances — "how far is the cursor from this feature?" — and for controlling which snap roles (node snapping, metric snapping, guideline snapping) are active on a particular element.</p>
 <p>Most designers will never use <code>flSnapObject</code> directly in scripts. It is relevant when writing custom editor tools that need to implement their own snapping logic.</p>
-<h4 id="fontlab.flSnapObject--tutorial">Tutorial</h4>
+<h3 id="fontlab.flSnapObject--tutorial">Tutorial</h3>
 <p><code>flSnapObject</code> is the low-level snap interface used when building custom snap logic. Most scripts don't need it — but if you are writing a tool that implements its own magnetic attraction to guidelines or metric lines, here is the pattern.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2408,8 +2408,8 @@
         <span class="n">gl</span><span class="o">.</span><span class="n">isInUse</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># re-enable</span>
         <span class="k">break</span>
 </code></pre></div>
-<h4 id="fontlab.flSnapObject--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flSnapObject--disable-all-guideline-snapping">Disable all guideline snapping</h5>
+<h3 id="fontlab.flSnapObject--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flSnapObject--disable-all-guideline-snapping">Disable all guideline snapping</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2420,7 +2420,7 @@
 <span class="c1"># for gl in font.guidelines:</span>
 <span class="c1">#     gl.isInUse = True</span>
 </code></pre></div>
-<h5 id="fontlab.flSnapObject--find-the-nearest-snap-target-to-a-point">Find the nearest snap target to a point</h5>
+<h4 id="fontlab.flSnapObject--find-the-nearest-snap-target-to-a-point">Find the nearest snap target to a point</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 

@@ -2400,7 +2400,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtXmlPatterns.QXmlQuery--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtXmlPatterns.QXmlQuery--detailed-description">Detailed Description</h3>
 <p>The QXmlQuery class compiles and executes queries written in the <a href="http://www.w3.org/TR/xquery/">XQuery
 language</a>. QXmlQuery is typically used to query XML data,
 but it can also query non-XML data that has been modeled to look like XML.</p>
@@ -2428,7 +2428,7 @@ interface. An instance of this custom data model then becomes the delegate used 
 query engine to traverse the non-XML data. For an example of how to use QXmlQuery to
 query non-XML data, see the documentation for
 <a href="https://doc.qt.io/archives/qt-5.15/qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a>.</p>
-<h5 id="PythonQt.QtXmlPatterns.QXmlQuery--running-xqueries">Running XQueries</h5>
+<h4 id="PythonQt.QtXmlPatterns.QXmlQuery--running-xqueries">Running XQueries</h4>
 <p>To run a query set up with QXmlQuery, call one of the evaluation functions.</p>
 <ul>
 <li>
@@ -2441,14 +2441,14 @@ query non-XML data, see the documentation for
 <p><a href="https://doc.qt.io/archives/qt-5.15/qxmlquery.html#evaluateTo">evaluateTo</a>(<a href="https://doc.qt.io/archives/qt-5.15/qstringlist.html">QStringList</a> *) is like <a href="https://doc.qt.io/archives/qt-5.15/qxmlquery.html#evaluateTo">evaluateTo</a>(<a href="https://doc.qt.io/archives/qt-5.15/qxmlresultitems.html">QXmlResultItems</a> *), but the query must evaluate to a sequence of strings.</p>
 </li>
 </ul>
-<h5 id="PythonQt.QtXmlPatterns.QXmlQuery--running-xpath-expressions">Running XPath Expressions</h5>
+<h4 id="PythonQt.QtXmlPatterns.QXmlQuery--running-xpath-expressions">Running XPath Expressions</h4>
 <p>The XPath language is a subset of the
 <a href="https://doc.qt.io/archives/qt-5.15/xmlprocessing.html">XQuery</a> language, so running an
 XPath expression is the same as running an
 <a href="https://doc.qt.io/archives/qt-5.15/xmlprocessing.html">XQuery</a> query. Pass the XPath
 expression to QXmlQuery using
 <a href="https://doc.qt.io/archives/qt-5.15/qxmlquery.html#setQuery">setQuery</a>().</p>
-<h5 id="PythonQt.QtXmlPatterns.QXmlQuery--running-xslt-stylesheets">Running XSLT Stylesheets</h5>
+<h4 id="PythonQt.QtXmlPatterns.QXmlQuery--running-xslt-stylesheets">Running XSLT Stylesheets</h4>
 <p>Running an XSLT stylesheet is like running an
 <a href="https://doc.qt.io/archives/qt-5.15/xmlprocessing.html">XQuery</a>, except that when you
 construct your QXmlQuery, you must pass
@@ -2477,7 +2477,7 @@ conformance</a> for
 details.</p>
 <p>Stylesheet parameters are bound using
 <a href="https://doc.qt.io/archives/qt-5.15/qxmlquery.html#bindVariable">bindVariable</a>().</p>
-<h5 id="PythonQt.QtXmlPatterns.QXmlQuery--binding-a-query-to-a-starting-node">Binding A Query To A Starting Node</h5>
+<h4 id="PythonQt.QtXmlPatterns.QXmlQuery--binding-a-query-to-a-starting-node">Binding A Query To A Starting Node</h4>
 <p>When a query is run on XML data, as in the snippet above, the <code>doc()</code> function returns
 the node in the built-in data model where the query evaluation will begin. But when a
 query is run on a custom node model containing non-XML data, one of the
@@ -2488,13 +2488,13 @@ A $variable reference is used in the
 starting node in the custom model. It is not necessary to declare the variable name
 external in the query. See the example in the documentation for
 <a href="https://doc.qt.io/archives/qt-5.15/qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a>.</p>
-<h5 id="PythonQt.QtXmlPatterns.QXmlQuery--reentrancy-and-thread-safety">Reentrancy and Thread-Safety</h5>
+<h4 id="PythonQt.QtXmlPatterns.QXmlQuery--reentrancy-and-thread-safety">Reentrancy and Thread-Safety</h4>
 <p>QXmlQuery is reentrant but not thread-safe. It is safe to use the QxmlQuery copy
 constructor to create a copy of a query and run the same query multiple times. Behind
 the scenes, QXmlQuery will reuse resources such as opened files and compiled queries to
 the extent possible. But it is not safe to use the same instance of QXmlQuery in
 multiple threads.</p>
-<h5 id="PythonQt.QtXmlPatterns.QXmlQuery--error-handling">Error Handling</h5>
+<h4 id="PythonQt.QtXmlPatterns.QXmlQuery--error-handling">Error Handling</h4>
 <p>Errors can occur during query evaluation. Examples include type errors and file loading
 errors. When an error occurs:</p>
 <ul>
@@ -2502,7 +2502,7 @@ errors. When an error occurs:</p>
 <li><a href="https://doc.qt.io/archives/qt-5.15/qxmlresultitems.html#hasError">QXmlResultItems::hasError</a>() will return <code>true</code>, or <a href="https://doc.qt.io/archives/qt-5.15/qxmlquery.html#evaluateTo">evaluateTo</a>() will return <code>false</code>;</li>
 <li>The results of the evaluation are undefined.</li>
 </ul>
-<h5 id="PythonQt.QtXmlPatterns.QXmlQuery--resource-management">Resource Management</h5>
+<h4 id="PythonQt.QtXmlPatterns.QXmlQuery--resource-management">Resource Management</h4>
 <p>When a query runs, it parses documents, allocating internal data structures to hold
 them, and it may load other resources over the network. It reuses these allocated
 resources when possible, to avoid having to reload and reparse them.</p>
@@ -2516,7 +2516,7 @@ QXmlQuery instance and shared among multiple QXmlQuery instances.</p>
 <p>An instance of
 <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html">QCoreApplication</a> must exist
 before QXmlQuery can be used.</p>
-<h5 id="PythonQt.QtXmlPatterns.QXmlQuery--event-handling">Event Handling</h5>
+<h4 id="PythonQt.QtXmlPatterns.QXmlQuery--event-handling">Event Handling</h4>
 <p>When QXmlQuery accesses resources (e.g., calling <code>fn:doc()</code> to load a file, or accessing
 a device via a bound variable), the event loop is used, which means events will be
 processed. To avoid processing events when QXmlQuery accesses resources, create your

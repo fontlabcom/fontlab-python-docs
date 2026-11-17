@@ -2364,13 +2364,13 @@
 
 
         <p>A string of characters.</p>
-<h4 id="fontlab.fgSymbolList--what-is-fgsymbollist">What is fgSymbolList?</h4>
+<h3 id="fontlab.fgSymbolList--what-is-fgsymbollist">What is fgSymbolList?</h3>
 <p>An <code>fgSymbolList</code> is an ordered, mutable sequence of <code>fgSymbol</code> objects — essentially, a text string at the font object level. Where Python's <code>str</code> stores Unicode code points and knows nothing about your font, <code>fgSymbolList</code> stores symbols that are already resolved to specific glyphs in a specific font.</p>
 <p>You use <code>fgSymbolList</code> when you need to:
 - Programmatically set the text string in a metrics view text block
 - Inspect which characters are selected in a metrics view
 - Build a sequence of glyphs for batch measurement or spacing work</p>
-<h4 id="fontlab.fgSymbolList--tutorial">Tutorial</h4>
+<h3 id="fontlab.fgSymbolList--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">fgSymbol</span><span class="p">,</span> <span class="n">fgSymbolList</span>
 
@@ -2456,15 +2456,15 @@
 <span class="k">for</span> <span class="n">sym</span> <span class="ow">in</span> <span class="n">all_syms</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">sym</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.fgSymbolList--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.fgSymbolList--build-a-metrics-view-text-string-from-a-fonts-glyph-names">Build a metrics-view text string from a font's glyph names</h5>
+<h3 id="fontlab.fgSymbolList--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.fgSymbolList--build-a-metrics-view-text-string-from-a-fonts-glyph-names">Build a metrics-view text string from a font's glyph names</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">fgSymbolList</span>
 
 <span class="n">sl</span> <span class="o">=</span> <span class="n">fgSymbolList</span><span class="p">()</span>
 <span class="n">sl</span><span class="o">.</span><span class="n">setNamesList</span><span class="p">(</span><span class="s2">&quot;H O spacing A B C D E F G&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sl</span><span class="o">.</span><span class="n">string</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<h5 id="fontlab.fgSymbolList--get-the-selected-characters-from-the-metrics-view">Get the selected characters from the metrics view</h5>
+<h4 id="fontlab.fgSymbolList--get-the-selected-characters-from-the-metrics-view">Get the selected characters from the metrics view</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span>     <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2476,7 +2476,7 @@
         <span class="k">if</span> <span class="n">selected</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Selected:&quot;</span><span class="p">,</span> <span class="n">selected</span><span class="o">.</span><span class="n">string</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<h5 id="fontlab.fgSymbolList--truncate-a-long-string-to-fit-a-line">Truncate a long string to fit a line</h5>
+<h4 id="fontlab.fgSymbolList--truncate-a-long-string-to-fit-a-line">Truncate a long string to fit a line</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">fgSymbolList</span>
 
 <span class="n">sl</span> <span class="o">=</span> <span class="n">fgSymbolList</span><span class="p">()</span>

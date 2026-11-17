@@ -2401,7 +2401,7 @@
 <span class="c1"># Request that a specific UI dialog opens</span>
 <span class="n">flItems</span><span class="o">.</span><span class="n">requestFontInfoDlg</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flItems--notify-vs-request-whats-the-difference">notify<em> vs request</em> — what's the difference?</h5>
+<h3 id="fontlab.flItems--notify-vs-request-whats-the-difference">notify<em> vs request</em> — what's the difference?</h3>
 <p>These two prefixes mean very different things:</p>
 <ul>
 <li>
@@ -2412,7 +2412,7 @@
 </li>
 </ul>
 <p>A useful way to think about it: <code>notify*</code> is telling the application about the past ("this already happened"), while <code>request*</code> is asking it to do something in the future ("please do this now").</p>
-<h4 id="fontlab.flItems--static-initialization-and-instance-access">Static initialization and instance access</h4>
+<h3 id="fontlab.flItems--static-initialization-and-instance-access">Static initialization and instance access</h3>
 <div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="n">flItems</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
 </code></pre></div>
 <p>Although <code>flItems</code> has an <code>instance()</code> method, almost all its methods are static — you can call them directly on the class without getting an instance first. Call <code>flItems.init()</code> once during plugin startup to ensure the event system is properly wired up.</p>
@@ -2432,7 +2432,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flItems--static-utility-methods">Static utility methods</h4>
+<h3 id="fontlab.flItems--static-utility-methods">Static utility methods</h3>
 <table>
 <thead>
 <tr>
@@ -2534,7 +2534,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flItems--instance-methods">Instance Methods</h4>
+<h3 id="fontlab.flItems--instance-methods">Instance Methods</h3>
 <table>
 <thead>
 <tr>
@@ -2551,7 +2551,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flItems--common-scripting-patterns">Common Scripting Patterns</h4>
+<h3 id="fontlab.flItems--common-scripting-patterns">Common Scripting Patterns</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flItems</span>
 
 <span class="c1"># ---- After editing a single glyph ----</span>
@@ -2585,7 +2585,7 @@
 <span class="c1"># ---- Open Font Info dialog ----</span>
 <span class="n">flItems</span><span class="o">.</span><span class="n">requestFontInfoDlg</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flItems--tutorial">Tutorial</h4>
+<h3 id="fontlab.flItems--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTransform</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flItems</span>
@@ -2709,7 +2709,7 @@
 <span class="n">ws</span> <span class="o">=</span> <span class="n">flItems</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">workspace</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Workspace from flItems:&quot;</span><span class="p">,</span> <span class="n">ws</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flItems--flitems-constants">flItems constants</h4>
+<h3 id="fontlab.flItems--flitems-constants">flItems constants</h3>
 <p>These constants are class attributes.</p>
 <table>
 <thead>
@@ -2802,7 +2802,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flItems--flitemsitemstates">flItems.ItemStates</h4>
+<h3 id="fontlab.flItems--flitemsitemstates">flItems.ItemStates</h3>
 <p>Use the <code>flItems.ItemStates</code> dictionary with subscription.</p>
 <table>
 <thead>
@@ -2860,7 +2860,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flItems--flitemsitemtype">flItems.ItemType</h4>
+<h3 id="fontlab.flItems--flitemsitemtype">flItems.ItemType</h3>
 <p>Use the <code>flItems.ItemType</code> dictionary with subscription.</p>
 <table>
 <thead>

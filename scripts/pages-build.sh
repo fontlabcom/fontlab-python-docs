@@ -66,4 +66,4 @@ printf 'Documentation release-audit exit: %s\n' "$raw_exit" >&3
 stage audit-disposition
 uv run --no-sync python -m scripts.pages_inputs disposition "$DOCS_PRIVATE_RUNTIME/release-audit.json" "$raw_exit"
 stage complete
-printf 'Complete frozen-input documentation, Python, Node, search, accessibility and interaction gates passed; release audit retains reviewed exit 1.\n' >&3
+printf 'Complete frozen-input documentation, Python, Node, search, accessibility and interaction gates passed; release audit passed.\n' >&3

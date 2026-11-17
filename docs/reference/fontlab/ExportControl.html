@@ -2353,10 +2353,10 @@
 
 
         <p>Font export configuration.</p>
-<h4 id="fontlab.ExportControl--what-is-exportcontrol">What is ExportControl?</h4>
+<h3 id="fontlab.ExportControl--what-is-exportcontrol">What is ExportControl?</h3>
 <p>When you export a font (File → Export Font As), FontLab reads a set of parameters: which export profile (OpenType PS, Variable TTF, etc.), where to put the files, how to handle conflicts. <code>ExportControl</code> lets scripts access and modify these parameters programmatically.</p>
 <p>The most common use is in automation scripts that export many fonts to a predictable location: set the profile, set the folder, set <code>conflictMode = 0</code> (overwrite), then call the export command. This is the scripting equivalent of clicking through the Export Font dialog.</p>
-<h4 id="fontlab.ExportControl--tutorial">Tutorial</h4>
+<h3 id="fontlab.ExportControl--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExportControl</span>
 
@@ -2406,8 +2406,8 @@
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No saved settings found — starting from defaults.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.ExportControl--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.ExportControl--export-to-otf-and-ufo-in-one-pass">Export to OTF and UFO in one pass</h5>
+<h3 id="fontlab.ExportControl--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.ExportControl--export-to-otf-and-ufo-in-one-pass">Export to OTF and UFO in one pass</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExportControl</span>
 
 <span class="c1"># Export OTF:</span>
@@ -2426,7 +2426,7 @@
 <span class="n">ec</span><span class="o">.</span><span class="n">store</span><span class="p">()</span>
 <span class="c1"># fl.ExportFont(ec)</span>
 </code></pre></div>
-<h5 id="fontlab.ExportControl--export-only-selected-glyphs">Export only selected glyphs</h5>
+<h4 id="fontlab.ExportControl--export-only-selected-glyphs">Export only selected glyphs</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExportControl</span>
 
 <span class="n">ec</span> <span class="o">=</span> <span class="n">ExportControl</span><span class="p">()</span>

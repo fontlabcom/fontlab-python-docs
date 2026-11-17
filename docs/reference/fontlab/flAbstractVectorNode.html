@@ -2386,11 +2386,11 @@
 
 
         <p>Guideline-anchored nodes.</p>
-<h4 id="fontlab.flAbstractVectorNode--what-are-vector-nodes">What are vector nodes?</h4>
+<h3 id="fontlab.flAbstractVectorNode--what-are-vector-nodes">What are vector nodes?</h3>
 <p>A <strong>vector node</strong> (called a "vector point" in the FontLab UI) is a special node that is pinned to a guideline. When the guideline moves, the node moves with it — automatically, across all glyphs that reference that guideline. This is the mechanism behind FontLab's <strong>power guidelines</strong>: you draw a guideline, attach nodes from multiple glyphs to it, and moving the guideline moves all the attached nodes at once.</p>
 <p>This makes vector nodes a powerful tool for variable font design. If you define a guideline at the x-height and attach the top of your lowercase letters to it, raising the x-height guideline automatically raises every attached node in every glyph.</p>
 <p><code>flAbstractVectorNode</code> is the base class (provides the interface); <code>flVectorNode</code> is the concrete implementation you create and use in scripts.</p>
-<h4 id="fontlab.flAbstractVectorNode--static-methods-flvectornode">Static Methods (flVectorNode)</h4>
+<h3 id="fontlab.flAbstractVectorNode--static-methods-flvectornode">Static Methods (flVectorNode)</h3>
 <table>
 <thead>
 <tr>
@@ -2409,7 +2409,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flAbstractVectorNode--properties-flvectornode">Properties (flVectorNode)</h4>
+<h3 id="fontlab.flAbstractVectorNode--properties-flvectornode">Properties (flVectorNode)</h3>
 <table>
 <thead>
 <tr>
@@ -2434,7 +2434,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flAbstractVectorNode--tutorial">Tutorial</h4>
+<h3 id="fontlab.flAbstractVectorNode--tutorial">Tutorial</h3>
 <p>Vector nodes are most useful in variable fonts where you want multiple glyphs to share a common alignment target. Here is how to check for and inspect existing vector nodes in a glyph.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2483,8 +2483,8 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">No x-height expression guideline found.&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Create one first: guide.expression = &#39;=xHeight&#39;&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flAbstractVectorNode--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flAbstractVectorNode--count-vector-nodes-across-the-entire-font">Count vector nodes across the entire font</h5>
+<h3 id="fontlab.flAbstractVectorNode--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flAbstractVectorNode--count-vector-nodes-across-the-entire-font">Count vector nodes across the entire font</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flVectorNode</span>
 
@@ -2500,7 +2500,7 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total vector nodes in font: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flAbstractVectorNode--find-all-guidelines-that-have-attached-vector-nodes">Find all guidelines that have attached vector nodes</h5>
+<h4 id="fontlab.flAbstractVectorNode--find-all-guidelines-that-have-attached-vector-nodes">Find all guidelines that have attached vector nodes</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flVectorNode</span>
 
@@ -2519,7 +2519,7 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">used_guides</span><span class="p">)</span><span class="si">}</span><span class="s2"> guideline(s) have attached vector nodes.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flAbstractVectorNode--flvectornodemode">flVectorNode.Mode</h4>
+<h3 id="fontlab.flAbstractVectorNode--flvectornodemode">flVectorNode.Mode</h3>
 <p>Use the <code>flVectorNode.Mode</code> dictionary with subscription.</p>
 <table>
 <thead>

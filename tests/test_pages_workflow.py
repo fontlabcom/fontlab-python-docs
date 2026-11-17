@@ -31,7 +31,7 @@ def test_workflow_when_every_main_push_then_x_y_rebuild_same_frozen_inputs():
         private = [step for step in job["steps"] if step.get("with", {}).get("repository") == "fontlabcom/fontlab-python-docs-inputs"]
         assert len(private) == 1
         settings = private[0]["with"]
-        assert settings["ref"] == "cff3cbcd531df18e1588e5b2572c5b8edf05b222"
+        assert settings["ref"] == "b911f99c482e3a3ca7a260f15ba966c36b614d6f"
         assert settings["ssh-key"] == "${{ secrets.DOCS_INPUTS_SSH_KEY }}"
         assert settings["ssh-strict"] == "true" and settings["persist-credentials"] == "false"
         assert settings["fetch-depth"] == "1" and settings["submodules"] == "false"
@@ -104,13 +104,13 @@ with open(os.environ['CI_TEST_CALLS'],'a') as log: log.write(json.dumps({'comman
 if os.environ.get('CI_TEST_FAIL_COMMAND')==command: raise SystemExit(8)
 if os.environ.get('CI_TEST_FAIL_STAGE')==stage: raise SystemExit(7)
 if stage=='release-audit': raise SystemExit(int(os.environ['CI_TEST_AUDIT_EXIT']))
-if stage=='audit-disposition' and args[-1]!='1': raise SystemExit(23)
+if stage=='audit-disposition' and args[-1]!='0': raise SystemExit(23)
 '''
     for path in (binary / "uv", binary / "node", binary / "npm", project / "build.sh", project / "scripts/accept-consumer.sh"):
         path.write_text(driver)
         path.chmod(0o755)
 
-    def run(fail_stage="", audit_exit="1", fail_command=""):
+    def run(fail_stage="", audit_exit="0", fail_command=""):
         private = tmp_path / "PRIVATE-SOURCE-SENTINEL-runtime"
         store = tmp_path / "PRIVATE-SOURCE-SENTINEL-store"
         calls = tmp_path / "calls.jsonl"
@@ -163,14 +163,14 @@ def test_private_build_when_stage_fails_then_reports_only_static_stage_and_exit(
     assert "Documentation stage: complete" not in result.stdout
 
 
-def test_private_build_when_all_stages_pass_then_expected_audit_one_reaches_disposition(private_gate):
+def test_private_build_when_all_stages_pass_then_green_audit_reaches_disposition(private_gate):
     result, private = private_gate()
     assert result.returncode == 0, result.stdout + result.stderr
     stages = [line.removeprefix("Documentation stage: ") for line in result.stdout.splitlines()
               if line.startswith("Documentation stage: ")]
     assert stages == list(STAGES)
-    assert "Documentation release-audit exit: 1" in result.stdout
-    assert (private / "release-audit.exit").read_text() == "1\n"
+    assert "Documentation release-audit exit: 0" in result.stdout
+    assert (private / "release-audit.exit").read_text() == "0\n"
     assert "::error::" not in result.stdout
 
 
@@ -182,10 +182,10 @@ def test_private_build_when_audit_exit_is_unexpected_then_disposition_still_fail
     assert (private / "release-audit.exit").read_text() == "7\n"
 
 
-def test_private_build_when_audit_is_green_then_existing_disposition_rejects_zero(private_gate):
-    result, private = private_gate(audit_exit="0")
+def test_private_build_when_audit_fails_then_disposition_rejects_one(private_gate):
+    result, private = private_gate(audit_exit="1")
     assert result.returncode == 23
-    assert (private / "release-audit.exit").read_text() == "0\n"
+    assert (private / "release-audit.exit").read_text() == "1\n"
 
 
 @pytest.mark.parametrize("command", ["compiler", "root-node", "archive-node", "ui-node"])

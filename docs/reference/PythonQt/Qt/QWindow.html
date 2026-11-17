@@ -2367,7 +2367,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QWindow--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QWindow--detailed-description">Detailed Description</h3>
 <p>A window that is supplied a parent becomes a native child window of their parent window.</p>
 <p>An application will typically use
 <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html">QWidget</a> or
@@ -2380,13 +2380,13 @@ Window Example</a> and
 <a href="https://doc.qt.io/archives/qt-5.15/qtgui-openglwindow-example.html">OpenGL Window
 Example</a> are useful
 reference examples for how to render to a QWindow using either approach.</p>
-<h5 id="PythonQt.Qt.QWindow--resource-management">Resource Management</h5>
+<h4 id="PythonQt.Qt.QWindow--resource-management">Resource Management</h4>
 <p>Windows can potentially use a lot of memory. A usual measurement is width times height
 times color depth. A window might also include multiple buffers to support double and
 triple buffering, as well as depth and stencil buffers. To release a window's memory
 resources, call the <a href="https://doc.qt.io/archives/qt-5.15/qwindow.html#destroy">destroy</a>()
 function.</p>
-<h5 id="PythonQt.Qt.QWindow--content-orientation">Content Orientation</h5>
+<h4 id="PythonQt.Qt.QWindow--content-orientation">Content Orientation</h4>
 <p>QWindow has
 <a href="https://doc.qt.io/archives/qt-5.15/qwindow.html#contentOrientation-prop">reportContentOrientationChange</a>()
 that can be used to specify the layout of the window contents in relation to the screen.
@@ -2395,7 +2395,7 @@ the window contents are in. It's useful when you wish to keep the same window si
 rotate the contents instead, especially when doing rotation animations between different
 orientations. The windowing system might use this value to determine the layout of
 system popups or dialogs.</p>
-<h5 id="PythonQt.Qt.QWindow--visibility-and-windowing-system-exposure">Visibility and Windowing System Exposure</h5>
+<h4 id="PythonQt.Qt.QWindow--visibility-and-windowing-system-exposure">Visibility and Windowing System Exposure</h4>
 <p>By default, the window is not visible, and you must call
 <a href="https://doc.qt.io/archives/qt-5.15/qwindow.html#visible-prop">setVisible</a>(true), or
 <a href="https://doc.qt.io/archives/qt-5.15/qwindow.html#show">show</a>() or similar to make it
@@ -2420,7 +2420,7 @@ queried through
 <a href="https://doc.qt.io/archives/qt-5.15/qwindow.html#visibility-prop">visibility</a>() is a
 convenience API combining the functions of visible() and
 <a href="https://doc.qt.io/archives/qt-5.15/qwindow.html#windowStates">windowStates</a>().</p>
-<h5 id="PythonQt.Qt.QWindow--rendering">Rendering</h5>
+<h4 id="PythonQt.Qt.QWindow--rendering">Rendering</h4>
 <p>There are two Qt APIs that can be used to render content into a window,
 <a href="https://doc.qt.io/archives/qt-5.15/qbackingstore.html">QBackingStore</a> for rendering
 with a <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a> and flushing the
@@ -2438,7 +2438,7 @@ and can keep rendering until it
 reimplement
 <a href="https://doc.qt.io/archives/qt-5.15/qwindow.html#exposeEvent">exposeEvent</a>(). The window
 will always get a resize event before the first expose event.</p>
-<h5 id="PythonQt.Qt.QWindow--initial-geometry">Initial Geometry</h5>
+<h4 id="PythonQt.Qt.QWindow--initial-geometry">Initial Geometry</h4>
 <p>If the window's width and height are left uninitialized, the window will get a
 reasonable default geometry from the platform window. If the position is left
 uninitialized, then the platform window will allow the windowing system to position the

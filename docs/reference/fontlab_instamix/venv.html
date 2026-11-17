@@ -2282,7 +2282,7 @@
 
     <div class="doc doc-contents first">
 
-        <p><code>&lt;data&gt;/.venv</code> matching FontLab's Python version, created by uv.</p>
+        <p>Verified standalone Python sharing FontLab's canonical package directory.</p>
 
 
 
@@ -2323,6 +2323,18 @@
 </thead>
 <tbody>
 <tr>
+<td><span id="fontlab_instamix.venv.PROBE"></span><a href="venv/members-001.html#fontlab_instamix.venv.PROBE"><code>PROBE</code></a></td>
+<td>attribute</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span id="fontlab_instamix.venv.PTH"></span><a href="venv/members-001.html#fontlab_instamix.venv.PTH"><code>PTH</code></a></td>
+<td>attribute</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><span id="fontlab_instamix.venv.VENV"></span><a href="venv/members-001.html#fontlab_instamix.venv.VENV"><code>VENV</code></a></td>
 <td>attribute</td>
 <td></td>
@@ -2331,8 +2343,8 @@
 <tr>
 <td><span id="fontlab_instamix.venv.create"></span><a href="venv/members-001.html#fontlab_instamix.venv.create"><code>create</code></a></td>
 <td>function</td>
-<td><code>(data: Path, uv&#95;bin: Path, runner=None) -&gt; Path</code></td>
-<td>Create <code>&lt;code&gt;&amp;lt;data&amp;gt;/.venv&lt;/code&gt;</code> for Python 3.11 unless it exists.</td>
+<td><code>(data: Path, uv&#95;bin: Path, runner=subprocess.run, &#42;, target: env.Target &#124; None=None) -&gt; Path</code></td>
+<td>Create or verify the environment, preserving existing packages and files.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.venv.path"></span><a href="venv/members-001.html#fontlab_instamix.venv.path"><code>path</code></a></td>
@@ -2341,9 +2353,21 @@
 <td></td>
 </tr>
 <tr>
+<td><span id="fontlab_instamix.venv.probe"></span><a href="venv/members-001.html#fontlab_instamix.venv.probe"><code>probe</code></a></td>
+<td>function</td>
+<td><code>(folder: Path, target: env.Target, runner=subprocess.run) -&gt; Path</code></td>
+<td>Refuse a mismatched interpreter before modifying an existing environment.</td>
+</tr>
+<tr>
 <td><span id="fontlab_instamix.venv.python"></span><a href="venv/members-001.html#fontlab_instamix.venv.python"><code>python</code></a></td>
 <td>function</td>
-<td><code>(venv: Path) -&gt; Path</code></td>
+<td><code>(venv: Path, plat: str &#124; None=None) -&gt; Path</code></td>
+<td></td>
+</tr>
+<tr>
+<td><span id="fontlab_instamix.venv.request"></span><a href="venv/members-001.html#fontlab_instamix.venv.request"><code>request</code></a></td>
+<td>function</td>
+<td><code>(target: env.Target) -&gt; str</code></td>
 <td></td>
 </tr>
 </tbody>

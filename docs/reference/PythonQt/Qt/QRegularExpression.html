@@ -2411,7 +2411,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Porting from QRegExp::exactMatch()">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#PythonQt.Qt.QRegularExpression--porting-from-qregexps-exact-matching" class="md-nav__link">
@@ -2432,6 +2433,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2583,7 +2589,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QRegularExpression--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QRegularExpression--detailed-description">Detailed Description</h3>
 <p>Regular expressions, or <em>regexps</em>, are a very powerful tool to handle strings and texts.
 This is useful in many contexts, e.g.,</p>
 <table>
@@ -2617,7 +2623,7 @@ knowledge about Perl-like regular expressions and their pattern syntax.</p>
 <li>the <a href="http://pcre.org/pcre.txt">pcrepattern</a>(3) man page, describing the pattern syntax supported by PCRE (the reference implementation of Perl-compatible regular expressions);</li>
 <li>the <a href="http://perldoc.perl.org/perlre.html">Perl's regular expression documentation</a> and the <a href="http://perldoc.perl.org/perlretut.html">Perl's regular expression tutorial</a>.</li>
 </ul>
-<h5 id="PythonQt.Qt.QRegularExpression--introduction">Introduction</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--introduction">Introduction</h4>
 <p>QRegularExpression implements Perl-compatible regular expressions. It fully supports
 Unicode. For an overview of the regular expression syntax supported by
 QRegularExpression, please refer to the aforementioned pcrepattern(3) man page. A
@@ -2646,7 +2652,7 @@ function returns the pattern that is currently set for a QRegularExpression obje
 <div class="highlight"><pre><span></span><code>QRegularExpression re(&quot;a third pattern&quot;);
 QString pattern = re.pattern(); // pattern == &quot;a third pattern&quot;
 </code></pre></div>
-<h5 id="PythonQt.Qt.QRegularExpression--pattern-options">Pattern Options</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--pattern-options">Pattern Options</h4>
 <p>The meaning of the pattern string can be modified by setting one or more <em>pattern
 options</em>. For instance, it is possible to set a pattern to match case insensitively by
 setting the
@@ -2675,7 +2681,7 @@ QRegularExpression::PatternOptions options = re.patternOptions();
 <p>Please refer to the
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#PatternOption-enum">QRegularExpression::PatternOption</a>
 enum documentation for more information about each pattern option.</p>
-<h5 id="PythonQt.Qt.QRegularExpression--match-type-and-match-options">Match Type and Match Options</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--match-type-and-match-options">Match Type and Match Options</h4>
 <p>The last two arguments of the
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#match">match</a>() and the
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#globalMatch">globalMatch</a>()
@@ -2693,7 +2699,7 @@ values. They change the way a specific match of a regular expression against a s
 string is done. Please refer to the
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#MatchOption-enum">QRegularExpression::MatchOption</a>
 enum documentation for more details.</p>
-<h5 id="PythonQt.Qt.QRegularExpression--normal-matching">Normal Matching</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--normal-matching">Normal Matching</h4>
 <p>In order to perform a match you can simply invoke the
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#match">match</a>() function
 passing a string to match against. We refer to this string as the <em>subject string</em>. The
@@ -2730,7 +2736,7 @@ if (match.hasMatch()) {
     // ...
 }
 </code></pre></div>
-<h6 id="PythonQt.Qt.QRegularExpression--extracting-captured-substrings">Extracting captured substrings</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--extracting-captured-substrings">Extracting captured substrings</h5>
 <p>The
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpressionmatch.html">QRegularExpressionMatch</a>
 object contains also information about the substrings captured by the capturing groups
@@ -2773,7 +2779,7 @@ if (match.hasMatch()) {
     QString year = match.captured(&quot;year&quot;); // year == 1985
 }
 </code></pre></div>
-<h5 id="PythonQt.Qt.QRegularExpression--global-matching">Global Matching</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--global-matching">Global Matching</h4>
 <p><em>Global matching</em> is useful to find all the occurrences of a given regular expression
 inside a subject string. Suppose that we want to extract all the words from a given
 string, where a word is a substring matching the pattern <code>\w+</code>.</p>
@@ -2810,7 +2816,7 @@ to get the next result without advancing the iterator.</p>
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#globalMatch">globalMatch</a>()
 function, exactly like normal matching with
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#match">match</a>().</p>
-<h5 id="PythonQt.Qt.QRegularExpression--partial-matching">Partial Matching</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--partial-matching">Partial Matching</h4>
 <p>A <em>partial match</em> is obtained when the end of the subject string is reached, but more
 characters are needed to successfully complete the match. Note that a partial match is
 usually much more inefficient than a normal match because many optimizations of the
@@ -2845,7 +2851,7 @@ will return <code>true</code> and
 reports both a partial and a complete match.</p>
 <p>Partial matching is mainly useful in two scenarios: validating user input in real time
 and incremental/multi-segment matching.</p>
-<h6 id="PythonQt.Qt.QRegularExpression--validating-user-input">Validating user input</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--validating-user-input">Validating user input</h5>
 <p>Suppose that we would like the user to input a date in a specific format, for instance
 "MMM dd, yyyy". We can check the input validity with a pattern like:</p>
 <p><code>^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d\d?, \d\d\d\d$</code></p>
@@ -2907,7 +2913,7 @@ bool hasMatch = match.hasMatch(); // false
 bool hasPartialMatch = match.hasPartialMatch(); // true
 QString captured = match.captured(0); // captured == &quot;abcdef&quot;
 </code></pre></div>
-<h6 id="PythonQt.Qt.QRegularExpression--incrementalmulti-segment-matching">Incremental/multi-segment matching</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--incrementalmulti-segment-matching">Incremental/multi-segment matching</h5>
 <p>Incremental matching is another use case of partial matching. Suppose that we want to
 find the occurrences of a regular expression inside a large text (that is, substrings
 matching the regular expression). In order to do so we would like to "feed" the large
@@ -2955,7 +2961,7 @@ because after the current subject <code>"abc"</code> there may be other occurren
 instance, the complete text could have been "abcabcX", and therefore the <em>right</em> match
 to report (in the complete text) would have been <code>"abcabc"</code>; by matching only against
 the leading <code>"abc"</code> we instead get a partial match.</p>
-<h5 id="PythonQt.Qt.QRegularExpression--error-handling">Error Handling</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--error-handling">Error Handling</h4>
 <p>It is possible for a QRegularExpression object to be invalid because of syntax errors in
 the pattern string. The
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#isValid">isValid</a>() function
@@ -2980,12 +2986,12 @@ if (!invalidRe.isValid()) {
 object will be invalid as well (that is, its
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpressionmatch.html#isValid">isValid()</a>
 function will return false). The same applies for attempting a global match.</p>
-<h5 id="PythonQt.Qt.QRegularExpression--unsupported-perl-compatible-regular-expressions-features">Unsupported Perl-compatible Regular Expressions Features</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--unsupported-perl-compatible-regular-expressions-features">Unsupported Perl-compatible Regular Expressions Features</h4>
 <p>QRegularExpression does not support all the features available in Perl-compatible
 regular expressions. The most notable one is the fact that duplicated names for
 capturing groups are not supported, and using them can lead to undefined behavior.</p>
 <p>This may change in a future version of Qt.</p>
-<h5 id="PythonQt.Qt.QRegularExpression--notes-for-qregexp-users">Notes for QRegExp Users</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--notes-for-qregexp-users">Notes for QRegExp Users</h4>
 <p>The QRegularExpression class introduced in Qt 5 is a big improvement upon
 <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html">QRegExp</a>, in terms of APIs offered,
 supported pattern syntax and speed of execution. The biggest difference is that
@@ -2996,7 +3002,7 @@ object is returned, in order to check the result of a match and extract the capt
 substring. The same applies with global matching and
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpressionmatchiterator.html">QRegularExpressionMatchIterator</a>.</p>
 <p>Other differences are outlined below.</p>
-<h6 id="PythonQt.Qt.QRegularExpression--different-pattern-syntax">Different pattern syntax</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--different-pattern-syntax">Different pattern syntax</h5>
 <p>Porting a regular expression from
 <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html">QRegExp</a> to QRegularExpression may
 require changes to the pattern itself.</p>
@@ -3014,7 +3020,7 @@ most notable cases of silent incompatibility are:</p>
 <li>A 0-to-n quantification like <code>{,n}</code> needs to be ported to <code>{0,n}</code> to preserve semantics. Otherwise, a pattern such as <code>\d{,3}</code> would actually match a digit followed by the exact string <code>"{,3}"</code>.</li>
 <li><a href="https://doc.qt.io/archives/qt-5.15/qregexp.html">QRegExp</a> by default does Unicode-aware matching, while QRegularExpression requires a separate option; see below for more details.</li>
 </ul>
-<h6 id="PythonQt.Qt.QRegularExpression--porting-from-qregexpexactmatch">Porting from QRegExp::exactMatch()</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--porting-from-qregexpexactmatch">Porting from QRegExp::exactMatch()</h5>
 <p><a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#exactMatch">QRegExp::exactMatch</a>() in
 Qt 4 served two purposes: it exactly matched a regular expression against a subject
 string, and it implemented partial matching.</p>
@@ -3062,14 +3068,14 @@ If the returned length was equal to the subject string's length, then one could 
 that a partial match was found.</p>
 <p>QRegularExpression supports partial matching explicitly by means of the appropriate
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#MatchType-enum">MatchType</a>.</p>
-<h6 id="PythonQt.Qt.QRegularExpression--global-matching_1">Global matching</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--global-matching_1">Global matching</h5>
 <p>Due to limitations of the <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html">QRegExp</a> API
 it was impossible to implement global matching correctly (that is, like Perl does). In
 particular, patterns that can match 0 characters (like <code>"a*"</code>) are problematic.</p>
 <p><a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#globalMatch">QRegularExpression::globalMatch</a>()
 implements Perl global match correctly, and the returned iterator can be used to examine
 each result.</p>
-<h6 id="PythonQt.Qt.QRegularExpression--unicode-properties-support">Unicode properties support</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--unicode-properties-support">Unicode properties support</h5>
 <p>When using <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html">QRegExp</a>, character classes
 such as <code>\w</code>, <code>\d</code>, etc. match characters with the corresponding Unicode property: for
 instance, <code>\d</code> matches any character with the Unicode Nd (decimal digit) property.</p>
@@ -3078,14 +3084,14 @@ QRegularExpression: for instance, <code>\d</code> matches exactly a character in
 range. It is possible to change this behaviour by using the
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#PatternOption-enum">UseUnicodePropertiesOption</a>
 pattern option.</p>
-<h6 id="PythonQt.Qt.QRegularExpression--wildcard-matching">Wildcard matching</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--wildcard-matching">Wildcard matching</h5>
 <p>There is no direct way to do wildcard matching in QRegularExpression. However, the
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#wildcardToRegularExpression">wildcardToRegularExpression</a>
 method is provided to translate glob patterns into a Perl-compatible regular expression
 that can be used for that purpose.</p>
-<h6 id="PythonQt.Qt.QRegularExpression--other-pattern-syntaxes">Other pattern syntaxes</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--other-pattern-syntaxes">Other pattern syntaxes</h5>
 <p>QRegularExpression supports only Perl-compatible regular expressions.</p>
-<h6 id="PythonQt.Qt.QRegularExpression--minimal-matching">Minimal matching</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--minimal-matching">Minimal matching</h5>
 <p><a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setMinimal">QRegExp::setMinimal</a>()
 implemented minimal matching by simply reversing the greediness of the quantifiers
 (<a href="https://doc.qt.io/archives/qt-5.15/qregexp.html">QRegExp</a> did not support lazy
@@ -3096,7 +3102,7 @@ pattern option can be useful to emulate the effects of
 <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setMinimal">QRegExp::setMinimal</a>(): if
 enabled, it inverts the greediness of quantifiers (greedy ones become lazy and vice
 versa).</p>
-<h6 id="PythonQt.Qt.QRegularExpression--caret-modes">Caret modes</h6>
+<h5 id="PythonQt.Qt.QRegularExpression--caret-modes">Caret modes</h5>
 <p>The
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html#MatchOption-enum">AnchoredMatchOption</a>
 match option can be used to emulate the
@@ -3104,7 +3110,7 @@ match option can be used to emulate the
 behaviour. There is no equivalent for the other
 <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#CaretMode-enum">QRegExp::CaretMode</a>
 modes.</p>
-<h5 id="PythonQt.Qt.QRegularExpression--debugging-code-that-uses-qregularexpression">Debugging Code that Uses QRegularExpression</h5>
+<h4 id="PythonQt.Qt.QRegularExpression--debugging-code-that-uses-qregularexpression">Debugging Code that Uses QRegularExpression</h4>
 <p>QRegularExpression internally uses a just in time compiler (JIT) to optimize the
 execution of the matching algorithm. The JIT makes extensive usage of self-modifying
 code, which can lead debugging tools such as Valgrind to crash. You must enable all

@@ -2450,7 +2450,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtCore.QSettings--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtCore.QSettings--detailed-description">Detailed Description</h3>
 <p>Users normally expect an application to remember its settings (window sizes and
 positions, options, etc.) across sessions. This information is often stored in the
 system registry on Windows, and in property list files on macOS and iOS. On Unix
@@ -2467,7 +2467,7 @@ value-based types, such as <a href="https://doc.qt.io/archives/qt-5.15/qstring.h
 <p>If all you need is a non-persistent memory-based structure, consider using
 <a href="https://doc.qt.io/archives/qt-5.15/qmap.html">QMap</a>\&lt;<a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a>,
 <a href="https://doc.qt.io/archives/qt-5.15/qvariant.html">QVariant</a>&gt; instead.</p>
-<h5 id="PythonQt.QtCore.QSettings--basic-usage">Basic Usage</h5>
+<h4 id="PythonQt.QtCore.QSettings--basic-usage">Basic Usage</h4>
 <p>When creating a QSettings object, you must pass the name of your company or organization
 as well as the name of your application. For example, if your product is called Star
 Runner and your company is called MySoft, you would construct the QSettings object as
@@ -2523,7 +2523,7 @@ setting associated with a key, call
 of all keys, call
 <a href="https://doc.qt.io/archives/qt-5.15/qsettings.html#allKeys">allKeys</a>(). To remove all
 keys, call <a href="https://doc.qt.io/archives/qt-5.15/qsettings.html#clear">clear</a>().</p>
-<h5 id="PythonQt.QtCore.QSettings--qvariant-and-gui-types">QVariant and GUI Types</h5>
+<h4 id="PythonQt.QtCore.QSettings--qvariant-and-gui-types">QVariant and GUI Types</h4>
 <p>Because <a href="https://doc.qt.io/archives/qt-5.15/qvariant.html">QVariant</a> is part of the Qt
 Core module, it cannot provide conversion functions to data types such as
 <a href="https://doc.qt.io/archives/qt-5.15/qcolor.html">QColor</a>,
@@ -2551,7 +2551,7 @@ settings.setValue(&quot;DataPump/bgcolor&quot;, color);
 and
 <a href="https://doc.qt.io/archives/qt-5.15/qmetatype.html#qRegisterMetaTypeStreamOperators">qRegisterMetaTypeStreamOperators</a>()
 can be stored using QSettings.</p>
-<h5 id="PythonQt.QtCore.QSettings--section-and-key-syntax">Section and Key Syntax</h5>
+<h4 id="PythonQt.QtCore.QSettings--section-and-key-syntax">Section and Key Syntax</h4>
 <p>Setting keys can contain any Unicode characters. The Windows registry and INI files use
 case-insensitive keys, whereas the CFPreferences API on macOS and iOS uses
 case-sensitive keys. To avoid portability problems, follow these simple rules:</p>
@@ -2587,7 +2587,7 @@ behavior of most functions changes consequently. Groups can be set recursively.<
 <a href="https://doc.qt.io/archives/qt-5.15/qsettings.html#beginReadArray">beginReadArray</a>() and
 <a href="https://doc.qt.io/archives/qt-5.15/qsettings.html#beginWriteArray">beginWriteArray</a>()
 for details.</p>
-<h5 id="PythonQt.QtCore.QSettings--fallback-mechanism">Fallback Mechanism</h5>
+<h4 id="PythonQt.QtCore.QSettings--fallback-mechanism">Fallback Mechanism</h4>
 <p>Let's assume that you have created a QSettings object with the organization name MySoft
 and the application name Star Runner. When you look up a value, up to four locations are
 searched in that order:</p>
@@ -2684,7 +2684,7 @@ related functions.</p>
 Editor</a>
 example lets you experiment with different settings location and with fallbacks turned
 on or off.</p>
-<h5 id="PythonQt.QtCore.QSettings--restoring-the-state-of-a-gui-application">Restoring the State of a GUI Application</h5>
+<h4 id="PythonQt.QtCore.QSettings--restoring-the-state-of-a-gui-application">Restoring the State of a GUI Application</h4>
 <p>QSettings is often used to store the state of a GUI application. The following example
 illustrates how to use QSettings to save and restore the geometry of an application's
 main window.</p>
@@ -2736,7 +2736,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 <p>See the
 <a href="https://doc.qt.io/archives/qt-5.15/qtwidgets-mainwindows-application-example.html">Application</a>
 example for a self-contained example that uses QSettings.</p>
-<h5 id="PythonQt.QtCore.QSettings--accessing-settings-from-multiple-threads-or-processes-simultaneously">Accessing Settings from Multiple Threads or Processes Simultaneously</h5>
+<h4 id="PythonQt.QtCore.QSettings--accessing-settings-from-multiple-threads-or-processes-simultaneously">Accessing Settings from Multiple Threads or Processes Simultaneously</h4>
 <p>QSettings is <a href="https://doc.qt.io/archives/qt-5.15/threads-reentrancy.html">reentrant</a>.
 This means that you can use distinct QSettings object in different threads
 simultaneously. This guarantee stands even when the QSettings objects refer to the same
@@ -2756,8 +2756,8 @@ to turn the safety off.</p>
 <p>Note that <a href="https://doc.qt.io/archives/qt-5.15/qsettings.html#sync">sync</a>() imports
 changes made by other processes (in addition to writing the changes from this
 QSettings).</p>
-<h5 id="PythonQt.QtCore.QSettings--platform-specific-notes">Platform-Specific Notes</h5>
-<h6 id="PythonQt.QtCore.QSettings--locations-where-application-settings-are-stored">Locations Where Application Settings Are Stored</h6>
+<h4 id="PythonQt.QtCore.QSettings--platform-specific-notes">Platform-Specific Notes</h4>
+<h5 id="PythonQt.QtCore.QSettings--locations-where-application-settings-are-stored">Locations Where Application Settings Are Stored</h5>
 <p>As mentioned in the <a href="https://doc.qt.io/archives/qt-5.15/qsettings.html#fallback-mechanism">Fallback
 Mechanism</a>
 section, QSettings stores settings for an application in up to four locations, depending
@@ -2827,7 +2827,7 @@ shown by the environment variable <code>%APPDATA%</code>.</p>
 and iOS the user can override them by setting the <code>XDG_CONFIG_HOME</code> environment
 variable; see <a href="https://doc.qt.io/archives/qt-5.15/qsettings.html#setPath">setPath</a>() for
 details.</p>
-<h6 id="PythonQt.QtCore.QSettings--accessing-ini-and-plist-files-directly">Accessing INI and .plist Files Directly</h6>
+<h5 id="PythonQt.QtCore.QSettings--accessing-ini-and-plist-files-directly">Accessing INI and .plist Files Directly</h5>
 <p>Sometimes you do want to access settings stored in a specific file or registry path. On
 all platforms, if you want to read an INI file directly, you can use the QSettings
 constructor that takes a file name as first argument and pass
@@ -2843,7 +2843,7 @@ as second argument. For example:</p>
 <div class="highlight"><pre><span></span><code>QSettings settings(&quot;/example-users/petra/misc/myapp.plist&quot;,
                    QSettings::NativeFormat);
 </code></pre></div>
-<h6 id="PythonQt.QtCore.QSettings--accessing-the-windows-registry-directly">Accessing the Windows Registry Directly</h6>
+<h5 id="PythonQt.QtCore.QSettings--accessing-the-windows-registry-directly">Accessing the Windows Registry Directly</h5>
 <p>On Windows, QSettings lets you access settings that have been written with QSettings (or
 settings in a supported format, e.g., string data) in the system registry. This is done
 by constructing a QSettings object with a path in the registry and
@@ -2860,7 +2860,7 @@ For example:</p>
 <p>Note that the backslash character is, as mentioned, used by QSettings to separate
 subkeys. As a result, you cannot read or write windows registry entries that contain
 slashes or backslashes; you should use a native windows API if you need to do so.</p>
-<h6 id="PythonQt.QtCore.QSettings--accessing-common-registry-settings-on-windows">Accessing Common Registry Settings on Windows</h6>
+<h5 id="PythonQt.QtCore.QSettings--accessing-common-registry-settings-on-windows">Accessing Common Registry Settings on Windows</h5>
 <p>On Windows, it is possible for a key to have both a value and subkeys. Its default value
 is accessed by using "Default" or "." in place of a subkey:</p>
 <div class="highlight"><pre><span></span><code>settings.setValue(&quot;HKEY_CURRENT_USER\\MySoft\\Star Runner\\Galaxy&quot;, &quot;Milkyway&quot;);
@@ -2868,7 +2868,7 @@ settings.setValue(&quot;HKEY_CURRENT_USER\\MySoft\\Star Runner\\Galaxy\\Sun&quot
 settings.value(&quot;HKEY_CURRENT_USER\\MySoft\\Star Runner\\Galaxy\\Default&quot;); // returns &quot;Milkyway&quot;
 </code></pre></div>
 <p>On other platforms than Windows, "Default" and "." would be treated as regular subkeys.</p>
-<h6 id="PythonQt.QtCore.QSettings--platform-limitations">Platform Limitations</h6>
+<h5 id="PythonQt.QtCore.QSettings--platform-limitations">Platform Limitations</h5>
 <p>While QSettings attempts to smooth over the differences between the different supported
 platforms, there are still a few differences that you should be aware of when porting
 your application:</p>

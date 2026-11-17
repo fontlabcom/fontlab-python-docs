@@ -2391,7 +2391,7 @@
 
 
 
-        <h4 id="fontlab.flTransform--what-is-a-transform">What is a Transform?</h4>
+        <h3 id="fontlab.flTransform--what-is-a-transform">What is a Transform?</h3>
 <p>A transform is a recipe for repositioning, resizing, rotating, or slanting something. In type design you use transforms constantly: you move a shape to adjust its position, scale it up or down, rotate it to create swash variants, or skew it to fake an italic slant.</p>
 <p>Mathematically, all of these operations — move, scale, rotate, skew — can be described with a single 3×3 table of numbers called a <strong>transformation matrix</strong>. You don't need to understand the maths; what matters is knowing that:</p>
 <ul>
@@ -2401,32 +2401,32 @@
 <li><strong>Shear/skew</strong> = slant. Points are pushed sideways in proportion to their Y position — this is what makes something look italic.</li>
 </ul>
 <p>Most transforms are a combination of the above. A slant plus a scale is still just one matrix.</p>
-<h5 id="fontlab.flTransform--fltransform-vs-qtransform">flTransform vs. QTransform</h5>
+<h4 id="fontlab.flTransform--fltransform-vs-qtransform">flTransform vs. QTransform</h4>
 <p>FontLab uses Qt's <code>QTransform</code> type for the raw matrix arithmetic. <code>flTransform</code> wraps <code>QTransform</code> and adds a convenient <code>scale</code> property that reads the uniform scale factor out of the matrix automatically. <code>flTransform</code> is what you find on shapes (<code>shape.fl_transform</code>) and on canvas views (<code>canvas.viewTransform</code>).</p>
 <p>In practice:
 - Read the transform on a shape via <code>shape.fl_transform</code> — this is an <code>flTransform</code>.
 - Build a new matrix using <code>QTransform</code> methods (<code>.translate()</code>, <code>.scale()</code>, <code>.rotate()</code>, <code>.shear()</code>), then wrap it in <code>flTransform</code> to apply it.
 - Apply a transform to a shape using <code>shape.transformBy(qt_transform)</code> or <code>glyph.applyTransform(qt_transform)</code>.</p>
-<h4 id="fontlab.flTransform--common-patterns">Common Patterns</h4>
-<h5 id="fontlab.flTransform--moving-a-shape-by-a-fixed-amount">Moving a shape by a fixed amount</h5>
+<h3 id="fontlab.flTransform--common-patterns">Common Patterns</h3>
+<h4 id="fontlab.flTransform--moving-a-shape-by-a-fixed-amount">Moving a shape by a fixed amount</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTransform</span>
 <span class="c1"># Move 50 units to the right, 0 units vertically:</span>
 <span class="n">move_right</span> <span class="o">=</span> <span class="n">QTransform</span><span class="p">()</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">shape</span><span class="o">.</span><span class="n">transformBy</span><span class="p">(</span><span class="n">move_right</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flTransform--scaling-a-glyph-to-a-new-upm">Scaling a glyph to a new UPM</h5>
+<h4 id="fontlab.flTransform--scaling-a-glyph-to-a-new-upm">Scaling a glyph to a new UPM</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTransform</span>
 <span class="c1"># Scale everything by a factor of 1.1 (10% larger):</span>
 <span class="n">scale_up</span> <span class="o">=</span> <span class="n">QTransform</span><span class="p">()</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
 <span class="n">glyph</span><span class="o">.</span><span class="n">applyTransform</span><span class="p">(</span><span class="n">scale_up</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flTransform--flipping-a-shape-horizontally-mirror">Flipping a shape horizontally (mirror)</h5>
+<h4 id="fontlab.flTransform--flipping-a-shape-horizontally-mirror">Flipping a shape horizontally (mirror)</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTransform</span>
 <span class="c1"># Scale X by -1 to mirror left-to-right:</span>
 <span class="n">mirror</span> <span class="o">=</span> <span class="n">QTransform</span><span class="p">()</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 <span class="n">shape</span><span class="o">.</span><span class="n">transformBy</span><span class="p">(</span><span class="n">mirror</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flTransform--composing-multiple-operations-into-one-transform">Composing multiple operations into one transform</h5>
+<h4 id="fontlab.flTransform--composing-multiple-operations-into-one-transform">Composing multiple operations into one transform</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTransform</span>
 <span class="c1"># First move to the origin, then scale, then move back:</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">QTransform</span><span class="p">()</span>
@@ -2435,7 +2435,7 @@
 <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">centre_x</span><span class="p">,</span> <span class="n">centre_y</span><span class="p">)</span>    <span class="c1"># move back</span>
 <span class="n">shape</span><span class="o">.</span><span class="n">transformBy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flTransform--tutorial">Tutorial</h4>
+<h3 id="fontlab.flTransform--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span><span class="p">,</span> <span class="n">QRectF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flTransform</span>

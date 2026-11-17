@@ -2342,10 +2342,10 @@
 
 
         <p>Canvas proxy for a layer.</p>
-<h4 id="fontlab.flLayerInfo--what-is-fllayerinfo">What is flLayerInfo?</h4>
+<h3 id="fontlab.flLayerInfo--what-is-fllayerinfo">What is flLayerInfo?</h3>
 <p><code>flLayerInfo</code> is the canvas-aware wrapper around an <code>flLayer</code>. While an <code>flLayer</code> stores the model data (shapes, guidelines, metrics, nodes in font units), an <code>flLayerInfo</code> knows where all of that content is <em>on screen</em> at the current zoom level. Its primary purpose is providing the <code>brectOnCanvas()</code> method — the bounding rectangle in screen pixels that contains everything on the layer.</p>
 <p>You typically get an <code>flLayerInfo</code> from the canvas engine rather than creating one yourself. It is used in tool code when you need to know the full on-screen footprint of the active layer — for example, to draw an overlay, zoom to fit, or calculate a repaint region.</p>
-<h4 id="fontlab.flLayerInfo--tutorial">Tutorial</h4>
+<h3 id="fontlab.flLayerInfo--tutorial">Tutorial</h3>
 <p><code>flLayerInfo</code> is most useful when you need the full on-screen bounds of a layer's content — for example, to draw a custom overlay frame or to check whether anything is visible in the current viewport.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flLayerInfo</span>
@@ -2388,8 +2388,8 @@
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Layer is scrolled out of view.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flLayerInfo--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flLayerInfo--compute-the-layer-bounds-in-glyph-units-not-canvas">Compute the layer bounds in glyph units (not canvas)</h5>
+<h3 id="fontlab.flLayerInfo--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flLayerInfo--compute-the-layer-bounds-in-glyph-units-not-canvas">Compute the layer bounds in glyph units (not canvas)</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span>  <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

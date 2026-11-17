@@ -2353,9 +2353,9 @@
 
 
         <p>Represents one <code>flShape</code> as displayed on the canvas. It knows about the compositing chain (which other shapes are layered above/below it), can be moved on-screen, and can answer hit-test questions.</p>
-<h4 id="fontlab.flShapeInfo--when-do-you-use-it">When do you use it?</h4>
+<h3 id="fontlab.flShapeInfo--when-do-you-use-it">When do you use it?</h3>
 <p>Whenever you need to know <strong>where on the canvas</strong> a shape is — for example, to show a tooltip at the correct screen position, or to find which shape the mouse cursor is hovering over.</p>
-<h4 id="fontlab.flShapeInfo--tutorial">Tutorial</h4>
+<h3 id="fontlab.flShapeInfo--tutorial">Tutorial</h3>
 <p><code>flShapeInfo</code> is the canvas proxy you use when you need to know <em>where</em> a shape is on screen — for drawing overlays, for hit-testing mouse clicks, or for querying the composite hierarchy.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2424,8 +2424,8 @@
     <span class="k">if</span> <span class="n">si</span><span class="o">.</span><span class="n">hasAboveComposites</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Shape has composites layered above it.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flShapeInfo--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flShapeInfo--convert-a-glyph-space-point-to-canvas-space-using-a-shapes-transform">Convert a glyph-space point to canvas space using a shape's transform</h5>
+<h3 id="fontlab.flShapeInfo--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flShapeInfo--convert-a-glyph-space-point-to-canvas-space-using-a-shapes-transform">Convert a glyph-space point to canvas space using a shape's transform</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2441,7 +2441,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Glyph (</span><span class="si">{</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">) → &quot;</span>
               <span class="sa">f</span><span class="s2">&quot;Canvas (</span><span class="si">{</span><span class="n">cpt</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">cpt</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flShapeInfo--drill-into-a-composite-to-find-which-component-was-clicked">Drill into a composite to find which component was clicked</h5>
+<h4 id="fontlab.flShapeInfo--drill-into-a-composite-to-find-which-component-was-clicked">Drill into a composite to find which component was clicked</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 

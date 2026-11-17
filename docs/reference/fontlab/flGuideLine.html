@@ -2402,7 +2402,7 @@
 
 
 
-        <h4 id="fontlab.flGuideLine--what-is-a-guideline">What is a guideline?</h4>
+        <h3 id="fontlab.flGuideLine--what-is-a-guideline">What is a guideline?</h3>
 <p>Guidelines are the non-printing reference lines you draw across your canvas to help align things. They are the blue (or custom-colored) lines that mark cap height, x-height, descender, optical margins, stem axes, and any other alignment target you care about.</p>
 <p>FontLab has two scopes of guidelines:</p>
 <ul>
@@ -2419,9 +2419,9 @@
 <li><strong>Expression-based</strong> — a guideline whose position is tied to a font metric by a formula, like <code>"=xHeight"</code>. If you change xHeight, the guideline moves with it automatically.</li>
 <li><strong>Power guides</strong> — guidelines that FontLab auto-generates from the extremes of your outlines. They snap to the tops, bottoms, and sides of your contours, making it easy to align multiple glyphs to common optical heights.</li>
 </ul>
-<h5 id="fontlab.flGuideLine--what-is-flsnapline">What is flSnapLine?</h5>
+<h4 id="fontlab.flGuideLine--what-is-flsnapline">What is flSnapLine?</h4>
 <p><code>flSnapLine</code> is the technical base class that handles all the snap and measurement geometry — the center node, the vector node, the snap flags, and the distance/offset math. You rarely need to interact with <code>flSnapLine</code> directly; <code>flGuideLine</code> inherits everything from it and adds the extra features (color, tags, style, expressions) that you'll actually use. Think of <code>flSnapLine</code> as the engine and <code>flGuideLine</code> as the car.</p>
-<h4 id="fontlab.flGuideLine--tutorial">Tutorial</h4>
+<h3 id="fontlab.flGuideLine--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QColor</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2586,8 +2586,8 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flGuideLine--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flGuideLine--set-font-metrics-as-expression-guidelines">Set font metrics as expression guidelines</h5>
+<h3 id="fontlab.flGuideLine--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flGuideLine--set-font-metrics-as-expression-guidelines">Set font metrics as expression guidelines</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="c1"># Create guides for the four main font metrics, tied to expressions</span>
 <span class="c1"># so they stay correct even if you later change the values.</span>
@@ -2611,14 +2611,14 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flGuideLine--remove-all-guidelines-from-a-layer">Remove all guidelines from a layer</h5>
+<h4 id="fontlab.flGuideLine--remove-all-guidelines-from-a-layer">Remove all guidelines from a layer</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Clear every glyph-level guide from a specific layer.</span>
 <span class="c1"># Font-level guides are untouched.</span>
 <span class="n">layer</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">layer</span><span class="o">.</span><span class="n">removeGuides</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>   <span class="c1"># True, True = remove all guidelines (both orientations)</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flGuideLine--color-code-guidelines-by-type">Color-code guidelines by type</h5>
+<h4 id="fontlab.flGuideLine--color-code-guidelines-by-type">Color-code guidelines by type</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QColor</span>
 <span class="c1"># Walk through all font guidelines and assign colors</span>
 <span class="c1"># based on whether they&#39;re horizontal, vertical, or diagonal.</span>
@@ -2632,7 +2632,7 @@
         <span class="n">g</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">QColor</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>   <span class="c1"># green for diagonal</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flGuideLine--measure-how-far-nodes-are-from-a-guide">Measure how far nodes are from a guide</h5>
+<h4 id="fontlab.flGuideLine--measure-how-far-nodes-are-from-a-guide">Measure how far nodes are from a guide</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="c1"># Find all nodes that are within 5 units of the cap-height guide.</span>
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2648,7 +2648,7 @@
             <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cap_guide</span><span class="o">.</span><span class="n">distanceTo</span><span class="p">(</span><span class="n">pt</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node at (</span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">) is near cap height&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flGuideLine--generate-power-guides-for-every-glyph-in-the-font">Generate power guides for every glyph in the font</h5>
+<h4 id="fontlab.flGuideLine--generate-power-guides-for-every-glyph-in-the-font">Generate power guides for every glyph in the font</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Build power guides for every glyph&#39;s first layer.</span>
 <span class="c1"># Useful for identifying optical height variation across glyphs.</span>
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

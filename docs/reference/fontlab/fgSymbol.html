@@ -2375,10 +2375,10 @@
 
 
         <p>A single character identity record.</p>
-<h4 id="fontlab.fgSymbol--what-is-fgsymbol">What is fgSymbol?</h4>
+<h3 id="fontlab.fgSymbol--what-is-fgsymbol">What is fgSymbol?</h3>
 <p>Every slot in a text string that FontLab renders in the metrics view is represented by an <code>fgSymbol</code>. Think of it as a small ticket that says "show me the glyph for the letter 'A' (Unicode 0x0041)." It also carries a glyph ID (the slot index in the font), a layer name (which master to use), and can hold arbitrary custom data.</p>
 <p>You will encounter <code>fgSymbol</code> objects mainly when working with <code>fgSymbolList</code> (a complete string of characters) or through <code>flGlyphInfo.symbol</code> (the symbol for a rendered glyph slot in the metrics view).</p>
-<h4 id="fontlab.fgSymbol--tutorial">Tutorial</h4>
+<h3 id="fontlab.fgSymbol--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">fgSymbol</span>
 
@@ -2436,8 +2436,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sym2 == sym2: </span><span class="si">{</span><span class="n">sym2</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">sym2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># True</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sym2 == sym3: </span><span class="si">{</span><span class="n">sym2</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">sym3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># False</span>
 </code></pre></div>
-<h4 id="fontlab.fgSymbol--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.fgSymbol--choose-a-master-or-location-for-each-symbol">Choose a master or location for each symbol</h5>
+<h3 id="fontlab.fgSymbol--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.fgSymbol--choose-a-master-or-location-for-each-symbol">Choose a master or location for each symbol</h4>
 <p>Master selection uses the master/layer <strong>name</strong>; <code>fgSymbol</code> has no <code>master</code> property. Repeated occurrences of the same glyph can carry different overrides.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2462,13 +2462,13 @@
 </code></pre></div>
 <p><code>location</code> also returns a copy. To change coordinates, construct a new <code>flLocation</code> from a dictionary and pass it to <code>symbol.setLocation()</code>. Coordinates use the font's design space; axis short names such as <code>"wt"</code> are supported.</p>
 <p><code>flGlyphInfo.symbol</code> is a copy as well. To change a displayed occurrence, use <code>flGlyphInfo.setActiveLayer(layer)</code>, <code>setLocation(location)</code>, or <code>clearPresentationOverride()</code> on the <code>flGlyphInfo</code> itself.</p>
-<h5 id="fontlab.fgSymbol--check-if-a-symbol-is-a-line-break">Check if a symbol is a line break</h5>
+<h4 id="fontlab.fgSymbol--check-if-a-symbol-is-a-line-break">Check if a symbol is a line break</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">fgSymbol</span>
 <span class="n">sym</span> <span class="o">=</span> <span class="n">fgSymbol</span><span class="p">()</span>
 <span class="n">sym</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x000D</span>   <span class="c1"># carriage return</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is CR:&quot;</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">cr</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.fgSymbol--transfer-a-symbol-between-fonts-clear-old-ids-resolve-in-new-font">Transfer a symbol between fonts (clear old IDs, resolve in new font)</h5>
+<h4 id="fontlab.fgSymbol--transfer-a-symbol-between-fonts-clear-old-ids-resolve-in-new-font">Transfer a symbol between fonts (clear old IDs, resolve in new font)</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">fgSymbol</span>
 <span class="n">sym</span> <span class="o">=</span> <span class="n">fgSymbol</span><span class="p">()</span>
 <span class="n">sym</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x0041</span>
@@ -2481,7 +2481,7 @@
 <span class="n">font_b</span> <span class="o">=</span> <span class="o">...</span>            <span class="c1"># another open font</span>
 <span class="n">sym</span><span class="o">.</span><span class="n">computeID</span><span class="p">(</span><span class="n">font_b</span><span class="p">)</span>   <span class="c1"># resolve in font B</span>
 </code></pre></div>
-<h4 id="fontlab.fgSymbol--fgsymboldatacode">fgSymbol.DataCode</h4>
+<h3 id="fontlab.fgSymbol--fgsymboldatacode">fgSymbol.DataCode</h3>
 <p>Use the <code>fgSymbol.DataCode</code> dictionary with subscription.</p>
 <table>
 <thead>

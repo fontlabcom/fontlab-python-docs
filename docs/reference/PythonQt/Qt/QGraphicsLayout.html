@@ -2373,7 +2373,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QGraphicsLayout--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QGraphicsLayout--detailed-description">Detailed Description</h3>
 <p>QGraphicsLayout is an abstract class that defines a virtual API for arranging
 <a href="https://doc.qt.io/archives/qt-5.15/graphicsview.html#qgraphicswidget">QGraphicsWidget</a>
 children and other
@@ -2387,7 +2387,7 @@ As the widget is resized, the layout will automatically arrange the widget's chi
 QGraphicsLayout inherits
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslayoutitem.html">QGraphicsLayoutItem</a>, so,
 it can be managed by any layout, including its own subclasses.</p>
-<h5 id="PythonQt.Qt.QGraphicsLayout--writing-a-custom-layout">Writing a Custom Layout</h5>
+<h4 id="PythonQt.Qt.QGraphicsLayout--writing-a-custom-layout">Writing a Custom Layout</h4>
 <p>You can use QGraphicsLayout as a base to write your own custom layout (e.g., a
 flowlayout), but it is more common to use one of its subclasses instead -
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslinearlayout.html">QGraphicsLinearLayout</a>
@@ -2437,7 +2437,7 @@ layout.</p>
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslayout.html#addChildLayoutItem">addChildLayoutItem</a>()
 convenience function to add layout items to a custom layout. The function will
 automatically reparent graphics items, if required.</p>
-<h5 id="PythonQt.Qt.QGraphicsLayout--activating-the-layout">Activating the Layout</h5>
+<h4 id="PythonQt.Qt.QGraphicsLayout--activating-the-layout">Activating the Layout</h4>
 <p>When the layout's geometry changes, QGraphicsLayout immediately rearranges all of its
 managed items by calling
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslayoutitem.html#setGeometry">setGeometry</a>()
@@ -2453,7 +2453,7 @@ too often.</p>
 <p><strong>Note:</strong> A QGraphicsLayout will have the same geometry as the
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslayoutitem.html#contentsRect">contentsRect</a>()
 of the widget (not the layout) it is assigned to.</p>
-<h6 id="PythonQt.Qt.QGraphicsLayout--activating-the-layout-implicitly">Activating the Layout Implicitly</h6>
+<h5 id="PythonQt.Qt.QGraphicsLayout--activating-the-layout-implicitly">Activating the Layout Implicitly</h5>
 <p>The layout can be activated implicitly using one of two ways: by calling
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslayout.html#activate">activate</a>() or by
 calling
@@ -2471,7 +2471,7 @@ information. Also, the
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslayout.html#invalidate">invalidate</a>()
 function is a virtual function. So, you can invalidate your own cache in a subclass of
 QGraphicsLayout by reimplementing this function.</p>
-<h5 id="PythonQt.Qt.QGraphicsLayout--event-handling">Event Handling</h5>
+<h4 id="PythonQt.Qt.QGraphicsLayout--event-handling">Event Handling</h4>
 <p>QGraphicsLayout listens to events for the widget it manages through the virtual
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslayout.html#widgetEvent">widgetEvent</a>()
 event handler. When the layout is assigned to a widget, all events delivered to the
@@ -2479,7 +2479,7 @@ widget are first processed by
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslayout.html#widgetEvent">widgetEvent</a>().
 This allows the layout to be aware of any relevant state changes on the widget such as
 visibility changes or layout direction changes.</p>
-<h5 id="PythonQt.Qt.QGraphicsLayout--margin-handling">Margin Handling</h5>
+<h4 id="PythonQt.Qt.QGraphicsLayout--margin-handling">Margin Handling</h4>
 <p>The margins of a QGraphicsLayout can be modified by reimplementing
 <a href="https://doc.qt.io/archives/qt-5.15/qgraphicslayout.html#setContentsMargins">setContentsMargins</a>()
 and

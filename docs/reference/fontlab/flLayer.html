@@ -2354,7 +2354,7 @@
 
         <p>In FontLab, a <strong>layer</strong> is the container inside a glyph that holds the actual drawing for one master. If your font has a Light master and a Bold master, then every glyph has (at least) two layers — one for each master. The layer is where shapes live, where metrics are set, and where anchors and guidelines for that specific master are stored.</p>
 <p>Inherits from <code>flObject</code>.</p>
-<h4 id="fontlab.flLayer--what-is-a-layer">What is a Layer?</h4>
+<h3 id="fontlab.flLayer--what-is-a-layer">What is a Layer?</h3>
 <p>Think of layers as the per-master "slots" inside a glyph:</p>
 <div class="highlight"><pre><span></span><code>font
  └── glyph &quot;A&quot;
@@ -2362,7 +2362,7 @@
       ├── layer &quot;Regular&quot;  ← shapes, metrics, anchors for the Regular master
       └── layer &quot;Bold&quot;     ← shapes, metrics, anchors for the Bold master
 </code></pre></div>
-<h5 id="fontlab.flLayer--layer-types">Layer Types</h5>
+<h4 id="fontlab.flLayer--layer-types">Layer Types</h4>
 <p>Not every layer is a master. FontLab supports several layer types, each with a different role:</p>
 <table>
 <thead>
@@ -2398,7 +2398,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="fontlab.flLayer--what-lives-on-a-layer">What Lives on a Layer</h5>
+<h4 id="fontlab.flLayer--what-lives-on-a-layer">What Lives on a Layer</h4>
 <p>A layer is not just outlines. It holds everything that can vary between masters:</p>
 <ul>
 <li><strong>Shapes</strong> — the contours and composite references that define the glyph drawing</li>
@@ -2409,7 +2409,7 @@
 <li><strong>TrueType hinting</strong> — the TTH command program for this master</li>
 <li><strong>A note</strong> — freeform text you can attach to this layer for editorial comments</li>
 </ul>
-<h4 id="fontlab.flLayer--tutorial-set-width-of-all-a-glyphs-across-all-masters">Tutorial: Set Width of All "A" Glyphs Across All Masters</h4>
+<h3 id="fontlab.flLayer--tutorial-set-width-of-all-a-glyphs-across-all-masters">Tutorial: Set Width of All "A" Glyphs Across All Masters</h3>
 <p>This script shows a real workflow: finding every glyph named "A" in the font, iterating over all its master layers, and setting a consistent advance width on each one.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flLayer</span>
@@ -2469,7 +2469,7 @@
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Set LSB=</span><span class="si">{</span><span class="n">TARGET_LSB</span><span class="si">}</span><span class="s2"> on all uppercase glyphs in &#39;</span><span class="si">{</span><span class="n">REGULAR_MASTER</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flLayer--common-patterns">Common Patterns</h4>
+<h3 id="fontlab.flLayer--common-patterns">Common Patterns</h3>
 <p><strong>Iterate only master layers</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">glyph</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">layer</span><span class="o">.</span><span class="n">isMasterLayer</span><span class="p">:</span>

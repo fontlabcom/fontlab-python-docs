@@ -2459,33 +2459,33 @@
 
         <p>A glyph is your font's record for one character — the letter "A", the numeral "3", an ampersand, or any other symbol you draw. Think of it as a folder: the glyph holds your drawings (called <strong>layers</strong>), the character code it maps to (<strong>unicodes</strong>), the spacing information (<strong>metrics</strong>), and any organisational labels (<strong>tags</strong>) you want to attach.</p>
 <p>Inherits from <code>flObject</code>.</p>
-<h4 id="fontlab.flGlyph--what-is-a-glyph">What is a Glyph?</h4>
-<h5 id="fontlab.flGlyph--the-shape-of-a-glyph">The shape of a glyph</h5>
+<h3 id="fontlab.flGlyph--what-is-a-glyph">What is a Glyph?</h3>
+<h4 id="fontlab.flGlyph--the-shape-of-a-glyph">The shape of a glyph</h4>
 <p>The glyph itself doesn't contain drawing data directly. Instead it holds one or more <strong>layers</strong>. Each layer is a snapshot of the character at a particular design stage or design-space location:</p>
 <ul>
 <li><strong>Master layers</strong> (one per master in a variable font) are the interpolatable drawings that define your design space. In a simple single-master font there is just one — often called "Regular".</li>
 <li><strong>Service layers</strong> are helpers: the mask, reference drawings, or intermediate states used during editing. They do not export.</li>
 </ul>
 <p>So when you draw the letter "A", you are drawing on a layer <em>inside</em> the glyph, not on the glyph itself. This distinction matters when scripting: to read or change actual node coordinates you go <code>glyph → layer → shape → contour → node</code>.</p>
-<h5 id="fontlab.flGlyph--unicodes">Unicodes</h5>
+<h4 id="fontlab.flGlyph--unicodes">Unicodes</h4>
 <p>A unicode is the number that maps your glyph to a character in the Unicode standard. "A" is <code>0x0041</code>, "α" is <code>0x03B1</code>. A glyph can have more than one unicode (for example the standard "A" and its fullwidth variant "Ａ" can share a single drawing). The font system uses unicodes to figure out which glyph to show when text is set.</p>
-<h5 id="fontlab.flGlyph--metrics">Metrics</h5>
+<h4 id="fontlab.flGlyph--metrics">Metrics</h4>
 <p>The <strong>advance width</strong> is how much horizontal space the glyph occupies — including any side-bearings. The <strong>left sidebearing</strong> is the gap between the glyph's left edge and the start of its outline; the <strong>right sidebearing</strong> is the gap on the other side. You can set these as raw numbers or as <em>expressions</em> that reference other glyphs (e.g. <code>"=n"</code> means "copy the left sidebearing from the glyph n"). Expressions let you keep spacing consistent across a family without maintaining numbers by hand.</p>
-<h5 id="fontlab.flGlyph--tags">Tags</h5>
+<h4 id="fontlab.flGlyph--tags">Tags</h4>
 <p>Tags are free-form labels you attach to a glyph. They are invaluable for organising large font projects: tag all diacritics as <code>"diacritic"</code>, all small caps as <code>"sc"</code>, all glyphs that still need review as <code>"todo"</code>. You can then filter or select glyphs by tag in the font window.</p>
-<h4 id="fontlab.flGlyph--common-patterns">Common Patterns</h4>
-<h5 id="fontlab.flGlyph--iterating-every-glyph-and-checking-content">Iterating every glyph and checking content</h5>
+<h3 id="fontlab.flGlyph--common-patterns">Common Patterns</h3>
+<h4 id="fontlab.flGlyph--iterating-every-glyph-and-checking-content">Iterating every glyph and checking content</h4>
 <div class="highlight"><pre><span></span><code><span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">glyph</span> <span class="ow">in</span> <span class="n">font</span><span class="o">.</span><span class="n">glyphs</span><span class="p">:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">glyph</span><span class="o">.</span><span class="n">hasBody</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Empty glyph: </span><span class="si">{</span><span class="n">glyph</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flGlyph--finding-a-glyph-and-reading-its-active-layer">Finding a glyph and reading its active layer</h5>
+<h4 id="fontlab.flGlyph--finding-a-glyph-and-reading-its-active-layer">Finding a glyph and reading its active layer</h4>
 <div class="highlight"><pre><span></span><code><span class="n">glyph</span> <span class="o">=</span> <span class="n">font</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span>
 <span class="n">layer</span> <span class="o">=</span> <span class="n">glyph</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>         <span class="c1"># first (usually Regular) master layer</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">layer</span><span class="o">.</span><span class="n">advanceWidth</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flGlyph--adding-and-removing-tags">Adding and removing tags</h5>
+<h4 id="fontlab.flGlyph--adding-and-removing-tags">Adding and removing tags</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Tag all glyphs that still need spacing work</span>
 <span class="k">for</span> <span class="n">glyph</span> <span class="ow">in</span> <span class="n">font</span><span class="o">.</span><span class="n">glyphs</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">glyph</span><span class="o">.</span><span class="n">advanceWidth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -2494,7 +2494,7 @@
 <span class="c1"># Later, remove the tag after fixing</span>
 <span class="n">glyph</span><span class="o">.</span><span class="n">setTag</span><span class="p">(</span><span class="s2">&quot;no-width&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flGlyph--batch-setting-sidebearings-with-a-metric-expression">Batch-setting sidebearings with a metric expression</h5>
+<h4 id="fontlab.flGlyph--batch-setting-sidebearings-with-a-metric-expression">Batch-setting sidebearings with a metric expression</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Make every lowercase letter inherit its left bearing from &#39;n&#39;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2504,14 +2504,14 @@
     <span class="k">if</span> <span class="n">g</span><span class="p">:</span>
         <span class="n">g</span><span class="o">.</span><span class="n">metricsLeft</span> <span class="o">=</span> <span class="s2">&quot;=n&quot;</span>
 </code></pre></div>
-<h5 id="fontlab.flGlyph--copying-a-glyph">Copying a glyph</h5>
+<h4 id="fontlab.flGlyph--copying-a-glyph">Copying a glyph</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flGlyph</span>
 <span class="n">original</span> <span class="o">=</span> <span class="n">font</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span>
 <span class="n">copy</span> <span class="o">=</span> <span class="n">flGlyph</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>   <span class="c1"># independent clone</span>
 <span class="n">copy</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;A.ss01&quot;</span>
 <span class="n">font</span><span class="o">.</span><span class="n">addGlyph</span><span class="p">(</span><span class="n">copy</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flGlyph--tutorial">Tutorial</h4>
+<h3 id="fontlab.flGlyph--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flGlyph</span><span class="p">,</span> <span class="n">flLayer</span><span class="p">,</span> <span class="n">flShape</span><span class="p">,</span> <span class="n">flContour</span><span class="p">,</span> <span class="n">flNode</span>
 
@@ -2625,7 +2625,7 @@
 <span class="c1"># Tell FontLab to refresh the UI:</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flGlyph--glyph-only-mark-encoding-and-history">Glyph-only mark encoding and history</h4>
+<h3 id="fontlab.flGlyph--glyph-only-mark-encoding-and-history">Glyph-only mark encoding and history</h3>
 <p><code>glyph.glyphMark</code> exposes the existing FontLab integer, not a Glyphs label index.
 Nonpositive values render as no mark. Values 1–360 encode hue (<code>value - 1</code>).
 Values above 360 render as gray, with channel value
@@ -2641,7 +2641,7 @@ snapshot. This binding does not provide a geometry-free metadata transaction,
 cross-document atomicity, or automatic rollback. Do not emulate glyph-only
 writes by changing <code>mark</code> and restoring layers: that can make inherited layer
 marks explicit. Existing scripts that use <code>mark</code> retain its previous behavior.</p>
-<h4 id="fontlab.flGlyph--sigma-authoring-data">Sigma authoring data</h4>
+<h3 id="fontlab.flGlyph--sigma-authoring-data">Sigma authoring data</h3>
 <p>The binding exposes the native Sigma metadata used for authored interpolation adjustments:</p>
 <table>
 <thead>

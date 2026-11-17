@@ -2375,14 +2375,14 @@
 
 
         <p>PostScript hinting settings.</p>
-<h4 id="fontlab.flHintingParameters--what-is-flhintingparameters">What is flHintingParameters?</h4>
+<h3 id="fontlab.flHintingParameters--what-is-flhintingparameters">What is flHintingParameters?</h3>
 <p>PostScript (CFF/Type 1) hinting makes your fonts look crisper at small sizes on screen by snapping certain features to pixel boundaries. The hinting parameters control exactly how aggressive or conservative that snapping is.</p>
 <p>If you are a type designer who cares about these settings, you already know what BlueFuzz, BlueShift, and BlueScale mean. If you are not sure: the default values work well for most fonts — FontLab's autohinting engine will set them appropriately when you run autohint.</p>
 <p>The settings here correspond directly to the <code>Private</code> dictionary in CFF/Type 1 fonts and to certain fields in the OpenType <code>maxp</code> and <code>head</code> tables (for TrueType hinting).</p>
 <p>Access hinting parameters on a font via:</p>
 <div class="highlight"><pre><span></span><code><span class="n">hp</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">hintingParameters</span><span class="p">(</span><span class="n">master_name</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flHintingParameters--postscript-cff-hinting-properties">PostScript / CFF Hinting Properties</h4>
+<h3 id="fontlab.flHintingParameters--postscript-cff-hinting-properties">PostScript / CFF Hinting Properties</h3>
 <p>These are the values written into the <code>Private</code> dictionary of a CFF/Type 1 font.</p>
 <table>
 <thead>
@@ -2456,7 +2456,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flHintingParameters--opentype-maxp-head-properties">OpenType maxp / head Properties</h4>
+<h3 id="fontlab.flHintingParameters--opentype-maxp-head-properties">OpenType maxp / head Properties</h3>
 <p>These values are written into the OpenType binary and affect TrueType hinting behaviour and font metadata.</p>
 <table>
 <thead>
@@ -2518,7 +2518,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flHintingParameters--tutorial">Tutorial</h4>
+<h3 id="fontlab.flHintingParameters--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2576,8 +2576,8 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Updated all masters.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flHintingParameters--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flHintingParameters--print-hinting-parameters-for-every-master">Print hinting parameters for every master</h5>
+<h3 id="fontlab.flHintingParameters--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flHintingParameters--print-hinting-parameters-for-every-master">Print hinting parameters for every master</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2586,7 +2586,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">master</span><span class="si">}</span><span class="s2">] blueFuzz=</span><span class="si">{</span><span class="n">hp</span><span class="o">.</span><span class="n">blueFuzz</span><span class="si">}</span><span class="s2">  blueShift=</span><span class="si">{</span><span class="n">hp</span><span class="o">.</span><span class="n">blueShift</span><span class="si">}</span><span class="s2">  &quot;</span>
           <span class="sa">f</span><span class="s2">&quot;blueScale=</span><span class="si">{</span><span class="n">hp</span><span class="o">.</span><span class="n">blueScale</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">  lowestPPEM=</span><span class="si">{</span><span class="n">hp</span><span class="o">.</span><span class="n">lowestRecPPEM</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flHintingParameters--reset-to-defaults">Reset to defaults</h5>
+<h4 id="fontlab.flHintingParameters--reset-to-defaults">Reset to defaults</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flHintingParameters</span>
 

@@ -2356,8 +2356,8 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtOpenGL.QGLShaderProgram--detailed-description">Detailed Description</h4>
-<h5 id="PythonQt.QtOpenGL.QGLShaderProgram--introduction">Introduction</h5>
+<h3 id="PythonQt.QtOpenGL.QGLShaderProgram--detailed-description">Detailed Description</h3>
+<h4 id="PythonQt.QtOpenGL.QGLShaderProgram--introduction">Introduction</h4>
 <p>This class supports shader programs written in the OpenGL Shading Language (GLSL) and in
 the OpenGL/ES Shading Language (GLSL/ES).</p>
 <p><a href="https://doc.qt.io/archives/qt-5.15/qglshader.html">QGLShader</a> and QGLShaderProgram
@@ -2376,7 +2376,7 @@ program.link();
 
 program.bind();
 </code></pre></div>
-<h5 id="PythonQt.QtOpenGL.QGLShaderProgram--writing-portable-shaders">Writing Portable Shaders</h5>
+<h4 id="PythonQt.QtOpenGL.QGLShaderProgram--writing-portable-shaders">Writing Portable Shaders</h4>
 <p>Shader programs can be difficult to reuse across OpenGL implementations because of
 varying levels of support for standard vertex attributes and uniform variables. In
 particular, GLSL/ES lacks all of the standard variables that are present on desktop
@@ -2391,7 +2391,7 @@ prefixing all shader programs with the following lines on desktop OpenGL:</p>
 <p>This makes it possible to run most GLSL/ES shader programs on desktop systems. The
 programmer should restrict themselves to just features that are present in GLSL/ES, and
 avoid standard variable names that only work on the desktop.</p>
-<h5 id="PythonQt.QtOpenGL.QGLShaderProgram--simple-shader-example">Simple Shader Example</h5>
+<h4 id="PythonQt.QtOpenGL.QGLShaderProgram--simple-shader-example">Simple Shader Example</h4>
 <div class="highlight"><pre><span></span><code>program.addShaderFromSourceCode(QGLShader::Vertex,
     &quot;attribute highp vec4 vertex;\n&quot;
     &quot;uniform highp mat4 matrix;\n&quot;
@@ -2433,7 +2433,7 @@ glDrawArrays(GL_TRIANGLES, 0, 3);
 
 program.disableAttributeArray(vertexLocation);
 </code></pre></div>
-<h5 id="PythonQt.QtOpenGL.QGLShaderProgram--binary-shaders-and-programs">Binary Shaders and Programs</h5>
+<h4 id="PythonQt.QtOpenGL.QGLShaderProgram--binary-shaders-and-programs">Binary Shaders and Programs</h4>
 <p>Binary shaders may be specified using <code>glShaderBinary()</code> on the return value from
 <a href="https://doc.qt.io/archives/qt-5.15/qglshader.html#shaderId">QGLShader::shaderId</a>(). The
 <a href="https://doc.qt.io/archives/qt-5.15/qglshader.html">QGLShader</a> instance containing the

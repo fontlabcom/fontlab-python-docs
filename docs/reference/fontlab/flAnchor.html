@@ -2437,7 +2437,7 @@
 
         <p><code>flAnchor</code> is a geometric attachment link — it records a connection between a shape and another object (a guideline, another shape, or a specific node). FontLab uses these internally in its smart component and composite shape system to keep shapes locked to each other or to guidelines.</p>
 <p>You'll encounter <code>flAnchor</code> objects if FontLab passes one to you in a callback. They are managed internally and are not enumerable from Python — there is no <code>shape.anchors()</code> method in the scripting API. You don't create them by hand; FontLab creates and destroys them as you build composites in the editor.</p>
-<h4 id="fontlab.flAnchor--properties-read-only">Properties (Read-only)</h4>
+<h3 id="fontlab.flAnchor--properties-read-only">Properties (Read-only)</h3>
 <table>
 <thead>
 <tr>
@@ -2480,9 +2480,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flAnchor--flpinpoint-properties">flPinPoint Properties</h4>
+<h3 id="fontlab.flAnchor--flpinpoint-properties">flPinPoint Properties</h3>
 <p><code>flPinPoint</code> is the Python class for named mark-to-base anchors on layers (what you access via <code>layer.anchors</code>). <code>flAnchor</code> (above) is a different, internal-only class for geometric shape attachments.</p>
-<h5 id="fontlab.flAnchor--read-write">Read-write</h5>
+<h4 id="fontlab.flAnchor--read-write">Read-write</h4>
 <table>
 <thead>
 <tr>
@@ -2524,7 +2524,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="fontlab.flAnchor--read-only">Read-only</h5>
+<h4 id="fontlab.flAnchor--read-only">Read-only</h4>
 <table>
 <thead>
 <tr>
@@ -2551,7 +2551,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flAnchor--tutorial">Tutorial</h4>
+<h3 id="fontlab.flAnchor--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flPinPoint</span>
@@ -2693,8 +2693,8 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flAnchor--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flAnchor--add-topbottom-anchors-to-all-lowercase-letters">Add top/bottom anchors to all lowercase letters</h5>
+<h3 id="fontlab.flAnchor--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flAnchor--add-topbottom-anchors-to-all-lowercase-letters">Add top/bottom anchors to all lowercase letters</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># A quick script to add &quot;top&quot; and &quot;bottom&quot; anchors to all</span>
 <span class="c1"># glyphs in a range. Adjust y-positions for your font&#39;s metrics.</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2720,7 +2720,7 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flAnchor--sync-anchor-x-position-to-glyph-center">Sync anchor X position to glyph center</h5>
+<h4 id="fontlab.flAnchor--sync-anchor-x-position-to-glyph-center">Sync anchor X position to glyph center</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Use an expression to keep every &quot;top&quot; anchor horizontally</span>
 <span class="c1"># centered in each glyph&#39;s advance width.</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2733,7 +2733,7 @@
             <span class="n">a</span><span class="o">.</span><span class="n">expressionX</span> <span class="o">=</span> <span class="s2">&quot;=lsb + (width - lsb - rsb) / 2&quot;</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flAnchor--list-all-anchors-across-the-font-as-a-report">List all anchors across the font as a report</h5>
+<h4 id="fontlab.flAnchor--list-all-anchors-across-the-font-as-a-report">List all anchors across the font as a report</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Print a summary of every anchor in the font.</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2750,7 +2750,7 @@
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
             <span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flAnchor--copy-anchors-from-one-master-layer-to-another">Copy anchors from one master layer to another</h5>
+<h4 id="fontlab.flAnchor--copy-anchors-from-one-master-layer-to-another">Copy anchors from one master layer to another</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># In a multi-master setup, copy the anchor names and</span>
 <span class="c1"># relative positions from the Regular layer to the Bold layer.</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2773,7 +2773,7 @@
 
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flAnchor--enable-cloud-mode-on-all-mark-anchors">Enable cloud mode on all mark anchors</h5>
+<h4 id="fontlab.flAnchor--enable-cloud-mode-on-all-mark-anchors">Enable cloud mode on all mark anchors</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Turn on cloud mode for every anchor whose name starts with &quot;_&quot;</span>
 <span class="c1"># (i.e., all mark attachment anchors). This is useful in variable</span>
 <span class="c1"># fonts where the outline geometry shifts significantly.</span>
@@ -2787,7 +2787,7 @@
                 <span class="n">a</span><span class="o">.</span><span class="n">cloudEnabled</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flAnchor--flanchormodesnap">flAnchor.ModeSnap</h4>
+<h3 id="fontlab.flAnchor--flanchormodesnap">flAnchor.ModeSnap</h3>
 <p>Use the <code>flAnchor.ModeSnap</code> dictionary with subscription.</p>
 <table>
 <thead>

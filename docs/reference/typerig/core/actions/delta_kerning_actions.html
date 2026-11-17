@@ -2286,10 +2286,8 @@
 <p>Kerning rides the same axis as the outlines. Per pair and per baked side:
 the inputs' values are interpolated at the side's V stem on the side's
 axis (piecewise linear, as the Delta engine reads the stems; a pair missing
-in an input counts as 0), then scaled by the mean of the two sides'
-factors (side_factor: the outline width scale, and a kerning spacing looser
-than the outline loosens the pair in inverse ratio, a tighter one tightens
-it; the kerning spacing is the row's Kern % when set, else Met. W):</p>
+in an input counts as 0), then scaled by the mean of the two sides' width
+factors (the row's Met. W when set, else its outline width scale):</p>
 <div class="highlight"><pre><span></span><code>    k = mean(k_left_axis(t_left), k_right_axis(t_right)) * (f_left + f_right) / 2
 </code></pre></div>
 <p>Host neutral. A kerning table is {(left, right): value}; a key that starts
@@ -2468,16 +2466,10 @@ LTR only (RTL and vertical: later).</p>
 <td>A lib entry as a kerning table (input of a later axis).</td>
 </tr>
 <tr>
-<td><span id="typerig.core.actions.delta_kerning_actions.outline_factor"></span><a href="delta_kerning_actions/members-001.html#typerig.core.actions.delta_kerning_actions.outline_factor"><code>outline_factor</code></a></td>
-<td>function</td>
-<td><code>(row, solved=None, scales=None)</code></td>
-<td>Horizontal scale of the outline of a glyph baked on a resolved target row (1. = 100 %): the scale solved on the group's reference glyph, else the glyph's own solved scale (units row, core bake entry…</td>
-</tr>
-<tr>
 <td><span id="typerig.core.actions.delta_kerning_actions.side_factor"></span><a href="delta_kerning_actions/members-001.html#typerig.core.actions.delta_kerning_actions.side_factor"><code>side_factor</code></a></td>
 <td>function</td>
-<td><code>(row, solved=None, scales=None, msx=None)</code></td>
-<td>Kerning factor of a glyph baked on a resolved target row (1. = 100 %).</td>
+<td><code>(row, solved=None, scales=None)</code></td>
+<td>Width factor of a glyph baked on a resolved target row (1. = 100 %): the row's Met.</td>
 </tr>
 <tr>
 <td><span id="typerig.core.actions.delta_kerning_actions.side_spots"></span><a href="delta_kerning_actions/members-001.html#typerig.core.actions.delta_kerning_actions.side_spots"><code>side_spots</code></a></td>

@@ -2353,11 +2353,11 @@
 
 
         <p>Base class for editor tools.</p>
-<h4 id="fontlab.flBasicTool--what-is-flbasictool">What is flBasicTool?</h4>
+<h3 id="fontlab.flBasicTool--what-is-flbasictool">What is flBasicTool?</h3>
 <p>Every tool in FontLab's toolbar — the Pointer, the Pen, the Knife, the Eraser, the Text tool — is an <code>flBasicTool</code> under the hood. This class defines the minimum interface that all canvas tools share: the ability to activate and deactivate, and an identifier for the cursor shape to display while the tool is active.</p>
 <p>If you want to write a custom editor tool that handles mouse and keyboard events on the canvas, you subclass <code>flBasicTool</code> and implement event handler methods (<code>mousePressEvent</code>, <code>mouseMoveEvent</code>, <code>keyPressEvent</code>, etc.). You then receive <code>flEvent</code> objects in those methods describing exactly what the user did.</p>
 <p>For most designers writing utility scripts, you will never create a tool — you call methods on model objects directly. But if you want a persistent tool that always lives in the toolbar and responds to drawing gestures in real time, <code>flBasicTool</code> is your starting point.</p>
-<h4 id="fontlab.flBasicTool--tutorial">Tutorial</h4>
+<h3 id="fontlab.flBasicTool--tutorial">Tutorial</h3>
 <p>The most common scripting use of <code>flBasicTool</code> is activating a built-in tool programmatically. The tool instances are accessible through the workspace.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2416,8 +2416,8 @@
 <span class="c1"># fl.flWorkspace.instance().registerTool(my_tool)</span>
 <span class="c1"># my_tool.activateTool()</span>
 </code></pre></div>
-<h4 id="fontlab.flBasicTool--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flBasicTool--activate-the-pointer-tool-to-return-to-normal-editing-mode">Activate the Pointer tool to return to normal editing mode</h5>
+<h3 id="fontlab.flBasicTool--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flBasicTool--activate-the-pointer-tool-to-return-to-normal-editing-mode">Activate the Pointer tool to return to normal editing mode</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2426,7 +2426,7 @@
         <span class="n">tool</span><span class="o">.</span><span class="n">activateTool</span><span class="p">()</span>
         <span class="k">break</span>
 </code></pre></div>
-<h5 id="fontlab.flBasicTool--check-which-tool-is-currently-active">Check which tool is currently active</h5>
+<h4 id="fontlab.flBasicTool--check-which-tool-is-currently-active">Check which tool is currently active</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span>      <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>

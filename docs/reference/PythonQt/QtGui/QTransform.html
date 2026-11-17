@@ -2362,7 +2362,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtGui.QTransform--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtGui.QTransform--detailed-description">Detailed Description</h3>
 <p>A transformation specifies how to translate, scale, shear, rotate or project the
 coordinate system, and is typically used when rendering graphics.</p>
 <p>QTransform differs from QMatrix in that it is a true 3x3 matrix, allowing perspective
@@ -2404,7 +2404,7 @@ matrix's classical adjoint. In addition, QTransform provides the
 which returns the matrix's determinant.</p>
 <p>Finally, the QTransform class supports matrix multiplication, addition and subtraction,
 and objects of the class can be streamed as well as compared.</p>
-<h5 id="PythonQt.QtGui.QTransform--rendering-graphics">Rendering Graphics</h5>
+<h4 id="PythonQt.QtGui.QTransform--rendering-graphics">Rendering Graphics</h4>
 <p>When rendering graphics, the matrix defines the transformations but the actual
 transformation is performed by the drawing routines in
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a>.</p>
@@ -2448,7 +2448,7 @@ if you want to perform more than a single transform operation. For example:</p>
 </tr>
 </tbody>
 </table>
-<h5 id="PythonQt.QtGui.QTransform--basic-matrix-operations">Basic Matrix Operations</h5>
+<h4 id="PythonQt.QtGui.QTransform--basic-matrix-operations">Basic Matrix Operations</h4>
 <p><img alt="" src="https://doc.qt.io/archives/qt-5.15/images/qtransform-representation.png" /></p>
 <p>A QTransform object contains a 3 x 3 matrix. The <code>m31</code> (<code>dx</code>) and <code>m32</code> (<code>dy</code>) elements
 specify horizontal and vertical translation. The <code>m11</code> and <code>m22</code> elements specify
@@ -2496,7 +2496,7 @@ is controlled by <code>m12</code> and <code>m21</code>. Setting these elements t
 will twist the coordinate system. Rotation is achieved by setting both the shearing
 factors and the scaling factors. Perspective transformation is achieved by setting both
 the projection factors and the scaling factors.</p>
-<h6 id="PythonQt.QtGui.QTransform--combining-transforms">Combining Transforms</h6>
+<h5 id="PythonQt.QtGui.QTransform--combining-transforms">Combining Transforms</h5>
 <p>Here's the combined transformations example using basic matrix operations:</p>
 <table>
 <thead>
@@ -2516,7 +2516,7 @@ the projection factors and the scaling factors.</p>
 translates it, just as in the order in which the product of its factors is written. This
 means the point to which the transforms are applied is implicitly multiplied on the left
 with the transform to its right.</p>
-<h6 id="PythonQt.QtGui.QTransform--relation-to-matrix-notation">Relation to Matrix Notation</h6>
+<h5 id="PythonQt.QtGui.QTransform--relation-to-matrix-notation">Relation to Matrix Notation</h5>
 <p>The matrix notation in QTransform is the transpose of a commonly-taught convention which
 represents transforms and points as matrices and vectors. That convention multiplies its
 matrix on the left and column vector to the right. In other words, when several

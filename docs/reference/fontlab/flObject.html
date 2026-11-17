@@ -2357,7 +2357,7 @@
 
 
 
-        <h4 id="fontlab.flObject--what-is-flobject">What is flObject?</h4>
+        <h3 id="fontlab.flObject--what-is-flobject">What is flObject?</h3>
 <p>Everything you touch in FontLab — a node, a contour, a shape, a guideline, an anchor, a glyph, a layer, even the font itself — is an <code>flObject</code> under the hood. It is the common base class that every FontLab model object inherits from. Think of it as the "thing" that every object in the font universe is built on top of.</p>
 <p>Because everything shares this base, there are a handful of universal superpowers that every object has, no matter what it is:</p>
 <ul>
@@ -2369,7 +2369,7 @@
 <li><strong>History access</strong> — every object participates in FontLab's undo/redo system.</li>
 </ul>
 <p>You will rarely create an <code>flObject</code> directly. Instead, you will always be working with its subclasses — <code>flGlyph</code>, <code>flLayer</code>, <code>flShape</code>, <code>flNode</code>, etc. But understanding <code>flObject</code> means you understand the shared foundation all of those build on.</p>
-<h4 id="fontlab.flObject--the-id-system">The ID System</h4>
+<h3 id="fontlab.flObject--the-id-system">The ID System</h3>
 <p>Every object in FontLab has a <strong>unique integer ID</strong> assigned when it is created. This ID is available via the <code>.id</code> property. IDs are stable for the lifetime of a session — if you store an object's ID at the start of a script, you can use <code>haveObject()</code> and <code>createObject()</code> to check if it still exists later, even after operations that might have shuffled things around.</p>
 <p>IDs are particularly useful when you need to track a set of objects across multiple passes of a loop — for example, collecting node IDs in one pass and then acting on them in a second pass without worrying about the list becoming stale.</p>
 <div class="highlight"><pre><span></span><code><span class="n">node_id</span> <span class="o">=</span> <span class="n">some_node</span><span class="o">.</span><span class="n">id</span>
@@ -2377,7 +2377,7 @@
 <span class="k">if</span> <span class="n">fl</span><span class="o">.</span><span class="n">flObject</span><span class="o">.</span><span class="n">haveObject</span><span class="p">(</span><span class="n">node_id</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Node still exists&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flObject--properties-attaching-your-own-metadata">Properties: Attaching Your Own Metadata</h4>
+<h3 id="fontlab.flObject--properties-attaching-your-own-metadata">Properties: Attaching Your Own Metadata</h3>
 <p>FontLab lets you attach arbitrary <strong>key-value metadata</strong> to any object using the <code>setProperty</code> / <code>getProperty</code> family of methods. This is a lightweight way to annotate font data with information that FontLab itself doesn't track — things like the name of the designer who created a shape, a version counter, or a flag indicating that a glyph has been reviewed.</p>
 <p>Dynamic properties hold QVariant values, including strings and numbers. They may also contain internal object links or temporary editor state. Cloning and file persistence depend on the object type and property; arbitrary properties are not guaranteed to be copied or saved. Use <code>propertyNames()</code> and <code>getProperty()</code> to inspect a snapshot before an operation.</p>
 <div class="highlight"><pre><span></span><code><span class="n">glyph</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;reviewed_by&quot;</span><span class="p">,</span> <span class="s2">&quot;Maria&quot;</span><span class="p">)</span>
@@ -2385,7 +2385,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">glyph</span><span class="o">.</span><span class="n">getProperty</span><span class="p">(</span><span class="s2">&quot;reviewed_by&quot;</span><span class="p">))</span>   <span class="c1"># &quot;Maria&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">glyph</span><span class="o">.</span><span class="n">getPropertyInt</span><span class="p">(</span><span class="s2">&quot;revision&quot;</span><span class="p">))</span>   <span class="c1"># 3</span>
 </code></pre></div>
-<h4 id="fontlab.flObject--flags-quick-boolean-markers">Flags: Quick Boolean Markers</h4>
+<h3 id="fontlab.flObject--flags-quick-boolean-markers">Flags: Quick Boolean Markers</h3>
 <p>Every object has a set of <strong>bit flags</strong> — numbered boolean markers you can set, clear, and test. These are designed for use in processing loops where you want to mark objects as "done" or "needs attention" without adding external bookkeeping.</p>
 <p>Flags are just bits in an integer, so <code>flag(1)</code>, <code>flag(2)</code>, <code>flag(4)</code> etc. are all independent. There is no defined meaning for any particular flag number — you choose whatever convention works for your script.</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">contour</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
@@ -2397,7 +2397,7 @@
         <span class="n">process</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
         <span class="n">node</span><span class="o">.</span><span class="n">clearFlag</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flObject--tutorial">Tutorial</h4>
+<h3 id="fontlab.flObject--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="c1"># Obtain objects at various levels — all of them are flObject subclasses</span>
@@ -2483,7 +2483,7 @@
 <span class="n">shape</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flObject--common-patterns">Common Patterns</h4>
+<h3 id="fontlab.flObject--common-patterns">Common Patterns</h3>
 <p><strong>Check before you use</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Whenever you store an object reference and use it later, guard with isValid</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">get_some_object</span><span class="p">()</span>

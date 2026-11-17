@@ -2353,10 +2353,10 @@
 
 
         <p>Snap Line Measurement Marker.</p>
-<h4 id="fontlab.flMarkerPoint--what-is-flmarkerpoint">What is flMarkerPoint?</h4>
+<h3 id="fontlab.flMarkerPoint--what-is-flmarkerpoint">What is flMarkerPoint?</h3>
 <p>Guidelines in FontLab can carry measurement markers — small tick marks that represent stem widths, zone boundaries, or sidebearing measurements. An <code>flMarkerPoint</code> is one such tick mark. It sits at a specific position along the guideline and carries flag bits that describe what kind of measurement it represents.</p>
 <p>Most designers interact with markers through the Snap/Measure panel rather than in scripts. But if you are writing a tool that programmatically creates or analyses measurement data attached to guidelines, <code>flMarkerPoint</code> gives you direct access to each marker's position and role flags.</p>
-<h4 id="fontlab.flMarkerPoint--tutorial">Tutorial</h4>
+<h3 id="fontlab.flMarkerPoint--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="c1"># ============================================================</span>
@@ -2394,8 +2394,8 @@
     <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Added stem marker at position 80 to first guideline.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flMarkerPoint--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flMarkerPoint--list-all-hand-placed-markers-across-all-glyphs">List all hand-placed markers across all glyphs</h5>
+<h3 id="fontlab.flMarkerPoint--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flMarkerPoint--list-all-hand-placed-markers-across-all-glyphs">List all hand-placed markers across all glyphs</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2407,7 +2407,7 @@
             <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;HandMarker&#39;</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">glyph</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: hand marker at </span><span class="si">{</span><span class="n">m</span><span class="o">.</span><span class="n">position</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flMarkerPoint--check-if-a-guideline-has-any-stem-markers">Check if a guideline has any stem markers</h5>
+<h4 id="fontlab.flMarkerPoint--check-if-a-guideline-has-any-stem-markers">Check if a guideline has any stem markers</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span>  <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

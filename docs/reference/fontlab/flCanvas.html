@@ -2351,7 +2351,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">ws</span>     <span class="o">=</span> <span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
 <span class="n">canvas</span> <span class="o">=</span> <span class="n">ws</span><span class="o">.</span><span class="n">getActiveCanvas</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flCanvas--two-coordinate-systems-and-why-they-matter">Two coordinate systems — and why they matter</h5>
+<h3 id="fontlab.flCanvas--two-coordinate-systems-and-why-they-matter">Two coordinate systems — and why they matter</h3>
 <p>This is the most important conceptual thing to understand about <code>flCanvas</code>. There are two coordinate systems in play whenever a glyph is on screen:</p>
 <ul>
 <li><strong>Glyph (font unit) coordinates</strong> — the "real" coordinates stored in your font. A node at x=250, y=700 is at those coordinates in font units, regardless of how zoomed in you are.</li>
@@ -2367,7 +2367,7 @@
 - <strong>Hit testing</strong> — "did the user click near this node?"
 - <strong>Snap-to-point</strong> — "snap this to the nearest canvas grid point"
 - <strong>Custom drawing</strong> — drawing overlays or decorations that need to match glyph positions on screen</p>
-<h4 id="fontlab.flCanvas--common-scripting-patterns">Common Scripting Patterns</h4>
+<h3 id="fontlab.flCanvas--common-scripting-patterns">Common Scripting Patterns</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flWorkspace</span>
 
@@ -2402,7 +2402,7 @@
 <span class="c1"># Ensure a specific glyph bounding box is visible</span>
 <span class="c1"># canvas.ensureVisible(some_rect)</span>
 </code></pre></div>
-<h4 id="fontlab.flCanvas--tutorial">Tutorial</h4>
+<h3 id="fontlab.flCanvas--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span><span class="p">,</span> <span class="n">QRectF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flWorkspace</span><span class="p">,</span> <span class="n">flCanvas</span>
@@ -2530,7 +2530,7 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Canvas tutorial complete.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flCanvas--python-canvas-painters">Python canvas painters</h4>
+<h3 id="fontlab.flCanvas--python-canvas-painters">Python canvas painters</h3>
 <p><code>appendPythonPainter(callback[, order]) -&gt; int</code> registers an overlay and returns a cleanup token. <code>callback(painter, canvas)</code> receives a borrowed QPainter whose transform has been reset for viewport coordinates. The default order is <code>flCanvas.UnderOwner</code> (0); <code>flCanvas.OverOwner</code> (1) draws above the owner. <code>removePythonPainter(token) -&gt; bool</code> removes a callback from the same canvas and requests repainting.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2545,7 +2545,7 @@
     <span class="n">canvas</span><span class="o">.</span><span class="n">removePythonPainter</span><span class="p">(</span><span class="n">painter_token</span><span class="p">)</span>
 </code></pre></div>
 <p>Register and remove hooks on the GUI thread. Keep the token for cleanup; do not retain the borrowed painter beyond its callback or assume its wrapper remains valid. The native hook saves and restores painter state and guards against recursive painting. Exceptions are reported through Python's error output.</p>
-<h4 id="fontlab.flCanvas--flcanvas-constants">flCanvas constants</h4>
+<h3 id="fontlab.flCanvas--flcanvas-constants">flCanvas constants</h3>
 <p>These constants are class attributes.</p>
 <table>
 <thead>

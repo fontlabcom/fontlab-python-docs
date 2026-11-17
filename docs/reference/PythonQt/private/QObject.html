@@ -2367,7 +2367,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.private.QObject--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.private.QObject--detailed-description">Detailed Description</h3>
 <p>QObject is the heart of the Qt <a href="https://doc.qt.io/archives/qt-5.15/object.html">Object
 Model</a>. The central feature in this
 model is a very powerful mechanism for seamless object communication called <a href="https://doc.qt.io/archives/qt-5.15/signalsandslots.html">signals and
@@ -2429,7 +2429,7 @@ whether an object is actually a widget. It is much faster than
 <a href="https://doc.qt.io/archives/qt-5.15/qobject.html#QObjectList-typedef">QObjectList</a>.
 <a href="https://doc.qt.io/archives/qt-5.15/qobject.html#QObjectList-typedef">QObjectList</a> is a
 typedef for <a href="https://doc.qt.io/archives/qt-5.15/qlist.html">QList</a>\&lt;QObject *&gt;.</p>
-<h5 id="PythonQt.private.QObject--thread-affinity">Thread Affinity</h5>
+<h4 id="PythonQt.private.QObject--thread-affinity">Thread Affinity</h4>
 <p>A QObject instance is said to have a <em>thread affinity</em>, or that it <em>lives</em> in a certain
 thread. When a QObject receives a <a href="https://doc.qt.io/archives/qt-5.15/qt.html#ConnectionType-enum">queued
 signal</a> or a <a href="https://doc.qt.io/archives/qt-5.15/eventsandfilters.html#sending-events">posted
@@ -2457,7 +2457,7 @@ parent-child relationship must be set by either passing a pointer to the child's
 step, the object's member variables will remain in the old thread when
 <a href="https://doc.qt.io/archives/qt-5.15/qobject.html#moveToThread">moveToThread</a>() is
 called.</p>
-<h5 id="PythonQt.private.QObject--no-copy-constructor-or-assignment-operator">No Copy Constructor or Assignment Operator</h5>
+<h4 id="PythonQt.private.QObject--no-copy-constructor-or-assignment-operator">No Copy Constructor or Assignment Operator</h4>
 <p>QObject has neither a copy constructor nor an assignment operator. This is by design.
 Actually, they are declared, but in a <code>private</code> section with the macro
 <a href="https://doc.qt.io/archives/qt-5.15/qobject.html#Q_DISABLE_COPY">Q_DISABLE_COPY</a>(). In
@@ -2470,7 +2470,7 @@ Value</a> on the Qt
 subclass) where you might otherwise be tempted to use your QObject subclass as a value.
 For example, without a copy constructor, you can't use a subclass of QObject as the
 value to be stored in one of the container classes. You must store pointers.</p>
-<h5 id="PythonQt.private.QObject--auto-connection">Auto-Connection</h5>
+<h4 id="PythonQt.private.QObject--auto-connection">Auto-Connection</h4>
 <p>Qt's meta-object system provides a mechanism to automatically connect signals and slots
 between QObject subclasses and their children. As long as objects are defined with
 suitable object names, and slots follow a simple naming convention, this connection can
@@ -2483,7 +2483,7 @@ function to enable auto-connection to be performed between widgets on forms crea
 in the <a href="https://doc.qt.io/archives/qt-5.15/designer-using-a-ui-file.html">Using a Designer UI File in Your C++
 Application</a> section
 of the <em>Qt Designer</em> manual.</p>
-<h5 id="PythonQt.private.QObject--dynamic-properties">Dynamic Properties</h5>
+<h4 id="PythonQt.private.QObject--dynamic-properties">Dynamic Properties</h4>
 <p>From Qt 4.2, dynamic properties can be added to and removed from QObject instances at
 run-time. Dynamic properties do not need to be declared at compile-time, yet they
 provide the same advantages as static properties and are manipulated using the same API
@@ -2493,7 +2493,7 @@ write them.</p>
 <p>From Qt 4.3, dynamic properties are supported by <a href="https://doc.qt.io/archives/qt-5.15/designer-widget-mode.html#the-property-editor">Qt
 Designer</a>,
 and both standard Qt widgets and user-created forms can be given dynamic properties.</p>
-<h5 id="PythonQt.private.QObject--internationalization-i18n">Internationalization (I18n)</h5>
+<h4 id="PythonQt.private.QObject--internationalization-i18n">Internationalization (I18n)</h4>
 <p>All QObject subclasses support Qt's translation features, making it possible to
 translate an application's user interface into different languages.</p>
 <p>To make user-visible text translatable, it must be wrapped in calls to the

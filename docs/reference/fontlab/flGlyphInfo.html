@@ -2375,7 +2375,7 @@
 
 
         <p>Canvas proxy for a rendered glyph.</p>
-<h4 id="fontlab.flGlyphInfo--what-is-flglyphinfo">What is flGlyphInfo?</h4>
+<h3 id="fontlab.flGlyphInfo--what-is-flglyphinfo">What is flGlyphInfo?</h3>
 <p><code>flGlyphInfo</code> is the top-level entry point into the canvas info system. When a glyph is displayed in the metrics view or glyph editor, FontLab wraps it in an <code>flGlyphInfo</code> that knows everything about how it appears on screen: its bounding rectangle in pixels, its screen position, whether it is currently active for editing, and where all its shapes, contours, and nodes are.</p>
 <p>This is the class you reach for when writing interactive tools or canvas decorators. <code>canvas.activeGlyphInfo()</code> is the single most important call for tool code — it gives you the live rendering context for whatever glyph the user is currently editing.</p>
 <p><code>flGlyphInfo</code> is the root of the canvas info hierarchy:</p>
@@ -2387,9 +2387,9 @@
                 └── flNodeInfo  ← per-node: move in glyph space, repaint rect
 </code></pre></div>
 <p>The base info classes (<code>flSearchInfo</code>, <code>flGraphicsInfo</code>) hold shared infrastructure — distance values and canvas transform matrices — and are described in their own files.</p>
-<h4 id="fontlab.flGlyphInfo--when-do-you-use-it">When do you use it?</h4>
+<h3 id="fontlab.flGlyphInfo--when-do-you-use-it">When do you use it?</h3>
 <p><code>canvas.activeGlyphInfo()</code> is the single most useful call for interactive tool code. It gives you the currently-being-edited glyph's canvas context — its screen position, bounds, and the full tree of shapes, contours, and nodes with canvas coordinates.</p>
-<h4 id="fontlab.flGlyphInfo--tutorial">Tutorial</h4>
+<h3 id="fontlab.flGlyphInfo--tutorial">Tutorial</h3>
 <p>The standard flow in any canvas tool starts with getting the <code>flGlyphInfo</code> for the active glyph, then querying it for shapes, contours, or nodes near the mouse position.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2456,8 +2456,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Glyph &#39;</span><span class="si">{</span><span class="n">glyph</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">shapes</span><span class="p">)</span><span class="si">}</span><span class="s2"> shape(s) &quot;</span>
       <span class="sa">f</span><span class="s2">&quot;on layer &#39;</span><span class="si">{</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flGlyphInfo--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flGlyphInfo--check-if-a-canvas-point-hits-any-glyph-content">Check if a canvas point hits any glyph content</h5>
+<h3 id="fontlab.flGlyphInfo--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flGlyphInfo--check-if-a-canvas-point-hits-any-glyph-content">Check if a canvas point hits any glyph content</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2472,7 +2472,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Click is outside the glyph box entirely.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flGlyphInfo--get-all-selected-nodes-from-the-active-glyph">Get all selected nodes from the active glyph</h5>
+<h4 id="fontlab.flGlyphInfo--get-all-selected-nodes-from-the-active-glyph">Get all selected nodes from the active glyph</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2484,7 +2484,7 @@
         <span class="n">pt</span> <span class="o">=</span> <span class="n">ni</span><span class="o">.</span><span class="n">getGlyphPoint</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># rounded to integers</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  type=</span><span class="si">{</span><span class="n">ni</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flGlyphInfo--read-kerning-offset-for-a-glyph-in-the-metrics-view">Read kerning offset for a glyph in the metrics view</h5>
+<h4 id="fontlab.flGlyphInfo--read-kerning-offset-for-a-glyph-in-the-metrics-view">Read kerning offset for a glyph in the metrics view</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span>     <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>

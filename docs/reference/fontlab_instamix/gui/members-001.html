@@ -2223,10 +2223,32 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#fontlab_instamix.gui.FILE_PATTERN" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FILE_PATTERN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_instamix.gui.confirm" class="md-nav__link">
     <span class="md-ellipsis">
       
         confirm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_instamix.gui.install_selected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        install_selected
       
     </span>
   </a>
@@ -2249,6 +2271,28 @@
     <span class="md-ellipsis">
       
         pick_file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_instamix.gui.pick_files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pick_files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_instamix.gui.pick_folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pick_folder
       
     </span>
   </a>
@@ -2282,6 +2326,28 @@
 <p><a href="../gui.html#fontlab_instamix.gui">Back to <code>fontlab_instamix.gui</code></a></p>
 
 
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="fontlab_instamix.gui.FILE_PATTERN" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">FILE_PATTERN</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">FILE_PATTERN</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
 <div class="doc doc-object doc-function">
 
 
@@ -2294,6 +2360,28 @@
 </code></pre></div>
 
     <div class="doc doc-contents first">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_instamix.gui.install_selected" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">install_selected</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">install_selected</span><span class="p">(</span><span class="n">paths</span><span class="p">:</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="dict">dict</span></span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Install selected extensions; report each failure and continue other selections.</p>
+<p>Explicit paths bypass the picker. Returned records contain successful installs;
+failures print through message, including the path and original error.</p>
 
 
     </div>
@@ -2330,12 +2418,62 @@ interrupt the user's work.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">pick_file</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s1">&#39;Choose an extension&#39;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s1">&#39;Extensions (*.fontlabextz *.fontlabext)&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="str">str</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">pick_file</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s1">&#39;Choose an extension&#39;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="FILE_PATTERN
+
+
+  
+      module-attribute
+   (fontlab_instamix.gui.FILE_PATTERN)" href="#fontlab_instamix.gui.FILE_PATTERN">FILE_PATTERN</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="str">str</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Return a chosen path, or an empty string when cancelled.</p>
+        <p>Return PythonQt's QString path, or an empty string on cancellation.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_instamix.gui.pick_files" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">pick_files</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">pick_files</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s1">&#39;Choose extensions&#39;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="FILE_PATTERN
+
+
+  
+      module-attribute
+   (fontlab_instamix.gui.FILE_PATTERN)" href="#fontlab_instamix.gui.FILE_PATTERN">FILE_PATTERN</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Choose archives/manifests; console fallback takes one literal path per line.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_instamix.gui.pick_folder" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">pick_folder</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">pick_folder</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s1">&#39;Choose an extension folder&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="str">str</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Choose a .fontlabext directory without mixing folders into a file dialog.</p>
 
 
     </div>

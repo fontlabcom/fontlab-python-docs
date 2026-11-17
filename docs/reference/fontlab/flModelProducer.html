@@ -2375,10 +2375,10 @@
 
 
         <p>Clipboard operations.</p>
-<h4 id="fontlab.flModelProducer--what-is-flmodelproducer">What is flModelProducer?</h4>
+<h3 id="fontlab.flModelProducer--what-is-flmodelproducer">What is flModelProducer?</h3>
 <p><code>flModelProducer</code> handles copying and pasting font objects. It can serialise a list of shapes, contours, or glyphs into a binary blob, write that blob to the system clipboard, and later deserialise it back into live objects. All of its methods are <strong>static</strong> — you never create an instance, you just call the methods directly.</p>
 <p>The most common scripting use-case is <strong>programmatic copy/paste</strong>: capture the shapes of one glyph, then paste them into another, possibly with a transform applied.</p>
-<h4 id="fontlab.flModelProducer--tutorial">Tutorial</h4>
+<h3 id="fontlab.flModelProducer--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTransform</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flModelProducer</span>
@@ -2426,7 +2426,7 @@
 <span class="n">flModelProducer</span><span class="o">.</span><span class="n">copyToClipboard</span><span class="p">(</span><span class="n">font</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">shapes_to_copy</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shapes are now on the clipboard — use Edit → Paste to paste.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flModelProducer--common-patterns">Common Patterns</h4>
+<h3 id="fontlab.flModelProducer--common-patterns">Common Patterns</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Count glyphs in a blob before deserialising:</span>
 <span class="n">count</span> <span class="o">=</span> <span class="n">flModelProducer</span><span class="o">.</span><span class="n">countGlyphsInData</span><span class="p">(</span><span class="n">blob</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Blob contains </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> glyph(s)&quot;</span><span class="p">)</span>
@@ -2439,8 +2439,8 @@
         <span class="n">layer</span><span class="o">.</span><span class="n">addShape</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
     <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flModelProducer--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flModelProducer--copy-shapes-from-one-glyph-to-another-via-the-clipboard">Copy shapes from one glyph to another via the clipboard</h5>
+<h3 id="fontlab.flModelProducer--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flModelProducer--copy-shapes-from-one-glyph-to-another-via-the-clipboard">Copy shapes from one glyph to another via the clipboard</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flModelProducer</span>
 
@@ -2456,7 +2456,7 @@
     <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Copied layer from &#39;A&#39; to &#39;B&#39;.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flModelProducer--serialise-a-shape-to-check-its-json-representation">Serialise a shape to check its JSON representation</h5>
+<h4 id="fontlab.flModelProducer--serialise-a-shape-to-check-its-json-representation">Serialise a shape to check its JSON representation</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flModelProducer</span>
 
@@ -2469,7 +2469,7 @@
         <span class="n">data</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="n">shapeToString</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">shapes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>   <span class="c1"># show first 300 chars</span>
 </code></pre></div>
-<h4 id="fontlab.flModelProducer--detached-json-transport">Detached JSON transport</h4>
+<h3 id="fontlab.flModelProducer--detached-json-transport">Detached JSON transport</h3>
 <p>Two static methods expose the existing FontLab object transport without reading or changing the system clipboard:</p>
 <div class="highlight"><pre><span></span><code><span class="n">producer</span> <span class="o">=</span> <span class="n">fontlab</span><span class="o">.</span><span class="n">flModelProducer</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="n">getClipboardDataJson</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="p">[</span><span class="n">contour</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">glyph</span><span class="p">])</span>

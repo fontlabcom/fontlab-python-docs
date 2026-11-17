@@ -2367,7 +2367,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtCore.QDataStream--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtCore.QDataStream--detailed-description">Detailed Description</h3>
 <p>A data stream is a binary stream of encoded information which is 100% independent of the
 host computer's operating system, CPU or byte order. For example, a data stream that is
 written by a PC under Windows can be read by a Sun SPARC running Solaris.</p>
@@ -2423,7 +2423,7 @@ including the '\0' terminator are read.</p>
 <a href="https://doc.qt.io/archives/qt-5.15/qdatastream.html#setDevice">setDevice</a>(). If you've
 reached the end of the data (or if there is no I/O device set)
 <a href="https://doc.qt.io/archives/qt-5.15/qdatastream.html#atEnd">atEnd</a>() will return true.</p>
-<h5 id="PythonQt.QtCore.QDataStream--versioning">Versioning</h5>
+<h4 id="PythonQt.QtCore.QDataStream--versioning">Versioning</h4>
 <p>QDataStream's binary format has evolved since Qt 1.0, and is likely to continue evolving
 to reflect changes done in Qt. When inputting or outputting complex types, it's very
 important to make sure that the same version of the stream
@@ -2483,7 +2483,7 @@ in &gt;&gt; other_interesting_data;
 big-endian (MSB first). Changing it to little-endian breaks the portability (unless the
 reader also changes to little-endian). We recommend keeping this setting unless you have
 special requirements.</p>
-<h5 id="PythonQt.QtCore.QDataStream--reading-and-writing-raw-binary-data">Reading and Writing Raw Binary Data</h5>
+<h4 id="PythonQt.QtCore.QDataStream--reading-and-writing-raw-binary-data">Reading and Writing Raw Binary Data</h4>
 <p>You may wish to read/write your own raw binary data to/from the data stream directly.
 Data may be read from the stream into a preallocated <code>char *</code> using
 <a href="https://doc.qt.io/archives/qt-5.15/qdatastream.html#readRawData">readRawData</a>().
@@ -2500,7 +2500,7 @@ bytes is read into the preallocated <code>char *</code>;
 <a href="https://doc.qt.io/archives/qt-5.15/qdatastream.html#writeBytes">writeBytes</a>() writes a
 quint32 containing the length of the data, followed by the data. Note that any
 encoding/decoding of the data (apart from the length quint32) must be done by you.</p>
-<h5 id="PythonQt.QtCore.QDataStream--reading-and-writing-qt-collection-classes">Reading and Writing Qt Collection Classes</h5>
+<h4 id="PythonQt.QtCore.QDataStream--reading-and-writing-qt-collection-classes">Reading and Writing Qt Collection Classes</h4>
 <p>The Qt container classes can also be serialized to a QDataStream. These include
 <a href="https://doc.qt.io/archives/qt-5.15/qlist.html">QList</a>, QLinkedList,
 <a href="https://doc.qt.io/archives/qt-5.15/qvector.html">QVector</a>,
@@ -2508,7 +2508,7 @@ encoding/decoding of the data (apart from the length quint32) must be done by yo
 <a href="https://doc.qt.io/archives/qt-5.15/qhash.html#qhash">QHash</a>, and
 <a href="https://doc.qt.io/archives/qt-5.15/qmap.html">QMap</a>. The stream operators are declared
 as non-members of the classes.</p>
-<h5 id="PythonQt.QtCore.QDataStream--reading-and-writing-other-qt-classes">Reading and Writing Other Qt Classes</h5>
+<h4 id="PythonQt.QtCore.QDataStream--reading-and-writing-other-qt-classes">Reading and Writing Other Qt Classes</h4>
 <p>In addition to the overloaded stream operators documented here, any Qt classes that you
 might want to serialize to a QDataStream will have appropriate stream operators declared
 as non-member of the class:</p>
@@ -2522,7 +2522,7 @@ as non-member of the class:</p>
 </code></pre></div>
 <p>To see if your favorite Qt class has similar stream operators defined, check the
 <strong>Related Non-Members</strong> section of the class's documentation page.</p>
-<h5 id="PythonQt.QtCore.QDataStream--using-read-transactions">Using Read Transactions</h5>
+<h4 id="PythonQt.QtCore.QDataStream--using-read-transactions">Using Read Transactions</h4>
 <p>When a data stream operates on an asynchronous device, the chunks of data can arrive at
 arbitrary points in time. The QDataStream class implements a transaction mechanism that
 provides the ability to read the data atomically with a series of stream operators. As

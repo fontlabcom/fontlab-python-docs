@@ -2443,17 +2443,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#typerig.core.actions.delta_kerning_actions.outline_factor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        outline_factor
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#typerig.core.actions.delta_kerning_actions.side_factor" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2953,54 +2942,20 @@ is 'yes' when a master of that name exists now.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="typerig.core.actions.delta_kerning_actions.outline_factor" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">outline_factor</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">outline_factor</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">solved</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scales</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>Horizontal scale of the outline of a glyph baked on a resolved target
-row (1. = 100 %): the scale solved on the group's reference glyph, else
-the glyph's own solved scale (units row, core bake entry 'scales'),
-else the row's width percent, else 1.</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
 <h2 id="typerig.core.actions.delta_kerning_actions.side_factor" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">side_factor</span>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">side_factor</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">solved</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scales</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">msx</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">side_factor</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">solved</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scales</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Kerning factor of a glyph baked on a resolved target row (1. = 100 %).</p>
-<p>The kerning follows the outline (outline_factor, s) and the spacing of
-the pairs (c, a percent of the original like Met. W): spacing looser than
-the outline loosens the kerning in inverse ratio, tighter spacing
-tightens it (user 2026-11-05: more spacing must not tighten the pairs):</p>
-<div class="highlight"><pre><span></span><code>    f = s * s / c
-</code></pre></div>
-<p>c is the row's Kern % ('ksx') when set: a spacing value for the kerning
-only, read like Met. W (bigger = looser pairs; user 2026-11-06). Else
-msx: the Met. W percent the bake really applied (None: Met. off, not
-set, or refused by the bake; the row's own 'msx' is not read). Neither:
-f = s.</p>
-<p>Width 58 %, Met. W 70.6 %: f = 0.477, a -51 pair becomes -24.
-Kern % 80 on the same row: f = 0.42 (looser), Kern % 58: f = 0.58
-(the kerning follows the outline). Kern % equal to Met. W: as empty.</p>
+        <p>Width factor of a glyph baked on a resolved target row (1. = 100 %):
+the row's Met. W when set (spacing follows it), else the scale solved
+on the group's reference glyph, else the glyph's own solved scale
+(units row, core bake entry 'scales'), else the row's width percent.</p>
 
 
     </div>

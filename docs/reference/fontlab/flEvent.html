@@ -2347,11 +2347,11 @@
 
 
         <p>Mouse and keyboard event.</p>
-<h4 id="fontlab.flEvent--what-is-flevent">What is flEvent?</h4>
+<h3 id="fontlab.flEvent--what-is-flevent">What is flEvent?</h3>
 <p><code>flEvent</code> is the small native event record used by the editor's own tools. It records a native event category and Qt modifier-key flags. The mouse-specific data is exposed separately by <code>flMouseEvent</code>.</p>
 <p>Callback tools registered with <code>flWorkspace.registerPythonTool()</code> receive Qt QMouseEvent/QKeyEvent wrappers rather than this native record. See the tool callback contract.</p>
 <p><code>flEvent</code> exposes only <code>type</code> and <code>modifiers</code>. For mouse coordinates, buttons and movement, use flMouseEvent.</p>
-<h4 id="fontlab.flEvent--base-properties-all-events">Base Properties (all events)</h4>
+<h3 id="fontlab.flEvent--base-properties-all-events">Base Properties (all events)</h3>
 <table>
 <thead>
 <tr>
@@ -2376,11 +2376,11 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flEvent--mouse-event-data">Mouse event data</h4>
+<h3 id="fontlab.flEvent--mouse-event-data">Mouse event data</h3>
 <p>These fields belong to flMouseEvent, not to the base event. Global screen positions must be mapped through the relevant viewport before converting to glyph coordinates.</p>
-<h4 id="fontlab.flEvent--creating-a-tool">Creating a tool</h4>
+<h3 id="fontlab.flEvent--creating-a-tool">Creating a tool</h3>
 <p>For callback-based tool registration and cleanup, see flWorkspace. For the base event, use <code>flEvent(event_type)</code> or <code>flEvent(event_type, modifiers)</code>; there is no public no-argument constructor.</p>
-<h4 id="fontlab.flEvent--fleventeventtype">flEvent.EventType</h4>
+<h3 id="fontlab.flEvent--fleventeventtype">flEvent.EventType</h3>
 <p>Use the <code>flEvent.EventType</code> dictionary with subscription.</p>
 <table>
 <thead>

@@ -2356,7 +2356,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QFile--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QFile--detailed-description">Detailed Description</h3>
 <p>QFile is an I/O device for reading and writing text and binary files and
 <a href="https://doc.qt.io/archives/qt-5.15/resources.html">resources</a>. A QFile may be used by
 itself or, more conveniently, with a
@@ -2392,7 +2392,7 @@ current file position using
 position using <a href="https://doc.qt.io/archives/qt-5.15/qfiledevice.html#seek">seek</a>(). If
 you've reached the end of the file,
 <a href="https://doc.qt.io/archives/qt-5.15/qfiledevice.html#atEnd">atEnd</a>() returns <code>true</code>.</p>
-<h5 id="PythonQt.Qt.QFile--reading-files-directly">Reading Files Directly</h5>
+<h4 id="PythonQt.Qt.QFile--reading-files-directly">Reading Files Directly</h4>
 <p>The following example reads a text file line by line:</p>
 <div class="highlight"><pre><span></span><code>    QFile file(&quot;in.txt&quot;);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -2409,7 +2409,7 @@ flag passed to <a href="https://doc.qt.io/archives/qt-5.15/qiodevice.html#open">
 to convert Windows-style line terminators ("\r\n") into C++-style terminators
 ("\n"). By default, QFile assumes binary, i.e. it doesn't perform any conversion on the
 bytes stored in the file.</p>
-<h5 id="PythonQt.Qt.QFile--using-streams-to-read-files">Using Streams to Read Files</h5>
+<h4 id="PythonQt.Qt.QFile--using-streams-to-read-files">Using Streams to Read Files</h4>
 <p>The next example uses <a href="https://doc.qt.io/archives/qt-5.15/qtextstream.html">QTextStream</a>
 to read a text file line by line:</p>
 <div class="highlight"><pre><span></span><code>    QFile file(&quot;in.txt&quot;);
@@ -2478,7 +2478,7 @@ until no more data can be read. The next example uses
         line = in.readLine();
     }
 </code></pre></div>
-<h5 id="PythonQt.Qt.QFile--signals">Signals</h5>
+<h4 id="PythonQt.Qt.QFile--signals">Signals</h4>
 <p>Unlike other <a href="https://doc.qt.io/archives/qt-5.15/qiodevice.html">QIODevice</a>
 implementations, such as
 <a href="https://doc.qt.io/archives/qt-5.15/qtcpsocket.html">QTcpSocket</a>, QFile does not emit
@@ -2487,7 +2487,7 @@ the <a href="https://doc.qt.io/archives/qt-5.15/qiodevice.html#aboutToClose">abo
 <a href="https://doc.qt.io/archives/qt-5.15/qiodevice.html#readyRead">readyRead</a>() signals. This
 implementation detail means that QFile is not suitable for reading and writing certain
 types of files, such as device files on Unix platforms.</p>
-<h5 id="PythonQt.Qt.QFile--platform-specific-issues">Platform Specific Issues</h5>
+<h4 id="PythonQt.Qt.QFile--platform-specific-issues">Platform Specific Issues</h4>
 <p>File permissions are handled differently on Unix-like systems and Windows. In a non
 <a href="https://doc.qt.io/archives/qt-5.15/qiodevice.html#isWritable">writable</a> directory on
 Unix-like systems, files cannot be created. This is not always the case on Windows,

@@ -12,13 +12,12 @@ import sys
 import tarfile
 from pathlib import Path
 
-ARCHIVE = "inputs-886e538a404b.tar.gz"
+ARCHIVE = "inputs-93a2be39e2d1.tar.gz"
 NAMES = "private-repository-names.json"
 HASHES = {
-    ARCHIVE: "b2cb1eb27a359913d8b90d573105deee1a00c8bf4d29cee43bb37f08b4e7a703",
+    ARCHIVE: "93a2be39e2d13cc52bac7e59702fa9e2c45c8f3d5b5bce2abb0b085a6fb6a11a",
     NAMES: "9aaf92ea8816ed59c604d537a3626ee907137f722b753e64323d64529889d15a",
 }
-REVIEWED_NAME_DIGEST = "be75b7ba5b4d"
 
 
 def prepare(store: Path, target: Path) -> None:
@@ -43,17 +42,13 @@ def prepare(store: Path, target: Path) -> None:
 
 
 def disposition(report: dict, raw_exit: int) -> None:
-    """Accept exactly the three reviewed installation-name surfaces, without waiver drift."""
-    findings = report["findings"]
-    rows = findings.get("private-repository-name", [])
-    if raw_exit != 1 or report["pass"] is not False or set(findings) != {"private-repository-name"} or len(rows) != 3:
-        raise ValueError("Release audit differs from the reviewed non-green result")
-    if any(hashlib.sha256(row["match"].encode()).hexdigest()[:12] != REVIEWED_NAME_DIGEST for row in rows):
-        raise ValueError("Unreviewed private name")
-    paths = {row["file"] for row in rows}
-    shards = [path for path in paths if re.fullmatch(r"search/complete/rows-[a-f0-9]{64}\.json", path)]
-    if len(shards) != 1 or paths != {"packages/plugmix.html", shards[0], shards[0] + ".gz"}:
-        raise ValueError("Unreviewed audit surface")
+    """Accept only a green release audit; no reviewed waiver remains.
+
+    The former plugmix installation-name waiver ended when plugmix became a
+    documented package (issue 257); any finding now fails the build.
+    """
+    if raw_exit != 0 or report.get("pass") is not True or any(report.get("findings", {}).values()):
+        raise ValueError("Release audit is not green")
 
 
 def capture(site: Path, workspace: Path, output: Path) -> int:

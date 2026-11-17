@@ -2353,10 +2353,10 @@
 
 
         <p>Canvas proxy for a contour.</p>
-<h4 id="fontlab.flContourInfo--what-is-flcontourinfo">What is flContourInfo?</h4>
+<h3 id="fontlab.flContourInfo--what-is-flcontourinfo">What is flContourInfo?</h3>
 <p><code>flContourInfo</code> represents one contour on the FontLab canvas. It extends <code>flShapeInfo</code> with per-contour node queries and a parametric "where along the contour" tracker — the mechanism that lets tools show a preview point on a contour as the mouse moves over it (as in a knife or add-node tool).</p>
 <p>While <code>flContour</code> stores the model data (nodes and segments in font units), <code>flContourInfo</code> knows where the contour appears <em>on screen</em>. It provides the canvas-space bounding rect for the contour, access to node info objects, and hit-testing at a specific mouse position.</p>
-<h4 id="fontlab.flContourInfo--tutorial">Tutorial</h4>
+<h3 id="fontlab.flContourInfo--tutorial">Tutorial</h3>
 <p>The most practical use of <code>flContourInfo</code> in a custom tool is the parametric hover-point system: as the mouse moves, you find the nearest parametric position on a contour and show a small indicator there.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2411,8 +2411,8 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Node type=</span><span class="si">{</span><span class="n">ni</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2">  &quot;</span>
               <span class="sa">f</span><span class="s2">&quot;canvas=(</span><span class="si">{</span><span class="n">ni</span><span class="o">.</span><span class="n">canvasPoint</span><span class="o">.</span><span class="n">x</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ni</span><span class="o">.</span><span class="n">canvasPoint</span><span class="o">.</span><span class="n">y</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flContourInfo--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flContourInfo--find-the-nearest-node-to-a-canvas-point">Find the nearest node to a canvas point</h5>
+<h3 id="fontlab.flContourInfo--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flContourInfo--find-the-nearest-node-to-a-canvas-point">Find the nearest node to a canvas point</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2434,7 +2434,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No node hit within 50px of cursor.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flContourInfo--iterate-all-nodes-in-the-current-glyph-with-canvas-positions">Iterate all nodes in the current glyph with canvas positions</h5>
+<h4 id="fontlab.flContourInfo--iterate-all-nodes-in-the-current-glyph-with-canvas-positions">Iterate all nodes in the current glyph with canvas positions</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 

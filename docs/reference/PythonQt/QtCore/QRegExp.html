@@ -2411,7 +2411,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtCore.QRegExp--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtCore.QRegExp--detailed-description">Detailed Description</h3>
 <p>A regular expression, or "regexp", is a pattern for matching substrings in a text. This
 is useful in many contexts, e.g.,</p>
 <table>
@@ -2452,7 +2452,7 @@ F. Friedl, ISBN 0-596-52812-4.</p>
 <a href="https://doc.qt.io/archives/qt-5.15/qregularexpression.html">QRegularExpression</a> class
 provides a Perl compatible implementation of regular expressions and is recommended in
 place of QRegExp.</p>
-<h5 id="PythonQt.QtCore.QRegExp--introduction">Introduction</h5>
+<h4 id="PythonQt.QtCore.QRegExp--introduction">Introduction</h4>
 <p>Regexps are built up from expressions, quantifiers, and assertions. The simplest
 expression is a character, e.g. <strong>x</strong> or <strong>5</strong>. An expression can also be a set of
 characters enclosed in square brackets. <strong>[ABCD]</strong> will match an <strong>A</strong> or a <strong>B</strong> or a
@@ -2530,7 +2530,7 @@ assertion '\b' is required to avoid matching words that contain either name, e.g
 'Erik', 'Eiric' and 'Eirik'.</p>
 <p>Some of the examples discussed above are implemented in the <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#code-examples">code
 examples</a> section.</p>
-<h5 id="PythonQt.QtCore.QRegExp--characters-and-abbreviations-for-sets-of-characters">Characters and Abbreviations for Sets of Characters</h5>
+<h4 id="PythonQt.QtCore.QRegExp--characters-and-abbreviations-for-sets-of-characters">Characters and Abbreviations for Sets of Characters</h4>
 <table>
 <thead>
 <tr>
@@ -2616,7 +2616,7 @@ examples</a> section.</p>
 <p><strong>Note:</strong> The C++ compiler transforms backslashes in strings. To include a <strong>\</strong> in a
 regexp, enter it twice, i.e. <code>\\</code>. To match the backslash character itself, enter it
 four times, i.e. <code>\\\\</code>.</p>
-<h5 id="PythonQt.QtCore.QRegExp--sets-of-characters">Sets of Characters</h5>
+<h4 id="PythonQt.QtCore.QRegExp--sets-of-characters">Sets of Characters</h4>
 <p>Square brackets mean match any character contained in the square brackets. The character
 set abbreviations described above can appear in a character set in square brackets.
 Except for the character set abbreviations and the following two exceptions, characters
@@ -2640,7 +2640,7 @@ ranges across platforms and languages. For example, <strong>[0-9]</strong> match
 Western alphabets but <strong>\d</strong> matches a digit in <em>any</em> alphabet.</p>
 <p>Note: In other regexp documentation, sets of characters are often called "character
 classes".</p>
-<h5 id="PythonQt.QtCore.QRegExp--quantifiers">Quantifiers</h5>
+<h4 id="PythonQt.QtCore.QRegExp--quantifiers">Quantifiers</h4>
 <p>By default, an expression is automatically quantified by <strong>{1,1}</strong>, i.e. it should occur
 exactly once. In the following list, <strong><em>E</em></strong> stands for expression. An expression is a
 character, or an abbreviation for a set of characters, or a set of characters in square
@@ -2687,7 +2687,7 @@ one occurrence of 'tag'.</p>
 example, <strong>0+</strong> matches the first zero it finds and all the consecutive zeros after the
 first zero. Applied to '20005', it matches '20005'. Quantifiers can be made non-greedy,
 see <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setMinimal">setMinimal</a>().</p>
-<h5 id="PythonQt.QtCore.QRegExp--capturing-text">Capturing Text</h5>
+<h4 id="PythonQt.QtCore.QRegExp--capturing-text">Capturing Text</h4>
 <p>Parentheses allow us to group elements together so that we can quantify and capture
 them. For example if we have the expression <strong>mail|letter|correspondence</strong> that
 matches a string we know that <em>one</em> of the words matched but not which one. Using
@@ -2731,7 +2731,7 @@ while ((pos = rx.indexIn(str, pos)) != -1) {
 }
 // list: [&quot;12&quot;, &quot;14&quot;, &quot;99&quot;, &quot;231&quot;, &quot;7&quot;]
 </code></pre></div>
-<h5 id="PythonQt.QtCore.QRegExp--assertions">Assertions</h5>
+<h4 id="PythonQt.QtCore.QRegExp--assertions">Assertions</h4>
 <p>Assertions make some statement about the text at the point where they occur in the
 regexp but they do not match any characters. In the following list <strong><em>E</em></strong> stands for
 any expression.</p>
@@ -2765,7 +2765,7 @@ any expression.</p>
 </tr>
 </tbody>
 </table>
-<h5 id="PythonQt.QtCore.QRegExp--wildcard-matching">Wildcard Matching</h5>
+<h4 id="PythonQt.QtCore.QRegExp--wildcard-matching">Wildcard Matching</h4>
 <p>Most command shells such as <em>bash</em> or <em>cmd.exe</em> support "file globbing", the ability to
 identify a group of files by using wildcards. The
 <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#setPatternSyntax">setPatternSyntax</a>()
@@ -2806,7 +2806,7 @@ rx.setPatternSyntax(QRegExp::Wildcard);
 rx.exactMatch(&quot;README.txt&quot;);        // returns true
 rx.exactMatch(&quot;welcome.txt.bak&quot;);   // returns false
 </code></pre></div>
-<h5 id="PythonQt.QtCore.QRegExp--notes-for-perl-users">Notes for Perl Users</h5>
+<h4 id="PythonQt.QtCore.QRegExp--notes-for-perl-users">Notes for Perl Users</h4>
 <p>Most of the character class abbreviations supported by Perl are supported by QRegExp,
 see <a href="https://doc.qt.io/archives/qt-5.15/qregexp.html#characters-and-abbreviations-for-sets-of-characters">characters and abbreviations for sets of
 characters</a>.</p>
@@ -2858,7 +2858,7 @@ used to achieve the same:</p>
 equivalents to Perl's split and join functions.</p>
 <p>Note: because C++ transforms \'s they must be written <em>twice</em> in code, e.g. <strong>\b</strong>
 must be written <strong>\\b</strong>.</p>
-<h5 id="PythonQt.QtCore.QRegExp--code-examples">Code Examples</h5>
+<h4 id="PythonQt.QtCore.QRegExp--code-examples">Code Examples</h4>
 <div class="highlight"><pre><span></span><code>QRegExp rx(&quot;^\\d\\d?$&quot;);    // match integers 0 to 99
 rx.indexIn(&quot;123&quot;);          // returns -1 (no match)
 rx.indexIn(&quot;-6&quot;);           // returns -1 (no match)

@@ -2428,7 +2428,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QPainter--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QPainter--detailed-description">Detailed Description</h3>
 <p>QPainter provides highly optimized functions to do most of the drawing GUI programs
 require. It can draw everything from simple lines to complex shapes like pies and
 chords. It can also draw aligned text and pixmaps. Normally, it draws in a "natural"
@@ -2474,7 +2474,7 @@ the <a href="https://doc.qt.io/archives/qt-5.15/paintsystem.html">Paint System</
 a static function to do this, setRedirected().</p>
 <p><strong>Warning:</strong> When the paintdevice is a widget, QPainter can only be used inside a
 paintEvent() function or in a function called by paintEvent().</p>
-<h5 id="PythonQt.Qt.QPainter--settings">Settings</h5>
+<h4 id="PythonQt.Qt.QPainter--settings">Settings</h4>
 <p>There are several settings that you can customize to make QPainter draw according to
 your preferences:</p>
 <ul>
@@ -2499,7 +2499,7 @@ equivalently the QPainter constructor) copies these attributes from the paint de
 the available settings on an internal stack. The
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#restore">restore</a>() function pops them
 back.</p>
-<h5 id="PythonQt.Qt.QPainter--drawing">Drawing</h5>
+<h4 id="PythonQt.Qt.QPainter--drawing">Drawing</h4>
 <p>QPainter provides functions to draw most primitives:
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#drawPoint">drawPoint</a>(),
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#drawPoints">drawPoints</a>(),
@@ -2597,7 +2597,7 @@ fine-grained positioning,
 you where a given
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#drawText">drawText</a>() command will
 draw.</p>
-<h5 id="PythonQt.Qt.QPainter--drawing-pixmaps-and-images">Drawing Pixmaps and Images</h5>
+<h4 id="PythonQt.Qt.QPainter--drawing-pixmaps-and-images">Drawing Pixmaps and Images</h4>
 <p>There are functions to draw pixmaps/images, namely
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#drawPixmap">drawPixmap</a>(),
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#drawImage">drawImage</a>() and
@@ -2615,7 +2615,7 @@ function that draws the contents of an entire
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#drawPicture">drawPicture</a>() function
 is the only function that disregards all the painter's settings as
 <a href="https://doc.qt.io/archives/qt-5.15/qpicture.html">QPicture</a> has its own settings.</p>
-<h6 id="PythonQt.Qt.QPainter--drawing-high-resolution-versions-of-pixmaps-and-images">Drawing High Resolution Versions of Pixmaps and Images</h6>
+<h5 id="PythonQt.Qt.QPainter--drawing-high-resolution-versions-of-pixmaps-and-images">Drawing High Resolution Versions of Pixmaps and Images</h5>
 <p>High resolution versions of pixmaps have a <em>device pixel ratio</em> value larger than 1 (see
 <a href="https://doc.qt.io/archives/qt-5.15/qimagereader.html">QImageReader</a>,
 <a href="https://doc.qt.io/archives/qt-5.15/qpixmap.html#devicePixelRatio">QPixmap::devicePixelRatio</a>()).
@@ -2629,7 +2629,7 @@ device pixel ratio of 2 onto a high DPI screen which also has a device pixel rat
 Qt that calculate layout geometry based on the pixmap size will use this size. The net
 effect of this is that the pixmap is displayed as high DPI pixmap rather than a large
 pixmap.</p>
-<h5 id="PythonQt.Qt.QPainter--rendering-quality">Rendering Quality</h5>
+<h4 id="PythonQt.Qt.QPainter--rendering-quality">Rendering Quality</h4>
 <p>To get the optimal rendering result using QPainter, you should use the platform
 independent <a href="https://doc.qt.io/archives/qt-5.15/qimage.html">QImage</a> as paint device;
 i.e. using <a href="https://doc.qt.io/archives/qt-5.15/qimage.html">QImage</a> will ensure that the
@@ -2668,7 +2668,7 @@ painter. Use the
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#setRenderHint">setRenderHint</a>()
 function to set or clear the currently set
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#RenderHint-enum">RenderHints</a>.</p>
-<h5 id="PythonQt.Qt.QPainter--coordinate-transformations">Coordinate Transformations</h5>
+<h4 id="PythonQt.Qt.QPainter--coordinate-transformations">Coordinate Transformations</h4>
 <p>Normally, the QPainter operates on the device's own coordinate system (usually pixels),
 but QPainter has good support for coordinate transformations.</p>
 <table>
@@ -2757,7 +2757,7 @@ rectangle in logical coordinates, and the
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#worldTransform">worldTransform</a>() is
 identical with the transformation matrix.</p>
 <p>See also <a href="https://doc.qt.io/archives/qt-5.15/coordsys.html">Coordinate System</a></p>
-<h5 id="PythonQt.Qt.QPainter--clipping">Clipping</h5>
+<h4 id="PythonQt.Qt.QPainter--clipping">Clipping</h4>
 <p>QPainter can clip any drawing operation to a rectangle, a region, or a vector path. The
 current clip is available using the functions
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#clipRegion">clipRegion</a>() and
@@ -2772,7 +2772,7 @@ clip away the pixels used by child widgets, and most printers clip away an area 
 edges of the paper. This additional clipping is not reflected by the return value of
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#clipRegion">clipRegion</a>() or
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#hasClipping">hasClipping</a>().</p>
-<h5 id="PythonQt.Qt.QPainter--composition-modes">Composition Modes</h5>
+<h4 id="PythonQt.Qt.QPainter--composition-modes">Composition Modes</h4>
 <p>QPainter provides the
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#CompositionMode-enum">CompositionMode</a>
 enum which defines the Porter-Duff rules for digital image compositing; it describes a
@@ -2806,7 +2806,7 @@ those, while the primitive only overwrites its own area.</p>
 </tr>
 </tbody>
 </table>
-<h5 id="PythonQt.Qt.QPainter--limitations">Limitations</h5>
+<h4 id="PythonQt.Qt.QPainter--limitations">Limitations</h4>
 <p>If you are using coordinates with Qt's raster-based paint engine, it is important to
 note that, while coordinates greater than +/- 215 can be used, any painting performed
 with coordinates outside this range is not guaranteed to be shown; the drawing may be
@@ -2821,7 +2821,7 @@ the <a href="https://doc.qt.io/archives/qt-5.15/qpainterpathstroker.html">QPaint
 class, which has the setCurveThreshold member function which let's the user specify the
 error tolerance. Another workaround is to convert the paths to polygons first and then
 draw the polygons instead.</p>
-<h5 id="PythonQt.Qt.QPainter--performance">Performance</h5>
+<h4 id="PythonQt.Qt.QPainter--performance">Performance</h4>
 <p>QPainter is a rich framework that allows developers to do a great variety of graphical
 operations, such as gradients, composition modes and vector graphics. And QPainter can
 do this across a variety of different hardware and software stacks. Naturally the

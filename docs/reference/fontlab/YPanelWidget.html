@@ -2354,9 +2354,9 @@
 
         <p>PythonQtInstanceWrapper object</p>
 <p>Custom dockable panel.</p>
-<h4 id="fontlab.YPanelWidget--what-is-ypanelwidget">What is YPanelWidget?</h4>
+<h3 id="fontlab.YPanelWidget--what-is-ypanelwidget">What is YPanelWidget?</h3>
 <p><code>YPanelWidget</code> is the content class for a dockable panel. Subclass it to create a panel that appears in FontLab's sidebar. You are responsible for setting the title, icon, and minimum size, and for building the Qt widget hierarchy that populates the panel.</p>
-<h4 id="fontlab.YPanelWidget--tutorial">Tutorial</h4>
+<h3 id="fontlab.YPanelWidget--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">YPanelManager</span><span class="p">,</span> <span class="n">YPanelWidget</span>
 
@@ -2417,8 +2417,8 @@
 <span class="c1"># pm.openPanel(my_panel)</span>
 <span class="c1"># print(&quot;Custom panel opened!&quot;)</span>
 </code></pre></div>
-<h4 id="fontlab.YPanelWidget--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.YPanelWidget--collapse-and-expand-a-panel-programmatically">Collapse and expand a panel programmatically</h5>
+<h3 id="fontlab.YPanelWidget--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.YPanelWidget--collapse-and-expand-a-panel-programmatically">Collapse and expand a panel programmatically</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">YPanelManager</span>
 
 <span class="n">pm</span>    <span class="o">=</span> <span class="n">YPanelManager</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2427,7 +2427,7 @@
     <span class="n">panel</span><span class="o">.</span><span class="n">collapsed</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">panel</span><span class="o">.</span><span class="n">collapsed</span>   <span class="c1"># toggle</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">panel</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&#39; collapsed: </span><span class="si">{</span><span class="n">panel</span><span class="o">.</span><span class="n">collapsed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.YPanelWidget--check-minimum-panel-size-before-resizing">Check minimum panel size before resizing</h5>
+<h4 id="fontlab.YPanelWidget--check-minimum-panel-size-before-resizing">Check minimum panel size before resizing</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">YPanelManager</span>
 
 <span class="n">pm</span> <span class="o">=</span> <span class="n">YPanelManager</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>

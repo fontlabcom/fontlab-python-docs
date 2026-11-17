@@ -2353,10 +2353,10 @@
 
 
         <p>A parametric range on a contour.</p>
-<h4 id="fontlab.Interval--what-is-interval">What is Interval?</h4>
+<h3 id="fontlab.Interval--what-is-interval">What is Interval?</h3>
 <p>Imagine "selecting" a portion of a contour — not a node, but a stretch of curve from 25% to 75% of the way along the path. An <code>Interval</code> stores exactly that: two parametric values <code>t0</code> and <code>t1</code> defining a sub-range of a Bézier contour.</p>
 <p>Intervals are used internally by the node selection system, by split-curve operations, and by any tool that needs to work with a portion of a contour rather than whole segments. You will mostly encounter them when writing custom canvas tools that deal with selecting or cutting parts of curves.</p>
-<h4 id="fontlab.Interval--tutorial">Tutorial</h4>
+<h3 id="fontlab.Interval--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interval</span>
 
 <span class="c1"># ============================================================</span>
@@ -2406,8 +2406,8 @@
 <span class="n">empty_iv</span><span class="o">.</span><span class="n">setT0T1</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Empty interval: isEmpty=</span><span class="si">{</span><span class="n">empty_iv</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="si">}</span><span class="s2">  d=</span><span class="si">{</span><span class="n">empty_iv</span><span class="o">.</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.Interval--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.Interval--check-whether-a-parametric-position-falls-within-an-interval">Check whether a parametric position falls within an interval</h5>
+<h3 id="fontlab.Interval--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.Interval--check-whether-a-parametric-position-falls-within-an-interval">Check whether a parametric position falls within an interval</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interval</span>
 
 <span class="n">iv</span> <span class="o">=</span> <span class="n">Interval</span><span class="p">()</span>
@@ -2419,7 +2419,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">contains</span><span class="p">(</span><span class="n">iv</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>   <span class="c1"># True</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">contains</span><span class="p">(</span><span class="n">iv</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>   <span class="c1"># False</span>
 </code></pre></div>
-<h5 id="fontlab.Interval--split-an-interval-into-equal-thirds">Split an interval into equal thirds</h5>
+<h4 id="fontlab.Interval--split-an-interval-into-equal-thirds">Split an interval into equal thirds</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interval</span>
 
 <span class="n">iv</span> <span class="o">=</span> <span class="n">Interval</span><span class="p">()</span>

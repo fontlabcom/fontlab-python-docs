@@ -2406,19 +2406,19 @@ Uninstall removes exactly the recorded paths that are still ours.</p>
 <tr>
 <td><span id="fontlab_instamix.extension.install"></span><a href="extension/members-001.html#fontlab_instamix.extension.install"><code>install</code></a></td>
 <td>function</td>
-<td><code>(path: Path, data: Path, &#42;, copy: bool &#124; None=None, run&#95;hooks: bool=False, requirements=None) -&gt; list&#91;dict&#93;</code></td>
-<td>Install a <code>&lt;code&gt;.fontlabext&lt;/code&gt;&lt;code&gt; folder or every folder in a &lt;/code&gt;&lt;code&gt;.fontlabextz&lt;/code&gt;</code>.</td>
+<td><code>(path: Path, data: Path &#124; None=None, &#42;, copy: bool &#124; None=None, run&#95;hooks: bool=False, requirements=None, tar…</code></td>
+<td>Install an extension folder, its manifest, or all folders in an archive.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.install_folder"></span><a href="extension/members-001.html#fontlab_instamix.extension.install_folder"><code>install_folder</code></a></td>
 <td>function</td>
-<td><code>(folder: Path, data: Path, &#42;, copy: bool &#124; None=None, requirements=None, editable: bool=False, finish=None, f…</code></td>
+<td><code>(folder: Path, data: Path, &#42;, copy: bool &#124; None=None, requirements=None, target: env.Target &#124; None=None, edit…</code></td>
 <td>Install one unpacked <code>&lt;code&gt;.fontlabext&lt;/code&gt;</code> folder; return its ledger record.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.installed"></span><a href="extension/members-001.html#fontlab_instamix.extension.installed"><code>installed</code></a></td>
 <td>function</td>
-<td><code>(data: Path) -&gt; list&#91;dict&#93;</code></td>
+<td><code>(data: Path &#124; None=None) -&gt; list&#91;dict&#93;</code></td>
 <td></td>
 </tr>
 <tr>
@@ -2442,8 +2442,14 @@ Uninstall removes exactly the recorded paths that are still ours.</p>
 <tr>
 <td><span id="fontlab_instamix.extension.plan"></span><a href="extension/members-001.html#fontlab_instamix.extension.plan"><code>plan</code></a></td>
 <td>function</td>
-<td><code>(folder: Path, info: manifest.Manifest, name: str, data: Path) -&gt; list&#91;tuple&#91;Path, Path&#93;&#93;</code></td>
+<td><code>(folder: Path, info: manifest.Manifest, name: str, data: Path, &#42;, version: str &#124; None=None) -&gt; list&#91;tuple&#91;Pat…</code></td>
 <td>Return <code>&lt;code&gt;(source, target)&lt;/code&gt;</code> pairs for every file the manifest installs.</td>
+</tr>
+<tr>
+<td><span id="fontlab_instamix.extension.preflight_plugin_migration"></span><a href="extension/members-001.html#fontlab_instamix.extension.preflight_plugin_migration"><code>preflight_plugin_migration</code></a></td>
+<td>function</td>
+<td><code>(data: Path, pairs: list&#91;tuple&#91;Path, Path&#93;&#93;, previous: dict &#124; None) -&gt; None</code></td>
+<td>Refuse distinct legacy bundles that removal would retain before any writes.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.remove_entries"></span><a href="extension/members-001.html#fontlab_instamix.extension.remove_entries"><code>remove_entries</code></a></td>
@@ -2466,13 +2472,13 @@ Uninstall removes exactly the recorded paths that are still ours.</p>
 <tr>
 <td><span id="fontlab_instamix.extension.stage"></span><a href="extension/members-001.html#fontlab_instamix.extension.stage"><code>stage</code></a></td>
 <td>function</td>
-<td><code>(folder: Path, target: Path) -&gt; None</code></td>
+<td><code>(folder: Path, target: Path, data: Path) -&gt; None</code></td>
 <td>Copy <code>&lt;code&gt;folder&lt;/code&gt;&lt;code&gt; to &lt;/code&gt;&lt;code&gt;target&lt;/code&gt;</code>, replacing an older copy at the last moment.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.uninstall"></span><a href="extension/members-001.html#fontlab_instamix.extension.uninstall"><code>uninstall</code></a></td>
 <td>function</td>
-<td><code>(ext&#95;id: str, data: Path) -&gt; list&#91;str&#93;</code></td>
+<td><code>(ext&#95;id: str, data: Path &#124; None=None) -&gt; list&#91;str&#93;</code></td>
 <td>Uninstall <code>&lt;code&gt;ext&amp;#95;id&lt;/code&gt;</code>; return paths left in place because they changed.</td>
 </tr>
 <tr>

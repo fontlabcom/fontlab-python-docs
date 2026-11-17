@@ -2345,7 +2345,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtGui.QOpenGLContext--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtGui.QOpenGLContext--detailed-description">Detailed Description</h3>
 <p>QOpenGLContext represents the OpenGL state of an underlying OpenGL context. To set up a
 context, set its screen and format such that they match those of the surface or surfaces
 with which the context is meant to be used, if necessary make it share resources with
@@ -2385,14 +2385,14 @@ wanting to use OpenGL 1.x or OpenGL ES 1.x.</p>
 documentation</a>.</p>
 <p>For an example of how to use QOpenGLContext see the <a href="https://doc.qt.io/archives/qt-5.15/qtgui-openglwindow-example.html">OpenGL
 Window</a> example.</p>
-<h5 id="PythonQt.QtGui.QOpenGLContext--thread-affinity">Thread Affinity</h5>
+<h4 id="PythonQt.QtGui.QOpenGLContext--thread-affinity">Thread Affinity</h4>
 <p>QOpenGLContext can be moved to a different thread with
 <a href="https://doc.qt.io/archives/qt-5.15/qobject.html#moveToThread">moveToThread</a>(). Do not
 call <a href="https://doc.qt.io/archives/qt-5.15/qopenglcontext.html#makeCurrent">makeCurrent</a>()
 from a different thread than the one to which the QOpenGLContext object belongs. A
 context can only be current in one thread and against one surface at a time, and a
 thread only has one context current at a time.</p>
-<h5 id="PythonQt.QtGui.QOpenGLContext--context-resource-sharing">Context Resource Sharing</h5>
+<h4 id="PythonQt.QtGui.QOpenGLContext--context-resource-sharing">Context Resource Sharing</h4>
 <p>Resources such as textures and vertex buffer objects can be shared between contexts. Use
 <a href="https://doc.qt.io/archives/qt-5.15/qopenglcontext.html#setShareContext">setShareContext</a>()
 before calling <a href="https://doc.qt.io/archives/qt-5.15/qopenglcontext.html#create">create</a>()
@@ -2405,7 +2405,7 @@ which can be used to find all the contexts in a given share group. A share group
 consists of all contexts that have been successfully initialized and are sharing with an
 existing context in the share group. A non-sharing context has a share group consisting
 of a single context.</p>
-<h5 id="PythonQt.QtGui.QOpenGLContext--default-framebuffer">Default Framebuffer</h5>
+<h4 id="PythonQt.QtGui.QOpenGLContext--default-framebuffer">Default Framebuffer</h4>
 <p>On certain platforms, a framebuffer other than 0 might be the default frame buffer
 depending on the current surface. Instead of calling glBindFramebuffer(0), it is
 recommended that you use

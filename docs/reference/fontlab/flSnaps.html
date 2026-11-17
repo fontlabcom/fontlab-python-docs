@@ -2431,9 +2431,9 @@
 
         <p>snap object constants</p>
 <p>Snap Enum Namespace.</p>
-<h4 id="fontlab.flSnaps--what-is-flsnaps">What is flSnaps?</h4>
+<h3 id="fontlab.flSnaps--what-is-flsnaps">What is flSnaps?</h3>
 <p><code>flSnaps</code> is not a class you instantiate — it is a collection of enum dictionaries for all snap-related constants. Access them as <code>flSnaps.SnapMode</code>, <code>flSnaps.SnapLineFlags</code>, etc. Use these constants when reading or writing snap flags on guidelines and snap objects.</p>
-<h4 id="fontlab.flSnaps--flsnapssnapmode-how-snap-distance-is-calculated">flSnaps.SnapMode — How snap distance is calculated</h4>
+<h3 id="fontlab.flSnaps--flsnapssnapmode-how-snap-distance-is-calculated">flSnaps.SnapMode — How snap distance is calculated</h3>
 <table>
 <thead>
 <tr>
@@ -2465,7 +2465,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flSnaps--flsnapssnaplineflags-guideline-type-and-behaviour-flags">flSnaps.SnapLineFlags — Guideline type and behaviour flags</h4>
+<h3 id="fontlab.flSnaps--flsnapssnaplineflags-guideline-type-and-behaviour-flags">flSnaps.SnapLineFlags — Guideline type and behaviour flags</h3>
 <p>These bits describe what kind of guideline a snap line is and how it should behave.</p>
 <table>
 <thead>
@@ -2563,7 +2563,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flSnaps--flsnapsmarkerflags-what-a-marker-represents">flSnaps.MarkerFlags — What a marker represents</h4>
+<h3 id="fontlab.flSnaps--flsnapsmarkerflags-what-a-marker-represents">flSnaps.MarkerFlags — What a marker represents</h3>
 <table>
 <thead>
 <tr>
@@ -2590,7 +2590,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flSnaps--flsnapsmarkerkey-marker-classification">flSnaps.MarkerKey — Marker classification</h4>
+<h3 id="fontlab.flSnaps--flsnapsmarkerkey-marker-classification">flSnaps.MarkerKey — Marker classification</h3>
 <table>
 <thead>
 <tr>
@@ -2622,7 +2622,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flSnaps--tutorial">Tutorial</h4>
+<h3 id="fontlab.flSnaps--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flSnaps</span>
 
@@ -2639,8 +2639,8 @@
     <span class="n">is_horz</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">flag</span> <span class="o">&amp;</span> <span class="n">flSnaps</span><span class="o">.</span><span class="n">SnapLineFlags</span><span class="p">[</span><span class="s2">&quot;Horizontal&quot;</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Guideline at </span><span class="si">{</span><span class="n">gl</span><span class="o">.</span><span class="n">centerPoint</span><span class="si">}</span><span class="s2">: vert=</span><span class="si">{</span><span class="n">is_vert</span><span class="si">}</span><span class="s2">  horz=</span><span class="si">{</span><span class="n">is_horz</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flSnaps--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flSnaps--check-which-snap-flags-are-set-on-a-guideline">Check which snap flags are set on a guideline</h5>
+<h3 id="fontlab.flSnaps--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flSnaps--check-which-snap-flags-are-set-on-a-guideline">Check which snap flags are set on a guideline</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2648,7 +2648,7 @@
     <span class="n">flag</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">snapFlag</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">gl</span><span class="o">.</span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;(unnamed)&#39;</span><span class="si">}</span><span class="s2">&#39;: snapFlag[0]=</span><span class="si">{</span><span class="n">flag</span><span class="si">:</span><span class="s2">#010b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flSnaps--enable-snapping-to-all-nodes-on-a-guideline">Enable snapping to all nodes on a guideline</h5>
+<h4 id="fontlab.flSnaps--enable-snapping-to-all-nodes-on-a-guideline">Enable snapping to all nodes on a guideline</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2657,7 +2657,7 @@
         <span class="n">gl</span><span class="o">.</span><span class="n">setSnapFlagValue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>   <span class="c1"># enable role 0 snapping</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Enabled snapping on &#39;</span><span class="si">{</span><span class="n">gl</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flSnaps--flsnapsfastguidelines">flSnaps.FastGuidelines</h4>
+<h3 id="fontlab.flSnaps--flsnapsfastguidelines">flSnaps.FastGuidelines</h3>
 <p>Use the <code>flSnaps.FastGuidelines</code> dictionary with subscription.</p>
 <table>
 <thead>
@@ -2690,7 +2690,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flSnaps--flsnapssnapstyle">flSnaps.SnapStyle</h4>
+<h3 id="fontlab.flSnaps--flsnapssnapstyle">flSnaps.SnapStyle</h3>
 <p>Use the <code>flSnaps.SnapStyle</code> dictionary with subscription.</p>
 <table>
 <thead>
@@ -2738,7 +2738,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flSnaps--flsnapsviewmode">flSnaps.ViewMode</h4>
+<h3 id="fontlab.flSnaps--flsnapsviewmode">flSnaps.ViewMode</h3>
 <p>Use the <code>flSnaps.ViewMode</code> dictionary with subscription.</p>
 <table>
 <thead>

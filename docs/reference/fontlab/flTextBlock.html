@@ -2469,18 +2469,18 @@
 
 
         <p>Text layout and editing engine.</p>
-<h4 id="fontlab.flTextBlock--understanding-fltextblock">Understanding flTextBlock</h4>
+<h3 id="fontlab.flTextBlock--understanding-fltextblock">Understanding flTextBlock</h3>
 <p>The <code>flTextBlock</code> is both a <strong>layout engine</strong> (it knows how to arrange glyphs on screen, apply features, handle line wrapping) and an <strong>interactive widget</strong> (it receives mouse clicks and key presses and updates accordingly).</p>
 <p>There are two editing modes you will encounter in scripts:
 - <strong>Text mode</strong> (<code>EditMode.Text</code>): the user is typing characters. Key presses insert/delete characters from the string.
 - <strong>Metrics mode</strong> (<code>EditMode.Metrics</code>): the user is adjusting sidebearings and kerning. Clicking a glyph selects it for metric editing.</p>
 <p>The text block maintains a <strong>cursor position</strong> (which glyph is active), a <strong>selection</strong> (which glyphs are selected), and a <strong>symbol list</strong> (the full string of characters being shown).</p>
-<h4 id="fontlab.flTextBlock--creating-an-fltextblock">Creating an flTextBlock</h4>
+<h3 id="fontlab.flTextBlock--creating-an-fltextblock">Creating an flTextBlock</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flTextBlock</span>
 <span class="n">tb</span> <span class="o">=</span> <span class="n">flTextBlock</span><span class="o">.</span><span class="n">createInstance</span><span class="p">()</span>
 <span class="n">tb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>   <span class="c1"># attach to a canvas</span>
 </code></pre></div>
-<h4 id="fontlab.flTextBlock--lifecycle-setup">Lifecycle &amp; Setup</h4>
+<h3 id="fontlab.flTextBlock--lifecycle-setup">Lifecycle &amp; Setup</h3>
 <table>
 <thead>
 <tr>
@@ -2503,7 +2503,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flTextBlock--content-layout">Content &amp; Layout</h4>
+<h3 id="fontlab.flTextBlock--content-layout">Content &amp; Layout</h3>
 <table>
 <thead>
 <tr>
@@ -2586,7 +2586,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flTextBlock--glyph-queries">Glyph Queries</h4>
+<h3 id="fontlab.flTextBlock--glyph-queries">Glyph Queries</h3>
 <table>
 <thead>
 <tr>
@@ -2657,7 +2657,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flTextBlock--selection-navigation">Selection &amp; Navigation</h4>
+<h3 id="fontlab.flTextBlock--selection-navigation">Selection &amp; Navigation</h3>
 <table>
 <thead>
 <tr>
@@ -2688,7 +2688,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flTextBlock--metrics">Metrics</h4>
+<h3 id="fontlab.flTextBlock--metrics">Metrics</h3>
 <table>
 <thead>
 <tr>
@@ -2707,7 +2707,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flTextBlock--line-position-queries">Line &amp; Position Queries</h4>
+<h3 id="fontlab.flTextBlock--line-position-queries">Line &amp; Position Queries</h3>
 <table>
 <thead>
 <tr>
@@ -2782,7 +2782,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flTextBlock--tutorial">Tutorial</h4>
+<h3 id="fontlab.flTextBlock--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2882,8 +2882,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Frame mode — text fits: </span><span class="si">{</span><span class="n">tb</span><span class="o">.</span><span class="n">textFits</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Is framed: </span><span class="si">{</span><span class="n">tb</span><span class="o">.</span><span class="n">isFramed</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flTextBlock--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flTextBlock--set-the-metrics-view-to-show-a-specific-string">Set the metrics view to show a specific string</h5>
+<h3 id="fontlab.flTextBlock--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flTextBlock--set-the-metrics-view-to-show-a-specific-string">Set the metrics view to show a specific string</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span>     <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2895,7 +2895,7 @@
         <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Metrics view updated with test string.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flTextBlock--read-all-glyphs-currently-in-the-text-block">Read all glyphs currently in the text block</h5>
+<h4 id="fontlab.flTextBlock--read-all-glyphs-currently-in-the-text-block">Read all glyphs currently in the text block</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span>     <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2907,7 +2907,7 @@
             <span class="n">sym</span> <span class="o">=</span> <span class="n">tb</span><span class="o">.</span><span class="n">getSymbol</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  [</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">sym</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flTextBlock--change-point-size-in-the-metrics-view">Change point size in the metrics view</h5>
+<h4 id="fontlab.flTextBlock--change-point-size-in-the-metrics-view">Change point size in the metrics view</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2918,9 +2918,9 @@
         <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Font size set to 72 pt.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flTextBlock--additional-editor-methods">Additional editor methods</h4>
+<h3 id="fontlab.flTextBlock--additional-editor-methods">Additional editor methods</h3>
 <p>These members are available through this class. Method arguments are positional unless noted otherwise.</p>
-<h5 id="fontlab.flTextBlock--methods">Methods</h5>
+<h4 id="fontlab.flTextBlock--methods">Methods</h4>
 <table>
 <thead>
 <tr>

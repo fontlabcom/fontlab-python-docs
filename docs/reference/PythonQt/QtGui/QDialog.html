@@ -2389,7 +2389,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtGui.QDialog--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtGui.QDialog--detailed-description">Detailed Description</h3>
 <p>A dialog window is a top-level window mostly used for short-term tasks and brief
 communications with the user. QDialogs may be modal or modeless. QDialogs can provide a
 <a href="https://doc.qt.io/archives/qt-5.15/qdialog.html#return">return value</a>, and they can
@@ -2414,7 +2414,7 @@ always be stacked on top of the parent window. To ensure that the dialog is alwa
 top, make the dialog modal. This also applies for child windows of the dialog itself. To
 ensure that child windows of the dialog stay on top of the dialog, make the child
 windows modal as well.</p>
-<h5 id="PythonQt.QtGui.QDialog--modal-dialogs">Modal Dialogs</h5>
+<h4 id="PythonQt.QtGui.QDialog--modal-dialogs">Modal Dialogs</h4>
 <p>A <strong>modal</strong> dialog is a dialog that blocks input to other visible windows in the same
 application. Dialogs that are used to request a file name from the user or that are used
 to set application preferences are usually modal. Dialogs can be <a href="https://doc.qt.io/archives/qt-5.15/qt.html#WindowModality-enum">application
@@ -2451,7 +2451,7 @@ perform a long operation, you must call
 <a href="https://doc.qt.io/archives/qt-5.15/qcoreapplication.html#processEvents">QCoreApplication::processEvents</a>()
 periodically during processing to enable the user to interact with the dialog. (See
 <a href="https://doc.qt.io/archives/qt-5.15/qprogressdialog.html">QProgressDialog</a>.)</p>
-<h5 id="PythonQt.QtGui.QDialog--modeless-dialogs">Modeless Dialogs</h5>
+<h4 id="PythonQt.QtGui.QDialog--modeless-dialogs">Modeless Dialogs</h4>
 <p>A <strong>modeless</strong> dialog is a dialog that operates independently of other windows in the
 same application. Find and replace dialogs in word-processors are often modeless to
 allow the user to interact with both the application's main window and with the dialog.</p>
@@ -2465,7 +2465,7 @@ explicitly placed by the programmer. To preserve the position of a dialog that h
 moved by the user, save its position in your
 <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#closeEvent">closeEvent()</a> handler and
 then move the dialog to that position, before showing it again.</p>
-<h5 id="PythonQt.QtGui.QDialog--default-button">Default Button</h5>
+<h4 id="PythonQt.QtGui.QDialog--default-button">Default Button</h4>
 <p>A dialog's <em>default</em> button is the button that's pressed when the user presses Enter
 (Return). This button is used to signify that the user accepts the dialog's settings and
 wants to close the dialog. Use
@@ -2474,13 +2474,13 @@ wants to close the dialog. Use
 and
 <a href="https://doc.qt.io/archives/qt-5.15/qpushbutton.html#autoDefault-prop">QPushButton::autoDefault</a>()
 to set and control the dialog's default button.</p>
-<h5 id="PythonQt.QtGui.QDialog--escape-key">Escape Key</h5>
+<h4 id="PythonQt.QtGui.QDialog--escape-key">Escape Key</h4>
 <p>If the user presses the Esc key in a dialog,
 <a href="https://doc.qt.io/archives/qt-5.15/qdialog.html#reject">QDialog::reject</a>() will be
 called. This will cause the window to close: The <a href="https://doc.qt.io/archives/qt-5.15/qcloseevent.html">close
 event</a> cannot be
 <a href="https://doc.qt.io/archives/qt-5.15/qevent.html#ignore">ignored</a>.</p>
-<h5 id="PythonQt.QtGui.QDialog--extensibility">Extensibility</h5>
+<h4 id="PythonQt.QtGui.QDialog--extensibility">Extensibility</h4>
 <p>Extensibility is the ability to show the dialog in two ways: a partial dialog that shows
 the most commonly used options, and a full dialog that shows all the options. Typically
 an extensible dialog will initially appear as a partial dialog, but with a <strong>More</strong>
@@ -2488,7 +2488,7 @@ toggle button. If the user presses the <strong>More</strong> button down, the di
 <a href="https://doc.qt.io/archives/qt-5.15/qtwidgets-dialogs-extension-example.html">Extension
 Example</a>
 shows how to achieve extensible dialogs using Qt.</p>
-<h5 id="PythonQt.QtGui.QDialog--return-value-modal-dialogs">Return Value (Modal Dialogs)</h5>
+<h4 id="PythonQt.QtGui.QDialog--return-value-modal-dialogs">Return Value (Modal Dialogs)</h4>
 <p>Modal dialogs are often used in situations where a return value is required, e.g. to
 indicate whether the user pressed <strong>OK</strong> or <strong>Cancel</strong>. A dialog can be closed by
 calling the <a href="https://doc.qt.io/archives/qt-5.15/qdialog.html#accept">accept</a>() or the
@@ -2506,7 +2506,7 @@ been destroyed.</p>
 <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#closeEvent">closeEvent()</a> function
 should only be reimplemented to preserve the dialog's position or to override the
 standard close or reject behavior.</p>
-<h5 id="PythonQt.QtGui.QDialog--code-examples">Code Examples</h5>
+<h4 id="PythonQt.QtGui.QDialog--code-examples">Code Examples</h4>
 <p>A modal dialog:</p>
 <div class="highlight"><pre><span></span><code>void EditorWindow::countWords()
 {

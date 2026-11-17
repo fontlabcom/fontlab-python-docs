@@ -2353,9 +2353,9 @@
 
 
         <p>Represents one node on the canvas. This is the "live" version of an <code>flNode</code> — it knows where the node is on screen and can move it in glyph-space coordinates. This is what you receive when the user selects nodes in a scripted tool.</p>
-<h4 id="fontlab.flNodeInfo--when-do-you-use-it">When do you use it?</h4>
+<h3 id="fontlab.flNodeInfo--when-do-you-use-it">When do you use it?</h3>
 <p>In any tool that moves selected nodes. <code>canvas.selectedNodes()</code> returns a list of <code>flNodeInfo</code> objects, and you move those nodes by calling <code>setGlyphPoint()</code> on each one.</p>
-<h4 id="fontlab.flNodeInfo--tutorial">Tutorial</h4>
+<h3 id="fontlab.flNodeInfo--tutorial">Tutorial</h3>
 <p><code>flNodeInfo</code> is the primary API for moving nodes in a custom canvas tool. Here is the standard pattern: get the selected node infos, move them, then refresh.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2404,8 +2404,8 @@
     <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aligned </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span><span class="si">}</span><span class="s2"> nodes to x=</span><span class="si">{</span><span class="n">avg_x</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flNodeInfo--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flNodeInfo--validate-node-infos-after-a-delete-operation">Validate node infos after a delete operation</h5>
+<h3 id="fontlab.flNodeInfo--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flNodeInfo--validate-node-infos-after-a-delete-operation">Validate node infos after a delete operation</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span>     <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2416,7 +2416,7 @@
     <span class="n">valid_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ni</span> <span class="k">for</span> <span class="n">ni</span> <span class="ow">in</span> <span class="n">nodes</span> <span class="k">if</span> <span class="n">ni</span><span class="o">.</span><span class="n">isValid</span><span class="p">()]</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">valid_nodes</span><span class="p">)</span><span class="si">}</span><span class="s2"> of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="si">}</span><span class="s2"> node infos are still valid.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flNodeInfo--get-the-canvas-repaint-rect-for-a-node-move">Get the canvas repaint rect for a node move</h5>
+<h4 id="fontlab.flNodeInfo--get-the-canvas-repaint-rect-for-a-node-move">Get the canvas repaint rect for a node move</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span>     <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>

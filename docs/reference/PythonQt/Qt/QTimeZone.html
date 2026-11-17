@@ -2395,7 +2395,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QTimeZone--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QTimeZone--detailed-description">Detailed Description</h3>
 <p>This class provides a stateless calculator for time zone conversions between UTC and the
 local time in a specific time zone. By default it uses the host system time zone data to
 perform these conversions.</p>
@@ -2408,8 +2408,8 @@ not need to access this class directly and should instead use
 <p><strong>Note:</strong> For consistency with
 <a href="https://doc.qt.io/archives/qt-5.15/qdatetime.html">QDateTime</a>, QTimeZone does not
 account for leap seconds.</p>
-<h5 id="PythonQt.Qt.QTimeZone--remarks">Remarks</h5>
-<h6 id="PythonQt.Qt.QTimeZone--iana-time-zone-ids">IANA Time Zone IDs</h6>
+<h4 id="PythonQt.Qt.QTimeZone--remarks">Remarks</h4>
+<h5 id="PythonQt.Qt.QTimeZone--iana-time-zone-ids">IANA Time Zone IDs</h5>
 <p>QTimeZone uses the IANA time zone IDs as defined in the IANA Time Zone Database
 (http://www.iana.org/time-zones). This is to ensure a standard ID across all supported
 platforms. Most platforms support the IANA IDs and the IANA Database natively, but for
@@ -2421,14 +2421,14 @@ existing on any host system. You must use
 to determine what IANA IDs are available.</p>
 <p>The IANA IDs and database are also know as the Olson IDs and database, named after their
 creator.</p>
-<h6 id="PythonQt.Qt.QTimeZone--utc-offset-time-zones">UTC Offset Time Zones</h6>
+<h5 id="PythonQt.Qt.QTimeZone--utc-offset-time-zones">UTC Offset Time Zones</h5>
 <p>A default UTC time zone backend is provided which is always guaranteed to be available.
 This provides a set of generic Offset From UTC time zones in the range UTC-14:00 to
 UTC+14:00. These time zones can be created using either the standard ISO format names
 "UTC+00:00" as listed by
 <a href="https://doc.qt.io/archives/qt-5.15/qtimezone.html#availableTimeZoneIds">availableTimeZoneIds</a>(),
 or using the number of offset seconds.</p>
-<h6 id="PythonQt.Qt.QTimeZone--windows-time-zones">Windows Time Zones</h6>
+<h5 id="PythonQt.Qt.QTimeZone--windows-time-zones">Windows Time Zones</h5>
 <p>Windows native time zone support is severely limited compared to the standard IANA TZ
 Database. Windows time zones cover larger geographic areas and are thus less accurate in
 their conversions. They also do not support as much historic conversion data and so may
@@ -2440,7 +2440,7 @@ able to provide a valid conversion, in which "UTC" will be returned.</p>
 Windows Registry Key for the time zone which is also the MS Exchange EWS ID as well, but
 is different to the Time Zone Name (TZID) and COD code used by MS Exchange in versions
 before 2007.</p>
-<h6 id="PythonQt.Qt.QTimeZone--system-time-zone">System Time Zone</h6>
+<h5 id="PythonQt.Qt.QTimeZone--system-time-zone">System Time Zone</h5>
 <p>QTimeZone does not support any concept of a system or default time zone. If you require
 a <a href="https://doc.qt.io/archives/qt-5.15/qdatetime.html">QDateTime</a> that uses the current
 system time zone at any given moment then you should use a
@@ -2455,7 +2455,7 @@ chance any Windows install may have IDs not known by Qt, in which case "UTC" wil
 returned.</p>
 <p>Creating a new QTimeZone instance using the system time zone ID will only produce a
 fixed named copy of the time zone, it will not change if the system time zone changes.</p>
-<h6 id="PythonQt.Qt.QTimeZone--time-zone-offsets">Time Zone Offsets</h6>
+<h5 id="PythonQt.Qt.QTimeZone--time-zone-offsets">Time Zone Offsets</h5>
 <p>The difference between UTC and the local time in a time zone is expressed as an offset
 in seconds from UTC, i.e. the number of seconds to add to UTC to obtain the local time.
 The total offset is comprised of two component parts, the standard time offset and the
@@ -2466,7 +2466,7 @@ number of seconds to add to the standard time offset to obtain daylight-saving t
 zone.</p>
 <p>Note that the standard and DST offsets for a time zone may change over time as countries
 have changed DST laws or even their standard time offset.</p>
-<h6 id="PythonQt.Qt.QTimeZone--license">License</h6>
+<h5 id="PythonQt.Qt.QTimeZone--license">License</h5>
 <p>This class includes data obtained from the CLDR data files under the terms of the
 Unicode Data Files and Software License. See <a href="https://doc.qt.io/archives/qt-5.15/qtcore-attribution-unicode-cldr.html#unicode-cldr">Unicode Common Locale Data Repository
 (CLDR)</a>

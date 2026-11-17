@@ -2403,7 +2403,7 @@
 
 
         <p>Named anchor for mark positioning.</p>
-<h4 id="fontlab.flPinPoint--what-is-an-anchor">What is an anchor?</h4>
+<h3 id="fontlab.flPinPoint--what-is-an-anchor">What is an anchor?</h3>
 <p>Anchors — represented in code as <code>flPinPoint</code> objects — are the small triangular markers you place on glyphs to tell FontLab how combining marks (like accents, dots, and cedillas) connect to base letters. If you've ever placed a "top" anchor on a lowercase <em>a</em> and a "_top" anchor on an acutecomb, you've been working with <code>flPinPoint</code>.</p>
 <p>The system works by pairing anchors that share the same name, one from a base letter and one from a mark:</p>
 <ul>
@@ -2416,11 +2416,11 @@
 - <code>bottom</code> / <code>_bottom</code> — for marks below (cedilla, ogonek)
 - <code>ogonek</code> / <code>_ogonek</code> — for the ogonek diacritic specifically
 - <code>horn</code> / <code>_horn</code> — for the Vietnamese horn marks</p>
-<h5 id="fontlab.flPinPoint--cloud-mode">Cloud mode</h5>
+<h4 id="fontlab.flPinPoint--cloud-mode">Cloud mode</h4>
 <p>When you enable <strong>cloud mode</strong> on an anchor, the anchor's position is no longer fixed to absolute coordinates. Instead, FontLab calculates its position dynamically from the nearest point on the glyph's outline. This is useful for anchors on glyphs whose shapes vary significantly across masters in a variable font — the cloud anchor "floats" to an optically correct position at each master rather than staying locked to coordinates that might be wrong at extreme instances.</p>
-<h5 id="fontlab.flPinPoint--expression-anchors">Expression anchors</h5>
+<h4 id="fontlab.flPinPoint--expression-anchors">Expression anchors</h4>
 <p>Like guidelines, anchors can have their X and Y coordinates driven by arithmetic expressions. For example, you can set <code>expressionX = "=lsb + (rsb - lsb) / 2"</code> to always place an anchor at the horizontal center of a glyph's advance width, no matter how wide the glyph gets.</p>
-<h4 id="fontlab.flPinPoint--flpinpoint-vs-flanchor-whats-the-difference">flPinPoint vs flAnchor — what's the difference?</h4>
+<h3 id="fontlab.flPinPoint--flpinpoint-vs-flanchor-whats-the-difference">flPinPoint vs flAnchor — what's the difference?</h3>
 <p>This is a common point of confusion. There are <strong>two anchor classes</strong> in FontLab:</p>
 <ul>
 <li>
@@ -2431,7 +2431,7 @@
 </li>
 </ul>
 <p>In short: if you're building mark-to-base or mark-to-mark positioning, work with <code>flPinPoint</code>. If you're exploring how shapes lock to each other in composites, you might encounter <code>flAnchor</code>.</p>
-<h4 id="fontlab.flPinPoint--tutorial">Tutorial</h4>
+<h3 id="fontlab.flPinPoint--tutorial">Tutorial</h3>
 <p>Anchors are the most reliable way to position diacritics and combining marks. Here is the complete workflow: adding anchors to a base letter, adding anchors to a mark, and verifying the pairs.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flPinPoint</span>
@@ -2511,8 +2511,8 @@
       <span class="sa">f</span><span class="s2">&quot;  y=&#39;</span><span class="si">{</span><span class="n">center_anchor</span><span class="o">.</span><span class="n">expressionY</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Has expression: </span><span class="si">{</span><span class="n">center_anchor</span><span class="o">.</span><span class="n">hasExpression</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flPinPoint--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flPinPoint--add-topbottom-anchors-to-all-lowercase-letters">Add top/bottom anchors to all lowercase letters</h5>
+<h3 id="fontlab.flPinPoint--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flPinPoint--add-topbottom-anchors-to-all-lowercase-letters">Add top/bottom anchors to all lowercase letters</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">flPinPoint</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flPinPoint</span>
@@ -2541,7 +2541,7 @@
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added top/bottom anchors to </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">LOWERCASE</span><span class="p">)</span><span class="si">}</span><span class="s2"> glyphs.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flPinPoint--find-all-anchor-name-pairs-base-mark">Find all anchor name pairs (base + mark)</h5>
+<h4 id="fontlab.flPinPoint--find-all-anchor-name-pairs-base-mark">Find all anchor name pairs (base + mark)</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span>       <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2561,7 +2561,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Paired anchor names: </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unpaired:            </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">orphans</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flPinPoint--flpinpointpinpointstyle">flPinPoint.PinPointStyle</h4>
+<h3 id="fontlab.flPinPoint--flpinpointpinpointstyle">flPinPoint.PinPointStyle</h3>
 <p>Use the <code>flPinPoint.PinPointStyle</code> dictionary with subscription.</p>
 <table>
 <thead>

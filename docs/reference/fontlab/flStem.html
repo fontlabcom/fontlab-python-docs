@@ -2353,11 +2353,11 @@
 
 
         <p>Hinting Stem Definition.</p>
-<h4 id="fontlab.flStem--what-is-flstem">What is flStem?</h4>
+<h3 id="fontlab.flStem--what-is-flstem">What is flStem?</h3>
 <p>A stem is a measured stroke width — the core data that PostScript hinting uses to keep your letters looking consistent at small sizes on screen. When you measure the width of the vertical uprights in your 'H' and record it as a stem, the hinting engine ensures that every glyph's vertical strokes render at the same pixel width, keeping your type even and readable.</p>
 <p>Stems come in two flavours: <strong>vertical stems</strong> (<code>stemsV</code>) describe the main upright strokes (the legs of 'H', the body of 'I'), and <strong>horizontal stems</strong> (<code>stemsH</code>) describe the thin strokes and serifs. Both are <code>flStem</code> objects; only the list they live in differs.</p>
 <p>Each <code>flStem</code> has a <code>value</code> (the width in font units) and a <code>name</code> (so you can tell your stems apart). Most fonts have one vertical stem and one horizontal stem. High-contrast designs may have several of each.</p>
-<h4 id="fontlab.flStem--tutorial">Tutorial</h4>
+<h3 id="fontlab.flStem--tutorial">Tutorial</h3>
 <p>Stems are the foundation of PostScript hinting. Here is how to inspect, measure, and add stems in a real font.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flStem</span>
@@ -2411,8 +2411,8 @@
 <span class="c1"># Remove it again (demo only):</span>
 <span class="n">font</span><span class="o">.</span><span class="n">ps_stemsV</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">new_stem</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flStem--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flStem--copy-stems-from-one-font-to-another">Copy stems from one font to another</h5>
+<h3 id="fontlab.flStem--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flStem--copy-stems-from-one-font-to-another">Copy stems from one font to another</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flStem</span>
 
@@ -2429,7 +2429,7 @@
 <span class="c1">#     s = flStem(); s.name = name; s.value = value</span>
 <span class="c1">#     dst.ps_stemsV.append(s)</span>
 </code></pre></div>
-<h5 id="fontlab.flStem--check-if-a-font-has-any-stems-defined">Check if a font has any stems defined</h5>
+<h4 id="fontlab.flStem--check-if-a-font-has-any-stems-defined">Check if a font has any stems defined</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

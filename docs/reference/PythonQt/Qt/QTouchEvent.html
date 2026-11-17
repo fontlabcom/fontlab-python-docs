@@ -2378,8 +2378,8 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QTouchEvent--detailed-description">Detailed Description</h4>
-<h5 id="PythonQt.Qt.QTouchEvent--enabling-touch-events">Enabling Touch Events</h5>
+<h3 id="PythonQt.Qt.QTouchEvent--detailed-description">Detailed Description</h3>
+<h4 id="PythonQt.Qt.QTouchEvent--enabling-touch-events">Enabling Touch Events</h4>
 <p>Touch events occur when pressing, releasing, or moving one or more touch points on a
 touch device (such as a touch-screen or track-pad). To receive touch events, widgets
 have to have the
@@ -2398,7 +2398,7 @@ automatically grabs each touch point on the first press inside a widget, and the
 will receive all updates for the touch point until it is released. Note that it is
 possible for a widget to receive events for numerous touch points, and that multiple
 widgets may be receiving touch events at the same time.</p>
-<h5 id="PythonQt.Qt.QTouchEvent--event-handling">Event Handling</h5>
+<h4 id="PythonQt.Qt.QTouchEvent--event-handling">Event Handling</h4>
 <p>All touch events are of type
 <a href="https://doc.qt.io/archives/qt-5.15/qevent.html#Type-enum">QEvent::TouchBegin</a>,
 <a href="https://doc.qt.io/archives/qt-5.15/qevent.html#Type-enum">QEvent::TouchUpdate</a>,
@@ -2447,7 +2447,7 @@ condition of
 <a href="https://doc.qt.io/archives/qt-5.15/qtouchevent.html#touchPoints">touchPoints</a>().count()\=\=2
 is guaranteed to imply that the number of fingers touching the touchscreen or touchpad
 is exactly two.</p>
-<h5 id="PythonQt.Qt.QTouchEvent--event-delivery-and-propagation">Event Delivery and Propagation</h5>
+<h4 id="PythonQt.Qt.QTouchEvent--event-delivery-and-propagation">Event Delivery and Propagation</h4>
 <p>By default, <a href="https://doc.qt.io/archives/qt-5.15/qguiapplication.html">QGuiApplication</a>
 translates the first touch point in a QTouchEvent into a
 <a href="https://doc.qt.io/archives/qt-5.15/qmouseevent.html">QMouseEvent</a>. This makes it
@@ -2468,7 +2468,7 @@ consumes it. For QGraphicsItems, the
 <a href="https://doc.qt.io/archives/qt-5.15/qevent.html#Type-enum">QEvent::TouchBegin</a> event is
 propagated to items under the mouse (similar to mouse event propagation for
 QGraphicsItems).</p>
-<h5 id="PythonQt.Qt.QTouchEvent--touch-point-grouping">Touch Point Grouping</h5>
+<h4 id="PythonQt.Qt.QTouchEvent--touch-point-grouping">Touch Point Grouping</h4>
 <p>As mentioned above, it is possible that several widgets can be receiving QTouchEvents at
 the same time. However, Qt makes sure to never send duplicate
 <a href="https://doc.qt.io/archives/qt-5.15/qevent.html#Type-enum">QEvent::TouchBegin</a> events to
@@ -2484,7 +2484,7 @@ event.</p>
 </ul>
 <p>This makes it possible for sibling widgets to handle touch events independently while
 making sure that the sequence of QTouchEvents is always correct.</p>
-<h5 id="PythonQt.Qt.QTouchEvent--mouse-events-and-touch-event-synthesizing">Mouse Events and Touch Event Synthesizing</h5>
+<h4 id="PythonQt.Qt.QTouchEvent--mouse-events-and-touch-event-synthesizing">Mouse Events and Touch Event Synthesizing</h4>
 <p>QTouchEvent delivery is independent from that of
 <a href="https://doc.qt.io/archives/qt-5.15/qmouseevent.html">QMouseEvent</a>. The application
 flags
@@ -2493,7 +2493,7 @@ and
 <a href="https://doc.qt.io/archives/qt-5.15/qt.html#ApplicationAttribute-enum">Qt::AA_SynthesizeMouseForUnhandledTouchEvents</a>
 can be used to enable or disable automatic synthesizing of touch events to mouse events
 and mouse events to touch events.</p>
-<h5 id="PythonQt.Qt.QTouchEvent--caveats">Caveats</h5>
+<h4 id="PythonQt.Qt.QTouchEvent--caveats">Caveats</h4>
 <ul>
 <li>As mentioned above, enabling touch events means multiple widgets can be receiving touch events simultaneously. Combined with the default <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#event">QWidget::event</a>() handling for QTouchEvents, this gives you great flexibility in designing touch user interfaces. Be aware of the implications. For example, it is possible that the user is moving a <a href="https://doc.qt.io/archives/qt-5.15/qslider.html">QSlider</a> with one finger and pressing a <a href="https://doc.qt.io/archives/qt-5.15/qpushbutton.html">QPushButton</a> with another. The signals emitted by these widgets will be interleaved.</li>
 <li>Recursion into the event loop using one of the exec() methods (e.g., <a href="https://doc.qt.io/archives/qt-5.15/qdialog.html#exec">QDialog::exec</a>() or <a href="https://doc.qt.io/archives/qt-5.15/qmenu.html#exec">QMenu::exec</a>()) in a QTouchEvent event handler is not supported. Since there are multiple event recipients, recursion may cause problems, including but not limited to lost events and unexpected infinite recursion.</li>

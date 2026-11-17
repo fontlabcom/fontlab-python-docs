@@ -2223,6 +2223,28 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#fontlab_instamix.venv.PROBE" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PROBE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_instamix.venv.PTH" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PTH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_instamix.venv.VENV" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2256,10 +2278,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab_instamix.venv.probe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        probe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_instamix.venv.python" class="md-nav__link">
     <span class="md-ellipsis">
       
         python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_instamix.venv.request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        request
       
     </span>
   </a>
@@ -2297,6 +2341,50 @@
 
 
 
+<h2 id="fontlab_instamix.venv.PROBE" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">PROBE</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">PROBE</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="fontlab_instamix.venv.PTH" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">PTH</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">PTH</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
 <h2 id="fontlab_instamix.venv.VENV" class="doc doc-heading">
             <span class="doc doc-object-name doc-attribute-name">VENV</span>
 
@@ -2323,12 +2411,17 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">,</span> <span class="n">uv_bin</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">,</span> <span class="n">runner</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">create</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">,</span> <span class="n">uv_bin</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">,</span> <span class="n">runner</span><span class="o">=</span><span class="n"><span title="subprocess.run">run</span></span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="Target
+
+
+  
+      dataclass
+   (fontlab_instamix.env.Target)" href="../env/Target.html#fontlab_instamix.env.Target">Target</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>Create <code>&lt;data&gt;/.venv</code> for Python 3.11 unless it exists.</p>
+        <p>Create or verify the environment, preserving existing packages and files.</p>
 
 
     </div>
@@ -2356,12 +2449,60 @@
 <div class="doc doc-object doc-function">
 
 
+<h2 id="fontlab_instamix.venv.probe" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">probe</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">probe</span><span class="p">(</span><span class="n">folder</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="Target
+
+
+  
+      dataclass
+   (fontlab_instamix.env.Target)" href="../env/Target.html#fontlab_instamix.env.Target">Target</a></span><span class="p">,</span> <span class="n">runner</span><span class="o">=</span><span class="n"><span title="subprocess.run">run</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Refuse a mismatched interpreter before modifying an existing environment.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="fontlab_instamix.venv.python" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">python</span>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">python</span><span class="p">(</span><span class="n">venv</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">python</span><span class="p">(</span><span class="n">venv</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">,</span> <span class="n">plat</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="pathlib.Path">Path</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_instamix.venv.request" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">request</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">request</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="Target
+
+
+  
+      dataclass
+   (fontlab_instamix.env.Target)" href="../env/Target.html#fontlab_instamix.env.Target">Target</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="str">str</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">

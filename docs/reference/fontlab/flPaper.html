@@ -2353,10 +2353,10 @@
 
 
         <p>Metrics view background layer.</p>
-<h4 id="fontlab.flPaper--what-is-flpaper">What is flPaper?</h4>
+<h3 id="fontlab.flPaper--what-is-flpaper">What is flPaper?</h3>
 <p>The "paper" is the background layer of the metrics view canvas. It is the model object that manages the ordered list of all <code>flGlyphInfo</code> objects currently being rendered — the glyphs that are shown in the text string of the metrics/spacing view. It also tracks which glyph is the "active" one (the one whose outline nodes are currently visible and editable).</p>
 <p>In typical scripting you access the paper through the canvas rather than creating one directly. The paper is your gateway to understanding what is being displayed: which glyphs are on screen, which is selected for editing, and what the combined bounding rectangle of all displayed content is.</p>
-<h4 id="fontlab.flPaper--tutorial">Tutorial</h4>
+<h3 id="fontlab.flPaper--tutorial">Tutorial</h3>
 <p><code>flPaper</code> is the object you use to ask "what is on screen right now, and which glyph is active?" in the metrics view.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2420,8 +2420,8 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Opened &#39;</span><span class="si">{</span><span class="n">new_gi</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; for editing.&quot;</span><span class="p">)</span>
     <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flPaper--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flPaper--check-if-a-specific-glyph-is-currently-in-the-text-string">Check if a specific glyph is currently in the text string</h5>
+<h3 id="fontlab.flPaper--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flPaper--check-if-a-specific-glyph-is-currently-in-the-text-string">Check if a specific glyph is currently in the text string</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span>     <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2436,7 +2436,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;a&#39; is not currently displayed.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flPaper--zoom-the-canvas-to-show-all-glyphs">Zoom the canvas to show all glyphs</h5>
+<h4 id="fontlab.flPaper--zoom-the-canvas-to-show-all-glyphs">Zoom the canvas to show all glyphs</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">ws</span>     <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">flWorkspace</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>

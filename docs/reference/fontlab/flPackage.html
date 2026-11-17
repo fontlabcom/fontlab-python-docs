@@ -2465,9 +2465,9 @@
 
         <p><code>flPackage</code> <em>is</em> your font file. Everything that makes up a font — every glyph, every master, the design-space axes, named instances, kerning tables, OpenType feature code, stems, alignment zones, guidelines, and all the metadata that ends up in the font's name tables — lives inside one <code>flPackage</code> object.</p>
 <p>Inherits from <code>flObject</code>.</p>
-<h4 id="fontlab.flPackage--what-is-a-package">What is a Package?</h4>
+<h3 id="fontlab.flPackage--what-is-a-package">What is a Package?</h3>
 <p>When you open a <code>.vfc</code>, <code>.ufo</code>, <code>.otf</code>, or any other supported format in FontLab, the application creates an <code>flPackage</code> for it. In a script, wrap the low-level current font with <code>fl.flPackage(fl.CurrentFont())</code>, after checking that <code>fl.CurrentFont()</code> is not <code>None</code>.</p>
-<h5 id="fontlab.flPackage--the-object-hierarchy">The object hierarchy</h5>
+<h4 id="fontlab.flPackage--the-object-hierarchy">The object hierarchy</h4>
 <p>It helps to picture the font as a set of nested containers:</p>
 <div class="highlight"><pre><span></span><code>flPackage  (the whole font)
  └── flGlyph  (one character — &quot;A&quot;, &quot;g&quot;, &quot;comma&quot;, …)
@@ -2477,29 +2477,29 @@
                      └── flNode  (one on-curve or off-curve point)
 </code></pre></div>
 <p>Most scripting work moves through this hierarchy: you start at the font, find a glyph, pick a layer, iterate its shapes, and then walk the contours and nodes. Understanding this chain makes the API feel logical rather than arbitrary.</p>
-<h5 id="fontlab.flPackage--masters-and-variable-fonts">Masters and variable fonts</h5>
+<h4 id="fontlab.flPackage--masters-and-variable-fonts">Masters and variable fonts</h4>
 <p>In a variable font the <code>flPackage</code> acts as the top-level container and each <strong>master</strong> is a child <code>flPackage</code> stored in <code>font.variationPackages</code>. The master packages share glyph names and structure but hold different coordinate values. When FontLab interpolates, it travels this list and blends the numbers.</p>
 <p>For a single-master font <code>variationPackages</code> has just one entry — the font itself.</p>
-<h5 id="fontlab.flPackage--kerning">Kerning</h5>
+<h4 id="fontlab.flPackage--kerning">Kerning</h4>
 <p>Kerning in FontLab is stored per master. The <code>kerning(master_name)</code> method returns a dictionary of <code>{(glyph1, glyph2): value}</code> pairs for a specific master. When working with class kerning, the keys use group names prefixed with <code>@MMK_L_</code> and <code>@MMK_R_</code>.</p>
-<h5 id="fontlab.flPackage--opentype-features">OpenType features</h5>
+<h4 id="fontlab.flPackage--opentype-features">OpenType features</h4>
 <p>The OpenType feature code you write in the Features panel is stored in the <code>featuresContainer</code> inside the package. You can read and write feature code programmatically, which is useful for generating or validating feature files as part of a build pipeline.</p>
-<h4 id="fontlab.flPackage--common-patterns">Common Patterns</h4>
-<h5 id="fontlab.flPackage--getting-the-active-font-and-listing-its-glyphs">Getting the active font and listing its glyphs</h5>
+<h3 id="fontlab.flPackage--common-patterns">Common Patterns</h3>
+<h4 id="fontlab.flPackage--getting-the-active-font-and-listing-its-glyphs">Getting the active font and listing its glyphs</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">font</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">familyName</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">font</span><span class="o">.</span><span class="n">glyphsCount</span><span class="si">}</span><span class="s2"> glyphs&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">font</span><span class="o">.</span><span class="n">glyphs</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">  u=</span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">unicode</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">g</span><span class="o">.</span><span class="n">unicode</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flPackage--changing-font-metadata">Changing font metadata</h5>
+<h4 id="fontlab.flPackage--changing-font-metadata">Changing font metadata</h4>
 <div class="highlight"><pre><span></span><code><span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">info</span>
 <span class="n">info</span><span class="o">.</span><span class="n">familyName</span>   <span class="o">=</span> <span class="s2">&quot;My Serif&quot;</span>
 <span class="n">info</span><span class="o">.</span><span class="n">copyright</span>    <span class="o">=</span> <span class="s2">&quot;© 2026 My Foundry&quot;</span>
 <span class="n">info</span><span class="o">.</span><span class="n">openTypeOS2WeightClass</span> <span class="o">=</span> <span class="mi">400</span>
 </code></pre></div>
-<h5 id="fontlab.flPackage--finding-a-glyph-and-navigating-to-its-nodes">Finding a glyph and navigating to its nodes</h5>
+<h4 id="fontlab.flPackage--finding-a-glyph-and-navigating-to-its-nodes">Finding a glyph and navigating to its nodes</h4>
 <div class="highlight"><pre><span></span><code><span class="n">font</span>  <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
 <span class="n">glyph</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">findName</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
 <span class="n">layer</span> <span class="o">=</span> <span class="n">glyph</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -2508,7 +2508,7 @@
         <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">contour</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flPackage--reading-and-setting-a-kern-pair">Reading and setting a kern pair</h5>
+<h4 id="fontlab.flPackage--reading-and-setting-a-kern-pair">Reading and setting a kern pair</h4>
 <div class="highlight"><pre><span></span><code><span class="n">font</span>        <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
 <span class="n">master_name</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">masters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># e.g. &quot;Regular&quot;</span>
 
@@ -2520,7 +2520,7 @@
 <span class="c1"># Set a specific pair:</span>
 <span class="n">font</span><span class="o">.</span><span class="n">setKerningPair</span><span class="p">(</span><span class="n">master_name</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flPackage--adding-an-axis-to-make-a-variable-font">Adding an axis to make a variable font</h5>
+<h4 id="fontlab.flPackage--adding-an-axis-to-make-a-variable-font">Adding an axis to make a variable font</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flAxis</span>
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
 <span class="n">wght</span> <span class="o">=</span> <span class="n">flAxis</span><span class="p">()</span>
@@ -2531,7 +2531,7 @@
 <span class="n">wght</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="n">font</span><span class="o">.</span><span class="n">addAxis</span><span class="p">(</span><span class="n">wght</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flPackage--tutorial">Tutorial</h4>
+<h3 id="fontlab.flPackage--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flPackage</span>
@@ -2676,9 +2676,9 @@
 <span class="c1"># Save to a new path:</span>
 <span class="c1"># font.saveAs(&quot;/path/to/MyFont_v2.vfc&quot;)</span>
 </code></pre></div>
-<h4 id="fontlab.flPackage--current-wrapper-and-naming-helpers">Current wrapper and naming helpers</h4>
+<h3 id="fontlab.flPackage--current-wrapper-and-naming-helpers">Current wrapper and naming helpers</h3>
 <p><code>flPackage.hasInstaceFor(fg_font)</code> is the registered spelling, including the missing "n" in "Instance"; <code>hasInstanceFor</code> is not an alias. <code>clearActiveGlyphs()</code> clears the package's active-glyph collection. <code>checkVariableName(name)</code> returns the native checked variable-name string. <code>guidelinesHost</code> is a read-only <code>GuidelinesHostIntf</code> interface value when exposed by the build; it does not imply that <code>GuidelinesHostIntf</code> is a constructible module class.</p>
-<h5 id="fontlab.flPackage--guideline-host-property">Guideline host property</h5>
+<h4 id="fontlab.flPackage--guideline-host-property">Guideline host property</h4>
 <table>
 <thead>
 <tr>

@@ -2405,7 +2405,7 @@
 <span class="n">prefs</span><span class="o">.</span><span class="n">snapToGuidelines</span> <span class="o">=</span> <span class="n">old_snap</span>
 </code></pre></div>
 <p>After changing any preferences, call <code>flItems.notifyPreferencesChanged()</code> so all panels and displays pick up the new values.</p>
-<h4 id="fontlab.flPreferences--window-opening-preferences">Window-opening preferences</h4>
+<h3 id="fontlab.flPreferences--window-opening-preferences">Window-opening preferences</h3>
 <table>
 <thead>
 <tr>
@@ -2430,7 +2430,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="fontlab.flPreferences--active-window-when-reopening-a-font">Active window when reopening a font</h4>
+<h3 id="fontlab.flPreferences--active-window-when-reopening-a-font">Active window when reopening a font</h3>
 <p><code>generalActivateFontWindowOnOpen</code> is a read/write boolean, <strong>off by default</strong>.
 When off, opening a font with saved windows returns to its saved active window.
 This also applies when saving glyph-window contents without panel/window layout.
@@ -2440,7 +2440,7 @@ activate the Font window instead:</p>
 <div class="highlight"><pre><span></span><code><span class="n">flPreferences</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">generalActivateFontWindowOnOpen</span> <span class="o">=</span> <span class="kc">True</span>
 </code></pre></div>
 <p>Window restoration must be enabled to restore a saved active window.</p>
-<h4 id="fontlab.flPreferences--suppressing-launch-and-font-opening-dialogs">Suppressing launch and font-opening dialogs</h4>
+<h3 id="fontlab.flPreferences--suppressing-launch-and-font-opening-dialogs">Suppressing launch and font-opening dialogs</h3>
 <p><code>generalHideWarningDialogs</code> is a read/write boolean, off by default, corresponding to <strong>Preferences &gt; General &gt; Other &gt; Hide warning dialogs</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flPreferences</span>
 <span class="n">prefs</span> <span class="o">=</span> <span class="n">flPreferences</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2449,13 +2449,13 @@ activate the Font window instead:</p>
 <p>The change takes effect immediately and is saved for subsequent launches. Set it to <code>False</code> to restore dialogs. It suppresses startup prompts (including crash reporting and Welcome), font-opening warnings, legacy note encoding conversion, and Important Font Note dialogs. Pending crash reports are sent automatically without dialogs; failed uploads are retained for retry. Autosaved fonts are moved to the Keep folder without reopening them. Automatic update checks are suspended while enabled; license restrictions still apply.</p>
 <p>Imports follow the configured rounding preference. Optional repairs (merging/renaming elements, renaming masters, removing linked width expressions) and encoding conversion are skipped. Required duplicate-glyph-name and cross-layer-reference repairs still run, with messages in Output. Font collections open all faces. Known damaged autosaves and Sketchboards are skipped without deletion. Opening errors are reported in Output instead of a dialog.</p>
 <p>For temporary use, save and restore the value with <code>try</code>/<code>finally</code>. MCP exposes the same setting as <code>general.hide_warning_dialogs</code> through <code>get_preferences</code> and <code>set_preferences</code>.</p>
-<h4 id="fontlab.flPreferences--getting-the-instance">Getting the Instance</h4>
+<h3 id="fontlab.flPreferences--getting-the-instance">Getting the Instance</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flPreferences</span>
 <span class="n">prefs</span> <span class="o">=</span> <span class="n">flPreferences</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">prefs</span><span class="o">.</span><span class="n">editorNodeSize</span><span class="p">)</span>   <span class="c1"># read a value</span>
 <span class="n">prefs</span><span class="o">.</span><span class="n">editorNodeSize</span> <span class="o">=</span> <span class="mi">8</span>      <span class="c1"># write a value</span>
 </code></pre></div>
-<h4 id="fontlab.flPreferences--common-scripting-patterns">Common Scripting Patterns</h4>
+<h3 id="fontlab.flPreferences--common-scripting-patterns">Common Scripting Patterns</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flPreferences</span><span class="p">,</span> <span class="n">flItems</span>
 
 <span class="n">prefs</span> <span class="o">=</span> <span class="n">flPreferences</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
@@ -2489,7 +2489,7 @@ activate the Font window instead:</p>
 <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">orig_snaps</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">setattr</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flPreferences--tutorial">Tutorial</h4>
+<h3 id="fontlab.flPreferences--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtGui</span><span class="w"> </span><span class="kn">import</span> <span class="n">QColor</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flPreferences</span><span class="p">,</span> <span class="n">flItems</span>
@@ -2643,9 +2643,9 @@ activate the Font window instead:</p>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Preferences tutorial complete.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flPreferences--further-preference-properties">Further preference properties</h4>
+<h3 id="fontlab.flPreferences--further-preference-properties">Further preference properties</h3>
 <p>These members are available through this class. Method arguments are positional unless noted otherwise.</p>
-<h5 id="fontlab.flPreferences--properties">Properties</h5>
+<h4 id="fontlab.flPreferences--properties">Properties</h4>
 <table>
 <thead>
 <tr>

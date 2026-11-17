@@ -2353,7 +2353,7 @@
 
 
         <p>Vertical metric values for one master.</p>
-<h4 id="fontlab.FontMetrics--what-is-fontmetrics">What is FontMetrics?</h4>
+<h3 id="fontlab.FontMetrics--what-is-fontmetrics">What is FontMetrics?</h3>
 <p>Every master in a font has a set of vertical metrics: how tall is the tallest letter, how far does the descender drop below the baseline, how tall are the lowercase letters, and so on. <code>FontMetrics</code> is a simple container that holds these six values for one master.</p>
 <p>These are the values that determine the overall proportions of your design:
 - <strong>UPM</strong> — the grid size. All other values are relative to this.
@@ -2363,7 +2363,7 @@
 - <strong>Cap height</strong> — the top of uppercase letters like 'H', 'I'. Typically 60–75% of UPM.
 - <strong>Line gap</strong> — extra space between lines. Usually 0 for most text fonts.</p>
 <p>You will use <code>FontMetrics</code> mainly to read or verify master-specific metrics in scripts. For the values exported into the OpenType tables, use <code>FontInfo</code> instead.</p>
-<h4 id="fontlab.FontMetrics--tutorial">Tutorial</h4>
+<h3 id="fontlab.FontMetrics--tutorial">Tutorial</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">FontMetrics</span>
 
@@ -2435,8 +2435,8 @@
       <span class="sa">f</span><span class="s2">&quot;asc=</span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">ascender</span><span class="si">}</span><span class="s2">  dsc=</span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">descender</span><span class="si">}</span><span class="s2">  &quot;</span>
       <span class="sa">f</span><span class="s2">&quot;xh=</span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">xHeight</span><span class="si">}</span><span class="s2">  cap=</span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">capsHeight</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.FontMetrics--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.FontMetrics--print-a-metrics-summary-for-every-master">Print a metrics summary for every master</h5>
+<h3 id="fontlab.FontMetrics--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.FontMetrics--print-a-metrics-summary-for-every-master">Print a metrics summary for every master</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">FontMetrics</span>
 
@@ -2447,7 +2447,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">master</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">fm</span><span class="o">.</span><span class="n">upm</span><span class="si">:</span><span class="s2">&gt;6.0f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">fm</span><span class="o">.</span><span class="n">ascender</span><span class="si">:</span><span class="s2">&gt;6.0f</span><span class="si">}</span><span class="s2"> &quot;</span>
           <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fm</span><span class="o">.</span><span class="n">descender</span><span class="si">:</span><span class="s2">&gt;6.0f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">fm</span><span class="o">.</span><span class="n">xHeight</span><span class="si">:</span><span class="s2">&gt;6.0f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">fm</span><span class="o">.</span><span class="n">capsHeight</span><span class="si">:</span><span class="s2">&gt;6.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.FontMetrics--check-that-ascender-descender-upm">Check that ascender + |descender| ≤ UPM</h5>
+<h4 id="fontlab.FontMetrics--check-that-ascender-descender-upm">Check that ascender + |descender| ≤ UPM</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">FontMetrics</span>
 

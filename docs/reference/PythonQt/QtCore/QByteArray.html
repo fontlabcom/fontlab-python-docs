@@ -2362,7 +2362,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtCore.QByteArray--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtCore.QByteArray--detailed-description">Detailed Description</h3>
 <p>QByteArray can be used to store both raw bytes (including '\0's) and traditional 8-bit
 '\0'-terminated strings. Using QByteArray is much more convenient than using <code>const
 char *</code>. Behind the scenes, it always ensures that the data is followed by a '\0'
@@ -2536,7 +2536,7 @@ pointer (<em>not</em> nullptr) to a '\0' character for a byte array and QByteArr
 equal to QByteArray(""). We recommend that you always use
 <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#isEmpty">isEmpty</a>() and avoid
 <a href="https://doc.qt.io/archives/qt-5.15/qbytearray.html#isNull">isNull</a>().</p>
-<h5 id="PythonQt.QtCore.QByteArray--maximum-size-and-out-of-memory-conditions">Maximum size and out-of-memory conditions</h5>
+<h4 id="PythonQt.QtCore.QByteArray--maximum-size-and-out-of-memory-conditions">Maximum size and out-of-memory conditions</h4>
 <p>The current version of QByteArray is limited to just under 2 GB (2^31 bytes) in size.
 The exact value is architecture-dependent, since it depends on the overhead required for
 managing the data block, but is no more than 32 bytes. Raw data blocks are also limited
@@ -2548,13 +2548,13 @@ exceptions.</p>
 of allocated memory, especially large, contiguous blocks. Such considerations, the
 configuration of such behavior or any mitigation are outside the scope of the QByteArray
 API.</p>
-<h5 id="PythonQt.QtCore.QByteArray--notes-on-locale">Notes on Locale</h5>
-<h6 id="PythonQt.QtCore.QByteArray--number-string-conversions">Number-String Conversions</h6>
+<h4 id="PythonQt.QtCore.QByteArray--notes-on-locale">Notes on Locale</h4>
+<h5 id="PythonQt.QtCore.QByteArray--number-string-conversions">Number-String Conversions</h5>
 <p>Functions that perform conversions between numeric data types and strings are performed
 in the C locale, irrespective of the user's locale settings. Use
 <a href="https://doc.qt.io/archives/qt-5.15/qstring.html">QString</a> to perform locale-aware
 conversions between numbers and strings.</p>
-<h6 id="PythonQt.QtCore.QByteArray--8-bit-character-comparisons">8-bit Character Comparisons</h6>
+<h5 id="PythonQt.QtCore.QByteArray--8-bit-character-comparisons">8-bit Character Comparisons</h5>
 <p>In QByteArray, the notion of uppercase and lowercase and of which character is greater
 than or less than another character is done in the Latin-1 locale. This affects
 functions that support a case insensitive option or that compare or lowercase or

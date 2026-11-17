@@ -2369,7 +2369,7 @@
 
 
 
-        <h4 id="fontlab.flAxis--what-is-a-design-axis">What is a design axis?</h4>
+        <h3 id="fontlab.flAxis--what-is-a-design-axis">What is a design axis?</h3>
 <p>A design axis is one dimension of variation in a variable font. Think of it as a slider. At one end of the slider lives one extreme of your design; at the other end lives the opposite extreme. As you drag the slider, the letterforms interpolate smoothly between those two extremes.</p>
 <p>Some common axes and what they control:</p>
 <table>
@@ -2427,9 +2427,9 @@
 <li>A <strong>numeric range</strong>: minimum, default, and maximum values.</li>
 <li>An optional <strong>design-space vs user-space mapping</strong> for non-linear interpolation.</li>
 </ul>
-<h5 id="fontlab.flAxis--user-space-vs-design-space">User space vs design space</h5>
+<h4 id="fontlab.flAxis--user-space-vs-design-space">User space vs design space</h4>
 <p>Sometimes the numbers designers think in (user space) don't map linearly to the underlying interpolation math (design space). For example, a Weight axis might run from 100–900 in user space (CSS weight values), but internally the interpolation happens between masters at design-space values of 0–1000. The <code>map</code> property stores this piecewise-linear translation. If your axis is simple and linear, user space and design space are the same, and you don't need the map.</p>
-<h4 id="fontlab.flAxis--tutorial">Tutorial</h4>
+<h3 id="fontlab.flAxis--tutorial">Tutorial</h3>
 <p>Axes are what turn a static font into a variable font. Here is how to read and manipulate axis definitions.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2472,8 +2472,8 @@
 <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">loc</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">loc</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flAxis--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flAxis--find-an-axis-by-tag">Find an axis by tag</h5>
+<h3 id="fontlab.flAxis--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flAxis--find-an-axis-by-tag">Find an axis by tag</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>
@@ -2481,7 +2481,7 @@
 <span class="k">if</span> <span class="n">wght</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Weight axis: </span><span class="si">{</span><span class="n">wght</span><span class="o">.</span><span class="n">minimal</span><span class="si">}</span><span class="s2">–</span><span class="si">{</span><span class="n">wght</span><span class="o">.</span><span class="n">maximum</span><span class="si">}</span><span class="s2">  default=</span><span class="si">{</span><span class="n">wght</span><span class="o">.</span><span class="n">default</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flAxis--check-whether-the-font-is-a-variable-font">Check whether the font is a variable font</h5>
+<h4 id="fontlab.flAxis--check-whether-the-font-is-a-variable-font">Check whether the font is a variable font</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">CurrentFont</span><span class="p">()</span>

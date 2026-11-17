@@ -2447,20 +2447,20 @@
 
 
         <p>The Element.</p>
-<h4 id="fontlab.flShape--what-is-an-flshape">What Is an flShape?</h4>
+<h3 id="fontlab.flShape--what-is-an-flshape">What Is an flShape?</h3>
 <p>In FontLab's interface, what you see as an <strong>element</strong> in the Glyph window is an <code>flShape</code> in Python. Every time you draw a contour, paste artwork, or use a parametric element (like a stroke or an inline), FontLab wraps that drawing in an <code>flShape</code> and places it on a layer.</p>
 <p>Think of <code>flShape</code> as the <strong>editing shell</strong> around your drawing. It carries:
 - The geometric transform that positions the element within the glyph
 - Selection and lock state
 - Colour/opacity for colour font work
 - A reference to the actual drawing data (<code>flShapeData</code>)</p>
-<h5 id="fontlab.flShape--the-three-kinds-of-shape">The Three Kinds of Shape</h5>
+<h4 id="fontlab.flShape--the-three-kinds-of-shape">The Three Kinds of Shape</h4>
 <p>Understanding which type of shape you're working with will save you a lot of confusion in scripts:</p>
 <p><strong>Simple shape</strong> — This is the most common kind. It directly holds a list of <code>flContour</code> objects. When you draw an "A", the stem, the crossbar, and the counter are each contours inside one or more simple shapes. <code>isComposite</code> is <code>False</code>. The current <code>simpleShape()</code> implementation always returns <code>False</code>, so use shape type and component/composite checks when selecting editable contours.</p>
 <p><strong>Composite shape</strong> — A composite is a shape that contains <em>other shapes</em> as children (its "include list"). In the UI you make a composite by grouping elements together. The sub-shapes live inside and can be rearranged, ejected back out, or merged down. <code>isComposite</code> is <code>True</code>.</p>
 <p><strong>Component shape</strong> — A component references the shape data of <em>another glyph</em>. When you place an accented character like "Á" and the acute accent is reused from another glyph, it arrives as a component shape. <code>isComponent</code> is <code>True</code> and <code>shapeData.componentGlyph</code> tells you the source glyph name. You cannot edit the contours of a component directly — you must decompose it first.</p>
 <p>Inherits from <code>flObject</code>.</p>
-<h4 id="fontlab.flShape--tutorial">Tutorial</h4>
+<h3 id="fontlab.flShape--tutorial">Tutorial</h3>
 <p>This tutorial walks through the most common shape scripting tasks: reading shapes from a glyph, building new shapes, and working with composites.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">flShape</span><span class="p">,</span> <span class="n">flContour</span><span class="p">,</span> <span class="n">flNode</span>
@@ -2553,8 +2553,8 @@
 <span class="c1"># Always call Update() after making changes so FontLab redraws the glyph.</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="fontlab.flShape--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flShape--iterating-over-all-shapes-and-their-contours">Iterating over all shapes and their contours</h5>
+<h3 id="fontlab.flShape--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flShape--iterating-over-all-shapes-and-their-contours">Iterating over all shapes and their contours</h4>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">shape</span><span class="o">.</span><span class="n">simpleShape</span><span class="p">():</span>
         <span class="k">continue</span>   <span class="c1"># skip composites and components</span>
@@ -2562,16 +2562,16 @@
         <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">contour</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flShape--finding-the-shape-with-the-largest-bounding-box">Finding the shape with the largest bounding box</h5>
+<h4 id="fontlab.flShape--finding-the-shape-with-the-largest-bounding-box">Finding the shape with the largest bounding box</h4>
 <div class="highlight"><pre><span></span><code><span class="n">biggest</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">shapes</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">sh</span><span class="p">:</span> <span class="n">sh</span><span class="o">.</span><span class="n">boundingBox</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">*</span> <span class="n">sh</span><span class="o">.</span><span class="n">boundingBox</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Largest shape bounds:&quot;</span><span class="p">,</span> <span class="n">biggest</span><span class="o">.</span><span class="n">boundingBox</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flShape--locking-all-shapes-except-the-active-one">Locking all shapes except the active one</h5>
+<h4 id="fontlab.flShape--locking-all-shapes-except-the-active-one">Locking all shapes except the active one</h4>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">shape</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
         <span class="n">shape</span><span class="o">.</span><span class="n">contentLocked</span> <span class="o">=</span> <span class="kc">True</span>
 </code></pre></div>
-<h5 id="fontlab.flShape--moving-every-shape-by-a-fixed-offset-without-touching-the-node-coordinates">Moving every shape by a fixed offset without touching the node coordinates</h5>
+<h4 id="fontlab.flShape--moving-every-shape-by-a-fixed-offset-without-touching-the-node-coordinates">Moving every shape by a fixed offset without touching the node coordinates</h4>
 <div class="highlight"><pre><span></span><code><span class="n">offset</span> <span class="o">=</span> <span class="n">QTransform</span><span class="p">()</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span>
     <span class="n">shape</span><span class="o">.</span><span class="n">prepareTransformationData</span><span class="p">()</span>
@@ -2579,13 +2579,13 @@
     <span class="n">shape</span><span class="o">.</span><span class="n">resetTransformationData</span><span class="p">()</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flShape--excluding-all-empty-shapes-from-export">Excluding all empty shapes from export</h5>
+<h4 id="fontlab.flShape--excluding-all-empty-shapes-from-export">Excluding all empty shapes from export</h4>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">shape</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">:</span>
         <span class="n">shape</span><span class="o">.</span><span class="n">excluded</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empty shapes flagged for exclusion from export&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flShape--decomposing-all-components-in-a-glyph-to-editable-contours">Decomposing all components in a glyph to editable contours</h5>
+<h4 id="fontlab.flShape--decomposing-all-components-in-a-glyph-to-editable-contours">Decomposing all components in a glyph to editable contours</h4>
 <div class="highlight"><pre><span></span><code><span class="n">glyph</span> <span class="o">=</span> <span class="n">font</span><span class="p">[</span><span class="s1">&#39;agrave&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">glyph</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span>
@@ -2593,7 +2593,7 @@
             <span class="n">shape</span><span class="o">.</span><span class="n">decomposite</span><span class="p">()</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
 </code></pre></div>
-<h5 id="fontlab.flShape--checking-if-a-glyph-has-any-composite-or-component-shapes">Checking if a glyph has any composite or component shapes</h5>
+<h4 id="fontlab.flShape--checking-if-a-glyph-has-any-composite-or-component-shapes">Checking if a glyph has any composite or component shapes</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">has_non_simple_shapes</span><span class="p">(</span><span class="n">glyph</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">glyph</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span>
@@ -2601,7 +2601,7 @@
                 <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div>
-<h4 id="fontlab.flShape--stroke-scripting">Stroke scripting</h4>
+<h3 id="fontlab.flShape--stroke-scripting">Stroke scripting</h3>
 <p><code>penParameters</code> is a readable/writable dictionary using the stroke keys stored in VFJ/VFC:</p>
 <ul>
 <li><code>thickness</code> (or the input alias <code>width</code>), <code>join</code> (<code>miter</code>, <code>bevel</code>, <code>round</code>), and <code>miter_limit</code> agree with the element's <code>QPen</code>.</li>
@@ -2625,7 +2625,7 @@
 <p><code>expandStroke([outer_only]) -&gt; bool</code> replaces one element's stroke with filled outlines using the native stroke engine, without requiring a canvas selection. The fill uses the former pen brush; the stroke is removed. Opacity, transform, locking, and non-spacing state are preserved. It returns <code>False</code> without replacing the element when there is no usable stroke or no outline can be generated. <code>outer_only=True</code> requests the native outer-only expansion mode. This is a geometry operation, not a guarantee of interpolation-compatible results between masters.</p>
 <p>The return value is a success flag; read <code>shape.contours</code> after expansion for the resulting contours. <code>shape.inkBox()</code> measures a live stroke without expanding it, using the native preview approximation. <code>boundingBox</code> remains a padded estimate.</p>
 <p>Both operations modify the model. Scripts editing document elements must manage history and send the usual change notifications themselves.</p>
-<h4 id="fontlab.flShape--smart-corners-and-ink-traps">Smart corners and ink traps</h4>
+<h3 id="fontlab.flShape--smart-corners-and-ink-traps">Smart corners and ink traps</h3>
 <p><code>shape.addSmartCorner(node, radius=20, smooth=False)</code> adds or updates a live smart corner and returns <code>True</code> when applicable. Use a negative radius for an ink trap. <code>smooth=True</code> enables G2 smoothing of rounded corners. The node must belong to the shape's editable source and have two nonzero, non-collinear tangents. Smooth points, handles, open endpoints, foreign nodes and locked shapes return <code>False</code>. Invalid radii (zero, nonfinite or outside ±10000000) raise <code>ValueError</code> in Python.</p>
 <p><code>shape.addSmartCorners(radius=20, smooth=False)</code> adds corners to every applicable node that does not already have one, and returns the number added. Repeated calls preserve existing smart corners. Components, groups and incompatible filters are skipped.</p>
 <p>Both methods create the native Smart Corners filter automatically, preserving the element's transform and paint. Existing Smart Corners filters are reused. New filters use the owning font's corner tension and ink-trap length, or defaults for detached elements. The editable contours are cloned when the filter is first installed: reacquire nodes through <code>shape.smartCornerSource().contours</code> afterwards. This method returns the shape itself for plain outlines and a null shape for unsupported or locked content.</p>

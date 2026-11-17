@@ -2364,10 +2364,10 @@
 
 
         <p>Base class for all canvas objects.</p>
-<h4 id="fontlab.flVisualItem--what-is-flvisualitem">What is flVisualItem?</h4>
+<h3 id="fontlab.flVisualItem--what-is-flvisualitem">What is flVisualItem?</h3>
 <p>Every visible, interactive object on the canvas — shapes, text blocks, stickers, and the transform frame — is an <code>flVisualItem</code>. This class provides the common interface: visibility, selection state, transform, paint, and coordinate mapping between glyph space and canvas space.</p>
 <p>In practice, you won't create <code>flVisualItem</code> objects directly. Instead you will call its methods on concrete subclasses like <code>flShapeInfo</code> or <code>flTextBlock</code>. Understanding <code>flVisualItem</code> helps you write tool code that works generically with any canvas object.</p>
-<h4 id="fontlab.flVisualItem--tutorial">Tutorial</h4>
+<h3 id="fontlab.flVisualItem--tutorial">Tutorial</h3>
 <p><code>flVisualItem</code> is the API for controlling visibility, selection, and on-screen appearance of canvas objects. Here is how to use it through concrete canvas items.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
@@ -2443,8 +2443,8 @@
     <span class="c1"># In a real paint() override: radius = 5.0 / zoom</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">For decorator: screen-radius 5px → glyph-radius </span><span class="si">{</span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">zoom</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">fu&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="fontlab.flVisualItem--common-scripting-patterns">Common Scripting Patterns</h4>
-<h5 id="fontlab.flVisualItem--check-if-an-item-is-currently-on-the-canvas">Check if an item is currently on the canvas</h5>
+<h3 id="fontlab.flVisualItem--common-scripting-patterns">Common Scripting Patterns</h3>
+<h4 id="fontlab.flVisualItem--check-if-an-item-is-currently-on-the-canvas">Check if an item is currently on the canvas</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2458,7 +2458,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Reference pt:  </span><span class="si">{</span><span class="n">si</span><span class="o">.</span><span class="n">referencePoint</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Canvas bounds: </span><span class="si">{</span><span class="n">si</span><span class="o">.</span><span class="n">boundingRectOnCanvas</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h5 id="fontlab.flVisualItem--force-a-repaint-of-a-specific-item-without-changing-data">Force a repaint of a specific item without changing data</h5>
+<h4 id="fontlab.flVisualItem--force-a-repaint-of-a-specific-item-without-changing-data">Force a repaint of a specific item without changing data</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">PythonQt.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QPointF</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fontlab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fl</span>
 
@@ -2469,7 +2469,7 @@
     <span class="k">for</span> <span class="n">ci</span> <span class="ow">in</span> <span class="n">contours</span><span class="p">[:</span><span class="mi">1</span><span class="p">]:</span>
         <span class="n">ci</span><span class="o">.</span><span class="n">shapeInfo</span><span class="o">.</span><span class="n">preview</span><span class="p">()</span>   <span class="c1"># repaint without data change</span>
 </code></pre></div>
-<h4 id="fontlab.flVisualItem--flvisualitemlisteners">flVisualItem.Listeners</h4>
+<h3 id="fontlab.flVisualItem--flvisualitemlisteners">flVisualItem.Listeners</h3>
 <p>Use the <code>flVisualItem.Listeners</code> dictionary with subscription.</p>
 <table>
 <thead>

@@ -2356,7 +2356,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QUndoStack--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QUndoStack--detailed-description">Detailed Description</h3>
 <p>For an overview of Qt's Undo Framework, see the <a href="https://doc.qt.io/archives/qt-5.15/qundo.html">overview
 document</a>.</p>
 <p>An undo stack maintains a stack of commands that have been applied to a document.</p>
@@ -2381,7 +2381,7 @@ top-most command on the stack has already been redone,
 <a href="https://doc.qt.io/archives/qt-5.15/qundostack.html#count">count</a>().</p>
 <p>QUndoStack provides support for undo and redo actions, command compression, command
 macros, and supports the concept of a <em>clean state</em>.</p>
-<h5 id="PythonQt.Qt.QUndoStack--undo-and-redo-actions">Undo and Redo Actions</h5>
+<h4 id="PythonQt.Qt.QUndoStack--undo-and-redo-actions">Undo and Redo Actions</h4>
 <p>QUndoStack provides convenient undo and redo
 <a href="https://doc.qt.io/archives/qt-5.15/qaction.html">QAction</a> objects, which can be
 inserted into a menu or a toolbar. When commands are undone or redone, QUndoStack
@@ -2391,7 +2391,7 @@ actions are returned by
 <a href="https://doc.qt.io/archives/qt-5.15/qundostack.html#createUndoAction">QUndoStack::createUndoAction</a>()
 and
 <a href="https://doc.qt.io/archives/qt-5.15/qundostack.html#createRedoAction">QUndoStack::createRedoAction</a>().</p>
-<h5 id="PythonQt.Qt.QUndoStack--command-compression-and-macros">Command Compression and Macros</h5>
+<h4 id="PythonQt.Qt.QUndoStack--command-compression-and-macros">Command Compression and Macros</h4>
 <p>Command compression is useful when several commands can be compressed into a single
 command that can be undone and redone in a single operation. For example, when a user
 types a character in a text editor, a new command is created. This command inserts the
@@ -2415,7 +2415,7 @@ document may be usefully compressed if there is no need to individually record t
 if only larger changes are relevant to the user. However, for commands that need to be
 recorded individually, or those that cannot be compressed, it is useful to use macros to
 provide a more convenient user experience while maintaining a record of each command.</p>
-<h5 id="PythonQt.Qt.QUndoStack--clean-state">Clean State</h5>
+<h4 id="PythonQt.Qt.QUndoStack--clean-state">Clean State</h4>
 <p>QUndoStack supports the concept of a clean state. When the document is saved to disk,
 the stack can be marked as clean using
 <a href="https://doc.qt.io/archives/qt-5.15/qundostack.html#setClean">setClean</a>(). Whenever the
@@ -2424,7 +2424,7 @@ stack returns to this state through undoing and redoing commands, it emits the s
 signal is also emitted when the stack leaves the clean state. This signal is usually
 used to enable and disable the save actions in the application, and to update the
 document's title to reflect that it contains unsaved changes.</p>
-<h5 id="PythonQt.Qt.QUndoStack--obsolete-commands">Obsolete Commands</h5>
+<h4 id="PythonQt.Qt.QUndoStack--obsolete-commands">Obsolete Commands</h4>
 <p>QUndoStack is able to delete commands from the stack if the command is no longer needed.
 One example may be to delete a command when two commands are merged together in such a
 way that the merged command has no function. This can be seen with move commands where

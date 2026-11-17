@@ -2384,7 +2384,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QDateTime--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QDateTime--detailed-description">Detailed Description</h3>
 <p>A QDateTime object encodes a calendar date and a clock time (a "datetime"). It combines
 features of the <a href="https://doc.qt.io/archives/qt-5.15/qdate.html">QDate</a> and
 <a href="https://doc.qt.io/archives/qt-5.15/qtime.html">QTime</a> classes. It can read the current
@@ -2453,12 +2453,12 @@ what time-spec a QDateTime object stores its time relative to. When that is
 <a href="https://doc.qt.io/archives/qt-5.15/qdatetime.html#timeZone">timeZone</a>() to find out
 which zone it is using.</p>
 <p><strong>Note:</strong> QDateTime does not account for leap seconds.</p>
-<h5 id="PythonQt.Qt.QDateTime--remarks">Remarks</h5>
-<h6 id="PythonQt.Qt.QDateTime--no-year-0">No Year 0</h6>
+<h4 id="PythonQt.Qt.QDateTime--remarks">Remarks</h4>
+<h5 id="PythonQt.Qt.QDateTime--no-year-0">No Year 0</h5>
 <p>There is no year 0. Dates in that year are considered invalid. The year -1 is the year
 "1 before Christ" or "1 before current era." The day before 1 January 1 CE is 31
 December 1 BCE.</p>
-<h6 id="PythonQt.Qt.QDateTime--range-of-valid-dates">Range of Valid Dates</h6>
+<h5 id="PythonQt.Qt.QDateTime--range-of-valid-dates">Range of Valid Dates</h5>
 <p>The range of values that QDateTime can represent is dependent on the internal storage
 implementation. QDateTime is currently stored in a qint64 as a serial msecs value
 encoding the date and time. This restricts the date range to about +/- 292 million
@@ -2467,7 +2467,7 @@ years, compared to the <a href="https://doc.qt.io/archives/qt-5.15/qdate.html">Q
 that you do not overflow the storage. The exact range of supported values varies
 depending on the
 <a href="https://doc.qt.io/archives/qt-5.15/qt.html#TimeSpec-enum">Qt::TimeSpec</a> and time zone.</p>
-<h6 id="PythonQt.Qt.QDateTime--use-of-timezones">Use of Timezones</h6>
+<h5 id="PythonQt.Qt.QDateTime--use-of-timezones">Use of Timezones</h5>
 <p>QDateTime uses the system's time zone information to determine the current local time
 zone and its offset from UTC. If the system is not configured correctly or not
 up-to-date, QDateTime will give wrong results.</p>
@@ -2480,7 +2480,7 @@ details.</p>
 historical transitions (including DST, see below) whenever possible. On Windows, where
 the system doesn't support historical timezone data, historical accuracy is not
 maintained with respect to timezone transitions, notably including DST.</p>
-<h6 id="PythonQt.Qt.QDateTime--daylight-saving-time-dst">Daylight-Saving Time (DST)</h6>
+<h5 id="PythonQt.Qt.QDateTime--daylight-saving-time-dst">Daylight-Saving Time (DST)</h5>
 <p>QDateTime takes into account transitions between Standard Time and Daylight-Saving Time.
 For example, if the transition is at 2am and the clock goes forward to 3am, then there
 is a "missing" hour from 02:00:00 to 02:59:59.999 which QDateTime considers to be
@@ -2494,7 +2494,7 @@ rules before that date comes around. For dates before 1970, QDateTime doesn't ta
 changes into account, even if the system's time zone database provides that information,
 although it does take into account changes to the time-zone's standard offset, where
 this information is available.</p>
-<h6 id="PythonQt.Qt.QDateTime--offsets-from-utc">Offsets From UTC</h6>
+<h5 id="PythonQt.Qt.QDateTime--offsets-from-utc">Offsets From UTC</h5>
 <p>There is no explicit size restriction on an offset from UTC, but there is an implicit
 limit imposed when using the
 <a href="https://doc.qt.io/archives/qt-5.15/qdatetime.html#toString">toString</a>() and

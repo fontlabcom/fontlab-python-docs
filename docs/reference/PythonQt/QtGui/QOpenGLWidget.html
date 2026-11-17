@@ -2433,7 +2433,7 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.QtGui.QOpenGLWidget--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.QtGui.QOpenGLWidget--detailed-description">Detailed Description</h3>
 <p>QOpenGLWidget provides functionality for displaying OpenGL graphics integrated into a Qt
 application. It is very simple to use: Make your class inherit from it and use the
 subclass like any other <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html">QWidget</a>,
@@ -2485,7 +2485,7 @@ before constructing the
 mandatory on some platforms (for example, macOS) when an OpenGL core profile context is
 requested. This is to ensure that resource sharing between contexts stays functional as
 all internal contexts are created using the correct version and profile.</p>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--painting-techniques">Painting Techniques</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--painting-techniques">Painting Techniques</h4>
 <p>As described above, subclass QOpenGLWidget to render pure 3D content in the following
 way:</p>
 <ul>
@@ -2509,7 +2509,7 @@ to perform the painting like it is done for ordinary widgets: by reimplementing
 <li>Draw primitives using <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a>'s member functions.</li>
 <li>Painting finishes then the <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a> instance is destroyed. Alternatively, call <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#end">QPainter::end</a>() explicitly.</li>
 </ul>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--opengl-function-calls-headers-and-qopenglfunctions">OpenGL Function Calls, Headers and QOpenGLFunctions</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--opengl-function-calls-headers-and-qopenglfunctions">OpenGL Function Calls, Headers and QOpenGLFunctions</h4>
 <p>When making OpenGL function calls, it is strongly recommended to avoid calling the
 functions directly. Instead, prefer using
 <a href="https://doc.qt.io/archives/qt-5.15/qopenglfunctions.html">QOpenGLFunctions</a> (when
@@ -2538,7 +2538,7 @@ In addition, a copy of the extension headers (called glext.h on some systems) is
 provided as part of Qt both for OpenGL and OpenGL ES. These will get included
 automatically on platforms where feasible. This means that constants and function
 pointer typedefs from ARB, EXT, OES extensions are automatically available.</p>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--code-examples">Code Examples</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--code-examples">Code Examples</h4>
 <p>To get started, the simplest QOpenGLWidget subclass could like like the following:</p>
 <div class="highlight"><pre><span></span><code>class MyGLWidget : public QOpenGLWidget
 {
@@ -2631,7 +2631,7 @@ Below is an example of this:</p>
     return app.exec();
 }
 </code></pre></div>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--relation-to-qglwidget">Relation to QGLWidget</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--relation-to-qglwidget">Relation to QGLWidget</h4>
 <p>The legacy QtOpenGL module (classes prefixed with QGL) provides a widget called
 QGLWidget. QOpenGLWidget is intended to be a modern replacement for it. Therefore,
 especially in new applications, the general recommendation is to use QOpenGLWidget.</p>
@@ -2660,7 +2660,7 @@ call can lead to significant performance drops on such systems.</p>
 <p><strong>Note:</strong> Avoid calling <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#winId">winId</a>()
 on a QOpenGLWidget. This function triggers the creation of a native window, resulting in
 reduced performance and possibly rendering glitches.</p>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--differences-to-qglwidget">Differences to QGLWidget</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--differences-to-qglwidget">Differences to QGLWidget</h4>
 <p>Besides the main conceptual difference of being backed by a framebuffer object, there
 are a number of smaller, internal differences between QOpenGLWidget and the older
 QGLWidget:</p>
@@ -2668,7 +2668,7 @@ QGLWidget:</p>
 <li>OpenGL state when invoking <a href="https://doc.qt.io/archives/qt-5.15/qopenglwidget.html#paintGL">paintGL</a>(). QOpenGLWidget sets up the viewport via glViewport(). It does not perform any clearing.</li>
 <li>Clearing when starting to paint via <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a>. Unlike regular widgets, QGLWidget defaulted to a value of <code>true</code> for <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#autoFillBackground-prop">autoFillBackground</a>. It then performed clearing to the palette's background color every time <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html#begin">QPainter::begin</a>() was used. QOpenGLWidget does not follow this: <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#autoFillBackground-prop">autoFillBackground</a> defaults to false, like for any other widget. The only exception is when being used as a viewport for other widgets like <a href="https://doc.qt.io/archives/qt-5.15/qgraphicsview.html">QGraphicsView</a>. In such a case <a href="https://doc.qt.io/archives/qt-5.15/qwidget.html#autoFillBackground-prop">autoFillBackground</a> will be automatically set to true to ensure compatibility with QGLWidget-based viewports.</li>
 </ul>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--multisampling">Multisampling</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--multisampling">Multisampling</h4>
 <p>To enable multisampling, set the number of requested samples on the
 <a href="https://doc.qt.io/archives/qt-5.15/qsurfaceformat.html">QSurfaceFormat</a> that is passed
 to <a href="https://doc.qt.io/archives/qt-5.15/qopenglwidget.html#setFormat">setFormat</a>(). On
@@ -2677,7 +2677,7 @@ systems that do not support it the request may get ignored.</p>
 blits. On OpenGL ES 2.0 implementations it is likely that these will not be present.
 This means that multisampling will not be available. With modern OpenGL versions and
 OpenGL ES 3.0 and up this is usually not a problem anymore.</p>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--threading">Threading</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--threading">Threading</h4>
 <p>Performing offscreen rendering on worker threads, for example to generate textures that
 are then used in the GUI/main thread in
 <a href="https://doc.qt.io/archives/qt-5.15/qopenglwidget.html#paintGL">paintGL</a>(), are
@@ -2714,7 +2714,7 @@ signal is emitted. If this is not acceptable, the worker thread has to implement
 double buffering mechanism. This involves drawing using an alternative render target,
 that is fully controlled by the thread, e.g. an additional framebuffer object, and
 blitting to the QOpenGLWidget's framebuffer at a suitable time.</p>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--context-sharing">Context Sharing</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--context-sharing">Context Sharing</h4>
 <p>When multiple QOpenGLWidgets are added as children to the same top-level widget, their
 contexts will share with each other. This does not apply for QOpenGLWidget instances
 that belong to different windows.</p>
@@ -2741,7 +2741,7 @@ when it comes to the underlying graphics drivers. For example, some drivers, in
 particular for mobile and embedded hardware, have issues with setting up sharing between
 an existing context and others that are created later. Some other drivers may behave in
 unexpected ways when trying to utilize shared resources between different threads.</p>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--resource-initialization-and-cleanup">Resource Initialization and Cleanup</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--resource-initialization-and-cleanup">Resource Initialization and Cleanup</h4>
 <p>The QOpenGLWidget's associated OpenGL context is guaranteed to be current whenever
 <a href="https://doc.qt.io/archives/qt-5.15/qopenglwidget.html#initializeGL">initializeGL</a>() and
 <a href="https://doc.qt.io/archives/qt-5.15/qopenglwidget.html#paintGL">paintGL</a>() are invoked.
@@ -2879,7 +2879,7 @@ and some Qt modules may trigger an even wider scope for sharing contexts, potent
 leading to keeping the resources in question alive for the entire lifetime of the
 application. Therefore the safest and most robust is always to perform explicit cleanup
 for all resources and resource wrappers used in the QOpenGLWidget.</p>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--limitations">Limitations</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--limitations">Limitations</h4>
 <p>Putting other widgets underneath and making the QOpenGLWidget transparent will not lead
 to the expected results: The widgets underneath will not be visible. This is because in
 practice the QOpenGLWidget is drawn before all other regular, non-OpenGL widgets, and so
@@ -2935,7 +2935,7 @@ typically map to using a backing store image with the format
 getting the contents of a QOpenGLWidget composited correctly with other the widgets in
 the window, make sure the server (such as, vncserver) is configured with a 24 or 32 bit
 depth instead of 16.</p>
-<h5 id="PythonQt.QtGui.QOpenGLWidget--alternatives">Alternatives</h5>
+<h4 id="PythonQt.QtGui.QOpenGLWidget--alternatives">Alternatives</h4>
 <p>Adding a QOpenGLWidget into a window turns on OpenGL-based compositing for the entire
 window. In some special cases this may not be ideal, and the old QGLWidget-style
 behavior with a separate, native child window is desired. Desktop applications that

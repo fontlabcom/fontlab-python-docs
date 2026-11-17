@@ -2388,7 +2388,7 @@
         <p>X.acquire(n)</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QSemaphore.acquire--void-qsemaphoreacquireint-n-1">void QSemaphore::acquire(int <em>n</em> \= 1)</h5>
+<h3 id="PythonQt.QtCore.QSemaphore.acquire--void-qsemaphoreacquireint-n-1">void QSemaphore::acquire(int <em>n</em> \= 1)</h3>
 <p>Tries to acquire <code>n</code> resources guarded by the semaphore. If <em>n</em> &gt;
 <a href="https://doc.qt.io/archives/qt-5.15/qsemaphore.html#available">available</a>(), this call
 will block until enough resources are available.</p>
@@ -2421,7 +2421,7 @@ will block until enough resources are available.</p>
         <p>X.available() -&gt; int</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QSemaphore.available--int-qsemaphoreavailable-const">int QSemaphore::available() const</h5>
+<h3 id="PythonQt.QtCore.QSemaphore.available--int-qsemaphoreavailable-const">int QSemaphore::available() const</h3>
 <p>Returns the number of resources currently available to the semaphore. This number can
 never be negative.</p>
 <p><strong>See also</strong> <a href="https://doc.qt.io/archives/qt-5.15/qsemaphore.html#acquire">acquire</a>() and
@@ -2452,7 +2452,7 @@ never be negative.</p>
         <p>X.release(n)</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QSemaphore.release--void-qsemaphorereleaseint-n-1">void QSemaphore::release(int <em>n</em> \= 1)</h5>
+<h3 id="PythonQt.QtCore.QSemaphore.release--void-qsemaphorereleaseint-n-1">void QSemaphore::release(int <em>n</em> \= 1)</h3>
 <p>Releases <em>n</em> resources guarded by the semaphore.</p>
 <p>This function can be used to "create" resources as well. For example:</p>
 <div class="highlight"><pre><span></span><code>QSemaphore sem(5);      // a semaphore that guards 5 resources
@@ -2491,7 +2491,7 @@ sem.release(10);        // &quot;create&quot; 10 new resources
         <p>X.tryAcquire(n, timeout) -&gt; bool</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h5 id="PythonQt.QtCore.QSemaphore.tryAcquire--bool-qsemaphoretryacquireint-n-1">bool QSemaphore::tryAcquire(int <em>n</em> \= 1)</h5>
+<h3 id="PythonQt.QtCore.QSemaphore.tryAcquire--bool-qsemaphoretryacquireint-n-1">bool QSemaphore::tryAcquire(int <em>n</em> \= 1)</h3>
 <p>Tries to acquire <code>n</code> resources guarded by the semaphore and returns <code>true</code> on success.
 If <a href="https://doc.qt.io/archives/qt-5.15/qsemaphore.html#available">available</a>() \&lt; <em>n</em>,
 this call immediately returns <code>false</code> without acquiring any resources.</p>
@@ -2501,7 +2501,7 @@ sem.tryAcquire(250);    // sem.available() == 5, returns false
 sem.tryAcquire(3);      // sem.available() == 2, returns true
 </code></pre></div>
 <p><strong>See also</strong> <a href="https://doc.qt.io/archives/qt-5.15/qsemaphore.html#acquire">acquire</a>().</p>
-<h5 id="PythonQt.QtCore.QSemaphore.tryAcquire--bool-qsemaphoretryacquireint-n-int-timeout">bool QSemaphore::tryAcquire(int <em>n</em>, int <em>timeout</em>)</h5>
+<h3 id="PythonQt.QtCore.QSemaphore.tryAcquire--bool-qsemaphoretryacquireint-n-int-timeout">bool QSemaphore::tryAcquire(int <em>n</em>, int <em>timeout</em>)</h3>
 <p>Tries to acquire <code>n</code> resources guarded by the semaphore and returns <code>true</code> on success.
 If <a href="https://doc.qt.io/archives/qt-5.15/qsemaphore.html#available">available</a>() \&lt; <em>n</em>,
 this call will wait for at most <em>timeout</em> milliseconds for resources to become

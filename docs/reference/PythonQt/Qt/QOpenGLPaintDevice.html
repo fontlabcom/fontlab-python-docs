@@ -2356,28 +2356,28 @@
 <p>Native bases: PythonQtInstanceWrapper</p>
 <p>Supplemental documentation:
 Qt 5 reference:</p>
-<h4 id="PythonQt.Qt.QOpenGLPaintDevice--detailed-description">Detailed Description</h4>
+<h3 id="PythonQt.Qt.QOpenGLPaintDevice--detailed-description">Detailed Description</h3>
 <p>The QOpenGLPaintDevice uses the <strong>current</strong> QOpenGL context to render
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a> draw commands. The context
 is captured upon construction. It requires support for OpenGL (ES) 2.0 or higher.</p>
-<h5 id="PythonQt.Qt.QOpenGLPaintDevice--performance">Performance</h5>
+<h4 id="PythonQt.Qt.QOpenGLPaintDevice--performance">Performance</h4>
 <p>The QOpenGLPaintDevice is almost always hardware accelerated and has the potential of
 being much faster than software rasterization. However, it is more sensitive to state
 changes, and therefore requires the drawing commands to be carefully ordered to achieve
 optimal performance.</p>
-<h5 id="PythonQt.Qt.QOpenGLPaintDevice--antialiasing-and-quality">Antialiasing and Quality</h5>
+<h4 id="PythonQt.Qt.QOpenGLPaintDevice--antialiasing-and-quality">Antialiasing and Quality</h4>
 <p>Antialiasing in the OpenGL paint engine is done using multisampling. Most hardware
 require significantly more memory to do multisampling and the resulting quality is not
 on par with the quality of the software paint engine. The OpenGL paint engine's strength
 lies in its performance, not its visual rendering quality.</p>
-<h5 id="PythonQt.Qt.QOpenGLPaintDevice--state-changes">State Changes</h5>
+<h4 id="PythonQt.Qt.QOpenGLPaintDevice--state-changes">State Changes</h4>
 <p>When painting to a QOpenGLPaintDevice using
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a>, the state of the current
 OpenGL context will be altered by the paint engine to reflect its needs. Applications
 should not rely upon the OpenGL state being reset to its original conditions,
 particularly the current shader program, OpenGL viewport, texture units, and drawing
 modes.</p>
-<h5 id="PythonQt.Qt.QOpenGLPaintDevice--mixing-qpainter-and-opengl">Mixing QPainter and OpenGL</h5>
+<h4 id="PythonQt.Qt.QOpenGLPaintDevice--mixing-qpainter-and-opengl">Mixing QPainter and OpenGL</h4>
 <p>When intermixing <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a> and
 OpenGL, it is important to notify
 <a href="https://doc.qt.io/archives/qt-5.15/qpainter.html">QPainter</a> that the OpenGL state may
