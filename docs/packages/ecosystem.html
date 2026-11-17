@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://fontlabcom.github.io/fontlab-python-docs/packages/ecosystem.html">
       
       
-        <link rel="prev" href="index.html">
+        <link rel="prev" href="instamix.html">
       
       
         <link rel="next" href="echopy.html">
@@ -1054,6 +1054,34 @@
     
   
     Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instamix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instamix
   
 
     
@@ -2384,6 +2412,10 @@ matches your answer instead of reaching across a boundary.</p>
 </thead>
 <tbody>
 <tr>
+<td><a href="instamix.html">Instamix</a></td>
+<td>Stdlib bootstrap, package installation and extension deployment inside FontLab or from a terminal.</td>
+</tr>
+<tr>
 <td><a href="remopy.html">Remopy</a></td>
 <td>Pip-installable remote control of a running FontLab from an ordinary Python process outside it.</td>
 </tr>
@@ -2494,6 +2526,10 @@ until you ask for an alias, so importing it never loads a target package.</p>
 </thead>
 <tbody>
 <tr>
+<td>Install distributions, source projects or packaged extensions</td>
+<td><a href="instamix.html">Instamix</a></td>
+</tr>
+<tr>
 <td>Run a script from a terminal, CI job or notebook against a running FontLab</td>
 <td>Remopy</td>
 </tr>
@@ -2537,8 +2573,10 @@ until you ask for an alias, so importing it never loads a target package.</p>
 </table>
 <h2 id="boundary-rules">Boundary rules</h2>
 <ul>
-<li><strong>Outside versus inside.</strong> Remopy is the only package meant for code outside
-  FontLab. Everything else imports FontLab's own modules and needs the host.</li>
+<li><strong>Outside versus inside.</strong> Remopy controls the host from another process.
+  Instamix also runs outside it, using explicit target facts or optional Remopy
+  discovery. Its bootstrap is stdlib-only and its PythonQt helpers load lazily;
+  other native application APIs need the FontLab host.</li>
 <li><strong>Interop versus UI.</strong> Fontport converts font data and has no user interface.
   Its Qt editors live in <code>fontlabapp.fontui</code> and call Fontport lazily.</li>
 <li><strong>Shims versus behaviour.</strong> Echopy documents and mirrors the native API. It does

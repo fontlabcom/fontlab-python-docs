@@ -520,6 +520,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and connect
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="install.html" class="md-nav__link md-nav__link--active">
         
   
@@ -536,6 +554,75 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#install-inside-fontlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install inside FontLab
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-outside-fontlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install outside FontLab
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install outside FontLab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporary-release-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporary release inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-from-another-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect from another process
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1064,6 +1151,34 @@
     
   
     Overview and install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/instamix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instamix
   
 
     
@@ -2199,6 +2314,64 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#install-inside-fontlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install inside FontLab
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-outside-fontlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install outside FontLab
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install outside FontLab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporary-release-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporary release inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-from-another-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect from another process
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2264,13 +2437,67 @@
 <p>Use the reviewed wheel or source distribution from each package's GitHub release.
 Private repositories require authenticated access. Keep credentials in your
 normal GitHub tooling; never put them in documentation, URLs or Python scripts.</p>
-<p>Install outside FontLab with <code>uv pip install PATH_TO_WHEEL</code>. For embedded use,
-install into a Python directory on FontLab's interpreter path using a compatible
-Python version. FontLab supplies its native bindings and existing Qt application.</p>
+<h2 id="install-inside-fontlab">Install inside FontLab</h2>
+<p>Install <strong>Instamix 1.0.9 or newer</strong> first. Download its standalone
+<a href="https://code.fontlab.com/fontlab-python-instamix/install.vfpy">install.vfpy</a>,
+then open that file in FontLab. It bootstraps the stdlib-only installer from a
+validated wheel; a pre-existing pip or venv is not required. The current generated
+project installer checks migration and rollback capabilities before reusing its
+provider. Do not use Instamix 1.0.8 to upgrade an old <code>install.vfpy</code> installation:
+a failed replacement could remove other files recorded by that legacy installer.</p>
+<p>In FontLab's Scripting panel, install ordinary distribution requirements with:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_instamix</span><span class="w"> </span><span class="kn">import</span> <span class="n">install_packages</span>
+
+<span class="n">install_packages</span><span class="p">(</span><span class="s2">&quot;uharfbuzz&gt;=0.57&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Instamix finds or downloads uv, verifies a standalone Python matching the target,
+and creates or checks the shared venv. Packages go to
+<code>&lt;data&gt;/python/&lt;major.minor&gt;/site-packages</code>, which FontLab already reads. The
+venv reads that same directory through its own managed <code>.pth</code>; FontLab does not
+need to process that file. An incompatible existing venv is refused rather than
+replaced. Installation refreshes import caches, without reloading imported modules.</p>
+<p>For a source project with <code>[tool.fontlab-install]</code>, open its current <code>install.vfpy</code>.
+For a ready <code>.fontlabext</code>, <code>.fontlabextz</code> or root manifest, use the
+<a href="../packages/instamix.html">Instamix extension API</a>. Its records and uninstall
+commands are under <strong>Scripts &gt; Instamix</strong>.</p>
+<p>Default data-folder discovery uses an explicit argument, then <code>FONTLAB_DATA_DIR</code>,
+then native preferences' <code>dataPathDefault</code>, then the platform default. A custom
+current application <code>dataPath</code> is a different value: pass the intended folder
+explicitly when those differ. Never assume a terminal's Python version or
+architecture matches the running FontLab.</p>
+<h2 id="install-outside-fontlab">Install outside FontLab</h2>
+<p>Install external clients such as Remopy into an ordinary environment with
+<code>uv pip install PATH_TO_WHEEL</code>. That environment does not make packages available
+to embedded FontLab. <a href="../packages/instamix.html#targets-and-the-shared-environment">Instamix</a>
+explains explicit targets and the external CLI. FontLab supplies its native
+bindings and existing Qt application; install neither PySide binaries nor a
+second Qt application into that host.</p>
+<h3 id="temporary-release-inputs">Temporary release inputs</h3>
+<p>App 1.2.31, Plugmix 1.1.19 and Remopy 2.0.7 have checked GitHub release artifacts,
+but their PyPI uploads failed because trusted publishers were not configured.
+Do not lower a dependency floor to work around a missing release. Use the checked
+release-wheel download URLs with <code>uv pip install</code> in an ordinary Python
+environment. The App and Plugmix versions above resolved together in a fresh
+ordinary arm64 Python 3.11 environment.</p>
+<p>That is an ordinary package-install check, not a FontLab plugin deployment test.
+Use the reviewed source installer or extension pack for its Scripts and bundles.
+Recheck publication status when choosing later releases; keep version floors and
+artifact identity aligned. Instamix 1.0.9 or newer is still needed for legacy
+project upgrades.</p>
 <p>The captured API uses FontLab9, Python3.11 and Qt5. The source-only documentation
 environment uses Python3.12 or newer. A PySide2 binary wheel is a reference input;
 it is not loaded into FontLab's PythonQt runtime.</p>
-<p>Enable FontLab's MCP server, then connect:</p>
+<h2 id="connect-from-another-process">Connect from another process</h2>
+<div class="admonition warning">
+<p class="admonition-title">FontLab 9.1.9813 bridge defect</p>
+<p>The native MCP bridge can crash in <code>BridgeConnection::updateTimeout</code> on this
+build (<a href="https://github.com/Fontlab/fl/issues/8657">fontlab/fl#8657</a>). Remopy
+setup/tools/run and Instamix <code>--remote</code> can time out. A submitted operation's
+outcome is unknown until its receipt is checked. Do not retry automatically.
+Until a fixed bridge ships, run an owned <code>.vfpy</code> directly through FontLab's
+File &gt; Open and have it write a result file; submission alone proves no work.</p>
+</div>
+<p>On a build with a working MCP bridge, enable FontLab's MCP server, then connect:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fontlab_remopy</span><span class="w"> </span><span class="kn">import</span> <span class="n">FontLab</span>
 
 <span class="k">with</span> <span class="n">FontLab</span><span class="p">()</span> <span class="k">as</span> <span class="n">app</span><span class="p">:</span>
