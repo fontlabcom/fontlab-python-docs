@@ -8,6 +8,12 @@ this_file: PLAN.md
 
 The guide page `guide/whats-new-9-1.md` documents the 9.1.9812 changes from source. Live-verify the examples, then regenerate the API reference from a 9.1 Echopy capture through a new input packet.
 
+## Functional work order — 2026-11-14
+
+Prioritize usable current-provider reference pages, search and runnable teaching. Reconcile the pending Aidus provider/source-lock rename and current App/Plugmix/Fly interfaces without rewriting frozen inputs or traversing excluded repositories.
+
+Use small smoke checks and focused regressions for changed behavior and package boundaries. Keep the existing detailed acceptance tasks for a later testing pass; mandatory delivery hooks and current holds remain in force.
+
 ## Task 414 remaining acceptance
 
 The portable gzip source and Node regression pass. Provision the matched native

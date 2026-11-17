@@ -13,6 +13,10 @@ The 9.1 page now shows the live-read `penParameters` dict (string join/caps) and
 - `docs/` was not regenerated and the page has not been rendered: the isolated checkout lacks the private input packet and sibling sources. The first render happens in CI.
 - API reference pages are unchanged: they follow the pinned Echopy 9.0 capture in `api-sources.lock.json` and gain these members after a 9.1 capture and a new input packet.
 
+## 2026-11-14 — Functional work order documented
+
+- Added the owner's functional-progress-first guidance and repository-specific priorities, including cross-package compatibility and a later detailed testing pass. Existing mandatory hooks, holds and unfinished work remain in force.
+- This change updates guidance and planning only; it establishes no new runtime, installed, native or release result.
 
 ## 2026-11-12 — Whole private docs snapshot refreshed; Pens documented (Issue 250, D46)
 

@@ -4,6 +4,8 @@ this_file: TODO.md
 
 # Open tasks
 
+- [ ] Reconcile the pending Aidus provider/source-lock rename and current App/Plugmix/Fly teaching with focused affected-page checks before the full rendering/search/browser pass.
+
 - [ ] live-verify 9.1 JSON/stroke/inktrap declarations on the "What's new in FontLab 9.1" page (FontLab 9.1.9812, serialized native lane), then remove the source-derived warnings that pass.
 
 - [ ] Run `./build.sh --check` with the private input packet (`FONTLAB_API_SOURCE_ROOT`) to render `guide/whats-new-9-1.md`, then regenerate and review `docs/`.
