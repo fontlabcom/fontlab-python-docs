@@ -459,7 +459,7 @@ def shortcuts(page: Page, base: str, route: str) -> dict:
 
 
 def check_keyboard(page: Page, base: str, spec: dict, shot=no_shot) -> dict:
-    """Tab from page start reaches skip, search, navigation and the first content link."""
+    """Tab from page start reaches skip, search, navigation and the first content control."""
     result = {"case": "keyboard", "failures": [], "tab_budget": TAB_BUDGET}
     goto(page, base, spec["page"])
     result["targets"] = page.evaluate(TARGETS_JS)

@@ -9,6 +9,8 @@ this_file: CHANGELOG.md
 - New `scripts/docstring_headings.py` renders native docstring headings from level 1 without skipped levels, fixing the heading-order accessibility failure on the enriched `flNode` page. Sources are unchanged.
 - The R043 keyboard check now targets the first focusable content control after the skip link (a code block copy button on enriched native pages), not only the first link.
 - `fontlab-aidus-agentus` and `fontlab-python-instamix` are public and listed as such in the release audit; the agentus page no longer names the retired private package. The audit disposition now accepts only a green audit; the former plugmix name waiver is gone because plugmix is a documented package.
+- `docs/` is regenerated from the new packet (about 2,200 pages changed, mostly native and PythonQt reference pages).
+- Not yet handled: setext (`====`) headings in some `FL` docstrings are not renumbered, and the accessibility gate samples only seven pages, so heading order elsewhere is unproven.
 - Local reproduction of the full CI gate (`scripts/pages-build.sh` against the packet) passed every stage, release audit exit 0.
 
 ## 2026-11-16 — What's new in FontLab 9.1 for Python

@@ -60,6 +60,7 @@ PUBLIC_REPOSITORIES = {
     "fontlabcom/fontlab-aidus-agentus",
     "fontlabcom/fontlab-python-docs",
     "fontlabcom/fontlab-python-examples",
+    "fontlabcom/fontlab-python-plugmix",
     "fontlabcom/fontlab-python-instamix",
     "fontlabcom/fontlab-python-scriptmix",
     "fontlabcom/typerig-lib",
