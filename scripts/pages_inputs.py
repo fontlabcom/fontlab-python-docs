@@ -12,10 +12,10 @@ import sys
 import tarfile
 from pathlib import Path
 
-ARCHIVE = "inputs-93a2be39e2d1.tar.gz"
+ARCHIVE = "inputs-282d9761d557.tar.gz"
 NAMES = "private-repository-names.json"
 HASHES = {
-    ARCHIVE: "93a2be39e2d13cc52bac7e59702fa9e2c45c8f3d5b5bce2abb0b085a6fb6a11a",
+    ARCHIVE: "282d9761d5576f014ab67f8e7ae911bf3f3d8635d7b7b1fd2f6515a65f352b3d",
     NAMES: "9aaf92ea8816ed59c604d537a3626ee907137f722b753e64323d64529889d15a",
 }
 

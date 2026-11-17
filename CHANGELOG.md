@@ -2,6 +2,16 @@
 this_file: CHANGELOG.md
 ---
 
+## 2026-11-17 — Issue 258 input packet refresh
+
+CI now reads private packet `inputs-282d9761d557` (docs-inputs `b4d26e1`). It
+takes echopy `7876253` (v1.1.19: summaries for every FL, fontgate and fontlab
+module constant; fontpr limit/offset/count/index parameters typed `int`) and
+current origin/main of fly, fontlabapp, fontport, glyport, grablab, instamix,
+pens, plugmix, remopy and pythonqtside. The TypeRig snapshot is unchanged. The
+FL, fontgate, fontlab, fontpr and echopy MCP tooling reference pages, the search
+index, the API source lock and the workflow pin test follow the new packet.
+
 ## 2026-11-17 — Public download links and release boundaries
 
 Standalone installation links now use the canonical public installer asset.
