@@ -20,6 +20,7 @@ FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
 HEADING = re.compile(r"^ {0,3}(#{1,6})(\s+\S.*)$")
 UNDERLINE = re.compile(r"^ {0,3}(=+|-+)\s*$")
 RULER = re.compile(r"^ {0,3}=+\s*$")
+BLOCK_MARKER = re.compile(r"^ {0,3}([-*+>]|\d+[.)])(\s|$)")
 
 
 def _fence_flags(lines: list[str]) -> list[bool]:
@@ -52,7 +53,7 @@ def _atx_from_setext(lines: list[str]) -> list[str]:
             index += 3
             continue
         starts_block = not out or not out[-1].strip()
-        if free and starts_block and line.strip() and not HEADING.match(line) and (match := UNDERLINE.match(nxt)):
+        if free and starts_block and line.strip() and not HEADING.match(line) and not BLOCK_MARKER.match(line) and (match := UNDERLINE.match(nxt)):
             out.append(("# " if match.group(1)[0] == "=" else "## ") + line.strip())
             index += 2
             continue

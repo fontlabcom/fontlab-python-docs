@@ -41,3 +41,21 @@ def test_normalize_headings_when_heading_indented_then_normalized():
 def test_normalize_headings_when_paragraph_dash_line_continues_then_not_heading():
     text = "one\ntwo\n---\n"
     assert normalize_headings(text) == text
+
+
+def test_normalize_headings_when_list_or_quote_before_rule_then_not_heading():
+    for text in ("- item\n---\n", "> quote\n===\n", "1. step\n---\n"):
+        assert normalize_headings(text) == text
+
+
+def test_normalize_headings_when_only_banner_then_single_h1():
+    assert normalize_headings("====\n  Title\n====") == "# Title"
+
+
+def test_normalize_headings_when_fence_unclosed_then_rest_untouched():
+    assert normalize_headings("## T\n```\n## x\n") == "# T\n```\n## x\n"
+
+
+def test_normalize_headings_when_table_separator_then_unchanged():
+    text = "| a | b |\n|---|---|\n| 1 | 2 |\n"
+    assert normalize_headings(text) == text

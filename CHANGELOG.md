@@ -51,7 +51,7 @@ and live Pages separately. Native installation and connection remain unverified.
 - The R043 keyboard check now targets the first focusable content control after the skip link (a code block copy button on enriched native pages), not only the first link.
 - `fontlab-aidus-agentus` and `fontlab-python-instamix` are public and listed as such in the release audit; the agentus page no longer names the retired private package. The audit disposition now accepts only a green audit; the former plugmix name waiver is gone because plugmix is a documented package.
 - `docs/` is regenerated from the new packet (about 2,200 pages changed, mostly native and PythonQt reference pages).
-- Native docstring headings: `====` banner headings (the 19 `FL` classes), setext `=`/`-` underlines and headings indented up to three spaces are converted and renumbered; a code fence closes only on its own fence kind. A scan of all 9,567 built pages finds no heading-level skip on any native API page. Skips remain on 245 legacy `archive/fontlab7` pages and on 8 TypeRig/Aidus Agentus member pages, which the native normalizer does not touch.
+- Native docstring headings: `====` banner headings (the 19 `FL` classes), setext `=`/`-` underlines and headings indented up to three spaces are converted and renumbered; a code fence closes only on its own fence kind. A scan of the built pages with a content area (9,567) finds no heading-level skip on any native API page. Skips remain on 252 legacy `archive/fontlab7` pages and on 8 TypeRig/Aidus Agentus member pages, which the native normalizer does not touch.
 - Local reproduction of the full CI gate (`scripts/pages-build.sh` against the packet) passed every stage, release audit exit 0.
 
 ## 2026-11-16 — What's new in FontLab 9.1 for Python
