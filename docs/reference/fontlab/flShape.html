@@ -2646,6 +2646,10 @@
   flShape(fgShape)
   flShape(flShapeBuilder)</p>
 <p>Native bases: object</p>
+<p>Captured native MRO: flShape, object</p>
+<p>Native <strong>new</strong> allocation evidence (not an <strong>init</strong> overload):
+(<em>args, </em>*kwargs)
+Create and return a new object.  See help(type) for accurate signature.</p>
 <p>Supplemental documentation:
 An editing shape with a <code>contours</code> collection of flContour objects. <code>getContours()</code> also returns its contours, and <code>contoursCount</code> reports their count. <code>boundingBox</code> is a QRectF attribute. Read the captured boolean attributes <code>isComponent</code> and <code>isComposite</code> to inspect the shape kind.</p>
 <p>Source: FontLab Proteus API documentation</p>
@@ -2691,10 +2695,10 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 </thead>
 <tbody>
 <tr>
-<td><span id="fontlab.flShape.__init__"></span><a href="../PythonQt/BoolResult/members-001.html#PythonQt.BoolResult.__init__"><code>__init__</code></a></td>
+<td><span id="fontlab.flShape.__init__"></span><a href="../FL/Anchor/members-001.html#FL.Anchor.__init__"><code>__init__</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; None</code></td>
-<td>Native constructor; consult class documentation for supported overloads. (shared captured text)</td>
+<td><code>(self, /, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; None</code></td>
+<td>Initialize self. (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.activateBuilder"></span><a href="flShape/members-001.html#fontlab.flShape.activateBuilder"><code>activateBuilder</code></a></td>
@@ -2711,14 +2715,26 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.addContour"></span><a href="flShape/members-001.html#fontlab.flShape.addContour"><code>addContour</code></a></td>
 <td>function</td>
-<td><code>(self, arg0: flContour) -&gt; Any</code></td>
+<td><code>(self, arg0: flContour, check&#95;duplicate: Any=False, validate: Any=True) -&gt; Any</code></td>
 <td>Appends a single contour to this shape.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.addContours"></span><a href="flShape/members-001.html#fontlab.flShape.addContours"><code>addContours</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Adds multiple contours in one call.</td>
+</tr>
+<tr>
+<td><span id="fontlab.flShape.addSmartCorner"></span><a href="flShape/members-001.html#fontlab.flShape.addSmartCorner"><code>addSmartCorner</code></a></td>
+<td>function</td>
+<td><code>(self, node: flNode, radius: float=20, smooth: bool=False) -&gt; bool</code></td>
+<td>Bool addSmartCorner(flNode node, float radius=20, bool smooth=False) - add/update a live smart corner; negative radius creates an ink trap; manages the filter; reacquire source nodes afterwards</td>
+</tr>
+<tr>
+<td><span id="fontlab.flShape.addSmartCorners"></span><a href="flShape/members-001.html#fontlab.flShape.addSmartCorners"><code>addSmartCorners</code></a></td>
+<td>function</td>
+<td><code>(self, radius: float=20, smooth: bool=False) -&gt; int</code></td>
+<td>Int addSmartCorners(float radius=20, bool smooth=False) - add live smart corners at applicable nodes, skip existing corners, return count; manages/reuses the filter</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.allSelectedData"></span><a href="flShape/members-001.html#fontlab.flShape.allSelectedData"><code>allSelectedData</code></a></td>
@@ -2735,7 +2751,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.applyTransform"></span><a href="flShape/members-001.html#fontlab.flShape.applyTransform"><code>applyTransform</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Bakes the current transform (or a given transform) into the actual node coordinates, then resets the shape's transform to identity.</td>
 </tr>
 <tr>
@@ -2783,13 +2799,13 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.checkInitHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.checkInitHistoryState"><code>checkInitHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td><code>(self, history&#95;ix: int) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.clearAboveHistory"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clearAboveHistory"><code>clearAboveHistory</code></a></td>
 <td>function</td>
-<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td><code>(self, history&#95;ix: int) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -2813,13 +2829,13 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.clone"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clone"><code>clone</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Clone the object (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.cloneObject"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.cloneObject"><code>cloneObject</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(&#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -2879,25 +2895,25 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.createInstance"></span><a href="flShape/members-001.html#fontlab.flShape.createInstance"><code>createInstance</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; flShape</code></td>
+<td><code>() -&gt; flShape</code></td>
 <td>Allocates and returns a fresh, empty shape.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.createObject"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.createObject"><code>createObject</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(&#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>FlObject/Nothing createObject(int); (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.currentHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.currentHistoryState"><code>currentHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.cutContour"></span><a href="flShape/members-001.html#fontlab.flShape.cutContour"><code>cutContour</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Cuts this shape using a contour as a knife, returning two lists: contours inside the knife shape and contours outside.</td>
 </tr>
 <tr>
@@ -2929,6 +2945,12 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <td>attribute</td>
 <td><code>Any</code></td>
 <td>When <code>True</code>, this shape is excluded from export.</td>
+</tr>
+<tr>
+<td><span id="fontlab.flShape.expandStroke"></span><a href="flShape/members-001.html#fontlab.flShape.expandStroke"><code>expandStroke</code></a></td>
+<td>function</td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
+<td>Bool expandStroke(&#91;bool outer_only&#93;) - replace the stroke with its filled outline</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.findNode"></span><a href="flShape/members-001.html#fontlab.flShape.findNode"><code>findNode</code></a></td>
@@ -2985,13 +3007,13 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <td>Computes the combined bounding box across all sub-shapes in a composite.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flShape.getContours"></span><a href="flShape/members-001.html#fontlab.flShape.getContours"><code>getContours</code></a></td>
+<td><span id="fontlab.flShape.getContours"></span><a href="flShape/members-002.html#fontlab.flShape.getContours"><code>getContours</code></a></td>
 <td>function</td>
 <td><code>(self) -&gt; Any</code></td>
 <td>Returns every <code>flContour</code> that belongs to this shape as a Python list.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flShape.getNodeAt"></span><a href="flShape/members-001.html#fontlab.flShape.getNodeAt"><code>getNodeAt</code></a></td>
+<td><span id="fontlab.flShape.getNodeAt"></span><a href="flShape/members-002.html#fontlab.flShape.getNodeAt"><code>getNodeAt</code></a></td>
 <td>function</td>
 <td><code>(self, index: int, nodetype: Any) -&gt; Any</code></td>
 <td>FlNode/Nothing getNodeAt(int index, flNode::NodeType nodetype)</td>
@@ -2999,29 +3021,29 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.getProperties"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getProperties"><code>getProperties</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Get object's properties list (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.getProperty"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getProperty"><code>getProperty</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Get object property by 'key' or number (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.getPropertyFloat"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getPropertyFloat"><code>getPropertyFloat</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Get float object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.getPropertyInt"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getPropertyInt"><code>getPropertyInt</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Get int object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flShape.getSelected"></span><a href="flShape/members-001.html#fontlab.flShape.getSelected"><code>getSelected</code></a></td>
+<td><span id="fontlab.flShape.getSelected"></span><a href="flShape/members-002.html#fontlab.flShape.getSelected"><code>getSelected</code></a></td>
 <td>function</td>
 <td><code>(self, SelectionMode: Any) -&gt; Any</code></td>
 <td>Returns the contours (or nodes, depending on <code>SelectionMode</code>) that are currently selected in the UI.</td>
@@ -3035,7 +3057,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.getTransformationPermissions"></span><a href="flShape/members-002.html#fontlab.flShape.getTransformationPermissions"><code>getTransformationPermissions</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Returns a tuple of three booleans indicating whether horizontal movement, vertical movement, and rotation are permitted on this shape.</td>
 </tr>
 <tr>
@@ -3071,7 +3093,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.hasHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.hasHistoryState"><code>hasHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td><code>(self, history&#95;ix: int) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -3083,7 +3105,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.hasImage"></span><a href="flShape/members-002.html#fontlab.flShape.hasImage"><code>hasImage</code></a></td>
 <td>function</td>
-<td><code>(self, bitmap_only: bool) -&gt; bool</code></td>
+<td><code>(self, bitmap&#95;only: bool) -&gt; bool</code></td>
 <td>Returns <code>True</code> if this shape contains image data.</td>
 </tr>
 <tr>
@@ -3125,7 +3147,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.haveObject"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.haveObject"><code>haveObject</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(&#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -3137,7 +3159,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.historyStates"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.historyStates"><code>historyStates</code></a></td>
 <td>function</td>
-<td><code>(self, accepted_state: bool) -&gt; Any</code></td>
+<td><code>(self, accepted&#95;state: bool) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -3167,7 +3189,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.include"></span><a href="flShape/members-002.html#fontlab.flShape.include"><code>include</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Adds one or more shapes as children of this composite shape.</td>
 </tr>
 <tr>
@@ -3191,7 +3213,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.initialHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.initialHistoryState"><code>initialHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -3203,7 +3225,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.instanceType"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.instanceType"><code>instanceType</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(&#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -3263,7 +3285,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.isShape"></span><a href="flShape/members-002.html#fontlab.flShape.isShape"><code>isShape</code></a></td>
 <td>function</td>
-<td><code>(self, arg0: flObject) -&gt; bool</code></td>
+<td><code>(arg0: flObject) -&gt; bool</code></td>
 <td>Tests whether a generic <code>flObject</code> reference is actually an <code>flShape</code>.</td>
 </tr>
 <tr>
@@ -3315,10 +3337,22 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <td>The live-stroke pen: controls brush/color, width, join, miter limit, and basic caps.</td>
 </tr>
 <tr>
+<td><span id="fontlab.flShape.penParameters"></span><a href="flShape/members-002.html#fontlab.flShape.penParameters"><code>penParameters</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>Dict: stroke parameters (thickness, proportion, contrast, rotation, join, miter_limit, remove_overlap, cap0/cap1, cap_*0/1)</td>
+</tr>
+<tr>
 <td><span id="fontlab.flShape.prepareTransformationData"></span><a href="flShape/members-002.html#fontlab.flShape.prepareTransformationData"><code>prepareTransformationData</code></a></td>
 <td>function</td>
 <td><code>(self) -&gt; Any</code></td>
 <td>Caches the current geometry so that interactive transformations (rotate, scale) work smoothly.</td>
+</tr>
+<tr>
+<td><span id="fontlab.flShape.propertyNames"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.propertyNames"><code>propertyNames</code></a></td>
+<td>function</td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
+<td>PropertyNames(): sorted snapshot of dynamic property keys (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.refCnt"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.refCnt"><code>refCnt</code></a></td>
@@ -3335,7 +3369,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.remove"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.remove"><code>remove</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -3363,25 +3397,25 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flShape.removeContour"></span><a href="flShape/members-002.html#fontlab.flShape.removeContour"><code>removeContour</code></a></td>
+<td><span id="fontlab.flShape.removeContour"></span><a href="flShape/members-003.html#fontlab.flShape.removeContour"><code>removeContour</code></a></td>
 <td>function</td>
 <td><code>(self, arg0: flContour) -&gt; Any</code></td>
 <td>Detaches and removes a specific contour from the shape.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flShape.removeContours"></span><a href="flShape/members-002.html#fontlab.flShape.removeContours"><code>removeContours</code></a></td>
+<td><span id="fontlab.flShape.removeContours"></span><a href="flShape/members-003.html#fontlab.flShape.removeContours"><code>removeContours</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Removes several contours at once.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flShape.replaceInclude"></span><a href="flShape/members-002.html#fontlab.flShape.replaceInclude"><code>replaceInclude</code></a></td>
+<td><span id="fontlab.flShape.replaceInclude"></span><a href="flShape/members-003.html#fontlab.flShape.replaceInclude"><code>replaceInclude</code></a></td>
 <td>function</td>
-<td><code>(self, old_shape: flShape, new_shape: flShape) -&gt; Any</code></td>
+<td><code>(self, old&#95;shape: flShape, new&#95;shape: flShape) -&gt; Any</code></td>
 <td>Swaps one child shape for another within the composite list.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flShape.resetInkBox"></span><a href="flShape/members-002.html#fontlab.flShape.resetInkBox"><code>resetInkBox</code></a></td>
+<td><span id="fontlab.flShape.resetInkBox"></span><a href="flShape/members-003.html#fontlab.flShape.resetInkBox"><code>resetInkBox</code></a></td>
 <td>function</td>
 <td><code>(self) -&gt; Any</code></td>
 <td>Invalidates the cached bounding box, forcing it to be recalculated on next access.</td>
@@ -3395,7 +3429,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.restoreHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.restoreHistoryState"><code>restoreHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td><code>(self, history&#95;ix: int) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -3413,37 +3447,37 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.setFlag"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.setFlag"><code>setFlag</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.setIncludes"></span><a href="flShape/members-003.html#fontlab.flShape.setIncludes"><code>setIncludes</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Replaces the entire include list in one operation.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flShape.setProperty"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.setProperty"><code>setProperty</code></a></td>
+<td><span id="fontlab.flShape.setProperty"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setProperty"><code>setProperty</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Set object property by 'key' or number (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.setPropertyFloat"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setPropertyFloat"><code>setPropertyFloat</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Set float object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.setPropertyInt"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setPropertyInt"><code>setPropertyInt</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Set int object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flShape.setReflected"></span><a href="flShape/members-003.html#fontlab.flShape.setReflected"><code>setReflected</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Sets the horizontal and/or vertical reflection state.</td>
 </tr>
 <tr>
@@ -3471,6 +3505,12 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <td>Currently returns <code>False</code> unconditionally in the native implementation.</td>
 </tr>
 <tr>
+<td><span id="fontlab.flShape.smartCornerSource"></span><a href="flShape/members-003.html#fontlab.flShape.smartCornerSource"><code>smartCornerSource</code></a></td>
+<td>function</td>
+<td><code>(self) -&gt; flShape</code></td>
+<td>FlShape smartCornerSource() - editable source of a Smart Corners filter, self for plain outlines, null for unsupported/locked shapes</td>
+</tr>
+<tr>
 <td><span id="fontlab.flShape.sticker"></span><a href="flShape/members-003.html#fontlab.flShape.sticker"><code>sticker</code></a></td>
 <td>attribute</td>
 <td><code>Any</code></td>
@@ -3479,7 +3519,7 @@ An editing shape with a <code>contours</code> collection of flContour objects. <
 <tr>
 <td><span id="fontlab.flShape.tag"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.tag"><code>tag</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>

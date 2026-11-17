@@ -30,6 +30,22 @@ NATIVE_OVERVIEWS = {
         "are PythonQt's own helpers."
     ),
 }
+# Captured child summaries that only repeat the module name get written text.
+NATIVE_SUMMARIES = {
+    "PythonQt": {
+        "Config": "Build configuration flags of the PythonQt binding.",
+        "Debug": "Debugging helpers of the PythonQt binding.",
+        "Qt": "All Qt classes in one namespace, combining QtCore, QtGui and the other modules.",
+        "QtCore": "Core non-GUI classes: strings, byte arrays, points, rectangles, timers, signals and slots, the event loop.",
+        "QtGui": "Widgets, dialogs, layouts, painting (QPainter, QPainterPath), images, colours and fonts.",
+        "QtNetwork": "TCP, UDP and HTTP networking classes.",
+        "QtOpenGL": "OpenGL widget and context classes.",
+        "QtSvg": "SVG rendering and generation (QSvgRenderer, QSvgGenerator, QSvgWidget).",
+        "QtUiTools": "Loading Qt Designer .ui files at runtime (QUiLoader).",
+        "QtXmlPatterns": "XQuery and XPath evaluation over XML.",
+        "private": "Wrappers for FontLab's own Qt-based classes; which ones are registered depends on what the session has used.",
+    },
+}
 
 
 def relative_link(page: str, url: str) -> str:
@@ -178,6 +194,7 @@ def _native_landing(path: str, plan: dict[str, Any], page: dict[str, Any]) -> li
     symbols = plan["symbols"]
     module_doc = symbols[page["id"]].get("docstring")
     listed = module_list_summaries(module_doc)
+    fixed = NATIVE_SUMMARIES.get(page["id"], {})
     lines: list[str] = []
     prose = NATIVE_OVERVIEWS.get(page["id"]) or overview(module_doc)
     if prose:
@@ -196,13 +213,14 @@ def _native_landing(path: str, plan: dict[str, Any], page: dict[str, Any]) -> li
         lines += ["## Modules", "", "| Module | Summary |", "| --- | --- |"]
         for name in page["modules"]:
             row = symbols[name]
-            lines += [f"| [`{row['name']}`]({relative_link(path, row['url'])}) | {cell(summary(row.get('docstring')))} |"]
+            text = fixed.get(row["name"]) or summary(row.get("docstring"))
+            lines += [f"| [`{row['name']}`]({relative_link(path, row['url'])}) | {cell(text)} |"]
         lines += [""]
     if page["classes"]:
         lines += ["## Classes", "", "| Class | Summary |", "| --- | --- |"]
         for name in page["classes"]:
             row = symbols[name]
-            text = summary(row.get("docstring")) or listed.get(row["name"], "")
+            text = fixed.get(row["name"]) or summary(row.get("docstring")) or listed.get(row["name"], "")
             lines += [f"| [`{row['name']}`]({relative_link(path, row['url'])}) | {cell(text)} |"]
         lines += [""]
     if constants:

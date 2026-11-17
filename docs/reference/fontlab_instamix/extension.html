@@ -2388,7 +2388,7 @@ Uninstall removes exactly the recorded paths that are still ours.</p>
 <tr>
 <td><span id="fontlab_instamix.extension.generated_entries"></span><a href="extension/members-001.html#fontlab_instamix.extension.generated_entries"><code>generated_entries</code></a></td>
 <td>function</td>
-<td><code>(data: Path, paths: list[Path]) -&gt; list[dict]</code></td>
+<td><code>(data: Path, paths: list&#91;Path&#93;) -&gt; list&#91;dict&#93;</code></td>
 <td>Ledger entries for files and folders that instamix wrote itself.</td>
 </tr>
 <tr>
@@ -2406,19 +2406,19 @@ Uninstall removes exactly the recorded paths that are still ours.</p>
 <tr>
 <td><span id="fontlab_instamix.extension.install"></span><a href="extension/members-001.html#fontlab_instamix.extension.install"><code>install</code></a></td>
 <td>function</td>
-<td><code>(path: Path, data: Path, *, copy: bool &#124; None=None, run_hooks: bool=False, requirements=None) -&gt; list[dict]</code></td>
+<td><code>(path: Path, data: Path, &#42;, copy: bool &#124; None=None, run&#95;hooks: bool=False, requirements=None) -&gt; list&#91;dict&#93;</code></td>
 <td>Install a <code>&lt;code&gt;.fontlabext&lt;/code&gt;&lt;code&gt; folder or every folder in a &lt;/code&gt;&lt;code&gt;.fontlabextz&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.install_folder"></span><a href="extension/members-001.html#fontlab_instamix.extension.install_folder"><code>install_folder</code></a></td>
 <td>function</td>
-<td><code>(folder: Path, data: Path, *, copy: bool &#124; None=None, requirements=None, editable: bool=False, finish=None, f…</code></td>
+<td><code>(folder: Path, data: Path, &#42;, copy: bool &#124; None=None, requirements=None, editable: bool=False, finish=None, f…</code></td>
 <td>Install one unpacked <code>&lt;code&gt;.fontlabext&lt;/code&gt;</code> folder; return its ledger record.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.installed"></span><a href="extension/members-001.html#fontlab_instamix.extension.installed"><code>installed</code></a></td>
 <td>function</td>
-<td><code>(data: Path) -&gt; list[dict]</code></td>
+<td><code>(data: Path) -&gt; list&#91;dict&#93;</code></td>
 <td></td>
 </tr>
 <tr>
@@ -2436,31 +2436,31 @@ Uninstall removes exactly the recorded paths that are still ours.</p>
 <tr>
 <td><span id="fontlab_instamix.extension.library_path"></span><a href="extension/members-001.html#fontlab_instamix.extension.library_path"><code>library_path</code></a></td>
 <td>function</td>
-<td><code>(data: Path, ext_id: str) -&gt; Path</code></td>
+<td><code>(data: Path, ext&#95;id: str) -&gt; Path</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.plan"></span><a href="extension/members-001.html#fontlab_instamix.extension.plan"><code>plan</code></a></td>
 <td>function</td>
-<td><code>(folder: Path, info: manifest.Manifest, name: str, data: Path) -&gt; list[tuple[Path, Path]]</code></td>
+<td><code>(folder: Path, info: manifest.Manifest, name: str, data: Path) -&gt; list&#91;tuple&#91;Path, Path&#93;&#93;</code></td>
 <td>Return <code>&lt;code&gt;(source, target)&lt;/code&gt;</code> pairs for every file the manifest installs.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.remove_entries"></span><a href="extension/members-001.html#fontlab_instamix.extension.remove_entries"><code>remove_entries</code></a></td>
 <td>function</td>
-<td><code>(data: Path, entries: list[dict]) -&gt; list[str]</code></td>
+<td><code>(data: Path, entries: list&#91;dict&#93;) -&gt; list&#91;str&#93;</code></td>
 <td>Remove recorded paths that are still ours; return the ones left behind.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.restore_entries"></span><a href="extension/members-001.html#fontlab_instamix.extension.restore_entries"><code>restore_entries</code></a></td>
 <td>function</td>
-<td><code>(data: Path, entries: list[dict]) -&gt; None</code></td>
-<td>Re-create entries removed by :func:<code>_remove_tracked</code> (rollback).</td>
+<td><code>(data: Path, entries: list&#91;dict&#93;) -&gt; None</code></td>
+<td>Re-create entries removed by :func:<code>&#95;remove&#95;tracked</code> (rollback).</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.sources"></span><a href="extension/members-001.html#fontlab_instamix.extension.sources"><code>sources</code></a></td>
 <td>function</td>
-<td><code>(folder: Path, pattern: str) -&gt; list[tuple[Path, str]]</code></td>
+<td><code>(folder: Path, pattern: str) -&gt; list&#91;tuple&#91;Path, str&#93;&#93;</code></td>
 <td>Files matched by a <code>&lt;code&gt;from&lt;/code&gt;</code> pattern, with their path below the match root.</td>
 </tr>
 <tr>
@@ -2472,19 +2472,19 @@ Uninstall removes exactly the recorded paths that are still ours.</p>
 <tr>
 <td><span id="fontlab_instamix.extension.uninstall"></span><a href="extension/members-001.html#fontlab_instamix.extension.uninstall"><code>uninstall</code></a></td>
 <td>function</td>
-<td><code>(ext_id: str, data: Path) -&gt; list[str]</code></td>
-<td>Uninstall <code>&lt;code&gt;ext_id&lt;/code&gt;</code>; return paths left in place because they changed.</td>
+<td><code>(ext&#95;id: str, data: Path) -&gt; list&#91;str&#93;</code></td>
+<td>Uninstall <code>&lt;code&gt;ext&amp;#95;id&lt;/code&gt;</code>; return paths left in place because they changed.</td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.uninstall_links"></span><a href="extension/members-001.html#fontlab_instamix.extension.uninstall_links"><code>uninstall_links</code></a></td>
 <td>function</td>
-<td><code>(data: Path, record: dict) -&gt; list[str]</code></td>
+<td><code>(data: Path, record: dict) -&gt; list&#91;str&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlab_instamix.extension.unpack"></span><a href="extension/members-001.html#fontlab_instamix.extension.unpack"><code>unpack</code></a></td>
 <td>function</td>
-<td><code>(zip_path: Path, into: Path) -&gt; list[Path]</code></td>
+<td><code>(zip&#95;path: Path, into: Path) -&gt; list&#91;Path&#93;</code></td>
 <td>Extract a <code>&lt;code&gt;.fontlabextz&lt;/code&gt;&lt;code&gt; into &lt;/code&gt;&lt;code&gt;into&lt;/code&gt;&lt;code&gt;; return its &lt;/code&gt;&lt;code&gt;.fontlabext&lt;/code&gt;</code> folders.</td>
 </tr>
 </tbody>

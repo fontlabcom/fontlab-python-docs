@@ -2449,31 +2449,31 @@ order only, not native Undo/Redo/reopen behaviour.</p>
 <tr>
 <td><span id="fontlabapp.core.history.glyphs.auto_facts"></span><a href="glyphs/members-001.html#fontlabapp.core.history.glyphs.auto_facts"><code>auto_facts</code></a></td>
 <td>function</td>
-<td><code>(records: Iterable[Record]) -&gt; AutoFacts</code></td>
+<td><code>(records: Iterable&#91;Record&#93;) -&gt; AutoFacts</code></td>
 <td>Build <code>&lt;code&gt;AutoFacts&lt;/code&gt;</code> from dependency records, one record per layer.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.core.history.glyphs.commit"></span><a href="glyphs/members-001.html#fontlabapp.core.history.glyphs.commit"><code>commit</code></a></td>
 <td>function</td>
-<td><code>(title: str, layers: Sequence[Any], glyphs: Sequence[Any], mutate: Callable[[], Iterable[Any] &#124; None], *, ope…</code></td>
+<td><code>(title: str, layers: Sequence&#91;Any&#93;, glyphs: Sequence&#91;Any&#93;, mutate: Callable&#91;&#91;&#93;, Iterable&#91;Any&#93; &#124; None&#93;, &#42;, ope…</code></td>
 <td>Run <code>&lt;code&gt;mutate&lt;/code&gt;</code> as ONE native Undo step.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.core.history.glyphs.component_history"></span><a href="glyphs/members-001.html#fontlabapp.core.history.glyphs.component_history"><code>component_history</code></a></td>
 <td>function</td>
-<td><code>(shape: Any) -&gt; tuple[Any, ...]</code></td>
+<td><code>(shape: Any) -&gt; tuple&#91;Any, ...&#93;</code></td>
 <td>Return the native objects to retain when a script removes <code>&lt;code&gt;shape&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.core.history.glyphs.refusal"></span><a href="glyphs/members-001.html#fontlabapp.core.history.glyphs.refusal"><code>refusal</code></a></td>
 <td>function</td>
-<td><code>(facts: AutoFacts, name: str, operation: str, *, allow_bases: bool=False) -&gt; str</code></td>
+<td><code>(facts: AutoFacts, name: str, operation: str, &#42;, allow&#95;bases: bool=False) -&gt; str</code></td>
 <td>Return why <code>&lt;code&gt;operation&lt;/code&gt;&lt;code&gt; must not edit glyph &lt;/code&gt;&lt;code&gt;name&lt;/code&gt;&lt;code&gt;, or &lt;/code&gt;&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.core.history.glyphs.refusals"></span><a href="glyphs/members-001.html#fontlabapp.core.history.glyphs.refusals"><code>refusals</code></a></td>
 <td>function</td>
-<td><code>(facts: AutoFacts, names: Iterable[str], operation: str, *, allow_bases: bool=False) -&gt; dict[str, str]</code></td>
+<td><code>(facts: AutoFacts, names: Iterable&#91;str&#93;, operation: str, &#42;, allow&#95;bases: bool=False) -&gt; dict&#91;str, str&#93;</code></td>
 <td>Return <code>&lt;code&gt;{refused name: reason}&lt;/code&gt;&lt;code&gt; for &lt;/code&gt;&lt;code&gt;names&lt;/code&gt;</code>, in their order.</td>
 </tr>
 <tr>
@@ -2485,7 +2485,7 @@ order only, not native Undo/Redo/reopen behaviour.</p>
 <tr>
 <td><span id="fontlabapp.core.history.glyphs.unstored_error"></span><a href="glyphs/members-001.html#fontlabapp.core.history.glyphs.unstored_error"><code>unstored_error</code></a></td>
 <td>function</td>
-<td><code>(missed: Sequence[str], advice: str=&#x27;&#x27;) -&gt; RuntimeError</code></td>
+<td><code>(missed: Sequence&#91;str&#93;, advice: str=&#x27;&#x27;) -&gt; RuntimeError</code></td>
 <td>Return the error for values that FontLab did not keep after a commit.</td>
 </tr>
 </tbody>

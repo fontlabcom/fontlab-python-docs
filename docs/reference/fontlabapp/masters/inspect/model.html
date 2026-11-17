@@ -2345,31 +2345,31 @@ font/history notification or stored-data write is used by these reports.</p>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.all_names"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.all_names"><code>all_names</code></a></td>
 <td>function</td>
-<td><code>() -&gt; list[str]</code></td>
+<td><code>() -&gt; list&#91;str&#93;</code></td>
 <td>Read font order from the already available FontGate font, never flGlyph.fgGlyph.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.associated_master"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.associated_master"><code>associated_master</code></a></td>
 <td>function</td>
-<td><code>(name: str, masters: Sequence[str]) -&gt; str &#124; None</code></td>
+<td><code>(name: str, masters: Sequence&#91;str&#93;) -&gt; str &#124; None</code></td>
 <td>Return the master that a layer name belongs to, or None.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.backup_layer_name"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.backup_layer_name"><code>backup_layer_name</code></a></td>
 <td>function</td>
-<td><code>(base: str, taken: Iterable[str], suffix: str, masters: Sequence[str]) -&gt; str</code></td>
+<td><code>(base: str, taken: Iterable&#91;str&#93;, suffix: str, masters: Sequence&#91;str&#93;) -&gt; str</code></td>
 <td>Return a unique <code>&lt;code&gt;&amp;lt;base&amp;gt; backup &amp;lt;suffix&amp;gt;&lt;/code&gt;</code> name, or raise ValueError.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.backup_master"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.backup_master"><code>backup_master</code></a></td>
 <td>function</td>
-<td><code>(name: str, masters: Sequence[str]) -&gt; str &#124; None</code></td>
+<td><code>(name: str, masters: Sequence&#91;str&#93;) -&gt; str &#124; None</code></td>
 <td>Return the master of a plain or legacy backup layer, or None.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.check_glyph"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.check_glyph"><code>check_glyph</code></a></td>
 <td>function</td>
-<td><code>(glyph: Any, masters: list[str]) -&gt; tuple[dict[str, Any], bool, list[str]]</code></td>
+<td><code>(glyph: Any, masters: list&#91;str&#93;) -&gt; tuple&#91;dict&#91;str, Any&#93;, bool, list&#91;str&#93;&#93;</code></td>
 <td>({master: signature or None for auto layers}, ok, &#91;differing aspects&#93;).</td>
 </tr>
 <tr>
@@ -2381,37 +2381,37 @@ font/history notification or stored-data write is used by these reports.</p>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.ink_area"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.ink_area"><code>ink_area</code></a></td>
 <td>function</td>
-<td><code>(contours: list[list[tuple[float, float, bool]]]) -&gt; float</code></td>
+<td><code>(contours: list&#91;list&#91;tuple&#91;float, float, bool&#93;&#93;&#93;) -&gt; float</code></td>
 <td>Filled area of contours &#91;(x, y, on)&#93;: + for even nesting depth, - for odd (counters).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.inside"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.inside"><code>inside</code></a></td>
 <td>function</td>
-<td><code>(point: tuple[float, float], poly: list[tuple[float, float]]) -&gt; bool</code></td>
+<td><code>(point: tuple&#91;float, float&#93;, poly: list&#91;tuple&#91;float, float&#93;&#93;) -&gt; bool</code></td>
 <td>Use ray crossings to determine counter nesting independently of winding.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.is_backup_layer"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.is_backup_layer"><code>is_backup_layer</code></a></td>
 <td>function</td>
-<td><code>(name: str, master: str, masters: Sequence[str]) -&gt; bool</code></td>
-<td>Return True if <code>&lt;code&gt;backup_master(name, masters)&lt;/code&gt;&lt;code&gt; is exactly &lt;/code&gt;&lt;code&gt;master&lt;/code&gt;</code>.</td>
+<td><code>(name: str, master: str, masters: Sequence&#91;str&#93;) -&gt; bool</code></td>
+<td>Return True if <code>&lt;code&gt;backup&amp;#95;master(name, masters)&lt;/code&gt;&lt;code&gt; is exactly &lt;/code&gt;&lt;code&gt;master&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.italic_angles"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.italic_angles"><code>italic_angles</code></a></td>
 <td>function</td>
-<td><code>(package: Any, masters: list[str]) -&gt; dict[str, float]</code></td>
+<td><code>(package: Any, masters: list&#91;str&#93;) -&gt; dict&#91;str, float&#93;</code></td>
 <td>{master: italic angle}; switches the current master briefly and always restores it.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.label_tops"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.label_tops"><code>label_tops</code></a></td>
 <td>function</td>
-<td><code>(ys: list[float], height: float) -&gt; list[float]</code></td>
+<td><code>(ys: list&#91;float&#93;, height: float) -&gt; list&#91;float&#93;</code></td>
 <td>Tops of value labels for points sorted top to bottom: above the point, or below it when the label above would collide with the previous one, pushed further down if still crowded.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.layer_contours"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.layer_contours"><code>layer_contours</code></a></td>
 <td>function</td>
-<td><code>(layer: Any) -&gt; list[list[tuple[float, float, bool]]]</code></td>
+<td><code>(layer: Any) -&gt; list&#91;list&#91;tuple&#91;float, float, bool&#93;&#93;&#93;</code></td>
 <td>Own and component contours, components placed by their transforms.</td>
 </tr>
 <tr>
@@ -2423,13 +2423,13 @@ font/history notification or stored-data write is used by these reports.</p>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.master_layers"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.master_layers"><code>master_layers</code></a></td>
 <td>function</td>
-<td><code>(glyph: Any, masters: list[str]) -&gt; dict[str, Any]</code></td>
+<td><code>(glyph: Any, masters: list&#91;str&#93;) -&gt; dict&#91;str, Any&#93;</code></td>
 <td>{master: flLayer} for the masters present in this glyph.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.master_order"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.master_order"><code>master_order</code></a></td>
 <td>function</td>
-<td><code>(package: Any) -&gt; list[str]</code></td>
+<td><code>(package: Any) -&gt; list&#91;str&#93;</code></td>
 <td>Masters sorted by their location on the first axis (font order when there is no axis).</td>
 </tr>
 <tr>
@@ -2441,31 +2441,31 @@ font/history notification or stored-data write is used by these reports.</p>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.nice_ticks"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.nice_ticks"><code>nice_ticks</code></a></td>
 <td>function</td>
-<td><code>(low: float, high: float, count: int=5) -&gt; list[float]</code></td>
+<td><code>(low: float, high: float, count: int=5) -&gt; list&#91;float&#93;</code></td>
 <td>Cover both endpoints with nice ticks, retaining a nonzero constant-range axis.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.node_points"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.node_points"><code>node_points</code></a></td>
 <td>function</td>
-<td><code>(contour: Any) -&gt; list[tuple[float, float, bool]]</code></td>
+<td><code>(contour: Any) -&gt; list&#91;tuple&#91;float, float, bool&#93;&#93;</code></td>
 <td>Read contour coordinates and on/handle flags in original node order.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.overview"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.overview"><code>overview</code></a></td>
 <td>function</td>
-<td><code>(package: Any) -&gt; list[tuple[str, str, float, float, float, float, float]]</code></td>
+<td><code>(package: Any) -&gt; list&#91;tuple&#91;str, str, float, float, float, float, float&#93;&#93;</code></td>
 <td>&#91;(master, location, ascender, cap height, x-height, descender, italic angle)&#93;.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.own_contours"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.own_contours"><code>own_contours</code></a></td>
 <td>function</td>
-<td><code>(layer: Any) -&gt; list[Any]</code></td>
+<td><code>(layer: Any) -&gt; list&#91;Any&#93;</code></td>
 <td>Contours drawn in this layer; layer.getContours() also lists the contours of components.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.polygon"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.polygon"><code>polygon</code></a></td>
 <td>function</td>
-<td><code>(points: list[tuple[float, float, bool]]) -&gt; list[tuple[float, float]]</code></td>
+<td><code>(points: list&#91;tuple&#91;float, float, bool&#93;&#93;) -&gt; list&#91;tuple&#91;float, float&#93;&#93;</code></td>
 <td>Flatten &#91;(x, y, on)&#93; of a closed contour: cubic for two handles, polyline otherwise.</td>
 </tr>
 <tr>
@@ -2477,25 +2477,25 @@ font/history notification or stored-data write is used by these reports.</p>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.signature"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.signature"><code>signature</code></a></td>
 <td>function</td>
-<td><code>(layer: Any) -&gt; tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...]]</code></td>
+<td><code>(layer: Any) -&gt; tuple&#91;tuple&#91;str, ...&#93;, tuple&#91;str, ...&#93;, tuple&#91;str, ...&#93;&#93;</code></td>
 <td>Comparable structure of a layer: contour node patterns, anchor names, component bases.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.spread"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.spread"><code>spread</code></a></td>
 <td>function</td>
-<td><code>(ys: list[float], gap: float) -&gt; list[float]</code></td>
+<td><code>(ys: list&#91;float&#93;, gap: float) -&gt; list&#91;float&#93;</code></td>
 <td>Sorted label positions pushed apart so neighbours are at least gap apart.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.summary"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.summary"><code>summary</code></a></td>
 <td>function</td>
-<td><code>(sig: Any) -&gt; tuple[int, int, int, int]</code></td>
+<td><code>(sig: Any) -&gt; tuple&#91;int, int, int, int&#93;</code></td>
 <td>Return displayed contour, node, anchor and component counts for a signature.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.masters.inspect.model.widths"></span><a href="model/members-001.html#fontlabapp.masters.inspect.model.widths"><code>widths</code></a></td>
 <td>function</td>
-<td><code>(glyph: Any, masters: list[str]) -&gt; list[tuple[str, float &#124; None]]</code></td>
+<td><code>(glyph: Any, masters: list&#91;str&#93;) -&gt; list&#91;tuple&#91;str, float &#124; None&#93;&#93;</code></td>
 <td>&#91;(master, advance width or None)&#93; in the given master order.</td>
 </tr>
 </tbody>

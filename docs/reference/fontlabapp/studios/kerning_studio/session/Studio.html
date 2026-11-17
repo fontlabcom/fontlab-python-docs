@@ -2329,13 +2329,13 @@
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.__init__"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.__init__"><code>__init__</code></a></td>
 <td>function</td>
-<td><code>(self, shell: Any, *, font: Callable[[], Any] &#124; None=None) -&gt; None</code></td>
+<td><code>(self, shell: Any, &#42;, font: Callable&#91;&#91;&#93;, Any&#93; &#124; None=None) -&gt; None</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.apply_steal"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.apply_steal"><code>apply_steal</code></a></td>
 <td>function</td>
-<td><code>(self, glyphs: Sequence[str], height: float) -&gt; bool</code></td>
+<td><code>(self, glyphs: Sequence&#91;str&#93;, height: float) -&gt; bool</code></td>
 <td></td>
 </tr>
 <tr>
@@ -2347,13 +2347,13 @@
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.cmap"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.cmap"><code>cmap</code></a></td>
 <td>function</td>
-<td><code>(self, font: Any) -&gt; dict[int, str]</code></td>
+<td><code>(self, font: Any) -&gt; dict&#91;int, str&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.delete"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.delete"><code>delete</code></a></td>
 <td>function</td>
-<td><code>(self, pairs: Sequence[tuple[str, str]]) -&gt; bool</code></td>
+<td><code>(self, pairs: Sequence&#91;tuple&#91;str, str&#93;&#93;) -&gt; bool</code></td>
 <td>Delete each pair's class record (glyph record if no class) on every master, one Undo step.</td>
 </tr>
 <tr>
@@ -2389,13 +2389,13 @@
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.order"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.order"><code>order</code></a></td>
 <td>function</td>
-<td><code>(self, font: Any) -&gt; list[str]</code></td>
+<td><code>(self, font: Any) -&gt; list&#91;str&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.reload"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.reload"><code>reload</code></a></td>
 <td>function</td>
-<td><code>(self, *, preserve: bool=False) -&gt; bool</code></td>
+<td><code>(self, &#42;, preserve: bool=False) -&gt; bool</code></td>
 <td>Re-read without writes; history refresh retains the chosen master and drafts.</td>
 </tr>
 <tr>
@@ -2407,7 +2407,7 @@
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.set_grid"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.set_grid"><code>set_grid</code></a></td>
 <td>function</td>
-<td><code>(self, left: str, right: str, values: Mapping[str, float &#124; None]) -&gt; bool</code></td>
+<td><code>(self, left: str, right: str, values: Mapping&#91;str, float &#124; None&#93;) -&gt; bool</code></td>
 <td>Pair Editor grid: write each master's cell (None deletes that master's record), one Undo step.</td>
 </tr>
 <tr>
@@ -2419,25 +2419,25 @@
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.set_pairs"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.set_pairs"><code>set_pairs</code></a></td>
 <td>function</td>
-<td><code>(self, action: str, subject: str, values: Sequence[tuple[str, str, float]]) -&gt; bool</code></td>
+<td><code>(self, action: str, subject: str, values: Sequence&#91;tuple&#91;str, str, float&#93;&#93;) -&gt; bool</code></td>
 <td>Set each <code>&lt;code&gt;(left, right, value)&lt;/code&gt;</code> on the selected master: the most specific record, else the class one.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.steal"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.steal"><code>steal</code></a></td>
 <td>function</td>
-<td><code>(self, glyphs: Sequence[str], height: float) -&gt; tuple[int, float, float]</code></td>
+<td><code>(self, glyphs: Sequence&#91;str&#93;, height: float) -&gt; tuple&#91;int, float, float&#93;</code></td>
 <td>Measure the Steal value for pair 1 (glyphs 0-1) from pair 2 (glyphs 2-3) on the selected master.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.value"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.value"><code>value</code></a></td>
 <td>function</td>
-<td><code>(self, master: str, left: str, right: str) -&gt; tuple[float, Pair &#124; None]</code></td>
+<td><code>(self, master: str, left: str, right: str) -&gt; tuple&#91;float, Pair &#124; None&#93;</code></td>
 <td>Effective value of a pair on a natively read master.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.session.Studio.write"></span><a href="Studio/members-001.html#fontlabapp.studios.kerning_studio.session.Studio.write"><code>write</code></a></td>
 <td>function</td>
-<td><code>(self, action: str, subject: str, plan: Callable[[], Edits]) -&gt; bool</code></td>
+<td><code>(self, action: str, subject: str, plan: Callable&#91;&#91;&#93;, Edits&#93;) -&gt; bool</code></td>
 <td>Write <code>&lt;code&gt;plan()&lt;/code&gt;&lt;code&gt; (&lt;/code&gt;&lt;code&gt;{master: {key: value or None}}&lt;/code&gt;</code>) as one Undo step.</td>
 </tr>
 </tbody>

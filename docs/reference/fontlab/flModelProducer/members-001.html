@@ -2256,6 +2256,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab.flModelProducer.getClipboardDataJson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getClipboardDataJson
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab.flModelProducer.getObjectsFromClipboard" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2271,6 +2282,17 @@
     <span class="md-ellipsis">
       
         getObjectsFromData
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab.flModelProducer.getObjectsFromJsonData" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getObjectsFromJsonData
       
     </span>
   </a>
@@ -2361,9 +2383,29 @@
 
     <div class="doc doc-contents first">
 
-        <p>QByteArray getClipboardData(objId package_id, QList<flObject>)</p>
+        <p>QByteArray getClipboardData(objId package_id, double upm, QList<flObject>)</p>
 <p>Serialises the given list of font objects into a binary blob. <code>package_id</code> identifies the source font (use <code>font.id</code>); <code>upm</code> is its units per em (use <code>font.upm</code>). This method only creates an in-memory buffer and does not access the system clipboard. Returns a <code>QByteArray</code> binary blob. Store this blob if you want a snapshot of the shapes at a moment in time, or write it to the clipboard.</p>
 <p>Source: FontLab Proteus API documentation</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab.flModelProducer.getClipboardDataJson" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">getClipboardDataJson</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">getClipboardDataJson</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>QByteArray getClipboardDataJson(objId package_id, double upm, QList<flObject>)</p>
 
 
     </div>
@@ -2383,7 +2425,7 @@
 
     <div class="doc doc-contents first">
 
-        <p>flObjects/Nothing getObjectsFromClipboard()</p>
+        <p>list(flObject)/Nothing getObjectsFromClipboard()</p>
 
 
     </div>
@@ -2403,7 +2445,27 @@
 
     <div class="doc doc-contents first">
 
-        <p>flObjects/Nothing getObjectsFromData(QByteArray *data)</p>
+        <p>list(flObject)/Nothing getObjectsFromData(QByteArray *data)</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab.flModelProducer.getObjectsFromJsonData" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">getObjectsFromJsonData</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">getObjectsFromJsonData</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>list(flObject)/Nothing getObjectsFromJsonData(QByteArray/bytes/bytearray/str data)</p>
 
 
     </div>

@@ -2589,6 +2589,10 @@
   flCanvas(flObject)
   flCanvas(id)</p>
 <p>Native bases: object</p>
+<p>Captured native MRO: flCanvas, object</p>
+<p>Native <strong>new</strong> allocation evidence (not an <strong>init</strong> overload):
+(<em>args, </em>*kwargs)
+Create and return a new object.  See help(type) for accurate signature.</p>
 <p>Supplemental documentation:
 Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deactivateEditor</code>, <code>addTextBlock</code>, <code>clearTextBlocks</code>, <code>clearItems</code>, <code>appendDecorator</code>, <code>clearDecorators</code>, <code>hoveredItem</code>, <code>haveSelectedNodes</code>, <code>invertSelectedNodes</code>, <code>isActiveCanvas</code>, <code>isFocusedCanvas</code>, <code>ensureVisible</code>, <code>hide</code>, <code>currentHistoryState</code> and <code>hasHistoryState</code>. It is created with no captured constructor overloads. It also carries the shared object members <code>changed</code>, <code>clone</code>, <code>cloneObject</code>, <code>getProperty</code>, <code>setProperty</code>, <code>release</code>, <code>remove</code> and <code>update</code> and the shared attributes <code>id</code>, <code>name</code>, <code>type</code>, <code>isValid</code> and <code>isNull</code>.</p>
 <p>Source: FontLab Proteus API documentation</p>
@@ -2640,6 +2644,12 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <td></td>
 </tr>
 <tr>
+<td><span id="fontlab.flCanvas.OverOwner"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.OverOwner"><code>OverOwner</code></a></td>
+<td>attribute</td>
+<td><code>int</code></td>
+<td></td>
+</tr>
+<tr>
 <td><span id="fontlab.flCanvas.SetMetricsAuto"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.SetMetricsAuto"><code>SetMetricsAuto</code></a></td>
 <td>attribute</td>
 <td><code>int</code></td>
@@ -2658,10 +2668,16 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <td></td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.__init__"></span><a href="../PythonQt/BoolResult/members-001.html#PythonQt.BoolResult.__init__"><code>__init__</code></a></td>
+<td><span id="fontlab.flCanvas.UnderOwner"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.UnderOwner"><code>UnderOwner</code></a></td>
+<td>attribute</td>
+<td><code>int</code></td>
+<td></td>
+</tr>
+<tr>
+<td><span id="fontlab.flCanvas.__init__"></span><a href="../FL/Anchor/members-001.html#FL.Anchor.__init__"><code>__init__</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; None</code></td>
-<td>Native constructor; consult class documentation for supported overloads. (shared captured text)</td>
+<td><code>(self, /, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; None</code></td>
+<td>Initialize self. (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas._finalize_smart_angles"></span><a href="flCanvas/members-001.html#fontlab.flCanvas._finalize_smart_angles"><code>_finalize_smart_angles</code></a></td>
@@ -2678,7 +2694,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.activateEditor"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.activateEditor"><code>activateEditor</code></a></td>
 <td>function</td>
-<td><code>(self, canvas_pos: QPointF) -&gt; None</code></td>
+<td><code>(self, canvas&#95;pos: QPointF) -&gt; None</code></td>
 <td></td>
 </tr>
 <tr>
@@ -2724,6 +2740,12 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <td></td>
 </tr>
 <tr>
+<td><span id="fontlab.flCanvas.appendPythonPainter"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.appendPythonPainter"><code>appendPythonPainter</code></a></td>
+<td>function</td>
+<td><code>(self, callback: Any, order: Any=...) -&gt; Any</code></td>
+<td>AppendPythonPainter(callback, order=UnderOwner) -&gt; token. callback(painter, canvas) draws in viewport coordinates; painter is valid only during the callback.</td>
+</tr>
+<tr>
 <td><span id="fontlab.flCanvas.availableRect"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.availableRect"><code>availableRect</code></a></td>
 <td>function</td>
 <td><code>(self) -&gt; QRectF</code></td>
@@ -2732,7 +2754,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.boundingRectOnCanvas"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.boundingRectOnCanvas"><code>boundingRectOnCanvas</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>QRectF boundingRectOnCanvas(</td>
 </tr>
 <tr>
@@ -2750,13 +2772,13 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.checkInitHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.checkInitHistoryState"><code>checkInitHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td><code>(self, history&#95;ix: int) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.clearAboveHistory"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clearAboveHistory"><code>clearAboveHistory</code></a></td>
 <td>function</td>
-<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td><code>(self, history&#95;ix: int) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -2798,13 +2820,13 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.clone"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clone"><code>clone</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Clone the object (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.cloneObject"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.cloneObject"><code>cloneObject</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(&#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -2816,7 +2838,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.contain"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.contain"><code>contain</code></a></td>
 <td>function</td>
-<td><code>(self, canvas_pos: QPointF) -&gt; bool</code></td>
+<td><code>(self, canvas&#95;pos: QPointF) -&gt; bool</code></td>
 <td></td>
 </tr>
 <tr>
@@ -2834,19 +2856,19 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.createInstance"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.createInstance"><code>createInstance</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; flCanvas</code></td>
+<td><code>() -&gt; flCanvas</code></td>
 <td>Creates a new canvas instance.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.createObject"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.createObject"><code>createObject</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(&#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>FlObject/Nothing createObject(int); (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.currentHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.currentHistoryState"><code>currentHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -2870,7 +2892,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.ensureVisible"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.ensureVisible"><code>ensureVisible</code></a></td>
 <td>function</td>
-<td><code>(self, total_cover: Any=...) -&gt; Any</code></td>
+<td><code>(self, total&#95;cover: Any=...) -&gt; Any</code></td>
 <td>Scrolls and/or zooms the canvas to make the given point or rectangle visible.</td>
 </tr>
 <tr>
@@ -2894,25 +2916,25 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.getProperties"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getProperties"><code>getProperties</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Get object's properties list (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.getProperty"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getProperty"><code>getProperty</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Get object property by 'key' or number (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.getPropertyFloat"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getPropertyFloat"><code>getPropertyFloat</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Get float object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.getPropertyInt"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getPropertyInt"><code>getPropertyInt</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Get int object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
@@ -2930,7 +2952,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.hasHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.hasHistoryState"><code>hasHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td><code>(self, history&#95;ix: int) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -2948,7 +2970,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.haveEditor"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.haveEditor"><code>haveEditor</code></a></td>
 <td>function</td>
-<td><code>(self, canvas_pos: QPointF) -&gt; bool</code></td>
+<td><code>(self, canvas&#95;pos: QPointF) -&gt; bool</code></td>
 <td></td>
 </tr>
 <tr>
@@ -2960,7 +2982,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.haveObject"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.haveObject"><code>haveObject</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(&#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -2976,7 +2998,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <td></td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.highlight"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.highlight"><code>highlight</code></a></td>
+<td><span id="fontlab.flCanvas.highlight"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.highlight"><code>highlight</code></a></td>
 <td>function</td>
 <td><code>(self, arg0: QRectF) -&gt; Any</code></td>
 <td>Highlights a rectangular region of the canvas with a visual indicator — useful for drawing attention to a specific area.</td>
@@ -2984,17 +3006,17 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.historyStates"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.historyStates"><code>historyStates</code></a></td>
 <td>function</td>
-<td><code>(self, accepted_state: bool) -&gt; Any</code></td>
+<td><code>(self, accepted&#95;state: bool) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.hovered"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.hovered"><code>hovered</code></a></td>
+<td><span id="fontlab.flCanvas.hovered"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.hovered"><code>hovered</code></a></td>
 <td>attribute</td>
 <td><code>Any</code></td>
 <td></td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.hoveredItem"></span><a href="flCanvas/members-001.html#fontlab.flCanvas.hoveredItem"><code>hoveredItem</code></a></td>
+<td><span id="fontlab.flCanvas.hoveredItem"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.hoveredItem"><code>hoveredItem</code></a></td>
 <td>function</td>
 <td><code>(self) -&gt; flVisualItem</code></td>
 <td>Returns the visual item the cursor is currently hovering over.</td>
@@ -3014,25 +3036,25 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.initialHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.initialHistoryState"><code>initialHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.instanceAcceptEvents"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.instanceAcceptEvents"><code>instanceAcceptEvents</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; int</code></td>
+<td><code>() -&gt; int</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.instanceType"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.instanceType"><code>instanceType</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; int</code></td>
+<td><code>() -&gt; int</code></td>
 <td>Returns the canvas type code.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.invertSelectedNodes"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.invertSelectedNodes"><code>invertSelectedNodes</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Inverts the selection state for the given nodes (selected becomes unselected, and vice versa).</td>
 </tr>
 <tr>
@@ -3218,7 +3240,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.operationAlign"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.operationAlign"><code>operationAlign</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Aligns selected items (left, right, top, bottom, center).</td>
 </tr>
 <tr>
@@ -3230,13 +3252,13 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.operationBreak"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.operationBreak"><code>operationBreak</code></a></td>
 <td>function</td>
-<td><code>(self, notify: bool, alone_selected: bool) -&gt; bool</code></td>
+<td><code>(self, notify: bool, alone&#95;selected: bool) -&gt; bool</code></td>
 <td>Breaks open the selected contour(s) at the selected nodes — useful for creating open paths.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.operationCopyToMask"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.operationCopyToMask"><code>operationCopyToMask</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Copies the current selection to the mask layer.</td>
 </tr>
 <tr>
@@ -3282,19 +3304,19 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <td>Joins open contour endpoints together.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.operationNoServant"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.operationNoServant"><code>operationNoServant</code></a></td>
+<td><span id="fontlab.flCanvas.operationNoServant"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.operationNoServant"><code>operationNoServant</code></a></td>
 <td>function</td>
 <td><code>(self) -&gt; Any</code></td>
 <td>Removes servant (symmetry) constraints from selected nodes.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.operationPrepare"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.operationPrepare"><code>operationPrepare</code></a></td>
+<td><span id="fontlab.flCanvas.operationPrepare"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.operationPrepare"><code>operationPrepare</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(flModelProducer, QList&lt;flNodeInfo&gt; selection, flShapeInfo, flGlyphInfo)/Nothing operationPrepare(bool allow_all_contours, bool allow_all_nodes = false)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.operationReverseContours"></span><a href="flCanvas/members-002.html#fontlab.flCanvas.operationReverseContours"><code>operationReverseContours</code></a></td>
+<td><span id="fontlab.flCanvas.operationReverseContours"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.operationReverseContours"><code>operationReverseContours</code></a></td>
 <td>function</td>
 <td><code>(self) -&gt; Any</code></td>
 <td>Reverses the direction of selected contours (clockwise becomes counter-clockwise).</td>
@@ -3380,7 +3402,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.paint"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.paint"><code>paint</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td></td>
 </tr>
 <tr>
@@ -3392,13 +3414,13 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.placeAICB"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.placeAICB"><code>placeAICB</code></a></td>
 <td>function</td>
-<td><code>(self, position: QPointF, mime_data: Any) -&gt; bool</code></td>
+<td><code>(self, position: QPointF, mime&#95;data: Any) -&gt; bool</code></td>
 <td>Places artwork from an Adobe Illustrator clipboard file or MIME data at the given canvas position.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.placeArtwork"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.placeArtwork"><code>placeArtwork</code></a></td>
 <td>function</td>
-<td><code>(self, position: QPointF, urls_list: list[QUrl]) -&gt; bool</code></td>
+<td><code>(self, position: QPointF, urls&#95;list: list&#91;QUrl&#93;) -&gt; bool</code></td>
 <td>Places artwork from a list of file URLs at the given canvas position.</td>
 </tr>
 <tr>
@@ -3418,6 +3440,12 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <td>function</td>
 <td><code>(self) -&gt; flObject</code></td>
 <td>Returns the model producer controlling what this canvas displays.</td>
+</tr>
+<tr>
+<td><span id="fontlab.flCanvas.propertyNames"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.propertyNames"><code>propertyNames</code></a></td>
+<td>function</td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
+<td>PropertyNames(): sorted snapshot of dynamic property keys (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.rectToUpdate"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.rectToUpdate"><code>rectToUpdate</code></a></td>
@@ -3476,7 +3504,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.remove"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.remove"><code>remove</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -3502,6 +3530,12 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <td>function</td>
 <td><code>(self, arg0: flVisualItem) -&gt; Any</code></td>
 <td>Removes a visual item from the canvas.</td>
+</tr>
+<tr>
+<td><span id="fontlab.flCanvas.removePythonPainter"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.removePythonPainter"><code>removePythonPainter</code></a></td>
+<td>function</td>
+<td><code>(self, token: Any) -&gt; bool</code></td>
+<td></td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.removeTextBlock"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.removeTextBlock"><code>removeTextBlock</code></a></td>
@@ -3530,7 +3564,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.restoreHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.restoreHistoryState"><code>restoreHistoryState</code></a></td>
 <td>function</td>
-<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td><code>(self, history&#95;ix: int) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -3546,25 +3580,25 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <td>Scales a canvas-space value by the current zoom factor.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.select"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.select"><code>select</code></a></td>
+<td><span id="fontlab.flCanvas.select"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.select"><code>select</code></a></td>
 <td>function</td>
 <td><code>(self) -&gt; Any</code></td>
 <td></td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.selectNode"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.selectNode"><code>selectNode</code></a></td>
+<td><span id="fontlab.flCanvas.selectNode"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.selectNode"><code>selectNode</code></a></td>
 <td>function</td>
 <td><code>(self, arg0: flNodeInfo) -&gt; Any</code></td>
 <td>Adds a single node to the current selection.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.selectNodes"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.selectNodes"><code>selectNodes</code></a></td>
+<td><span id="fontlab.flCanvas.selectNodes"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.selectNodes"><code>selectNodes</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Selects a set of nodes, adding them to the current selection.</td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.selected"></span><a href="flCanvas/members-003.html#fontlab.flCanvas.selected"><code>selected</code></a></td>
+<td><span id="fontlab.flCanvas.selected"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.selected"><code>selected</code></a></td>
 <td>attribute</td>
 <td><code>Any</code></td>
 <td></td>
@@ -3572,13 +3606,13 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.selectedNodes"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.selectedNodes"><code>selectedNodes</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; list[flNodeInfo]</code></td>
+<td><code>(self) -&gt; list&#91;flNodeInfo&#93;</code></td>
 <td>Returns info for all selected nodes as <code>flNodeInfo</code> objects.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.selection"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.selection"><code>selection</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; list[flVisualItem]</code></td>
+<td><code>(self) -&gt; list&#91;flVisualItem&#93;</code></td>
 <td>Returns all currently selected visual items (shapes, nodes, etc.).</td>
 </tr>
 <tr>
@@ -3596,31 +3630,31 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.setFlag"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.setFlag"><code>setFlag</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flCanvas.setProperty"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.setProperty"><code>setProperty</code></a></td>
+<td><span id="fontlab.flCanvas.setProperty"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setProperty"><code>setProperty</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Set object property by 'key' or number (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.setPropertyFloat"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setPropertyFloat"><code>setPropertyFloat</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Set float object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.setPropertyInt"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setPropertyInt"><code>setPropertyInt</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Set int object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.setSelectedNodes"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.setSelectedNodes"><code>setSelectedNodes</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Replaces the current node selection entirely.</td>
 </tr>
 <tr>
@@ -3632,19 +3666,19 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.slantTransform"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.slantTransform"><code>slantTransform</code></a></td>
 <td>function</td>
-<td><code>(self, glyph_info: flGlyphInfo) -&gt; QTransform</code></td>
+<td><code>(self, glyph&#95;info: flGlyphInfo) -&gt; QTransform</code></td>
 <td>Returns the italic slant transform for the given glyph at the current view settings.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.tag"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.tag"><code>tag</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flCanvas.textBlocks"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.textBlocks"><code>textBlocks</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; list[flTextBlock]</code></td>
+<td><code>(self) -&gt; list&#91;flTextBlock&#93;</code></td>
 <td>Returns all text block items currently on this canvas.</td>
 </tr>
 <tr>
@@ -3770,7 +3804,7 @@ Canvas. The captured declaration exposes <code>activateEditor</code>, <code>deac
 <tr>
 <td><span id="fontlab.flCanvas.zoomTo"></span><a href="flCanvas/members-004.html#fontlab.flCanvas.zoomTo"><code>zoomTo</code></a></td>
 <td>function</td>
-<td><code>(self, canvas_rect: QRectF) -&gt; Any</code></td>
+<td><code>(self, canvas&#95;rect: QRectF) -&gt; Any</code></td>
 <td>Zooms to a specific point at a specific scale, or zooms to fit a given rectangle.</td>
 </tr>
 <tr>

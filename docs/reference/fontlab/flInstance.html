@@ -2612,6 +2612,10 @@
   flInstance()
   flInstance(string name, string tsn, flLocation location)</p>
 <p>Native bases: object</p>
+<p>Captured native MRO: flInstance, object</p>
+<p>Native <strong>new</strong> allocation evidence (not an <strong>init</strong> overload):
+(<em>args, </em>*kwargs)
+Create and return a new object.  See help(type) for accurate signature.</p>
 <p>Supplemental documentation:
 A font instance with the string attributes <code>name</code>, <code>sgn</code>, <code>tsn</code>, <code>weight</code> and <code>width</code>, the bool attributes <code>bold</code>, <code>exportable</code> and <code>italic</code>, the numeric attributes <code>slv</code> (int) and <code>weightValue</code> (double), and a <code>location</code> attribute. The captured declaration exposes <code>autoSGN</code>, <code>autoSLV</code>, <code>autoTSN</code> and <code>setSLV</code>. It is created as <code>flInstance()</code> or as <code>flInstance(name, tsn, location)</code>.</p>
 <p>Source: FontLab Proteus API documentation</p>
@@ -2657,15 +2661,15 @@ A font instance with the string attributes <code>name</code>, <code>sgn</code>, 
 </thead>
 <tbody>
 <tr>
-<td><span id="fontlab.flInstance.__init__"></span><a href="../PythonQt/BoolResult/members-001.html#PythonQt.BoolResult.__init__"><code>__init__</code></a></td>
+<td><span id="fontlab.flInstance.__init__"></span><a href="../FL/Anchor/members-001.html#FL.Anchor.__init__"><code>__init__</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; None</code></td>
-<td>Native constructor; consult class documentation for supported overloads. (shared captured text)</td>
+<td><code>(self, /, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; None</code></td>
+<td>Initialize self. (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flInstance.autoSGN"></span><a href="flInstance/members-001.html#fontlab.flInstance.autoSGN"><code>autoSGN</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Auto-generates the Style Group Name from the typographic family name <code>tfn</code>.</td>
 </tr>
 <tr>
@@ -2727,6 +2731,12 @@ A font instance with the string attributes <code>name</code>, <code>sgn</code>, 
 <td>attribute</td>
 <td><code>Any</code></td>
 <td>The OS/2 style-linking value as a raw integer.</td>
+</tr>
+<tr>
+<td><span id="fontlab.flInstance.tfn"></span><a href="flInstance/members-001.html#fontlab.flInstance.tfn"><code>tfn</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>String: family override; empty inherits the source family</td>
 </tr>
 <tr>
 <td><span id="fontlab.flInstance.tsn"></span><a href="flInstance/members-001.html#fontlab.flInstance.tsn"><code>tsn</code></a></td>

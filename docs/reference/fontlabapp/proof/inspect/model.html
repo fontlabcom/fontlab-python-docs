@@ -2356,37 +2356,37 @@
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.character_map"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.character_map"><code>character_map</code></a></td>
 <td>function</td>
-<td><code>() -&gt; dict[int, str]</code></td>
+<td><code>() -&gt; dict&#91;int, str&#93;</code></td>
 <td>Read the current font's first-name-wins Unicode map.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.find_words"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.find_words"><code>find_words</code></a></td>
 <td>function</td>
-<td><code>(words: list[str], available: set[str], case: str=&#x27;lowercase&#x27;, must: str=&#x27;&#x27;, only: str=&#x27;&#x27;, min_len: int=3, ma…</code></td>
+<td><code>(words: list&#91;str&#93;, available: set&#91;str&#93;, case: str=&#x27;lowercase&#x27;, must: str=&#x27;&#x27;, only: str=&#x27;&#x27;, min&#95;len: int=3, ma…</code></td>
 <td>Words (in the chosen case) that the font can set and that satisfy the letter filters.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.font_chars"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.font_chars"><code>font_chars</code></a></td>
 <td>function</td>
-<td><code>() -&gt; set[str]</code></td>
+<td><code>() -&gt; set&#91;str&#93;</code></td>
 <td>Read exactly the characters encoded by the current font.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.font_maps"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.font_maps"><code>font_maps</code></a></td>
 <td>function</td>
-<td><code>() -&gt; tuple[dict[int, str], set[str]]</code></td>
+<td><code>() -&gt; tuple&#91;dict&#91;int, str&#93;, set&#91;str&#93;&#93;</code></td>
 <td>Read first-encoded-name wins and all unencoded names in font order.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.glyph_run"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.glyph_run"><code>glyph_run</code></a></td>
 <td>function</td>
-<td><code>(package: Any, glyph_names: list[str &#124; None], master: str) -&gt; list[tuple[Any, float]]</code></td>
+<td><code>(package: Any, glyph&#95;names: list&#91;str &#124; None&#93;, master: str) -&gt; list&#91;tuple&#91;Any, float&#93;&#93;</code></td>
 <td>&#91;(path or None, advance)&#93; in font units for one master; None marks a missing glyph.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.grid_scale"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.grid_scale"><code>grid_scale</code></a></td>
 <td>function</td>
-<td><code>(cells: list, frame: tuple[float, float], cell: float) -&gt; float</code></td>
+<td><code>(cells: list, frame: tuple&#91;float, float&#93;, cell: float) -&gt; float</code></td>
 <td>Use one scale for every master and fit even wide composites/overhangs.</td>
 </tr>
 <tr>
@@ -2398,31 +2398,31 @@
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.metrics"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.metrics"><code>metrics</code></a></td>
 <td>function</td>
-<td><code>(package: Any) -&gt; tuple[float, float]</code></td>
+<td><code>(package: Any) -&gt; tuple&#91;float, float&#93;</code></td>
 <td>(descender, ascender) of the font; widened to the drawn outlines so accents fit.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.parse_sizes"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.parse_sizes"><code>parse_sizes</code></a></td>
 <td>function</td>
-<td><code>(text: str) -&gt; list[float]</code></td>
+<td><code>(text: str) -&gt; list&#91;float&#93;</code></td>
 <td>Keep ordered pixel sizes between 4 and 400, ignoring invalid tokens.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.parse_text"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.parse_text"><code>parse_text</code></a></td>
 <td>function</td>
-<td><code>(text: str, cmap: dict[int, str], names: set[str]) -&gt; list[str &#124; None]</code></td>
+<td><code>(text: str, cmap: dict&#91;int, str&#93;, names: set&#91;str&#93;) -&gt; list&#91;str &#124; None&#93;</code></td>
 <td>&#91;glyph name or None&#93; for the text; '/name ' or '/name/' addresses glyphs by name.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.path_span"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.path_span"><code>path_span</code></a></td>
 <td>function</td>
-<td><code>(path: Any, advance: float) -&gt; tuple[float, float]</code></td>
+<td><code>(path: Any, advance: float) -&gt; tuple&#91;float, float&#93;</code></td>
 <td>Include full overhangs and the advance box in horizontal fitting.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.proof.inspect.model.selected_glyphs"></span><a href="model/members-001.html#fontlabapp.proof.inspect.model.selected_glyphs"><code>selected_glyphs</code></a></td>
 <td>function</td>
-<td><code>(package: Any) -&gt; list[Any]</code></td>
+<td><code>(package: Any) -&gt; list&#91;Any&#93;</code></td>
 <td>Read selection in font order with current-glyph fallback; never change it.</td>
 </tr>
 </tbody>

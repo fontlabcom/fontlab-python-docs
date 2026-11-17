@@ -2406,31 +2406,31 @@ Align &amp; Nudge (<code>fontlabapp.studios.align_nudge</code>).</p>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.anchor_steps"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.anchor_steps"><code>anchor_steps</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, matrix: Affine) -&gt; tuple[list[tuple], str]</code></td>
+<td><code>(layer: Layer, matrix: Affine) -&gt; tuple&#91;list&#91;tuple&#93;, str&#93;</code></td>
 <td>Anchor moves under <code>&lt;code&gt;matrix&lt;/code&gt;</code> and the fl#8527 problem text (or "").</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.apply"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.apply"><code>apply</code></a></td>
 <td>function</td>
-<td><code>(m: Affine, x: float, y: float) -&gt; tuple[float, float]</code></td>
+<td><code>(m: Affine, x: float, y: float) -&gt; tuple&#91;float, float&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.concat"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.concat"><code>concat</code></a></td>
 <td>function</td>
 <td><code>(first: Affine, then: Affine) -&gt; Affine</code></td>
-<td><code>&lt;code&gt;first&lt;/code&gt;&lt;code&gt; followed by &lt;/code&gt;&lt;code&gt;then&lt;/code&gt;&lt;code&gt; (Qt &lt;/code&gt;&lt;code&gt;first * then&lt;/code&gt;</code>).</td>
+<td><code>&lt;code&gt;first&lt;/code&gt;&lt;code&gt; followed by &lt;/code&gt;&lt;code&gt;then&lt;/code&gt;&lt;code&gt; (Qt &lt;/code&gt;&lt;code&gt;first &amp;#42; then&lt;/code&gt;</code>).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.corners"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.corners"><code>corners</code></a></td>
 <td>function</td>
-<td><code>(shape: Shape) -&gt; list[tuple[float, float]]</code></td>
+<td><code>(shape: Shape) -&gt; list&#91;tuple&#91;float, float&#93;&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.finite"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.finite"><code>finite</code></a></td>
 <td>function</td>
-<td><code>(*values: float) -&gt; bool</code></td>
+<td><code>(&#42;values: float) -&gt; bool</code></td>
 <td></td>
 </tr>
 <tr>
@@ -2442,13 +2442,13 @@ Align &amp; Nudge (<code>fontlabapp.studios.align_nudge</code>).</p>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.glyph_points"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.glyph_points"><code>glyph_points</code></a></td>
 <td>function</td>
-<td><code>(shape: Shape) -&gt; list[tuple[float, float]]</code></td>
+<td><code>(shape: Shape) -&gt; list&#91;tuple&#91;float, float&#93;&#93;</code></td>
 <td>Every node of <code>&lt;code&gt;shape&lt;/code&gt;</code> in glyph space.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.ink_box"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.ink_box"><code>ink_box</code></a></td>
 <td>function</td>
-<td><code>(contours: Iterable[Sequence[tuple[float, float, bool]]]) -&gt; tuple[float, float, float, float] &#124; None</code></td>
+<td><code>(contours: Iterable&#91;Sequence&#91;tuple&#91;float, float, bool&#93;&#93;&#93;) -&gt; tuple&#91;float, float, float, float&#93; &#124; None</code></td>
 <td>Exact <code>&lt;code&gt;(x, y, w, h)&lt;/code&gt;&lt;code&gt; of cubic/quadratic contours given as &lt;/code&gt;&lt;code&gt;(x, y, on)&lt;/code&gt;</code> lists in glyph space.</td>
 </tr>
 <tr>
@@ -2472,7 +2472,7 @@ Align &amp; Nudge (<code>fontlabapp.studios.align_nudge</code>).</p>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.layer_ink"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.layer_ink"><code>layer_ink</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, extra: Affine=IDENTITY) -&gt; tuple[float, float, float, float] &#124; None</code></td>
+<td><code>(layer: Layer, extra: Affine=IDENTITY) -&gt; tuple&#91;float, float, float, float&#93; &#124; None</code></td>
 <td>Ink box of the layer's own outlines after <code>&lt;code&gt;extra&lt;/code&gt;</code> (components excluded).</td>
 </tr>
 <tr>
@@ -2490,19 +2490,19 @@ Align &amp; Nudge (<code>fontlabapp.studios.align_nudge</code>).</p>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.simulate"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.simulate"><code>simulate</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, steps: Iterable[tuple]) -&gt; Layer</code></td>
+<td><code>(layer: Layer, steps: Iterable&#91;tuple&#93;) -&gt; Layer</code></td>
 <td>The snapshot <code>&lt;code&gt;layer&lt;/code&gt;&lt;code&gt; after &lt;/code&gt;&lt;code&gt;steps&lt;/code&gt;</code> (baked shapes get an identity transform).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.subject"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.subject"><code>subject</code></a></td>
 <td>function</td>
-<td><code>(names: Sequence[str]) -&gt; str</code></td>
+<td><code>(names: Sequence&#91;str&#93;) -&gt; str</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.transform_changes"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.transform_changes"><code>transform_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, matrix: Affine, anchors: bool, note: str, *, bake_only: bool=False) -&gt; list[Change]</code></td>
+<td><code>(layer: Layer, matrix: Affine, anchors: bool, note: str, &#42;, bake&#95;only: bool=False) -&gt; list&#91;Change&#93;</code></td>
 <td>Rows for <code>&lt;code&gt;matrix&lt;/code&gt;&lt;code&gt; applied to every shape (and optionally anchors) of &lt;/code&gt;&lt;code&gt;layer&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
@@ -2514,7 +2514,7 @@ Align &amp; Nudge (<code>fontlabapp.studios.align_nudge</code>).</p>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.geometry.verify"></span><a href="geometry/members-001.html#fontlabapp.studios.transform_studio.geometry.verify"><code>verify</code></a></td>
 <td>function</td>
-<td><code>(label: str, expected: Layer, actual: Layer, steps: Sequence[tuple]) -&gt; list[str]</code></td>
+<td><code>(label: str, expected: Layer, actual: Layer, steps: Sequence&#91;tuple&#93;) -&gt; list&#91;str&#93;</code></td>
 <td>Read-back problems: nodes and anchors beyond 0.5 unit, transforms beyond 1e-6, wrong counts.</td>
 </tr>
 </tbody>

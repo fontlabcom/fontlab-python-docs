@@ -2343,68 +2343,68 @@ font until <code>paste</code>.</p>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.add_suffix"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.add_suffix"><code>add_suffix</code></a></td>
 <td>function</td>
-<td><code>(obj: Objects, suffix: str, *, drop_unicodes: bool=True) -&gt; Objects</code></td>
+<td><code>(obj: Objects, suffix: str, &#42;, drop&#95;unicodes: bool=True) -&gt; Objects</code></td>
 <td>Append <code>&lt;code&gt;suffix&lt;/code&gt;&lt;code&gt; to every glyph name and return &lt;/code&gt;&lt;code&gt;obj&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.anchors"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.anchors"><code>anchors</code></a></td>
 <td>function</td>
-<td><code>(obj: Any) -&gt; Iterator[_Data]</code></td>
+<td><code>(obj: Any) -&gt; Iterator&#91;&#95;Data&#93;</code></td>
 <td>Yield the anchor boxes of all layers.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.contours"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.contours"><code>contours</code></a></td>
 <td>function</td>
-<td><code>(obj: Any) -&gt; Iterator[_Data]</code></td>
+<td><code>(obj: Any) -&gt; Iterator&#91;&#95;Data&#93;</code></td>
 <td>Yield the contour boxes (coordinates before element transforms).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.edit_nodes"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.edit_nodes"><code>edit_nodes</code></a></td>
 <td>function</td>
-<td><code>(obj: Any, fn: Callable[[Node], Node &#124; None]) -&gt; Any</code></td>
+<td><code>(obj: Any, fn: Callable&#91;&#91;Node&#93;, Node &#124; None&#93;) -&gt; Any</code></td>
 <td>Replace each node by <code>&lt;code&gt;fn(node)&lt;/code&gt;&lt;code&gt; (&lt;/code&gt;&lt;code&gt;None&lt;/code&gt;&lt;code&gt; keeps it); return &lt;/code&gt;&lt;code&gt;obj&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.elements"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.elements"><code>elements</code></a></td>
 <td>function</td>
-<td><code>(obj: Any) -&gt; Iterator[_Data]</code></td>
+<td><code>(obj: Any) -&gt; Iterator&#91;&#95;Data&#93;</code></td>
 <td>Yield the element boxes, nested <code>&lt;code&gt;elementData.elements&lt;/code&gt;</code> included.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.layers"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.layers"><code>layers</code></a></td>
 <td>function</td>
-<td><code>(obj: Any) -&gt; Iterator[_Data]</code></td>
+<td><code>(obj: Any) -&gt; Iterator&#91;&#95;Data&#93;</code></td>
 <td>Yield the layer boxes of all glyph items and layer items.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.move"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.move"><code>move</code></a></td>
 <td>function</td>
-<td><code>(obj: Any, dx: Number, dy: Number, *, anchors: bool=True) -&gt; Any</code></td>
+<td><code>(obj: Any, dx: Number, dy: Number, &#42;, anchors: bool=True) -&gt; Any</code></td>
 <td>Move outlines, components, anchors, guidelines and hints by <code>&lt;code&gt;(dx, dy)&lt;/code&gt;&lt;code&gt;; return &lt;/code&gt;&lt;code&gt;obj&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.paste"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.paste"><code>paste</code></a></td>
 <td>function</td>
-<td><code>(objs: Objects, font: Any=None, <em>, on_conflict: str=&#x27;rename&#x27;, </em>*kw: Any) -&gt; json_data.Pasted</code></td>
+<td><code>(objs: Objects, font: Any=None, &#42;, on&#95;conflict: str=&#x27;rename&#x27;, &#42;&#42;kw: Any) -&gt; json&#95;data.Pasted</code></td>
 <td>Paste <code>&lt;code&gt;objs&lt;/code&gt;&lt;code&gt; into &lt;/code&gt;&lt;code&gt;font&lt;/code&gt;</code> (default: the current font), with Undo.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.rename"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.rename"><code>rename</code></a></td>
 <td>function</td>
-<td><code>(obj: Objects, rename: Mapping[str, str] &#124; Callable[[str], str]) -&gt; Objects</code></td>
+<td><code>(obj: Objects, rename: Mapping&#91;str, str&#93; &#124; Callable&#91;&#91;str&#93;, str&#93;) -&gt; Objects</code></td>
 <td>Rename glyph items from a mapping (missing names stay) or a function; return <code>&lt;code&gt;obj&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.scale"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.scale"><code>scale</code></a></td>
 <td>function</td>
-<td><code>(obj: Any, sx: Number, sy: Number &#124; None=None, *, origin: tuple[Number, Number]=(0, 0), anchors: bool=True, w…</code></td>
+<td><code>(obj: Any, sx: Number, sy: Number &#124; None=None, &#42;, origin: tuple&#91;Number, Number&#93;=(0, 0), anchors: bool=True, w…</code></td>
 <td>Scale by <code>&lt;code&gt;sx&lt;/code&gt;&lt;code&gt; (and &lt;/code&gt;&lt;code&gt;sy&lt;/code&gt;&lt;code&gt;, default &lt;/code&gt;&lt;code&gt;sx&lt;/code&gt;&lt;code&gt;) around &lt;/code&gt;&lt;code&gt;origin&lt;/code&gt;&lt;code&gt;; &lt;/code&gt;&lt;code&gt;widths&lt;/code&gt;&lt;code&gt; scales &lt;/code&gt;&lt;code&gt;advanceWidth&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.vfjo._edit.set_width"></span><a href="_edit/members-001.html#fontlabapp.vfjo._edit.set_width"><code>set_width</code></a></td>
 <td>function</td>
-<td><code>(obj: Any, width: Number &#124; Callable[[Number], Number]) -&gt; Any</code></td>
-<td>Set every layer's <code>&lt;code&gt;advanceWidth&lt;/code&gt;&lt;code&gt; to a number or &lt;/code&gt;&lt;code&gt;width(old_width)&lt;/code&gt;&lt;code&gt;; return &lt;/code&gt;&lt;code&gt;obj&lt;/code&gt;</code>.</td>
+<td><code>(obj: Any, width: Number &#124; Callable&#91;&#91;Number&#93;, Number&#93;) -&gt; Any</code></td>
+<td>Set every layer's <code>&lt;code&gt;advanceWidth&lt;/code&gt;&lt;code&gt; to a number or &lt;/code&gt;&lt;code&gt;width(old&amp;#95;width)&lt;/code&gt;&lt;code&gt;; return &lt;/code&gt;&lt;code&gt;obj&lt;/code&gt;</code>.</td>
 </tr>
 </tbody>
 </table>

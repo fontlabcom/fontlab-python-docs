@@ -2496,6 +2496,10 @@
   flAxis(string name)
   flAxis(string name, string tag, string short_name)</p>
 <p>Native bases: object</p>
+<p>Captured native MRO: flAxis, object</p>
+<p>Native <strong>new</strong> allocation evidence (not an <strong>init</strong> overload):
+(<em>args, </em>*kwargs)
+Create and return a new object.  See help(type) for accurate signature.</p>
 <p>Supplemental documentation:
 A variation axis. The captured declaration exposes the attributes <code>name</code>, <code>tag</code>, <code>shortName</code>, <code>minimal</code>, <code>default</code>, <code>maximum</code>, <code>designMin</code>, <code>designDef</code>, <code>designMax</code>, <code>hidden</code>, <code>map</code> and <code>playRange</code>, and methods including <code>checkValue</code>, <code>getRange</code>, <code>mappedValue</code>, <code>normalize</code>, <code>styleName</code>, <code>styleValue</code>, <code>valueWeight</code> and <code>valueWidth</code>. It is created as <code>flAxis()</code>, <code>flAxis(string name)</code> or <code>flAxis(string name, string tag, string short_name)</code>.</p>
 <p>Source: FontLab Proteus API documentation</p>
@@ -2541,22 +2545,22 @@ A variation axis. The captured declaration exposes the attributes <code>name</co
 </thead>
 <tbody>
 <tr>
-<td><span id="fontlab.flAxis.__init__"></span><a href="../PythonQt/BoolResult/members-001.html#PythonQt.BoolResult.__init__"><code>__init__</code></a></td>
+<td><span id="fontlab.flAxis.__init__"></span><a href="../FL/Anchor/members-001.html#FL.Anchor.__init__"><code>__init__</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; None</code></td>
-<td>Native constructor; consult class documentation for supported overloads. (shared captured text)</td>
+<td><code>(self, /, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; None</code></td>
+<td>Initialize self. (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flAxis._has_axis_name"></span><a href="flAxis/members-001.html#fontlab.flAxis._has_axis_name"><code>_has_axis_name</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(&#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Checks axis name uniqueness.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flAxis.checkValue"></span><a href="flAxis/members-001.html#fontlab.flAxis.checkValue"><code>checkValue</code></a></td>
 <td>function</td>
 <td><code>(self, v: float) -&gt; float</code></td>
-<td>Clamps <code>v</code> to the valid range <code>[minimal, maximum]</code>.</td>
+<td>Clamps <code>v</code> to the valid range <code>&#91;minimal, maximum&#93;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flAxis.default"></span><a href="flAxis/members-001.html#fontlab.flAxis.default"><code>default</code></a></td>
@@ -2581,6 +2585,12 @@ A variation axis. The captured declaration exposes the attributes <code>name</co
 <td>attribute</td>
 <td><code>Any</code></td>
 <td>The minimum value in internal design space.</td>
+</tr>
+<tr>
+<td><span id="fontlab.flAxis.extrapolate"></span><a href="flAxis/members-001.html#fontlab.flAxis.extrapolate"><code>extrapolate</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>Defaults to <code>False</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flAxis.getRange"></span><a href="flAxis/members-001.html#fontlab.flAxis.getRange"><code>getRange</code></a></td>
@@ -2615,19 +2625,19 @@ A variation axis. The captured declaration exposes the attributes <code>name</co
 <tr>
 <td><span id="fontlab.flAxis.isWeight"></span><a href="flAxis/members-001.html#fontlab.flAxis.isWeight"><code>isWeight</code></a></td>
 <td>function</td>
-<td><code>(self, s: Any) -&gt; bool</code></td>
+<td><code>(s: Any) -&gt; bool</code></td>
 <td>Returns <code>True</code> if the string <code>s</code> matches the OpenType weight axis tag (<code>wght</code>).</td>
 </tr>
 <tr>
 <td><span id="fontlab.flAxis.isWidth"></span><a href="flAxis/members-001.html#fontlab.flAxis.isWidth"><code>isWidth</code></a></td>
 <td>function</td>
-<td><code>(self, s: Any) -&gt; bool</code></td>
+<td><code>(s: Any) -&gt; bool</code></td>
 <td>Returns <code>True</code> if <code>s</code> matches the OpenType width axis tag (<code>wdth</code>)</td>
 </tr>
 <tr>
 <td><span id="fontlab.flAxis.locationName"></span><a href="flAxis/members-001.html#fontlab.flAxis.locationName"><code>locationName</code></a></td>
 <td>function</td>
-<td><code>(self, axes: list[flAxis], location: flLocation) -&gt; str</code></td>
+<td><code>(axes: list&#91;flAxis&#93;, location: flLocation) -&gt; str</code></td>
 <td>Generates a human-readable name for a design-space location based on all the axis values it contains.</td>
 </tr>
 <tr>
@@ -2705,8 +2715,8 @@ A variation axis. The captured declaration exposes the attributes <code>name</co
 <tr>
 <td><span id="fontlab.flAxis.styleValue"></span><a href="flAxis/members-001.html#fontlab.flAxis.styleValue"><code>styleValue</code></a></td>
 <td>function</td>
-<td><code>(self, style_name: Any) -&gt; float</code></td>
-<td>Returns the axis value associated with the named instance that has <code>style_name</code> as its name.</td>
+<td><code>(self, style&#95;name: Any) -&gt; float</code></td>
+<td>Returns the axis value associated with the named instance that has <code>style&#95;name</code> as its name.</td>
 </tr>
 <tr>
 <td><span id="fontlab.flAxis.tag"></span><a href="flAxis/members-001.html#fontlab.flAxis.tag"><code>tag</code></a></td>
@@ -2735,13 +2745,13 @@ A variation axis. The captured declaration exposes the attributes <code>name</co
 <tr>
 <td><span id="fontlab.flAxis.valueWeight"></span><a href="flAxis/members-001.html#fontlab.flAxis.valueWeight"><code>valueWeight</code></a></td>
 <td>function</td>
-<td><code>(self, location: flLocation, value: float) -&gt; float</code></td>
+<td><code>(location: flLocation, value: float) -&gt; float</code></td>
 <td>Maps a raw weight axis value to its CSS <code>font-weight</code> equivalent (100–900 scale).</td>
 </tr>
 <tr>
 <td><span id="fontlab.flAxis.valueWidth"></span><a href="flAxis/members-001.html#fontlab.flAxis.valueWidth"><code>valueWidth</code></a></td>
 <td>function</td>
-<td><code>(self, location: flLocation, value: float) -&gt; float</code></td>
+<td><code>(location: flLocation, value: float) -&gt; float</code></td>
 <td>Maps a raw width axis value to its CSS <code>font-stretch</code> percentage equivalent</td>
 </tr>
 </tbody>

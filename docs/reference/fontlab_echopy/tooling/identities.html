@@ -2333,21 +2333,33 @@ it reads the capture and the merged package; it never rewrites the sidecars.</p>
 <td></td>
 </tr>
 <tr>
+<td><span id="fontlab_echopy.tooling.identities.RETAINED"></span><a href="identities/members-001.html#fontlab_echopy.tooling.identities.RETAINED"><code>RETAINED</code></a></td>
+<td>attribute</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><span id="fontlab_echopy.tooling.identities.derive_identities"></span><a href="identities/members-001.html#fontlab_echopy.tooling.identities.derive_identities"><code>derive_identities</code></a></td>
 <td>function</td>
-<td><code>(capture: Path &#124; bytes, package: Path) -&gt; dict[str, Any]</code></td>
+<td><code>(capture: Path &#124; bytes, package: Path) -&gt; dict&#91;str, Any&#93;</code></td>
 <td>Derive the manifest; the capture must be the one the package was built from.</td>
+</tr>
+<tr>
+<td><span id="fontlab_echopy.tooling.identities.retain_scopes"></span><a href="identities/members-001.html#fontlab_echopy.tooling.identities.retain_scopes"><code>retain_scopes</code></a></td>
+<td>function</td>
+<td><code>(package: Path, tops: list&#91;str&#93;) -&gt; dict&#91;str, Any&#93;</code></td>
+<td>Extract retained modules' rows from the shipped, verified manifest.</td>
 </tr>
 <tr>
 <td><span id="fontlab_echopy.tooling.identities.verify_identities"></span><a href="identities/members-001.html#fontlab_echopy.tooling.identities.verify_identities"><code>verify_identities</code></a></td>
 <td>function</td>
-<td><code>(capture: Path, package: Path) -&gt; dict[str, Any]</code></td>
+<td><code>(capture: Path, package: Path) -&gt; dict&#91;str, Any&#93;</code></td>
 <td>Re-derive from the raw capture; a missing capture fails instead of skipping.</td>
 </tr>
 <tr>
 <td><span id="fontlab_echopy.tooling.identities.write_identities"></span><a href="identities/members-001.html#fontlab_echopy.tooling.identities.write_identities"><code>write_identities</code></a></td>
 <td>function</td>
-<td><code>(capture: Path &#124; bytes, package: Path) -&gt; dict[str, Any]</code></td>
+<td><code>(capture: Path &#124; bytes, package: Path) -&gt; dict&#91;str, Any&#93;</code></td>
 <td>Write only the manifest file into the merged package.</td>
 </tr>
 </tbody>

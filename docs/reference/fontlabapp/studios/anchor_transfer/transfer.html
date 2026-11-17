@@ -2450,13 +2450,13 @@ Used by the tabs of <code>fontlabapp.studios.anchor_transfer</code>.</p>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.apply"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.apply"><code>apply</code></a></td>
 <td>function</td>
-<td><code>(tool: Any, action: str, dry: Dry, replan: Callable[[], Dry &#124; None], *, allow_bases: bool=False) -&gt; bool</code></td>
+<td><code>(tool: Any, action: str, dry: Dry, replan: Callable&#91;&#91;&#93;, Dry &#124; None&#93;, &#42;, allow&#95;bases: bool=False) -&gt; bool</code></td>
 <td>Write exactly the edits of <code>&lt;code&gt;dry&lt;/code&gt;</code> as one named Undo step.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.attachment_in_base"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.attachment_in_base"><code>attachment_in_base</code></a></td>
 <td>function</td>
-<td><code>(point: tuple[float, float], mark_matrix: Matrix, base_matrix: Matrix) -&gt; tuple[float, float]</code></td>
+<td><code>(point: tuple&#91;float, float&#93;, mark&#95;matrix: Matrix, base&#95;matrix: Matrix) -&gt; tuple&#91;float, float&#93;</code></td>
 <td>Transform a mark point into the base's own coordinates, with a checked inverse.</td>
 </tr>
 <tr>
@@ -2468,7 +2468,7 @@ Used by the tabs of <code>fontlabapp.studios.anchor_transfer</code>.</p>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.catalog_names"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.catalog_names"><code>catalog_names</code></a></td>
 <td>function</td>
-<td><code>() -&gt; list[str]</code></td>
+<td><code>() -&gt; list&#91;str&#93;</code></td>
 <td>Every glyph of the current font, as Derive Anchors From Components read it.</td>
 </tr>
 <tr>
@@ -2480,13 +2480,13 @@ Used by the tabs of <code>fontlabapp.studios.anchor_transfer</code>.</p>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.copy_changes"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.copy_changes"><code>copy_changes</code></a></td>
 <td>function</td>
-<td><code>(source: Any, target: Any, scale: bool, replace: bool) -&gt; list[Any]</code></td>
+<td><code>(source: Any, target: Any, scale: bool, replace: bool) -&gt; list&#91;Any&#93;</code></td>
 <td>Copy Anchors From Glyph rows for one layer: <code>&lt;code&gt;anchors.copy.model.plan&lt;/code&gt;</code>, changes only.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.copy_planner"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.copy_planner"><code>copy_planner</code></a></td>
 <td>function</td>
-<td><code>(source: Any, scale: bool, replace: bool) -&gt; Callable[..., list[Any]]</code></td>
+<td><code>(source: Any, scale: bool, replace: bool) -&gt; Callable&#91;..., list&#91;Any&#93;&#93;</code></td>
 <td>Planner for <code>&lt;code&gt;collect&lt;/code&gt;</code>: the source glyph is skipped, missing source layers too.</td>
 </tr>
 <tr>
@@ -2498,43 +2498,43 @@ Used by the tabs of <code>fontlabapp.studios.anchor_transfer</code>.</p>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.csv_glyphs"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.csv_glyphs"><code>csv_glyphs</code></a></td>
 <td>function</td>
-<td><code>(package: Any, records: dict) -&gt; list[Any]</code></td>
+<td><code>(package: Any, records: dict) -&gt; list&#91;Any&#93;</code></td>
 <td>The glyphs of a loaded CSV; refuse "Missing glyphs: ..." as the original did.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.csv_planner"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.csv_planner"><code>csv_planner</code></a></td>
 <td>function</td>
-<td><code>(records: dict, glyphs: list[Any], master: str) -&gt; Callable[..., list[Any]]</code></td>
+<td><code>(records: dict, glyphs: list&#91;Any&#93;, master: str) -&gt; Callable&#91;..., list&#91;Any&#93;&#93;</code></td>
 <td>Add Anchors From File planner on the current master; refuse as the original did.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.derive_planner"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.derive_planner"><code>derive_planner</code></a></td>
 <td>function</td>
-<td><code>(package: Any, names: list[str], masters: list[str]) -&gt; Callable[..., list[Any]]</code></td>
+<td><code>(package: Any, names: list&#91;str&#93;, masters: list&#91;str&#93;) -&gt; Callable&#91;..., list&#91;Any&#93;&#93;</code></td>
 <td>Derive Anchors From Components planner over the whole font and every master.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.derived_points"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.derived_points"><code>derived_points</code></a></td>
 <td>function</td>
-<td><code>(package: Any, names: list[str], masters: list[str], notes: dict &#124; None=None) -&gt; dict</code></td>
+<td><code>(package: Any, names: list&#91;str&#93;, masters: list&#91;str&#93;, notes: dict &#124; None=None) -&gt; dict</code></td>
 <td>Keep clean evidence across all layers; doubtful evidence becomes note rows.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.dry_run"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.dry_run"><code>dry_run</code></a></td>
 <td>function</td>
-<td><code>(glyphs: list[Any], masters: list[str], planner: Callable[..., list[Any]], facts: Any) -&gt; Dry</code></td>
+<td><code>(glyphs: list&#91;Any&#93;, masters: list&#91;str&#93;, planner: Callable&#91;..., list&#91;Any&#93;&#93;, facts: Any) -&gt; Dry</code></td>
 <td>Plan once with <code>&lt;code&gt;anchors.writer.collect&lt;/code&gt;</code> and decide whether Apply may run.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.file_table"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.file_table"><code>file_table</code></a></td>
 <td>function</td>
-<td><code>(path: str) -&gt; dict[str, dict[str, tuple[int, int]]]</code></td>
+<td><code>(path: str) -&gt; dict&#91;str, dict&#91;str, tuple&#91;int, int&#93;&#93;&#93;</code></td>
 <td>Read the rounded table for callers that do not need its conversion report.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.find_glyphs"></span><a href="../advance_widths/widths/members-001.html#fontlabapp.studios.advance_widths.widths.find_glyphs"><code>find_glyphs</code></a></td>
 <td>function</td>
-<td><code>(package: Any, names: Iterable[str]) -&gt; list[Any]</code></td>
+<td><code>(package: Any, names: Iterable&#91;str&#93;) -&gt; list&#91;Any&#93;</code></td>
 <td>The existing glyphs of <code>&lt;code&gt;names&lt;/code&gt;&lt;code&gt; in &lt;/code&gt;&lt;code&gt;package&lt;/code&gt;</code>, in order. (shared captured text)</td>
 </tr>
 <tr>
@@ -2547,12 +2547,12 @@ Used by the tabs of <code>fontlabapp.studios.anchor_transfer</code>.</p>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.font_label"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.font_label"><code>font_label</code></a></td>
 <td>function</td>
 <td><code>(row: Any) -&gt; str</code></td>
-<td>The original font-list text: <code>&lt;code&gt;&amp;quot;Name.vfc [#12]&amp;quot;&lt;/code&gt;</code>.</td>
+<td>The original font-list text: <code>&lt;code&gt;&amp;quot;Name.vfc &amp;#91;#12&amp;#93;&amp;quot;&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.font_options"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.font_options"><code>font_options</code></a></td>
 <td>function</td>
-<td><code>(*, relative: bool=False, italic: bool=False, angle: int=10, rename: bool=True, rename_destination: bool=True…</code></td>
+<td><code>(&#42;, relative: bool=False, italic: bool=False, angle: int=10, rename: bool=True, rename&#95;destination: bool=True…</code></td>
 <td><code>&lt;code&gt;anchors.crossfont.model.Options&lt;/code&gt;</code> with the original defaults.</td>
 </tr>
 <tr>
@@ -2564,14 +2564,14 @@ Used by the tabs of <code>fontlabapp.studios.anchor_transfer</code>.</p>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.fonts_apply"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.fonts_apply"><code>fonts_apply</code></a></td>
 <td>function</td>
-<td><code>(tool: Any, plan: FontsPlan, source_label: str) -&gt; bool</code></td>
+<td><code>(tool: Any, plan: FontsPlan, source&#95;label: str) -&gt; bool</code></td>
 <td>Copy exactly the previewed edits as one Undo step in the destination font.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.fonts_preview"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.fonts_preview"><code>fonts_preview</code></a></td>
 <td>function</td>
-<td><code>(source: int, destination: int, source_layer: str, destination_layer: str, only_selected: bool, options: Any)…</code></td>
-<td>Capture both fonts and list every edit <code>&lt;code&gt;copy_layer&lt;/code&gt;</code> plans (no native name normalisation).</td>
+<td><code>(source: int, destination: int, source&#95;layer: str, destination&#95;layer: str, only&#95;selected: bool, options: Any)…</code></td>
+<td>Capture both fonts and list every edit <code>&lt;code&gt;copy&amp;#95;layer&lt;/code&gt;</code> plans (no native name normalisation).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.history"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.history"><code>history</code></a></td>
@@ -2582,61 +2582,61 @@ Used by the tabs of <code>fontlabapp.studios.anchor_transfer</code>.</p>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.import_changes"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.import_changes"><code>import_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Any, values: dict[str, tuple[float, float]]) -&gt; list[anchor_writer.Change]</code></td>
+<td><code>(layer: Any, values: dict&#91;str, tuple&#91;float, float&#93;&#93;) -&gt; list&#91;anchor&#95;writer.Change&#93;</code></td>
 <td>Keep equal points untouched; refuse repeated target names through the writer.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.layer_evidence"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.layer_evidence"><code>layer_evidence</code></a></td>
 <td>function</td>
-<td><code>(package: Any, composite: Any, master: str, masters: list[str], deadline: float) -&gt; tuple[tuple[str, str] &#124; N…</code></td>
+<td><code>(package: Any, composite: Any, master: str, masters: list&#91;str&#93;, deadline: float) -&gt; tuple&#91;tuple&#91;str, str&#93; &#124; N…</code></td>
 <td>Resolve one composite completely; the first mark per label supplies evidence.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.load_table"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.load_table"><code>load_table</code></a></td>
 <td>function</td>
-<td><code>(path: str) -&gt; tuple[dict, str]</code></td>
+<td><code>(path: str) -&gt; tuple&#91;dict, str&#93;</code></td>
 <td>Decode UTF-8 once, normalize newlines, and report only actual conversions.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.mirror_changes"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.mirror_changes"><code>mirror_changes</code></a></td>
 <td>function</td>
-<td><code>(source: Any, target: Any, scale: bool, only_missing: bool) -&gt; list[anchor_writer.Change]</code></td>
+<td><code>(source: Any, target: Any, scale: bool, only&#95;missing: bool) -&gt; list&#91;anchor&#95;writer.Change&#93;</code></td>
 <td>Rows to bring <code>target</code> in line with <code>source</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.mirror_planner"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.mirror_planner"><code>mirror_planner</code></a></td>
 <td>function</td>
-<td><code>(source_master: str, scale: bool, only_missing: bool) -&gt; Callable[..., list[Any]]</code></td>
-<td>Mirror Across Masters planner: copy <code>&lt;code&gt;source_master&lt;/code&gt;</code> into each target master.</td>
+<td><code>(source&#95;master: str, scale: bool, only&#95;missing: bool) -&gt; Callable&#91;..., list&#91;Any&#93;&#93;</code></td>
+<td>Mirror Across Masters planner: copy <code>&lt;code&gt;source&amp;#95;master&lt;/code&gt;</code> into each target master.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.mirror_targets"></span><a href="transfer/members-001.html#fontlabapp.studios.anchor_transfer.transfer.mirror_targets"><code>mirror_targets</code></a></td>
 <td>function</td>
-<td><code>(masters: list[str], ticked: Iterable[str], source_master: str) -&gt; list[str]</code></td>
+<td><code>(masters: list&#91;str&#93;, ticked: Iterable&#91;str&#93;, source&#95;master: str) -&gt; list&#91;str&#93;</code></td>
 <td>The ticked target masters without the source; refuse as the original did.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.parse_table"></span><a href="transfer/members-002.html#fontlabapp.studios.anchor_transfer.transfer.parse_table"><code>parse_table</code></a></td>
 <td>function</td>
-<td><code>(text: str) -&gt; dict[str, dict[str, tuple[float, float]]]</code></td>
+<td><code>(text: str) -&gt; dict&#91;str, dict&#91;str, tuple&#91;float, float&#93;&#93;&#93;</code></td>
 <td>Parse the entire CSV before planning any writes.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.point_text"></span><a href="transfer/members-002.html#fontlabapp.studios.anchor_transfer.transfer.point_text"><code>point_text</code></a></td>
 <td>function</td>
-<td><code>(point: tuple[float, float] &#124; None) -&gt; str</code></td>
+<td><code>(point: tuple&#91;float, float&#93; &#124; None) -&gt; str</code></td>
 <td><code>&lt;code&gt;&amp;quot;x, y&amp;quot;&lt;/code&gt;</code> of a point, or "–" for none.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.rebuild_note"></span><a href="transfer/members-002.html#fontlabapp.studios.anchor_transfer.transfer.rebuild_note"><code>rebuild_note</code></a></td>
 <td>function</td>
-<td><code>(facts: Any, names: Iterable[str]) -&gt; str</code></td>
+<td><code>(facts: Any, names: Iterable&#91;str&#93;) -&gt; str</code></td>
 <td>The metrics panel's rebuild warning for the auto glyphs built on <code>&lt;code&gt;names&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_transfer.transfer.subject"></span><a href="../advance_widths/widths/members-001.html#fontlabapp.studios.advance_widths.widths.subject"><code>subject</code></a></td>
 <td>function</td>
-<td><code>(names: Iterable[str]) -&gt; str</code></td>
+<td><code>(names: Iterable&#91;str&#93;) -&gt; str</code></td>
 <td>Undo-label subject: the glyph name, or <code>&lt;code&gt;&amp;quot;N glyphs&amp;quot;&lt;/code&gt;</code> for several. (shared captured text)</td>
 </tr>
 </tbody>

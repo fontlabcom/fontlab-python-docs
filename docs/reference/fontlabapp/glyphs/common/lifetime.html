@@ -2360,13 +2360,13 @@ owners fence creation until explicit bounded recovery; no silent retry/reset.</p
 <tr>
 <td><span id="fontlabapp.glyphs.common.lifetime.pending"></span><a href="lifetime/members-001.html#fontlabapp.glyphs.common.lifetime.pending"><code>pending</code></a></td>
 <td>function</td>
-<td><code>() -&gt; dict[int, Held]</code></td>
+<td><code>() -&gt; dict&#91;int, Held&#93;</code></td>
 <td>Read retained failed owners without implicitly retrying cleanup.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.glyphs.common.lifetime.recover"></span><a href="lifetime/members-001.html#fontlabapp.glyphs.common.lifetime.recover"><code>recover</code></a></td>
 <td>function</td>
-<td><code>(*, deadline: float, cancelled: Callable=lambda: False) -&gt; tuple[Held, ...]</code></td>
+<td><code>(&#42;, deadline: float, cancelled: Callable=lambda: False) -&gt; tuple&#91;Held, ...&#93;</code></td>
 <td>Retry retained owners under one deadline and return original receipts.</td>
 </tr>
 <tr>

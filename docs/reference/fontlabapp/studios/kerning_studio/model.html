@@ -2388,7 +2388,7 @@ source has no licence and its body is not redistributed.</p>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.candidates"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.candidates"><code>candidates</code></a></td>
 <td>function</td>
-<td><code>(data: MasterData, left: str, right: str) -&gt; list[Pair]</code></td>
+<td><code>(data: MasterData, left: str, right: str) -&gt; list&#91;Pair&#93;</code></td>
 <td>Possible records for a pair, most specific first (glyph/glyph ... class/class).</td>
 </tr>
 <tr>
@@ -2412,31 +2412,31 @@ source has no licence and its body is not redistributed.</p>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.effective"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.effective"><code>effective</code></a></td>
 <td>function</td>
-<td><code>(data: MasterData, left: str, right: str) -&gt; tuple[float, Pair &#124; None]</code></td>
+<td><code>(data: MasterData, left: str, right: str) -&gt; tuple&#91;float, Pair &#124; None&#93;</code></td>
 <td>The value the pair gets and the record it comes from (<code>&lt;code&gt;(0, None)&lt;/code&gt;</code> if none).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.extents"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.extents"><code>extents</code></a></td>
 <td>function</td>
-<td><code>(recording: Sequence[tuple[str, tuple]], height: float, name: str, layer: str) -&gt; tuple[tuple[float, float], …</code></td>
+<td><code>(recording: Sequence&#91;tuple&#91;str, tuple&#93;&#93;, height: float, name: str, layer: str) -&gt; tuple&#91;tuple&#91;float, float&#93;, …</code></td>
 <td>Min/max x where closed contours cross <code>&lt;code&gt;height&lt;/code&gt;</code>; also the open-contour count.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.from_native"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.from_native"><code>from_native</code></a></td>
 <td>function</td>
-<td><code>(pairs: Mapping[Pair, float], classes: Mapping[str, tuple[Any, str]]) -&gt; MasterData</code></td>
+<td><code>(pairs: Mapping&#91;Pair, float&#93;, classes: Mapping&#91;str, tuple&#91;Any, str&#93;&#93;) -&gt; MasterData</code></td>
 <td>Convert <code>&lt;code&gt;core.scripting&lt;/code&gt;&lt;code&gt; reads (&lt;/code&gt;&lt;code&gt;@class&lt;/code&gt;</code> keys, side roles) to UFO keys.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.glyph_pairs"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.glyph_pairs"><code>glyph_pairs</code></a></td>
 <td>function</td>
-<td><code>(masters: Mapping[str, MasterData], glyph: str) -&gt; list[Pair]</code></td>
+<td><code>(masters: Mapping&#91;str, MasterData&#93;, glyph: str) -&gt; list&#91;Pair&#93;</code></td>
 <td>Every record, on any master, whose left or right side is <code>&lt;code&gt;glyph&lt;/code&gt;</code> or its group.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.group_peers"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.group_peers"><code>group_peers</code></a></td>
 <td>function</td>
-<td><code>(groups: Mapping[str, Sequence[str]], glyph: str, order: Sequence[str]) -&gt; dict[str, list[str]]</code></td>
+<td><code>(groups: Mapping&#91;str, Sequence&#91;str&#93;&#93;, glyph: str, order: Sequence&#91;str&#93;) -&gt; dict&#91;str, list&#91;str&#93;&#93;</code></td>
 <td>Other members of the glyph's visual-side groups, in font order.</td>
 </tr>
 <tr>
@@ -2448,13 +2448,13 @@ source has no licence and its body is not redistributed.</p>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.kern_to_max"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.kern_to_max"><code>kern_to_max</code></a></td>
 <td>function</td>
-<td><code>(left_width: float, right_width: float) -&gt; int</code></td>
+<td><code>(left&#95;width: float, right&#95;width: float) -&gt; int</code></td>
 <td>Minus half the narrower advance, truncated toward zero.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.overrides"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.overrides"><code>overrides</code></a></td>
 <td>function</td>
-<td><code>(data: MasterData, key: Pair, left: str, right: str) -&gt; list[tuple[Pair, float]]</code></td>
+<td><code>(data: MasterData, key: Pair, left: str, right: str) -&gt; list&#91;tuple&#91;Pair, float&#93;&#93;</code></td>
 <td>Existing records more specific than <code>&lt;code&gt;key&lt;/code&gt;</code> that keep overriding it.</td>
 </tr>
 <tr>
@@ -2466,19 +2466,19 @@ source has no licence and its body is not redistributed.</p>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.parse_text"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.parse_text"><code>parse_text</code></a></td>
 <td>function</td>
-<td><code>(text: str, cmap: Mapping[int, str]) -&gt; list[list[str]]</code></td>
+<td><code>(text: str, cmap: Mapping&#91;int, str&#93;) -&gt; list&#91;list&#91;str&#93;&#93;</code></td>
 <td>Split preview text into words of glyph names; <code>&lt;code&gt;/name&lt;/code&gt;&lt;code&gt; tokens end at space or &lt;/code&gt;&lt;code&gt;/&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.side_groups"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.side_groups"><code>side_groups</code></a></td>
 <td>function</td>
-<td><code>(groups: Mapping[str, Sequence[str]], glyph: str) -&gt; tuple[str &#124; None, str &#124; None]</code></td>
+<td><code>(groups: Mapping&#91;str, Sequence&#91;str&#93;&#93;, glyph: str) -&gt; tuple&#91;str &#124; None, str &#124; None&#93;</code></td>
 <td>The <code>&lt;code&gt;(kern1, kern2)&lt;/code&gt;&lt;code&gt; groups containing &lt;/code&gt;&lt;code&gt;glyph&lt;/code&gt;</code>; more than one per side refused.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.steal_value"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.steal_value"><code>steal_value</code></a></td>
 <td>function</td>
-<td><code>(widths: Sequence[float], spans: Sequence[tuple[float, float]], reference: float) -&gt; tuple[int, float, float]</code></td>
+<td><code>(widths: Sequence&#91;float&#93;, spans: Sequence&#91;tuple&#91;float, float&#93;&#93;, reference: float) -&gt; tuple&#91;int, float, float&#93;</code></td>
 <td>Kerning for pair 1 so its gap matches pair 2 (kerned by <code>&lt;code&gt;reference&lt;/code&gt;</code>).</td>
 </tr>
 <tr>
@@ -2490,7 +2490,7 @@ source has no licence and its body is not redistributed.</p>
 <tr>
 <td><span id="fontlabapp.studios.kerning_studio.model.text_pairs"></span><a href="model/members-001.html#fontlabapp.studios.kerning_studio.model.text_pairs"><code>text_pairs</code></a></td>
 <td>function</td>
-<td><code>(words: Iterable[Sequence[str]]) -&gt; list[Pair]</code></td>
+<td><code>(words: Iterable&#91;Sequence&#91;str&#93;&#93;) -&gt; list&#91;Pair&#93;</code></td>
 <td>Adjacent pairs inside each word, first occurrence order, no repeats.</td>
 </tr>
 </tbody>

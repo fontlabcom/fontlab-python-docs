@@ -2292,8 +2292,12 @@
   fgBrush(fgColor) - solid brush with selected color and default size (1, 0)
   fgBrush(fgColor, fgPoint) - solid brush with selected color and size</p>
 <p>Native bases: object</p>
+<p>Captured native MRO: fgBrush, object</p>
+<p>Native <strong>new</strong> allocation evidence (not an <strong>init</strong> overload):
+(<em>args, </em>*kwargs)
+Create and return a new object.  See help(type) for accurate signature.</p>
 <p>Supplemental documentation:
-A brush. The captured declaration exposes the attributes <code>kind</code>, <code>size</code> and <code>solid</code>, and the methods <code>asDict</code>, <code>asTuple</code>, <code>black</code>, <code>isBlack</code>, <code>isTransparent</code> and <code>transparent</code>. It is created as <code>fgBrush()</code>, as a copy <code>fgBrush(fgBrush)</code>, as <code>fgBrush(fgColor)</code> for a solid brush with the default size (1, 0), or as <code>fgBrush(fgColor, fgPoint)</code> for a solid brush with a size.</p>
+A stroke brush. The captured declaration exposes the attributes <code>kind</code>, <code>solid</code>, <code>thickness</code>, <code>contrast</code>, <code>rotation</code>, <code>proportion</code>, <code>join_type</code>, <code>miter_limit</code>, <code>tolerance</code>, <code>remove_overlap</code>, <code>cap0</code> and <code>cap1</code>, and the methods <code>asDict</code>, <code>asTuple</code>, <code>black</code>, <code>isBlack</code>, <code>isTransparent</code> and <code>transparent</code>. FontLab 9.1 removed the old size attribute; use <code>thickness</code> and the other stroke members.</p>
 <p>Source: generated/fontgate.py: fgBrush captured declaration</p>
 
 
@@ -2336,28 +2340,46 @@ A brush. The captured declaration exposes the attributes <code>kind</code>, <cod
 </thead>
 <tbody>
 <tr>
-<td><span id="fontgate.fgBrush.__init__"></span><a href="../PythonQt/BoolResult/members-001.html#PythonQt.BoolResult.__init__"><code>__init__</code></a></td>
+<td><span id="fontgate.fgBrush.__init__"></span><a href="../FL/Anchor/members-001.html#FL.Anchor.__init__"><code>__init__</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; None</code></td>
-<td>Native constructor; consult class documentation for supported overloads. (shared captured text)</td>
+<td><code>(self, /, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; None</code></td>
+<td>Initialize self. (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontgate.fgBrush.asDict"></span><a href="fgBitmap/members-001.html#fontgate.fgBitmap.asDict"><code>asDict</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Represent object as dictionary (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontgate.fgBrush.asTuple"></span><a href="fgBitmap/members-001.html#fontgate.fgBitmap.asTuple"><code>asTuple</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td><code>(self, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; Any</code></td>
 <td>Represent object as tuple (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontgate.fgBrush.black"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.black"><code>black</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; fgBrush</code></td>
+<td><code>() -&gt; fgBrush</code></td>
 <td>FgBrush black() - get black solid brush</td>
+</tr>
+<tr>
+<td><span id="fontgate.fgBrush.cap0"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.cap0"><code>cap0</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>FgCapParams start cap (copy; assign back after editing)</td>
+</tr>
+<tr>
+<td><span id="fontgate.fgBrush.cap1"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.cap1"><code>cap1</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>FgCapParams end cap (copy; assign back after editing)</td>
+</tr>
+<tr>
+<td><span id="fontgate.fgBrush.contrast"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.contrast"><code>contrast</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>(float) stroke contrast, 1.0 = none</td>
 </tr>
 <tr>
 <td><span id="fontgate.fgBrush.isBlack"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.isBlack"><code>isBlack</code></a></td>
@@ -2372,16 +2394,40 @@ A brush. The captured declaration exposes the attributes <code>kind</code>, <cod
 <td>Bool isTransparent() - return true if brush is transparent</td>
 </tr>
 <tr>
+<td><span id="fontgate.fgBrush.join_type"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.join_type"><code>join_type</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>(int) 0 = bevel, 1 = round, 2 = miter</td>
+</tr>
+<tr>
 <td><span id="fontgate.fgBrush.kind"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.kind"><code>kind</code></a></td>
 <td>attribute</td>
 <td><code>Any</code></td>
 <td>('Empty'/'Solid'/'Gradient') brush type</td>
 </tr>
 <tr>
-<td><span id="fontgate.fgBrush.size"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.size"><code>size</code></a></td>
+<td><span id="fontgate.fgBrush.miter_limit"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.miter_limit"><code>miter_limit</code></a></td>
 <td>attribute</td>
 <td><code>Any</code></td>
-<td>(fgPoint) brush size by x and y axis</td>
+<td>(float) miter limit</td>
+</tr>
+<tr>
+<td><span id="fontgate.fgBrush.proportion"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.proportion"><code>proportion</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>(float) nib proportion, 0..1 (0.5 = round/square nib)</td>
+</tr>
+<tr>
+<td><span id="fontgate.fgBrush.remove_overlap"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.remove_overlap"><code>remove_overlap</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>(bool) remove overlap of the expanded stroke</td>
+</tr>
+<tr>
+<td><span id="fontgate.fgBrush.rotation"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.rotation"><code>rotation</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>(float) nib rotation in degrees</td>
 </tr>
 <tr>
 <td><span id="fontgate.fgBrush.solid"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.solid"><code>solid</code></a></td>
@@ -2390,9 +2436,21 @@ A brush. The captured declaration exposes the attributes <code>kind</code>, <cod
 <td>(fgColor) brush color</td>
 </tr>
 <tr>
+<td><span id="fontgate.fgBrush.thickness"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.thickness"><code>thickness</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>(float) stroke thickness</td>
+</tr>
+<tr>
+<td><span id="fontgate.fgBrush.tolerance"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.tolerance"><code>tolerance</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>(float) stroke approximation tolerance</td>
+</tr>
+<tr>
 <td><span id="fontgate.fgBrush.transparent"></span><a href="fgBrush/members-001.html#fontgate.fgBrush.transparent"><code>transparent</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; fgBrush</code></td>
+<td><code>() -&gt; fgBrush</code></td>
 <td>FgBrush transparent() - get transparent solid brush</td>
 </tr>
 </tbody>

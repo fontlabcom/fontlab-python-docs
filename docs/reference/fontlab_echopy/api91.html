@@ -2294,9 +2294,10 @@
     <div class="doc doc-contents first">
 
         <p>Python API changes in FontLab 9.1 (build 9812), recorded from the C++ source.</p>
-<p>The shipped stubs come from a FontLab 9.0 capture, so these members are not in
-them. This module records each new or removed name, its signature and its source
-location, and gives hasattr-based feature detection. It also gives two guarded
+<p>The shipped stubs now come from a FontLab 9.1.9813 capture and declare these
+members (<code>fgBrush.size</code> is gone). This module records each new or removed
+name, its signature and its source location, and gives hasattr-based feature
+detection for hosts that may still run 9.0. It also gives two guarded
 helpers for the clipboard JSON calls.</p>
 <p>Status: member presence and the QByteArray route are verified live on
 FontLab 9.1.9812 (2026-11-16): every <code>NEW_IN_9_1</code> member exists by
@@ -2306,8 +2307,7 @@ FontLab 9.1.9812 (2026-11-16): every <code>NEW_IN_9_1</code> member exists by
 <code>getObjectsFromJsonData</code> crashes FontLab (SIGBUS in the native QByteArray
 converter). Behavior (<code>penParameters</code> writes, <code>expandStroke</code>, <code>makeStroke</code>,
 presentation overrides, refresh calls) is read from the source and not
-live-verified. Promote entries into the generated stubs after a 9.1 capture
-(<code>examples/capture_in_fontlab.py</code>) and a fresh merge.</p>
+live-verified.</p>
 
 
 
@@ -2391,13 +2391,13 @@ live-verified. Promote entries into the generated stubs after a 9.1 capture
 <tr>
 <td><span id="fontlab_echopy.api91.NEW_IN_9_1"></span><a href="api91/members-001.html#fontlab_echopy.api91.NEW_IN_9_1"><code>NEW_IN_9_1</code></a></td>
 <td>attribute</td>
-<td><code>dict[str, Change]</code></td>
+<td><code>dict&#91;str, Change&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlab_echopy.api91.REMOVED_IN_9_1"></span><a href="api91/members-001.html#fontlab_echopy.api91.REMOVED_IN_9_1"><code>REMOVED_IN_9_1</code></a></td>
 <td>attribute</td>
-<td><code>dict[str, Change]</code></td>
+<td><code>dict&#91;str, Change&#93;</code></td>
 <td></td>
 </tr>
 <tr>
@@ -2409,7 +2409,7 @@ live-verified. Promote entries into the generated stubs after a 9.1 capture
 <tr>
 <td><span id="fontlab_echopy.api91.detect"></span><a href="api91/members-001.html#fontlab_echopy.api91.detect"><code>detect</code></a></td>
 <td>function</td>
-<td><code>(font: Any=None) -&gt; dict[str, bool &#124; None]</code></td>
+<td><code>(font: Any=None) -&gt; dict&#91;str, bool &#124; None&#93;</code></td>
 <td>Report which 9.1 members the running host exposes; False outside FontLab; Font Info entries are None unless a font is passed.</td>
 </tr>
 <tr>

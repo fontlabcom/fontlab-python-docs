@@ -2344,6 +2344,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab.flGlyph.clearSigmaData" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearSigmaData
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab.flGlyph.clearUpdateFgGlyphs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2542,6 +2553,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab.flGlyph.getSigmaData" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getSigmaData
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab.flGlyph.glyphMark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        glyphMark
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab.flGlyph.glyphName" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2623,39 +2656,6 @@
     <span class="md-ellipsis">
       
         haveSelected
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab.flGlyph.horzReflection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        horzReflection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab.flGlyph.inkBox" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        inkBox
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fontlab.flGlyph.interpolateInstance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        interpolateInstance
       
     </span>
   </a>
@@ -2950,6 +2950,26 @@
         <p>QRectF</p>
 <p>The tightest rectangle that encloses all outlines in the active layer. Unlike <code>inkBox()</code>, this is always in plain glyph coordinates with no transform applied.</p>
 <p>Source: FontLab Proteus API documentation</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab.flGlyph.clearSigmaData" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">clearSigmaData</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">clearSigmaData</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>clearSigmaData(): remove authored Sigma curves</p>
+
 
     </div>
 
@@ -3375,6 +3395,52 @@
 <div class="doc doc-object doc-function">
 
 
+<h2 id="fontlab.flGlyph.getSigmaData" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">getSigmaData</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">getSigmaData</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>dict getSigmaData(): return editable Sigma metadata</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="fontlab.flGlyph.glyphMark" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">glyphMark</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">glyphMark</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>int: glyph-only mark; does not change layer marks or record history</p>
+<p>Stored glyph-only colour mark. Reads and writes do not import geometry or change layer flags. The setter also synchronizes the FontGate mark, but does not create an Undo step or notify the UI.</p>
+<p>Source: FontLab Proteus API documentation</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h2 id="fontlab.flGlyph.glyphName" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">glyphName</span>
 
@@ -3556,72 +3622,6 @@
 
         <p>bool haveSelected(SelectionMode)</p>
 <p>Return <code>True</code> if there is an active selection of the given type (nodes, shapes, etc.).</p>
-<p>Source: FontLab Proteus API documentation</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab.flGlyph.horzReflection" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">horzReflection</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">horzReflection</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><span title="bool">bool</span></span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>bool horzReflection()</p>
-<p>Return <code>True</code> if the glyph is horizontally mirrored (flipped left–right).</p>
-<p>Source: FontLab Proteus API documentation</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab.flGlyph.inkBox" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">inkBox</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">inkBox</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="QRectF">QRectF</span></span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>QRectF inkBox([QTransform tx = QTransform()])</p>
-<p>Returns the tightest bounding box that fits around all visible outlines, optionally measured under a coordinate transform. "Ink box" means only the drawn paths — it excludes side-bearings.</p>
-<p>Source: FontLab Proteus API documentation</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="fontlab.flGlyph.interpolateInstance" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">interpolateInstance</span>
-
-
-</h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">interpolateInstance</span><span class="p">(</span><span class="n">location</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="flLocation (fontlab_echopy.fontlab.flLocation)" href="../flLocation.html#fontlab.flLocation">flLocation</a></span><span class="p">,</span> <span class="nb">round</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="flLayer (fontlab_echopy.fontlab.flLayer)" href="../flLayer.html#fontlab.flLayer">flLayer</a></span>
-</code></pre></div>
-
-    <div class="doc doc-contents first">
-
-        <p>flLayer interpolateInstance(flLocation location, bool round)</p>
-<p>Compute and return a new layer that is the interpolated result at the given point in design space. Pass <code>round=True</code> to snap all coordinates to integers.</p>
 <p>Source: FontLab Proteus API documentation</p>
 
 

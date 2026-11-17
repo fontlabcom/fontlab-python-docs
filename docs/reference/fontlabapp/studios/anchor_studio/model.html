@@ -2459,67 +2459,67 @@ Used by <code>fontlabapp.studios.anchor_studio.session</code> and <code>.tabs</c
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.bounds_changes"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.bounds_changes"><code>bounds_changes</code></a></td>
 <td>function</td>
-<td><code>(facts: Facts, wanted: Sequence[tuple[str, str, float]]) -&gt; list[Change] &#124; str</code></td>
+<td><code>(facts: Facts, wanted: Sequence&#91;tuple&#91;str, str, float&#93;&#93;) -&gt; list&#91;Change&#93; &#124; str</code></td>
 <td>Place From Bounds: add or move each <code>&lt;code&gt;(name, edge, offset)&lt;/code&gt;</code> anchor from the ink box.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.census"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.census"><code>census</code></a></td>
 <td>function</td>
-<td><code>(rows: Iterable[tuple[Iterable[Pin], bool]]) -&gt; dict[str, list[int]]</code></td>
-<td>Delete By Name list: <code>&lt;code&gt;{name: [editable layers, auto layers]}&lt;/code&gt;&lt;code&gt; over &lt;/code&gt;&lt;code&gt;(pins, auto)&lt;/code&gt;</code> rows.</td>
+<td><code>(rows: Iterable&#91;tuple&#91;Iterable&#91;Pin&#93;, bool&#93;&#93;) -&gt; dict&#91;str, list&#91;int&#93;&#93;</code></td>
+<td>Delete By Name list: <code>&lt;code&gt;{name: &amp;#91;editable layers, auto layers&amp;#93;}&lt;/code&gt;&lt;code&gt; over &lt;/code&gt;&lt;code&gt;(pins, auto)&lt;/code&gt;</code> rows.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.centre_changes"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.centre_changes"><code>centre_changes</code></a></td>
 <td>function</td>
-<td><code>(facts: Facts, names: Sequence[str], reference: str, fraction: float, angle: float) -&gt; list[Change]</code></td>
+<td><code>(facts: Facts, names: Sequence&#91;str&#93;, reference: str, fraction: float, angle: float) -&gt; list&#91;Change&#93;</code></td>
 <td>Center Horizontally: move the named anchors sideways; y never changes.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.column_weight"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.column_weight"><code>column_weight</code></a></td>
 <td>function</td>
-<td><code>(rings: Sequence[Ring], x: float, deadline: float) -&gt; float</code></td>
+<td><code>(rings: Sequence&#91;Ring&#93;, x: float, deadline: float) -&gt; float</code></td>
 <td>Filled length of the vertical line at <code>&lt;code&gt;x&lt;/code&gt;</code> under the nonzero winding rule.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.delete_changes"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.delete_changes"><code>delete_changes</code></a></td>
 <td>function</td>
-<td><code>(facts: Facts, names: Iterable[str]) -&gt; list[Change]</code></td>
+<td><code>(facts: Facts, names: Iterable&#91;str&#93;) -&gt; list&#91;Change&#93;</code></td>
 <td>Delete By Name: remove every anchor whose name is ticked.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.duplicate_changes"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.duplicate_changes"><code>duplicate_changes</code></a></td>
 <td>function</td>
-<td><code>(facts: Facts, coincident: bool) -&gt; list[Change]</code></td>
+<td><code>(facts: Facts, coincident: bool) -&gt; list&#91;Change&#93;</code></td>
 <td>Remove every extra duplicate; coincident extras only when <code>&lt;code&gt;coincident&lt;/code&gt;</code> is ticked.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.duplicated"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.duplicated"><code>duplicated</code></a></td>
 <td>function</td>
-<td><code>(pins: Iterable[Pin], names: Iterable[str] &#124; None=None) -&gt; list[str]</code></td>
+<td><code>(pins: Iterable&#91;Pin&#93;, names: Iterable&#91;str&#93; &#124; None=None) -&gt; list&#91;str&#93;</code></td>
 <td>Names carried by several pins (limited to <code>&lt;code&gt;names&lt;/code&gt;</code> when given).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.estimate_rings"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.estimate_rings"><code>estimate_rings</code></a></td>
 <td>function</td>
-<td><code>(rings: Sequence[Ring], deadline: float) -&gt; int</code></td>
-<td>Optical x of closed rings, sampled in at most <code>&lt;code&gt;MAX_COLUMNS&lt;/code&gt;</code> columns.</td>
+<td><code>(rings: Sequence&#91;Ring&#93;, deadline: float) -&gt; int</code></td>
+<td>Optical x of closed rings, sampled in at most <code>&lt;code&gt;MAX&amp;#95;COLUMNS&lt;/code&gt;</code> columns.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.expected"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.expected"><code>expected</code></a></td>
 <td>function</td>
-<td><code>(pins: Sequence[Pin], edits: Sequence[Edit]) -&gt; list[Pin]</code></td>
+<td><code>(pins: Sequence&#91;Pin&#93;, edits: Sequence&#91;Edit&#93;) -&gt; list&#91;Pin&#93;</code></td>
 <td>The pins after <code>&lt;code&gt;edits&lt;/code&gt;</code>, in snapshot order with new anchors at the end.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.extremes"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.extremes"><code>extremes</code></a></td>
 <td>function</td>
-<td><code>(points: Sequence[tuple[float, float]]) -&gt; str</code></td>
+<td><code>(points: Sequence&#91;tuple&#91;float, float&#93;&#93;) -&gt; str</code></td>
 <td>"x a…b, y c…d" of the cloud, or "" when empty.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.findings"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.findings"><code>findings</code></a></td>
 <td>function</td>
-<td><code>(pins: Sequence[Pin]) -&gt; list[tuple[str, list[int]]]</code></td>
+<td><code>(pins: Sequence&#91;Pin&#93;) -&gt; list&#91;tuple&#91;str, list&#91;int&#93;&#93;&#93;</code></td>
 <td>Duplicates Finder: <code>&lt;code&gt;(kind, indices)&lt;/code&gt;</code> groups; the first pin of each group is kept.</td>
 </tr>
 <tr>
@@ -2549,31 +2549,31 @@ Used by <code>fontlabapp.studios.anchor_studio.session</code> and <code>.tabs</c
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.opposite_changes"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.opposite_changes"><code>opposite_changes</code></a></td>
 <td>function</td>
-<td><code>(facts: Facts) -&gt; list[Change]</code></td>
-<td>Remove Extraneous Mark Anchors: a mark with <code>&lt;code&gt;_top&lt;/code&gt;&lt;code&gt; loses &lt;/code&gt;&lt;code&gt;bottom&lt;/code&gt;&lt;code&gt;; with &lt;/code&gt;&lt;code&gt;_bottom&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;top&lt;/code&gt;</code>.</td>
+<td><code>(facts: Facts) -&gt; list&#91;Change&#93;</code></td>
+<td>Remove Extraneous Mark Anchors: a mark with <code>&lt;code&gt;&amp;#95;top&lt;/code&gt;&lt;code&gt; loses &lt;/code&gt;&lt;code&gt;bottom&lt;/code&gt;&lt;code&gt;; with &lt;/code&gt;&lt;code&gt;&amp;#95;bottom&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;top&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.optical_changes"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.optical_changes"><code>optical_changes</code></a></td>
 <td>function</td>
-<td><code>(facts: Facts, estimate: int &#124; str) -&gt; list[Change]</code></td>
+<td><code>(facts: Facts, estimate: int &#124; str) -&gt; list&#91;Change&#93;</code></td>
 <td>Optical Center: report the optical x; align the x of an existing <code>&lt;code&gt;top&lt;/code&gt;</code> anchor.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.optical_position"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.optical_position"><code>optical_position</code></a></td>
 <td>function</td>
-<td><code>(strips: Sequence[tuple[float, float]], left: float, right: float) -&gt; float</code></td>
+<td><code>(strips: Sequence&#91;tuple&#91;float, float&#93;&#93;, left: float, right: float) -&gt; float</code></td>
 <td>Ink-weighted median column, moved one third of the way from the box centre.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.outline"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.outline"><code>outline</code></a></td>
 <td>function</td>
-<td><code>(rings: Iterable[Ring]) -&gt; tuple[OverlayContour, ...]</code></td>
+<td><code>(rings: Iterable&#91;Ring&#93;) -&gt; tuple&#91;OverlayContour, ...&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.parse_names"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.parse_names"><code>parse_names</code></a></td>
 <td>function</td>
-<td><code>(text: str) -&gt; list[str]</code></td>
+<td><code>(text: str) -&gt; list&#91;str&#93;</code></td>
 <td>Anchor names typed with commas, semicolons or spaces, in order, once each.</td>
 </tr>
 <tr>
@@ -2585,19 +2585,19 @@ Used by <code>fontlabapp.studios.anchor_studio.session</code> and <code>.tabs</c
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.refusal"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.refusal"><code>refusal</code></a></td>
 <td>function</td>
-<td><code>(names: Sequence[str]) -&gt; list[Change]</code></td>
+<td><code>(names: Sequence&#91;str&#93;) -&gt; list&#91;Change&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.rename_changes"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.rename_changes"><code>rename_changes</code></a></td>
 <td>function</td>
-<td><code>(facts: Facts, rename: Callable[[str], str]) -&gt; list[Change]</code></td>
+<td><code>(facts: Facts, rename: Callable&#91;&#91;str&#93;, str&#93;) -&gt; list&#91;Change&#93;</code></td>
 <td>Rename Bulk: rename matching anchors; empty or clashing new names are refused.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.renamer"></span><a href="model/members-001.html#fontlabapp.studios.anchor_studio.model.renamer"><code>renamer</code></a></td>
 <td>function</td>
-<td><code>(find: str, replace: str, regex: bool) -&gt; Callable[[str], str]</code></td>
+<td><code>(find: str, replace: str, regex: bool) -&gt; Callable&#91;&#91;str&#93;, str&#93;</code></td>
 <td>The name substitution; a bad pattern raises <code>&lt;code&gt;ValueError(&amp;quot;Pattern error: …&amp;quot;)&lt;/code&gt;</code> at once.</td>
 </tr>
 <tr>
@@ -2609,19 +2609,19 @@ Used by <code>fontlabapp.studios.anchor_studio.session</code> and <code>.tabs</c
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.rings_overlay"></span><a href="model/members-002.html#fontlabapp.studios.anchor_studio.model.rings_overlay"><code>rings_overlay</code></a></td>
 <td>function</td>
-<td><code>(pins: Sequence[Pin], size: int) -&gt; Overlay</code></td>
+<td><code>(pins: Sequence&#91;Pin&#93;, size: int) -&gt; Overlay</code></td>
 <td>One ring per stacked anchor, each a little larger, so three coincident anchors show three rings.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.round_changes"></span><a href="model/members-002.html#fontlabapp.studios.anchor_studio.model.round_changes"><code>round_changes</code></a></td>
 <td>function</td>
-<td><code>(facts: Facts, step: int, do_x: bool, do_y: bool, names: Sequence[str]) -&gt; list[Change]</code></td>
+<td><code>(facts: Facts, step: int, do&#95;x: bool, do&#95;y: bool, names: Sequence&#91;str&#93;) -&gt; list&#91;Change&#93;</code></td>
 <td>Round To Grid: snap the named anchors (every anchor when <code>&lt;code&gt;names&lt;/code&gt;</code> is empty).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.setter"></span><a href="model/members-002.html#fontlabapp.studios.anchor_studio.model.setter"><code>setter</code></a></td>
 <td>function</td>
-<td><code>(pins: Sequence[Pin], name: str, x: float, y: float) -&gt; Change &#124; None</code></td>
+<td><code>(pins: Sequence&#91;Pin&#93;, name: str, x: float, y: float) -&gt; Change &#124; None</code></td>
 <td>The <code>&lt;code&gt;set&lt;/code&gt;&lt;code&gt; change for &lt;/code&gt;&lt;code&gt;name&lt;/code&gt;</code> at (x, y); None when nothing moves.</td>
 </tr>
 <tr>
@@ -2633,25 +2633,25 @@ Used by <code>fontlabapp.studios.anchor_studio.session</code> and <code>.tabs</c
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.snap_changes"></span><a href="model/members-002.html#fontlabapp.studios.anchor_studio.model.snap_changes"><code>snap_changes</code></a></td>
 <td>function</td>
-<td><code>(facts: Facts, names: Sequence[str], y: float) -&gt; list[Change]</code></td>
+<td><code>(facts: Facts, names: Sequence&#91;str&#93;, y: float) -&gt; list&#91;Change&#93;</code></td>
 <td>Snap To Metrics: move the named anchors vertically to <code>&lt;code&gt;y&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.stacked"></span><a href="model/members-002.html#fontlabapp.studios.anchor_studio.model.stacked"><code>stacked</code></a></td>
 <td>function</td>
-<td><code>(pins: Sequence[Pin]) -&gt; list[list[Pin]]</code></td>
-<td>Groups of anchors that lie less than <code>&lt;code&gt;STACK_DISTANCE&lt;/code&gt;</code> apart (three coincident → one group of 3).</td>
+<td><code>(pins: Sequence&#91;Pin&#93;) -&gt; list&#91;list&#91;Pin&#93;&#93;</code></td>
+<td>Groups of anchors that lie less than <code>&lt;code&gt;STACK&amp;#95;DISTANCE&lt;/code&gt;</code> apart (three coincident → one group of 3).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.subject"></span><a href="model/members-002.html#fontlabapp.studios.anchor_studio.model.subject"><code>subject</code></a></td>
 <td>function</td>
-<td><code>(names: Sequence[str]) -&gt; str</code></td>
+<td><code>(names: Sequence&#91;str&#93;) -&gt; str</code></td>
 <td>Undo-label subject: the glyph name, or <code>&lt;code&gt;&amp;quot;N glyphs&amp;quot;&lt;/code&gt;</code> for several.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.target_point"></span><a href="model/members-002.html#fontlabapp.studios.anchor_studio.model.target_point"><code>target_point</code></a></td>
 <td>function</td>
-<td><code>(box: Box, edge: str, offset: float) -&gt; tuple[int, int]</code></td>
+<td><code>(box: Box, edge: str, offset: float) -&gt; tuple&#91;int, int&#93;</code></td>
 <td>Centre of the box on <code>&lt;code&gt;edge&lt;/code&gt;&lt;code&gt; (&amp;quot;top&amp;quot;/&amp;quot;bottom&amp;quot;), pushed out by &lt;/code&gt;&lt;code&gt;offset&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
@@ -2663,7 +2663,7 @@ Used by <code>fontlabapp.studios.anchor_studio.session</code> and <code>.tabs</c
 <tr>
 <td><span id="fontlabapp.studios.anchor_studio.model.verify"></span><a href="model/members-002.html#fontlabapp.studios.anchor_studio.model.verify"><code>verify</code></a></td>
 <td>function</td>
-<td><code>(where: str, before: Sequence[Pin], edits: Sequence[Edit], stored: Sequence[Pin]) -&gt; list[str]</code></td>
+<td><code>(where: str, before: Sequence&#91;Pin&#93;, edits: Sequence&#91;Edit&#93;, stored: Sequence&#91;Pin&#93;) -&gt; list&#91;str&#93;</code></td>
 <td>Problems after a write: missing/extra names, moves beyond <code>&lt;code&gt;TOLERANCE&lt;/code&gt;</code> and swallowed moves.</td>
 </tr>
 </tbody>

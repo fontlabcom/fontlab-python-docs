@@ -2719,12 +2719,12 @@
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">addComponent</span><span class="p">(</span><span class="n">component</span><span class="p">:</span> <span class="n"><span title="flComponent">flComponent</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">addComponent</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
 
-        <p>addComponent(flComponent component)</p>
+        <p>addComponent(name or (name, QTransform)) creates a live component shape. Use notifyChangesApplied before and after for Undo.</p>
 <p>Adds a glyph component (a composite reference to another glyph) to this layer. Components are the basis of composite glyphs like accented characters.</p>
 <p>Source: FontLab Proteus API documentation</p>
 
@@ -2890,7 +2890,7 @@
 
     <div class="doc doc-contents first">
 
-        <p>applyTransform([QTransform transform])</p>
+        <p>applyTransform(QTransform transform [, bool contours, bool metrics, bool guides, bool anchors])</p>
 <p>Applies a geometric transformation to all shapes in this layer, permanently baking the transform into the node coordinates. Without an argument, applies the layer's own <code>transform</code> property.</p>
 <p>Source: FontLab Proteus API documentation</p>
 

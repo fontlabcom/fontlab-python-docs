@@ -239,7 +239,7 @@ def test_pythonqt_landing_when_bare_module_doc_then_written_overview_and_tables(
     (qt / "__init__.pyi").write_text(
         '"""Native API for PythonQt."""\nclass BoolResult:\n    """Holds a bool for out parameters."""\n'
     )
-    (qt / "QtCore.pyi").write_text('"""Qt core classes."""\nclass QPointF: ...\n')
+    (qt / "QtCore.pyi").write_text('"""Native API for PythonQt.QtCore."""\nclass QPointF: ...\n')
     plan = plan_pages(inventory_sources([(tmp_path, "fontlab_echopy")]))
     page = next(p for p, v in plan["pages"].items() if v["id"] == "PythonQt")
     text = render_page(page, plan)
@@ -248,3 +248,5 @@ def test_pythonqt_landing_when_bare_module_doc_then_written_overview_and_tables(
     for heading in ("## Overview", "## Modules", "## Classes"):
         assert heading in text, heading
     assert "QtCore" in text and "Holds a bool for out parameters." in text
+    assert "Core non-GUI classes: strings, byte arrays" in text
+    assert "Native API for PythonQt.QtCore" not in text

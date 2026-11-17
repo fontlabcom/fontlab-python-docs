@@ -2404,19 +2404,19 @@ generate_placeholder_glyphs.py.</p>
 <tr>
 <td><span id="fontlabapp.studios.derived_glyphs.placeholders.create"></span><a href="placeholders/members-001.html#fontlabapp.studios.derived_glyphs.placeholders.create"><code>create</code></a></td>
 <td>function</td>
-<td><code>(package: Any, rows: Sequence[Row], advance: int, facts: Any, allow_rebuild: bool=False) -&gt; dict[str, Any]</code></td>
+<td><code>(package: Any, rows: Sequence&#91;Row&#93;, advance: int, facts: Any, allow&#95;rebuild: bool=False) -&gt; dict&#91;str, Any&#93;</code></td>
 <td>Create every ready row as an empty glyph on all masters with FontLab's Add Glyph command.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.derived_glyphs.placeholders.font_codes"></span><a href="placeholders/members-001.html#fontlabapp.studios.derived_glyphs.placeholders.font_codes"><code>font_codes</code></a></td>
 <td>function</td>
-<td><code>() -&gt; dict[int, str]</code></td>
+<td><code>() -&gt; dict&#91;int, str&#93;</code></td>
 <td>Return {code point: glyph name} from the font-owned glyph records.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.derived_glyphs.placeholders.gate"></span><a href="placeholders/members-001.html#fontlabapp.studios.derived_glyphs.placeholders.gate"><code>gate</code></a></td>
 <td>function</td>
-<td><code>(package: Any, rows: Sequence[Row], facts: Any, allow_rebuild: bool) -&gt; list[Row]</code></td>
+<td><code>(package: Any, rows: Sequence&#91;Row&#93;, facts: Any, allow&#95;rebuild: bool) -&gt; list&#91;Row&#93;</code></td>
 <td>Mark each ready row that can make FontLab rebuild automatic glyphs.</td>
 </tr>
 <tr>
@@ -2434,13 +2434,13 @@ generate_placeholder_glyphs.py.</p>
 <tr>
 <td><span id="fontlabapp.studios.derived_glyphs.placeholders.parse"></span><a href="placeholders/members-001.html#fontlabapp.studios.derived_glyphs.placeholders.parse"><code>parse</code></a></td>
 <td>function</td>
-<td><code>(text: str) -&gt; list[Entry]</code></td>
+<td><code>(text: str) -&gt; list&#91;Entry&#93;</code></td>
 <td>Return one Entry per token.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.derived_glyphs.placeholders.plan"></span><a href="placeholders/members-001.html#fontlabapp.studios.derived_glyphs.placeholders.plan"><code>plan</code></a></td>
 <td>function</td>
-<td><code>(entries: Sequence[Entry], exists: Callable[[str], bool], codes: dict[int, str]) -&gt; list[Row]</code></td>
+<td><code>(entries: Sequence&#91;Entry&#93;, exists: Callable&#91;&#91;str&#93;, bool&#93;, codes: dict&#91;int, str&#93;) -&gt; list&#91;Row&#93;</code></td>
 <td>Return one Row per entry: skip problems and existing glyphs, never reuse a code point.</td>
 </tr>
 </tbody>

@@ -2477,7 +2477,7 @@ Used by <code>fontlabapp.studios.spacing_studio.session</code> and <code>.tabs</
 <tr>
 <td><span id="fontlabapp.studios.spacing_studio.model.copied"></span><a href="model/members-001.html#fontlabapp.studios.spacing_studio.model.copied"><code>copied</code></a></td>
 <td>function</td>
-<td><code>(before: Metrics, reference: tuple[int, int, float], mode: str, offset: int) -&gt; Plan &#124; str</code></td>
+<td><code>(before: Metrics, reference: tuple&#91;int, int, float&#93;, mode: str, offset: int) -&gt; Plan &#124; str</code></td>
 <td>Copy Metrics From Reference: <code>&lt;code&gt;reference&lt;/code&gt;</code> is (lsb, rsb, width) of the same master.</td>
 </tr>
 <tr>
@@ -2489,13 +2489,13 @@ Used by <code>fontlabapp.studios.spacing_studio.session</code> and <code>.tabs</
 <tr>
 <td><span id="fontlabapp.studios.spacing_studio.model.equalized"></span><a href="model/members-001.html#fontlabapp.studios.spacing_studio.model.equalized"><code>equalized</code></a></td>
 <td>function</td>
-<td><code>(lsb: int, rsb: int, rule: str) -&gt; tuple[int, int]</code></td>
+<td><code>(lsb: int, rsb: int, rule: str) -&gt; tuple&#91;int, int&#93;</code></td>
 <td>Equalize Sidebearings: both sides from one rule.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.spacing_studio.model.italic"></span><a href="model/members-001.html#fontlabapp.studios.spacing_studio.model.italic"><code>italic</code></a></td>
 <td>function</td>
-<td><code>(before: Metrics, edges: tuple[float, float], mode: str, lsb: float &#124; None, rsb: float &#124; None) -&gt; Plan &#124; str</code></td>
+<td><code>(before: Metrics, edges: tuple&#91;float, float&#93;, mode: str, lsb: float &#124; None, rsb: float &#124; None) -&gt; Plan &#124; str</code></td>
 <td>Italic Sidebearings: change the de-slanted (italic) sidebearings <code>&lt;code&gt;edges&lt;/code&gt;</code> describe.</td>
 </tr>
 <tr>
@@ -2507,7 +2507,7 @@ Used by <code>fontlabapp.studios.spacing_studio.session</code> and <code>.tabs</
 <tr>
 <td><span id="fontlabapp.studios.spacing_studio.model.measure"></span><a href="model/members-001.html#fontlabapp.studios.spacing_studio.model.measure"><code>measure</code></a></td>
 <td>function</td>
-<td><code>(edges: tuple[float, float] &#124; None, width: float) -&gt; Metrics &#124; None</code></td>
+<td><code>(edges: tuple&#91;float, float&#93; &#124; None, width: float) -&gt; Metrics &#124; None</code></td>
 <td><code>&lt;code&gt;Metrics&lt;/code&gt;&lt;code&gt; from ink &lt;/code&gt;&lt;code&gt;edges&lt;/code&gt;</code> (left, right) and the advance; None when empty.</td>
 </tr>
 <tr>
@@ -2519,19 +2519,19 @@ Used by <code>fontlabapp.studios.spacing_studio.session</code> and <code>.tabs</
 <tr>
 <td><span id="fontlabapp.studios.spacing_studio.model.offset_rows"></span><a href="model/members-001.html#fontlabapp.studios.spacing_studio.model.offset_rows"><code>offset_rows</code></a></td>
 <td>function</td>
-<td><code>(rows: Iterable[tuple[str, Metrics &#124; None]], offset: int) -&gt; list[tuple[str, str, str, str]]</code></td>
+<td><code>(rows: Iterable&#91;tuple&#91;str, Metrics &#124; None&#93;&#93;, offset: int) -&gt; list&#91;tuple&#91;str, str, str, str&#93;&#93;</code></td>
 <td>Sidebearing Offset Preview: (name, new LSB, new RSB, advance); the advance never changes.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.spacing_studio.model.order_plans"></span><a href="model/members-001.html#fontlabapp.studios.spacing_studio.model.order_plans"><code>order_plans</code></a></td>
 <td>function</td>
-<td><code>(entries: Sequence[tuple[str, str, Plan &#124; None, str]], users: Mapping[str, Iterable[str]]) -&gt; list[tuple[str,…</code></td>
+<td><code>(entries: Sequence&#91;tuple&#91;str, str, Plan &#124; None, str&#93;&#93;, users: Mapping&#91;str, Iterable&#91;str&#93;&#93;) -&gt; list&#91;tuple&#91;str,…</code></td>
 <td>Bases before composites per master; drop the plan of a composite whose base moves.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.spacing_studio.model.subject"></span><a href="../anchor_studio/model/members-002.html#fontlabapp.studios.anchor_studio.model.subject"><code>subject</code></a></td>
 <td>function</td>
-<td><code>(names: Sequence[str]) -&gt; str</code></td>
+<td><code>(names: Sequence&#91;str&#93;) -&gt; str</code></td>
 <td>Undo-label subject: the glyph name, or <code>&lt;code&gt;&amp;quot;N glyphs&amp;quot;&lt;/code&gt;</code> for several. (shared captured text)</td>
 </tr>
 <tr>

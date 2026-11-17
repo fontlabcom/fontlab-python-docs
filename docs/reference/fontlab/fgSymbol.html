@@ -2563,6 +2563,10 @@
   fgSymbol(glyph_id, package_id)
   fgSymbol(unicode, 'name', id)</p>
 <p>Native bases: object</p>
+<p>Captured native MRO: fgSymbol, object</p>
+<p>Native <strong>new</strong> allocation evidence (not an <strong>init</strong> overload):
+(<em>args, </em>*kwargs)
+Create and return a new object.  See help(type) for accurate signature.</p>
 <p>Supplemental documentation:
 A glyph reference identified by <code>unicode</code>, <code>name</code>, <code>id</code> and <code>pid</code>, with the flags <code>hasName</code>, <code>hasUnicode</code> and <code>empty</code>. The captured declaration exposes <code>glyph</code> (returning a glyph for a font), <code>computeID</code>, <code>compare</code>, <code>clear</code>, and <code>data</code>, <code>setData</code>, <code>containsData</code> and <code>clearData</code> keyed by the <code>DataCode</code> attribute. Consult the retained constructor documentation for the supported creation forms. Caution: FontLab 9.0.9809 terminates when fgSymbol() is called with no arguments (Fontlab/fl#8632, open).</p>
 <p>Source: FontLab Proteus API documentation</p>
@@ -2614,10 +2618,10 @@ A glyph reference identified by <code>unicode</code>, <code>name</code>, <code>i
 <td></td>
 </tr>
 <tr>
-<td><span id="fontlab.fgSymbol.__init__"></span><a href="../PythonQt/BoolResult/members-001.html#PythonQt.BoolResult.__init__"><code>__init__</code></a></td>
+<td><span id="fontlab.fgSymbol.__init__"></span><a href="../FL/Anchor/members-001.html#FL.Anchor.__init__"><code>__init__</code></a></td>
 <td>function</td>
-<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; None</code></td>
-<td>Native constructor; consult class documentation for supported overloads. (shared captured text)</td>
+<td><code>(self, /, &#42;args: Any, &#42;&#42;kwargs: Any) -&gt; None</code></td>
+<td>Initialize self. (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlab.fgSymbol.clear"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.clear"><code>clear</code></a></td>
@@ -2636,6 +2640,12 @@ A glyph reference identified by <code>unicode</code>, <code>name</code>, <code>i
 <td>function</td>
 <td><code>(self) -&gt; Any</code></td>
 <td>Clears only the font-specific ID fields (<code>id</code>, <code>pid</code>, <code>glyphIndex</code>), while keeping any attached custom data.</td>
+</tr>
+<tr>
+<td><span id="fontlab.fgSymbol.clearPresentationOverride"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.clearPresentationOverride"><code>clearPresentationOverride</code></a></td>
+<td>function</td>
+<td><code>(self) -&gt; Any</code></td>
+<td>Clears both the named master/layer and explicit location, restoring inheritance from the current context.</td>
 </tr>
 <tr>
 <td><span id="fontlab.fgSymbol.compare"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.compare"><code>compare</code></a></td>
@@ -2686,6 +2696,12 @@ A glyph reference identified by <code>unicode</code>, <code>name</code>, <code>i
 <td>The zero-based index of the glyph in the font's glyph array.</td>
 </tr>
 <tr>
+<td><span id="fontlab.fgSymbol.hasLocation"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.hasLocation"><code>hasLocation</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>Whether this occurrence has an explicit location.</td>
+</tr>
+<tr>
 <td><span id="fontlab.fgSymbol.hasName"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.hasName"><code>hasName</code></a></td>
 <td>attribute</td>
 <td><code>Any</code></td>
@@ -2722,6 +2738,12 @@ A glyph reference identified by <code>unicode</code>, <code>name</code>, <code>i
 <td>For ligature components, the index of this symbol within its ligature cluster (0-based).</td>
 </tr>
 <tr>
+<td><span id="fontlab.fgSymbol.location"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.location"><code>location</code></a></td>
+<td>attribute</td>
+<td><code>Any</code></td>
+<td>Copy of the explicit design coordinates for this occurrence.</td>
+</tr>
+<tr>
 <td><span id="fontlab.fgSymbol.name"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.name"><code>name</code></a></td>
 <td>attribute</td>
 <td><code>Any</code></td>
@@ -2738,6 +2760,18 @@ A glyph reference identified by <code>unicode</code>, <code>name</code>, <code>i
 <td>function</td>
 <td><code>(self, DataCode: Any, d: Any) -&gt; Any</code></td>
 <td>Stores the value <code>d</code> under <code>DataCode</code>.</td>
+</tr>
+<tr>
+<td><span id="fontlab.fgSymbol.setLayerOverride"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.setLayerOverride"><code>setLayerOverride</code></a></td>
+<td>function</td>
+<td><code>(self, string: Any) -&gt; Any</code></td>
+<td>Selects a named master/layer for this occurrence and clears any explicit location.</td>
+</tr>
+<tr>
+<td><span id="fontlab.fgSymbol.setLocation"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.setLocation"><code>setLocation</code></a></td>
+<td>function</td>
+<td><code>(self, arg0: flLocation) -&gt; Any</code></td>
+<td>Sets explicit design coordinates for this occurrence and clears the named master/layer override.</td>
 </tr>
 <tr>
 <td><span id="fontlab.fgSymbol.setSterile"></span><a href="fgSymbol/members-001.html#fontlab.fgSymbol.setSterile"><code>setSterile</code></a></td>

@@ -2393,13 +2393,13 @@ Why: the studio boundary forbids <code>fontlabapp.contours</code>; <code>fixes</
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.after"></span><a href="model/members-001.html#fontlabapp.studios.outline_doctor.model.after"><code>after</code></a></td>
 <td>function</td>
-<td><code>(position: int, index: int, points: Sequence[Point] &#124; None, shape: Any) -&gt; tuple</code></td>
+<td><code>(position: int, index: int, points: Sequence&#91;Point&#93; &#124; None, shape: Any) -&gt; tuple</code></td>
 <td>One <code>&lt;code&gt;Issue.after&lt;/code&gt;&lt;code&gt; entry: deleted (None) or replaced by &lt;/code&gt;&lt;code&gt;points&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.contours"></span><a href="model/members-001.html#fontlabapp.studios.outline_doctor.model.contours"><code>contours</code></a></td>
 <td>function</td>
-<td><code>(layer: Any) -&gt; list[tuple[int, int, int, Any, Any]]</code></td>
+<td><code>(layer: Any) -&gt; list&#91;tuple&#91;int, int, int, Any, Any&#93;&#93;</code></td>
 <td>(number, position, index, shape, contour) over the editable outlines; numbers count from 1.</td>
 </tr>
 <tr>
@@ -2411,31 +2411,31 @@ Why: the studio boundary forbids <code>fontlabapp.contours</code>; <code>fixes</
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.held_back"></span><a href="model/members-001.html#fontlabapp.studios.outline_doctor.model.held_back"><code>held_back</code></a></td>
 <td>function</td>
-<td><code>(planned: Mapping[str, list[Issue]], chosen: Sequence[str]) -&gt; str</code></td>
+<td><code>(planned: Mapping&#91;str, list&#91;Issue&#93;&#93;, chosen: Sequence&#91;str&#93;) -&gt; str</code></td>
 <td>The compatibility hold-back reason for one glyph, or "" when the edit may go ahead.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.moved"></span><a href="model/members-001.html#fontlabapp.studios.outline_doctor.model.moved"><code>moved</code></a></td>
 <td>function</td>
-<td><code>(points: Sequence[Point], shape: Any) -&gt; tuple[Point, ...]</code></td>
+<td><code>(points: Sequence&#91;Point&#93;, shape: Any) -&gt; tuple&#91;Point, ...&#93;</code></td>
 <td><code>&lt;code&gt;points&lt;/code&gt;</code> in glyph coordinates (plain-translated shapes only).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.node_points"></span><a href="../../contours/writer/members-001.html#fontlabapp.contours.writer.node_points"><code>node_points</code></a></td>
 <td>function</td>
-<td><code>(contour: Any) -&gt; list[Point]</code></td>
+<td><code>(contour: Any) -&gt; list&#91;Point&#93;</code></td>
 <td>(x, y, on-curve) of every node, in stored order and shape coordinates. (shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.note_rows"></span><a href="model/members-001.html#fontlabapp.studios.outline_doctor.model.note_rows"><code>note_rows</code></a></td>
 <td>function</td>
-<td><code>(notes: Sequence[str]) -&gt; list[Issue]</code></td>
+<td><code>(notes: Sequence&#91;str&#93;) -&gt; list&#91;Issue&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.outline_shapes"></span><a href="model/members-001.html#fontlabapp.studios.outline_doctor.model.outline_shapes"><code>outline_shapes</code></a></td>
 <td>function</td>
-<td><code>(layer: Any) -&gt; tuple[list[tuple[int, Any]], list[str]]</code></td>
+<td><code>(layer: Any) -&gt; tuple&#91;list&#91;tuple&#91;int, Any&#93;&#93;, list&#91;str&#93;&#93;</code></td>
 <td>(position, shape) of the editable own outlines and notes for the rest.</td>
 </tr>
 <tr>
@@ -2447,19 +2447,19 @@ Why: the studio boundary forbids <code>fontlabapp.contours</code>; <code>fixes</
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.segments_of"></span><a href="model/members-001.html#fontlabapp.studios.outline_doctor.model.segments_of"><code>segments_of</code></a></td>
 <td>function</td>
-<td><code>(points: Sequence[Point], truetype: bool) -&gt; tuple[tuple[tuple[float, float], ...], ...]</code></td>
+<td><code>(points: Sequence&#91;Point&#93;, truetype: bool) -&gt; tuple&#91;tuple&#91;tuple&#91;float, float&#93;, ...&#93;, ...&#93;</code></td>
 <td>Closed line/cubic/quadratic segments starting at the first on-curve node.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.translation"></span><a href="model/members-001.html#fontlabapp.studios.outline_doctor.model.translation"><code>translation</code></a></td>
 <td>function</td>
-<td><code>(shape: Any) -&gt; tuple[float, float] &#124; None</code></td>
+<td><code>(shape: Any) -&gt; tuple&#91;float, float&#93; &#124; None</code></td>
 <td>(dx, dy) when the shape transform only moves; None for scale, slant or turn.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.outline_doctor.model.unsigned_area"></span><a href="model/members-001.html#fontlabapp.studios.outline_doctor.model.unsigned_area"><code>unsigned_area</code></a></td>
 <td>function</td>
-<td><code>(segments: Sequence[tuple[tuple[float, float], ...]]) -&gt; float</code></td>
+<td><code>(segments: Sequence&#91;tuple&#91;tuple&#91;float, float&#93;, ...&#93;&#93;) -&gt; float</code></td>
 <td>Exact area of closed line/quadratic/cubic segments (Green's theorem).</td>
 </tr>
 </tbody>

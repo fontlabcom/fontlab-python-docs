@@ -2392,13 +2392,13 @@
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.bake_composite"></span><a href="GlyphsDeltaHost/members-001.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.bake_composite"><code>bake_composite</code></a></td>
 <td>function</td>
-<td><code>(self, glyph, base_name, target_name, metrics=True)</code></td>
+<td><code>(self, glyph, base&#95;name, target&#95;name, metrics=True)</code></td>
 <td>Target layer of a composite glyph without the delta.</td>
 </tr>
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.bake_empty"></span><a href="GlyphsDeltaHost/members-001.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.bake_empty"><code>bake_empty</code></a></td>
 <td>function</td>
-<td><code>(self, glyph, base_name, target_name, width=None, metrics=True)</code></td>
+<td><code>(self, glyph, base&#95;name, target&#95;name, width=None, metrics=True)</code></td>
 <td>Target layer of an empty glyph (spaces, CR: no paths, no components), no delta: made from the base input when it is missing; with metrics, metrics keys are synced by Glyphs, else the advance width…</td>
 </tr>
 <tr>
@@ -2470,7 +2470,7 @@
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.italic_angle_of"></span><a href="GlyphsDeltaHost/members-001.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.italic_angle_of"><code>italic_angle_of</code></a></td>
 <td>function</td>
-<td><code>(self, glyph, layer_name)</code></td>
+<td><code>(self, glyph, layer&#95;name)</code></td>
 <td>ItalicAngle of the master the layer belongs to (Glyphs sign).</td>
 </tr>
 <tr>
@@ -2482,13 +2482,13 @@
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.kerning_table"></span><a href="GlyphsDeltaHost/members-001.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.kerning_table"><code>kerning_table</code></a></td>
 <td>function</td>
-<td><code>(self, master_id)</code></td>
+<td><code>(self, master&#95;id)</code></td>
 <td>LTR kerning of a master as {(left, right): value}, core keys (proxy/gs3/objects/kern.py, shared with TR Kern).</td>
 </tr>
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.layer_master"></span><a href="GlyphsDeltaHost/members-001.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.layer_master"><code>layer_master</code></a></td>
 <td>function</td>
-<td><code>(self, layer_name)</code></td>
+<td><code>(self, layer&#95;name)</code></td>
 <td>(id, name) of the master a non-master layer is associated with, else (None, '').</td>
 </tr>
 <tr>
@@ -2506,7 +2506,7 @@
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.layer_size"></span><a href="GlyphsDeltaHost/members-001.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.layer_size"><code>layer_size</code></a></td>
 <td>function</td>
-<td><code>(self, layer_name, glyph_name=None)</code></td>
+<td><code>(self, layer&#95;name, glyph&#95;name=None)</code></td>
 <td>(width, height) of the outline of layer_name (active glyph by default).</td>
 </tr>
 <tr>
@@ -2548,7 +2548,7 @@
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.promote_kerning"></span><a href="GlyphsDeltaHost/members-001.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.promote_kerning"><code>promote_kerning</code></a></td>
 <td>function</td>
-<td><code>(self, layer_name, master_id)</code></td>
+<td><code>(self, layer&#95;name, master&#95;id)</code></td>
 <td>Write the kerning the Delta Machine keeps in the font lib for layer_name into a master and drop it from the lib.</td>
 </tr>
 <tr>
@@ -2584,25 +2584,25 @@
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.shape_kind"></span><a href="GlyphsDeltaHost/members-002.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.shape_kind"><code>shape_kind</code></a></td>
 <td>function</td>
-<td><code>(self, glyph, layer_name)</code></td>
+<td><code>(self, glyph, layer&#95;name)</code></td>
 <td>Outline (paths only), composite (components only), mixed, empty — of layer_name, else of the first layer.</td>
 </tr>
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.write_kerning"></span><a href="GlyphsDeltaHost/members-002.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.write_kerning"><code>write_kerning</code></a></td>
 <td>function</td>
-<td><code>(self, master_id, sets, remove=())</code></td>
+<td><code>(self, master&#95;id, sets, remove=())</code></td>
 <td>Set pairs {(left, right): value} and remove pairs in a master (LTR, core keys).</td>
 </tr>
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.write_layer"></span><a href="GlyphsDeltaHost/members-002.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.write_layer"><code>write_layer</code></a></td>
 <td>function</td>
-<td><code>(self, layer, core_layer, viable)</code></td>
+<td><code>(self, layer, core&#95;layer, viable)</code></td>
 <td>Write core positions into the GS nodes in place; metrics and anchors when they are in viable.</td>
 </tr>
 <tr>
 <td><span id="typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.write_target"></span><a href="GlyphsDeltaHost/members-002.html#typerig.proxy.gs3.gui.delta_host.GlyphsDeltaHost.write_target"><code>write_target</code></a></td>
 <td>function</td>
-<td><code>(self, glyph, core_layer, base_name, viable)</code></td>
+<td><code>(self, glyph, core&#95;layer, base&#95;name, viable)</code></td>
 <td>Write a baked core layer into the GS layer of the same name.</td>
 </tr>
 </tbody>

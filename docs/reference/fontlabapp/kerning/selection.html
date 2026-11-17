@@ -2340,61 +2340,61 @@ parsing. Native effective reads use scripting; all writes use kerning_batch.</p>
 <tr>
 <td><span id="fontlabapp.kerning.selection.adjacent_pairs"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.adjacent_pairs"><code>adjacent_pairs</code></a></td>
 <td>function</td>
-<td><code>(words: Iterable[list[str]]) -&gt; list[Pair]</code></td>
+<td><code>(words: Iterable&#91;list&#91;str&#93;&#93;) -&gt; list&#91;Pair&#93;</code></td>
 <td>Keep unique adjacent pairs inside words in first reading order.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.selection.class_maps"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.class_maps"><code>class_maps</code></a></td>
 <td>function</td>
-<td><code>(package: Any, master: str) -&gt; tuple[dict[str, str], dict[str, str]]</code></td>
+<td><code>(package: Any, master: str) -&gt; tuple&#91;dict&#91;str, str&#93;, dict&#91;str, str&#93;&#93;</code></td>
 <td>Map glyphs to their first native class on each permitted side.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.selection.current_value"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.current_value"><code>current_value</code></a></td>
 <td>function</td>
-<td><code>(kerning: Any, explicit: Mapping[Pair, float], pair: Pair) -&gt; tuple[float, bool]</code></td>
+<td><code>(kerning: Any, explicit: Mapping&#91;Pair, float&#93;, pair: Pair) -&gt; tuple&#91;float, bool&#93;</code></td>
 <td>Mark explicit glyph pairs; otherwise read native effective kerning or absent zero.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.selection.exception_plan"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.exception_plan"><code>exception_plan</code></a></td>
 <td>function</td>
-<td><code>(rows: Iterable[ExceptionRow]) -&gt; Edits</code></td>
+<td><code>(rows: Iterable&#91;ExceptionRow&#93;) -&gt; Edits</code></td>
 <td>Delete exactly selected exceptions, including manually selected overrides.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.selection.exceptions"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.exceptions"><code>exceptions</code></a></td>
 <td>function</td>
-<td><code>(pairs: Mapping[Pair, float], left_classes: Mapping[str, str], right_classes: Mapping[str, str]) -&gt; list[tupl…</code></td>
+<td><code>(pairs: Mapping&#91;Pair, float&#93;, left&#95;classes: Mapping&#91;str, str&#93;, right&#95;classes: Mapping&#91;str, str&#93;) -&gt; list&#91;tupl…</code></td>
 <td>Find the first explicit broader pair, including zero-valued class pairs.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.selection.explicit_pairs"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.explicit_pairs"><code>explicit_pairs</code></a></td>
 <td>function</td>
-<td><code>(package: Any, master: str) -&gt; dict[Pair, float]</code></td>
+<td><code>(package: Any, master: str) -&gt; dict&#91;Pair, float&#93;</code></td>
 <td>Read only explicit glyph/glyph pairs, preserving zero presence.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.selection.find"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.find"><code>find</code></a></td>
 <td>function</td>
-<td><code>(package: Any, masters: list[str]) -&gt; list[ExceptionRow]</code></td>
+<td><code>(package: Any, masters: list&#91;str&#93;) -&gt; list&#91;ExceptionRow&#93;</code></td>
 <td>Return ordered master/pair/value/broader/value rows, never changing master.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.selection.parse_words"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.parse_words"><code>parse_words</code></a></td>
 <td>function</td>
-<td><code>(text: str, package: Any) -&gt; list[list[str]]</code></td>
+<td><code>(text: str, package: Any) -&gt; list&#91;list&#91;str&#93;&#93;</code></td>
 <td>Resolve characters and slash-delimited glyph names within whitespace words.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.selection.text_plan"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.text_plan"><code>text_plan</code></a></td>
 <td>function</td>
-<td><code>(masters: list[str], ticked: list[Pair], values: Values, mode: str, value: float) -&gt; Edits</code></td>
+<td><code>(masters: list&#91;str&#93;, ticked: list&#91;Pair&#93;, values: Values, mode: str, value: float) -&gt; Edits</code></td>
 <td>Set or add from displayed effective values, writing only ticked glyph pairs.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.selection.text_values"></span><a href="selection/members-001.html#fontlabapp.kerning.selection.text_values"><code>text_values</code></a></td>
 <td>function</td>
-<td><code>(package: Any, masters: list[str], pairs: list[Pair]) -&gt; Values</code></td>
+<td><code>(package: Any, masters: list&#91;str&#93;, pairs: list&#91;Pair&#93;) -&gt; Values</code></td>
 <td>Read the complete preview before publishing any ticked write action.</td>
 </tr>
 </tbody>

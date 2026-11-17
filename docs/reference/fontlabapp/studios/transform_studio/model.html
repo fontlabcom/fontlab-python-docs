@@ -2432,7 +2432,7 @@ Why: the planning is testable without FontLab; <code>session</code> reads and wr
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.layer_box"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.layer_box"><code>layer_box</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer) -&gt; tuple[float, float, float, float] &#124; None</code></td>
+<td><code>(layer: Layer) -&gt; tuple&#91;float, float, float, float&#93; &#124; None</code></td>
 <td><code>&lt;code&gt;(x, y, w, h)&lt;/code&gt;&lt;code&gt; of the own outlines and component boxes, like &lt;/code&gt;&lt;code&gt;layer.boundingBox&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
@@ -2444,14 +2444,14 @@ Why: the planning is testable without FontLab; <code>session</code> reads and wr
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.mapper"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.mapper"><code>mapper</code></a></td>
 <td>function</td>
-<td><code>(lin: Affine, origin: tuple[float, float], move: tuple[float, float]) -&gt; Affine</code></td>
+<td><code>(lin: Affine, origin: tuple&#91;float, float&#93;, move: tuple&#91;float, float&#93;) -&gt; Affine</code></td>
 <td><code>&lt;code&gt;lin&lt;/code&gt;&lt;code&gt; around &lt;/code&gt;&lt;code&gt;origin&lt;/code&gt;</code>, then the move.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.origin_of"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.origin_of"><code>origin_of</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, choice: int) -&gt; tuple[float, float] &#124; None</code></td>
-<td>The transform origin for <code>&lt;code&gt;ORIGINS[choice]&lt;/code&gt;</code>; None when a box is needed but the layer is empty.</td>
+<td><code>(layer: Layer, choice: int) -&gt; tuple&#91;float, float&#93; &#124; None</code></td>
+<td>The transform origin for <code>&lt;code&gt;ORIGINS&amp;#91;choice&amp;#93;&lt;/code&gt;</code>; None when a box is needed but the layer is empty.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.rotation_linear"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.rotation_linear"><code>rotation_linear</code></a></td>
@@ -2462,31 +2462,31 @@ Why: the planning is testable without FontLab; <code>session</code> reads and wr
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.selection_changes"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.selection_changes"><code>selection_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, lin: Affine) -&gt; list[Change]</code></td>
+<td><code>(layer: Layer, lin: Affine) -&gt; list&#91;Change&#93;</code></td>
 <td>Rotate or reflect the selected nodes and components about the selection centre.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.selection_matrix"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.selection_matrix"><code>selection_matrix</code></a></td>
 <td>function</td>
-<td><code>(lin: Affine, origin: tuple[float, float]) -&gt; Affine</code></td>
+<td><code>(lin: Affine, origin: tuple&#91;float, float&#93;) -&gt; Affine</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.slant_changes"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.slant_changes"><code>slant_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, angle: float, pivot_y: float, anchors: bool) -&gt; list[Change]</code></td>
+<td><code>(layer: Layer, angle: float, pivot&#95;y: float, anchors: bool) -&gt; list&#91;Change&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.slant_matrix"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.slant_matrix"><code>slant_matrix</code></a></td>
 <td>function</td>
-<td><code>(angle: float, pivot_y: float) -&gt; Affine</code></td>
+<td><code>(angle: float, pivot&#95;y: float) -&gt; Affine</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.smart_changes"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.smart_changes"><code>smart_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, angle: float, sidebearings: bool, anchors: bool) -&gt; list[Change] &#124; str</code></td>
+<td><code>(layer: Layer, angle: float, sidebearings: bool, anchors: bool) -&gt; list&#91;Change&#93; &#124; str</code></td>
 <td>Smart Slant: shear about a third of the ink height, then keep sidebearings or the ink centre.</td>
 </tr>
 <tr>
@@ -2498,7 +2498,7 @@ Why: the planning is testable without FontLab; <code>session</code> reads and wr
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.model.transform_planner_changes"></span><a href="model/members-001.html#fontlabapp.studios.transform_studio.model.transform_planner_changes"><code>transform_planner_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, lin: Affine, choice: int, move: tuple[float, float], anchors: bool) -&gt; list[Change] &#124; str</code></td>
+<td><code>(layer: Layer, lin: Affine, choice: int, move: tuple&#91;float, float&#93;, anchors: bool) -&gt; list&#91;Change&#93; &#124; str</code></td>
 <td></td>
 </tr>
 </tbody>

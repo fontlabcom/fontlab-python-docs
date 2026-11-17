@@ -2440,19 +2440,19 @@ behaviour is restated in each function's docstring.</p>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.align_changes"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.align_changes"><code>align_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, mode: str, all_nodes: bool=False, coordinate: float &#124; None=None) -&gt; list[Change]</code></td>
-<td>Align And Distribute <code>&lt;code&gt;plan_layer&lt;/code&gt;</code>: align to the bounds or a coordinate, or distribute nodes.</td>
+<td><code>(layer: Layer, mode: str, all&#95;nodes: bool=False, coordinate: float &#124; None=None) -&gt; list&#91;Change&#93;</code></td>
+<td>Align And Distribute <code>&lt;code&gt;plan&amp;#95;layer&lt;/code&gt;</code>: align to the bounds or a coordinate, or distribute nodes.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.component_groups"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.component_groups"><code>component_groups</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer) -&gt; tuple[list[Group], list[Change]]</code></td>
+<td><code>(layer: Layer) -&gt; tuple&#91;list&#91;Group&#93;, list&#91;Change&#93;&#93;</code></td>
 <td>Selected component rectangles; their base outlines are never edited.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.contour_groups"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.contour_groups"><code>contour_groups</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, s: int, c: int, all_nodes: bool, distribute: bool) -&gt; list[Group]</code></td>
+<td><code>(layer: Layer, s: int, c: int, all&#95;nodes: bool, distribute: bool) -&gt; list&#91;Group&#93;</code></td>
 <td>Pair each selected on-curve node with its unselected adjacent controls (whole contours move as units).</td>
 </tr>
 <tr>
@@ -2464,49 +2464,49 @@ behaviour is restated in each function's docstring.</p>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.node_groups"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.node_groups"><code>node_groups</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, all_nodes: bool, distribute: bool) -&gt; tuple[list[Group], list[Change]]</code></td>
+<td><code>(layer: Layer, all&#95;nodes: bool, distribute: bool) -&gt; tuple&#91;list&#91;Group&#93;, list&#91;Change&#93;&#93;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.nudge_changes"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.nudge_changes"><code>nudge_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, dx: float, dy: float) -&gt; list[Change]</code></td>
+<td><code>(layer: Layer, dx: float, dy: float) -&gt; list&#91;Change&#93;</code></td>
 <td>Interpolated Nudge: one row per closed cubic contour with selected on-curve nodes.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.nudged"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.nudged"><code>nudged</code></a></td>
 <td>function</td>
-<td><code>(points: Sequence[tuple[float, float, bool]], selected: set[int], dx: float, dy: float) -&gt; list[XY]</code></td>
+<td><code>(points: Sequence&#91;tuple&#91;float, float, bool&#93;&#93;, selected: set&#91;int&#93;, dx: float, dy: float) -&gt; list&#91;XY&#93;</code></td>
 <td>Scale cubic handles between simultaneously moved endpoints; factors clamp to 0…4 per axis.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.outline_shapes"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.outline_shapes"><code>outline_shapes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer) -&gt; tuple[list[int], list[str]]</code></td>
+<td><code>(layer: Layer) -&gt; tuple&#91;list&#91;int&#93;, list&#91;str&#93;&#93;</code></td>
 <td>Indices of own contour shapes editable in place, and notes for shared or scaled/rotated ones.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.overlap_changes"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.overlap_changes"><code>overlap_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, angle: float) -&gt; list[Change]</code></td>
+<td><code>(layer: Layer, angle: float) -&gt; list&#91;Change&#93;</code></td>
 <td>Overlap Nodes: move each selected tip's adjacent corner onto it and align the next handle.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.position"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.position"><code>position</code></a></td>
 <td>function</td>
-<td><code>(points: Sequence[XY], axis: int, fraction: float) -&gt; float</code></td>
+<td><code>(points: Sequence&#91;XY&#93;, axis: int, fraction: float) -&gt; float</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.removals"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.removals"><code>removals</code></a></td>
 <td>function</td>
-<td><code>(contour: Contour, selected: Sequence[int] &#124; None=None) -&gt; list[int]</code></td>
+<td><code>(contour: Contour, selected: Sequence&#91;int&#93; &#124; None=None) -&gt; list&#91;int&#93;</code></td>
 <td>Alternate selected indices of a polygon; open endpoints stay; closed keep ≥ 3 nodes, open ≥ 2.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.align_nudge.model.simplify_changes"></span><a href="model/members-001.html#fontlabapp.studios.align_nudge.model.simplify_changes"><code>simplify_changes</code></a></td>
 <td>function</td>
-<td><code>(layer: Layer, reference: Layer &#124; None=None) -&gt; list[Change]</code></td>
+<td><code>(layer: Layer, reference: Layer &#124; None=None) -&gt; list&#91;Change&#93;</code></td>
 <td>Simplify Selected Nodes: remove alternate selected nodes, using the reference (preview master) selection.</td>
 </tr>
 </tbody>

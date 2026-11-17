@@ -2335,13 +2335,13 @@
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.__init__"></span><a href="Studio/members-001.html#fontlabapp.studios.transform_studio.session.Studio.__init__"><code>__init__</code></a></td>
 <td>function</td>
-<td><code>(self, shell: Any, *, font: Callable[[], Any] &#124; None=None, selection: Callable[[], list[str]] &#124; None=None, me…</code></td>
+<td><code>(self, shell: Any, &#42;, font: Callable&#91;&#91;&#93;, Any&#93; &#124; None=None, selection: Callable&#91;&#91;&#93;, list&#91;str&#93;&#93; &#124; None=None, me…</code></td>
 <td></td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.apply"></span><a href="Studio/members-001.html#fontlabapp.studios.transform_studio.session.Studio.apply"><code>apply</code></a></td>
 <td>function</td>
-<td><code>(self, action: str, planner: Planner, names: Sequence[str] &#124; None=None, *, all_masters: bool=False, masters: …</code></td>
+<td><code>(self, action: str, planner: Planner, names: Sequence&#91;str&#93; &#124; None=None, &#42;, all&#95;masters: bool=False, masters: …</code></td>
 <td>Plan, then write every changed layer as one <code>&lt;code&gt;&amp;quot;&amp;lt;App&amp;gt;: &amp;lt;action&amp;gt; &amp;lt;subject&amp;gt;&amp;quot;&lt;/code&gt;</code> step.</td>
 </tr>
 <tr>
@@ -2359,19 +2359,19 @@
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.ghost"></span><a href="Studio/members-001.html#fontlabapp.studios.transform_studio.session.Studio.ghost"><code>ghost</code></a></td>
 <td>function</td>
-<td><code>(self, rows: Sequence[Row]) -&gt; geometry.Overlay &#124; None</code></td>
+<td><code>(self, rows: Sequence&#91;Row&#93;) -&gt; geometry.Overlay &#124; None</code></td>
 <td>Draw the planned outline of the previewed glyph on the preview master; None when there is none.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.italic_angle"></span><a href="Studio/members-001.html#fontlabapp.studios.transform_studio.session.Studio.italic_angle"><code>italic_angle</code></a></td>
 <td>function</td>
 <td><code>(self) -&gt; float</code></td>
-<td>The current master's italic angle (<code>&lt;code&gt;package.italicAngle_value&lt;/code&gt;</code>).</td>
+<td>The current master's italic angle (<code>&lt;code&gt;package.italicAngle&amp;#95;value&lt;/code&gt;</code>).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.italic_angles"></span><a href="Studio/members-001.html#fontlabapp.studios.transform_studio.session.Studio.italic_angles"><code>italic_angles</code></a></td>
 <td>function</td>
-<td><code>(self, masters: Sequence[str]) -&gt; dict[str, float]</code></td>
+<td><code>(self, masters: Sequence&#91;str&#93;) -&gt; dict&#91;str, float&#93;</code></td>
 <td>{master: italic angle}; switches the current master briefly and always restores it.</td>
 </tr>
 <tr>
@@ -2395,7 +2395,7 @@
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.plan"></span><a href="Studio/members-001.html#fontlabapp.studios.transform_studio.session.Studio.plan"><code>plan</code></a></td>
 <td>function</td>
-<td><code>(self, planner: Planner, names: Sequence[str] &#124; None=None, *, all_masters: bool=False, masters: Sequence[str]…</code></td>
+<td><code>(self, planner: Planner, names: Sequence&#91;str&#93; &#124; None=None, &#42;, all&#95;masters: bool=False, masters: Sequence&#91;str&#93;…</code></td>
 <td>Plan <code>&lt;code&gt;planner(name, master, snapshot)&lt;/code&gt;</code> for each glyph layer; skipped layers carry a note.</td>
 </tr>
 <tr>
@@ -2407,7 +2407,7 @@
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.remove_hints"></span><a href="Studio/members-001.html#fontlabapp.studios.transform_studio.session.Studio.remove_hints"><code>remove_hints</code></a></td>
 <td>function</td>
-<td><code>(self, names: Sequence[str] &#124; None=None, *, all_masters: bool=False) -&gt; int</code></td>
+<td><code>(self, names: Sequence&#91;str&#93; &#124; None=None, &#42;, all&#95;masters: bool=False) -&gt; int</code></td>
 <td>Remove PostScript hints from the chosen layers: one <code>&lt;code&gt;&amp;quot;&amp;lt;App&amp;gt;: remove hints &amp;lt;glyph&amp;gt;&amp;quot;&lt;/code&gt;</code> step each.</td>
 </tr>
 <tr>
@@ -2419,7 +2419,7 @@
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.set_glyphs"></span><a href="../../anchor_studio/session/Studio/members-001.html#fontlabapp.studios.anchor_studio.session.Studio.set_glyphs"><code>set_glyphs</code></a></td>
 <td>function</td>
-<td><code>(self, names: Sequence[str]) -&gt; None</code></td>
+<td><code>(self, names: Sequence&#91;str&#93;) -&gt; None</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
@@ -2443,13 +2443,13 @@
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.targets"></span><a href="../../anchor_studio/session/Studio/members-001.html#fontlabapp.studios.anchor_studio.session.Studio.targets"><code>targets</code></a></td>
 <td>function</td>
-<td><code>(self, all_masters: bool) -&gt; list[str]</code></td>
+<td><code>(self, all&#95;masters: bool) -&gt; list&#91;str&#93;</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.studios.transform_studio.session.Studio.use_selection"></span><a href="../../anchor_studio/session/Studio/members-001.html#fontlabapp.studios.anchor_studio.session.Studio.use_selection"><code>use_selection</code></a></td>
 <td>function</td>
-<td><code>(self) -&gt; list[str]</code></td>
+<td><code>(self) -&gt; list&#91;str&#93;</code></td>
 <td>(shared captured text)</td>
 </tr>
 <tr>

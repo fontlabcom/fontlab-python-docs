@@ -2424,56 +2424,56 @@ done = glyph_creation.create_glyphs(package, specs, &quot;Small Caps&quot;, fact
 <tr>
 <td><span id="fontlabapp.glyphs.creation.auto_candidates"></span><a href="creation/members-001.html#fontlabapp.glyphs.creation.auto_candidates"><code>auto_candidates</code></a></td>
 <td>function</td>
-<td><code>(package: Any, facts: history.AutoFacts, names: Iterable[str]) -&gt; dict[str, tuple[str, ...]]</code></td>
+<td><code>(package: Any, facts: history.AutoFacts, names: Iterable&#91;str&#93;) -&gt; dict&#91;str, tuple&#91;str, ...&#93;&#93;</code></td>
 <td>Map each new name to the automatic glyphs that FontLab may rebuild when it appears.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.glyphs.creation.auto_changes"></span><a href="creation/members-001.html#fontlabapp.glyphs.creation.auto_changes"><code>auto_changes</code></a></td>
 <td>function</td>
-<td><code>(package: Any, before: Mapping[LayerKey, tuple[Any, ...]]) -&gt; list[str]</code></td>
+<td><code>(package: Any, before: Mapping&#91;LayerKey, tuple&#91;Any, ...&#93;&#93;) -&gt; list&#91;str&#93;</code></td>
 <td>Return one text per automatic layer whose signature changed or that is gone.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.glyphs.creation.auto_signatures"></span><a href="creation/members-001.html#fontlabapp.glyphs.creation.auto_signatures"><code>auto_signatures</code></a></td>
 <td>function</td>
-<td><code>(package: Any, facts: history.AutoFacts) -&gt; dict[LayerKey, tuple[Any, ...]]</code></td>
+<td><code>(package: Any, facts: history.AutoFacts) -&gt; dict&#91;LayerKey, tuple&#91;Any, ...&#93;&#93;</code></td>
 <td>Return the signature of every automatic layer of the font, before the write.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.glyphs.creation.create_glyphs"></span><a href="creation/members-001.html#fontlabapp.glyphs.creation.create_glyphs"><code>create_glyphs</code></a></td>
 <td>function</td>
-<td><code>(package: Any, specs: Sequence[NewGlyph], title: str, facts: history.AutoFacts, *, fill: Callable[[dict[str, …</code></td>
+<td><code>(package: Any, specs: Sequence&#91;NewGlyph&#93;, title: str, facts: history.AutoFacts, &#42;, fill: Callable&#91;&#91;dict&#91;str, …</code></td>
 <td>Create every glyph of <code>&lt;code&gt;specs&lt;/code&gt;</code>, then optionally fill them in ONE Undo step.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.glyphs.creation.glyph_data"></span><a href="creation/members-001.html#fontlabapp.glyphs.creation.glyph_data"><code>glyph_data</code></a></td>
 <td>function</td>
-<td><code>(spec: NewGlyph) -&gt; dict[str, Any]</code></td>
-<td>Return the fontpr <code>&lt;code&gt;glyph_data&lt;/code&gt;&lt;code&gt; JSON for &lt;/code&gt;&lt;code&gt;spec&lt;/code&gt;</code>: name, layers, code points.</td>
+<td><code>(spec: NewGlyph) -&gt; dict&#91;str, Any&#93;</code></td>
+<td>Return the fontpr <code>&lt;code&gt;glyph&amp;#95;data&lt;/code&gt;&lt;code&gt; JSON for &lt;/code&gt;&lt;code&gt;spec&lt;/code&gt;</code>: name, layers, code points.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.glyphs.creation.layer_signature"></span><a href="creation/members-001.html#fontlabapp.glyphs.creation.layer_signature"><code>layer_signature</code></a></td>
 <td>function</td>
-<td><code>(layer: Any) -&gt; tuple[Any, ...]</code></td>
+<td><code>(layer: Any) -&gt; tuple&#91;Any, ...&#93;</code></td>
 <td>Return the component bases and transforms, anchors and width of <code>&lt;code&gt;layer&lt;/code&gt;</code>.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.glyphs.creation.rebuild_note"></span><a href="creation/members-001.html#fontlabapp.glyphs.creation.rebuild_note"><code>rebuild_note</code></a></td>
 <td>function</td>
-<td><code>(candidates: Sequence[str]) -&gt; str</code></td>
+<td><code>(candidates: Sequence&#91;str&#93;) -&gt; str</code></td>
 <td>Return the preview note: "may rebuild auto eacute.sc, aacute.sc…".</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.glyphs.creation.segments"></span><a href="creation/members-001.html#fontlabapp.glyphs.creation.segments"><code>segments</code></a></td>
 <td>function</td>
-<td><code>(name: str) -&gt; frozenset[str]</code></td>
+<td><code>(name: str) -&gt; frozenset&#91;str&#93;</code></td>
 <td>Return the dotted suffix segments of a glyph name: h.sc.ss01 -&gt; {sc, ss01}.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.glyphs.creation.undo_text"></span><a href="creation/members-001.html#fontlabapp.glyphs.creation.undo_text"><code>undo_text</code></a></td>
 <td>function</td>
 <td><code>(filled: bool) -&gt; str</code></td>
-<td>Return <code>&lt;code&gt;UNDO_TEXT&lt;/code&gt;&lt;code&gt; when the script fills outlines, else &lt;/code&gt;&lt;code&gt;CREATE_UNDO_TEXT&lt;/code&gt;</code>.</td>
+<td>Return <code>&lt;code&gt;UNDO&amp;#95;TEXT&lt;/code&gt;&lt;code&gt; when the script fills outlines, else &lt;/code&gt;&lt;code&gt;CREATE&amp;#95;UNDO&amp;#95;TEXT&lt;/code&gt;</code>.</td>
 </tr>
 </tbody>
 </table>

@@ -2370,31 +2370,31 @@ Python's integer round. Writers validate every resulting whole-unit value.</p>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.class_sides"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.class_sides"><code>class_sides</code></a></td>
 <td>function</td>
-<td><code>(package: Any, master: str, glyph: str) -&gt; tuple[str &#124; None, str &#124; None]</code></td>
+<td><code>(package: Any, master: str, glyph: str) -&gt; tuple&#91;str &#124; None, str &#124; None&#93;</code></td>
 <td>Return the original first side-specific class for the selected glyph.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.copy_plan"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.copy_plan"><code>copy_plan</code></a></td>
 <td>function</td>
-<td><code>(source: Mapping[Pair, float], target: Mapping[Pair, float], mode: str, percent: float) -&gt; dict[Pair, int &#124; N…</code></td>
+<td><code>(source: Mapping&#91;Pair, float&#93;, target: Mapping&#91;Pair, float&#93;, mode: str, percent: float) -&gt; dict&#91;Pair, int &#124; N…</code></td>
 <td>Stage replace, missing-only or matching-only edits without conflating zero/absence.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.copy_run"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.copy_run"><code>copy_run</code></a></td>
 <td>function</td>
-<td><code>(package: Any, source_master: str, targets: list[str], mode: str, percent: float, *, expected: Any=None, undo…</code></td>
+<td><code>(package: Any, source&#95;master: str, targets: list&#91;str&#93;, mode: str, percent: float, &#42;, expected: Any=None, undo…</code></td>
 <td>Build every target before the one multi-master native write; return preview counts.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.involving"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.involving"><code>involving</code></a></td>
 <td>function</td>
-<td><code>(package: Any, masters: list[str], glyph: str) -&gt; dict[Pair, dict[str, float]]</code></td>
+<td><code>(package: Any, masters: list&#91;str&#93;, glyph: str) -&gt; dict&#91;Pair, dict&#91;str, float&#93;&#93;</code></td>
 <td>Collect explicit pairs involving the glyph or either original first-side class.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.native_side"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.native_side"><code>native_side</code></a></td>
 <td>function</td>
-<td><code>(name: str) -&gt; tuple[str, bool]</code></td>
+<td><code>(name: str) -&gt; tuple&#91;str, bool&#93;</code></td>
 <td>Retain original scripts' boolean explicit-key conversion interface.</td>
 </tr>
 <tr>
@@ -2406,25 +2406,25 @@ Python's integer round. Writers validate every resulting whole-unit value.</p>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.partner_exists"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.partner_exists"><code>partner_exists</code></a></td>
 <td>function</td>
-<td><code>(package: Any, masters: list[str], pair: Pair) -&gt; bool</code></td>
+<td><code>(package: Any, masters: list&#91;str&#93;, pair: Pair) -&gt; bool</code></td>
 <td>Allow a new pair row if at least one master has its side-compatible names.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.plan_values"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.plan_values"><code>plan_values</code></a></td>
 <td>function</td>
-<td><code>(pairs: Mapping[str, Pairs], parameter: float, drop_zero: bool, *, snap: bool) -&gt; Changes</code></td>
+<td><code>(pairs: Mapping&#91;str, Pairs&#93;, parameter: float, drop&#95;zero: bool, &#42;, snap: bool) -&gt; Changes</code></td>
 <td>Round (<code>&lt;code&gt;snap&lt;/code&gt;&lt;code&gt;) or scale already-read &lt;/code&gt;&lt;code&gt;{master: pairs}&lt;/code&gt;</code>, e.g. a kerning snapshot's pairs.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.remove_run"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.remove_run"><code>remove_run</code></a></td>
 <td>function</td>
-<td><code>(package: Any, masters: list[str], threshold: float, *, expected: Any=None, undo_name: str) -&gt; dict[str, int]</code></td>
+<td><code>(package: Any, masters: list&#91;str&#93;, threshold: float, &#42;, expected: Any=None, undo&#95;name: str) -&gt; dict&#91;str, int&#93;</code></td>
 <td>Stage every small-pair deletion before one shared native write.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.round_plan"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.round_plan"><code>round_plan</code></a></td>
 <td>function</td>
-<td><code>(package: Any, masters: list[str], step: int, drop_zero: bool) -&gt; Changes</code></td>
+<td><code>(package: Any, masters: list&#91;str&#93;, step: int, drop&#95;zero: bool) -&gt; Changes</code></td>
 <td>Preview snapping, including existing zero deletion when requested.</td>
 </tr>
 <tr>
@@ -2436,7 +2436,7 @@ Python's integer round. Writers validate every resulting whole-unit value.</p>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.scale_plan"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.scale_plan"><code>scale_plan</code></a></td>
 <td>function</td>
-<td><code>(package: Any, masters: list[str], percent: float, drop_zero: bool) -&gt; Changes</code></td>
+<td><code>(package: Any, masters: list&#91;str&#93;, percent: float, drop&#95;zero: bool) -&gt; Changes</code></td>
 <td>Preview scaling with the original explicit-zero option semantics.</td>
 </tr>
 <tr>
@@ -2448,25 +2448,25 @@ Python's integer round. Writers validate every resulting whole-unit value.</p>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.small_pairs"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.small_pairs"><code>small_pairs</code></a></td>
 <td>function</td>
-<td><code>(package: Any, masters: list[str], threshold: float) -&gt; dict[str, list[tuple[str, str, float]]]</code></td>
+<td><code>(package: Any, masters: list&#91;str&#93;, threshold: float) -&gt; dict&#91;str, list&#91;tuple&#91;str, str, float&#93;&#93;&#93;</code></td>
 <td>List strictly smaller magnitudes, ordered by magnitude then pair names.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.small_values"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.small_values"><code>small_values</code></a></td>
 <td>function</td>
-<td><code>(pairs: Mapping[str, Pairs], threshold: float) -&gt; dict[str, list[tuple[str, str, float]]]</code></td>
-<td><code>&lt;code&gt;small_pairs&lt;/code&gt;&lt;code&gt; over already-read &lt;/code&gt;&lt;code&gt;{master: pairs}&lt;/code&gt;</code> (a kerning snapshot's pairs).</td>
+<td><code>(pairs: Mapping&#91;str, Pairs&#93;, threshold: float) -&gt; dict&#91;str, list&#91;tuple&#91;str, str, float&#93;&#93;&#93;</code></td>
+<td><code>&lt;code&gt;small&amp;#95;pairs&lt;/code&gt;&lt;code&gt; over already-read &lt;/code&gt;&lt;code&gt;{master: pairs}&lt;/code&gt;</code> (a kerning snapshot's pairs).</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.stage_cell"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.stage_cell"><code>stage_cell</code></a></td>
 <td>function</td>
-<td><code>(staged: dict[Cell, int &#124; None], errors: dict[Cell, str], key: Cell, text: str, old: float &#124; None) -&gt; bool</code></td>
+<td><code>(staged: dict&#91;Cell, int &#124; None&#93;, errors: dict&#91;Cell, str&#93;, key: Cell, text: str, old: float &#124; None) -&gt; bool</code></td>
 <td>Clear only the invalid cell's prior edit; preserve every other valid staged cell.</td>
 </tr>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.summary"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.summary"><code>summary</code></a></td>
 <td>function</td>
-<td><code>(target: Mapping[Pair, float], edits: Mapping[Pair, int &#124; None]) -&gt; tuple[int, int, int]</code></td>
+<td><code>(target: Mapping&#91;Pair, float&#93;, edits: Mapping&#91;Pair, int &#124; None&#93;) -&gt; tuple&#91;int, int, int&#93;</code></td>
 <td>Count added/changed/deleted explicit pairs in one target's preview.</td>
 </tr>
 <tr>
@@ -2478,7 +2478,7 @@ Python's integer round. Writers validate every resulting whole-unit value.</p>
 <tr>
 <td><span id="fontlabapp.kerning.edit.model.write_kerning"></span><a href="model/members-001.html#fontlabapp.kerning.edit.model.write_kerning"><code>write_kerning</code></a></td>
 <td>function</td>
-<td><code>(package: Any, edits: Edits, undo_name: str) -&gt; bool</code></td>
+<td><code>(package: Any, edits: Edits, undo&#95;name: str) -&gt; bool</code></td>
 <td>Provide the original programmatic writer interface through the safe batch.</td>
 </tr>
 </tbody>

@@ -2234,10 +2234,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab_echopy.tooling.identities.RETAINED" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RETAINED
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab_echopy.tooling.identities.derive_identities" class="md-nav__link">
     <span class="md-ellipsis">
       
         derive_identities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab_echopy.tooling.identities.retain_scopes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        retain_scopes
       
     </span>
   </a>
@@ -2315,6 +2337,28 @@
 
 </div>
 
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="fontlab_echopy.tooling.identities.RETAINED" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">RETAINED</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">RETAINED</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+    </div>
+
+</div>
+
 <div class="doc doc-object doc-function">
 
 
@@ -2329,6 +2373,29 @@
     <div class="doc doc-contents first">
 
         <p>Derive the manifest; the capture must be the one the package was built from.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab_echopy.tooling.identities.retain_scopes" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">retain_scopes</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">retain_scopes</span><span class="p">(</span><span class="n">package</span><span class="p">:</span> <span class="n"><span title="pathlib.Path">Path</span></span><span class="p">,</span> <span class="n">tops</span><span class="p">:</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n"><span title="dict">dict</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>Extract retained modules' rows from the shipped, verified manifest.</p>
+<p>The source capture of each retained module is the one recorded for it
+earlier (a previous retention) or else the package's capture identity,
+which the shipped manifest must match. Returns the provenance entry.</p>
 
 
     </div>

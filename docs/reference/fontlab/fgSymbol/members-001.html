@@ -2267,6 +2267,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab.fgSymbol.clearPresentationOverride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearPresentationOverride
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab.fgSymbol.compare" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2355,6 +2366,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab.fgSymbol.hasLocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hasLocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab.fgSymbol.hasName" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2421,6 +2443,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fontlab.fgSymbol.location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        location
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fontlab.fgSymbol.name" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2447,6 +2480,28 @@
     <span class="md-ellipsis">
       
         setData
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab.fgSymbol.setLayerOverride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setLayerOverride
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontlab.fgSymbol.setLocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setLocation
       
     </span>
   </a>
@@ -2605,6 +2660,28 @@
 
         <p>clearID()</p>
 <p>Clears only the font-specific ID fields (<code>id</code>, <code>pid</code>, <code>glyphIndex</code>), while keeping any attached custom data. Useful when transferring symbols between fonts: clear the old font's IDs, then call <code>computeID(newFont)</code> to resolve them in the new font.</p>
+<p>Source: FontLab Proteus API documentation</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab.fgSymbol.clearPresentationOverride" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">clearPresentationOverride</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">clearPresentationOverride</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>clearPresentationOverride()</p>
+<p>Clears both the named master/layer and explicit location, restoring inheritance from the current context.</p>
 <p>Source: FontLab Proteus API documentation</p>
 
 
@@ -2804,6 +2881,32 @@
 
 
 
+<h2 id="fontlab.fgSymbol.hasLocation" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">hasLocation</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">hasLocation</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>bool</p>
+<p>Whether this occurrence has an explicit location. An explicitly empty location still returns <code>True</code>; use <code>clearPresentationOverride()</code> to restore inheritance.</p>
+<p>Source: FontLab Proteus API documentation</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
 <h2 id="fontlab.fgSymbol.hasName" class="doc doc-heading">
             <span class="doc doc-object-name doc-attribute-name">hasName</span>
 
@@ -2956,6 +3059,32 @@
 
 
 
+<h2 id="fontlab.fgSymbol.location" class="doc doc-heading">
+            <span class="doc doc-object-name doc-attribute-name">location</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">location</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>flLocation</p>
+<p>Copy of the explicit design coordinates for this occurrence. Read axis values with <code>symbol.location["wt"]</code>. Use <code>setLocation()</code> to apply changes.</p>
+<p>Source: FontLab Proteus API documentation</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
 <h2 id="fontlab.fgSymbol.name" class="doc doc-heading">
             <span class="doc doc-object-name doc-attribute-name">name</span>
 
@@ -3019,6 +3148,50 @@
 
         <p>setData(DataCode, QVariant d)</p>
 <p>Stores the value <code>d</code> under <code>DataCode</code>. You can store any Python value that Qt can wrap in a <code>QVariant</code> — numbers, strings, and lists all work.</p>
+<p>Source: FontLab Proteus API documentation</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab.fgSymbol.setLayerOverride" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">setLayerOverride</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">setLayerOverride</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>setLayerOverride(string)</p>
+<p>Selects a named master/layer for this occurrence and clears any explicit location. An empty name restores inheritance.</p>
+<p>Source: FontLab Proteus API documentation</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="fontlab.fgSymbol.setLocation" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">setLocation</span>
+
+
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">setLocation</span><span class="p">(</span><span class="n">arg0</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="flLocation (fontlab_echopy.fontlab.flLocation)" href="../flLocation.html#fontlab.flLocation">flLocation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>setLocation(flLocation)</p>
+<p>Sets explicit design coordinates for this occurrence and clears the named master/layer override. Copies the supplied location.</p>
 <p>Source: FontLab Proteus API documentation</p>
 
 
