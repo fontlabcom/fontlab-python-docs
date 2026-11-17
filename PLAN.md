@@ -4,6 +4,17 @@ this_file: PLAN.md
 
 # Forward plan
 
+## Instamix guide delivery
+
+Integrate the independently reviewed eleven-file authored-source update through
+normal delivery gates. The matched approved packet, unchanged API source lock,
+normal build, offline consumer, bounded rendered review and existing privacy
+disposition are qualified locally. The canonical installer HTTP body is verified.
+Keep the generated review candidate local; normal CI must generate output Y
+from source commit X. Verify exact X/Y lineage, Actions, live Pages and browser
+behavior on the delivered site. Qualify native installation and connection
+separately; retain consumer-execution and owner-recovery holds.
+
 ## FontLab 9.1 API pages
 
 The guide page `guide/whats-new-9-1.md` documents the 9.1.9812 changes from source. Live-verify the examples, then regenerate the API reference from a 9.1 Echopy capture through a new input packet.

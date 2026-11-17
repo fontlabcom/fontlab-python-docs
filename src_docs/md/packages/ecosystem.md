@@ -9,6 +9,7 @@ matches your answer instead of reaching across a boundary.
 
 | Package | Role |
 | --- | --- |
+| [Instamix](instamix.md) | Stdlib bootstrap, package installation and extension deployment inside FontLab or from a terminal. |
 | [Remopy](remopy.md) | Pip-installable remote control of a running FontLab from an ordinary Python process outside it. |
 | [Glyport](glyport.md) | Runs unmodified Glyphs.app scripts and plugins inside FontLab. |
 | [Fontport](fontport.md) | FontParts, fontTools pens, UFO and DesignSpace interoperability. No user interface. |
@@ -82,6 +83,7 @@ until you ask for an alias, so importing it never loads a target package.
 
 | You want to... | Use |
 | --- | --- |
+| Install distributions, source projects or packaged extensions | [Instamix](instamix.md) |
 | Run a script from a terminal, CI job or notebook against a running FontLab | Remopy |
 | Run a Glyphs.app script or plugin without rewriting it | Glyport |
 | Read or write UFO, DesignSpace or FontParts objects, or draw with fontTools pens | Fontport |
@@ -95,8 +97,10 @@ until you ask for an alias, so importing it never loads a target package.
 
 ## Boundary rules
 
-- **Outside versus inside.** Remopy is the only package meant for code outside
-  FontLab. Everything else imports FontLab's own modules and needs the host.
+- **Outside versus inside.** Remopy controls the host from another process.
+  Instamix also runs outside it, using explicit target facts or optional Remopy
+  discovery. Its bootstrap is stdlib-only and its PythonQt helpers load lazily;
+  other native application APIs need the FontLab host.
 - **Interop versus UI.** Fontport converts font data and has no user interface.
   Its Qt editors live in `fontlabapp.fontui` and call Fontport lazily.
 - **Shims versus behaviour.** Echopy documents and mirrors the native API. It does

@@ -17,7 +17,7 @@
         <link rel="prev" href="../licenses.html">
       
       
-        <link rel="next" href="ecosystem.html">
+        <link rel="next" href="instamix.html">
       
       
         
@@ -1141,6 +1141,34 @@
   
   
     <li class="md-nav__item">
+      <a href="instamix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instamix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="ecosystem.html" class="md-nav__link">
         
   
@@ -1457,34 +1485,6 @@
     
   
     Aidus Agentus
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="instamix.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Instamix
   
 
     
@@ -2436,6 +2436,11 @@ the current limits; the API reference links lead to every documented member.</p>
 </thead>
 <tbody>
 <tr>
+<td><a href="instamix.html">Instamix</a></td>
+<td><code>fontlab_instamix</code></td>
+<td>Bootstrap and install distributions, scripts and extensions</td>
+</tr>
+<tr>
 <td><a href="echopy.html">Echopy</a></td>
 <td><code>echopy</code>, <code>fontlab_echopy</code></td>
 <td>Read FontLab's native API as typed, documented Python</td>
@@ -2513,12 +2518,11 @@ the current limits; the API reference links lead to every documented member.</p>
 </tbody>
 </table>
 <h2 id="install-into-fontlab">Install into FontLab</h2>
-<p>Download a reviewed wheel from the package's GitHub release, then install it
-into FontLab 9's per-user Python folder with a Python 3.11 resolver:</p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.11<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--target<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Library/Application Support/FontLab/FontLab 9/python/3.11/site-packages&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>PATH_TO_WHEEL
-</code></pre></div>
+<p>Start with <a href="instamix.html">Instamix 1.0.9 or newer</a>, then use the reviewed project
+installer or extension manifest. It provisions uv and a matching shared Python
+environment; distribution requirements can be installed from FontLab with
+<code>fontlab_instamix.install_packages(...)</code>. Read <a href="../guide/install.html">Install and connect</a>
+for the current bootstrap, data-folder rules and GitHub release inputs.</p>
 <h3 id="editable-install-from-a-checkout">Editable install from a checkout</h3>
 <p>To work on a package, install its Git checkout in editable mode into FontLab's
 per-user Python environment. When that folder is the <code>site-packages</code> of a virtual
@@ -2532,8 +2536,10 @@ uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </s
 <p>Repeat for each checkout you develop
 (Echopy, Fly, Fontlabapp, Grablab, Remopy, Aidus Agentus, Instamix, Plugmix, Glyport, Fontport). Source
 edits are live in FontLab once the package's modules are reloaded.</p>
-<p>Restart FontLab, or remove the package's modules from <code>sys.modules</code>, to load a
-new version: FontLab keeps imported modules between script runs. Packages with
+<p>FontLab keeps imported modules between script runs. An install refreshes import
+caches but does not reload those modules; follow the package's documented reload
+or restart procedure before using a new version. Do not remove loaded binary
+modules from <code>sys.modules</code> as a generic update method. Packages with
 compiled extensions must match FontLab's architecture (arm64 on Apple silicon).</p>
 <p>Install packages that run outside FontLab (Remopy, the documentation tools,
 TypeRig's core) into an ordinary environment with <code>uv pip install PATH_TO_WHEEL</code>.

@@ -15,6 +15,16 @@ use PySide2, and it does not emulate Glyphs.app.
     Plugmix is being revised. This page describes the stable concepts. Exact
     module names and defaults can still change.
 
+!!! note "Bundle delivery and the compatibility runtime"
+    The current extension pack uses App's bundle loader. New bundles use lowercase
+    `.fontlabreporter`, `.fontlabfilter`, `.fontlabtool`, `.fontlabpalette` and
+    `.fontlabgeneral` suffixes and require App 1.2.31 or newer. Instamix installs
+    their extension payloads and refuses conflicting modified/unowned legacy
+    bundles. Use Instamix 1.0.9 or newer for source-project upgrades. The separate
+    `fontlab_plugmix` compatibility runtime described below remains supported;
+    do not activate both representations of the same plugins in one session.
+    See [Instamix](instamix.md) and the [current release inputs](../guide/install.md#temporary-release-inputs).
+
 ## How it works
 
 FontLab 9 builds with native canvas painters expose two Python hooks on the host

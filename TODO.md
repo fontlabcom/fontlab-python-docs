@@ -4,6 +4,10 @@ this_file: TODO.md
 
 # Open tasks
 
+- [ ] Deliver the reviewed eleven-file Instamix source update through normal CI; verify source X/generated Y lineage, exact-SHA Actions and live Pages/browser behavior. Retain the locally reviewed generated candidate and existing execution/recovery holds.
+
+- [ ] Verify the documented Instamix installation and direct-script/MCP connection workflows in the supported native build.
+
 - [ ] Reconcile the pending Aidus provider/source-lock rename and current App/Plugmix/Fly teaching with focused affected-page checks before the full rendering/search/browser pass.
 
 - [ ] live-verify 9.1 JSON/stroke/inktrap declarations on the "What's new in FontLab 9.1" page (FontLab 9.1.9812, serialized native lane), then remove the source-derived warnings that pass.
