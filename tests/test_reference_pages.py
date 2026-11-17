@@ -229,3 +229,22 @@ def test_native_landing_when_module_then_grouped_tables_without_placeholders(tmp
     assert "| A thing. |" in text and "list of fgThing objects" in text
     assert "Load a font &#124; file." in text and 'id="fontgate.load"' in text
     assert "Signature and documentation" not in text
+
+
+def test_pythonqt_landing_when_bare_module_doc_then_written_overview_and_tables(tmp_path):
+    pkg = tmp_path / "fontlab_echopy"
+    qt = pkg / "PythonQt"
+    qt.mkdir(parents=True)
+    (pkg / "__init__.pyi").write_text("")
+    (qt / "__init__.pyi").write_text(
+        '"""Native API for PythonQt."""\nclass BoolResult:\n    """Holds a bool for out parameters."""\n'
+    )
+    (qt / "QtCore.pyi").write_text('"""Qt core classes."""\nclass QPointF: ...\n')
+    plan = plan_pages(inventory_sources([(tmp_path, "fontlab_echopy")]))
+    page = next(p for p, v in plan["pages"].items() if v["id"] == "PythonQt")
+    text = render_page(page, plan)
+    assert "show_docstring_description: false" in text
+    assert "Qt binding built into FontLab" in text and "derived from captured" not in text
+    for heading in ("## Overview", "## Modules", "## Classes"):
+        assert heading in text, heading
+    assert "QtCore" in text and "Holds a bool for out parameters." in text

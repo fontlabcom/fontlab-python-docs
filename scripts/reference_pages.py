@@ -18,7 +18,18 @@ from scripts.doc_summary import (
 
 # Native modules whose landing page replaces the raw captured docstring with
 # cleaned overview prose and grouped summary tables.
-NATIVE_LANDINGS = {"fontlab", "fontgate", "fontpr", "FL"}
+NATIVE_LANDINGS = {"fontlab", "fontgate", "fontpr", "FL", "PythonQt"}
+# Captured module docstrings that only name the module get a written overview.
+NATIVE_OVERVIEWS = {
+    "PythonQt": (
+        "PythonQt is the Qt binding built into FontLab. Scripts use it to build "
+        "dialogs, panels and other user interface, and to work with Qt values such "
+        "as points, rectangles, colours and fonts that the FontLab API returns. "
+        "`PythonQt.QtCore`, `PythonQt.QtGui` and the other modules below expose "
+        "the Qt classes that FontLab's build provides; the classes in this module "
+        "are PythonQt's own helpers."
+    ),
+}
 
 
 def relative_link(page: str, url: str) -> str:
@@ -168,7 +179,7 @@ def _native_landing(path: str, plan: dict[str, Any], page: dict[str, Any]) -> li
     module_doc = symbols[page["id"]].get("docstring")
     listed = module_list_summaries(module_doc)
     lines: list[str] = []
-    prose = overview(module_doc)
+    prose = NATIVE_OVERVIEWS.get(page["id"]) or overview(module_doc)
     if prose:
         lines += ["## Overview", "", prose, ""]
     functions = [m for m in page["members"] if symbols[m]["kind"] == "function"]
@@ -180,6 +191,12 @@ def _native_landing(path: str, plan: dict[str, Any], page: dict[str, Any]) -> li
             lines += [
                 f"| {_anchored(path, member, row)} | {signature_cell(row.get('signature'))} | {cell(summary(row.get('docstring')))} |"
             ]
+        lines += [""]
+    if page["modules"]:
+        lines += ["## Modules", "", "| Module | Summary |", "| --- | --- |"]
+        for name in page["modules"]:
+            row = symbols[name]
+            lines += [f"| [`{row['name']}`]({relative_link(path, row['url'])}) | {cell(summary(row.get('docstring')))} |"]
         lines += [""]
     if page["classes"]:
         lines += ["## Classes", "", "| Class | Summary |", "| --- | --- |"]
@@ -193,7 +210,7 @@ def _native_landing(path: str, plan: dict[str, Any], page: dict[str, Any]) -> li
         for member in constants:
             row = symbols[member]
             kind = (row.get("signature") or "").removeprefix(": ")
-            type_cell = f"<code>{escape(kind)}</code>" if kind else row["kind"]
+            type_cell = signature_cell(kind) if kind else row["kind"]
             lines += [
                 f"| {_anchored(path, member, row)} | {type_cell} | {cell(summary(row.get('docstring')))} |"
             ]

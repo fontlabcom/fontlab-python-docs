@@ -54,3 +54,14 @@ def test_signature_cell_when_attribute_or_long_then_trimmed():
     assert signature_cell(": int") == "<code>int</code>"
     assert signature_cell(None) == ""
     assert signature_cell("(" + "x, " * 80 + ")").endswith("…</code>")
+
+
+def test_signature_cell_when_star_args_and_dunder_then_no_markdown_emphasis():
+    import markdown
+
+    star = signature_cell("(*args, **kwargs) -> Any")
+    dunder = cell("Call `__init__` or `_private` first.")
+    assert "*" not in star and "_" not in dunder.replace("&#95;", "")
+    rendered = markdown.markdown(f"| a | b |\n| --- | --- |\n| {star} | {dunder} |", extensions=["tables"])
+    assert "<em>" not in rendered and "<strong>" not in rendered
+    assert "(&#42;args, &#42;&#42;kwargs)" in star and "&#95;&#95;init&#95;&#95;" in dunder

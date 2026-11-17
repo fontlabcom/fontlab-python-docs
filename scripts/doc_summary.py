@@ -100,11 +100,22 @@ def overview(doc: str | None) -> str:
     return "\n\n".join(kept)
 
 
+_CODE_ENTITIES = {"|": "&#124;", "*": "&#42;", "_": "&#95;", "`": "&#96;", "[": "&#91;", "]": "&#93;"}
+
+
+def code(text: str) -> str:
+    """Raw <code> that Markdown cannot reinterpret: no emphasis, links or column splits."""
+    html = escape(text)
+    for char, entity in _CODE_ENTITIES.items():
+        html = html.replace(char, entity)
+    return f"<code>{html}</code>"
+
+
 def cell(text: str) -> str:
     """Markdown table cell: backtick spans become <code>, pipes cannot split columns."""
     parts = _CODE.split(text)
     html = "".join(
-        f"<code>{escape(part)}</code>"
+        code(part)
         if index % 2
         else escape(part, quote=False).replace("[", "&#91;").replace("]", "&#93;")
         for index, part in enumerate(parts)
@@ -113,9 +124,10 @@ def cell(text: str) -> str:
 
 
 def signature_cell(signature: str | None) -> str:
+    """Signature or attribute type as table-safe code, trimmed to SIGNATURE_LIMIT."""
     signature = (signature or "").removeprefix(": ")
     if not signature:
         return ""
     if len(signature) > SIGNATURE_LIMIT:
         signature = signature[: SIGNATURE_LIMIT - 1] + "…"
-    return "<code>" + escape(signature).replace("|", "&#124;") + "</code>"
+    return code(signature)
