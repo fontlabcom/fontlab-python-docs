@@ -4,6 +4,10 @@ this_file: PLAN.md
 
 # Forward plan
 
+## FontLab 9.1 API pages
+
+The guide page `guide/whats-new-9-1.md` documents the 9.1.9812 changes from source. Live-verify the examples, then regenerate the API reference from a 9.1 Echopy capture through a new input packet.
+
 ## Functional work order — 2026-11-14
 
 Prioritize usable current-provider reference pages, search and runnable teaching. Reconcile the pending Aidus provider/source-lock rename and current App/Plugmix/Fly interfaces without rewriting frozen inputs or traversing excluded repositories.

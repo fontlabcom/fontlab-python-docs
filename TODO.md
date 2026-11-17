@@ -6,6 +6,12 @@ this_file: TODO.md
 
 - [ ] Reconcile the pending Aidus provider/source-lock rename and current App/Plugmix/Fly teaching with focused affected-page checks before the full rendering/search/browser pass.
 
+- [ ] live-verify 9.1 JSON/stroke/inktrap declarations on the "What's new in FontLab 9.1" page (FontLab 9.1.9812, serialized native lane), then remove the source-derived warnings that pass.
+
+- [ ] Run `./build.sh --check` with the private input packet (`FONTLAB_API_SOURCE_ROOT`) to render `guide/whats-new-9-1.md`, then regenerate and review `docs/`.
+
+- [ ] After Echopy ships a 9.1 capture, refresh the input packet and `api-sources.lock.json` so the API reference pages list the 9.1 members.
+
 - [ ] Rename the Aidus provider in `scripts/build_reference.py:37` (`"fontlab-aidus-code": ("", "fontlab_aidus_code")`, also line 291) and in the `fontlab_aidus_code/*` entries of `api-sources.lock.json` to the current `fontlab-aidus-agentus` checkout and its `src/fontlab_aidus_agentus` package. Until then `./build.sh` finds no `fontlab-aidus-code` sibling and stops with `Missing source package: fontlab_aidus_code`, so a local build needs a stand-in checkout. Refreshing the lock needs a matching input packet (see the 2026-11-12 Remopy entry in CHANGELOG.md).
 
 - [ ] Decide whether the website package keeps static `version = "0.1.0"` in pyproject.toml: release tags (v1.2.4 on e7594b6) carry the version, but `uv build` cannot reflect them; switch to hatch-vcs only if the owner wants tag-derived builds.

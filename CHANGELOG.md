@@ -3,6 +3,16 @@ this_file: CHANGELOG.md
 ---
 
 
+## 2026-11-16 — What's new in FontLab 9.1 for Python
+
+The 9.1 page now shows the live-read `penParameters` dict (string join/caps) and the live-read `fgBrush()` defaults table; `expandStroke` and `makeStroke` stay marked unverified.
+
+- New guide page `src_docs/md/guide/whats-new-9-1.md`, linked in `src_docs/md/.nav.yml` after the native hooks page. It covers clipboard JSON, stroke parameters, inktrap length, axis extrapolation, preferences, Font Info fields, presentation overrides, fgBrush stroke members, `fgCapParams`, `fgShape.makeStroke` and the removal of `fgBrush.size`, with short examples.
+- It warns that passing `bytes` to `getObjectsFromJsonData` crashes FontLab 9.1.9812 (verified live), that `bytes(qbytearray)` raises TypeError (use `data()`), that these calls record no Undo or notification, and that `join` must be an int (fl#8630). Everything else is marked source-derived.
+- Live evidence on 9.1.9812 (controller, 2026-11-16): every listed member exists, `fgBrush.size` is absent and the `QtCore.QByteArray(raw)` round trip works; the page says so. Stroke, inktrap and presentation-override behavior, the `notifyGlyphUpdated` refresh call and the examples are unverified and marked. The page no longer claims 9.1 fixes the no-argument `fgSymbol()` constructor.
+- `docs/` was not regenerated and the page has not been rendered: the isolated checkout lacks the private input packet and sibling sources. The first render happens in CI.
+- API reference pages are unchanged: they follow the pinned Echopy 9.0 capture in `api-sources.lock.json` and gain these members after a 9.1 capture and a new input packet.
+
 ## 2026-11-14 — Functional work order documented
 
 - Added the owner's functional-progress-first guidance and repository-specific priorities, including cross-package compatibility and a later detailed testing pass. Existing mandatory hooks, holds and unfinished work remain in force.
