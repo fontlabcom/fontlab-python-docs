@@ -2,33 +2,21 @@
 this_file: src_docs/md/guide/source-checkpoint.md
 ---
 
-# Source checkpoint: App .98
+# Source checkpoint
 
-This documentation checkpoint pins the reviewed App .98 source and its paired
-Examples and Scriptmix menus. It describes source interfaces; each tool retains
-its separate native workflow and font-preservation acceptance requirements.
+Each build of this site reads the sibling source checkouts of every documented
+package and records a SHA-256 hash of each input file in `api-sources.lock.json`.
+The published `build-info.json` repeats those hashes together with the hash of
+every generated page and the native capture identity. A build fails when a
+source file changes without an explicit lock update, so the lock, not a list of
+commits on this page, identifies the documented source.
 
-| Producer | Source revision |
-| --- | --- |
-| fontlab-echopy | `c555c9f19fcd896c1871c8fadd4b490e4fd132dc` |
-| fontlab-fontlabapp | `8669c2c14f5881c49dc05a35f869cc78e5070c8a` |
-| fontlab-remopy | `824d690be9aa1f73c427ae474ed9b90f3bb6273d` |
-| fontlab-grablab | `2473ee1ae707cf14ff77649b85880109ed992deb` |
-| pythonqtside | `2777e85cd84c7ba3d242e461a2c4143fb00ffb42` |
-| fontlab-fly | `6cf9dc1503f3d11d42c72918effe6c50597345ff` |
-| TypeRig | `7b8dad952ae3cd698e46a4cbc1dc3e709d870888` |
-| fontlab-glyport | `2c46c729f6780ad07fb1254296426189a0e4bb84` |
-| fontlab-aidus-code | `32523d418abb6122136b317411b127251b7f8bee` |
-| fontlab-fontport | `7a6e400ebb1d95bcf01528fb0a4036922e468bad` |
-| fontlab-python-examples | `1f54a9a72c24cf6ed76b5fcee76a0d557b92a252` |
-| fontlab-python-scriptmix | `9ab9d36a0ccecfb15bdaee93b700acaeb72e3390` |
+The native `fontlab`, `fontgate`, `fontpr`, `FL` and PythonQt pages come from
+the declarations in fontlab-echopy and its capture identity manifest. Native
+modules absent from the captured FontLab build are listed in that manifest and
+have no pages.
 
-The paired collections contain 37 Examples menus and 107 Scriptmix menus.
-The App package contains 251 runtime/resource files. The source lock retains
-all previous 743 inputs and adds 22 documented App modules. Native FontLab
-and PythonQt declarations and their capture identity manifest are unchanged.
-
-## Newly documented workflows
+## Workflows added in App .98
 
 | Workflow | Public source interface |
 | --- | --- |
@@ -44,11 +32,6 @@ the font. The kerning proof creates a new tab. The near-miss report uses each
 selected occurrence’s first layer and its associated master. Read the individual
 API descriptions for source fences, explicit refusals and current limitations.
 
-The .98 source/artifact checkpoint passes both ordinary archive consumer graphs
-and every applicable original-baseline module coverage gate. Those checks do not
-establish complete native font, history, saved-file or editor workflow acceptance.
-The inherited .90 spinbox controls have separate bounded native evidence.
-
-This is an explicit .98 checkpoint. Later Text Holder .100 development is not
-part of its source lock. The earlier .80 checkpoint remains historical.
-Local documentation builds and browser checks do not establish site publication.
+Source checks do not establish native font, history, saved-file or editor
+workflow acceptance. Local documentation builds and browser checks do not
+establish site publication.

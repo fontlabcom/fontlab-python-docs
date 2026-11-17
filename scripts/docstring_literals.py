@@ -1,7 +1,8 @@
 # this_file: scripts/docstring_literals.py
 """Render reviewed upstream array-index prose as code, without editing sources.
 
-Only six reviewed TypeRig docstrings are affected. Real Markdown cross-references
+Only six reviewed TypeRig docstrings and the fontpr.build_glyph name pattern
+are affected. Real Markdown cross-references
 remain untouched; strict warnings remain enabled. Rules fail if their reviewed
 literal disappears. Source identities and locked source bytes stay unchanged.
 """
@@ -17,6 +18,7 @@ LITERALS = {
     "typerig.core.objects.matrix.Matrix.tr": ["Original[j][i]", "Transposed[i][j]"],
     "typerig.core.objects.matrix.Matrix.star": ["Original[j][i]", "Star[i][j]"],
     "typerig.core.objects.matrix.hilb": ["Elem[i][j]"],
+    "fontlab_echopy.fontpr.build_glyph": ["[A-Za-z_.][A-Za-z0-9_.-]*"],
 }
 
 

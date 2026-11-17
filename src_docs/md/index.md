@@ -70,7 +70,7 @@ upstream binding and may differ from PythonQt.
 | Port PySide2 code | [Pythonqtside](packages/pythonqtside.md) |
 | Short imports | [Fly](packages/fly.md) |
 | Glyph and outline library | [TypeRig](packages/typerig.md) |
-| Chat with an AI agent in FontLab | [Aidus Code](packages/aidus-code.md) |
+| Chat with an AI agent in FontLab | [Aidus Agentus](packages/aidus-agentus.md) |
 
 Every package has an [overview, install and quick-start page](packages/index.md).
 Echopy maintainers can check [module values, aliases and value documentation](guide/echopy-values.md)

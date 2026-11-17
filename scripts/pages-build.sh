@@ -24,7 +24,6 @@ uv sync --locked --group dev
 stage inputs
 uv run --no-sync python -m scripts.pages_inputs prepare "$store" "$DOCS_PRIVATE_RUNTIME"
 export FONTLAB_API_SOURCE_ROOT="$DOCS_PRIVATE_RUNTIME/inputs/packages"
-export FONTLAB_EXAMPLES_EXPORT="$DOCS_PRIVATE_RUNTIME/inputs/examples"
 export PYTHONPATH="$FONTLAB_API_SOURCE_ROOT"
 export FONTLAB_REQUIRE_CONSUMER=1
 stage browser

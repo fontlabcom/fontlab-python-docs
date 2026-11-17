@@ -26,8 +26,6 @@ class Anchors(HTMLParser):
                 self.identifiers.add(value)
 
 
-# Optional native modules the captured host did not ship (D8): documented as absent.
-REVIEWED_ABSENT_PACKAGES = {"fontlabpr": "absent from FontLab 9.0.9780; documented as absent (D8)"}
 HEADING = re.compile(r'class="doc doc-heading')
 DOCSTRING = re.compile(r'class="doc doc-contents[^"]*">\s*<p>')
 
@@ -43,8 +41,6 @@ def package_content_problems(site: Path, packages: list[str]) -> list[dict]:
         page = site / "reference" / f"{package}.html"
         if not page.exists():
             problems.append({"package": package, "problem": "missing page"})
-            continue
-        if package in REVIEWED_ABSENT_PACKAGES:
             continue
         folder = site / "reference" / package
         pages = [page, *(sorted(folder.rglob("*.html")) if folder.is_dir() else [])]

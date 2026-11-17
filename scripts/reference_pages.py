@@ -8,6 +8,18 @@ import posixpath
 from html import escape
 from typing import Any
 
+from scripts.doc_summary import (
+    cell,
+    module_list_summaries,
+    overview,
+    signature_cell,
+    summary,
+)
+
+# Native modules whose landing page replaces the raw captured docstring with
+# cleaned overview prose and grouped summary tables.
+NATIVE_LANDINGS = {"fontlab", "fontgate", "fontpr", "FL"}
+
 
 def relative_link(page: str, url: str) -> str:
     path, marker, fragment = url.partition("#")
@@ -29,7 +41,9 @@ PACKAGE_GUIDES = {
     "fontlab_fontport": ("Fontport", "fontport"),
     "fontlab_pens": ("Pens", "pens"),
     "typerig": ("TypeRig", "typerig"),
-    "fontlab_aidus_code": ("Aidus Code", "aidus-code"),
+    "fontlab_aidus_agentus": ("Aidus Agentus", "aidus-agentus"),
+    "fontlab_instamix": ("Instamix", "instamix"),
+    "fontlab_plugmix": ("Plugmix", "plugmix"),
 }
 
 
@@ -82,6 +96,9 @@ def render_page(path: str, plan: dict[str, Any]) -> str:
     ]
     if display != identifier:
         lines.insert(len(lines) - 1, "      heading: " + json.dumps(display))
+    if kind == "module" and identifier in NATIVE_LANDINGS:
+        lines.insert(len(lines) - 1, "      show_docstring_description: false")
+        return "\n".join(lines + _native_landing(path, plan, page)) + "\n"
     if kind in {"module", "class"}:
         for label, identifiers in [
             ("Modules", page["modules"]),
@@ -126,18 +143,59 @@ def render_page(path: str, plan: dict[str, Any]) -> str:
             "",
             "Every captured member retains its own identity. Identical captured declaration text is linked once; this does not establish native inheritance or interchangeable objects.",
             "",
-            "| Member | Kind | Declaration |",
-            "| --- | --- | --- |",
+            "| Member | Kind | Signature | Summary |",
+            "| --- | --- | --- | --- |",
         ]
         for member in page["members"]:
             row = plan["symbols"][member]
-            link = relative_link(path, row["body_url"])
-            shared = (
-                "Shared captured text"
-                if row["body_target"] != member
-                else "Signature and documentation"
-            )
+            text = cell(summary(row.get("docstring")))
+            if row["body_target"] != member:
+                text = (text + " " if text else "") + "(shared captured text)"
             lines += [
-                f'| <span id="{escape(member, quote=True)}"></span>`{row["name"]}` | {row["kind"]} | [{shared}]({link}) |'
+                f"| {_anchored(path, member, row)} | {row['kind']} | {signature_cell(row.get('signature'))} | {text} |"
             ]
     return "\n".join(lines) + "\n"
+
+
+def _anchored(path: str, member: str, row: dict[str, Any]) -> str:
+    link = relative_link(path, row["body_url"])
+    return f'<span id="{escape(member, quote=True)}"></span>[`{row["name"]}`]({link})'
+
+
+def _native_landing(path: str, plan: dict[str, Any], page: dict[str, Any]) -> list[str]:
+    """Overview prose plus Functions, Classes and Constants tables for a native module."""
+    symbols = plan["symbols"]
+    module_doc = symbols[page["id"]].get("docstring")
+    listed = module_list_summaries(module_doc)
+    lines: list[str] = []
+    prose = overview(module_doc)
+    if prose:
+        lines += ["## Overview", "", prose, ""]
+    functions = [m for m in page["members"] if symbols[m]["kind"] == "function"]
+    constants = [m for m in page["members"] if symbols[m]["kind"] != "function"]
+    if functions:
+        lines += ["## Functions", "", "| Function | Signature | Summary |", "| --- | --- | --- |"]
+        for member in functions:
+            row = symbols[member]
+            lines += [
+                f"| {_anchored(path, member, row)} | {signature_cell(row.get('signature'))} | {cell(summary(row.get('docstring')))} |"
+            ]
+        lines += [""]
+    if page["classes"]:
+        lines += ["## Classes", "", "| Class | Summary |", "| --- | --- |"]
+        for name in page["classes"]:
+            row = symbols[name]
+            text = summary(row.get("docstring")) or listed.get(row["name"], "")
+            lines += [f"| [`{row['name']}`]({relative_link(path, row['url'])}) | {cell(text)} |"]
+        lines += [""]
+    if constants:
+        lines += ["## Constants and attributes", "", "| Name | Type | Summary |", "| --- | --- | --- |"]
+        for member in constants:
+            row = symbols[member]
+            kind = (row.get("signature") or "").removeprefix(": ")
+            type_cell = f"<code>{escape(kind)}</code>" if kind else row["kind"]
+            lines += [
+                f"| {_anchored(path, member, row)} | {type_cell} | {cell(summary(row.get('docstring')))} |"
+            ]
+        lines += [""]
+    return lines

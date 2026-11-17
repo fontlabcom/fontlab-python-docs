@@ -133,8 +133,7 @@ def test_package_content_when_every_package_renders_members_and_docs_then_no_pro
     from scripts.verify_site import package_content_problems
 
     _package_page(tmp_path, "glyport", MEMBER)
-    _package_page(tmp_path, "fontlabpr", "<p>This optional module was absent from the captured host.</p>")
-    assert package_content_problems(tmp_path, ["glyport", "fontlabpr"]) == []
+    assert package_content_problems(tmp_path, ["glyport"]) == []
 
 
 @pytest.mark.parametrize(

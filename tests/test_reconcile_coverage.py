@@ -23,7 +23,7 @@ MANIFEST = {
                 "Node": {"members": ["_p", "raise"], "constructors": ["__init__"], "errors": []},
             },
         },
-        "fontlabpr": {
+        "absentmod": {
             "available": False,
             "reason": "native module absent",
             "kind": "module",
@@ -71,7 +71,6 @@ IDS = [
     "fontlab.Node.raise_",
     "fontlab.Node.helper",
     "fontlab.get_value",
-    "fontlabpr",
     "PythonQt",
     "PythonQt.BoolResult",
     "typerig",
@@ -110,11 +109,11 @@ def test_reconcile_when_everything_is_documented_or_explained_then_no_gap(monkey
     monkeypatch.setattr(module, "REVIEWED_REDEFINITIONS", {"typerig": ((1, 9), "upstream")})
     report, unexplained = _unexplained(symbols=_symbols(redefined=True))
     assert unexplained == set(), unexplained
-    assert report["counts"]["captured_identities"] == 12
+    assert report["counts"]["captured_identities"] == 11
     assert report["counts"]["documented_under_native_spelling"] == 4
     assert report["explained"]["maintained_extension"] == ["fontlab.Node.helper"]
     assert report["explained"]["absent_optional_module"] == {
-        "fontlabpr": "native module absent"
+        "absentmod": "native module absent"
     }
     assert report["explained"]["multiple_declarations"] == {
         "PythonQt.BoolResult": "module-and-class-facet",

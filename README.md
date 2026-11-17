@@ -188,8 +188,8 @@ Built and verified locally (unpublished; evidence in the workspace
   242,654 captured identities are documented, 1,216 of them under the source
   spelling of a sanitized native name (`QWidget.raise` → `raise_`,
   `QPainter::PixmapFragment` → `QPainter__PixmapFragment`), recorded in
-  `coverage.json` `reconciliation.native_spellings`. Extensions, the absent
-  `fontlabpr`, multiple declarations and enrichment gaps carry derived reasons.
+  `coverage.json` `reconciliation.native_spellings`. Extensions, absent native
+  modules, multiple declarations and enrichment gaps carry derived reasons.
   Any unexplained row fails the build.
 - Sharded search over all 69,394 rows with a 3,140,799-byte initial transfer;
   named native searches reach the right anchors.

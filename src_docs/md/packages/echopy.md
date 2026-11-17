@@ -204,8 +204,7 @@ measured call on the actual host when an overload or property is uncertain.
 
 ## Understand runtime shims
 
-Echopy shims only `fontlab`, `fontgate`, `fontpr`, `fontlabpr` (absent in measured
-builds), `FL` and `PythonQt`. The `GlyphsApp`, `vanilla` and related compatibility modules are
+Echopy shims only `fontlab`, `fontgate`, `fontpr`, `FL` and `PythonQt`. The `GlyphsApp`, `vanilla` and related compatibility modules are
 supplied by Glyport (Echopy no longer ships them). They do not install Glyphs.app or turn an
 offline process into a running Glyphs-compatible session. Glyport owns the
 runtime providers used by adapted scripts.
@@ -561,13 +560,9 @@ The offline examples can run in an ordinary Echopy installation. The two native
 identity snippets require FontLab; compiling them is not native verification.
 Neither example tests font edits, Undo/Redo, saving or reopening documents.
 
-`fontlabpr` was absent in the recorded FontLab 9.0.9780 baseline. Treat that as a
-build-specific observation, not a promise about every later release. Confirm
-availability in the actual target host before designing a dependency on it.
-
 Reference: [fontlab_echopy](../reference/fontlab_echopy.md), [fontlab](../reference/fontlab.md),
 [fontgate](../reference/fontgate.md), [fontpr](../reference/fontpr.md),
-[PythonQt](../reference/PythonQt.md), and [Glyport](glyport.md).
+[FL](../reference/FL.md), [PythonQt](../reference/PythonQt.md), and [Glyport](glyport.md).
 
 For capture maintenance, see [complete namespace discovery](../guide/echopy-discovery.md).
 Its five executable owned experiments distinguish discovered scope from

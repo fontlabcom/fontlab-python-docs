@@ -207,3 +207,25 @@ def test_package_guides_when_package_documented_then_page_nav_and_table_exist():
         assert f"reference/{package}.md" in nav, f"{package}: no nav entry"
         assert f"packages/{slug}.md" in nav, f"{package}: no guide nav entry"
         assert f"[{_title}]({slug}.md)" in index, f"{package}: not in packages/index.md"
+
+
+def test_native_landing_when_module_then_grouped_tables_without_placeholders(tmp_path):
+    pkg = tmp_path / "fontlab_echopy"
+    pkg.mkdir()
+    (pkg / "__init__.pyi").write_text("")
+    (pkg / "fontgate.pyi").write_text(
+        '"""FontGate Python interface\n\nfgThing: fgThing representation\nfgList: list of fgThing objects\n"""\n'
+        'VERSION: int\n'
+        'def load(path: str) -> int:\n    """load(path) - Load a font | file."""\n'
+        'class fgThing:\n    """fgThing representation\n\nSupplemental documentation:\nA thing. Detail."""\n'
+        'class fgList:\n    """Constructors:\n  fgList()"""\n'
+    )
+    plan = plan_pages(inventory_sources([(tmp_path, "fontlab_echopy")]))
+    text = render_page("reference/fontgate.md", plan)
+    assert "show_docstring_description: false" in text
+    assert "fgThing representation" not in text and "fgThing:" not in text
+    for heading in ("## Overview", "## Functions", "## Classes", "## Constants and attributes"):
+        assert heading in text, heading
+    assert "| A thing. |" in text and "list of fgThing objects" in text
+    assert "Load a font &#124; file." in text and 'id="fontgate.load"' in text
+    assert "Signature and documentation" not in text

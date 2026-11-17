@@ -277,25 +277,6 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../examples/index.html" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Examples
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
     
     
       <li class="md-tabs__item">
@@ -303,7 +284,7 @@
           
   
   
-  Reference
+  Native API
 
         </a>
       </li>
@@ -323,7 +304,7 @@
           
   
   
-  Ecosystem
+  Package reference
 
         </a>
       </li>
@@ -1371,14 +1352,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../packages/aidus-code.html" class="md-nav__link">
+      <a href="../../packages/aidus-agentus.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Aidus Code
+    Aidus Agentus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/instamix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instamix
   
 
     
@@ -1489,33 +1498,6 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../examples/index.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Examples
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     
     
     
@@ -1530,17 +1512,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Reference
+    Native API
   
 
     
@@ -1551,12 +1533,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reference
+    Native API
   
 
           </label>
@@ -1681,14 +1663,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../fontlabpr.html" class="md-nav__link">
+      <a href="../FL.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    fontlabpr
+    FL
   
 
     
@@ -1757,17 +1739,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Ecosystem
+    Package reference
   
 
     
@@ -1778,12 +1760,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Ecosystem
+    Package reference
   
 
           </label>
@@ -2076,14 +2058,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../fontlab_aidus_code.html" class="md-nav__link">
+      <a href="../fontlab_aidus_agentus.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Aidus
+    Aidus Agentus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlab_instamix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instamix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fontlab_plugmix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugmix
   
 
     
@@ -2247,10 +2285,13 @@
 
 
 
-        <p>flObjectsList<flShape> doc</p>
+        <p>These are native mutable object-list wrappers, used by APIs such as <code>flShapeData.includes</code>. They differ from a detached Python <code>list</code>. Their runtime names contain angle brackets, so they are not ordinary Python identifiers; if necessary, retrieve a type with <code>getattr(fontlab, "flObjectsList&lt;flShape&gt;")</code>.</p>
+<p>Constructors accept no arguments, another compatible wrapper, an <code>flObject</code>, or a compatible Python sequence. They include the common flObject registrations.</p>
+<p>Use the wrapper's mutation methods to edit its contents. Changing its <code>list</code> snapshot does not replace the native list. Referenced drawing objects remain model objects; a list snapshot does not clone them. Manage history and notifications when editing document-owned data.</p>
 <p>Native bases: object</p>
 <p>Supplemental documentation:
 Shape list. The captured declaration exposes <code>append</code>, <code>at</code>, <code>clearContent</code>, <code>contains</code>, <code>count</code>, <code>first</code>, <code>indexOf</code>, <code>insert</code>, <code>last</code>, <code>list</code>, <code>removeOne</code> and <code>swap</code>. It is created with no captured constructor overloads. It also carries the shared object members <code>changed</code>, <code>clone</code>, <code>cloneObject</code>, <code>getProperty</code>, <code>setProperty</code>, <code>release</code>, <code>remove</code> and <code>update</code> and the shared attributes <code>id</code>, <code>name</code>, <code>type</code>, <code>isValid</code> and <code>isNull</code>.</p>
+<p>Source: FontLab Proteus API documentation</p>
 <p>Source: generated/fontlab.py: flObjectsList_flShape_ captured declaration</p>
 
 
@@ -2287,289 +2328,346 @@ Shape list. The captured declaration exposes <code>append</code>, <code>at</code
 <tr>
 <th>Member</th>
 <th>Kind</th>
-<th>Declaration</th>
+<th>Signature</th>
+<th>Summary</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.__init__"></span><code>__init__</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.__init__"></span><a href="../PythonQt/BoolResult/members-001.html#PythonQt.BoolResult.__init__"><code>__init__</code></a></td>
 <td>function</td>
-<td><a href="../PythonQt/BoolResult/members-001.html#PythonQt.BoolResult.__init__">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; None</code></td>
+<td>Native constructor; consult class documentation for supported overloads. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.append"></span><code>append</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.append"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.append"><code>append</code></a></td>
 <td>function</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.append">Shared captured text</a></td>
+<td><code>(self, o: Any) -&gt; None</code></td>
+<td>Append an item of the wrapper's element type. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.at"></span><code>at</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.at"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.at"><code>at</code></a></td>
 <td>function</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.at">Shared captured text</a></td>
+<td><code>(self, i: int) -&gt; Any</code></td>
+<td>Return an item. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.changed"></span><code>changed</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.changed"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.changed"><code>changed</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.changed">Shared captured text</a></td>
+<td><code>(self) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.checkInitHistoryState"></span><code>checkInitHistoryState</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.checkInitHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.checkInitHistoryState"><code>checkInitHistoryState</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.checkInitHistoryState">Shared captured text</a></td>
+<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.clearAboveHistory"></span><code>clearAboveHistory</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.clearAboveHistory"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clearAboveHistory"><code>clearAboveHistory</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clearAboveHistory">Shared captured text</a></td>
+<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.clearContent"></span><code>clearContent</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.clearContent"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.clearContent"><code>clearContent</code></a></td>
 <td>function</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.clearContent">Shared captured text</a></td>
+<td><code>(self) -&gt; None</code></td>
+<td>Remove all items. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.clearFlag"></span><code>clearFlag</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.clearFlag"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clearFlag"><code>clearFlag</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clearFlag">Shared captured text</a></td>
+<td><code>(self, f: int) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.clearFlags"></span><code>clearFlags</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.clearFlags"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clearFlags"><code>clearFlags</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clearFlags">Shared captured text</a></td>
+<td><code>(self) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.clone"></span><code>clone</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.clone"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clone"><code>clone</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.clone">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>Clone the object (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.cloneObject"></span><code>cloneObject</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.cloneObject"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.cloneObject"><code>cloneObject</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.cloneObject">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.contains"></span><code>contains</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.contains"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.contains"><code>contains</code></a></td>
 <td>function</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.contains">Shared captured text</a></td>
+<td><code>(self, o: Any) -&gt; bool</code></td>
+<td>Return a boolean membership result. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.count"></span><code>count</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.count"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.count"><code>count</code></a></td>
 <td>attribute</td>
-<td><a href="../FL/Node/members-001.html#FL.Node.count">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>Native item count. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.createObject"></span><code>createObject</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.createObject"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.createObject"><code>createObject</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.createObject">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>FlObject/Nothing createObject(int); (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.currentHistoryState"></span><code>currentHistoryState</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.currentHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.currentHistoryState"><code>currentHistoryState</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.currentHistoryState">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.first"></span><code>first</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.first"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.first"><code>first</code></a></td>
 <td>attribute</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.first">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>First native item. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.flObjectFlags"></span><code>flObjectFlags</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.flObjectFlags"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.flObjectFlags"><code>flObjectFlags</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.flObjectFlags">Shared captured text</a></td>
+<td><code>dict</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.flag"></span><code>flag</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.flag"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.flag"><code>flag</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.flag">Shared captured text</a></td>
+<td><code>(self, f: int) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.getProperties"></span><code>getProperties</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.getProperties"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getProperties"><code>getProperties</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getProperties">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>Get object's properties list (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.getProperty"></span><code>getProperty</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.getProperty"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getProperty"><code>getProperty</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getProperty">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>Get object property by 'key' or number (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.getPropertyFloat"></span><code>getPropertyFloat</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.getPropertyFloat"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getPropertyFloat"><code>getPropertyFloat</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getPropertyFloat">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>Get float object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.getPropertyInt"></span><code>getPropertyInt</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.getPropertyInt"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getPropertyInt"><code>getPropertyInt</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.getPropertyInt">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>Get int object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.hasChanges"></span><code>hasChanges</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.hasChanges"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.hasChanges"><code>hasChanges</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.hasChanges">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.hasHistoryState"></span><code>hasHistoryState</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.hasHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.hasHistoryState"><code>hasHistoryState</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.hasHistoryState">Shared captured text</a></td>
+<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.hasHistoryStates"></span><code>hasHistoryStates</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.hasHistoryStates"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.hasHistoryStates"><code>hasHistoryStates</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.hasHistoryStates">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.haveObject"></span><code>haveObject</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.haveObject"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.haveObject"><code>haveObject</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.haveObject">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.historyStates"></span><code>historyStates</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.historyStates"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.historyStates"><code>historyStates</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.historyStates">Shared captured text</a></td>
+<td><code>(self, accepted_state: bool) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.id"></span><code>id</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.id"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.id"><code>id</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.id">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>Object id (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.independedAll"></span><code>independedAll</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.independedAll"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.independedAll"><code>independedAll</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.independedAll">Shared captured text</a></td>
+<td><code>(self) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.indexOf"></span><code>indexOf</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.indexOf"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.indexOf"><code>indexOf</code></a></td>
 <td>function</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.indexOf">Shared captured text</a></td>
+<td><code>(self, o: Any) -&gt; int</code></td>
+<td>Return the native integer index. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.initialHistoryState"></span><code>initialHistoryState</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.initialHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.initialHistoryState"><code>initialHistoryState</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.initialHistoryState">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.insert"></span><code>insert</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.insert"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.insert"><code>insert</code></a></td>
 <td>function</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.insert">Shared captured text</a></td>
+<td><code>(self, index: int, o: Any) -&gt; None</code></td>
+<td>Insert an item. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.instanceType"></span><code>instanceType</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.instanceType"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.instanceType"><code>instanceType</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.instanceType">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.isChanged"></span><code>isChanged</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.isChanged"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isChanged"><code>isChanged</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isChanged">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.isEqual"></span><code>isEqual</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.isEqual"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isEqual"><code>isEqual</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isEqual">Shared captured text</a></td>
+<td><code>(self, arg0: flObject) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.isNull"></span><code>isNull</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.isNull"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isNull"><code>isNull</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isNull">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.isPresent"></span><code>isPresent</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.isPresent"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isPresent"><code>isPresent</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isPresent">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.isReleased"></span><code>isReleased</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.isReleased"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isReleased"><code>isReleased</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isReleased">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.isValid"></span><code>isValid</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.isValid"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isValid"><code>isValid</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.isValid">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.last"></span><code>last</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.last"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.last"><code>last</code></a></td>
 <td>attribute</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.last">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>Last native item. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.list"></span><code>list</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.list"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.list"><code>list</code></a></td>
 <td>attribute</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.list">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>As list (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.name"></span><code>name</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.name"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.name"><code>name</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.name">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>Object name (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.refCnt"></span><code>refCnt</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.refCnt"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.refCnt"><code>refCnt</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.refCnt">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>Object references count (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.release"></span><code>release</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.release"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.release"><code>release</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.release">Shared captured text</a></td>
+<td><code>(self) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.remove"></span><code>remove</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.remove"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.remove"><code>remove</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.remove">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.removeChild"></span><code>removeChild</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.removeChild"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.removeChild"><code>removeChild</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.removeChild">Shared captured text</a></td>
+<td><code>(self, arg0: flObject) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.removeOne"></span><code>removeOne</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.removeOne"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.removeOne"><code>removeOne</code></a></td>
 <td>function</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.removeOne">Shared captured text</a></td>
+<td><code>(self, o: Any) -&gt; None</code></td>
+<td>Remove one matching item. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.restoreHistoryState"></span><code>restoreHistoryState</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.restoreHistoryState"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.restoreHistoryState"><code>restoreHistoryState</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.restoreHistoryState">Shared captured text</a></td>
+<td><code>(self, history_ix: int) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.setFlag"></span><code>setFlag</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.setFlag"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.setFlag"><code>setFlag</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.setFlag">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.setProperty"></span><code>setProperty</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.setProperty"></span><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.setProperty"><code>setProperty</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-001.html#fontlab.flAbstractEditor.setProperty">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>Set object property by 'key' or number (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.setPropertyFloat"></span><code>setPropertyFloat</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.setPropertyFloat"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setPropertyFloat"><code>setPropertyFloat</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setPropertyFloat">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>Set float object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.setPropertyInt"></span><code>setPropertyInt</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.setPropertyInt"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setPropertyInt"><code>setPropertyInt</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.setPropertyInt">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>Set int object property by 'key' (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.swap"></span><code>swap</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.swap"></span><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.swap"><code>swap</code></a></td>
 <td>function</td>
-<td><a href="flObjectsList_flGuideLine_/members-001.html#fontlab.flObjectsList_flGuideLine_.swap">Shared captured text</a></td>
+<td><code>(self, i0: int, i1: int) -&gt; None</code></td>
+<td>Swap two items. (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.tag"></span><code>tag</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.tag"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.tag"><code>tag</code></a></td>
 <td>function</td>
-<td><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.tag">Shared captured text</a></td>
+<td><code>(self, <em>args: Any, </em>*kwargs: Any) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.type"></span><code>type</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.type"></span><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.type"><code>type</code></a></td>
 <td>attribute</td>
-<td><a href="flAbstractEditor/members-002.html#fontlab.flAbstractEditor.type">Shared captured text</a></td>
+<td><code>Any</code></td>
+<td>Object type (shared captured text)</td>
 </tr>
 <tr>
-<td><span id="fontlab.flObjectsList_flShape_.update"></span><code>update</code></td>
+<td><span id="fontlab.flObjectsList_flShape_.update"></span><a href="../fontgate/fgGlyph/members-002.html#fontgate.fgGlyph.update"><code>update</code></a></td>
 <td>function</td>
-<td><a href="../fontgate/fgGlyph/members-002.html#fontgate.fgGlyph.update">Shared captured text</a></td>
+<td><code>(self) -&gt; Any</code></td>
+<td>(shared captured text)</td>
 </tr>
 </tbody>
 </table>

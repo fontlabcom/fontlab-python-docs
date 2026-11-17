@@ -8,7 +8,6 @@ import ast
 import hashlib
 import json
 import os
-import re
 import shutil
 import sys
 import tempfile
@@ -34,52 +33,12 @@ PACKAGES = {
     "fontlab-fly": ("src", "fly"),
     "TypeRig": ("Lib", "typerig"),
     "fontlab-glyport": ("src", "fontlab_glyport"),
-    "fontlab-aidus-code": ("", "fontlab_aidus_code"),
+    "fontlab-aidus-agentus": ("src", "fontlab_aidus_agentus"),
+    "fontlab-python-instamix": ("src", "fontlab_instamix"),
+    "fontlab-python-plugmix": ("src", "fontlab_plugmix"),
     "fontlab-fontport": ("src", "fontlab_fontport"),  # D14: docstrings/signatures only
     "fontlab-python-pens": ("src", "fontlab_pens"),
 }
-
-
-EXAMPLES_FORMAT = "fontlab-python-examples.docs-export.v1"
-# Relative POSIX page paths only: no absolute paths, `..`, backslashes or dots.
-EXAMPLES_PAGE = re.compile(r"[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+)*\.md")
-
-
-def _contained(folder: Path, path: object) -> Path:
-    """Validate a manifest page path before any read or write uses it."""
-    if not isinstance(path, str) or not EXAMPLES_PAGE.fullmatch(path):
-        raise ValueError(f"Unsafe examples export path: {path!r}")
-    target = (folder / path).resolve()
-    if not target.is_relative_to(folder.resolve()):
-        raise ValueError(f"Examples export path leaves its folder: {path!r}")
-    return target
-
-
-def examples_export() -> dict[str, bytes]:
-    """Verified pages of the fontlab-python-examples docs export, keyed by path.
-
-    Every page must match the manifest's sha256 and no unlisted page may exist.
-    A missing export fails the build; examples are never silently skipped.
-    """
-    folder = Path(
-        os.environ.get("FONTLAB_EXAMPLES_EXPORT")
-        or ROOT.parent / "fontlab-python-examples" / ".build/export"
-    )
-    manifest_bytes = (folder / "manifest.json").read_bytes()
-    manifest = json.loads(manifest_bytes)
-    if manifest.get("format") != EXAMPLES_FORMAT:
-        raise ValueError(f"Unsupported examples export format: {manifest.get('format')}")
-    pages = {"manifest.json": manifest_bytes}
-    targets = {row.get("path"): _contained(folder, row.get("path")) for row in manifest["pages"]}
-    for row in manifest["pages"]:
-        data = targets[row["path"]].read_bytes()
-        if hashlib.sha256(data).hexdigest() != row["sha256"]:
-            raise ValueError("Examples export page differs from its manifest: " + row["path"])
-        pages[row["path"]] = data
-    present = {p.relative_to(folder).as_posix() for p in folder.rglob("*.md")}
-    if present - set(pages):
-        raise ValueError("Examples export pages missing from its manifest: " + ", ".join(sorted(present - set(pages))))
-    return pages
 
 
 def source_roots() -> list[tuple[Path, str]]:
@@ -200,11 +159,6 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
                 "bytes": len(data),
             }
         )
-    examples = examples_export()
-    plan["inputs"] += [
-        {"source": "examples/" + path, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
-        for path, data in examples.items()
-    ]
     plan["inputs"].sort(key=lambda row: row["source"])
     apply_lock(
         ROOT / "api-sources.lock.json", plan["inputs"], update=update_source_lock
@@ -246,13 +200,6 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
             target = content / source.relative_to(ROOT / "src_docs/md")
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, target)
-    for path, data in examples.items():
-        if path == "manifest.json":
-            continue
-        expected_files.add("examples/" + path)
-        target = _contained(content / "examples", path)
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(data)
     page_hashes = {}
     # Link a package's guide only when authored sources actually ship it (strict links).
     plan["guides"] = {
@@ -267,42 +214,43 @@ def _generate(stage: Path, *, update_source_lock: bool) -> dict:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text, encoding="utf-8")
         page_hashes[relative] = hashlib.sha256(text.encode()).hexdigest()
-    families = [
-        "fontlab",
-        "fontgate",
-        "fontpr",
-        "fontlabpr",
-        "PythonQt",
+    native_families = ["fontlab", "fontgate", "fontpr", "FL", "PythonQt"]
+    package_families = [
         "fontlab_echopy",
         "fontlabapp",
-        "fontlabapp_shim",
         "GlyphsApp",
         "vanilla",
         "AppKit",
         "Cocoa",
         "Foundation",
         "objc",
-        "aidus_code_tools",
         "fontlab_remopy",
         "grablab",
         "pythonqtside",
         "fly",
         "typerig",
         "fontlab_glyport",
+        "fontlab_fontport",
         "fontlab_pens",
-        "fontlab_aidus_code",
+        "fontlab_aidus_agentus",
+        "fontlab_instamix",
+        "fontlab_plugmix",
     ]
     index = [
         "# API reference",
         "",
         "Generated from the current captured/enriched native API and ecosystem Python source.",
-        "",
     ]
-    index += [
-        f"- [`{family}`](../{relative_link('reference/index.md', plan['symbols'][family]['url'])})"
-        for family in families
-        if family in plan["symbols"]
-    ]
+    for heading, families in (
+        ("Native API", native_families),
+        ("Packages and compatibility modules", package_families),
+    ):
+        index += ["", f"## {heading}", ""]
+        index += [
+            f"- [`{family}`](../{relative_link('reference/index.md', plan['symbols'][family]['url'])})"
+            for family in families
+            if family in plan["symbols"]
+        ]
     # Links are relative to reference/index.md; no extra parent prefix is needed.
     index = [line.replace("](../", "](") for line in index]
     (content / "reference/index.md").write_text("\n".join(index) + "\n")

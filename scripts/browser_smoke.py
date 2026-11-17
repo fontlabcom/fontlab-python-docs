@@ -14,7 +14,7 @@ QUERIES = {
     "flNode": "reference/fontlab/flNode.html",
     "fontgate": "reference/fontgate.html",
     "fontpr": "reference/fontpr.html",
-    "fontlabpr": "guide/native.html",
+    "fontpr.list_glyphs": "#fontpr.list_glyphs",
     "PythonQt.QtGui.QWidget.resize": "#PythonQt.QtGui.QWidget.resize",
     "fly.fl": "reference/fontlab.html",
     "GlyphsApp": "reference/GlyphsApp.html",

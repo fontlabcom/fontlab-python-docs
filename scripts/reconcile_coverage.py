@@ -12,7 +12,7 @@ from __future__ import annotations
 from collections import Counter
 from typing import Any
 
-NATIVE = {"fontlab", "fontgate", "fontpr", "fontlabpr", "PythonQt"}
+NATIVE = {"fontlab", "fontgate", "fontpr", "PythonQt"}
 
 
 def _captured(manifest: dict[str, Any], gap) -> tuple[set[str], dict[str, str], set[str]]:
@@ -21,6 +21,10 @@ def _captured(manifest: dict[str, Any], gap) -> tuple[set[str], dict[str, str], 
     for scope, row in sorted(manifest["scopes"].items()):
         if not row["available"]:
             absent[scope] = row.get("reason", "")
+            if not row["names"] and not row["classes"]:
+                # Nothing was captured from an absent module, so there is no
+                # page to require; the manifest reason explains the scope.
+                continue
         captured.add(scope)
         captured.update(scope + "." + name for name in row["names"])
         for error in row["errors"]:
@@ -35,23 +39,23 @@ def _captured(manifest: dict[str, Any], gap) -> tuple[set[str], dict[str, str], 
 
 
 # Upstream source that declares one identity more than once, reviewed with the
-# exact declaration lines; any further declaration makes the row unexplained.
+# exact declaration lines (TypeRig 02118fd); any further declaration makes the row unexplained.
 REVIEWED_REDEFINITIONS: dict[str, tuple[tuple[int, ...], str]] = {
     "fontlabapp.core.host.MENU_API": (
         (30, 338),
         "empty placeholder before class Menu; the final value is assigned after it",
     ),
-    "typerig.core.objects.matrix.Table.__eq__": ((77, 180), "upstream defines __eq__ twice; the second wins"),
-    "typerig.core.objects.test_objects.d1": ((405, 407), "upstream test script reassigns a module variable"),
-    "typerig.core.objects.test_objects.d2": ((405, 407), "upstream test script reassigns a module variable"),
-    "typerig.core.objects.test_objects.la": ((89, 575), "upstream test script reassigns a module variable"),
-    "typerig.core.objects.test_objects.lb": ((89, 514, 576), "upstream test script reassigns a module variable"),
-    "typerig.core.objects.test_objects.r": ((65, 67), "upstream test script reassigns a module variable"),
-    "typerig.core.objects.test_objects.t2": ((147, 196), "upstream test script reassigns a module variable"),
-    "typerig.proxy.fl.objects.font.pFont.symbols": ((387, 702), "upstream defines pFont.symbols twice; the second wins"),
+    "typerig.core.objects.matrix.Table.__eq__": ((78, 181), "upstream defines __eq__ twice; the second wins"),
+    "typerig.core.objects.test_objects.d1": ((406, 408), "upstream test script reassigns a module variable"),
+    "typerig.core.objects.test_objects.d2": ((406, 408), "upstream test script reassigns a module variable"),
+    "typerig.core.objects.test_objects.la": ((90, 576), "upstream test script reassigns a module variable"),
+    "typerig.core.objects.test_objects.lb": ((90, 515, 577), "upstream test script reassigns a module variable"),
+    "typerig.core.objects.test_objects.r": ((66, 68), "upstream test script reassigns a module variable"),
+    "typerig.core.objects.test_objects.t2": ((148, 197), "upstream test script reassigns a module variable"),
+    "typerig.proxy.fl.objects.font.pFont.symbols": ((413, 732), "upstream defines pFont.symbols twice; the second wins"),
     "typerig.proxy.tr.objects.anchor.trAnchor.y": (
-        (78, 82),
-        "upstream bug: `def y(self, other)` lacks @y.setter and replaces the property",
+        (79, 83),
+        "upstream bug: `@x.setter` on `def y` replaces the y property with x's getter",
     ),
 }
 

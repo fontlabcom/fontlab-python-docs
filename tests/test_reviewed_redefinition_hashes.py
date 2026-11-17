@@ -19,7 +19,7 @@ def row():
         "occurrences": 2,
         "declarations": [
             {"kind": "function", "line": line, "declaration_sha256": sha}
-            for line, sha in zip((77, 180), HASHES)
+            for line, sha in zip((78, 181), HASHES)
         ],
     }
 

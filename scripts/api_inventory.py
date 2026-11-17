@@ -15,7 +15,7 @@ from .source_visibility import (
     visible as _visible,  # noqa: F401 - preserve the helper import path
 )
 
-NATIVE_FAMILIES = {"fontlab", "fontgate", "fontpr", "fontlabpr", "PythonQt"}
+NATIVE_FAMILIES = {"fontlab", "fontgate", "fontpr", "PythonQt"}
 
 
 def _initvar(annotation: ast.expr) -> bool:
@@ -68,6 +68,16 @@ def _unpacked(body: list[ast.stmt]) -> list[ast.stmt]:
         else:
             result.append(node)
     return result
+
+
+def _signature(node: ast.AST) -> str | None:
+    """Declared call signature or annotation text, for reference index tables."""
+    if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+        returns = " -> " + ast.unparse(node.returns) if node.returns else ""
+        return "(" + ast.unparse(node.args) + ")" + returns
+    if isinstance(node, ast.AnnAssign):
+        return ": " + ast.unparse(node.annotation)
+    return None
 
 
 def _declarations(
@@ -169,6 +179,9 @@ def _declarations(
         }
         if isinstance(node, ast.ClassDef):
             row["bases"] = [{"expression": ast.unparse(base)} for base in node.bases]
+        signature = _signature(node)
+        if signature:
+            row["signature"] = signature
         if labels:
             row["labels"] = sorted(labels)
             row["declarations"] = [
@@ -392,7 +405,7 @@ def plan_pages(inventory: dict[str, Any], *, chunk_size: int = 40) -> dict[str, 
             public_names.setdefault(target, []).append(alias)
     for identifier, row in symbols.items():
         if identifier.startswith(
-            ("fontlab.", "fontgate.", "fontpr.", "fontlabpr.", "PythonQt.")
+            ("fontlab.", "fontgate.", "fontpr.", "PythonQt.")
         ):
             continue
         if row["kind"] != "module" and any(

@@ -19,8 +19,11 @@ captured signatures and enriched documentation. `Any` and variadic arguments
 mark incomplete native signature information. They are not permission to pass
 arbitrary objects; confirm an uncertain operation against the running host.
 
-The optional [fontlabpr](../reference/fontlabpr.md) module was absent from the
-captured host. Its absence is recorded rather than represented by invented APIs.
+The native modules have their own top-level **Native API** section in the
+navigation: [fontlab](../reference/fontlab.md), [fontgate](../reference/fontgate.md),
+[fontpr](../reference/fontpr.md), [FL](../reference/FL.md) and
+[PythonQt](../reference/PythonQt.md). Each module page starts with an overview
+and tables of its functions, classes and constants.
 
 ## Short imports
 

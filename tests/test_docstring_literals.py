@@ -78,3 +78,12 @@ def test_namespace_collection_when_extra_modules_visited_then_keep_extensions(tm
         mod["core.algo.outline_cleanup.clean"].docstring.value
         == "`masters[m][c]` describes a contour."
     )
+
+
+def test_fontpr_name_pattern_when_rendered_then_code_not_crossref():
+    ext = LiteralIndexes()
+    doc = NS(value="Target names match [A-Za-z_.][A-Za-z0-9_.-]*, up to 255.")
+    ext.on_function_instance(
+        func=NS(path="fontlab_echopy.fontpr.build_glyph", docstring=doc)
+    )
+    assert doc.value == "Target names match `[A-Za-z_.][A-Za-z0-9_.-]*`, up to 255."
