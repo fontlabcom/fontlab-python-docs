@@ -18,3 +18,26 @@ def test_normalize_headings_when_code_fence_then_comments_untouched():
 
 def test_normalize_headings_when_no_headings_then_unchanged():
     assert normalize_headings("plain #tag text") == "plain #tag text"
+
+
+def test_normalize_headings_when_fl_banner_then_becomes_h1():
+    text = "===============\n  Anchor - class to represent Anchor point\n===============\nBody\n## Methods\n"
+    assert normalize_headings(text) == "# Anchor - class to represent Anchor point\nBody\n## Methods\n"
+
+
+def test_normalize_headings_when_setext_then_converted_to_atx():
+    assert normalize_headings("Title\n=====\n\nPart\n----\n\n#### Deep\n") == "# Title\n\n## Part\n\n### Deep\n"
+
+
+def test_normalize_headings_when_tilde_inside_backtick_fence_then_fence_stays_open():
+    text = "## T\n```\n~~~\n## code\n```\n"
+    assert normalize_headings(text) == "# T\n```\n~~~\n## code\n```\n"
+
+
+def test_normalize_headings_when_heading_indented_then_normalized():
+    assert normalize_headings("   ### A\n") == "# A\n"
+
+
+def test_normalize_headings_when_paragraph_dash_line_continues_then_not_heading():
+    text = "one\ntwo\n---\n"
+    assert normalize_headings(text) == text

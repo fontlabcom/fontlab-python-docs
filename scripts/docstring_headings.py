@@ -16,27 +16,61 @@ from typing import Any
 from griffe import Extension, Object
 
 PREFIX = "fontlab_echopy."
-FENCE = re.compile(r"^\s*(```|~~~)")
-HEADING = re.compile(r"^(#{1,6})(\s+\S.*)$")
+FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
+HEADING = re.compile(r"^ {0,3}(#{1,6})(\s+\S.*)$")
+UNDERLINE = re.compile(r"^ {0,3}(=+|-+)\s*$")
+RULER = re.compile(r"^ {0,3}=+\s*$")
+
+
+def _fence_flags(lines: list[str]) -> list[bool]:
+    """Mark lines inside or on fenced code blocks; a fence closes on its own kind."""
+    flags, opener = [], None
+    for line in lines:
+        match = FENCE.match(line)
+        if opener is None and match:
+            opener = match.group(1)
+            flags.append(True)
+        elif opener is not None:
+            if match and match.group(1)[0] == opener[0] and len(match.group(1)) >= len(opener):
+                opener = None
+            flags.append(True)
+        else:
+            flags.append(False)
+    return flags
+
+
+def _atx_from_setext(lines: list[str]) -> list[str]:
+    """Rewrite setext and ``====``-banner headings as ATX headings."""
+    fenced, out, index = _fence_flags(lines), [], 0
+    while index < len(lines):
+        line = lines[index]
+        nxt = lines[index + 1] if index + 1 < len(lines) else ""
+        after = lines[index + 2] if index + 2 < len(lines) else ""
+        free = not any(fenced[index : index + 3])
+        if free and RULER.match(line) and nxt.strip() and RULER.match(after) and (not out or not out[-1].strip()):
+            out.append("# " + nxt.strip())
+            index += 3
+            continue
+        starts_block = not out or not out[-1].strip()
+        if free and starts_block and line.strip() and not HEADING.match(line) and (match := UNDERLINE.match(nxt)):
+            out.append(("# " if match.group(1)[0] == "=" else "## ") + line.strip())
+            index += 2
+            continue
+        out.append(line)
+        index += 1
+    return out
 
 
 def normalize_headings(text: str) -> str:
     """Return text whose headings start at level 1 and never skip a level."""
-    lines = text.split("\n")
-    fenced, levels = False, []
-    for line in lines:
-        if FENCE.match(line):
-            fenced = not fenced
-        elif not fenced and (match := HEADING.match(line)):
-            levels.append(len(match.group(1)))
+    lines = _atx_from_setext(text.split("\n"))
+    fenced = _fence_flags(lines)
+    levels = [len(m.group(1)) for line, f in zip(lines, fenced) if not f and (m := HEADING.match(line))]
     if not levels:
         return text
-    shift, fenced, previous = min(levels) - 1, False, 0
+    shift, previous = min(levels) - 1, 0
     for index, line in enumerate(lines):
-        if FENCE.match(line):
-            fenced = not fenced
-            continue
-        match = None if fenced else HEADING.match(line)
+        match = None if fenced[index] else HEADING.match(line)
         if match:
             level = min(len(match.group(1)) - shift, previous + 1)
             lines[index] = "#" * level + match.group(2)
