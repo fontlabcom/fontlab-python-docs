@@ -3,6 +3,11 @@ this_file: CHANGELOG.md
 ---
 
 
+## 2026-11-14 — Functional work order documented
+
+- Added the owner's functional-progress-first guidance and repository-specific priorities, including cross-package compatibility and a later detailed testing pass. Existing mandatory hooks, holds and unfinished work remain in force.
+- This change updates guidance and planning only; it establishes no new runtime, installed, native or release result.
+
 ## 2026-11-12 — Whole private docs snapshot refreshed; Pens documented (Issue 250, D46)
 
 - New private packet `inputs-886e538a404b.tar.gz` (sha256 `b2cb1eb27a359913d8b90d573105deee1a00c8bf4d29cee43bb37f08b4e7a703`, packet commit `cff3cbcd`) replaces the snapshots of Echopy, Fontlabapp (540 -> 1022 files), Remopy, Grablab, Pythonqtside, Fly, Glyport and Fontport (+1 file) with their current origin/main sources. Each package SHA is recorded in `package_commits` of `input-manifest.json`; the Fontlabapp NOTICE is refreshed. Examples regenerate byte-identical.

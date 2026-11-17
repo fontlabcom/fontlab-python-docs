@@ -4,6 +4,12 @@ this_file: PLAN.md
 
 # Forward plan
 
+## Functional work order — 2026-11-14
+
+Prioritize usable current-provider reference pages, search and runnable teaching. Reconcile the pending Aidus provider/source-lock rename and current App/Plugmix/Fly interfaces without rewriting frozen inputs or traversing excluded repositories.
+
+Use small smoke checks and focused regressions for changed behavior and package boundaries. Keep the existing detailed acceptance tasks for a later testing pass; mandatory delivery hooks and current holds remain in force.
+
 ## Task 414 remaining acceptance
 
 The portable gzip source and Node regression pass. Provision the matched native
