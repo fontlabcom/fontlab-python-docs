@@ -18,6 +18,11 @@ Install `fontlab-fontlabapp` into FontLab's Python folder; see
 [Install into FontLab](index.md#install-into-fontlab). Its utilities import
 outside FontLab without loading native modules or creating preference files.
 
+Canonical lowercase plugin bundles require App 1.2.31 or newer. That release is
+available from GitHub while its PyPI trusted publisher is being configured;
+see the [checked wheel inputs](../guide/install.md#temporary-release-inputs).
+Keep its version floor when installing a matching Plugmix pack.
+
 ## Quick start
 
 ```python

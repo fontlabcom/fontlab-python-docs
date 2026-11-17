@@ -10,6 +10,7 @@ the current limits; the API reference links lead to every documented member.
 
 | Package | Import | Use it to |
 | --- | --- | --- |
+| [Instamix](instamix.md) | `fontlab_instamix` | Bootstrap and install distributions, scripts and extensions |
 | [Echopy](echopy.md) | `echopy`, `fontlab_echopy` | Read FontLab's native API as typed, documented Python |
 | [Fly](fly.md) | `fly` | Import FontLab-related modules under short aliases |
 | [Fontlabapp](fontlabapp.md) | `fontlabapp` | Drive menus, panels, preferences, windows and drawing overlays |
@@ -27,14 +28,11 @@ the current limits; the API reference links lead to every documented member.
 
 ## Install into FontLab
 
-Download a reviewed wheel from the package's GitHub release, then install it
-into FontLab 9's per-user Python folder with a Python 3.11 resolver:
-
-```sh
-uv pip install --python 3.11 \
-  --target "$HOME/Library/Application Support/FontLab/FontLab 9/python/3.11/site-packages" \
-  PATH_TO_WHEEL
-```
+Start with [Instamix 1.0.9 or newer](instamix.md), then use the reviewed project
+installer or extension manifest. It provisions uv and a matching shared Python
+environment; distribution requirements can be installed from FontLab with
+`fontlab_instamix.install_packages(...)`. Read [Install and connect](../guide/install.md)
+for the current bootstrap, data-folder rules and GitHub release inputs.
 
 ### Editable install from a checkout
 
@@ -54,8 +52,10 @@ Repeat for each checkout you develop
 (Echopy, Fly, Fontlabapp, Grablab, Remopy, Aidus Code, Glyport, Fontport). Source
 edits are live in FontLab once the package's modules are reloaded.
 
-Restart FontLab, or remove the package's modules from `sys.modules`, to load a
-new version: FontLab keeps imported modules between script runs. Packages with
+FontLab keeps imported modules between script runs. An install refreshes import
+caches but does not reload those modules; follow the package's documented reload
+or restart procedure before using a new version. Do not remove loaded binary
+modules from `sys.modules` as a generic update method. Packages with
 compiled extensions must match FontLab's architecture (arm64 on Apple silicon).
 
 Install packages that run outside FontLab (Remopy, the documentation tools,
